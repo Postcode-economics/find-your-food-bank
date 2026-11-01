@@ -247,7 +247,7 @@ class BlanketThree(unittest.TestCase):
             pc, phone, tel = expect[i]
             self.assertEqual(manual[i]["postcode"], pc)
             self.assertEqual(manual[i]["phone"], phone)
-            self.assertTrue(manual[i]["groups"])
+            self.assertTrue(manual[i]["groups"] or manual[i].get("who_for") == "Not stated")  # 1 Nov: Dean option A, unread groups reset to Not stated
             self.assertEqual(verified[i]["phone"], phone)
             self.assertEqual(verified[i]["postcode"], pc)
             self.assertTrue(verified[i]["evidence_url"] and verified[i]["quote"])

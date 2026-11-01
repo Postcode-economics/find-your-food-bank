@@ -24,7 +24,8 @@ def has_phone(layer, i):
     return layer == 'shelters' and bool(i.get('council_ooh') or i.get('council_phone'))
 def problems(layer, i):
     p = [] if has_phone(layer, i) else ['no verified phone']
-    if layer == 'shelters' and not i.get('groups'): p.append("no sourced 'who it's for'")
+    if layer == 'shelters' and not i.get('groups') and i.get('who_for') != 'Not stated':  # Dean 1 Nov 2026 option A: a hand-set 'Not stated' is a sourced answer
+        p.append("no sourced 'who it's for'")
     return p
 def load(p, d):
     try: return json.load(open(os.path.join(ROOT, p)))

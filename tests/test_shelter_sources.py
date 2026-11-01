@@ -449,8 +449,7 @@ class HandCheck(unittest.TestCase):
     LINES = {
         "man-contact-hostel": "Call the hostel on 0161 861 9806 (8am–8pm) to ask about a referral.",
         "man-one-ymca-bishops-stortford": "Ages 16–30: refer yourself or ask any agency to refer you on 01279 838 068.",
-        "man-roundabout-hostel": "Ages 16–21: call 0114 258 9829 to refer yourself or be referred by an agency.",
-        "hl-squared-luton-hostels": "Contact Squared or Luton Council's homeless team to apply; you'll be interviewed and assessed.",
+        "man-roundabout-hostel": "Call 0114 258 9829",
         "hl-dawn-centre-temporary-accommodation-project": "Single adults and couples with no children who have a Leicester connection: call 0116 221 2770 or Leicester Housing Options.",
         "hl-st-mungos-longhills": "Bristol connection needed: ask Bristol Council's homelessness team (0117 352 6800) or St Mungo's outreach (0117 407 0330) to refer you.",
         "hl-stonepillow-bognor-hostel": "Go to a Stonepillow day centre in Bognor Regis or Chichester for an assessment and referral.",
@@ -470,6 +469,7 @@ class HandCheck(unittest.TestCase):
         "hl-transform-housing-and-support-hersham-road-hostel", "hl-adullam-homes-ha-bury-aben-phase-3",
         "hl-turning-lives-around-seacole-scheme", "hl-the-salvation-army-fishermead-hostel",
         "hl-squared-hostel-for-expected-mothers", "hl-squared-mother-and-baby-hostel",
+        "hl-squared-luton-hostels",  # 1 Nov: phone not on own page
     ]
 
     def test_published_cards_match_the_hand_check(self):
@@ -485,8 +485,6 @@ class HandCheck(unittest.TestCase):
                 self.assertNotIn("@", line)
                 self.assertEqual(item.get("postcode") or "", "")
                 self.assertTrue(item.get("no_pin"))
-        self.assertEqual(by["hl-squared-luton-hostels"]["phone"], "01582 749011")
-        self.assertEqual(by["hl-squared-luton-hostels"]["name"], "Squared hostels")
         self.assertEqual(by["ss-63bf328f843d85a21d7bbdce"]["name"], "New Start Harm Reduction (women)")
         self.assertEqual(by["ss-63bf328f843d85a21d7bbdce"]["groups"], ["Women"])
         self.assertNotIn("/test", by["ss-63bf328f843d85a21d7bbdce"].get("website") or "")

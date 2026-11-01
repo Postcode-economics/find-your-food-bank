@@ -2223,7 +2223,8 @@
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-doorstep-hull",
@@ -2249,7 +2250,8 @@
   "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-positive-pathways-drop-in-depaul",
@@ -2263,9 +2265,7 @@
   "hours": "Mon & Wed 10am-4pm",
   "referral": "Drop-in, 18+, no referral",
   "beds": "",
-  "groups": [
-   "Age 18+"
-  ],
+  "groups": [],
   "season": "Daytime only",
   "operator": "",
   "flag_closed": false,
@@ -2277,13 +2277,9 @@
   "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "kind": "day_centre",
-  "who_for": [
-   "Age 18+"
-  ],
+  "who_for": "Not stated",
   "last_checked": "2026-10-31",
-  "groups_quote": [
-   "We run a drop-in service offering one to one support to people, over 18 years old, around many different issues: homelessness, substance and alcohol misuse, loneliness, isolation and general wellbeing."
-  ]
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-dominion-community-hub",
@@ -2310,7 +2306,8 @@
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-bradford-day-shelter-salvation-army-the-orchard",
@@ -2337,34 +2334,8 @@
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
- },
- {
-  "id": "man-huddersfield-mission",
-  "name": "Huddersfield Mission",
-  "address": "3-13 Lord Street",
-  "postcode": "HD1 1QA",
-  "lat": 53.648023,
-  "lng": -1.780383,
-  "phone": "01484 421461",
-  "website": "https://www.huddersfieldmission.org.uk/pages/9-contact-us",
-  "hours": "Not stated",
-  "referral": "Drop-in",
-  "beds": "",
-  "groups": [],
-  "season": "Daytime only",
-  "operator": "",
-  "flag_closed": false,
-  "source": "Manual (verified from source pages)",
-  "source_url": "https://www.huddersfieldmission.org.uk/pages/9-contact-us",
-  "last_verified": "2026-10-31",
-  "stale": false,
-  "access_type": "open_access",
-  "facilities": "Not stated",
-  "checked_on": "2026-10-31",
-  "kind": "day_centre",
-  "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-crisis-skylight-newcastle",
@@ -2390,10 +2361,9 @@
   "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "kind": "day_centre",
-  "wheelchair": "yes",
-  "wheelchair_quote": "ed metered street parking surrounding the building on city Road and Melbourne Street ADDITIONAL INFORMATION The Crisis Skylight Newcastle building is wheelchair accessible and has accessible bathroom facilities",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-first-stop-darlington",
@@ -2420,7 +2390,8 @@
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-700-club-hostel",
@@ -2434,9 +2405,7 @@
   "hours": "Not stated",
   "referral": "Through Darlington Borough Council Housing Options",
   "beds": "",
-  "groups": [
-   "Age 18+"
-  ],
+  "groups": [],
   "season": "Year-round",
   "operator": "",
   "flag_closed": false,
@@ -2447,15 +2416,9 @@
   "access_type": "referral_only",
   "facilities": "Not stated",
   "checked_on": "2026-10-31",
-  "wheelchair": "yes",
-  "wheelchair_quote": "The accommodation caters for males and females, one of which is suitable for a wheelchair user",
-  "who_for": [
-   "Age 18+"
-  ],
+  "who_for": "Not stated",
   "last_checked": "2026-10-31",
-  "groups_quote": [
-   "The 700 Club provides 29 units of accommodation for individuals aged 18+ in housing crisis and who have medium to high support needs."
-  ]
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-cap-care",
@@ -2482,7 +2445,8 @@
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-shiloh-rotherham",
@@ -2505,22 +2469,12 @@
   "last_verified": "2026-10-31",
   "stale": false,
   "access_type": "open_access",
-  "facilities": [
-   "Food",
-   "Showers",
-   "Laundry",
-   "Clothes",
-   "Medical/GP"
-  ],
+  "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
   "last_checked": "2026-10-31",
-  "facilities_quote": [
-   "Open ﬁve days a week, we offer a safe, welcoming space where guests can access essentials such as hot food, showers, clothing, and internet access.",
-   "We provide showers, laundry facilities, clothing, emergency food, and access to a phone or the internet.",
-   "We also offer both physical and mental health care support with a weekly general practice nurse clinic, quarterly emergency dentist, eye clinic and chiropodist and a monthly mental health clinic held by an NHS clinician."
-  ]
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-harbour-place",
@@ -2543,44 +2497,11 @@
   "last_verified": "2026-10-31",
   "stale": false,
   "access_type": "open_access",
-  "facilities": [
-   "Food",
-   "Showers",
-   "Clothes"
-  ],
+  "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "who_for": "Not stated",
   "last_checked": "2026-10-31",
-  "facilities_quote": [
-   "a dedicated Outreach team and essential practical support, including hot meals, showers, clothing and other everyday necessities."
-  ]
- },
- {
-  "id": "man-ben-s-centre",
-  "name": "Ben's Centre",
-  "address": "22 Wilkinson Street",
-  "postcode": "S10 2GB",
-  "lat": 53.379526,
-  "lng": -1.4855,
-  "phone": "0114 279 9961",
-  "website": "https://www.benscentre.org/contact",
-  "hours": "Not stated",
-  "referral": "Drop-in",
-  "beds": "",
-  "groups": [],
-  "season": "Daytime only",
-  "operator": "",
-  "flag_closed": false,
-  "source": "Manual (verified from source pages)",
-  "source_url": "https://www.benscentre.org/contact",
-  "last_verified": "2026-10-31",
-  "stale": false,
-  "access_type": "open_access",
-  "facilities": "Not stated",
-  "checked_on": "2026-10-31",
-  "kind": "day_centre",
-  "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-angel-trust-safe-night-hub",
@@ -2603,52 +2524,11 @@
   "last_verified": "2026-10-31",
   "stale": false,
   "access_type": "referral_only",
-  "facilities": [
-   "Food",
-   "Showers",
-   "Laundry",
-   "Clothes"
-  ],
+  "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "who_for": "Not stated",
   "last_checked": "2026-10-31",
-  "facilities_quote": [
-   "All clients can access Hot Showers, Warm Beds, Homecooked Meals, New Clothes, Washing Facilities as well as Counselling and Navigator services including support with Online Forms and Benefits Paperwork."
-  ]
- },
- {
-  "id": "man-unitymk-unity-park-station-homelessness-centre",
-  "name": "UnityMK Unity Park Station homelessness centre",
-  "address": "Unity Park Station, 401 Elder Gate, Milton Keynes",
-  "postcode": "MK9 1LR",
-  "lat": 52.033925,
-  "lng": -0.77208,
-  "phone": "07549 609427",
-  "website": "https://www.unitymk.org/nightshelter",
-  "hours": "Not stated",
-  "referral": "Drop in or self-refer to welfare team; winter night shelter end Nov-end Mar from 5pm",
-  "beds": "",
-  "groups": [],
-  "season": "Daytime only",
-  "operator": "",
-  "flag_closed": false,
-  "source": "Manual (verified from source pages)",
-  "source_url": "https://www.unitymk.org/nightshelter",
-  "last_verified": "2026-10-31",
-  "stale": false,
-  "access_type": "open_access",
-  "facilities": [
-   "Food",
-   "Showers",
-   "Laundry"
-  ],
-  "checked_on": "2026-10-31",
-  "kind": "day_centre",
-  "who_for": "Not stated",
-  "last_checked": "2026-10-31",
-  "facilities_quote": [
-   "In the morning guests are provided with hot drinks, breakfast and transported back to Unity Park Station where they can access shower, laundry facilities and of course welfare support."
-  ]
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-catching-lives-canterbury-open-centre",
@@ -2671,23 +2551,12 @@
   "last_verified": "2026-10-31",
   "stale": false,
   "access_type": "open_access",
-  "facilities": [
-   "Food",
-   "Showers",
-   "Laundry",
-   "Wi-Fi",
-   "Medical/GP"
-  ],
+  "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
   "last_checked": "2026-10-31",
-  "facilities_quote": [
-   "Breakfast (toast, cereal, baked beans 9-10.30am) and a freshly prepared two-course lunch (11.45-12.45pm) are available to clients daily.",
-   "We support people at our Canterbury day centre, providing essential facilities (food, laundry, showers etc) and individual support to improve housing, health and social connection",
-   "Clients have access to wifi and computers at our Day Centre, either for tasks such as making a homeless application, job searches and emails or for leisure, studying and social networks.",
-   "We have regular health drop-in sessions including a nurse from Kent Community Healthcare on Friday mornings, and a dedicated medical room for treatment."
-  ]
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-portsmouth-rough-sleeping-hub-society-of-st-james-",
@@ -2710,18 +2579,12 @@
   "last_verified": "2026-10-31",
   "stale": false,
   "access_type": "open_access",
-  "facilities": [
-   "Food",
-   "Medical/GP"
-  ],
+  "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
   "last_checked": "2026-10-31",
-  "facilities_quote": [
-   "breakfast available:",
-   "help with health, including seeing a GP, dentist, mental health worker or podiatrist"
-  ]
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-trinity-winchester",
@@ -2748,7 +2611,8 @@
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-caring-hands-in-the-community",
@@ -2771,18 +2635,12 @@
   "last_verified": "2026-10-31",
   "stale": false,
   "access_type": "open_access",
-  "facilities": [
-   "Food",
-   "Showers",
-   "Clothes"
-  ],
+  "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
   "last_checked": "2026-10-31",
-  "facilities_quote": [
-   "- a day centre for those who are homeless or insecurely housed, providing support, advice and free meals, as well as access to showers and clean clothing."
-  ]
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-folkestone-rainbow-centre-homeless-support-service",
@@ -2805,18 +2663,12 @@
   "last_verified": "2026-10-31",
   "stale": false,
   "access_type": "open_access",
-  "facilities": [
-   "Food",
-   "Showers",
-   "Laundry"
-  ],
+  "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
   "last_checked": "2026-10-31",
-  "facilities_quote": [
-   "We can provide housing advocacy and advice, weekday breakfast, referrals to support agencies, the use of a postal address, laundry service, showers, and access to our Winter Shelter."
-  ]
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-dover-outreach-centre",
@@ -2843,7 +2695,8 @@
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-gravesham-sanctuary-day-centre-winter-night-shelte",
@@ -2866,16 +2719,12 @@
   "last_verified": "2026-10-31",
   "stale": false,
   "access_type": "open_access",
-  "facilities": [
-   "Clothes"
-  ],
+  "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
   "last_checked": "2026-10-31",
-  "facilities_quote": [
-   "At our day centre, we can also offer food and a hot drink, as well as clothes and other essentials."
-  ]
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-matthew-25-mission-eastbourne",
@@ -2902,7 +2751,8 @@
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-stonepillow-chichester-hub",
@@ -2929,7 +2779,8 @@
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-stonepillow-bognor-regis-hub",
@@ -2956,7 +2807,8 @@
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-bognor-housing-trust",
@@ -2982,7 +2834,8 @@
   "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-antifreeze-off-the-fence",
@@ -3005,44 +2858,12 @@
   "last_verified": "2026-10-31",
   "stale": false,
   "access_type": "open_access",
-  "facilities": [
-   "Showers",
-   "Laundry"
-  ],
-  "checked_on": "2026-10-31",
-  "kind": "day_centre",
-  "who_for": "Not stated",
-  "last_checked": "2026-10-31",
-  "facilities_quote": [
-   "We offer laundry services and shower facilities through our drop-in sessions for each attendee, to protect human dignity and support a weekly routine."
-  ]
- },
- {
-  "id": "man-the-vine-centre",
-  "name": "The Vine Centre",
-  "address": "33 Station Road, Aldershot",
-  "postcode": "GU11 1BA",
-  "lat": 51.248915,
-  "lng": -0.761609,
-  "phone": "01252 400196",
-  "website": "https://www.thevinecentre.org.uk/",
-  "hours": "Not stated",
-  "referral": "Self-referral or professional referral; supports homeless and poorly housed",
-  "beds": "",
-  "groups": [],
-  "season": "Daytime only",
-  "operator": "",
-  "flag_closed": false,
-  "source": "Manual (verified from source pages)",
-  "source_url": "https://www.thevinecentre.org.uk/",
-  "last_verified": "2026-10-31",
-  "stale": false,
-  "access_type": "self_referral",
   "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-wycombe-homeless-connection-support-centre",
@@ -3069,7 +2890,8 @@
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-the-hope-hub",
@@ -3102,11 +2924,12 @@
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31",
+  "last_checked": "2026-11-01",
   "facilities_quote": [
    "Crisis Services: Refreshments / Nourishing meal; Laundry Service; Shower & emergency items; Clothing",
    "Money management, Debt Advice"
-  ]
+  ],
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-o-hanlon-house-homeless-oxfordshire",
@@ -3132,7 +2955,8 @@
   "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-the-foxton-centre-homeless-day-centre",
@@ -3159,7 +2983,8 @@
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-11-01",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-the-wellspring",
@@ -3186,7 +3011,8 @@
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-urban-outreach-street-life-drop-in-amber-centre",
@@ -3213,7 +3039,8 @@
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-cornerstone-day-centre-caritas",
@@ -3249,14 +3076,15 @@
   "who_for": [
    "Age 18+"
   ],
-  "last_checked": "2026-10-31",
+  "last_checked": "2026-11-01",
   "groups_quote": [
    "The team, which supports anyone over 18, offers a holistic approach to supporting the whole person, assisting them to have their voice heard and to transform their life with dignity."
   ],
   "facilities_quote": [
    "Services offered at Cornerstone include: Free community lunch; Showers; Benefits advice; Housing advice",
    "specialist health and wellbeing advice sessions held with GPs, nurses"
-  ]
+  ],
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-salford-loaves-fishes-drop-in",
@@ -3279,20 +3107,12 @@
   "last_verified": "2026-10-31",
   "stale": false,
   "access_type": "open_access",
-  "facilities": [
-   "Food",
-   "Clothes",
-   "Medical/GP"
-  ],
+  "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
   "last_checked": "2026-10-31",
-  "facilities_quote": [
-   "We also offer a hot lunch at 12pm everyday as well as hot and cold drinks in the morning.",
-   "Emergency clothing and toiletries are also available.",
-   "Individual support workers are available and will help you to get in touch with other services, for example: Housing Advisors, GP, Citizens Advice, Salford Foodbank and Achieve (Salford Recovery Services – offer support to remain drug and alcohol fre"
-  ]
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-crisis-skylight-merseyside",
@@ -3318,10 +3138,9 @@
   "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "kind": "day_centre",
-  "wheelchair": "no",
-  "wheelchair_quote": "ADDITIONAL INFORMATION The Crisis Skylight Merseyside building is not wheelchair accessible",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-the-brick-queen-s-hall-action-on-poverty-day-centr",
@@ -3348,7 +3167,8 @@
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-petrus-hub",
@@ -3362,9 +3182,7 @@
   "hours": "Mon-Fri 9am-4pm, Sat 9am-1pm (own page)",
   "referral": "Open door, no referral",
   "beds": "",
-  "groups": [
-   "Age 16-25"
-  ],
+  "groups": [],
   "season": "Daytime only",
   "operator": "",
   "flag_closed": false,
@@ -3373,25 +3191,12 @@
   "last_verified": "2026-10-31",
   "stale": false,
   "access_type": "open_access",
-  "facilities": [
-   "Food",
-   "Clothes",
-   "Medical/GP"
-  ],
+  "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "kind": "day_centre",
-  "who_for": [
-   "Age 16-25"
-  ],
+  "who_for": "Not stated",
   "last_checked": "2026-10-31",
-  "facilities_quote": [
-   "Often provide meals free of charge",
-   "Can provide clothing",
-   "Access to doctor, dentist, nurse"
-  ],
-  "groups_quote": [
-   "For 16–25 year olds"
-  ]
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-cath-harold-tomlins-centre",
@@ -3417,7 +3222,8 @@
   "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-salvation-army-bridge-project-blackpool-citadel",
@@ -3440,16 +3246,12 @@
   "last_verified": "2026-10-31",
   "stale": false,
   "access_type": "open_access",
-  "facilities": [
-   "Clothes"
-  ],
+  "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
   "last_checked": "2026-10-31",
-  "facilities_quote": [
-   "The community wardrobe is a store of good quality, preloved clothing that is available to people in Blackpool and the Fylde coast who need support with clothing."
-  ]
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-streetlife-the-base-young-people-16-25",
@@ -3463,9 +3265,7 @@
   "hours": "Not stated",
   "referral": "Drop-in, ages 16-25",
   "beds": "",
-  "groups": [
-   "Age 16-25"
-  ],
+  "groups": [],
   "season": "Daytime only",
   "operator": "",
   "flag_closed": false,
@@ -3477,13 +3277,9 @@
   "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "kind": "day_centre",
-  "who_for": [
-   "Age 16-25"
-  ],
+  "who_for": "Not stated",
   "last_checked": "2026-10-31",
-  "groups_quote": [
-   "A youth work charity providing emergency shelter and support to vulnerable young people experiencing homelessness aged 16-25 in Blackpool and surrounding areas."
-  ]
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-furness-homeless-support-group",
@@ -3510,7 +3306,8 @@
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-chorley-help-the-homeless-community-cafe",
@@ -3537,7 +3334,8 @@
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-routes-to-roots-genesis-centre",
@@ -3564,7 +3362,8 @@
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-lantern-trust",
@@ -3591,7 +3390,8 @@
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-st-petrocs-truro-resource-centre",
@@ -3618,7 +3418,8 @@
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-st-petrocs-breadline-centre",
@@ -3645,7 +3446,8 @@
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-leonard-stocks-centre",
@@ -3671,7 +3473,8 @@
   "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-alongside-manvers-street-hostel",
@@ -3697,7 +3500,8 @@
   "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-the-freedom-centre",
@@ -3720,21 +3524,12 @@
   "last_verified": "2026-10-31",
   "stale": false,
   "access_type": "open_access",
-  "facilities": [
-   "Food",
-   "Showers",
-   "Laundry",
-   "Clothes"
-  ],
+  "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
   "last_checked": "2026-10-31",
-  "facilities_quote": [
-   "Teas and coffees are available, and free hot meals are served between 12 and 1.",
-   "For those sleeping rough, we offer the basics that make a real difference: hot showers, laundry, fresh clothing, a postal address, and practical help finding somewhere to stay.",
-   "Our free clothes store is available if you need help with appropriate clothing or warmer clothes for winter."
-  ]
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-alabare-unity-house-drop-in",
@@ -3761,7 +3556,8 @@
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-somewhere-to-go-project",
@@ -3775,9 +3571,7 @@
   "hours": "Not stated",
   "referral": "Drop in, no appointment, 18+",
   "beds": "",
-  "groups": [
-   "Age 18+"
-  ],
+  "groups": [],
   "season": "Daytime only",
   "operator": "",
   "flag_closed": false,
@@ -3786,24 +3580,12 @@
   "last_verified": "2026-10-31",
   "stale": false,
   "access_type": "open_access",
-  "facilities": [
-   "Food",
-   "Showers",
-   "Clothes"
-  ],
+  "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "kind": "day_centre",
-  "who_for": [
-   "Age 18+"
-  ],
+  "who_for": "Not stated",
   "last_checked": "2026-10-31",
-  "facilities_quote": [
-   "We offer Breakfast and lunch, tea and coffee, showers, clothing store.",
-   "A registered charity in North Somerset providing specialist support and access to food, showers and clothing."
-  ],
-  "groups_quote": [
-   "This service is specifically for homeless individuals over the age of 18 in North Somerset."
-  ]
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-p3-stroud-community-based-support-drop-in",
@@ -3826,16 +3608,12 @@
   "last_verified": "2026-10-31",
   "stale": false,
   "access_type": "open_access",
-  "facilities": [
-   "Advice"
-  ],
+  "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
   "last_checked": "2026-10-31",
-  "facilities_quote": [
-   "P3 Stroud Community Based Support Service provides housing advice and person-centred support via drop-in or appointments."
-  ]
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-ymca-bournemouth-delta-house-hostel",
@@ -3849,9 +3627,7 @@
   "hours": "Not stated",
   "referral": "73 BCP-funded beds; referrals only from SP Hub (BCP housing 01202 123147)",
   "beds": "",
-  "groups": [
-   "Men and women"
-  ],
+  "groups": [],
   "season": "Year-round",
   "operator": "",
   "flag_closed": false,
@@ -3862,13 +3638,9 @@
   "access_type": "referral_only",
   "facilities": "Not stated",
   "checked_on": "2026-10-31",
-  "who_for": [
-   "Men and women"
-  ],
+  "who_for": "Not stated",
   "last_checked": "2026-10-31",
-  "groups_quote": [
-   "We provide short-term supported housing for men and women from 18 to 65 years and provide 114 beds over four projects."
-  ]
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-bh1-project-salvation-army-boscombe",
@@ -3891,16 +3663,12 @@
   "last_verified": "2026-10-31",
   "stale": false,
   "access_type": "open_access",
-  "facilities": [
-   "Food"
-  ],
+  "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
   "last_checked": "2026-10-31",
-  "facilities_quote": [
-   "PramaLIFE Lunch Club (Activities from 10.30am, lunch served from 12.00pm."
-  ]
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-chat-churches-housing-action-team-tiverton",
@@ -3927,7 +3695,8 @@
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-the-hope-centre-minehead",
@@ -3954,7 +3723,8 @@
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-hosford-homeless-hostel-east-belfast-mission",
@@ -3980,7 +3750,8 @@
   "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-foyle-haven-day-centre-depaul",
@@ -4007,7 +3778,8 @@
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-shekinah-centre",
@@ -4034,7 +3806,8 @@
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-turnaround-centre-formerly-bristol-methodist-centr",
@@ -4061,7 +3834,8 @@
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-cirdic-churches-in-reading-drop-in-centre",
@@ -4084,43 +3858,12 @@
   "last_verified": "2026-10-31",
   "stale": false,
   "access_type": "open_access",
-  "facilities": [
-   "Clothes"
-  ],
-  "checked_on": "2026-10-31",
-  "kind": "day_centre",
-  "who_for": "Not stated",
-  "last_checked": "2026-10-31",
-  "facilities_quote": [
-   "Originally the aim was to provide a welcoming place in which to offer food and clothing."
-  ]
- },
- {
-  "id": "man-st-petrock-s",
-  "name": "St Petrock's",
-  "address": "10 Cathedral Yard, Exeter",
-  "postcode": "EX1 1HJ",
-  "lat": 50.722425,
-  "lng": -3.531912,
-  "phone": "01392 217550",
-  "website": "https://stpetrocks.org.uk/contact/",
-  "hours": "Not stated",
-  "referral": "Drop-in 8.30am-1pm, appointments to 3pm",
-  "beds": "",
-  "groups": [],
-  "season": "Daytime only",
-  "operator": "",
-  "flag_closed": false,
-  "source": "Manual (verified from source pages)",
-  "source_url": "https://stpetrocks.org.uk/contact/",
-  "last_verified": "2026-10-31",
-  "stale": false,
-  "access_type": "open_access",
   "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-maidstone-day-centre",
@@ -4143,23 +3886,12 @@
   "last_verified": "2026-10-31",
   "stale": false,
   "access_type": "open_access",
-  "facilities": [
-   "Food",
-   "Showers",
-   "Laundry",
-   "Wi-Fi",
-   "Toilets"
-  ],
+  "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
   "last_checked": "2026-10-31",
-  "facilities_quote": [
-   "Meals are provided daily when we are open.",
-   "Clients have use of our on-site toilets & showers.",
-   "We offer a full laundry service for our guests.",
-   "Clients have access to wifi and computers at our Day Centre, either for tasks such as making a homeless application, job searches along with emails and studying ."
-  ]
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-spires-centre",
@@ -4186,7 +3918,8 @@
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-the-margins-project-union-chapel",
@@ -4209,21 +3942,12 @@
   "last_verified": "2026-10-31",
   "stale": false,
   "access_type": "open_access",
-  "facilities": [
-   "Food",
-   "Showers",
-   "Laundry",
-   "Clothes",
-   "Advice"
-  ],
+  "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
   "last_checked": "2026-10-31",
-  "facilities_quote": [
-   "It offers nutritious hot meal for 60-80 people in a warm and welcoming atmosphere, and provides limited access to showers, laundry, clothing, emergency food parcels as well as to access to hardship fund.",
-   "- aims to improve the living condition of people by providing housing and benefits advice as well as onward referrals to health and other pertinent services, such debt management advice, immigration advice and domestic violence support."
-  ]
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-new-horizon-youth-centre",
@@ -4237,9 +3961,7 @@
   "hours": "Mon-Fri 10am-1.15pm",
   "referral": "Drop-in for homeless young people 16-24 (youth day centre, not housing)",
   "beds": "",
-  "groups": [
-   "For ages 16-24"
-  ],
+  "groups": [],
   "season": "Daytime only",
   "operator": "",
   "flag_closed": false,
@@ -4251,13 +3973,9 @@
   "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "kind": "day_centre",
-  "who_for": [
-   "For ages 16-24"
-  ],
+  "who_for": "Not stated",
   "last_checked": "2026-10-31",
-  "groups_quote": [
-   "We run a women only space on Thursday afternoons from 2-4pm."
-  ]
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-greenwich-homeless-project-day-centre",
@@ -4280,18 +3998,12 @@
   "last_verified": "2026-10-31",
   "stale": false,
   "access_type": "open_access",
-  "facilities": [
-   "Food",
-   "Showers",
-   "Laundry"
-  ],
+  "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
   "last_checked": "2026-10-31",
-  "facilities_quote": [
-   "Access to Showers, Laundry Facilities and Hot Food"
-  ]
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-crisis-skylight-brent",
@@ -4324,7 +4036,7 @@
   "who_for": [
    "Age 16+"
   ],
-  "last_checked": "2026-10-31",
+  "last_checked": "2026-11-01",
   "groups_quote": [
    "Crisis Skylight Brent works with people over the age of 16 who are experiencing homelessness, or are immediately at risk of homelessness."
   ]
@@ -4360,7 +4072,7 @@
   "who_for": [
    "Age 16+"
   ],
-  "last_checked": "2026-10-31",
+  "last_checked": "2026-11-01",
   "groups_quote": [
    "Crisis Skylight Croydon works with people over the age of 16 who are experiencing homelessness, or immediately at risk of homelessness."
   ]
@@ -4386,21 +4098,12 @@
   "last_verified": "2026-10-31",
   "stale": false,
   "access_type": "open_access",
-  "facilities": [
-   "Food",
-   "Showers",
-   "Laundry",
-   "Medical/GP"
-  ],
+  "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
   "last_checked": "2026-10-31",
-  "facilities_quote": [
-   "We provide breakfast, hot drinks and a home cooked, two course lunch for all",
-   "For rough sleepers, we have on-site shower and laundry facilities",
-   "We can also help with access to local statutory and voluntary services including GP and Community Drug & Alcohol teams, Street Link, Merton Council housing services and the Merton Winter Night Shelter."
-  ]
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-barons-court-project",
@@ -4427,39 +4130,8 @@
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
- },
- {
-  "id": "man-trinity-homeless-projects",
-  "name": "Trinity Homeless Projects",
-  "address": "Redford House, Redford Way, Uxbridge",
-  "postcode": "UB8 1SZ",
-  "lat": 51.547971,
-  "lng": -0.479525,
-  "phone": "020 8797 9500",
-  "website": "https://www.wearetrinity.org.uk/get-help-now/",
-  "hours": "Not stated",
-  "referral": "Emergency accommodation (Olympic House) via referral; see page",
-  "beds": "",
-  "groups": [],
-  "season": "Year-round",
-  "operator": "",
-  "flag_closed": false,
-  "source": "Manual (verified from source pages)",
-  "source_url": "https://www.wearetrinity.org.uk/get-help-now/",
-  "last_verified": "2026-10-31",
-  "stale": false,
-  "access_type": "referral_only",
-  "facilities": [
-   "Food",
-   "Showers"
-  ],
-  "checked_on": "2026-10-31",
-  "who_for": "Not stated",
   "last_checked": "2026-10-31",
-  "facilities_quote": [
-   "As a community of almost 40 including 33 residents, we take care of one another by providing hot food, a hot shower, and a safe place to sleep."
-  ]
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-providence-row-dellow-centre",
@@ -4482,18 +4154,12 @@
   "last_verified": "2026-10-31",
   "stale": false,
   "access_type": "open_access",
-  "facilities": [
-   "Food",
-   "Showers",
-   "Phone charging"
-  ],
+  "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
   "last_checked": "2026-10-31",
-  "facilities_quote": [
-   "This is a warm, safe place where you can get a hot drink, breakfast and lunch, a shower as well as access to the internet and phone charging facilities."
-  ]
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-sutton-night-watch-day-centre",
@@ -4520,7 +4186,8 @@
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-salvation-army-the-well-croydon",
@@ -4534,9 +4201,7 @@
   "hours": "Not stated",
   "referral": "Drop-in",
   "beds": "",
-  "groups": [
-   "Age 18+"
-  ],
+  "groups": [],
   "season": "Daytime only",
   "operator": "",
   "flag_closed": false,
@@ -4548,13 +4213,9 @@
   "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "kind": "day_centre",
-  "who_for": [
-   "Age 18+"
-  ],
+  "who_for": "Not stated",
   "last_checked": "2026-10-31",
-  "groups_quote": [
-   "We offer an exciting opportunity  to meet with men of various ages (18+), different backgrounds and cultures to share and discuss themes of interest."
-  ]
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-salvation-army-founders-house-hopetown-lifehouse",
@@ -4568,10 +4229,7 @@
   "hours": "Not stated",
   "referral": "Men 18+ experiencing homelessness; referrals through Tower Hamlets Housing Options Team; up to 12 months",
   "beds": "",
-  "groups": [
-   "Age 18+",
-   "Men only"
-  ],
+  "groups": [],
   "season": "Year-round",
   "operator": "",
   "flag_closed": false,
@@ -4582,14 +4240,9 @@
   "access_type": "referral_only",
   "facilities": "Not stated",
   "checked_on": "2026-10-31",
-  "who_for": [
-   "Age 18+",
-   "Men only"
-  ],
+  "who_for": "Not stated",
   "last_checked": "2026-10-31",
-  "groups_quote": [
-   "We serve men over 18 who are experiencing homelessness."
-  ]
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-ymca-romford",
@@ -4612,15 +4265,11 @@
   "last_verified": "2026-10-31",
   "stale": false,
   "access_type": "self_referral",
-  "facilities": [
-   "Advice"
-  ],
+  "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "who_for": "Not stated",
   "last_checked": "2026-10-31",
-  "facilities_quote": [
-   "Our support programmes provide employment and benefits advice, informal educational support, outdoor education and access to our health and wellbeing facilities."
-  ]
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-bethany-welcome-centre",
@@ -4643,15 +4292,11 @@
   "last_verified": "2026-10-31",
   "stale": false,
   "access_type": "referral_only",
-  "facilities": [
-   "Food"
-  ],
+  "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "who_for": "Not stated",
   "last_checked": "2026-10-31",
-  "facilities_quote": [
-   "You will be supported from the moment you walk through the doors of the Welcome Centre with around-the-clock care, access to your own room with en-suite facilities, and three meals a day."
-  ]
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-aberdeen-cyrenians-direct-access",
@@ -4678,7 +4323,8 @@
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-11-01",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-highland-homeless-trust-gateway",
@@ -4704,7 +4350,8 @@
   "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-thrashbush-quadrant-temporary-accommodation",
@@ -4730,7 +4377,8 @@
   "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-manse-avenue-temporary-accommodation",
@@ -4756,7 +4404,8 @@
   "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-tarbolton-road-temporary-accommodation",
@@ -4782,7 +4431,8 @@
   "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-greenlaw-house",
@@ -4808,7 +4458,8 @@
   "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-sir-julian-hodge-hostel-the-wallich",
@@ -4831,16 +4482,11 @@
   "last_verified": "2026-10-31",
   "stale": false,
   "access_type": "referral_only",
-  "facilities": [
-   "Showers",
-   "Laundry"
-  ],
+  "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "who_for": "Not stated",
   "last_checked": "2026-10-31",
-  "facilities_quote": [
-   "The hostel includes laundry facilities, bathrooms and showers."
-  ]
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-brynmenyn-house-the-wallich",
@@ -4866,7 +4512,8 @@
   "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-ty-ogwr-hostel-the-wallich",
@@ -4892,7 +4539,8 @@
   "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-bridgend-solutions-centre-the-wallich",
@@ -4915,18 +4563,12 @@
   "last_verified": "2026-10-31",
   "stale": false,
   "access_type": "open_access",
-  "facilities": [
-   "Showers",
-   "Laundry",
-   "Clothes"
-  ],
+  "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
   "last_checked": "2026-10-31",
-  "facilities_quote": [
-   "The centre also offers shower facilities, washing machine and tumble dryer, access to telephone and computers, emergency clothing and food, postal address facilities and needle exchange."
-  ]
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-dinas-fechan-hostel-the-wallich",
@@ -4949,16 +4591,11 @@
   "last_verified": "2026-10-31",
   "stale": false,
   "access_type": "referral_only",
-  "facilities": [
-   "Showers",
-   "Laundry"
-  ],
+  "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "who_for": "Not stated",
   "last_checked": "2026-10-31",
-  "facilities_quote": [
-   "The hostel includes laundry facilities, bathrooms and showers."
-  ]
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-ty-tom-jones-the-wallich",
@@ -4984,7 +4621,8 @@
   "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-ty-raena-the-wallich",
@@ -5010,7 +4648,8 @@
   "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-corporation-street-the-wallich",
@@ -5036,7 +4675,8 @@
   "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-ynys-mon-supported-accommodation-the-wallich",
@@ -5062,7 +4702,8 @@
   "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-st-john-s-hostel-the-wallich-b-item-resolved",
@@ -5076,9 +4717,7 @@
   "hours": "Not stated",
   "referral": "Direct access (attend St John's) or council Housing Options",
   "beds": "",
-  "groups": [
-   "Age 18+"
-  ],
+  "groups": [],
   "season": "Year-round",
   "operator": "",
   "flag_closed": false,
@@ -5089,13 +4728,9 @@
   "access_type": "referral_only",
   "facilities": "Not stated",
   "checked_on": "2026-10-31",
-  "who_for": [
-   "Age 18+"
-  ],
+  "who_for": "Not stated",
   "last_checked": "2026-10-31",
-  "groups_quote": [
-   "Anyone over the age of 18, and at risk of or currently experiencing homelessness, is eligible for a referral to the St John’s Hostel."
-  ]
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-paxton-street-hostel-goleudy",
@@ -5109,9 +4744,7 @@
   "hours": "Not stated",
   "referral": "Via Swansea Council housing options",
   "beds": "",
-  "groups": [
-   "Age 18+"
-  ],
+  "groups": [],
   "season": "Year-round",
   "operator": "",
   "flag_closed": false,
@@ -5122,13 +4755,9 @@
   "access_type": "referral_only",
   "facilities": "Not stated",
   "checked_on": "2026-10-31",
-  "who_for": [
-   "Age 18+"
-  ],
+  "who_for": "Not stated",
   "last_checked": "2026-10-31",
-  "groups_quote": [
-   "We support individuals aged 18+ who are homeless or at risk of becoming homeless in Swansea."
-  ]
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-maple-tree-house-goleudy",
@@ -5142,9 +4771,7 @@
   "hours": "Not stated",
   "referral": "With Bridgend Council",
   "beds": "",
-  "groups": [
-   "Age 18+"
-  ],
+  "groups": [],
   "season": "Year-round",
   "operator": "",
   "flag_closed": false,
@@ -5155,13 +4782,9 @@
   "access_type": "referral_only",
   "facilities": "Not stated",
   "checked_on": "2026-10-31",
-  "who_for": [
-   "Age 18+"
-  ],
+  "who_for": "Not stated",
   "last_checked": "2026-10-31",
-  "groups_quote": [
-   "The hostel provides short-term direct-access accommodation and support to individuals aged 18+ years and above who have experienced homelessness, and who may need a degree of support in order to live independently."
-  ]
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-padley-ymca-derbyshire-community-hub",
@@ -5184,16 +4807,12 @@
   "last_verified": "2026-10-31",
   "stale": false,
   "access_type": "open_access",
-  "facilities": [
-   "Advice"
-  ],
+  "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
   "last_checked": "2026-10-31",
-  "facilities_quote": [
-   "Our Community Hub is designed to be a vibrant centre, providing a variety of support including education, training, and housing advice to individuals and families at risk of experiencing poverty and/or homelessness."
-  ]
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-wintercomfort-for-the-homeless",
@@ -5220,7 +4839,8 @@
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-good-shepherd-day-centre",
@@ -5243,17 +4863,12 @@
   "last_verified": "2026-10-31",
   "stale": false,
   "access_type": "open_access",
-  "facilities": [
-   "Food",
-   "Showers"
-  ],
+  "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
   "last_checked": "2026-10-31",
-  "facilities_quote": [
-   "Services include hot meals, showers, user support programmes and offering advice/referrals in areas such as accommodation, addiction and mental health."
-  ]
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-the-shrewsbury-ark",
@@ -5280,7 +4895,8 @@
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-pottergate-arc-salvation-army",
@@ -5303,16 +4919,12 @@
   "last_verified": "2026-10-31",
   "stale": false,
   "access_type": "open_access",
-  "facilities": [
-   "Clothes"
-  ],
+  "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
   "last_checked": "2026-10-31",
-  "facilities_quote": [
-   "The day centre provides practical assistance, including food and clothing."
-  ]
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-harp-bradbury-day-centre",
@@ -5335,16 +4947,12 @@
   "last_verified": "2026-10-31",
   "stale": false,
   "access_type": "open_access",
-  "facilities": [
-   "Laundry"
-  ],
+  "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
   "last_checked": "2026-10-31",
-  "facilities_quote": [
-   "Depending on your situation, we will be able to offer you food, washing facilities, support and advice"
-  ]
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-the-beacon-project",
@@ -5371,7 +4979,8 @@
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-the-falcon-centre-falcon-support-services",
@@ -5397,7 +5006,8 @@
   "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-beacon-house",
@@ -5424,7 +5034,8 @@
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-the-chapman-centre-ihag",
@@ -5447,19 +5058,12 @@
   "last_verified": "2026-10-31",
   "stale": false,
   "access_type": "open_access",
-  "facilities": [
-   "Food",
-   "Showers",
-   "Laundry"
-  ],
+  "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
   "last_checked": "2026-10-31",
-  "facilities_quote": [
-   "Our Homeless Hub in the centre of Ipswich is open 6 days a week for advice, information and support as well as practical help: showers, laundry, hot food and drinks, and access to health care.",
-   "Our Advocates can refer you to appropriate health care; and on certain days, Health Outreach staff are at the Centre to provide on the spot healthcare."
-  ]
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-the-garden-house-light-project-peterborough",
@@ -5486,7 +5090,8 @@
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-doorway-young-people-16-25",
@@ -5500,9 +5105,7 @@
   "hours": "Not stated",
   "referral": "Drop-in, ages 16-25",
   "beds": "",
-  "groups": [
-   "Age 16-25"
-  ],
+  "groups": [],
   "season": "Daytime only",
   "operator": "",
   "flag_closed": false,
@@ -5514,13 +5117,9 @@
   "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "kind": "day_centre",
-  "who_for": [
-   "Age 16-25"
-  ],
+  "who_for": "Not stated",
   "last_checked": "2026-10-31",
-  "groups_quote": [
-   "Working within Warwickshire to support young people aged 16-25 years experiencing or at risk of homelessness"
-  ]
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-house-of-bread-cafe-43",
@@ -5543,18 +5142,12 @@
   "last_verified": "2026-10-31",
   "stale": false,
   "access_type": "open_access",
-  "facilities": [
-   "Food",
-   "Clothes"
-  ],
+  "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
   "last_checked": "2026-10-31",
-  "facilities_quote": [
-   "House of Bread will provide a meal, advice and support as well as a",
-   ", we provide not only hot meals, clean clothes and toiletries but a warm, safe space where our friends feel valued and part of our community."
-  ]
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-bishopbridge-house-st-martins",
@@ -5580,34 +5173,8 @@
   "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
- },
- {
-  "id": "man-purfleet-trust-health-wellbeing-centre",
-  "name": "Purfleet Trust Health & Wellbeing Centre",
-  "address": "Pathway House, Austin Fields, King's Lynn",
-  "postcode": "PE30 1PH",
-  "lat": 52.757889,
-  "lng": 0.401812,
-  "phone": "01553 767829",
-  "website": "https://www.purfleettrust.org.uk/contact-us/",
-  "hours": "Not stated",
-  "referral": "Drop-in",
-  "beds": "",
-  "groups": [],
-  "season": "Daytime only",
-  "operator": "",
-  "flag_closed": false,
-  "source": "Manual (verified from source pages)",
-  "source_url": "https://www.purfleettrust.org.uk/contact-us/",
-  "last_verified": "2026-10-31",
-  "stale": false,
-  "access_type": "open_access",
-  "facilities": "Not stated",
-  "checked_on": "2026-10-31",
-  "kind": "day_centre",
-  "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-trafalgar-house-sanctuary",
@@ -5621,9 +5188,7 @@
   "hours": "Staff Mon-Fri 8am-7pm",
   "referral": "Via Suffolk Co-ordination Service; single 18+",
   "beds": "",
-  "groups": [
-   "Age 18+"
-  ],
+  "groups": [],
   "season": "Year-round",
   "operator": "",
   "flag_closed": false,
@@ -5634,13 +5199,9 @@
   "access_type": "referral_only",
   "facilities": "Not stated",
   "checked_on": "2026-10-31",
-  "who_for": [
-   "Age 18+"
-  ],
+  "who_for": "Not stated",
   "last_checked": "2026-10-31",
-  "groups_quote": [
-   "Age range 18+ years."
-  ]
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-the-friary",
@@ -5667,7 +5228,8 @@
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-the-bridge-homelessness-to-hope",
@@ -5694,7 +5256,8 @@
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-hope4-rugby",
@@ -5720,10 +5283,9 @@
   "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "kind": "day_centre",
-  "wheelchair": "yes",
-  "wheelchair_quote": "ress: 8 Newbold Road, Rugby, Warwickshire, CV21 2LJ Contact Details: Hope Centre - 01788 572456 Rugby Foodbank - 07557 680019 Accessibility Features: Wheelchair access Age Ranges: Adults Websites: http://www",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-hope-community-services",
@@ -5753,10 +5315,11 @@
   "who_for": [
    "Age 18+"
   ],
-  "last_checked": "2026-10-31",
+  "last_checked": "2026-11-01",
   "groups_quote": [
    "Age Range: 18+"
-  ]
+  ],
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-the-ferry-project",
@@ -5782,7 +5345,8 @@
   "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-lee-s-place-community-power",
@@ -5809,7 +5373,8 @@
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-gloucester-city-mission-homeless-day-provision",
@@ -5836,7 +5401,8 @@
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-salvation-army-booth-house-swindon",
@@ -5850,10 +5416,7 @@
   "hours": "Not stated",
   "referral": "You are welcome to contact us directly day or night",
   "beds": "",
-  "groups": [
-   "Age 18+",
-   "Men and women"
-  ],
+  "groups": [],
   "season": "Year-round",
   "operator": "",
   "flag_closed": false,
@@ -5864,14 +5427,9 @@
   "access_type": "referral_only",
   "facilities": "Not stated",
   "checked_on": "2026-10-31",
-  "who_for": [
-   "Age 18+",
-   "Men and women"
-  ],
+  "who_for": "Not stated",
   "last_checked": "2026-10-31",
-  "groups_quote": [
-   "Direct access accommodation and resettlement support for single men and women experiencing homelessness aged over 18 in en-suite rooms or in rented properties around Swindon."
-  ]
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-crisis-skylight-south-wales",
@@ -5897,10 +5455,9 @@
   "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "kind": "day_centre",
-  "wheelchair": "yes",
-  "wheelchair_quote": "View on map ADDITIONAL INFORMATION The Crisis Skylight South Wales building is wheelchair accessible and has accessible bathroom facilities",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-999-club-the-gateway",
@@ -5923,16 +5480,12 @@
   "last_verified": "2026-10-31",
   "stale": false,
   "access_type": "open_access",
-  "facilities": [
-   "Food"
-  ],
+  "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
   "last_checked": "2026-10-31",
-  "facilities_quote": [
-   "We offer bottomless tea and coffee, along with toast and cereal each morning, plus a daily lunch."
-  ]
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-your-place-anchor-house-formerly-caritas-anchor-ho",
@@ -5958,7 +5511,8 @@
   "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-the-upper-room-ur4meals",
@@ -5985,7 +5539,8 @@
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-action-for-barnsley-homeless",
@@ -6008,16 +5563,12 @@
   "last_verified": "2026-10-31",
   "stale": false,
   "access_type": "open_access",
-  "facilities": [
-   "Food"
-  ],
+  "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
   "last_checked": "2026-10-31",
-  "facilities_quote": [
-   "We are open form 4pm and there is a hot meal and a hot drink available, served from 6pm."
-  ]
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-harrogate-homeless-project-springboard-day-centre",
@@ -6044,7 +5595,8 @@
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-shoc-slough-homeless-our-concern",
@@ -6071,7 +5623,8 @@
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-york-road-project",
@@ -6097,7 +5650,8 @@
   "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-renewed-hope-drop-in-day-centre",
@@ -6124,7 +5678,8 @@
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-st-joseph-s-night-shelter-stonepillow",
@@ -6150,7 +5705,8 @@
   "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-leatherhead-start",
@@ -6176,7 +5732,8 @@
   "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-vaughan-house",
@@ -6202,7 +5759,8 @@
   "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-hug-safe-space-bexhill-rother-homelessness-unity-g",
@@ -6229,7 +5787,8 @@
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-genesis-trust-lifeline",
@@ -6252,18 +5811,12 @@
   "last_verified": "2026-10-31",
   "stale": false,
   "access_type": "open_access",
-  "facilities": [
-   "Showers",
-   "Laundry",
-   "Clothes"
-  ],
+  "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
   "last_checked": "2026-10-31",
-  "facilities_quote": [
-   "We can provide food, clothing, small household items, access to a shower and laundry, phones and IT and much more."
-  ]
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-the-zone-plymouth-youth-housing-homelessness-drop-",
@@ -6277,9 +5830,7 @@
   "hours": "Weekdays 10am-3pm except Tue (per search)",
   "referral": "Ages 16-24 drop in; route into Plymouth Foyer",
   "beds": "",
-  "groups": [
-   "Age 18-24"
-  ],
+  "groups": [],
   "season": "Daytime only",
   "operator": "",
   "flag_closed": false,
@@ -6291,13 +5842,9 @@
   "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "kind": "day_centre",
-  "who_for": [
-   "Age 18-24"
-  ],
+  "who_for": "Not stated",
   "last_checked": "2026-10-31",
-  "groups_quote": [
-   "Advice for 18 - 24 year olds"
-  ]
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-highway-house",
@@ -6324,7 +5871,8 @@
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-simon-community-scotland-edinburgh-support-hub",
@@ -6351,7 +5899,8 @@
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-simon-community-scotland-glasgow-access-hub",
@@ -6378,7 +5927,8 @@
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-airth-court-temporary-accommodation",
@@ -6404,7 +5954,8 @@
   "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-ymca-cardiff-the-walk",
@@ -6430,7 +5981,8 @@
   "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-cornerstone-house-the-wallich",
@@ -6456,7 +6008,8 @@
   "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-northampton-hope-centre-hand-up-homeless-centre",
@@ -6493,7 +6046,7 @@
   "who_for": [
    "Age 18+"
   ],
-  "last_checked": "2026-10-31",
+  "last_checked": "2026-11-01",
   "facilities_quote": [
    "We provide free breakfast, drinks, and a hot meal for lunch.",
    "We can also wash clothing, provide access to showers",
@@ -6502,7 +6055,8 @@
   ],
   "groups_quote": [
    "Hand Up is open to people over 18, Monday to Saturday."
-  ]
+  ],
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-pathways-of-chesterfield",
@@ -6529,7 +6083,8 @@
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-centrepoint-outreach-drop-in",
@@ -6556,7 +6111,8 @@
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-first-stop-centre",
@@ -6579,43 +6135,12 @@
   "last_verified": "2026-10-31",
   "stale": false,
   "access_type": "open_access",
-  "facilities": [
-   "Food"
-  ],
-  "checked_on": "2026-10-31",
-  "kind": "day_centre",
-  "who_for": "Not stated",
-  "last_checked": "2026-10-31",
-  "facilities_quote": [
-   "Our canteen provides service users affordable meals and a safe environment to chat and befriend others who may be in a similar situations."
-  ]
- },
- {
-  "id": "man-heart-of-tamworth-homeless-pathway-support",
-  "name": "Heart of Tamworth - Homeless Pathway support",
-  "address": "Sacred Heart Community Centre, Silver Link Road, Tamworth",
-  "postcode": "B77 2EA",
-  "lat": 52.624539,
-  "lng": -1.661465,
-  "phone": "07422 722540",
-  "website": "https://www.heartoftamworth.org/services-support/supporting-vulnerable-people/",
-  "hours": "Not stated",
-  "referral": "Contact support worker in office hours",
-  "beds": "",
-  "groups": [],
-  "season": "Daytime only",
-  "operator": "",
-  "flag_closed": false,
-  "source": "Manual (verified from source pages)",
-  "source_url": "https://www.heartoftamworth.org/services-support/supporting-vulnerable-people/",
-  "last_verified": "2026-10-31",
-  "stale": false,
-  "access_type": "open_access",
   "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-salvation-army-newcastle-under-lyme-homeless-hub",
@@ -6642,7 +6167,8 @@
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-the-haven-day-centre-swindon-night-shelter",
@@ -6665,18 +6191,12 @@
   "last_verified": "2026-10-31",
   "stale": false,
   "access_type": "open_access",
-  "facilities": [
-   "Food",
-   "Showers",
-   "Laundry"
-  ],
+  "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
   "last_checked": "2026-10-31",
-  "facilities_quote": [
-   "The Haven Day Centre welcomes those who are homeless and vulnerable to enjoy breakfast and lunch, hot drinks, shower and laundry facilities, access to computers and phones and a warm space to relax."
-  ]
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-the-forge-project",
@@ -6703,7 +6223,8 @@
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-turning-tides-st-clare-s-community-hub",
@@ -6717,9 +6238,7 @@
   "hours": "Mon-Fri 9-11am drop-in; 11am-4pm by appointment/emergency",
   "referral": "Drop in; route into Turning Tides accommodation",
   "beds": "",
-  "groups": [
-   "Age 18+"
-  ],
+  "groups": [],
   "season": "Daytime only",
   "operator": "",
   "flag_closed": false,
@@ -6728,26 +6247,12 @@
   "last_verified": "2026-10-31",
   "stale": false,
   "access_type": "open_access",
-  "facilities": [
-   "Food",
-   "Showers",
-   "Laundry",
-   "Toilets",
-   "Advice"
-  ],
+  "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "kind": "day_centre",
-  "who_for": [
-   "Age 18+"
-  ],
+  "who_for": "Not stated",
   "last_checked": "2026-10-31",
-  "facilities_quote": [
-   "We can provide a hot breakfast or cold food, showers, toilets, laundry facilities and more.",
-   "National charity providing free debt advice, to help people deal with debt, confidently budget and find solutions for long term financial control."
-  ],
-  "groups_quote": [
-   "If you are concerned about someone (over the age of 18) that you have seen sleeping rough, report it to StreetLink."
-  ]
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-alabare-place-drop-in",
@@ -6774,7 +6279,8 @@
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-taunton-open-door",
@@ -6797,17 +6303,12 @@
   "last_verified": "2026-10-31",
   "stale": false,
   "access_type": "open_access",
-  "facilities": [
-   "Showers",
-   "Clothes"
-  ],
+  "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
   "last_checked": "2026-10-31",
-  "facilities_quote": [
-   "We not only provide basics such as food, showers and clothing but also support people to move on from sleeping outside."
-  ]
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-launchpad-reading-drop-in-the-stables",
@@ -6834,7 +6335,8 @@
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-open-door-homeless-hub-hightown",
@@ -6860,7 +6362,8 @@
   "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-streets2homes-day-centre",
@@ -6887,7 +6390,8 @@
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-h4bd-hope-4-barking-dagenham-night-shelter",
@@ -6913,7 +6417,8 @@
   "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-birmingham-city-mission-care-centre",
@@ -6936,16 +6441,12 @@
   "last_verified": "2026-10-31",
   "stale": false,
   "access_type": "open_access",
-  "facilities": [
-   "Clothes"
-  ],
+  "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
   "last_checked": "2026-10-31",
-  "facilities_quote": [
-   "It provides toiletries and clothing."
-  ]
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-crisis-skylight-birmingham",
@@ -6971,10 +6472,9 @@
   "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "kind": "day_centre",
-  "wheelchair": "yes",
-  "wheelchair_quote": "Crisis Skylight Birmingham building is wheelchair accessible and has accessible bathroom facilities",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-st-wilfrid-s-centre",
@@ -7001,7 +6501,8 @@
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-hope-trinity",
@@ -7024,17 +6525,12 @@
   "last_verified": "2026-10-31",
   "stale": false,
   "access_type": "open_access",
-  "facilities": [
-   "Showers",
-   "Clothes"
-  ],
+  "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
   "last_checked": "2026-10-31",
-  "facilities_quote": [
-   "By providing food, shower, and clean clothes in a safe and welcoming space, we aim to reduce loneliness, mental health and wellbeing impacts associated with periods of homelessness and domestic abuse."
-  ]
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-goleudy-access-point",
@@ -7066,11 +6562,12 @@
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31",
+  "last_checked": "2026-11-01",
   "facilities_quote": [
    "We provide: Shower and laundry facilities; Support with benefits; Support with housing issues",
    "Access to an Outreach nurse, Mental Health nurse and Sexual Health nurse"
-  ]
+  ],
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-p3-wolves-hub-navigator",
@@ -7084,9 +6581,7 @@
   "hours": "Not stated",
   "referral": "Drop in; 24/7 freephone 0800 107 6753",
   "beds": "",
-  "groups": [
-   "Age 18+"
-  ],
+  "groups": [],
   "season": "Daytime only",
   "operator": "",
   "flag_closed": false,
@@ -7098,13 +6593,9 @@
   "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "kind": "day_centre",
-  "who_for": [
-   "Age 18+"
-  ],
+  "who_for": "Not stated",
   "last_checked": "2026-10-31",
-  "groups_quote": [
-   "We support anyone aged 18 and over who is experiencing or at risk of homelessness in Wolverhampton."
-  ]
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-under-1-roof-st-martins",
@@ -7131,7 +6622,8 @@
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-crisis-skylight-oxford",
@@ -7157,10 +6649,9 @@
   "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "kind": "day_centre",
-  "wheelchair": "yes",
-  "wheelchair_quote": "ADDITIONAL INFORMATION The Crisis Skylight Oxford building is wheelchair accessible and has an accessible toilet which is gender neutral",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-carecent",
@@ -7174,9 +6665,7 @@
   "hours": "Not stated",
   "referral": "Drop in",
   "beds": "",
-  "groups": [
-   "Age 18+"
-  ],
+  "groups": [],
   "season": "Daytime only",
   "operator": "",
   "flag_closed": false,
@@ -7185,21 +6674,12 @@
   "last_verified": "2026-10-31",
   "stale": false,
   "access_type": "open_access",
-  "facilities": [
-   "Clothes"
-  ],
+  "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "kind": "day_centre",
-  "who_for": [
-   "Age 18+"
-  ],
+  "who_for": "Not stated",
   "last_checked": "2026-10-31",
-  "facilities_quote": [
-   "We provide food, clothing and fellowship in a friendly and non-judgemental environment."
-  ],
-  "groups_quote": [
-   "Carecent is open to people aged 18+ six mornings a week – Monday to Saturday from 8.30am to 10.45am."
-  ]
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-crisis-skylight-edinburgh",
@@ -7225,10 +6705,9 @@
   "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "kind": "day_centre",
-  "wheelchair": "yes",
-  "wheelchair_quote": "ADDITIONAL INFORMATION Wheelchair access is available",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-bradford-no-second-night-out-humankind-discovery-h",
@@ -7254,7 +6733,8 @@
   "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-coventry-cyrenians",
@@ -7280,7 +6760,8 @@
   "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-joining-communities-together-jct",
@@ -7303,17 +6784,12 @@
   "last_verified": "2026-10-31",
   "stale": false,
   "access_type": "open_access",
-  "facilities": [
-   "Showers",
-   "Clothes"
-  ],
+  "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
   "last_checked": "2026-10-31",
-  "facilities_quote": [
-   "Provides support and practical help, offering hot drinks, clothing, showers, use of the phone, and internet and computer access."
-  ]
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-the-macari-centre-victoria",
@@ -7339,7 +6815,8 @@
   "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-home4good-centre-dunfermline",
@@ -7365,7 +6842,8 @@
   "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-victoria-house",
@@ -7391,7 +6869,8 @@
   "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-crossreach-cunningham-house",
@@ -7417,7 +6896,8 @@
   "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-belfast-homeless-services-drop-in",
@@ -7444,7 +6924,8 @@
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-chess-homeless",
@@ -7470,33 +6951,8 @@
   "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
- },
- {
-  "id": "man-holly-house-homeless-action",
-  "name": "Holly House (Homeless Action)",
-  "address": "20 Pleasant Street",
-  "postcode": "FY1 2HU",
-  "lat": 53.825181,
-  "lng": -3.052345,
-  "phone": "01253 291975",
-  "website": "https://homelessaction.org/contact/",
-  "hours": "Not stated",
-  "referral": "Referral via Blackpool Housing Options (01253 477760)",
-  "beds": "",
-  "groups": [],
-  "season": "Year-round",
-  "operator": "",
-  "flag_closed": false,
-  "source": "Manual (verified from source pages)",
-  "source_url": "https://homelessaction.org/contact/",
-  "last_verified": "2026-10-31",
-  "stale": false,
-  "access_type": "referral_only",
-  "facilities": "Not stated",
-  "checked_on": "2026-10-31",
-  "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-oak-house-homeless-action",
@@ -7522,7 +6978,8 @@
   "facilities": "Not stated",
   "checked_on": "2026-10-31",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-st-vincent-s-centre-southend",
@@ -7549,7 +7006,8 @@
   "checked_on": "2026-10-31",
   "kind": "day_centre",
   "who_for": "Not stated",
-  "last_checked": "2026-10-31"
+  "last_checked": "2026-10-31",
+  "wheelchair": "Not stated"
  },
  {
   "id": "man-contact-hostel",
@@ -7563,9 +7021,7 @@
   "hours": "",
   "referral": "Call the hostel on 0161 861 9806 (8am–8pm) to ask about a referral.",
   "beds": "",
-  "groups": [
-   "Young women"
-  ],
+  "groups": [],
   "season": "Year-round",
   "operator": "Contact",
   "flag_closed": false,
@@ -7573,7 +7029,11 @@
   "source_url": "https://contacthostel.co.uk/",
   "last_verified": "2026-10-31",
   "stale": false,
-  "access_type": "referral_only"
+  "access_type": "referral_only",
+  "facilities": "Not stated",
+  "who_for": "Not stated",
+  "wheelchair": "Not stated",
+  "last_checked": "2026-10-31"
  },
  {
   "id": "man-one-ymca-bishops-stortford",
@@ -7584,11 +7044,11 @@
   "lng": 0.158567,
   "phone": "01279 838 068",
   "website": "https://oneymca.org/what-we-do/accommodation/hostels/bishops-stortford-hostel/",
-  "hours": "24-hour staff support",
+  "hours": "Open 24 hours",
   "referral": "Ages 16–30: refer yourself or ask any agency to refer you on 01279 838 068.",
   "beds": "27",
   "groups": [
-   "Young people 16-30"
+   "Age 16-30"
   ],
   "season": "Year-round",
   "operator": "One YMCA",
@@ -7597,7 +7057,21 @@
   "source_url": "https://oneymca.org/what-we-do/accommodation/hostels/bishops-stortford-hostel/",
   "last_verified": "2026-10-31",
   "stale": false,
-  "access_type": "self_referral"
+  "access_type": "self_referral",
+  "groups_quote": [
+   "Our Bishops Stortford hostel has 27 self-contained flats for local and out of area people aged between 16-30, who may otherwise be homeless."
+  ],
+  "facilities": [
+   "Laundry"
+  ],
+  "facilities_quote": [
+   "Bishops Stortford Hostel has a lounge, meeting room, and laundry facilities, along with a staff office."
+  ],
+  "who_for": [
+   "Age 16-30"
+  ],
+  "wheelchair": "Not stated",
+  "last_checked": "2026-11-01"
  },
  {
   "id": "man-roundabout-hostel",
@@ -7609,11 +7083,9 @@
   "phone": "0114 258 9829",
   "website": "https://www.roundabouthomeless.org/",
   "hours": "",
-  "referral": "Ages 16–21: call 0114 258 9829 to refer yourself or be referred by an agency.",
+  "referral": "Call 0114 258 9829",
   "beds": "",
-  "groups": [
-   "Young people 16-21"
-  ],
+  "groups": [],
   "season": "Year-round",
   "operator": "Roundabout",
   "flag_closed": false,
@@ -7621,7 +7093,11 @@
   "source_url": "https://www.roundabouthomeless.org/",
   "last_verified": "2026-10-31",
   "stale": false,
-  "access_type": "self_referral"
+  "access_type": "self_referral",
+  "facilities": "Not stated",
+  "who_for": "Not stated",
+  "wheelchair": "Not stated",
+  "last_checked": "2026-11-01"
  },
  {
   "id": "hl-dawn-centre-temporary-accommodation-project",
@@ -7636,9 +7112,7 @@
   "website": "http://www.leicester.gov.uk",
   "hours": "",
   "referral": "Single adults and couples with no children who have a Leicester connection: call 0116 221 2770 or Leicester Housing Options.",
-  "groups": [
-   "Homeless people"
-  ],
+  "groups": [],
   "season": "Year-round",
   "operator": "Dawn Centre",
   "flag_closed": false,
@@ -7647,7 +7121,11 @@
   "last_verified": "2026-10-31",
   "stale": false,
   "lat": null,
-  "lng": null
+  "lng": null,
+  "facilities": "Not stated",
+  "who_for": "Not stated",
+  "wheelchair": "Not stated",
+  "last_checked": "2026-10-31"
  },
  {
   "id": "hl-paradigm-housing-group-lea-bridge-house-hostel",
@@ -7662,9 +7140,7 @@
   "website": "https://www.paradigmhousing.co.uk",
   "hours": "",
   "referral": "Ask Waltham Forest Council or your outreach worker to apply for you. You'll need photo ID and proof of income.",
-  "groups": [
-   "People sleeping rough"
-  ],
+  "groups": [],
   "season": "Year-round",
   "operator": "Paradigm Housing Group",
   "flag_closed": false,
@@ -7673,7 +7149,11 @@
   "last_verified": "2026-10-31",
   "stale": false,
   "lat": null,
-  "lng": null
+  "lng": null,
+  "facilities": "Not stated",
+  "who_for": "Not stated",
+  "wheelchair": "Not stated",
+  "last_checked": "2026-10-31"
  },
  {
   "id": "hl-st-mungos-longhills",
@@ -7688,9 +7168,7 @@
   "website": "http://www.mungos.org",
   "hours": "",
   "referral": "Bristol connection needed: ask Bristol Council's homelessness team (0117 352 6800) or St Mungo's outreach (0117 407 0330) to refer you.",
-  "groups": [
-   "Homeless people"
-  ],
+  "groups": [],
   "season": "Year-round",
   "operator": "St Mungo's",
   "flag_closed": false,
@@ -7699,7 +7177,11 @@
   "last_verified": "2026-10-31",
   "stale": false,
   "lat": null,
-  "lng": null
+  "lng": null,
+  "facilities": "Not stated",
+  "who_for": "Not stated",
+  "wheelchair": "Not stated",
+  "last_checked": "2026-10-31"
  },
  {
   "id": "hl-stonepillow-bognor-hostel",
@@ -7714,9 +7196,7 @@
   "website": "http://www.stonepillow.org.uk",
   "hours": "",
   "referral": "Go to a Stonepillow day centre in Bognor Regis or Chichester for an assessment and referral.",
-  "groups": [
-   "People sleeping rough"
-  ],
+  "groups": [],
   "season": "Year-round",
   "operator": "Stonepillow",
   "flag_closed": false,
@@ -7725,7 +7205,11 @@
   "last_verified": "2026-10-31",
   "stale": false,
   "lat": null,
-  "lng": null
+  "lng": null,
+  "facilities": "Not stated",
+  "who_for": "Not stated",
+  "wheelchair": "Not stated",
+  "last_checked": "2026-10-31"
  },
  {
   "id": "ss-63bf328f843d85a21d7bbdce",
@@ -7740,9 +7224,7 @@
   "website": "https://www.newstarthomes.org.uk/",
   "hours": "",
   "referral": "Call New Start on 0151 708 7103 or ask your support worker to refer you.",
-  "groups": [
-   "Women"
-  ],
+  "groups": [],
   "season": "Year-round",
   "operator": "New Start",
   "flag_closed": false,
@@ -7751,34 +7233,11 @@
   "last_verified": "2026-10-31",
   "stale": false,
   "lat": null,
-  "lng": null
- },
- {
-  "id": "hl-squared-luton-hostels",
-  "name": "Squared hostels",
-  "address": "",
-  "postcode": "",
-  "town": "Luton",
-  "area": "Luton",
-  "card_type": "referral_hostel",
-  "no_pin": true,
-  "phone": "01582 749011",
-  "website": "http://www.squared.org.uk",
-  "hours": "",
-  "referral": "Contact Squared or Luton Council's homeless team to apply; you'll be interviewed and assessed.",
-  "groups": [
-   "Women",
-   "Young people"
-  ],
-  "season": "Year-round",
-  "operator": "Squared",
-  "flag_closed": false,
-  "source": "Manual (verified from source pages)",
-  "source_url": "http://www.squared.org.uk",
-  "last_verified": "2026-10-31",
-  "stale": false,
-  "lat": null,
-  "lng": null
+  "lng": null,
+  "facilities": "Not stated",
+  "who_for": "Not stated",
+  "wheelchair": "Not stated",
+  "last_checked": "2026-10-31"
  },
  {
   "id": "hl-connection-support-fishermead-hostel",
@@ -7793,9 +7252,7 @@
   "website": "https://www.connectionsupport.org.uk/",
   "hours": "",
   "referral": "Ask Milton Keynes Council's housing team to refer you through the Supported Housing Panel.",
-  "groups": [
-   "Women"
-  ],
+  "groups": [],
   "season": "Year-round",
   "operator": "Connection Support",
   "flag_closed": false,
@@ -7804,6 +7261,10 @@
   "last_verified": "2026-10-31",
   "stale": false,
   "lat": null,
-  "lng": null
+  "lng": null,
+  "facilities": "Not stated",
+  "who_for": "Not stated",
+  "wheelchair": "Not stated",
+  "last_checked": "2026-10-31"
  }
 ]

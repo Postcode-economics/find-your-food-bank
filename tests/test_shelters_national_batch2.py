@@ -9,16 +9,16 @@ NEW_IDS = [
     "man-positive-pathways-drop-in-depaul",
     "man-dominion-community-hub",
     "man-bradford-day-shelter-salvation-army-the-orchard",
-    "man-huddersfield-mission",
+    
     "man-crisis-skylight-newcastle",
     "man-first-stop-darlington",
     "man-700-club-hostel",
     "man-cap-care",
     "man-shiloh-rotherham",
     "man-harbour-place",
-    "man-ben-s-centre",
+    
     "man-angel-trust-safe-night-hub",
-    "man-unitymk-unity-park-station-homelessness-centre",
+    
     "man-catching-lives-canterbury-open-centre",
     "man-portsmouth-rough-sleeping-hub-society-of-st-james-",
     "man-trinity-winchester",
@@ -31,7 +31,7 @@ NEW_IDS = [
     "man-stonepillow-bognor-regis-hub",
     "man-bognor-housing-trust",
     "man-antifreeze-off-the-fence",
-    "man-the-vine-centre",
+    
     "man-wycombe-homeless-connection-support-centre",
     "man-the-hope-hub",
     "man-o-hanlon-house-homeless-oxfordshire",
@@ -67,7 +67,7 @@ NEW_IDS = [
     "man-shekinah-centre",
     "man-turnaround-centre-formerly-bristol-methodist-centr",
     "man-cirdic-churches-in-reading-drop-in-centre",
-    "man-st-petrock-s",
+    
     "man-maidstone-day-centre",
     "man-spires-centre",
     "man-the-margins-project-union-chapel",
@@ -77,7 +77,7 @@ NEW_IDS = [
     "man-crisis-skylight-croydon",
     "man-merton-faith-in-action-homeless-drop-in",
     "man-barons-court-project",
-    "man-trinity-homeless-projects",
+    
     "man-providence-row-dellow-centre",
     "man-sutton-night-watch-day-centre",
     "man-salvation-army-the-well-croydon",
@@ -116,7 +116,7 @@ NEW_IDS = [
     "man-doorway-young-people-16-25",
     "man-house-of-bread-cafe-43",
     "man-bishopbridge-house-st-martins",
-    "man-purfleet-trust-health-wellbeing-centre",
+    
     "man-trafalgar-house-sanctuary",
     "man-the-friary",
     "man-the-bridge-homelessness-to-hope",
@@ -151,7 +151,7 @@ NEW_IDS = [
     "man-pathways-of-chesterfield",
     "man-centrepoint-outreach-drop-in",
     "man-first-stop-centre",
-    "man-heart-of-tamworth-homeless-pathway-support",
+    
     "man-salvation-army-newcastle-under-lyme-homeless-hub",
     "man-the-haven-day-centre-swindon-night-shelter",
     "man-the-forge-project",
@@ -181,7 +181,7 @@ NEW_IDS = [
     "man-crossreach-cunningham-house",
     "man-belfast-homeless-services-drop-in",
     "man-chess-homeless",
-    "man-holly-house-homeless-action",
+    
     "man-oak-house-homeless-action",
     "man-st-vincent-s-centre-southend"
 ]
@@ -210,10 +210,21 @@ class Batch2(unittest.TestCase):
                 self.assertTrue(m.get("groups_quote"), i)
             self.assertEqual(m["who_for"], m["groups"] or "Not stated", i)
             self.assertNotIn("Women only", m["groups"], i)
-            if "wheelchair" in m:
-                self.assertIn(m["wheelchair"], ("yes", "partial", "no"))
-                self.assertTrue(m["wheelchair_quote"])
+            self.assertIn(m["wheelchair"], ("yes", "partial", "no", "Not stated"), i)
+            if m["wheelchair"] != "Not stated":
+                self.assertTrue(m["wheelchair_quote"], i)
 
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class OptionAGate(unittest.TestCase):
+    """Dean 1 Nov 2026 option A: an unread who-for is published as 'Not stated', not held as a gap."""
+    def test_not_stated_passes_gate(self):
+        import sys, os
+        sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "scripts"))
+        import publish_gate as pg
+        base = {"id": "x", "tel": "1", "phone": "01234 567890"}
+        self.assertEqual(pg.problems("shelters", dict(base, groups=[], who_for="Not stated")), [])
+        self.assertEqual(pg.problems("shelters", dict(base, groups=[])), ["no sourced 'who it's for'"])
