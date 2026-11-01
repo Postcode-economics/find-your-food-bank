@@ -5,7 +5,7 @@ No new place (food bank, shelter or warm space) is added automatically: each wai
 ## foodbanks (0)
 
 
-## warmspaces (208)
+## warmspaces (204)
 
 - Age UK Gloucester House (LE13 1JE) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.melton.gov.uk/leisure-health-and-community/cost-of-living/warm-spaces-in-melton/
 - Age UK Surrey (GU8 5EZ) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
@@ -18,16 +18,13 @@ No new place (food bank, shelter or warm space) is added automatically: each wai
 - Bramley Library (GU5 0HG) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
 - Camberley Baptist Church (GU15 3EN) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
 - Churchill Square (BN1 2TE) - no verified phone - https://gis.brighton-hove.gov.uk/server/rest/services/Hosted/Warm_spaces_October_26/FeatureServer/0/query?where=1=1&outFields=*&f=json
-- Coffee Morning (EX5 4HZ) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=28486
 - Cradley Heath Salvation Army (B64 5EP) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=26382
 - Craster Memorial Hall (NE66 3TP) - no verified phone - https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json
-- Dawley Christian Centre Warm Space (TF4 2EX) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=26545
 - Devonport Morice Town Salvation Army (PL2 1RS) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=14925
 - Dramatize - Charlton Village (TW17 0SP) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
 - Dramatize - Knaphill (GU21 2SP) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
 - Egham Library (TW20 9EA) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
 - Emmaus Transformation Trust (GU21 6EL) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
-- Encounter Church, Winchcombe (GL54 5EE) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://tewkesbury.gov.uk/services/community/warm-spaces/warm-spaces-directory-list/
 - Epsom Library (KT19 8AG) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
 - Epsom Methodist Church Family Centre (KT18 5AQ) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
 - Ewell Court Library (KT19 0EB) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
@@ -68,7 +65,6 @@ No new place (food bank, shelter or warm space) is added automatically: each wai
 - St Peter and St Paul Church (RH7 6AH) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
 - St Peter's Shared Church (GU1 1NP) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
 - St Peter's West Molesey (KT8 2QF) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
-- St Petrock's Church, Timberscombe (TA24 7TP) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=22081
 - St Saviour's Church of England Sunbury (TW16 7TP) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
 - Stanwell Events (TW19 7ER) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
 - Stoneleigh Library (KT17 2JA) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
@@ -218,6 +214,17 @@ No new place (food bank, shelter or warm space) is added automatically: each wai
 
 ## shelters (0)
 
+
+
+<!-- times review -->
+## Opening-times review list (times_finder)
+
+Run 2026-11-01. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs; each has its undo command). Every other row is not on the map and needs a hand check before it is added.
+
+- **Holy Trinity Church, Wester Hailes** (`ifan-5b9fd1318a04132921a389-0`, EH14 2SL): Mondays 9.15am – 11.00am | Mondays 9.30am – 11.00am  
+  source: https://www.holytrinitywesterhailes.org.uk  
+  why: hand-checked times are protected; finder only flags differences; not one clear weekly client-hours block (kept as text for review); times not read identically on 2 separate runs yet; jumble: Mon given different times in separate blocks on one page; review only
+<!-- /times review -->
 
 
 <!-- times crosscheck fb -->
@@ -420,6 +427,84 @@ No new place (food bank, shelter or warm space) is added automatically: each wai
 <!-- /times crosscheck fb -->
 
 
+<!-- times crosscheck sh -->
+## Opening-times changes from the refresh (sh): 0 auto-applied, 24 held
+
+- **Portsmouth Rough Sleeping Hub (Society of St James / PCC)** (`man-portsmouth-rough-sleeping-hub-society-of-st-james-`, PO1 3HL): own site now Monday to Thursday 8.30am to 5pm | Friday 8.30am to 4pm  
+  source: https://www.portsmouth.gov.uk/services/housing/looking-for-a-home/if-you-are-at-risk-of-becoming-homeless/sleeping-rough  
+  why held: new own-site times look like office/centre hours; new own-site times look like general venue opening hours, not a warm-space session; times not read identically on 2 separate runs yet
+- **Urban Outreach - Street Life drop-in (Amber Centre)** (`man-urban-outreach-street-life-drop-in-amber-centre`, BL1 2PU): own site now Wednesday 1 - 3pm  
+  source: https://www.urbanoutreach.co.uk/street-life/  
+  why held: day not on the same line as its times on the own-site page; times not read identically on 2 separate runs yet
+- **Petrus Hub** (`man-petrus-hub`, OL16 1QG): own site now Mon, Tue, Thu, Fri 9am – 4pm | Wed 9am – 1pm  
+  source: https://www.oldham.gov.uk/info/200257/homelessness/796/drop_in_centres_shelters_and_food_providers  
+  why held: own site lists several centres (21 postcodes); cannot tie one table to this listing; new own-site times look like office/centre hours; would cut known hours to fewer days (drops Sat, Sun) and the source does not say that session ended; review; times not read identically on 2 separate runs yet
+- **ALABARE Unity House Drop-In** (`man-alabare-unity-house-drop-in`, SN15 3DJ): own site now Monday to Friday 10 am – 4 pm | Saturday & Sunday 1 pm – 3 pm  
+  source: https://alabare.co.uk/help-information/wiltshire/  
+  why held: own site lists several centres (13 postcodes); cannot tie one table to this listing; new own-site times look like office/centre hours; times not read identically on 2 separate runs yet
+- **Somewhere To Go Project** (`man-somewhere-to-go-project`, BS23 1NA): own site now Mondays, Wednesdays and Fridays 10.30 - 2.30pm  
+  source: https://www.ascendpathways.org.uk/Somewhere-To-Go-Project/Pathway-Services/  
+  why held: day not on the same line as its times on the own-site page; times not read identically on 2 separate runs yet
+- **P3 Stroud Community Based Support drop-in** (`man-p3-stroud-community-based-support-drop-in`, GL5 3TJ): own site now Mon–Fri 9am–5pm  
+  source: https://p3charity.org/services/stroud-community-based-support  
+  why held: new own-site times look like office/centre hours; new own-site times look like general venue opening hours, not a warm-space session; times not read identically on 2 separate runs yet
+- **The Hope Centre Minehead** (`man-the-hope-centre-minehead`, TA24 8BS): own site now Tuesday & Friday 10.30am - 2pm  
+  source: https://www.thehopecentreminehead.org.uk/  
+  why held: day not on the same line as its times on the own-site page; times not read identically on 2 separate runs yet
+- **Doorway (young people 16-25)** (`man-doorway-young-people-16-25`, CV11 5QJ): own site now Friday 9:00am-4:30pm  
+  source: https://www.doorway.org.uk/contact  
+  why held: times not read identically on 2 separate runs yet
+- **Gloucester City Mission Homeless Day Provision** (`man-gloucester-city-mission-homeless-day-provision`, GL1 1QN): own site now Monday, Tuesday, Thursday 10am-3pm | Wednesday 11am - 1:00pm | Friday 10am - 1:30pm  
+  source: https://www.gloscitymission.org.uk/what-we-do/homeless-day-provision/  
+  why held: times not read identically on 2 separate runs yet
+- **999 Club – The Gateway** (`man-999-club-the-gateway`, SE8 4PA): own site now Monday to Friday 9am–3pm  
+  source: https://999club.org/get-help-now/  
+  why held: new own-site times look like office/centre hours; new own-site times look like general venue opening hours, not a warm-space session; times not read identically on 2 separate runs yet
+- **Action for Barnsley Homeless** (`man-action-for-barnsley-homeless`, S70 4JZ): own site now Monday 4pm - 8pm | Wednesday 10am - 12pm  
+  source: https://www.livewellbarnsley.co.uk/action-for-barnsley-homelessness/  
+  why held: times not read identically on 2 separate runs yet
+- **SHOC (Slough Homeless Our Concern)** (`man-shoc-slough-homeless-our-concern`, SL1 1TX): own site now Monday – Friday 10:00 – 14:30 | Saturday 11:00 – 14:00  
+  source: https://www.sloughhomeless.org.uk/contact-us/  
+  why held: new own-site times look like office/centre hours; new own-site times look like general venue opening hours (identical weekday block, not warm-space session wording); new own-site times look like general venue opening hours, not a warm-space session; times not read identically on 2 separate runs yet
+- **HUG Safe Space (Bexhill & Rother Homelessness Unity Group)** (`man-hug-safe-space-bexhill-rother-homelessness-unity-g`, TN40 1JG): own site now Saturday 1 pm - 3 pm  
+  source: https://bexhillhug.org.uk/  
+  why held: times not read identically on 2 separate runs yet
+- **Highway House** (`man-highway-house`, N15 4QL): own site now Tuesday and Friday 12pm to 4pm  
+  source: https://haringey.gov.uk/adult-social-care/adult-social-care-directory/highway-house  
+  why held: day not on the same line as its times on the own-site page; times not read identically on 2 separate runs yet
+- **First Stop Centre** (`man-first-stop-centre`, CM7 9AE): own site now Monday 10:30AM- 1:30PM | Tuesday 10:30AM-1:30PM | Thursday 10:30AM-1:30PM | Friday 10:30AM-1:30PM  
+  source: https://www.firststopcentre.com/location-and-opening-times  
+  why held: times not read identically on 2 separate runs yet
+- **The Haven Day Centre / Swindon Night Shelter** (`man-the-haven-day-centre-swindon-night-shelter`, SN3 1AR): own site now Monday - Friday 9.30am to 2pm  
+  source: https://swindonnightshelter.org.uk/  
+  why held: new own-site times look like office/centre hours; new own-site times look like general venue opening hours, not a warm-space session; day not on the same line as its times on the own-site page; times not read identically on 2 separate runs yet
+- **The Forge Project** (`man-the-forge-project`, DN16 1UB): own site now Monday to Friday 8-9am | Saturday and Sunday 8am-12pm  
+  source: https://www.theforgeproject.co.uk/get-in-touch/  
+  why held: new own-site times look like general venue opening hours (identical weekday block, not warm-space session wording); times not read identically on 2 separate runs yet
+- **Taunton Open Door** (`man-taunton-open-door`, TA1 3QB): own site now Monday to Friday 9.30am – 12.45pm  
+  source: https://www.tauntonopendoor.org.uk/what-we-do/  
+  why held: new own-site times look like general venue opening hours (identical weekday block, not warm-space session wording); times not read identically on 2 separate runs yet
+- **Launchpad Reading drop-in (The Stables)** (`man-launchpad-reading-drop-in-the-stables`, RG1 1DT): own site now Monday, Wednesday and Friday 10am - 2pm | Monday, Wednesday, Friday 10.00am to 2.00pm  
+  source: https://launchpadreading.org.uk/drop-in-re-opens-at-the-stables/  
+  why held: would cut known hours to fewer days (drops Tue, Thu) and the source does not say that session ended; review; times not read identically on 2 separate runs yet
+- **Streets2Homes Day Centre** (`man-streets2homes-day-centre`, CM20 1QP): own site now Monday-Friday 9am to 5pm  
+  source: https://streets2homes.co.uk/homeless-what-to-do/  
+  why held: new own-site times look like office/centre hours; new own-site times look like general venue opening hours, not a warm-space session; times not read identically on 2 separate runs yet
+- **Birmingham City Mission Care Centre** (`man-birmingham-city-mission-care-centre`, B1 1JR): own site now Monday, Tuesday, Wednesday and Thursday 10am to 4pm  
+  source: https://birminghamcitymission.org.uk/care-centre  
+  why held: own site lists several centres (4 postcodes); cannot tie one table to this listing; new own-site times look like office/centre hours; day not on the same line as its times on the own-site page; would cut known hours to fewer days (drops Fri, Sat) and the source does not say that session ended; review; times not read identically on 2 separate runs yet
+- **St Wilfrid's Centre** (`man-st-wilfrid-s-centre`, S2 4DT): own site now Monday to Friday 10am - 3:30pm  
+  source: https://www.stwilfridscentre.org/contact-us  
+  why held: new own-site times look like office/centre hours; new own-site times look like general venue opening hours (identical weekday block, not warm-space session wording); new own-site times look like general venue opening hours, not a warm-space session; times not read identically on 2 separate runs yet
+- **hope@trinity** (`man-hope-trinity`, CO15 1NJ): own site now Tuesday to Friday 10.30am to 12pm | Tuesday 10:30am - 12:00pm | Wednesday 10:30am - 12:00pm | Thursday 10:30am - 12:00pm  
+  source: https://www.tendringunited.org.uk/hopetrinity/  
+  why held: times not read identically on 2 separate runs yet
+- **Carecent** (`man-carecent`, YO1 8NQ): own site now Monday to Saturday 8.30am to 10.45am  
+  source: https://www.carecent.org.uk/  
+  why held: new own-site times look like general venue opening hours (identical weekday block, not warm-space session wording); day not on the same line as its times on the own-site page; times not read identically on 2 separate runs yet
+<!-- /times crosscheck sh -->
+
+
 <!-- times crosscheck ws -->
 ## Opening-times changes from the refresh (ws): 0 auto-applied, 37 held
 
@@ -537,25 +622,6 @@ No new place (food bank, shelter or warm space) is added automatically: each wai
 <!-- /times crosscheck ws -->
 
 
-<!-- referral hostel holds -->
-## Referral hostels held (not on the map)
-
-Hand check 31 Oct 2026. A directory listing alone is not enough. Nothing here is published.
-
-- **Bournemouth Churches HA - St Paul's Hostel** (`hl-bournemouth-churches-ha-st-pauls-hostel`): phone unconfirmed
-- **Aigburth Drive - Male Harm Reduction Service** (`ss-63a44ec1b00aca305c753133`): phone unconfirmed
-- **Renewal Programme - Barking Road Hostel** (`hl-renewal-programme-barking-road-hostel`): directory record only; an operator or council page has not confirmed it is running now and the phone
-- **Look Ahead - Slough Hostel** (`hl-look-ahead-slough-hostel`): directory record only; an operator or council page has not confirmed it is running now and the phone
-- **SHP - 88 Arlington Road** (`hl-shp-arlington-road`): directory record only; an operator or council page has not confirmed it is running now and the phone
-- **SHP - Ashley Road** (`hl-shp-ashley-road`): directory record only; an operator or council page has not confirmed it is running now and the phone
-- **SHP - King George's Hostel** (`hl-shp-king-georges-hostel`): directory record only; an operator or council page has not confirmed it is running now and the phone
-- **St Mungo's - Ealing Accommodation Services B65 Hostel** (`hl-st-mungos-ealing-accommodation-services`): directory record only; an operator or council page has not confirmed it is running now and the phone
-- **St Mungo's - Endell Street** (`hl-st-mungos-endell-street`): directory record only; an operator or council page has not confirmed it is running now and the phone
-- **Transform Housing and Support - Hersham Road Hostel** (`hl-transform-housing-and-support-hersham-road-hostel`): directory record only; an operator or council page has not confirmed it is running now and the phone
-- **Adullam Homes HA - Bury ABEN (Phase 3)** (`hl-adullam-homes-ha-bury-aben-phase-3`): directory record only; an operator or council page has not confirmed it is running now and the phone
-- **Our Way Leeds Emergency Accommodation** (`hl-turning-lives-around-seacole-scheme`): id/name mismatch (the id is Turning Lives Around Seacole; the name is Our Way Leeds)
-<!-- /referral hostel holds -->
-
 <!-- sweep shelters -->
 ## Shelter candidates from the sweep (review only)
 
@@ -655,29 +721,22 @@ The 29 Oct 05:44 warm spaces refresh (477f83f73) gave these 16 warm spaces a cou
 <!-- /council line undo -->
 
 
-<!-- address follow-up -->
-## Address / pin follow-up
-
-- **Burgess Hill Foodbank** (`burgess-hill`, RH15 9AA): main listing pin/postcode is the registered Spire Café address (RH15 9AA), not the Church Walk distribution point named on the own-site locations page — pin/postcode fix deferred; times corrected separately (Hassocks Friday session no longer merged in).
-<!-- /address follow-up -->
-
-
 <!-- held near cities -->
 ## Held near cities
 
 Counts of held warm spaces, shelters and day-centre candidates within 10km of each top-20 city centre (outcode centroid). Not on the map.
 
-- London: 229 warm spaces, 6 shelters, 0 day centres — main reason: not on allowlist
-- Birmingham: 73 warm spaces, 1 shelter, 0 day centres — main reason: not on allowlist
+- London: 229 warm spaces, 5 shelters, 0 day centres — main reason: not on allowlist
+- Birmingham: 73 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
 - Manchester: 108 warm spaces, 1 shelter, 0 day centres — main reason: not on allowlist
 - Glasgow: 61 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
 - Leeds: 32 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
-- Liverpool: 53 warm spaces, 1 shelter, 0 day centres — main reason: not on allowlist
+- Liverpool: 53 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
 - Newcastle upon Tyne: 88 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
 - Sheffield: 46 warm spaces, 2 shelters, 0 day centres — main reason: not on allowlist
 - Bristol: 89 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
 - Belfast: 11 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist; no independent website: Warm Welcome listing alone is not evidence
-- Leicester: 49 warm spaces, 1 shelter, 0 day centres — main reason: not on allowlist
+- Leicester: 49 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
 - Edinburgh: 14 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
 - Cardiff: 64 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
 - Coventry: 35 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
@@ -688,7 +747,7 @@ Counts of held warm spaces, shelters and day-centre candidates within 10km of ea
 - Southampton: 56 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
 - Brighton and Hove: 13 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
 
-219 held places had no outcode centroid, so they are not counted under a city.
+276 held places had no outcode centroid, so they are not counted under a city.
 <!-- /held near cities -->
 
 
@@ -703,268 +762,23 @@ Publish only via the Day centre label once that label exists. Until then these s
 - Coastline Housing Day Centre () — Monday 9am to 5pm | Tuesday 9am to 5pm | Wednesday 9am to 5pm | Thursday 9am to  — https://homeless.org.uk/homeless-england/service/coastline-housing-day-centre/
 - First Base Day Centre () — https://homeless.org.uk/homeless-england/service/first-base-day-centre/
 <!-- /day centre candidates -->
-<!-- address review own-locations -->
-## Address and pin mismatches (not applied)
-
-The refresh saw a different address or pin. The published one was kept. Nothing below was written onto the map.
-
-- address mismatch, held for Dean | coventry/queens-road-baptist-church | address | via https://coventry.foodbank.org.uk/locations/ | stored Queen's Road, Coventry, CV1 3EG | proposed Grosvenor Road, City Centre, Coventry, CV1 3EG | unchanged | Queens Road Baptist Church
-- address mismatch, held for Dean | coventry/st-catherines-church-of-england | address | via https://coventry.foodbank.org.uk/locations/ | stored Acorn Street, Stoke Aldermoor, CV3 1DP | proposed Acorn Street, Stoke Aldermoor, CV3 1DQ | unchanged | St Catherines Church of England
-- address mismatch, held for Dean | coventry/st-catherines-church-of-england | postcode | via https://coventry.foodbank.org.uk/locations/ | stored CV3 1DP | proposed CV3 1DQ | unchanged | St Catherines Church of England
-- address mismatch, held for Dean | coventry/redeemed-christian-church-of-god-holy-ghost-zone | address | via https://coventry.foodbank.org.uk/locations/ | stored 8 Albert Street, Coventry, CV1 5HA | proposed 8 Albert Street, CV1 5HA | unchanged | Redeemed Church Of God - Holy Ghost Zone
-- address mismatch, held for Dean | coventry/st-john-the-divine-church | address | via https://coventry.foodbank.org.uk/locations/ | stored Robin Hood Road, Coventry, CV3 3AY | proposed St John the Divine Church, Robin Hood Road, Willenhall, CV3 3AY | unchanged | St John the Divine Church Foodbank
-- address mismatch, held for Dean | coventry/foleshill-baptist-church | address | via https://coventry.foodbank.org.uk/locations/ | stored Broad Street, Fosehill, CV6 5AZ | proposed Broad Street, Foleshill, Coventry, CV6 5AZ | unchanged | Foleshill Baptist Church
-<!-- /address review own-locations -->
-<!-- times review -->
-## Opening-times review list (times_finder)
-
-Run 2026-10-31. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs; each has its undo command). Every other row is not on the map and needs a hand check before it is added.
-
-- **Holy Trinity Church, Wester Hailes** (`ifan-5b9fd1318a04132921a389-0`, EH14 2SL): Mondays 9.30am – 11.00am  
-  source: https://www.holytrinitywesterhailes.org.uk  
-  why: conflicts with times from another source (https://holytrinitywesterhailes.org.uk/contact-supporting-wh/); this change was undone by Dean; not re-applied
-<!-- /times review -->
 
 
-- **Holy Trinity Church, Wester Hailes** (`ifan-5b9fd1318a04132921a389-0`, EH14 2SL): Mondays 9.15am – 11.00am | Mondays 9.30am – 11.00am  
-  source: https://www.holytrinitywesterhailes.org.uk  
-  why: hand-checked times are protected; finder only flags differences; not one clear weekly client-hours block (kept as text for review); times not read identically on 2 separate runs yet; jumble: Mon given different times in separate blocks on one page; review only
-<!-- /times review -->
+<!-- referral hostel holds -->
+## Referral hostels held (not on the map)
 
-<!-- times crosscheck fb -->
-## Opening-times changes from the refresh (fb): 0 auto-applied, 61 held
+Hand check 31 Oct 2026. A directory listing alone is not enough. Nothing here is published.
 
-- **Colchester Foodbank** (`colchester`, CO3 8RG): own site now Monday-Saturday 10:00 am to 2:00 pm  
-  source: https://colchester.foodbank.org.uk  
-  why held: new own-site times look like office/centre hours; own site lists several centres (10 postcodes); cannot tie one table to this listing; new own-site times look like office/centre hours; not one clear weekly client-hours block (kept as text for review)
-- **CETMA Llanelli** (`pbp/cetma-llanelli`, SA15 1YU): own site now Tuesday 10AM - 4PM | Wednesday 10AM - 4PM | Thursday 10AM - 4PM | Friday 12PM - 4PM  
-  source: https://cetma.org.uk/projects/pbp-food-bank/  
-  why held: new own-site times look like office/centre hours; own site lists several centres (3 postcodes); cannot tie one table to this listing; new own-site times look like office/centre hours; not one clear weekly client-hours block (kept as text for review); would cut known hours to fewer sessions (5 to 4) and the source does not say that session ended; review
-- **North Oxfordshire Foodbank** (`north-oxfordshire`, OX5 2DS): own site now Friday 11.00am – 1.00pm  
-  source: https://northoxfordshirecommunityfoodbank.org.uk/  
-  why held: own site lists several centres (3 postcodes); cannot tie one table to this listing; would cut known hours to fewer days (drops Mon) and the source does not say that session ended; review
-- **Apsley** (`kings-langley/apsley`, HP3 9ST): own site now Thursdays 10-12  
-  source: https://beneficeoflangelei.org.uk/allsaints/community/all-saints-foodbank/  
-  why held: would cut known hours to fewer days (drops Mon) and the source does not say that session ended; review
-- **PANTRY Foodbank** (`pantry`, SA8 4HD): own site now Sats & Tues 10am-12pm | Tuesday 10am - 12pm | Saturday 10am - 12pm  
-  source: https://www.pantryfoodbank.org  
-  why held: times not read identically on 2 separate runs yet
-- **Storehouse Melton Foodbank** (`storehouse-melton`, LE13 1NW): own site now Monday 11:00am - 1:00pm | Wednesday 11:00am - 1:00pm | Friday 11:00am - 1:00pm  
-  source: https://www.storehousemelton.org.uk  
-  why held: source page never mentions a food bank or this listing's name (rule 21: a host church page counts only when it names the food bank)
-- **Enniskillen Foodbank** (`enniskillen`, BT74 7DX): own site now Monday 1:00 pm to 3:00 pm; Wednesday 10:00 am to 12:00 pm  
-  source: https://enniskillen.foodbank.org.uk  
-  why held: coverage gate: opened 667 of 1718 source pages (39% < 80%); opened 589 of 966 own sites (61% < 80%); render errors 414 of 414 (100% > 25%)
-- **Sunderland Foodbank** (`sunderland`, SR2 8AH): own site now Thursday 09:00-10:30  
-  source: https://sunderlandfoodbank.org.uk/  
-  why held: known skip: times tables and addresses alternate so a table can't be tied to a centre by text order; hand check only; own site lists several centres (14 postcodes); cannot tie one table to this listing; would cut known hours to fewer sessions (6 to 1) and the source does not say that session ended; review; would cut known hours to fewer days (drops Mon, Tue, Wed, Fri) and the source does not say that session ended; review; this change was undone by Dean; not re-applied
-- **Roker Methodist Church** (`sunderland/roker-methodist-church`, SR6 9TB): own site now Monday 13:00-15:00  
-  source: https://sunderlandfoodbank.org.uk/  
-  why held: known skip: times tables and addresses alternate so a table can't be tied to a centre by text order; hand check only; own site lists several centres (14 postcodes); cannot tie one table to this listing; would cut known hours to fewer days (drops Tue, Wed, Thu, Fri) and the source does not say that session ended; review
-- **Downhill Centre Community Hub** (`sunderland/downhill-centre-community-hub`, SR5 4AY): own site now Thursday 11:00-13:30  
-  source: https://sunderlandfoodbank.org.uk/  
-  why held: known skip: times tables and addresses alternate so a table can't be tied to a centre by text order; hand check only; own site lists several centres (14 postcodes); cannot tie one table to this listing; would cut known hours to fewer days (drops Mon, Tue, Wed, Fri) and the source does not say that session ended; review
-- **Nourish Foodbank** (`nourish`, DT11 7PY): own site now Tuesdays & Thursdays 10am – 2pm  
-  source: https://faith-works.org.uk/locations-across-dorset/nourish-blandford/  
-  why held: own site lists several centres (5 postcodes); cannot tie one table to this listing; would cut known hours to fewer sessions (12 to 2) and the source does not say that session ended; review; would cut known hours to fewer days (drops Mon, Wed, Fri, Sun) and the source does not say that session ended; review
-- **Liberty Tea Rooms** (`dens/liberty-tea-rooms`, HP1 1BS): own site now Monday-Friday 9am-4.30pm  
-  source: https://www.dens.org.uk/our-services/foodbank/  
-  why held: new own-site times look like office/centre hours; known skip: finder copied Liberty Tea Rooms' times onto Way Inn; own site lists several centres (7 postcodes); cannot tie one table to this listing; new own-site times look like office/centre hours; not one clear weekly client-hours block (kept as text for review); would cut known hours to fewer days (drops Sat) and the source does not say that session ended; review
-- **Way Inn Christian Centre** (`dens/way-inn-christian-centre`, HP4 1AQ): own site now Tuesday-Friday 10am-12pm  
-  source: https://www.dens.org.uk/our-services/foodbank/  
-  why held: known skip: finder copied Liberty Tea Rooms' times onto Way Inn; own site lists several centres (7 postcodes); cannot tie one table to this listing; would cut known hours to fewer days (drops Mon, Sat) and the source does not say that session ended; review
-- **St Peter & St Paul Church** (`dens/st-peter-st-paul-church`, HP23 5AE): own site now Monday-Friday 9am-5pm | Saturday 9am-1pm  
-  source: https://www.dens.org.uk/our-services/foodbank/  
-  why held: new own-site times look like office/centre hours; known skip: finder copied Liberty Tea Rooms' times onto Way Inn; own site lists several centres (7 postcodes); cannot tie one table to this listing; new own-site times look like office/centre hours; not one clear weekly client-hours block (kept as text for review)
-- **St Annes Advice Nottingham Foodbank** (`st-annes-advice-nottingham`, NG3 4EZ): own site now Monday to Friday 9.00am to 3.30pm  
-  source: https://stannsadvice.org.uk/foodbank/  
-  why held: new own-site times look like office/centre hours; new own-site times look like office/centre hours; new own-site times look like office/shop hours (identical Mon-Fri block, no distribution wording); not one clear weekly client-hours block (kept as text for review)
-- **Kirkby Storehouse Foodbank** (`kirkby-storehouse`, NG17 7AB): own site now Tuesday 2– 3pm  
-  source: https://www.ashwoodchurch.org.uk/community/  
-  why held: day not on the same line as its times on the own-site page
-- **S20 Foodbank** (`s20`, S20 8NF): own site now Monday to Friday 10.00am - 4.00pm  
-  source: http://www.sheffieldfoodbank.org.uk/s20  
-  why held: new own-site times look like office/centre hours; new own-site times look like office/centre hours; not one clear weekly client-hours block (kept as text for review)
-- **Owlsmoor Community Centre** (`crowthorne/owlsmoor-community-centre`, GU47 0TF): own site now Monday 12:30 pm to 2:00 pm  
-  source: https://crowthorne.foodbank.org.uk  
-  why held: not one clear weekly client-hours block (kept as text for review); would change known times to closed/empty; times not read identically on 2 separate runs yet
-- **St Luke's** (`bradford-north/st-lukes`, BD2 3NS): own site now Thursday 11:00 am to 1:30 pm  
-  source: https://bradfordnorth.foodbank.org.uk  
-  why held: postcode not matched exactly on the own-site page; own site lists several centres (6 postcodes); cannot tie one table to this listing; would cut known hours to fewer days (drops Mon, Tue, Fri) and the source does not say that session ended; review
-- **Link Living** (`kirkcaldy/link-living`, KY1 1TE): own site now Monday 10am-4pm | Tuesday 10am-4pm | Wednesday 10am-4pm | Thursday 10am-4pm | Friday 10am-4pm  
-  source: https://www.kirkcaldyfoodbankcharity.org.uk  
-  why held: new own-site times look like office/centre hours; own site lists several centres (4 postcodes); cannot tie one table to this listing; new own-site times look like office/centre hours; not one clear weekly client-hours block (kept as text for review); jumble: 5 separate time blocks read from one page; review only
-- **Anglesey Foodbank** (`anglesey`, LL65 1RR): own site now Monday-Friday 9:15 am to 2:00 pm  
-  source: https://anglesey.foodbank.org.uk  
-  why held: new own-site times look like office/centre hours; postcode not matched exactly on the own-site page; new own-site times look like office/centre hours; not one clear weekly client-hours block (kept as text for review)
-- **The Bus Shelter Shop Foodbank** (`the-bus-shelter-shop`, IP11 7AJ): own site now Monday 10 am - 4 pm | Tuesday 10 am–4 pm | Wednesday 10 am–4 pm | Thursday 10 am–4 pm | Friday 10 am–4 pm | Saturday 10 am–4 pm  
-  source: https://www.thebusshelteripswich.co.uk/  
-  why held: new own-site times look like office/centre hours; new own-site times look like office/centre hours; not one clear weekly client-hours block (kept as text for review); jumble: 6 separate time blocks read from one page; review only; would cut known hours to fewer sessions (7 to 6) and the source does not say that session ended; review
-- **LW Storehouse Foodbank** (`lw-storehouse`, PR7 3AB): own site now TUESDAYS 10.00AM – 2.00PM | FRIDAYS 10.00AM – 2.00PM  
-  source: https://lwstorehouse.com/  
-  why held: times not read identically on 2 separate runs yet
-- **New Wortley Community Centre Foodbank** (`new-wortley-community-centre`, LS12 1LZ): own site now SATURDAY PM 1:00pm - 3:00pm  
-  source: https://www.newwortleycc.org.uk  
-  why held: day not on the same line as its times on the own-site page
-- **Galashiels and Area Foodbank** (`galashiels-and-area`, TD1 3HS): own site now Wednesday 1.00pm – 2.45pm  
-  source: https://galashielsfoodbank.wordpress.com/  
-  why held: would cut known hours to fewer days (drops Thu) and the source does not say that session ended; review; would cut known hours to fewer days (drops Thu) and the source does not say that session ended; review; times not read identically on 2 separate runs yet
-- **Warminster and District Foodbank** (`warminster-and-district`, BA12 9AL): own site now Tuesday, Wednesday & Friday 9am to 12:30pm  
-  source: http://warminsteranddistrictfoodbank.co.uk  
-  why held: coverage gate: opened 667 of 1718 source pages (39% < 80%); opened 589 of 966 own sites (61% < 80%); render errors 414 of 414 (100% > 25%)
-- **Chichester District Foodbank** (`chichester-district`, PO19 8ET): own site now Monday 2-4pm | Wednesday 9.30-11.30am | Friday 4-6pm  
-  source: https://chichesterdistrict.foodbank.org.uk  
-  why held: day not on the same line as its times on the own-site page; would cut known hours to fewer sessions (8 to 3) and the source does not say that session ended; review; would cut known hours to fewer days (drops Tue, Thu) and the source does not say that session ended; review
-- **St. John the Baptist Church, Tilbury** (`thurrock/st-john-the-baptist-church-tilbury`, RM18 7PP): own site now Tuesday 11:00 am to 1:00 pm  
-  source: https://thurrock.foodbank.org.uk  
-  why held: own site lists several centres (9 postcodes); cannot tie one table to this listing; would cut known hours to fewer days (drops Mon, Wed, Thu, Fri, Sat) and the source does not say that session ended; review
-- **Gates of Praise International Christian Centre** (`thurrock/gates-of-praise-international-christian-centre`, RM17 5YF): own site now Saturday 10:00 am to 12:00 pm  
-  source: https://thurrock.foodbank.org.uk  
-  why held: own site lists several centres (9 postcodes); cannot tie one table to this listing; would cut known hours to fewer days (drops Mon, Tue, Wed, Thu, Fri) and the source does not say that session ended; review
-- **St. Stephen's Church Hall, Purfleet** (`thurrock/st-stephens-church-hall-purfleet`, RM19 1QD): own site now Friday 10:00 am to 12:00 pm  
-  source: https://thurrock.foodbank.org.uk  
-  why held: own site lists several centres (9 postcodes); cannot tie one table to this listing; would cut known hours to fewer days (drops Mon, Tue, Wed, Thu, Sat) and the source does not say that session ended; review
-- **St. Francis Centre, Linford** (`thurrock/st-francis-centre-linford`, SS17 0QA): own site now Thursday 11:00 am to 1:00 pm  
-  source: https://thurrock.foodbank.org.uk  
-  why held: own site lists several centres (9 postcodes); cannot tie one table to this listing; would cut known hours to fewer days (drops Mon, Tue, Wed, Fri, Sat) and the source does not say that session ended; review
-- **All Saints Church, South Ockendon** (`thurrock/all-saints-church-south-ockendon`, RM15 5HF): own site now Thursday 11:00 am to 1:00 pm  
-  source: https://thurrock.foodbank.org.uk  
-  why held: own site lists several centres (9 postcodes); cannot tie one table to this listing; would cut known hours to fewer days (drops Mon, Tue, Wed, Fri, Sat) and the source does not say that session ended; review
-- **Gateway People’s Centre** (`thurrock/gateway-peoples-centre`, SS17 0EY): own site now Wednesday 11:00 am to 1:00 pm  
-  source: https://thurrock.foodbank.org.uk  
-  why held: own site lists several centres (9 postcodes); cannot tie one table to this listing; would cut known hours to fewer days (drops Mon, Tue, Thu, Fri, Sat) and the source does not say that session ended; review
-- **Waterford House** (`wokingham/waterford-house`, RG40 2YF): own site now Monday 13:00 - 15:00 | Wednesday 13:00 - 15:00 | Friday 13:00 - 15:00  
-  source: https://wokingham.foodbank.org.uk  
-  why held: own site lists several centres (3 postcodes); cannot tie one table to this listing
-- **Weymouth** (`salvation-army/weymouth`, DT4 8NS): own site now THURSDAY : 10 am - 12pm  
-  source: https://www.salvationarmy.org.uk  
-  why held: known skip: own page lists more sessions than the auto-read table (Tuesday evening dropped); would cut known hours to fewer sessions (2 to 1) and the source does not say that session ended; review; would cut known hours to fewer days (drops Mon, Tue, Wed, Fri) and the source does not say that session ended; review; this change was undone by Dean; not re-applied
-- **Brentwood Foodbank** (`brentwood`, CM15 9EH): own site now Tuesday-Wednesday 10:00 am to 1:00 pm  
-  source: https://brentwood.foodbank.org.uk  
-  why held: would cut known hours to fewer days (drops Fri) and the source does not say that session ended; review
-- **Newlands Foodbank** (`newlands`, LS27 8SE): own site now Friday 3pm - 4:30pm | Thursday 9:00 am – 11:00 am  
-  source: https://newlandsmethodistchurch.wordpress.com/foodbank/  
-  why held: day not on the same line as its times on the own-site page; times not read identically on 2 separate runs yet
-- **Rickmansworth Foodbank** (`rickmansworth`, WD3 7HJ): own site now Tuesday 1:45 pm to 4:00 pm; Friday 10:00 am to 12:00 pm  
-  source: https://rickmansworth.foodbank.org.uk  
-  why held: own site gives one table for several branches; cannot tell which branch; own site lists several centres (4 postcodes); cannot tie one table to this listing; would cut known hours to fewer days (drops Mon, Wed, Thu) and the source does not say that session ended; review
-- **Mill End** (`rickmansworth/mill-end`, WD3 7HJ): own site now Tuesday 1:45 pm to 4:00 pm; Friday 10:00 am to 12:00 pm  
-  source: https://rickmansworth.foodbank.org.uk  
-  why held: own site gives one table for several branches; cannot tell which branch; own site lists several centres (4 postcodes); cannot tie one table to this listing; would cut known hours to fewer days (drops Mon, Wed, Thu) and the source does not say that session ended; review
-- **The Net Community Cafe** (`medway/the-net-community-cafe`, ME5 0QX): own site now Thursday 9:30 am to 12:00 pm  
-  source: https://medway.foodbank.org.uk  
-  why held: own site lists several centres (9 postcodes); cannot tie one table to this listing; would cut known hours to fewer sessions (3 to 1) and the source does not say that session ended; review; would cut known hours to fewer days (drops Mon, Tue, Wed, Fri, Sat) and the source does not say that session ended; review
-- **St Justus Church** (`medway/st-justus-church`, ME1 2LT): own site now Tuesday 10:30 am to 12:30 pm  
-  source: https://medway.foodbank.org.uk  
-  why held: own site lists several centres (9 postcodes); cannot tie one table to this listing; would cut known hours to fewer sessions (3 to 1) and the source does not say that session ended; review; would cut known hours to fewer days (drops Mon, Wed, Thu, Fri, Sat) and the source does not say that session ended; review
-- **Twydall Foodbank Centre & Coffee Shop** (`medway/twydall-foodbank-centre-coffee-shop`, ME8 6LQ): own site now Tuesday 12:30 pm to 2:30 pm; Friday 10:30 am to 12:30 pm  
-  source: https://medway.foodbank.org.uk  
-  why held: own site lists several centres (9 postcodes); cannot tie one table to this listing; would cut known hours to fewer sessions (4 to 2) and the source does not say that session ended; review; would cut known hours to fewer days (drops Mon, Wed, Thu, Sat) and the source does not say that session ended; review
-- **Comfort Memorial Food For All Foodbank** (`comfort-memorial-food-for-all`, MK9 2AH): own site now Monday 11:00 - 15:30 | Wednesday 11:00 - 15:30 | Friday 11:00 - 15:30  
-  source: http://www.cmffa.org.uk  
-  why held: coverage gate: opened 667 of 1718 source pages (39% < 80%); opened 589 of 966 own sites (61% < 80%); render errors 414 of 414 (100% > 25%)
-- **CHAT Foodbank** (`chat`, EX16 6LU): own site now Monday–Friday 9:30am–4:30pm | Saturday 9:30am–12pm  
-  source: https://www.chatmid.org/food-bank  
-  why held: new own-site times look like office/centre hours; new own-site times look like office/centre hours; not one clear weekly client-hours block (kept as text for review)
-- **PATCH Foodbank** (`patch`, SA73 2HA): own site now Monday – Friday 10am-2pm  
-  source: https://patchcharity.org.uk  
-  why held: new own-site times look like office/centre hours; own site lists several centres (4 postcodes); cannot tie one table to this listing; new own-site times look like office/centre hours; not one clear weekly client-hours block (kept as text for review); would cut known hours to fewer days (drops Sat) and the source does not say that session ended; review; times not read identically on 2 separate runs yet
-- **Tottenham SDA** (`3food4u/tottenham-sda`, N15 5EG): own site now Wednesday 4:45pm to 6:00pm  
-  source: https://3food4u.org  
-  why held: known skip: times listed above each address; finder read them onto the next centre (Budworth Hall got Epping's Friday); own site lists several centres (10 postcodes); cannot tie one table to this listing; would cut known hours to fewer days (drops Tue, Sat) and the source does not say that session ended; review; would cut known hours to fewer days (drops Mon, Tue, Thu, Fri, Sat, Sun) and the source does not say that session ended; review
-- **Chigwell Row** (`3food4u/chigwell-row`, IG7 4QD): own site now Thursday 12:15pm to 1:15pm  
-  source: https://3food4u.org  
-  why held: known skip: times listed above each address; finder read them onto the next centre (Budworth Hall got Epping's Friday); own site lists several centres (10 postcodes); cannot tie one table to this listing; would cut known hours to fewer days (drops Mon, Tue, Wed, Fri, Sat, Sun) and the source does not say that session ended; review
-- **Budworth Hall** (`3food4u/budworth-hall`, CM5 9JG): own site now Friday 12:30pm to 2:00pm  
-  source: https://3food4u.org  
-  why held: known skip: times listed above each address; finder read them onto the next centre (Budworth Hall got Epping's Friday); own site lists several centres (10 postcodes); cannot tie one table to this listing; would cut known hours to fewer days (drops Mon, Tue, Wed, Thu, Sat, Sun) and the source does not say that session ended; review
-- **Woking Foodbank** (`woking`, GU21 6EL): own site now Monday 10:30 am to 12:30 pm; Wednesday 10:30 am to 12:30 pm; Thursday 10:30 am to 12:30 pm  
-  source: https://woking.foodbank.org.uk  
-  why held: own site lists several centres (5 postcodes); cannot tie one table to this listing; would cut known hours to fewer days (drops Tue, Fri) and the source does not say that session ended; review
-- **St James Thornton Foodbank** (`st-james-thornton`, BD13 3AB): own site now Saturdays 10:00-12:00  
-  source: http://www.james4u.org/foodbank-blog/index.html  
-  why held: coverage gate: opened 667 of 1718 source pages (39% < 80%); opened 589 of 966 own sites (61% < 80%); render errors 414 of 414 (100% > 25%)
-- **Whitby Foodbank** (`whitby`, YO21 3AJ): own site now Mondays and Fridays 2.00-4.00pm  
-  source: http://www.foodbank4whitby.org.uk  
-  why held: day not on the same line as its times on the own-site page
-- **St Chads, Liscard** (`wirral/st-chads-liscard`, CH46 1RW): own site now Tuesday 10:00 am to 1:00 pm  
-  source: https://wirral.foodbank.org.uk  
-  why held: own site lists several centres (10 postcodes); cannot tie one table to this listing; would cut known hours to fewer days (drops Mon, Wed, Thu, Fri, Sat) and the source does not say that session ended; review
-- **St Joseph and St Alban's** (`wirral/st-joseph-and-st-albans`, CH44 5UD): own site now Tuesday 5:30 pm to 7:00 pm  
-  source: https://wirral.foodbank.org.uk  
-  why held: own site lists several centres (10 postcodes); cannot tie one table to this listing; would cut known hours to fewer days (drops Mon, Wed, Fri) and the source does not say that session ended; review; would cut known hours to fewer days (drops Mon, Wed, Thu, Fri, Sat) and the source does not say that session ended; review
-- **St James Church, New Brighton** (`wirral/st-james-church-new-brighton`, CH45 9LF): own site now Thursday 10:30 am to 12:30 pm  
-  source: https://wirral.foodbank.org.uk  
-  why held: own site lists several centres (10 postcodes); cannot tie one table to this listing; would cut known hours to fewer days (drops Mon, Tue, Wed, Fri, Sat) and the source does not say that session ended; review
-- **Pontypridd Foodbank** (`pontypridd`, CF37 1BW): own site now Tuesday-Friday 9:00 am to 1:45 pm; Saturday 10:00 am to 11:45 am  
-  source: https://pontypridd.foodbank.org.uk  
-  why held: new own-site times look like office/centre hours; new own-site times look like office/centre hours; not one clear weekly client-hours block (kept as text for review)
-- **Ty Hapus Foodbank** (`ty-hapus`, LL30 1HB): own site now Tuesday & Wednesday 12.30pm till 2.30pm  
-  source: https://tyhapus.com/  
-  why held: source page never mentions a food bank or this listing's name (rule 21: a host church page counts only when it names the food bank); day not on the same line as its times on the own-site page
-- **West End Impact Foodbank** (`west-end-impact`, LA3 1DG): own site now Tuesday 10-1 | Thursday 10-1 | Tuesday 10-1pm  
-  source: https://www.westendimpact.org.uk/foodbank  
-  why held: day not on the same line as its times on the own-site page; jumble: Tue given different times in separate blocks on one page; review only; would cut known hours to fewer sessions (6 to 2) and the source does not say that session ended; review
-- **Pan Together** (`ifan-0ea12dd414fcb6a358d3f0-0`, PO30 2AX): own site now Friday 12pm to 2pm  
-  source: https://www.pantogether.org.uk  
-  why held: day not on the same line as its times on the own-site page
-- **St Paul's Pantry (St Paul's Wimbledon Parkside)** (`ifan-53c68645aa831ab649ac43-0`, SW19 6EW): own site now Mondays 3.00 - 5.00 pm | Tuesdays 10.00am - 12pm | Wednesdays 3.30 to 5.30 pm | Thursday 6.30 - 7.30 pm  
-  source: https://stpaulsparkside.org.uk/  
-  why held: day not on the same line as its times on the own-site page
-- **St Laurence's Larder & Open Kitchen** (`ifan-84cd0bf40986bfc9a427c6-0`, NW6 7BJ): own site now Wednesday 10.00am - 2.00pm | Thursday 11.00am - 2.00pm | Monday 12.00 - 2.00pm  
-  source: https://www.laurenceslarder.org.uk  
-  why held: times not read identically on 2 separate runs yet
-- **Castleman Community Larder CIC** (`ifan-da5df633f7eabc8fbdb2a3-0`, BH22 0JB): own site now Mon, Tues, Wed 10am - 3pm  
-  source: https://castlemancommunity.wixsite.com/larder  
-  why held: coverage gate: opened 667 of 1718 source pages (39% < 80%); opened 589 of 966 own sites (61% < 80%); render errors 414 of 414 (100% > 25%)
-<!-- /times crosscheck fb -->
-
-<!-- address review foodbanks -->
-## Address and pin mismatches (not applied)
-
-The refresh saw a different address or pin. The published one was kept. Nothing below was written onto the map.
-
-- address mismatch, held for Dean | chelmsford | lat | via foodbanks | stored 51.742499 | proposed 51.7328656 | unchanged | Chelmsford Foodbank
-- address mismatch, held for Dean | chelmsford | lng | via foodbanks | stored 0.500627 | proposed 0.4738483 | unchanged | Chelmsford Foodbank
-- address mismatch, held for Dean | port-talbot | lat | via foodbanks | stored 51.595308 | proposed 51.6127941 | unchanged | Port Talbot Foodbank
-- address mismatch, held for Dean | port-talbot | lng | via foodbanks | stored -3.784316 | proposed -3.7179965 | unchanged | Port Talbot Foodbank
-- address mismatch, held for Dean | one-vision | lat | via foodbanks | stored 51.701802 | proposed 51.679186 | unchanged | One Vision Foodbank
-- address mismatch, held for Dean | one-vision | lng | via foodbanks | stored -0.382681 | proposed -0.3960491 | unchanged | One Vision Foodbank
-- address mismatch, held for Dean | cafe-43-house-of-bread | lat | via foodbanks | stored 52.815553 | proposed 52.8129205 | unchanged | Cafe 43 - House of Bread Foodbank
-- address mismatch, held for Dean | cafe-43-house-of-bread | lng | via foodbanks | stored -2.082479 | proposed -2.1205427 | unchanged | Cafe 43 - House of Bread Foodbank
-- address mismatch, held for Dean | bedlington | lat | via foodbanks | stored 55.131014 | proposed 55.1268508 | unchanged | Bedlington Foodbank
-- address mismatch, held for Dean | bedlington | lng | via foodbanks | stored -1.598757 | proposed -1.561031 | unchanged | Bedlington Foodbank
-- address mismatch, held for Dean | salvation-army/hedge-end | lat | via foodbanks | stored 50.928707 | proposed 50.909797 | unchanged | Hedge End
-- address mismatch, held for Dean | salvation-army/hedge-end | lng | via foodbanks | stored -1.304152 | proposed -1.3584024 | unchanged | Hedge End
-- address mismatch, held for Dean | wimbledon/pollards-hill-baptist-church | lng | via foodbanks | stored -0.174888 | proposed -0.1349622 | unchanged | Pollards Hill Baptist Church
-- address mismatch, held for Dean | taff-ely/3d-church-williamstown | lat | via foodbanks | stored 51.606848 | proposed 51.6426088 | unchanged | 3D Church Williamstown
-- address mismatch, held for Dean | taff-ely/3d-church-williamstown | lng | via foodbanks | stored -3.441206 | proposed -3.4816268 | unchanged | 3D Church Williamstown
-- address mismatch, held for Dean | coventry/st-john-the-divine-church | address | via foodbanks | stored St John the Divine Church, Robin Hood Road, Willenhall, CV3 3AY | proposed Robin Hood Road, Coventry, CV3 3AY | unchanged | St John the Divine Church Foodbank
-- address mismatch, held for Dean | coventry/st-john-the-divine-church | lat | via foodbanks | stored 52.388103 | proposed 52.38772059999999 | unchanged | St John the Divine Church Foodbank
-- address mismatch, held for Dean | coventry/st-john-the-divine-church | lng | via foodbanks | stored -1.464337 | proposed -1.4635745 | unchanged | St John the Divine Church Foodbank
-- address mismatch, held for Dean | coventry/st-stephens-church-canley | lat | via foodbanks | stored 52.39377 | proposed 52.3904376 | unchanged | St Stephens Church Canley
-- address mismatch, held for Dean | coventry/st-stephens-church-canley | lng | via foodbanks | stored -1.573809 | proposed -1.5526212 | unchanged | St Stephens Church Canley
-- address mismatch, held for Dean | coventry/st-catherines-church-of-england | address | via foodbanks | stored Acorn Street, Stoke Aldermoor, CV3 1DQ | proposed Acorn Street, Stoke Aldermoor, CV3 1DP | unchanged | St Catherines Church of England
-- address mismatch, held for Dean | coventry/st-catherines-church-of-england | postcode | via foodbanks | stored CV3 1DQ | proposed CV3 1DP | unchanged | St Catherines Church of England
-- address mismatch, held for Dean | coventry/st-catherines-church-of-england | lng | via foodbanks | stored -1.474414 | proposed -1.4747111 | unchanged | St Catherines Church of England
-- address mismatch, held for Dean | coventry/queens-road-baptist-church | address | via foodbanks | stored Grosvenor Road, City Centre, Coventry, CV1 3EG | proposed Queen's Road, Coventry, CV1 3EG | unchanged | Queens Road Baptist Church
-- address mismatch, held for Dean | coventry/queens-road-baptist-church | lat | via foodbanks | stored 52.404256 | proposed 52.4045096 | unchanged | Queens Road Baptist Church
-- address mismatch, held for Dean | coventry/queens-road-baptist-church | lng | via foodbanks | stored -1.518513 | proposed -1.5181304 | unchanged | Queens Road Baptist Church
-- address mismatch, held for Dean | coventry/allesley-park-evangelical-church | lat | via foodbanks | stored 52.413031 | proposed 52.4133934 | unchanged | Allesley Park Evangelical Church (Bethesda)
-- address mismatch, held for Dean | coventry/allesley-park-evangelical-church | lng | via foodbanks | stored -1.555334 | proposed -1.5564783 | unchanged | Allesley Park Evangelical Church (Bethesda)
-- address mismatch, held for Dean | coventry/redeemed-christian-church-of-god-holy-ghost-zone | address | via foodbanks | stored 8 Albert Street, CV1 5HA | proposed 8 Albert Street, Coventry, CV1 5HA | unchanged | Redeemed Church Of God - Holy Ghost Zone
-- address mismatch, held for Dean | coventry/walsgrave-baptist-church | lng | via foodbanks | stored -1.442172 | proposed -1.4423839 | unchanged | Walsgrave Baptist Church
-- address mismatch, held for Dean | coventry/foleshill-baptist-church | address | via foodbanks | stored Broad Street, Foleshill, Coventry, CV6 5AZ | proposed Broad Street, Fosehill, CV6 5AZ | unchanged | Foleshill Baptist Church
-- address mismatch, held for Dean | coventry/foleshill-baptist-church | lng | via foodbanks | stored -1.499656 | proposed -1.4998761 | unchanged | Foleshill Baptist Church
-- address mismatch, held for Dean | coventry/st-francis-of-assisi | lng | via foodbanks | stored -1.519841 | proposed -1.5203456 | unchanged | St Francis of Assisi
-- address mismatch, held for Dean | coventry/coventry-city-mission | lat | via foodbanks | stored 52.4402 | proposed 52.4399771 | unchanged | Coventry City Mission
-- address mismatch, held for Dean | coventry/coventry-city-mission | lng | via foodbanks | stored -1.458132 | proposed -1.4586352 | unchanged | Coventry City Mission
-- address mismatch, held for Dean | salvation-army/limavady | lat | via foodbanks | stored 55.044536 | proposed 55.0521369 | unchanged | Limavady
-- address mismatch, held for Dean | salvation-army/limavady | lng | via foodbanks | stored -7.016746 | proposed -6.9513685 | unchanged | Limavady
-- address mismatch, held for Dean | south-ayrshire/annbank-parish-church | lat | via foodbanks | stored 55.515095 | proposed 55.51157670000001 | unchanged | Annbank Parish Church
-- address mismatch, held for Dean | south-ayrshire/annbank-parish-church | lng | via foodbanks | stored -4.380566 | proposed -4.4861729 | unchanged | Annbank Parish Church
-- address mismatch, held for Dean | south-ayrshire/tarbolton-parish-church | lat | via foodbanks | stored 55.515095 | proposed 55.5130839 | unchanged | Tarbolton Parish Church
-- address mismatch, held for Dean | south-ayrshire/tarbolton-parish-church | lng | via foodbanks | stored -4.380566 | proposed -4.4873201 | unchanged | Tarbolton Parish Church
-- address mismatch, held for Dean | south-ayrshire/dundonald | lat | via foodbanks | stored 55.575392 | proposed 55.5508383 | unchanged | Dundonald
-- address mismatch, held for Dean | south-ayrshire/dundonald | lng | via foodbanks | stored -4.593254 | proposed -4.563937399999999 | unchanged | Dundonald
-<!-- /address review foodbanks -->
+- **Bournemouth Churches HA - St Paul's Hostel** (`hl-bournemouth-churches-ha-st-pauls-hostel`): phone unconfirmed
+- **Aigburth Drive - Male Harm Reduction Service** (`ss-63a44ec1b00aca305c753133`): phone unconfirmed
+- **Renewal Programme - Barking Road Hostel** (`hl-renewal-programme-barking-road-hostel`): directory record only; an operator or council page has not confirmed it is running now and the phone
+- **Look Ahead - Slough Hostel** (`hl-look-ahead-slough-hostel`): directory record only; an operator or council page has not confirmed it is running now and the phone
+- **SHP - 88 Arlington Road** (`hl-shp-arlington-road`): directory record only; an operator or council page has not confirmed it is running now and the phone
+- **SHP - Ashley Road** (`hl-shp-ashley-road`): directory record only; an operator or council page has not confirmed it is running now and the phone
+- **SHP - King George's Hostel** (`hl-shp-king-georges-hostel`): directory record only; an operator or council page has not confirmed it is running now and the phone
+- **St Mungo's - Ealing Accommodation Services B65 Hostel** (`hl-st-mungos-ealing-accommodation-services`): directory record only; an operator or council page has not confirmed it is running now and the phone
+- **St Mungo's - Endell Street** (`hl-st-mungos-endell-street`): directory record only; an operator or council page has not confirmed it is running now and the phone
+- **Transform Housing and Support - Hersham Road Hostel** (`hl-transform-housing-and-support-hersham-road-hostel`): directory record only; an operator or council page has not confirmed it is running now and the phone
+- **Adullam Homes HA - Bury ABEN (Phase 3)** (`hl-adullam-homes-ha-bury-aben-phase-3`): directory record only; an operator or council page has not confirmed it is running now and the phone
+- **Our Way Leeds Emergency Accommodation** (`hl-turning-lives-around-seacole-scheme`): id/name mismatch (the id is Turning Lives Around Seacole; the name is Our Way Leeds)
+<!-- /referral hostel holds -->
