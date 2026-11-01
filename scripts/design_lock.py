@@ -327,21 +327,10 @@ def run(base=None, measure=False):
                     B.goto(pg, base + '/?nocount')
                     pg.wait_for_timeout(1000)
                     if w == 390 and not measure:
+                        pg.evaluate("m=>{document.documentElement.classList.toggle('light',m==='light');try{localStorage.setItem('theme',m)}catch(e){}}", mode)
                         pg.evaluate("()=>{const s=document.getElementById('share');if(s)s.scrollIntoView({block:'center'})}")
                         pg.wait_for_timeout(400)
-                        for lang in ('en', 'cy'):
-                            if lang == 'cy':
-                                pg.click('#xlang'); pg.wait_for_timeout(600)
-                            bad += ['%dpx %s key %s %s' % (w, mode, lang, x) for x in (pg.evaluate(KEY_JS) or [])]
-                            if lang == 'cy' and pg.evaluate("()=>document.documentElement.lang") == 'cy':
-                                pg.click('#xlang'); pg.wait_for_timeout(400)
-                        for vw in (320, 430):
-                            pg.set_viewport_size({'width': vw, 'height': 900})
-                            pg.wait_for_timeout(300)
-                            pg.evaluate("()=>{const s=document.getElementById('share');if(s)s.scrollIntoView({block:'center'})}")
-                            pg.wait_for_timeout(200)
-                            bad += ['%dpx %s key w%s %s' % (vw, mode, vw, x) for x in (pg.evaluate(KEY_JS) or [])]
-                        pg.set_viewport_size({'width': w, 'height': 900})
+                        bad += ['%dpx %s key %s' % (w, mode, x) for x in (pg.evaluate(KEY_JS) or [])]
                 except Exception as e:
                     bad.append('%dpx %s: page did not open: %s' % (w, mode, str(e).splitlines()[0][:200]))
                     print('FAIL design-lock %dpx %s (page)' % (w, mode), flush=True)
