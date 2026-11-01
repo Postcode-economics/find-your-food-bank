@@ -33,7 +33,7 @@ ENDED = 'This season’s scheme has ended'
 EXPECT = """([k, vo, ot]) => {const D = k === 'sh' ? window.SHELTERS : window.WARMSPACES; if (!D || !lastNear) return null;
   const [a, b] = lastNear, r = x => x * Math.PI / 180;
   const hv = (la, ln) => 12742 * Math.asin(Math.sqrt(Math.sin(r(la - a) / 2) ** 2 + Math.cos(r(a)) * Math.cos(r(la)) * Math.sin(r(ln - b) / 2) ** 2));
-  return D.items.filter(i => i.card_type !== 'referral_hostel' && typeof i.lat === 'number' && typeof i.lng === 'number' && (!vo || i.tier !== 'unverified' || timesChecked(i)) && !(ot && (i.ended || V3.shutToday(k, i))))
+  return D.items.filter(i => i.card_type !== 'referral_hostel' && typeof i.lat === 'number' && typeof i.lng === 'number' && (!vo || i.tier !== 'unverified' || timesChecked(i)) && !(ot && (i.ended || V3.shutToday(k, i))) && (k !== 'sh' || shelterTypeOk(i)))
     .map(i => ({id: i.id, e: !!i.ended, d: hv(i.lat, i.lng)})).sort((x, y) => (x.e - y.e) || x.d - y.d).map(x => x.id)}"""
 IDS = "k => [...document.querySelectorAll('#xlist > .card.x' + k)].map(c => c.dataset.id)"
 BTN = """k => {const b = document.getElementById('xmore-' + k); if (!b) return null; const s = getComputedStyle(b);
@@ -41,6 +41,18 @@ BTN = """k => {const b = document.getElementById('xmore-' + k); if (!b) return n
     exp: b.getAttribute('aria-expanded'), ctl: b.getAttribute('aria-controls'), text: b.innerText.trim(), h: b.getBoundingClientRect().height,
     focused: document.activeElement === b, last: b.previousElementSibling && b.previousElementSibling.classList.contains('x' + k)}}"""
 VIEW = "() => ({x: scrollX, y: scrollY, z: map.getZoom(), c: map.getCenter().toString()})"
+FILTER_STATE = """k => {const vo = document.querySelector('#xlist .v3vo[data-k=' + k + ']'); return {
+  vo: vo && vo.getAttribute('aria-pressed') === 'true',
+  ot: !!(document.getElementById('openToday') || {}).checked}; }"""
+
+
+def want_ids(pg, k):
+    f = pg.evaluate(FILTER_STATE, k)
+    return pg.evaluate(EXPECT, [k, f['vo'], f['ot']])
+
+
+def card_count(pg, k):
+    return pg.evaluate("k => document.querySelectorAll('#xlist > .card.x' + k).length", k)
 
 
 class Static(unittest.TestCase):
@@ -226,6 +238,18 @@ class Journey:
         self.assertTrue(until(pg, "() => !document.getElementById('openToday').checked"))
         self.assertTrue(until(pg, "k => document.querySelectorAll('#xlist > .card.x' + k).length === 5", k, 10))
 
+    def assert_show_more_one_press(self, pg, k):
+        """Show more adds the next filtered batch, or the button is hidden when nothing remains."""
+        want = want_ids(pg, k)
+        n = card_count(pg, k)
+        btn = pg.evaluate(BTN, k)
+        self.assertEqual(pg.evaluate(IDS, k), want[:n], (k, 'listed ids match filtered rank'))
+        if len(want) <= n:
+            self.assertTrue(btn is None or not btn['shown'], (k, len(want), n))
+            return
+        self.assertTrue(btn and btn['shown'], (k, n, len(want)))
+        self.press_once(pg, k, n, want)
+
     def check_to_the_end_and_keyboard(self, pg, k):
         want = self.check_first_page(pg, k)
         pg.focus('#xmore-' + k)
@@ -273,6 +297,95 @@ class Chrome(Journey, unittest.TestCase):
 
     def press(self, pg, k):
         pg.click('#xmore-' + k)
+
+    def test_show_more_under_each_filter_state(self):
+        """Show more loads the next filtered batch (or hides) for every chip and Open today combination."""
+        pg = open_page(self.ctx('sh'), self.base, 'sh')
+        search(pg, 'sh', 'BN17 5LF')
+
+        def apply_shelter_filters(host=False, youth=False, day=False, open_today=False):
+            for sel, on in (('[data-f=shost]', host), ('[data-f=youth]', youth), ('[data-f=sday]', day)):
+                cur = pg.evaluate("s => document.querySelector('#chips '+s).getAttribute('aria-pressed')==='true'", sel)
+                if cur != on:
+                    pg.click('#chips ' + sel)
+                    pg.wait_for_timeout(200)
+            ot = pg.evaluate("() => !!document.getElementById('openToday').checked")
+            if ot != open_today:
+                pg.click('#v3open')
+            self.assertTrue(until(pg, "([host, youth, day]) => {"
+              "const h=document.querySelector('#chips [data-f=shost]').getAttribute('aria-pressed')==='true';"
+              "const y=document.querySelector('#chips [data-f=youth]').getAttribute('aria-pressed')==='true';"
+              "const d=document.querySelector('#chips [data-f=sday]').getAttribute('aria-pressed')==='true';"
+              "return h===host&&y===youth&&d===day;}", [host, youth, day], 10))
+            self.assertTrue(until(pg, "ot => !!document.getElementById('openToday').checked === ot", open_today, 10))
+            self.assertTrue(until(pg, "() => document.querySelectorAll('#xlist > .card.xsh').length > 0", None, 10))
+
+        scenarios = [
+            dict(host=False, youth=False, day=False, open_today=False),
+            dict(host=True, youth=False, day=False, open_today=False),
+            dict(host=False, youth=False, day=True, open_today=False),
+            dict(host=False, youth=True, day=False, open_today=False),
+            dict(host=True, youth=True, day=False, open_today=False),
+            dict(host=False, youth=False, day=True, open_today=True),
+            dict(host=True, youth=False, day=False, open_today=True),
+        ]
+        for sc in scenarios:
+            with self.subTest(**sc):
+                apply_shelter_filters(**sc)
+                pg.wait_for_timeout(400)
+                n0 = card_count(pg, 'sh')
+                if n0 == 0:
+                    continue
+                self.assert_show_more_one_press(pg, 'sh')
+
+        pg = open_page(self.ctx('ws'), self.base, 'ws')
+        search(pg, 'ws', 'BN17 5LF')
+        for vo, ot in ((False, False), (True, False), (False, True), (True, True)):
+            with self.subTest(layer='ws', vo=vo, ot=ot):
+                cur_vo = pg.evaluate("() => document.querySelector('#xlist .v3vo[data-k=ws]').getAttribute('aria-pressed')==='true'")
+                if cur_vo != vo:
+                    pg.click('#xlist .v3vo[data-k=ws]')
+                cur_ot = pg.evaluate("() => !!document.getElementById('openToday').checked")
+                if cur_ot != ot:
+                    pg.click('#v3open')
+                want_n = len(want_ids(pg, 'ws'))
+                self.assertTrue(until(pg, "n => document.querySelectorAll('#xlist > .card.xws').length === Math.min(5, n)", want_n, 10))
+                self.assert_show_more_one_press(pg, 'ws')
+
+        pg = open_page(self.ctx('sh'), self.base, 'sh')
+        pg.click('.v3b[data-l=fb]')
+        self.assertTrue(until(pg, "() => document.documentElement.dataset.v3k === 'fb'"))
+        pg.wait_for_timeout(300)
+        pg.fill('#q', 'BN17 5LF')
+        pg.press('#q', 'Enter')
+        self.assertTrue(until(pg, "() => document.querySelectorAll('#list > .card').length === 5"))
+        for walk, vouch in ((False, False), (True, False), (False, True)):
+            with self.subTest(layer='fb', walk=walk, vouch=vouch):
+                for sel, on in (('[data-f=walk]', walk), ('[data-f=vouch]', vouch)):
+                    cur = pg.evaluate("s => document.querySelector('#chips '+s).getAttribute('aria-pressed')==='true'", sel)
+                    if cur != on:
+                        pg.click('#chips ' + sel)
+                pg.wait_for_timeout(500)
+                n = pg.evaluate("() => document.querySelectorAll('#list > .card').length")
+                btn = pg.evaluate("""() => {const b=document.getElementById('showmore'); if(!b)return null;
+                  const s=getComputedStyle(b); return {shown:!b.hidden&&s.display!=='none'&&b.getClientRects().length>0};}""")
+                total = pg.evaluate("""() => {
+                  if (typeof items === 'undefined' || typeof vis !== 'function') return 0;
+                  var c = 0;
+                  for (var k = 0; k < items.length; k++) {
+                    if (!vis(k)) continue;
+                    if (typeof nc === 'function' && nc(items[k])) continue;
+                    c++;
+                  }
+                  return c;}""")
+                if total <= n:
+                    self.assertFalse(btn and btn['shown'])
+                else:
+                    self.assertTrue(btn and btn['shown'])
+                    before = n
+                    pg.click('#showmore')
+                    self.assertTrue(until(pg, "b => document.querySelectorAll('#list > .card').length > b", before, 10))
+        self.assertEqual(pg.errs, [])
 
     def test_shelter_filters_keep_show_more(self):
         """Day centres and Young people (16–25) filter the shelters list. Show more still pages what remains."""
