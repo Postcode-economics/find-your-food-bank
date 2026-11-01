@@ -138,6 +138,8 @@ for x in items:
 sources["Seasonal dates"] = {"status": "ok", "upcoming": sum(bool(x.get("upcoming")) for x in items), "expired": [x["id"] for x in expired]}
 import shelter_contacts  # manual numbers/emails + council referral lines (overrides/shelters_contacts.json) survive every refresh
 sources["Manual contacts"] = {"status": "ok", "phones_filled": shelter_contacts.apply(items), "missing_any_number": shelter_contacts.check(items)}
+import place_facts  # wheelchair / groups stated on the manual file survive the gate (never inferred)
+place_facts.stamp(items, {m["id"]: m for m in man if isinstance(m, dict) and m.get("id")})
 import phone_lock  # frozen numbers, and no daytime council line without a verified out-of-hours number
 for x in items: phone_lock.settle_council(x)
 phone_lock.guard(items, phone_lock.ROOT, via="refresh", source="feed refresh", layer="shelters", persist_new=not os.environ.get("DRY_RUN"), published=LIVE_COUNCIL)

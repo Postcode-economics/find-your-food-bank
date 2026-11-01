@@ -295,6 +295,13 @@ def main():
             if not (os.environ.get('DRY_RUN') or os.environ.get('SAMPLE')):
                 IR.alert(failed, ROOT)
                 IR.record_render_failure(ROOT, 'foodbanks', failed)
+    import place_facts  # optional wheelchair, groups and referral from manual files. Missing stays missing.
+    fb_ov = {}
+    for fn in ('foodbank_manual.json', 'foodbank_added.json'):
+        for k, v in load_json(os.path.join(ROOT, 'overrides', fn), {}).items():
+            if str(k).startswith('_') or not isinstance(v, dict): continue
+            fb_ov.setdefault(k, {}).update(v)
+    print('place facts:', place_facts.stamp(items, fb_ov, fill_missing=True))
     import schema_version
     meta = schema_version.stamp(dict(fetched=datetime.date.today().isoformat(), source='Give Food API v2 https://www.givefood.org.uk/api/ + IFAN https://www.foodaidnetwork.org.uk/ (own-site checked)', items=items))
     new = 'window.FB_DATA=' + json.dumps(meta) + ';'

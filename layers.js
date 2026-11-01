@@ -10,7 +10,7 @@ const T={en:{fb:'Food banks',before:'Before you go',beforeSum:'Always call befor
  groups:'Who for',beds:'Beds',season:'Season',ref:'Referral',hours:'Hours',prov:'Provided',book:'Booking',dates:'Scheme dates',
  src:'Source',ver:'verified',chk:'Checked',lst:'Original listing',unv:'Unverified – call before you go',tchk:'Times checked {d} – call before you go',seen:'Seen open',refOnly:'Referral only',refNeed:'Referral needed / check before you go',refHostel:'Referral hostel',refTurn:'Referral needed, don\'t turn up without one',selfRef:'Self-referral',openAcc:'Open access',verOnly:'Verified only',stale:'Not verified for over 7 days, call before you go',ended:'This season’s scheme has ended',
  nSh:'Nearest shelters',nWs:'Nearest warm spaces',loading:'Loading…',offline:'You’re offline. Showing places saved on ',offEnd:'. Call before you go.',offBare:'You’re offline. Call before you go.',chkL:'Listings last checked ',none:'None listed',
- dayCentre:'Day centre',youth:'Young people’s housing (16–25), referral needed',youthOnly:'For ages 16–25. Referral needed. Not an emergency bed.',dayOnly:'Daytime only. No overnight bed.',dayFilt:'Day centres',offer:'Offers',
+ dayCentre:'Day centre',pillHostel:'Hostel',pillNight:'Night shelter',pillYouth:'Young people (16–25)',youth:'Young people’s housing (16–25), referral needed',youthOnly:'For ages 16–25. Referral needed. Not an emergency bed.',dayOnly:'Daytime only. No overnight bed.',dayFilt:'Day centres',offer:'Offers',
  h1:'Find help near you',search:'Search',ph:'Postcode or town',lang:'Cymraeg',noClosed:'Nothing closed in the last 30 days.',on:'✓ ON',mi:'miles',srcNote:'Details are shown in the language the source published them in.'},
 cy:{fb:'Banciau bwyd',before:'Cyn i chi fynd',beforeSum:'Ffoniwch bob amser cyn mynd',legend:'Allwedd',sh:'Llochesi',ws:'Mannau cynnes',near:'Dod o hyd i’r agosaf ataf',upd:'diweddarwyd',notLoaded:'tapiwch i ddangos',
  disc:'<b>Gall rhestrau newid heb rybudd.</b> Ffoniwch bob amser cyn teithio. Rydym yn rhestru gwasanaethau o wybodaeth gyhoeddus ac nid ydym yn ymweld â nhw nac yn eu harolygu. Mewn argyfwng ffoniwch 999. Os ydych chi’n cysgu ar y stryd, cysylltwch â’ch cyngor lleol.',
@@ -18,7 +18,7 @@ cy:{fb:'Banciau bwyd',before:'Cyn i chi fynd',beforeSum:'Ffoniwch bob amser cyn 
  groups:'I bwy',beds:'Gwelyau',season:'Tymor',ref:'Atgyfeirio',hours:'Oriau',prov:'Ar gael',book:'Archebu',dates:'Dyddiadau’r cynllun',
  src:'Ffynhonnell',ver:'gwiriwyd',chk:'Gwiriwyd',lst:'Rhestr wreiddiol',unv:'Heb ei wirio – ffoniwch cyn mynd',tchk:'Amseroedd wedi’u gwirio {d} – ffoniwch cyn mynd',seen:'Gwelwyd ar agor',refOnly:'Atgyfeirio yn unig',refNeed:'Angen atgyfeiriad / gwiriwch cyn mynd',refHostel:'Hostel atgyfeirio',refTurn:'Angen atgyfeiriad, peidiwch â throi i fyny heb un',selfRef:'Hunangyfeirio',openAcc:'Mynediad agored',verOnly:'Wedi’u gwirio yn unig',stale:'Heb ei wirio ers dros 7 diwrnod, ffoniwch cyn mynd',ended:'Mae cynllun y tymor hwn wedi dod i ben',
  nSh:'Llochesi agosaf',nWs:'Mannau cynnes agosaf',loading:'Wrthi’n llwytho…',offline:'Rydych chi all-lein. Yn dangos lleoedd a gadwyd ar ',offEnd:'. Ffoniwch cyn mynd.',offBare:'Rydych chi all-lein. Ffoniwch cyn mynd.',chkL:'Gwiriwyd y rhestrau ddiwethaf ',none:'Dim wedi’u rhestru',
- dayCentre:'Canolfan ddydd',youth:'Tai i bobl ifanc (16–25), angen atgyfeiriad',youthOnly:'Ar gyfer oed 16–25. Angen atgyfeiriad. Nid gwely brys.',dayOnly:'Yn ystod y dydd yn unig. Dim gwely dros nos.',dayFilt:'Canolfannau dydd',offer:'Yn cynnig',
+ dayCentre:'Canolfan ddydd',pillHostel:'Hostel',pillNight:'Lloches nos',pillYouth:'Pobl ifanc (16–25)',youth:'Tai i bobl ifanc (16–25), angen atgyfeiriad',youthOnly:'Ar gyfer oed 16–25. Angen atgyfeiriad. Nid gwely brys.',dayOnly:'Yn ystod y dydd yn unig. Dim gwely dros nos.',dayFilt:'Canolfannau dydd',offer:'Yn cynnig',
  h1:'Dod o hyd i help yn agos atoch',search:'Chwilio',ph:'Cod post neu dref',lang:'EN',noClosed:'Dim wedi cau yn y 30 diwrnod diwethaf.',on:'✓ YMLAEN',mi:'milltir',srcNote:'Dangosir y manylion yn yr iaith a ddefnyddiodd y ffynhonnell.'}};
 let lang=(()=>{try{return localStorage.getItem('lang')||'en'}catch(e){return 'en'}})();const t=k=>T[lang][k];
 const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -39,15 +39,37 @@ const v=x=>lang==='cy'&&VCY[x]?VCY[x]:x;
 const vdates=x=>lang==='cy'&&/^Until /.test(x||'')?'Tan '+fmt(x.slice(6)):v(x);
 const vreason=x=>lang==='cy'?String(x||'').replace(/^No longer listed by source \(unseen (\d+) days\)$/,'Nid yw’r ffynhonnell yn ei restru mwyach (heb ei weld ers $1 diwrnod)'):x;
 const LAYERS={sh:{file:'shelters.js',var:'SHELTERS',col:'#56B4E9',shape:'sq',on:false,data:null,group:null},ws:{file:'warmspaces.js',var:'WARMSPACES',col:'#D55E00',shape:'dia',on:false,data:null,group:null}};
-const SHP={sq:(c)=>`<svg width="32" height="40" viewBox="0 0 32 40"><path d="M3 3h26v26H21l-5 9-5-9H3z" fill="${c}" stroke="#0A1628" stroke-width="2.5"/><path d="M9 18l7-7 7 7v6H9z" fill="#0A1628"/></svg>`,
+/* Symbol inside the blue square (Dean 31 Oct). Same 16×16 box for all three: the site's house, a sun, and 16 over 25.
+   Paths are the approved strip (SQ / H / S / Y). The pin keeps the existing square-and-pointer outline. */
+const SYM={
+ house:'<g class="xmk"><path d="M8 15.5l8-7.5 8 7.5V24H8z" fill="#0A1628"/></g>',
+ sun:'<g class="xmk"><circle cx="16" cy="16" r="3.8" fill="#0A1628"/><g stroke="#0A1628" stroke-width="2.4" stroke-linecap="butt"><path d="M16 8v2.8M16 21.2V24M8 16h2.8M21.2 16H24M10.3 10.3l2 2M19.7 19.7l2 2M10.3 21.7l2-2M19.7 12.3l2-2"/></g></g>',
+ youth:'<g class="xmk"><text x="16" y="15.3" text-anchor="middle" font-family="system-ui,Segoe UI,Arial" font-weight="900" font-size="10" textLength="15.6" lengthAdjust="spacingAndGlyphs" fill="#0A1628">16</text><text x="16" y="24" text-anchor="middle" font-family="system-ui,Segoe UI,Arial" font-weight="900" font-size="10" textLength="15.6" lengthAdjust="spacingAndGlyphs" fill="#0A1628">25</text></g>',
+ food:'<g class="xmk"><path d="M9 13.5h14l-1.3 10.5H10.3z" fill="#0A1628"/><path d="M12 13.5V12a4 4 0 0 1 8 0v1.5" fill="none" stroke="#0A1628" stroke-width="2"/></g>',
+ flame:'<g class="xmk"><path d="M16.2 7.2c.4 3.2-2.4 4.6-2.2 8 .2 2.2 2.2 3.2 4.2 2.4 1.2-2.4-.4-4 1.4-6.2 1.8 2.4 2.6 4.8 1.2 7.6a5.2 5.2 0 1 1-9.4-2.8c.8-2.6 2.8-4 4.8-9z" fill="#0A1628"/></g>'};
+const symKey=i=>!i?'house':(i.kind==='day_centre'||i.service==='day_centre')?'sun':i.kind==='young_people'?'youth':'house';
+const symSvg=(key,px)=>`<svg ${px?`width="${px}" height="${px}" `:''}viewBox="1.6 1.6 28.8 28.8" aria-hidden="true"><path d="M3 3h26v26H3z" fill="#56B4E9" stroke="#0A1628" stroke-width="2.5"/>${SYM[key]}</svg>`;
+const symBox=key=>symSvg(key,28);
+const SHP={sq:(c,sym)=>`<svg width="32" height="40" viewBox="0 0 32 40"><path d="M3 3h26v26H21l-5 9-5-9H3z" fill="${c}" stroke="#0A1628" stroke-width="2.5"/>${SYM[sym||'house']}</svg>`,
  dia:(c)=>`<svg width="34" height="40" viewBox="0 0 34 40"><path d="M17 1l15 15-15 23L2 16z" fill="${c}" stroke="#0A1628" stroke-width="2.5"/><path d="M13 21c0-4 4-5 3-9 4 2 6 6 4 10a4 4 0 0 1-7-1z" fill="#0A1628"/></svg>`};
-const pinIcon=(col,grey,shape)=>L.divIcon({className:'xpin',html:SHP[shape](grey?'#7a8496':col),iconSize:[34,40],iconAnchor:[17,39],popupAnchor:[0,-34]});
+const pinIcon=(col,grey,shape,sym)=>L.divIcon({className:'xpin',html:SHP[shape](grey?'#7a8496':col,sym),iconSize:[34,40],iconAnchor:[17,39],popupAnchor:[0,-34]});
+window.mountShelterStrip=function(){if(document.getElementById('xsym'))return;const m=document.getElementById('map');if(!m)return;
+ const st=document.createElement('div');st.id='xsym';st.setAttribute('role','group');
+ const rows=[['house','Hostel or shelter','Hostel neu loches'],['sun','Day centre','Canolfan ddydd'],['youth','Young people','Pobl ifanc']];
+ st.innerHTML=rows.map(([k,en,cy])=>`<span class="xsy">${symBox(k)}<span class="v-en">${en}</span><span class="v-cy" lang="cy">${cy}</span></span>`).join('');
+ const host=document.getElementById('mapcol');if(host)host.append(st);else m.insertAdjacentElement('afterend',st)};
 // ---- UI
 const bar=document.createElement('div');bar.id='xbar';bar.setAttribute('role','toolbar');
 const seg=(k,col,shape,on)=>`<button type="button" class="xt" data-l="${k}" aria-pressed="${on}"><i class="sw ${shape}" style="background:${col}"></i><span data-t="${k}"></span></button>`;
 bar.innerHTML=seg('fb','#F5C518','tear',true)+seg('sh',LAYERS.sh.col,'sq',false)+seg('ws',LAYERS.ws.col,'dia',false);
 const hdr=document.querySelector('header');hdr.insertBefore(bar,hdr.querySelector('h1').nextSibling);
-const lg=document.createElement('div');lg.id='xleg';lg.innerHTML=`<span><i class="sw tear" style="background:#F5C518"></i><b data-t="fb"></b> <small id="u_fb"></small></span><span><i class="sw sq" style="background:${LAYERS.sh.col}"></i><b data-t="sh"></b> <small id="u_sh"></small></span><span><i class="sw dia" style="background:${LAYERS.ws.col}"></i><b data-t="ws"></b> <small id="u_ws"></small></span><span><i class="sw sq" style="background:${LAYERS.sh.col}"></i><b data-t="dayCentre"></b> <small data-t="dayOnly"></small></span><span><i class="sw sq" style="background:${LAYERS.sh.col}"></i><b data-t="youth"></b> <small data-t="youthOnly"></small></span>`;
+const keyRow=(ico,bKey,small)=>`<div class="xkey-row"><span class="xkey-ico" aria-hidden="true">${ico}</span><span class="xkey-txt"><b data-t="${bKey}"></b> ${small}</span></div>`;
+const lg=document.createElement('div');lg.id='xleg';lg.innerHTML=
+ keyRow(`<i class="sw tear" style="background:#F5C518"></i>`,'fb','<small id="u_fb"></small>')+
+ keyRow(symSvg('house',20),'sh','<small id="u_sh"></small>')+
+ keyRow(`<i class="sw dia" style="background:${LAYERS.ws.col}"></i>`,'ws','<small id="u_ws"></small>')+
+ keyRow(symSvg('sun',20),'dayCentre','<small data-t="dayOnly"></small>')+
+ keyRow(symSvg('youth',20),'youth','<small data-t="youthOnly"></small>');
 const ft=document.querySelector('footer');const fu=document.createElement('div');fu.id='xupd';ft.prepend(fu);fu.append(...lg.children);
 const lb=document.createElement('button');lb.type='button';lb.id='xlang';hdr.style.position='relative';hdr.prepend(lb);
 document.getElementById('f').after(document.getElementById('msg'));  // search errors show inline under the search box
@@ -94,12 +116,7 @@ function hoursHtml(h){if(!h)return'';if(typeof h==='string'){const s=h.trim();if
  const rest=WDAYS.every(d=>d in h)?'':`<div class="src">${lang==='cy'?'Dyddiau eraill heb eu rhestru, ffoniwch cyn mynd':'Other days not listed, call before you go'}</div>`;
  return '<table>'+rows+'</table>'+rest}
 // address: no repeated town or postcode, postcode once at the end
-function addr(i){const pc=(i.postcode||'').trim(),re=pc?new RegExp('\\s*'+pc.replace(/\s+/g,'\\s*')+'\\s*','ig'):null;const seen=new Set(),out=[];
- String(i.address||'').split(',').map(x=>(re?x.replace(re,' '):x).replace(/\s+/g,' ').trim()).filter(Boolean).forEach(x=>{const k=x.toLowerCase();if(seen.has(k))return;
-  // 'Birmingham Birmingham' left after removing the postcode
-  const w=x.split(' ');const h=w.length%2===0&&w.slice(0,w.length/2).join(' ').toLowerCase()===w.slice(w.length/2).join(' ').toLowerCase()?w.slice(0,w.length/2).join(' '):x;
-  if(seen.has(h.toLowerCase()))return;seen.add(h.toLowerCase());out.push(esc(h))});
- return out.join(', ')+(pc?` <b>${esc(pc)}</b>`:'')}
+function addr(i){return window.UFacts&&UFacts.addr?UFacts.addr(i):esc(i&&i.address||'')}
 const known=x=>x&&!/^not stated/i.test(String(x).trim());
 const CHIP=[['Food Available','Food','Bwyd'],['Charging Facilities','Charging','Gwefru'],['Free Wifi','Wifi','Wifi'],['Accessible Toilets','Toilets','Toiledau']];
 const chips=i=>{const p=i.provided||[];const c=CHIP.filter(([k])=>p.includes(k));return c.length?`<div class="chips">${c.map(([,en,cy])=>`<span class="chip">${lang==='cy'?cy:en}</span>`).join('')}</div>`:''};
@@ -108,44 +125,91 @@ const chips=i=>{const p=i.provided||[];const c=CHIP.filter(([k])=>p.includes(k))
 const HAS_T=/\d{1,2}:\d{2}|\d{1,2}(\.\d{2})?\s*(am|pm)|24 hours|midday|noon/i;  // hours_checked counts only when the hours hold real times
 const timesChecked=(i,now=Date.now())=>{const d=['confirmed','updated','confirmed_by_hand'].includes(i.times_status)&&i.times_checked?i.times_checked:(HAS_T.test(typeof i.hours==='string'?i.hours:JSON.stringify(i.hours||''))?i.hours_checked:null);if(!d||!/^\d{4}-\d{2}-\d{2}$/.test(d))return null;const age=(now-new Date(d+'T12:00:00').getTime())/864e5;return age<=7.5&&age>=-1?d:null};
 window.timesChecked=timesChecked;
-const tierTop=(i,k)=>{const unk=!!(k&&window.V3&&V3.status(k,i).st==='unknown');const chk=!unk&&timesChecked(i);const refH=i.card_type==='referral_hostel'?`<div class="xrefhostel">${t('refHostel')}</div><div class="xunv">${i.notice?esc(i.notice):t('refTurn')}</div>`:'';return refH+(i.tier==='unverified'?(chk?`<div class="xunv xtchk">${t('tchk').replace('{d}',fmt(chk))}</div>`:(unk?'':`<div class="xunv">${t('unv')}</div>`)):'')+(i.access_type?`<span class="xacc xacc-${i.access_type}">${t(i.access_type==='referral_only'?'refOnly':i.access_type==='self_referral'?'selfRef':'openAcc')}</span>`:'')+(k==='sh'&&i.access_type==='referral_only'&&i.card_type!=='referral_hostel'?`<div class="xrefneed">${t('refNeed')}</div>`:'')};
+const accBadge=i=>{const a=i.access_type;return a==='referral_only'?`<span class="xacc xacc-referral_only">${t('refOnly')}</span>`:a==='self_referral'?`<span class="xacc xacc-self_referral">${t('selfRef')}</span>`:a==='open_access'?`<span class="xacc xacc-open_access">${t('openAcc')}</span>`:''};
+const tierTop=(i,k)=>{const unk=!!(k&&window.V3&&V3.status(k,i).st==='unknown');const chk=!unk&&timesChecked(i);const refH=i.card_type==='referral_hostel'?`<div class="xrefhostel">${t('refHostel')}</div><div class="xunv">${i.notice?esc(i.notice):t('refTurn')}</div>`:'';return refH+(i.tier==='unverified'?(chk?`<div class="xunv xtchk">${t('tchk').replace('{d}',fmt(chk))}</div>`:(unk?'':`<div class="xunv">${t('unv')}</div>`)):'')};
 // Contact block (23 Oct): website + email up top; council line and national fallbacks, always labelled as NOT the venue's own number
 const tl=x=>String(x||'').replace(/[^\d+]/g,'');
 function shContact(i,tel,k){const cy=lang==='cy',o=[],sh=k!=='ws';const w=webUrl(i.website);
  if(w)o.push(`<a class="btn web" href="${esc(i.website.trim())}" target="_blank" rel="noopener">${cy?'Gwefan':'Website'}<span class="xdom">${esc(w.hostname.replace(/^www\./i,''))}</span></a>`);
- if(i.email)o.push(`<p class="xem"><b>${cy?'E-bost':'Email'}:</b> <a href="mailto:${esc(i.email)}">${esc(i.email)}</a></p>`);
+ const web=o[0]&&o[0].indexOf('btn web')>=0?o.shift():'';
+ const email=i.email?`<a href="mailto:${esc(i.email)}">${esc(i.email)}</a>`:'';
  if(i.council_phone){const lab=(cy?i.council_label_cy:i.council_label)||(sh?(cy?'Llinell ddigartrefedd y cyngor':'Council homeless line'):(cy?'Prif rif y cyngor':'Council main number'));
   o.push(`<div class="xhow">${sh?`<p><b>${cy?'Sut i gael lle':'How to get a place'}:</b> ${cy?'atgyfeiriad drwy':'referral via'} ${esc(i.council)}</p>`:tel?'':`<p class="sub">${cy?'Dim rhif i’r lle ei hun. Ffoniwch y cyngor':'No number for the venue itself. Call the council'} (${esc(i.council)}).</p>`}<a class="btn call xfb" href="tel:${tl(i.council_phone)}"><span class="xcl">${lab}:</span><span class="xcn">${IC('phone')}${esc(i.council_phone)}</span></a>${i.council_ooh&&i.council_ooh!==i.council_phone?`<p class="sub">${cy?'Y tu allan i oriau swyddfa':'Out of hours'}: <a href="tel:${tl(i.council_ooh)}">${esc(i.council_ooh)}</a></p>`:''}${i.council_url?`<p class="sub"><a href="${esc(i.council_url)}" target="_blank" rel="noopener">${cy?'Ffynhonnell: tudalen y cyngor':'Source: council page'}</a></p>`:''}</div>`)}
  if(!tel&&sh&&i.kind==='day_centre')o.push(`<p class="sub">${cy?'Dim rhif uniongyrchol. Ffoniwch cyn mynd. Dim gwely dros nos.':'No direct number. Call before you go. No overnight bed.'}</p>`);
  if(!tel&&sh&&i.kind!=='day_centre')o.push(`<div class="xhow xnat"><p><b>${cy?'Dim rhif uniongyrchol. Help heno':'No direct number. Help tonight'}:</b></p><a class="btn call xfb" href="tel:08088004444"><span class="xcl">${cy?'Llinell gymorth Shelter (cenedlaethol)':'Shelter national helpline'}:</span><span class="xcn">${IC('phone')}0808 800 4444</span></a><p class="sub">${cy?'Pobl yn cysgu allan':'Someone sleeping rough'}: <a href="https://thestreetlink.org.uk/" target="_blank" rel="noopener">StreetLink</a></p></div>`);
- return o.join('')}
+ return {web,rest:o.join(''),email}}
+function fbAcc(i){let a='';try{if(typeof acc==='function')a=acc(i)}catch(e){}
+ if(a==='voucher')return '<span class="xacc xacc-referral_only"><span class="v-en">Voucher</span><span class="v-cy" lang="cy">Taleb</span></span>';
+ if(a==='walkin')return '<span class="xacc xacc-open_access"><span class="v-en">Walk-in</span><span class="v-cy" lang="cy">Galw heibio</span></span>';
+ return ''}
+function cardTop(layer,i){const sk=layer==='fb'?'food':layer==='ws'?'flame':symKey(i);
+ if(!window.UFacts&&i&&i.kind==='young_people')return `<span class="xkind xyouth">${t('youth')}</span>`;
+ const sym=`<span class="xmkbox" data-sym="${sk}">${symSvg(sk,26)}</span>`;
+ let en,cy;
+ if(layer==='sh'){const pillKey=sk==='sun'?'dayCentre':sk==='youth'?'pillYouth':(i.kind==='hostel'||/\bhostel\b/i.test(i.name||''))?'pillHostel':'pillNight';en=T.en[pillKey];cy=T.cy[pillKey]}
+ else if(window.UFacts){const p=UFacts.typeOf(layer,i);en=p[0];cy=p[1]}
+ else if(i&&i.kind==='day_centre'){en=T.en.dayCentre;cy=T.cy.dayCentre}
+ else {en=layer;cy=layer}
+ const sea=window.UFacts&&UFacts.winter(i)?'<span class="useason"><span class="v-en">Winter-only</span><span class="v-cy" lang="cy">Gaeaf yn unig</span></span>':'';
+ const acc=layer==='fb'?fbAcc(i):accBadge(i);
+ return `<div class="xtop">${sym}<span class="tag utag xtype"><span class="v-en">${esc(en)}</span><span class="v-cy" lang="cy">${esc(cy)}</span>${sea}</span>${acc}</div>`}
+window.cardTop=cardTop;
+function shSource(i){const host=u=>esc(String(u||'').replace(/^https?:\/\/(www\.)?/,'').split('/')[0]);
+ const bi=k=>`<span class="v-en">${esc(T.en[k])}</span><span class="v-cy" lang="cy">${esc(T.cy[k])}</span>`;
+ const bits=[];
+ if(i.evidence_url){bits.push(`${bi('chk')}: <a href="${esc(i.evidence_url)}" target="_blank" rel="noopener">${esc(i.evidence_name||host(i.evidence_url))}</a>, ${fmt(i.verified_on||i.last_verified)}`);
+  bits.push(`${bi('lst')}: <a href="${esc(i.source_url)}" target="_blank" rel="noopener">${esc(i.source)}</a>`)}
+ else if(i.tier==='unverified'&&i.sign_url){bits.push(`${bi('seen')}: <a href="${esc(i.sign_url)}" target="_blank" rel="noopener">${host(i.sign_url)}</a>, ${fmt(i.checked_on)}`);
+  bits.push(`${bi('lst')}: <a href="${esc(i.source_url)}" target="_blank" rel="noopener">${esc(i.source)}</a>`)}
+ else if(i.source||i.source_url)bits.push(`<a href="${esc(i.source_url||'')}" target="_blank" rel="noopener">${esc(i.source||host(i.source_url))}</a>, ${bi('ver')} ${fmt(i.last_verified)}`);
+ if(!bits.length)return '';
+ return `<p class="xsrc"><b>${bi('src')}:</b> ${bits.join(' · ')}</p>`}
 function detail(k,i,dist){const tel0=(i.phone||'').replace(/[^\d+]/g,''),tel=i.tel!==undefined?(/^0\d{9,10}$/.test(i.tel)?i.tel:''):(/^(0\d{9,10}|\+44\d{9,10})$/.test(tel0)?tel0:''),row=(l,v)=>v&&v.length?`<p class="xrow"><b>${t(l)}:</b> ${v}</p>`:'';
  const day=k==='sh'&&i.kind==='day_centre';
  const youth=k==='sh'&&i.kind==='young_people';
- const dayHtml=day?`<span class="xkind">${t('dayCentre')}</span><p class="xday">${t('dayOnly')}</p>`:youth?`<span class="xkind xyouth">${t('youth')}</span><p class="xday">${t('youthOnly')}</p>`:'';
- return `${tierTop(i,k)}${window.V3?V3.badge(k,i):''}${dayHtml}<h3>${esc(i.name)}</h3>${dist!=null?`<div class="d">${dist*0.621<0.1?'0.1':dist*0.621<10?(dist*0.621).toFixed(1):Math.round(dist*0.621)} ${lang==='cy'?'milltir':(dist*0.621).toFixed(1)==='1.0'?'mile':'miles'}</div>`:''}${window.V3?V3.walk(dist):''}
+ const dayHtml=day?`<p class="xday">${t('dayOnly')}</p>`:youth?`<p class="xday">${t('youthOnly')}</p>`:'';
+ const fmtNum=s=>window.ukfmt?ukfmt(String(s||'').trim()):String(s||'').trim();
+ const phoneHtml=[i.phone_label?window.phLab(i):'',i.phone_unconfirmed?`<span class="psrc">${lang==='cy'?'Rhif heb ei gadarnhau ar wefan swyddogol':'Number not yet confirmed on an official site'}</span>`:'',String(i.phone||'').includes(' or ')?`<span class="xalt">${lang==='cy'?'Neu':'Or'}: ${String(i.phone).split(' or ').slice(1).map(x=>esc(fmtNum(x))).join(', ')}</span>`:''].filter(Boolean).join(' · ');
+ const phoneNumber=tel?`<span class="xph">${esc(fmtNum(String(i.phone||'').split(' or ')[0]))}</span>`:'';
+ const contact=shContact(i,tel,k);
+ const facts=window.UFacts?UFacts.block(k,i,{phoneHtml,phoneNumber,emailHtml:contact.email}):(k==='sh'?row('groups',esc((i.groups||[]).map(v).join(' · ')))+(day?'':row('beds',esc(i.beds)))+row('ref',esc(i.referral))+(REFONLY(i)?'':row('hours',hoursHtml(i.hours))):row('hours',hoursHtml(i.hours))+chips(i));
+ const checked=window.UFacts?UFacts.checked(i):'';
+ const call=tel?`<a class="btn call" href="tel:${tel}">${IC('phone')}<span class="xnum">${esc(fmtNum(String(i.phone||'').split(' or ')[0]))}</span></a>`:'';
+ const share=window.V3?V3.share(i):'';
+ const dir=`<a class="btn gm" href="https://www.google.com/maps/dir/?api=1&destination=${i.lat},${i.lng}&travelmode=walking" target="_blank" rel="noopener">${t('dir')}</a>`;
+ return `${tierTop(i,k)}${cardTop(k,i)}${window.V3?V3.badge(k,i):''}${dayHtml}<h3>${esc(i.name)}</h3>${dist!=null?`<div class="d">${dist*0.621<0.1?'0.1':dist*0.621<10?(dist*0.621).toFixed(1):Math.round(dist*0.621)} ${lang==='cy'?'milltir':(dist*0.621).toFixed(1)==='1.0'?'mile':'miles'}</div>`:''}${window.V3?V3.walk(dist):''}
+
  ${i.ended?`<p class="xw">${IC('alert')}${t('ended')}</p>`:''}${i.stale?`<p class="xw">${IC('alert')}${t('stale')}</p>`:''}
  <p>${addr(i)}</p>
- <a class="btn gm" href="https://www.google.com/maps/dir/?api=1&destination=${i.lat},${i.lng}&travelmode=walking" target="_blank" rel="noopener">${t('dir')}</a>${window.V3?V3.share(i):''}
- ${tel?`<a class="btn call" href="tel:${tel}">${IC('phone')}${t('call')}<span class="xnum"> ${esc(String(i.phone).split(' or ')[0])}</span></a>${i.phone_label?window.phLab(i):''}${i.phone_unconfirmed?`<p class="sub">${lang==='cy'?'Rhif heb ei gadarnhau ar wefan swyddogol':'Number not yet confirmed on an official site'}</p>`:''}${String(i.phone).includes(' or ')?`<p class="sub xalt">${lang==='cy'?'Neu':'Or'}: ${esc(String(i.phone).split(' or ').slice(1).join(', '))}</p>`:''}`:''}
- ${shContact(i,tel,k)}
- ${k==='sh'?row('groups',esc((i.groups||[]).length?(i.groups||[]).map(v).join(', '):(i.who_for==='Not stated'?v('Not stated'):'')))+(day?'':row('beds',esc(i.beds)))+row('season',esc(v(i.season)))+(i.scheme_dates&&known(i.scheme_dates)?row('dates',esc(vdates(i.scheme_dates))):'')+row('ref',esc(i.referral))+(day&&i.offer?row('offer',esc(i.offer)):'')+(REFONLY(i)?'':row('hours',i.hours&&typeof i.hours==='object'?hoursHtml(i.hours):esc(hDisp(i.hours))))
-  :row('hours',hoursHtml(i.hours))+chips(i)+(known(i.booking)?row('book',esc(v(i.booking))):'')+(known(i.scheme_dates)?row('dates',esc(vdates(i.scheme_dates))):'')}
- ${false?`<p><a href="${esc(/^https?:/.test(i.website)?i.website:'https://'+i.website)}" target="_blank" rel="noopener">${esc(i.website.replace(/^https?:\/\//,'').slice(0,40))}</a></p>`:''}
- ${lang==='cy'?`<p class="sub">${t('srcNote')}</p>`:''}${i.evidence_url?`<p class="sub xchk">${t('chk')}: <a href="${esc(i.evidence_url)}" target="_blank" rel="noopener">${esc(i.evidence_name||i.evidence_url.replace(/^https?:\/\/(www\.)?/,'').split('/')[0])}</a>, ${fmt(i.verified_on||i.last_verified)}</p><p class="sub xlst">${t('lst')}: <a href="${esc(i.source_url)}" target="_blank" rel="noopener">${esc(i.source)}</a></p>`:(i.tier==='unverified'&&i.sign_url?`<p class="sub xchk">${t('seen')}: <a href="${esc(i.sign_url)}" target="_blank" rel="noopener">${esc(i.sign_url.replace(/^https?:\/\/(www\.)?/,'').split('/')[0])}</a>, ${fmt(i.checked_on)}</p><p class="sub xlst">${t('lst')}: <a href="${esc(i.source_url)}" target="_blank" rel="noopener">${esc(i.source)}</a></p>`:`<p class="sub">${t('src')}: <a href="${esc(i.source_url)}" target="_blank" rel="noopener">${esc(i.source)}</a>, ${t('ver')} ${fmt(i.last_verified)}</p>`)}
- ${window.repB?repB(k,i):''}`}
-function showSheet(html){const s=document.getElementById('sheet');document.getElementById('sheetBody').innerHTML=`<div class="card">${html}</div>`;s.classList.add('open');s.setAttribute('aria-hidden','false')}
+ ${facts}
+ ${checked}
+ <div class="xacts">${dir}${call}${contact.web}${share}</div>
+ ${window.repB?repB(k,i):''}
+ ${contact.rest?`<div class="xafter">${contact.rest}</div>`:''}
+ ${shSource(i)}`}
+function fitSym(root){(root||document).querySelectorAll('.xtop').forEach(row=>{const pill=row.querySelector('.utag,.xkind'),svg=row.querySelector('.xmkbox svg'),sp=row.querySelector('.xmkbox');if(!pill||!svg||!sp)return;sp.style.marginTop='0px';const h=pill.getBoundingClientRect().height;if(!(h>1))return;const px=Math.round(h*100)/100;svg.style.width=px+'px';svg.style.height=px+'px';svg.setAttribute('width',px);svg.setAttribute('height',px);const tr=pill.getBoundingClientRect(),sr=svg.getBoundingClientRect();sp.style.marginTop=(tr.top-sr.top)+'px'})}
+window.fitSym=fitSym;
+function showSheet(html){if(!html||!/<h3[\s>]/.test(html)){if(window.closeSheet)closeSheet();return}const s=document.getElementById('sheet');document.getElementById('sheetBody').innerHTML=`<div class="card">${html}</div>`;s.classList.add('open');s.setAttribute('aria-hidden','false');fitSym(s)}
+function sheetEmpty(){const s=document.getElementById('sheet');return !!(s&&s.classList.contains('open')&&!((document.querySelector('#sheetBody h3')||{}).textContent||'').trim())}
+function holdSheet(){window.__holdSheet=Date.now()+600;if(window.closeSheet)closeSheet();setTimeout(()=>{if(sheetEmpty()&&window.closeSheet)closeSheet()},0);setTimeout(()=>{if(sheetEmpty()&&window.closeSheet)closeSheet()},400)}
 async function toggle(k,on){if(k==='fb'){const b=document.querySelector('.xt[data-l=fb]');b.setAttribute('aria-pressed',on);on?map.addLayer(cl):map.removeLayer(cl);return}const L_=LAYERS[k],b=document.querySelector(`.xt[data-l=${k}]`);L_.on=on;b.setAttribute('aria-pressed',on);try{localStorage.setItem('lay_'+k,on?'1':'0')}catch(e){}
  if(!on){if(L_.group)map.removeLayer(L_.group);if(lastPos)nearX(...lastPos);return}
  try{await load(k)}catch(e){return}
  if(!L_.group){L_.group=L.markerClusterGroup({showCoverageOnHover:false,maxClusterRadius:45,iconCreateFunction:c=>L.divIcon({className:'xcl',html:`<div class="${L_.shape}" style="background:${L_.col}"><span>${c.getChildCount()}</span></div>`,iconSize:[40,40]})});
-  L_.data.items.forEach(i=>{if(i.no_pin)return;if(i.card_type==='referral_hostel'||typeof i.lat!=='number'||typeof i.lng!=='number')return;const m=L.marker([i.lat,i.lng],{icon:pinIcon(i.tier==='unverified'?'#8a94a6':L_.col,i.ended,L_.shape),opacity:i.ended?0.6:(i.tier==='unverified'?0.75:1),title:i.name});
-   m.on('click',()=>showSheet(detail(k,i,lastPos?hav(lastPos[0],lastPos[1],i.lat,i.lng):null)));L_.group.addLayer(m)})}
+  L_._ms=[];L_.data.items.forEach(i=>{if(i.no_pin)return;if(i.card_type==='referral_hostel'||typeof i.lat!=='number'||typeof i.lng!=='number')return;const m=L.marker([i.lat,i.lng],{icon:pinIcon(i.tier==='unverified'?'#8a94a6':L_.col,i.ended,L_.shape,k==='sh'?symKey(i):null),opacity:i.ended?0.6:(i.tier==='unverified'?0.75:1),title:i.name});
+   m._si=i;m.on('click',()=>showSheet(detail(k,i,lastPos?hav(lastPos[0],lastPos[1],i.lat,i.lng):null)));L_._ms.push(m);L_.group.addLayer(m)});syncPins(k)}
  if(L_.on)map.addLayer(L_.group);if(lastPos)nearX(...lastPos)}
 document.querySelectorAll('.xt').forEach(b=>b.onclick=()=>toggle(b.dataset.l,b.getAttribute('aria-pressed')!=='true'));
 // ---- nearest lists for the extra layers, alongside (not inside) the food bank list
-let lastPos=null;const openOnly={sh:false,ws:false},verOnly={sh:false,ws:false},dayOnly={sh:false};
-document.addEventListener('click',e=>{const d=e.target.closest('.v3dc');if(d){dayOnly[d.dataset.k]=!dayOnly[d.dataset.k];if(lastPos)nearX(...lastPos);return}const v=e.target.closest('.v3vo');if(v){verOnly[v.dataset.k]=!verOnly[v.dataset.k];if(lastPos)nearX(...lastPos);return}const b=e.target.closest('.v3oo');if(!b)return;openOnly[b.dataset.k]=!openOnly[b.dataset.k];if(lastPos)nearX(...lastPos)});
+let lastPos=null;const openOnly={sh:false,ws:false},verOnly={sh:false,ws:false},dayOnly={sh:false},youthOnly={sh:false},typeOn={shost:false};
+function shelterTypeOk(i){const day=dayOnly.sh,youth=youthOnly.sh,hostel=typeOn.shost;if(!day&&!youth&&!hostel)return true;
+ if(day&&(i.kind==='day_centre'||i.service==='day_centre'))return true;if(youth&&i.kind==='young_people')return true;
+ return !!(hostel&&i.kind!=='day_centre'&&i.service!=='day_centre'&&i.kind!=='young_people')}
+function syncTypeChips(){const map={shost:typeOn.shost,youth:youthOnly.sh,sday:dayOnly.sh};Object.keys(map).forEach(k=>{const e=document.querySelector('#chips [data-f="'+k+'"]');if(e)e.setAttribute('aria-pressed',String(!!map[k]))})}
+function syncPins(k){const L_=LAYERS[k];if(!L_||!L_.group||!L_._ms)return;const ot=!!(typeof F!=='undefined'&&F.open&&window.V3);
+ L_._ms.forEach(m=>{const i=m._si;if(!i)return;const show=(k!=='sh'||shelterTypeOk(i))&&!(ot&&(i.ended||V3.shutToday(k,i)));m._keep=show;const on=L_.group.hasLayer(m);if(show&&!on)L_.group.addLayer(m);else if(!show&&on)L_.group.removeLayer(m)});if(k==='sh')window.__shPins=L_._ms}
+document.addEventListener('click',e=>{const chip=e.target.closest('#chips [data-f=shost],#chips [data-f=youth],#chips [data-f=sday]');if(chip){e.preventDefault();holdSheet();const f=chip.dataset.f;if(f==='shost')typeOn.shost=!typeOn.shost;else if(f==='youth')youthOnly.sh=!youthOnly.sh;else dayOnly.sh=!dayOnly.sh;syncTypeChips();syncPins('sh');if(lastPos)nearX(...lastPos);return}const d=e.target.closest('.v3dc');if(d){dayOnly[d.dataset.k]=!dayOnly[d.dataset.k];syncTypeChips();syncPins('sh');if(lastPos)nearX(...lastPos);return}const v=e.target.closest('.v3vo');if(v){verOnly[v.dataset.k]=!verOnly[v.dataset.k];if(lastPos)nearX(...lastPos);return}const b=e.target.closest('.v3oo');if(!b)return;openOnly[b.dataset.k]=!openOnly[b.dataset.k];if(lastPos)nearX(...lastPos)});
+{const hide=document.getElementById('fhide');if(hide){const prev=hide.onclick;hide.onclick=e=>{if(document.documentElement.dataset.v3k==='sh'){typeOn.shost=false;youthOnly.sh=false;dayOnly.sh=false;syncTypeChips();const ot=document.getElementById('openToday');if(ot&&ot.checked){ot.checked=false;ot.dispatchEvent(new Event('change'))}else{syncPins('sh');if(lastPos)nearX(...lastPos)}}if(prev)prev.call(hide,e)}}}
 window.clearNearX=()=>{lastPos=null;$x('xlist').innerHTML='';window._fitX={};for(const k in xRank)delete xRank[k]};  // 28 Oct QA B2: failed search clears these lists too
 // Show more (29 Oct 2026): same rules as the food bank list (showmore.js, window.SHOW_LIMITS). The first page is the nearest few,
 // each press appends the next batch before that layer's button, and a new search, Verified only or Open today starts again.
@@ -153,7 +217,7 @@ window.clearNearX=()=>{lastPos=null;$x('xlist').innerHTML='';window._fitX={};for
 const XLIM=()=>{const S=window.SHOW_LIMITS||{},f=+S.first,m=+S.more;return {first:f>0?f:5,more:m>0?m:10}};
 const xRank={},xOpen={};
 function rankX(k,lat,lng,vo,ot){const L_=LAYERS[k];if(!L_.data)return[];ot=ot&&window.V3&&V3.shutToday;
- return L_.data.items.filter(i=>i.card_type!=='referral_hostel'&&typeof i.lat==='number'&&typeof i.lng==='number'&&(!vo||i.tier!=='unverified'||timesChecked(i))&&!(ot&&(i.ended||V3.shutToday(k,i)))&&!(k==='sh'&&dayOnly.sh&&i.kind!=='day_centre')).map(i=>({i,d:hav(lat,lng,i.lat,i.lng)})).sort((a,b)=>((!!a.i.ended)-(!!b.i.ended))||a.d-b.d)}
+ return L_.data.items.filter(i=>i.card_type!=='referral_hostel'&&typeof i.lat==='number'&&typeof i.lng==='number'&&(!vo||i.tier!=='unverified'||timesChecked(i))&&!(ot&&(i.ended||V3.shutToday(k,i)))&&(k!=='sh'||shelterTypeOk(i))).map(i=>({i,d:hav(lat,lng,i.lat,i.lng)})).sort((a,b)=>((!!a.i.ended)-(!!b.i.ended))||a.d-b.d)}
 const xCard=(k,x)=>`<div class="card x${k}${!x.i.ended&&window.V3&&V3.status(k,x.i).st==='closed'?' v3closed':''}" data-id="${esc(x.i.id)}">${detail(k,x.i,x.d)}</div>`;
 const xBtn=k=>`<button type="button" id="xmore-${k}" class="showmore xmore" data-k="${k}" aria-controls="xlist" aria-expanded="${xOpen[k]?'true':'false'}"><span class="v-en">Show more</span><span class="v-cy" lang="cy">Dangos mwy</span></button>`;
 function nearX(lat,lng,label,keep){lastPos=[lat,lng,label];const out=[],save={lat,lng,label,at:new Date().toISOString(),fb:document.getElementById('list').innerHTML};
@@ -163,7 +227,11 @@ function nearX(lat,lng,label,keep){lastPos=[lat,lng,label];const out=[],save={la
   const all=rankX(k,lat,lng,verOnly[k],ot);xRank[k]=all;const r=all.slice(0,Math.max(lim.first,shown));
   (window._fitX=window._fitX||{})[k]=r.length?L.latLngBounds([[lat,lng],...r.slice(0,lim.first).map(x=>[x.i.lat,x.i.lng])]).pad(0.2):null;  /* Dean 25 Oct 20:45: phone map shows the listed results pins (first page; Show more never moves the map) */
   out.push(`<div class="lh" style="color:${L_.col}">${t(k==='sh'?'nSh':'nWs')}</div>`+`<button type="button" class="v3t v3vo" data-k="${k}" aria-pressed="${verOnly[k]}">${t('verOnly')}</button>`+(k==='sh'?`<button type="button" class="v3t v3dc" data-k="sh" aria-pressed="${dayOnly.sh}">${t('dayFilt')}</button>`:'')+(r.length?r.map(x=>xCard(k,x)).join('')+(all.length>r.length?xBtn(k):''):`<p>${t('none')}</p>`))}
- $x('xlist').innerHTML=out.join('');save.x=$x('xlist').innerHTML;try{localStorage.setItem('lastSearch',JSON.stringify(save))}catch(e){}}
+ $x('xlist').innerHTML=out.join('');fitSym(document.getElementById('list'));fitSym($x('xlist'));['sh','ws'].forEach(syncPins);pinNote();save.x=$x('xlist').innerHTML;try{localStorage.setItem('lastSearch',JSON.stringify(save))}catch(e){}}
+function pinNote(){let el=document.getElementById('xnopin');if(!el){el=document.createElement('div');el.id='xnopin';el.hidden=true;el.setAttribute('role','note');el.innerHTML='<span class="v-en">Some places have no public address – see the list</span><span class="v-cy" lang="cy">Mae rhai lleoedd heb gyfeiriad cyhoeddus – gweler y rhestr</span>';const mapEl=document.getElementById('map');if(mapEl)mapEl.appendChild(el)}
+ const sh=window.v3focus==='sh',items=(LAYERS.sh&&LAYERS.sh.data&&LAYERS.sh.data.items)||[];
+ const recs=[...document.querySelectorAll('#xlist > .card.xsh')].map(c=>items.find(i=>i.id===c.dataset.id)).filter(Boolean);
+ el.hidden=!(sh&&recs.length&&recs.every(i=>i.no_pin))}
 // Chromium scrolls a newly focused card into view on a later frame: put the scroll position back, including on that frame (as showmore.js).
 function pinScroll(x,y){let lock=true,busy=false;const fix=()=>{if(!lock||busy||(scrollX===x&&scrollY===y))return;busy=true;scrollTo(x,y);busy=false};
  fix();addEventListener('scroll',fix,true);requestAnimationFrame(()=>{fix();requestAnimationFrame(()=>{fix();lock=false;removeEventListener('scroll',fix,true)})})}
@@ -177,7 +245,7 @@ window.showMoreX=function(k){const list=$x('xlist'),btn=$x('xmore-'+k);if(!list|
  const have=new Set([...list.querySelectorAll('.card.x'+k)].map(c=>c.dataset.id));
  const batch=xRank[k].filter(it=>!have.has(String(it.i.id))).slice(0,XLIM().more);
  const tpl=document.createElement('template');tpl.innerHTML=batch.map(it=>xCard(k,it)).join('');const added=[...tpl.content.children];
- if(added.length){btn.before(tpl.content);xOpen[k]=true}
+ if(added.length){btn.before(tpl.content);xOpen[k]=true;fitSym(list)}
  batch.forEach(it=>have.add(String(it.i.id)));const remain=xRank[k].filter(it=>!have.has(String(it.i.id))).length;
  if(remain<=0){btn.hidden=true;btn.setAttribute('aria-expanded','true');if(fromBtn&&added[0]){const h=added[0].querySelector('h3');if(h){h.tabIndex=-1;h.focus({preventScroll:true})}}}
  else{btn.setAttribute('aria-expanded',xOpen[k]?'true':'false');if(fromBtn)btn.focus({preventScroll:true})}
@@ -189,7 +257,7 @@ document.addEventListener('click',e=>{const b=e.target.closest('#xlist .xmore');
 const orig=window.nearest;window.nearest=function(lat,lng,label,note){const r=orig.apply(this,arguments);nearX(lat,lng,label);
  const nk=window.__nearK;window.__nearK=null;if(nk&&!window.v3scrollList){const h=[...document.querySelectorAll('#xlist .lh')].find(e=>e.textContent===t(nk==='sh'?'nSh':'nWs'));if(h){const y=h.getBoundingClientRect().top+scrollY-Math.round(innerHeight*0.15);setTimeout(()=>scrollTo({top:Math.max(0,y),behavior:'auto'}),0)}}  // Find nearest shelter / warm space: land on that list, not the food banks
  map.invalidateSize();  // map-top scroll removed 22 Oct (UX): index.html does the one scroll, only on an explicit search
- const fit=()=>{const k=window.v3focus,fx=window._fitX&&window._fitX[k],B=(k==='ws'||k==='sh')&&fx&&innerWidth<1024?fx:window._fitB;if(B){map.invalidateSize();map.fitBounds(B,{animate:false})}};/* phones: fit the LISTED type results (never filters anything) */fit();clearTimeout(window._refitT);window._refitT=setTimeout(fit,250);return r};  /* window._refitT: a later deliberate map move (e.g. the emergency banner) cancels this delayed re-fit */  // map can resize when results appear: re-fit so one Search press is enough
+ const fit=()=>{const k=window.v3focus,fx=window._fitX&&window._fitX[k],wide=(k==='ws'||k==='sh')&&fx&&innerWidth<1024,B=wide?fx:window._fitB;if(!B)return;map.invalidateSize();map.fitBounds(B,{animate:false});if(wide&&map.getZoom()<12&&lastPos)map.setView([lastPos[0],lastPos[1]],13,{animate:false})};/* phones: a postcode search stays on the town, not the spread of the first page */fit();clearTimeout(window._refitT);window._refitT=setTimeout(fit,250);return r};  /* window._refitT: a later deliberate map move (e.g. the emergency banner) cancels this delayed re-fit */  // map can resize when results appear: re-fit so one Search press is enough
 try{nearest=window.nearest}catch(e){}
 // ---- recently closed (each layer kept separate)
 $x('xclosed').addEventListener('toggle',async e=>{if(!e.target.open)return;const parts=[];
@@ -197,7 +265,7 @@ $x('xclosed').addEventListener('toggle',async e=>{if(!e.target.open)return;const
  $x('xcl').innerHTML=parts.join('')});
 // ---- Welsh for existing food bank UI: rewrites displayed text only, never data or behaviour
 const FBX=[[/^Filter on: open today, (\d+) closed nearby hidden\. $/,'Hidlydd ymlaen: ar agor heddiw, $1 ar gau gerllaw wedi’u cuddio. '],[/^Show all$/,'Dangos y cyfan'],[/^Closed today, next open (Mon|Tue|Wed|Thu|Fri|Sat|Sun) (.+)$/,(m,d,rest)=>'Ar gau heddiw, ar agor nesaf '+({Mon:'Llun',Tue:'Maw',Wed:'Mer',Thu:'Iau',Fri:'Gwe',Sat:'Sad',Sun:'Sul'}[d])+' '+rest],[/^Closed today$/,'Ar gau heddiw'],[/^Venues vary$/,'Mae’r lleoliadau’n amrywio'],[/^Source: (.*)$/,'Ffynhonnell: $1'],[/^Wednesdays, times vary$/,'Dydd Mercher, mae’r amseroedd yn amrywio'],[/^Closed$/,'Ar gau'],[/^Updated today at (\d\d:\d\d)$/,'Diweddarwyd heddiw am $1'],[/^Checked three times daily$/,'Gwirio dair gwaith y dydd'],[/^Food bank$/,'Banc bwyd'],[/^Food bank · voucher needed$/,'Banc bwyd · angen taleb'],[/^Walk-in not confirmed – call before you go$/,'Galw heibio heb ei gadarnhau – ffoniwch cyn mynd'],[/^Times change, call before you go\.$/,'Mae amseroedd yn newid, ffoniwch cyn mynd.'],[/^Call for opening times$/,'Ffoniwch am yr oriau agor'],
-[/^Opening times$/,'Oriau agor'],[/^Today:$/,'Heddiw:'],[/^Or: (.+)$/,'Neu: $1'],[/^Other days not listed, call before you go$/,'Dyddiau eraill heb eu rhestru, ffoniwch cyn mynd'],[/^As written on their website(.*)$/,(m,a)=>'Fel y’i ysgrifennwyd ar eu gwefan'+a.replace(/checked/,'gwiriwyd')],[/^Check times on their website$/,'Gwiriwch yr amseroedd ar eu gwefan'],[/^Directions$/,'Cyfarwyddiadau'],[/^Their website$/,'Eu gwefan'],
+[/^Opening times$/,'Oriau agor'],[/^Today:$/,'Heddiw:'],[/^Or: (.+)$/,'Neu: $1'],[/^Other days not listed, call before you go$/,'Dyddiau eraill heb eu rhestru, ffoniwch cyn mynd'],[/^As written on their website(.*)$/,(m,a)=>'Fel y’i ysgrifennwyd ar eu gwefan'+a.replace(/checked/,'gwiriwyd')],[/^Check times on their website$/,'Gwiriwch yr amseroedd ar eu gwefan'],[/^Directions$/,'Cyfarwyddiadau'],[/^Website$/,'Gwefan'],[/^Their website$/,'Eu gwefan'],[/^Walk-in$/,'Galw heibio'],[/^Voucher$/,'Taleb'],
 [/^Give Food page$/,'Tudalen Give Food'],[/^Check times$/,'Gwirio amseroedd'],[/^source$/,'ffynhonnell'],[/^Share this map$/,'Rhannu’r map hwn'],[/^Link copied ✓$/,'Dolen wedi’i chopïo ✓'],
 [/^Pin placed at the postcode centre\. Check the address\.$/,'Pin wedi’i osod yng nghanol y cod post. Gwiriwch y cyfeiriad.'],[/^Phone \(from Give Food\)$/,'Ffôn (gan Give Food)'],[/^Phone \(checked on their site\)$/,'Ffôn (wedi’i wirio ar eu gwefan)'],[/^Phone number from Give Food$/,'Rhif ffôn gan Give Food'],[/^Phone number checked on their site$/,'Rhif ffôn wedi’i wirio ar eu gwefan'],[/^Number for (.+)$/,'Rhif ar gyfer $1'],
 [/^ ?Open today only$/,' Ar agor heddiw yn unig'],[/^Walk-ins welcome$/,'Croeso i alw heibio'],[/^Voucher needed$/,'Angen taleb'],[/^▾ Filters $/,'▾ Hidlwyr '],[/^Places with no times stay listed$/,'Mae lleoedd heb amseroedd yn aros ar y rhestr'],[/^Hides only places listed as closed today\. Places without listed times stay, call to check\.$/,'Yn cuddio dim ond lleoedd sydd wedi’u rhestru ar gau heddiw. Mae lleoedd heb amseroedd yn aros, ffoniwch i wirio.'],
@@ -217,7 +285,7 @@ const FBX=[[/^Filter on: open today, (\d+) closed nearby hidden\. $/,'Hidlydd ym
 [/^\. Postcodes: $/,'. Codau post: '],[/^\)\. Map © OpenStreetMap contributors\. Backup map: OpenFreeMap © OpenMapTiles\. © MapTiler\. Built by $/, '). Map © cyfranwyr OpenStreetMap. Map wrth gefn: OpenFreeMap © OpenMapTiles. © MapTiler. Adeiladwyd gan '],[/^checked (.*)$/,(m,a)=>'gwiriwyd '+cyDates(a)],
 [/^(\d{1,2}) (January|February|March|April|May|June|July|August|September|October|November|December|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) (\d{4})$/,(m,d,mo,y)=>d+' '+MCY[MEN.indexOf(mo.slice(0,3))]+' '+y]];
 const ATTR=[['q','aria-label','Postcode or town','Cod post neu dref'],['fhide','aria-label','Hide filters','Cuddio hidlwyr'],['chips','aria-label','Food bank filters (swipe up to hide)','Hidlwyr banc bwyd (llithro i fyny i guddio)'],['me','aria-label','Use my location','Defnyddio fy lleoliad'],['me','title','Use my location','Defnyddio fy lleoliad']];
-const skip=n=>n.parentElement&&n.parentElement.closest('#rpm,.rpb,#xextra,#xbar,#xleg,#xbefore summary,#xoff,#xnear,#xlang,script,style,.leaflet-control-attribution');
+const skip=n=>n.parentElement&&n.parentElement.closest('#rpm,.rpb,#xextra,#xbar,#xleg,#xbefore summary,#xoff,#xnear,#xlang,#xnopin,script,style,.leaflet-control-attribution');
 function trNode(n){if(n.nodeType!==3||skip(n))return;if(n.__en==null||n.nodeValue!==n.__cy)n.__en=n.nodeValue;
  if(lang!=='cy'){if(n.__cy!=null&&n.nodeValue===n.__cy)n.nodeValue=n.__en;return}
  let x=n.__en;for(const[r,w]of FBX)if(r.test(x)){x=x.replace(r,w);break}n.__cy=x;if(n.nodeValue!==x)n.nodeValue=x}
