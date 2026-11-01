@@ -69,6 +69,10 @@ sets.forEach(([layer, items]) => {
 });
 out.problems = out.problems.slice(0, 30);
 out.n = sets.reduce((n, s) => n + s[1].length, 0);
+const hall = ((ctx.FB_DATA && ctx.FB_DATA.items) || []).find(i => i.id === 'salvation-army/brighton-congress-hall');
+out.hall = hall ? text(U.checked(hall)) : '';
+const foyer = ((ctx.SHELTERS && ctx.SHELTERS.items) || []).find(i => i.id === 'man-brighton-hove-foyer');
+out.foyer = foyer ? (U.howPair('sh', foyer) || [])[0] : '';
 process.stdout.write(JSON.stringify(out));
 '''
 
@@ -86,3 +90,5 @@ class Uniform(unittest.TestCase):
         self.assertGreater(got['counts'].get('sh', 0), 50, got['counts'])
         self.assertGreater(got['counts'].get('ws', 0), 50, got['counts'])
         self.assertEqual(got['problems'], [], 'checked %s across %s' % (got['n'], got['counts']))
+        self.assertIn('31 Oct 2026', got.get('hall', ''), got.get('hall'))
+        self.assertEqual(got.get('foyer'), 'Referral needed: Brighton & Hove City Council Housing Options team')

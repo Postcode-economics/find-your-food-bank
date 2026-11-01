@@ -109,6 +109,11 @@
   }
   function howPair(layer, i, opt) {
     const ref = String(i.referral || '').trim();
+    const named = ref.match(/referral needed:\s*(.+)$/i);
+    if (named) {
+      const who = named[1].replace(/\.\s*$/, '').trim();
+      return ['Referral needed: ' + who, 'Angen atgyfeiriad: ' + who];
+    }
     if (layer === 'fb') {
       const a = accessOf(i, opt);
       if (a === 'voucher') return ['Voucher', 'Taleb'];
@@ -273,7 +278,10 @@
     return phrase(rep(MEN, 'Until', 'Opens'), rep(MCY, 'Tan', 'Yn agor'));
   }
   function checkedHtml(i) {
-    const v = i.verified_on || i.checked_on || i.hours_checked || i.last_verified || (i.opening_times && i.opening_times.checked_date) || '';
+    let v = i.verified_on || i.checked_on || i.hours_checked || i.last_verified || (i.opening_times && i.opening_times.checked_date) || i.checked || '';
+    // A Give Food record with no date of its own uses the dataset fetch day (display only).
+    const fetched = (typeof window !== 'undefined' && window.FB_DATA && window.FB_DATA.fetched) || '';
+    if (!dateParts(v) && i.givefood && dateParts(fetched)) v = fetched;
     const p = dateParts(v);
     const body = p ? phrase(dateEn(v), dateCy(v)) : NS();
     return `<p class="xrow uchk"><b>${B('Last checked', 'Gwiriwyd ddiwethaf')}:</b> ${body}</p>`;
@@ -283,12 +291,18 @@
     const how = howPair(layer, i, opt);
     const wheel = wheelPair(i);
     const who = whoHtml(i);
-    const fac = facHtml(i);
     const times = timesHtml(layer, i);
+    let fac = facHtml(i);
+    const beds = i.beds ? `<span class="chip">${phrase('Beds: ' + i.beds, 'Gwelyau: ' + i.beds)}</span>` : '';
+    const offer = i.offer ? `<span class="chip">${phrase(String(i.offer), String(i.offer))}</span>` : '';
+    if (beds || offer) {
+      if (!fac) fac = '<span class="chips"></span>';
+      fac = fac.replace(/<\/span>\s*$/, beds + offer + '</span>');
+    }
     let extra = '';
-    if (opt.phoneHtml) extra += row('Phone', 'Ffôn', opt.phoneHtml);
-    if (i.beds) extra += row('Beds', 'Gwelyau', esc(i.beds));
-    if (i.offer) extra += row('Offers', 'Yn cynnig', esc(i.offer));
+    const phoneBody = [opt.phoneNumber || '', opt.phoneHtml || ''].filter(Boolean).join(' · ');
+    if (phoneBody) extra += row('Phone', 'Ffôn', phoneBody);
+    if (opt.emailHtml) extra += row('Email', 'E-bost', opt.emailHtml);
     const sd = i.scheme_dates;
     if (sd && !/^not stated/i.test(String(sd).trim())) extra += row('Scheme dates', 'Dyddiadau’r cynllun', schemeBody(sd));
     return `<div class="ufact">${row('Who it’s for', 'I bwy mae hwn', who || NS())}${row('How to get in', 'Sut i fynd i mewn', how ? phrase(how[0], how[1]) : NS())}${row('Opening times', 'Oriau agor', times || NS())}${row('Wheelchair access', 'Mynediad i gadeiriau olwyn', wheel ? phrase(wheel[0], wheel[1]) : NS())}${row('Facilities', 'Cyfleusterau', fac || NS())}${extra}</div>`;

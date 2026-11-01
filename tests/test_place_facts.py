@@ -44,6 +44,7 @@ const out = {
     w: U.howPair('fb', {id: 'a'}, {access: 'walkin'}),
     u: U.howPair('fb', {id: 'a'}, {access: 'unconfirmed'}),
     ref: U.howPair('sh', {access_type: 'referral_only', referral: 'Referral only: Via HAB'}),
+    foyer: U.howPair('sh', {referral: 'For ages 16-25. Referral needed: Brighton & Hove City Council Housing Options team.'}),
     self: U.howPair('sh', {access_type: 'self_referral'}),
     walk: U.howPair('sh', {access_type: 'open_access'})
   },
@@ -159,6 +160,7 @@ class Cards(unittest.TestCase):
         self.assertEqual(self.r['how']['w'], ['Walk-in', 'Galw heibio'])
         self.assertIsNone(self.r['how']['u'])
         self.assertEqual(self.r['how']['ref'][0], 'Referral via HAB')
+        self.assertEqual(self.r['how']['foyer'], ['Referral needed: Brighton & Hove City Council Housing Options team', 'Angen atgyfeiriad: Brighton & Hove City Council Housing Options team'])
         self.assertEqual(self.r['how']['self'][0], 'Self-referral')
         self.assertEqual(self.r['how']['walk'][0], 'Walk-in')
         self.assertEqual(self.r['wheel'][0], ['Yes', 'Ie'])

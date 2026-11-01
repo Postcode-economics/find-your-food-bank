@@ -17,11 +17,14 @@ LAYOUT = r"""() => {
     return {t: r.top, l: r.left, r: r.right, b: r.bottom, w: r.width, h: r.height, show: s.display !== 'none' && r.width > 0}; };
   const svg = document.querySelector('#chips [data-f=shost] svg');
   const sr = svg && svg.getBoundingClientRect();
+  const ck = document.querySelector('#chips [data-f=shost] .ck');
+  const cr = ck && ck.getBoundingClientRect();
   return {vw: innerWidth, sw: document.documentElement.scrollWidth,
     host: g('#chips [data-f=shost]'), youth: g('#chips [data-f=youth]'), day: g('#chips [data-f=sday]'),
     open: g('#v3open'), x: g('#fhide'), tools: g('#v3tools'),
     walk: g('#chips [data-f=walk]'), vouch: g('#chips [data-f=vouch]'),
-    sym: sr && {w: sr.width, h: sr.height}};
+    sym: sr && {w: sr.width, h: sr.height},
+    ck: cr && {t: cr.top, l: cr.left, r: cr.right, b: cr.bottom, w: cr.width, h: cr.height}};
 }"""
 
 KINDS = r"""() => [...document.querySelectorAll('#xlist > .card.xsh')].map(c => {
@@ -98,6 +101,13 @@ class Chips(unittest.TestCase):
         self.assertGreater(tools['t'], x['b'] - 2, box)
         self.assertLess(tools['t'] - x['b'], 24, (w, 'gap above List only', box))
         self.assertLessEqual(x['r'], box['vw'] + 1, box)
+        self.assertLessEqual(box['sw'], box['vw'] + 1, box)
+        ck = box.get('ck') or {}
+        self.assertGreaterEqual(ck.get('l', -1), host['l'] - 0.6, box)
+        self.assertLessEqual(ck.get('r', 10 ** 9), host['r'] + 0.6, box)
+        self.assertGreaterEqual(ck.get('t', -1), host['t'] - 0.6, box)
+        self.assertLessEqual(ck.get('b', 10 ** 9), host['b'] + 0.6, box)
+        self.assertGreater(ck.get('w', 0), 16, box)
         self.assertAlmostEqual(box['sym']['w'], 20, delta=1)
         self.assertAlmostEqual(box['sym']['h'], 20, delta=1)
         # nothing else sits on the reset's row except Day centre and Open today

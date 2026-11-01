@@ -210,17 +210,22 @@ html:not(.light) #map,html:not(.light) #map .leaflet-tile-pane,html:not(.light) 
 @media (min-width:600px) and (max-width:1023px){#v3filt{column-gap:6px!important}#v3filt .fchip,#v3filt>label#v3open{padding:0 6px!important}#v3filt>#v3tools,#v3filt>#v3tools.v3tight{gap:10px!important}}
 /* Shelter type chips (Dean): row 1 hostel + young people, row 2 day centre + open today + ✕. Phones only. */
 @media (max-width:430px){
- html[data-v3k=sh] #v3filt{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1fr) auto;gap:6px!important;align-items:center}
+ html[data-v3k=sh] #v3filt{display:grid!important;grid-template-columns:max-content minmax(0,1fr);gap:6px!important;align-items:center;justify-content:start}
  html[data-v3k=sh] #v3filt::before{display:none!important}
- html[data-v3k=sh] #v3filt [data-f=shost]{grid-column:1;grid-row:1;order:1!important;width:100%;justify-content:flex-start}
- html[data-v3k=sh] #v3filt [data-f=youth]{grid-column:2;grid-row:1;order:2!important;width:100%;justify-content:flex-start}
- html[data-v3k=sh] #v3filt [data-f=sday]{grid-column:1;grid-row:2;order:4!important;width:100%;justify-content:flex-start}
- html[data-v3k=sh] #v3filt>label#v3open{grid-column:2;grid-row:2;order:5!important;width:100%;margin-left:0!important}
- html[data-v3k=sh] #v3filt #fhide{grid-column:3;grid-row:2;order:6!important;margin-left:0!important;justify-self:end}
+ html[data-v3k=sh] #v3filt [data-f=shost]{grid-column:1;grid-row:1;order:1!important;width:auto;max-width:none;justify-content:flex-start;overflow:visible;white-space:nowrap;padding:0 10px 0 12px!important}
+ html[data-v3k=sh] #v3filt [data-f=youth]{grid-column:2;grid-row:1;order:2!important;width:auto;max-width:100%;justify-content:flex-start;overflow:visible;white-space:nowrap;padding:0 10px 0 12px!important}
+ html[data-v3k=sh] #v3filt [data-f=sday]{grid-column:1;grid-row:2;order:4!important;width:auto;max-width:none;justify-content:flex-start;overflow:visible;white-space:nowrap;padding:0 10px 0 12px!important}
+ html[data-v3k=sh] #v3filt .fchip .ck{flex:0 0 18px;width:18px;min-width:18px;overflow:visible}
+ html[data-v3k=sh] #v3filt .fchip .xcs{flex:0 0 20px}
+ html[data-v3k=sh] #v3filt .fchip :is(.v-en,.v-cy){overflow:visible;text-overflow:clip;white-space:nowrap}
+ html[data-v3k=sh] #v3filt>label#v3open{grid-column:2;grid-row:2;order:5!important;width:auto;max-width:calc(100% - 50px);margin-left:0!important;justify-self:start;white-space:normal!important;line-height:1.05!important;overflow:hidden}
+ html[data-v3k=sh] #v3filt #fhide{grid-column:2;grid-row:2;order:6!important;margin-left:0!important;justify-self:end}
  html[data-v3k=sh] #v3filt>#v3tools,html[data-v3k=sh] #v3filt>#v3tools.v3tight{grid-column:1 / -1;grid-row:3;order:8!important;margin-left:0!important;justify-content:flex-end}
  html[data-v3k=sh] #v3filt>#v3row2{grid-column:1 / -1;grid-row:4}
 }
 @media (max-width:360px){
- html[data-v3k=sh] #v3filt [data-f=shost],html[data-v3k=sh] #v3filt [data-f=youth],html[data-v3k=sh] #v3filt [data-f=sday],html[data-v3k=sh] #v3filt>label#v3open{font-size:12px!important;padding:0 4px!important;gap:4px!important;min-width:0;overflow:hidden}
+ html[data-v3k=sh] #v3filt{grid-template-columns:minmax(0,1fr) minmax(0,1fr) auto!important}
+ html[data-v3k=sh] #v3filt #fhide{grid-column:3;grid-row:2}
+ html[data-v3k=sh] #v3filt [data-f=shost],html[data-v3k=sh] #v3filt [data-f=youth],html[data-v3k=sh] #v3filt [data-f=sday],html[data-v3k=sh] #v3filt>label#v3open{font-size:12px!important;padding:0 8px 0 10px!important;gap:4px!important;min-width:0;max-width:100%;overflow:hidden;white-space:normal}
  html[data-v3k=sh] #v3filt .fchip :is(.v-en,.v-cy),html[data-v3k=sh] #v3filt>label#v3open{white-space:normal!important;line-height:1.05!important}
 }
