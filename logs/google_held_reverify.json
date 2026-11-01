@@ -1,21 +1,32 @@
 {
-  "promoted": 141,
+  "promoted_this_run": 38,
+  "a_total": 54,
+  "pinned": 10,
+  "area_cards": 44,
   "by_kind": {
-    "day_centre": 56,
-    "hostel": 62,
-    "young_people": 23
+    "day_centre": 10,
+    "hostel": 25,
+    "young_people": 19
   },
   "b_reasons": {
-    "duplicate URL": 319,
-    "duplicate phone": 164,
-    "no verbatim phone": 58,
-    "excluded type or closed": 58,
-    "not an accommodation operator page": 54,
-    "no postcode and no referral route for town card": 50,
-    "duplicate name": 9,
-    "duplicate postcode": 6,
-    "not a hostel/night shelter/day centre service page": 2
+    "no verbatim phone": 496,
+    "not a hostel/night shelter/day centre service page": 471,
+    "excluded type or closed": 131,
+    "directory or blocked URL pattern": 60,
+    "Fetch failed or blocked": 59,
+    "day centre needs address/postcode on page for walk-in pin": 58,
+    "not an accommodation operator page": 46,
+    "duplicate URL": 38,
+    "general adult supported housing only": 26,
+    "day centre without homeless context": 19,
+    "duplicate phone": 12,
+    "Council advice page only; no named service": 11,
+    "hostel without hostel/night shelter wording on page": 8,
+    "duplicate postcode": 4,
+    "day centre without day centre/drop-in wording on page": 3,
+    "young people without foyer/nightstop/16-25 wording on page": 1,
+    "duplicate name": 1
   },
-  "held_total": 2266,
+  "held_total": 2284,
   "spot_check_fails": []
 }

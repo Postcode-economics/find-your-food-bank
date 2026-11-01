@@ -1290,4 +1290,6 @@ Google Serper A-grade places go live in **one final PR after** agent bc-95f199ae
 
 ## Hand-checked A list (1 Nov 2026)
 
-Automated 86 A-rows were cleared after spot-check failures. Re-graded by reading operator pages only: **16** rows in `logs/google_a_items.json` with evidence lines in `logs/google_a_handcheck.md` (8 hostel, 7 day_centre, 1 young_people). Bishopbridge House skipped (already `man-bishopbridge-house-st-martins` on the map). PR remains blocked on merge gate until batch 3 lands on `main`.
+Automated 86 A-rows were cleared after spot-check failures. Re-graded with Dean rules (Nov 2026): **hostels / young people's housing** need service phone + town → **area card** (`referral_hostel`, no pin); **day centres** need walk-in postcode on the operator page → **pinned** card.
+
+After held re-verify (Playwright retry on fetch failures): **54** rows in `logs/google_a_items.json` — **10 pinned** day centres, **44 area** cards (25 hostel + 19 young_people kinds). Evidence: `logs/google_a_handcheck.md`. Held: **2284** rows. PR **#371** stays unmerged until batch 3 is on `main`.
