@@ -60,14 +60,20 @@ const SYM_SHELL={
  house:{fill:'#56B4E9',d:'M3 3h26v26H3z'},
  sun:{fill:'#56B4E9',d:'M3 3h26v26H3z'},
  youth:{fill:'#56B4E9',d:'M3 3h26v26H3z'}};
-const symSvg=(key,px)=>{const sh=SYM_SHELL[key]||SYM_SHELL.house;const inner=SYM[key]||'';
- return `<svg ${px?`width="${px}" height="${px}" `:''}viewBox="1.6 1.6 28.8 28.8" aria-hidden="true"><path d="${sh.d}" fill="${sh.fill}" stroke="#0A1628" stroke-width="2.5"/>${inner}</svg>`};
+const symSvg=(key,px,grey)=>{
+ const sh=SYM_SHELL[key]||SYM_SHELL.house;const inner=SYM[key]||'';
+ const fill=grey?'#7a8496':sh.fill;
+ return `<svg ${px?`width="${px}" height="${px}" `:''}viewBox="1.6 1.6 28.8 28.8" aria-hidden="true"><path d="${sh.d}" fill="${fill}" stroke="#0A1628" stroke-width="2.5"/>${inner}</svg>`};
 window.symSvg=symSvg;
+window.SYM=SYM;
 window.SYM_SHELL=SYM_SHELL;
+const symInnerSig=key=>String((SYM[key]||'')).replace(/\s+/g,'');
+window.symInnerSig=symInnerSig;
 const symBox=key=>symSvg(key,28);
-const SHP={sq:(c,sym)=>`<svg width="32" height="40" viewBox="0 0 32 40"><path d="M3 3h26v26H21l-5 9-5-9H3z" fill="${c}" stroke="#0A1628" stroke-width="2.5"/>${SYM[sym||'house']}</svg>`,
- dia:(c)=>`<svg width="34" height="40" viewBox="0 0 34 40"><path d="M17 1l15 15-15 23L2 16z" fill="${c}" stroke="#0A1628" stroke-width="2.5"/><path d="M13 21c0-4 4-5 3-9 4 2 6 6 4 10a4 4 0 0 1-7-1z" fill="#0A1628"/></svg>`};
-const pinIcon=(col,grey,shape,sym)=>L.divIcon({className:'xpin',html:SHP[shape](grey?'#7a8496':col,sym),iconSize:[34,40],iconAnchor:[17,39],popupAnchor:[0,-34]});
+const SHP={sq:(c,sym)=>`<svg width="32" height="40" viewBox="0 0 32 40"><path d="M3 3h26v26H21l-5 9-5-9H3z" fill="${c}" stroke="#0A1628" stroke-width="2.5"/>${SYM[sym||'house']}</svg>`};
+const pinIcon=(col,grey,shape,sym)=>{
+ if(shape==='dia') return L.divIcon({className:'xpin',html:symSvg('flame',34,grey),iconSize:[34,34],iconAnchor:[17,34],popupAnchor:[0,-30]});
+ return L.divIcon({className:'xpin',html:SHP[shape](grey?'#7a8496':col,sym),iconSize:[34,40],iconAnchor:[17,39],popupAnchor:[0,-34]})};
 window.mountShelterStrip=function(){if(document.getElementById('xsym'))return;const m=document.getElementById('map');if(!m)return;
  const st=document.createElement('div');st.id='xsym';st.setAttribute('role','group');
  const rows=[['house','Hostel or shelter','Hostel neu loches'],['sun','Day centre','Canolfan ddydd'],['youth','Young people','Pobl ifanc']];

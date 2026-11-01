@@ -79,6 +79,7 @@ class FullAudit(unittest.TestCase):
     def test_type_icon_shell_colours_and_card_top_class(self):
         js = open(LAYERS, encoding='utf-8').read()
         css = open(V3CSS, encoding='utf-8').read()
+        boot = open(os.path.join(ROOT, 'index.html'), encoding='utf-8').read()
         self.assertIn("food:{fill:'#F5C518'", js)
         self.assertIn("flame:{fill:'#D55E00'", js)
         self.assertIn("house:{fill:'#56B4E9'", js)
@@ -88,6 +89,27 @@ class FullAudit(unittest.TestCase):
         self.assertIn('class="xtop xtop-${layer}"', js)
         self.assertIn('xtop.xtop-fb .utag{border-color:#F5C518', css)
         self.assertIn('xtop.xtop-ws .utag{border-color:#D55E00', css)
+
+    def test_marker_card_and_key_use_same_layer_symbols(self):
+        """Food bank bag, warm space flame, shelter house/sun/youth: map marker = card icon = footer key."""
+        js = open(LAYERS, encoding='utf-8').read()
+        boot = open(os.path.join(ROOT, 'index.html'), encoding='utf-8').read()
+        bag = 'M9 13.5h14l-1.3 10.5H10.3z'
+        flame = 'M16.2 7.2c'
+        self.assertIn(bag, js, 'shopping bag inner missing from layers.js SYM.food')
+        self.assertIn(bag, boot, 'food bank map pin must use the same bag symbol as cards/key')
+        self.assertIn(flame, js, 'flame inner missing from layers.js SYM.flame')
+        self.assertNotIn('M13 21c0-4', js, 'warm space map must not use the old droplet marker')
+        self.assertIn("symSvg('flame',34", js, 'warm space map marker must use symSvg(flame)')
+        self.assertIn("symSvg('food',20)", js)
+        self.assertIn("symSvg('flame',20)", js)
+        key_block = js[js.index('const lg=document.createElement'):js.index('const ft=document.querySelector')]
+        card_top = js[js.index('function cardTop'):js.index('function cardTop') + 350]
+        self.assertIn("symSvg(sk,26)", card_top)
+        for needle in ("symSvg('food'", "symSvg('flame'"):
+            self.assertIn(needle, key_block, 'footer key must use unified symbols')
+        self.assertIn("symSvg(sk,26)", card_top, 'card top must use unified symSvg')
+        self.assertIn("sk=layer==='fb'?'food':layer==='ws'?'flame'", card_top)
 
 
 if __name__ == '__main__':

@@ -234,6 +234,17 @@ KEY_JS = r"""()=>{const bad=[];
  if(youth&&!youth.querySelector('.xkey-ico svg text')) bad.push('youth key missing 16/25 symbol');
  return bad}"""
 
+# Map marker inner symbol must match card icon and footer key (Dean 1 Nov 2026).
+SYM_MATCH_JS = r"""layer=>{const bad=[];const bag='M9 13.5h14l-1.3 10.5H10.3z';const flame='M16.2 7.2c';
+ const needle=layer==='fb'?bag:flame;const inner=s=>String((s&&s.innerHTML)||'');
+ const card=document.querySelector(layer==='fb'?'#list>.card .xmkbox svg':'#xlist>.card.xws .xmkbox svg');
+ const marker=document.querySelector(layer==='fb'?'.leaflet-marker-icon.pin svg':'.leaflet-marker-icon.xpin svg');
+ const key=(document.querySelectorAll('#xupd .xkey-row')[layer==='fb'?0:1]||{}).querySelector&&document.querySelectorAll('#xupd .xkey-row')[layer==='fb'?0:1].querySelector('.xkey-ico svg');
+ if(!card||!inner(card).includes(needle)) bad.push('card symbol');
+ if(!marker||!inner(marker).includes(needle)) bad.push('marker symbol');
+ if(!key||!inner(key).includes(needle)) bad.push('key symbol');
+ return bad}"""
+
 # Type pill and symbol square (Dean): same height, tops and bottoms within 0.5px, 26px on a phone.
 ALIGN_JS = r"""()=>{const bad=[];const rows=[...document.querySelectorAll('#xlist .card.xsh .xtop,#sheet.open .xtop')];
  const seen=new Set();
@@ -347,6 +358,8 @@ def run(base=None, measure=False):
                     pg.evaluate("k=>{const t=document.querySelector('#v3big [data-l='+k+']');if(t)t.click()}", k); pg.wait_for_timeout(500)
                     for q in PLACES:
                         pg.fill('#q', q); pg.press('#q', 'Enter'); pg.wait_for_timeout(2500)
+                        if w == 390 and not measure and k in ('fb', 'ws') and q == PLACES[0]:
+                            bad += ['%dpx %s %s %s' % (w, mode, k, x) for x in (pg.evaluate(SYM_MATCH_JS, k) or [])]
                         cards = pg.evaluate(CARDS_JS, sel); seen += len(cards)
                         for x in cards:
                             if x['status']: meas.setdefault(mode, {}).setdefault(x['status'], set()).add(x['dot'])

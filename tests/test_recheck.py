@@ -30,6 +30,10 @@ class T(unittest.TestCase):
         self.assertTrue(R.schema_errors(dict(E, postcode="NOTAPC"), "ws"))
         self.assertTrue(R.schema_errors(dict(E, access_type="referral_only", referral=""), "sh"))
         self.assertTrue(R.schema_errors(dict(E, flag_closed=True), "sh"))
+        area = {"id": "hl-x", "name": "River Hostel", "card_type": "referral_hostel", "no_pin": True,
+                "town": "Sheffield", "phone": "0114 000 0000", "access_type": "referral_only",
+                "referral": "Referral via council housing options"}
+        self.assertEqual(R.schema_errors(area, "sh"), [])
     def test_recheck_all_omits_failures(self):
         d = tempfile.mkdtemp(); log = os.path.join(d, "warmspaces_recheck.json")
         pages = {"https://example.org/p": pg(), "https://example.org/gone": pg(text="", http=500)}
