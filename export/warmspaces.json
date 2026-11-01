@@ -1,5 +1,5 @@
 {
-"generated": "2026-10-31",
+"generated": "2026-11-01",
 "attribution": "Warm space listings: helpmap.uk (https://helpmap.uk), credited per row to the original source (Warm Welcome https://www.warmwelcome.uk, councils, local VCS lists - see source / source_url)",
 "items": [
 {
@@ -87,6 +87,18 @@
 "source_url": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces"
 },
 {
+"id": "ww-64379130",
+"name": "Alderley Edge Library",
+"address": "44a London Road, Alderley Edge SK9 7GP",
+"postcode": "SK9 7GP",
+"lat": 53.300739,
+"lng": -2.236481,
+"phone": "01625 374030",
+"website": "https://www.cheshireeast.gov.uk/libraries/nearest-library/alderley_edge_library.aspx",
+"source": "Warm Welcome",
+"source_url": "https://www.warmwelcome.uk/space?l=23328"
+},
+{
 "id": "ww-68904940",
 "name": "Alford Fly Cup at St. Andrew’s",
 "address": "St Andrews Episcopal Church, Alford, Aberdeenshire AB33  8PX",
@@ -121,6 +133,30 @@
 "website": "https://www.allsaintskingston.co.uk/",
 "source": "Warm Welcome",
 "source_url": "https://www.warmwelcome.uk/space?l=21850"
+},
+{
+"id": "nland-ne661pq-alnwick-library",
+"name": "Alnwick Library",
+"address": "Alnwick Playhouse, Bondgate Without, Alnwick, NE66 1PQ",
+"postcode": "NE66 1PQ",
+"lat": 55.41247,
+"lng": -1.70286,
+"phone": "01670 622156",
+"website": "https://www.northumberland.gov.uk/Welfare-and-benefits/Warm-spaces.aspx",
+"source": "Northumberland County Council warm spaces",
+"source_url": "https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json"
+},
+{
+"id": "nland-ne650et-amble-library",
+"name": "Amble Library",
+"address": "Middleton Street, Amble, NE65 0ET",
+"postcode": "NE65 0ET",
+"lat": 55.33215,
+"lng": -1.58361,
+"phone": "01665 710419",
+"website": "https://www.northumberland.gov.uk/Welfare-and-benefits/Warm-spaces.aspx",
+"source": "Northumberland County Council warm spaces",
+"source_url": "https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json"
 },
 {
 "id": "vai-andover-community-centre",
@@ -207,6 +243,18 @@
 "source_url": "https://www.warmwelcome.uk/space?l=22060"
 },
 {
+"id": "nland-ne639jy-ashington-leisure-centre",
+"name": "Ashington Leisure Centre",
+"address": "Lintonville Terrace, Ashington, NE63 9JY",
+"postcode": "NE63 9JY",
+"lat": 55.18549,
+"lng": -1.56879,
+"phone": "01670 620200",
+"website": "https://www.northumberland.gov.uk/Welfare-and-benefits/Warm-spaces.aspx",
+"source": "Northumberland County Council warm spaces",
+"source_url": "https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json"
+},
+{
 "id": "ww-63065195",
 "name": "Ashley Community Hub",
 "address": "Ashley Pavilion, High Street, Ashley, Newmarket, CB8 9DX",
@@ -241,6 +289,30 @@
 "website": "www.bcnchurch.org.uk",
 "source": "Warm Welcome",
 "source_url": "https://www.warmwelcome.uk/space?l=28589"
+},
+{
+"id": "cherwell-ox164rp-banbury-community-fridge",
+"name": "Banbury Community Fridge",
+"address": "Merton Street Banbury OX16 4RP",
+"postcode": "OX16 4RP",
+"lat": 52.061821959978644,
+"lng": -1.3249975556544547,
+"phone": "01295 276662",
+"website": "https://www.banburymadnimasjid.com/resources/banbury-community-fridge",
+"source": "Cherwell District Council warm spaces",
+"source_url": "https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json"
+},
+{
+"id": "cherwell-ox160dh-banbury-sheikh-bin-baaz-mosque",
+"name": "Banbury Sheikh Bin Baaz Mosque",
+"address": "55 Park Road, Banbury, OX16 0DH",
+"postcode": "OX16 0DH",
+"lat": 52.06211125659866,
+"lng": -1.3498246787588963,
+"phone": "07946 624222",
+"website": "https://www.bsbbm.org/",
+"source": "Cherwell District Council warm spaces",
+"source_url": "https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json"
 },
 {
 "id": "ww-65441837",
@@ -291,6 +363,30 @@
 "source_url": "https://www.warmwelcome.uk/space?l=27169"
 },
 {
+"id": "nland-td152as-berwick-sports-leisure-centre",
+"name": "Berwick Sports & Leisure Centre",
+"address": "Northumberland Road, Berwick-upon-Tweed, TD15 2AS",
+"postcode": "TD15 2AS",
+"lat": 55.75944,
+"lng": -2.00845,
+"phone": "01670 620200",
+"website": "https://www.northumberland.gov.uk/Welfare-and-benefits/Warm-spaces.aspx",
+"source": "Northumberland County Council warm spaces",
+"source_url": "https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json"
+},
+{
+"id": "th-e20hl-bethnal-green-library",
+"name": "Bethnal Green Library",
+"address": "Cambridge Heath Road, London, E2 0HL",
+"postcode": "E2 0HL",
+"lat": 51.52657640950269,
+"lng": -0.05377398454696638,
+"phone": "0333 370 4700",
+"website": "https://www.ideastore.co.uk/visit-us/bethnal-green-library",
+"source": "Tower Hamlets warm hubs",
+"source_url": "https://services1.arcgis.com/KZuCGRSe2K5BiG1Z/arcgis/rest/services/WarmHubs/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json"
+},
+{
 "id": "ww-63519117",
 "name": "Bishop Sutton & Stowey Village Hall",
 "address": "Bishop Sutton & Stowey Village Hall, Bristol, Somerset BS39 5XQ",
@@ -339,6 +435,18 @@
 "source_url": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces"
 },
 {
+"id": "nland-ne245bt-blyth-sports-centre",
+"name": "Blyth Sports Centre",
+"address": "Bolam Park, Blyth, NE",
+"postcode": "NE24 5BT",
+"lat": 55.12523,
+"lng": -1.52042,
+"phone": "01670 620200",
+"website": "https://www.northumberland.gov.uk/Welfare-and-benefits/Warm-spaces.aspx",
+"source": "Northumberland County Council warm spaces",
+"source_url": "https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json"
+},
+{
 "id": "ww-68737520",
 "name": "Bodmin Library",
 "address": "Bodmin Library, Bodmin, Cornwall PL31 2FR PL31 2FR",
@@ -385,6 +493,18 @@
 "website": "https://www.brighton-hove.gov.uk/cost-living-support/directories/warm-welcome-directory-indoor-activities-and-places-go",
 "source": "Brighton & Hove City Council warm spaces",
 "source_url": "https://gis.brighton-hove.gov.uk/server/rest/services/Hosted/Warm_spaces_October_26/FeatureServer/0/query?where=1=1&outFields=*&f=json"
+},
+{
+"id": "ww-68015693",
+"name": "Brixton Library",
+"address": "Brixton Library, London, SW2 1JQ",
+"postcode": "SW2 1JQ",
+"lat": 51.461104,
+"lng": -0.114723,
+"phone": "020 7926 1056",
+"website": "https://www.lambeth.gov.uk/libraries-0/brixton-tate-library",
+"source": "Warm Welcome",
+"source_url": "https://www.warmwelcome.uk/space?l=28340"
 },
 {
 "id": "ww-68618605",
@@ -459,6 +579,30 @@
 "source_url": "https://www.warmwelcome.uk/space?l=27946"
 },
 {
+"id": "cherwell-ox266ju-caf-103",
+"name": "Café 103",
+"address": "The Beacon, Wesley Lane, Bicester, OX26 6JU",
+"postcode": "OX26 6JU",
+"lat": 51.89948878543567,
+"lng": -1.152982718333776,
+"phone": "+44 7948 374585",
+"website": "https://cafe103.uk/",
+"source": "Cherwell District Council warm spaces",
+"source_url": "https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json"
+},
+{
+"id": "cherwell-ox165nt-caf-social-dining-club-invitation-only-day-centr",
+"name": "Café Social Dining Club (invitation only) Day Centre Art and Activity Club Natterbox -Craft and Chat Move It or Lose It",
+"address": "Cornhill Centre, Castle Street, Banbury, OX16 5NT",
+"postcode": "OX16 5NT",
+"lat": 52.06325867603589,
+"lng": -1.3363149122761797,
+"phone": "01295 264214",
+"website": "https://www.royalvoluntaryservice.org.uk/our-services/service-search/oxfordshire-hub/banbury-cornhill-centre-46125000/",
+"source": "Cherwell District Council warm spaces",
+"source_url": "https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json"
+},
+{
 "id": "ww-65441901",
 "name": "Caldecote Community Hub",
 "address": "Caldecote Village Hall, Furlong Way, Highfields, Caldecote, Cambridge, CB23 7ZH",
@@ -495,6 +639,18 @@
 "source_url": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces"
 },
 {
+"id": "nland-ne614ba-cambo-village-hall-cosy-kitchen-and-also-pub-nig",
+"name": "cambo village hall cosy kitchen and also pub nights",
+"address": "north row, cambo morpeth",
+"postcode": "NE61 4BA",
+"lat": 55.16547,
+"lng": -1.96028,
+"phone": "01670774617",
+"website": "https://www.northumberland.gov.uk/Welfare-and-benefits/Warm-spaces.aspx",
+"source": "Northumberland County Council warm spaces",
+"source_url": "https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json"
+},
+{
 "id": "ww-65441939",
 "name": "CAN HQ",
 "address": "CAN HQ, Leicestershire, Leicestershire LE67 3TU",
@@ -505,6 +661,18 @@
 "website": "www.coalvillecan.coop",
 "source": "Warm Welcome",
 "source_url": "https://www.warmwelcome.uk/space?l=21348"
+},
+{
+"id": "ww-65437341",
+"name": "Canford Heath Library",
+"address": "9 Mitchell Road, Poole BH17 8UE",
+"postcode": "BH17 8UE",
+"lat": 50.741741,
+"lng": -1.964354,
+"phone": "01202 127127",
+"website": "https://www.bcpcouncil.gov.uk/libraries/find-a-library/canford-heath-library",
+"source": "Warm Welcome",
+"source_url": "https://www.warmwelcome.uk/space?l=23223"
 },
 {
 "id": "ww-55476118",
@@ -529,6 +697,18 @@
 "website": "https://www.better.org.uk/healthy-communities/warm-spaces#:~:text=GLL%20are%20pleased%20to%20welcome,and%20welcoming%20space%20to%20sit.",
 "source": "Warm Welcome",
 "source_url": "https://www.warmwelcome.uk/space?l=23598"
+},
+{
+"id": "ww-65438939",
+"name": "Carlton in Lindrick Library",
+"address": "Long Lane, Carlton in Lindrick, Worksop S81 9AR",
+"postcode": "S81 9AR",
+"lat": 53.357554,
+"lng": -1.121121,
+"phone": "01623 677 200",
+"website": "https://www.inspireculture.org.uk/reading-information/find-a-library/carlton-lindrick-library/visiting-us/",
+"source": "Warm Welcome",
+"source_url": "https://www.warmwelcome.uk/space?l=27540"
 },
 {
 "id": "cmn-carway-hall",
@@ -651,6 +831,18 @@
 "source_url": "https://www.warmwelcome.uk/space?l=26320"
 },
 {
+"id": "nland-ne611td-chatter-box-cafe",
+"name": "Chatter Box Cafe",
+"address": "Vision Northumberland, Reiver House, Staithes Lane, Morpeth NE61 1TD",
+"postcode": "NE61 1TD",
+"lat": 55.16852,
+"lng": -1.68439,
+"phone": "01670 514316",
+"website": "https://www.northumberland.gov.uk/Welfare-and-benefits/Warm-spaces.aspx",
+"source": "Northumberland County Council warm spaces",
+"source_url": "https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json"
+},
+{
 "id": "ww-63077074",
 "name": "Chatteris Community Living Room",
 "address": "Bricstan Cafe within Chatteris Parish Church, Market Hill, Chatteris, PE16 6BA",
@@ -771,6 +963,18 @@
 "source_url": "https://www.warmwelcome.uk/space?l=26759"
 },
 {
+"id": "ww-62587523",
+"name": "Churchdown Library",
+"address": "Parton Road, Gloucestershire GL3 2AF",
+"postcode": "GL3 2AF",
+"lat": 51.88702,
+"lng": -2.181191,
+"phone": "01452 712504",
+"website": "https://gloslibraries.uk/library/churchdown-library",
+"source": "Warm Welcome",
+"source_url": "https://www.warmwelcome.uk/space?l=23885"
+},
+{
 "id": "ww-63353220",
 "name": "Circle Funerals",
 "address": "Circle Funerals, Altrincham, Cheshire WA14 2DP",
@@ -843,6 +1047,30 @@
 "source_url": "https://www.warmwelcome.uk/space?l=14738"
 },
 {
+"id": "cherwell-ox171ns-coffee-morning",
+"name": "Coffee Morning",
+"address": "Chapel Lane, Cropredy, Banbury, OX17 1NS",
+"postcode": "OX17 1NS",
+"lat": 52.11755454164776,
+"lng": -1.3173703371658887,
+"phone": "01295 262602",
+"website": "https://www.cherwell.gov.uk/warm-spaces",
+"source": "Cherwell District Council warm spaces",
+"source_url": "https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json"
+},
+{
+"id": "cherwell-ox278ds-coffee-morning",
+"name": "Coffee Morning",
+"address": "The Green, Fringford, Bicester, OX27 8DS",
+"postcode": "OX27 8DS",
+"lat": 51.953901623392376,
+"lng": -1.1220257065723205,
+"phone": "07936 879175",
+"website": "https://www.cherwell.gov.uk/warm-spaces",
+"source": "Cherwell District Council warm spaces",
+"source_url": "https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json"
+},
+{
 "id": "ww-69223235",
 "name": "Coffee Stop",
 "address": "Headley Park Church, Bristol, Avon BS13 7LZ",
@@ -879,6 +1107,42 @@
 "source_url": "https://www.warmwelcome.uk/space?l=26527"
 },
 {
+"id": "cherwell-ox163wt-community-club-includes-activities",
+"name": "Community Club (includes activities)",
+"address": "Burchester Place, Banbury, OX16 3WT",
+"postcode": "OX16 3WT",
+"lat": 52.06752917067984,
+"lng": -1.3205105924506504,
+"phone": "07483 160272",
+"website": "https://www.cherwell.gov.uk/warm-spaces",
+"source": "Cherwell District Council warm spaces",
+"source_url": "https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json"
+},
+{
+"id": "cherwell-ox278ey-community-coffee-morning",
+"name": "Community Coffee morning",
+"address": "Hardwick Road, Hethe, Bicester, OX27 8EY",
+"postcode": "OX27 8EY",
+"lat": 51.9610664138592,
+"lng": -1.1413591628987036,
+"phone": "07801 270661",
+"website": "https://www.cherwell.gov.uk/warm-spaces",
+"source": "Cherwell District Council warm spaces",
+"source_url": "https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json"
+},
+{
+"id": "cherwell-ox161fa-community-drop-in",
+"name": "Community Drop In",
+"address": "Highlands, Banbury, OX16 1FA",
+"postcode": "OX16 1FA",
+"lat": 52.07536395311293,
+"lng": -1.3498363161969764,
+"phone": "07424 852370",
+"website": "https://www.stfrancischurch.org/",
+"source": "Cherwell District Council warm spaces",
+"source_url": "https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json"
+},
+{
 "id": "ww-57952336",
 "name": "Community Hub",
 "address": "Rowsley Village Hall, Matlock, Derbyshire DE4 2EE",
@@ -903,6 +1167,30 @@
 "source_url": "https://www.warmwelcome.uk/space?l=24774"
 },
 {
+"id": "cherwell-ox160tt-community-nostalgia-caf",
+"name": "Community Nostalgia Café",
+"address": "Bath Road, Banbury, OX16 0TT",
+"postcode": "OX16 0TT",
+"lat": 52.059891179634704,
+"lng": -1.347815726896011,
+"phone": "01296 279963",
+"website": "https://www.greenpastures.uk.com/",
+"source": "Cherwell District Council warm spaces",
+"source_url": "https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json"
+},
+{
+"id": "cherwell-ox255bx-community-space",
+"name": "Community Space",
+"address": "Heritage Centre, Building 103, West Castle Street, Heyford Park, Bicester, OX25 5BX",
+"postcode": "OX25 5BX",
+"lat": 51.928485269851826,
+"lng": -1.255346968426804,
+"phone": "01865 883488",
+"website": "https://www.cherwell.gov.uk/warm-spaces",
+"source": "Cherwell District Council warm spaces",
+"source_url": "https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json"
+},
+{
 "id": "ww-69177710",
 "name": "Community Support Warm Welcome",
 "address": "The Lighthouse, 60 - 62 High Street, Harrow, London HA1 3LL",
@@ -925,6 +1213,18 @@
 "website": "https://clackmannandevelopmenttrust.org/community/community-space-and-one-stop-shop/",
 "source": "Warm Welcome",
 "source_url": "https://www.warmwelcome.uk/space?l=27702"
+},
+{
+"id": "nland-ne236yb-concordia-leisure-centre",
+"name": "Concordia Leisure Centre",
+"address": "Forum Way, Cramlington, NE236YB",
+"postcode": "NE23 6YB",
+"lat": 55.08505,
+"lng": -1.59182,
+"phone": "01670 620200",
+"website": "https://www.northumberland.gov.uk/Welfare-and-benefits/Warm-spaces.aspx",
+"source": "Northumberland County Council warm spaces",
+"source_url": "https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json"
 },
 {
 "id": "ww-67203567",
@@ -1035,6 +1335,18 @@
 "source_url": "https://www.warmwelcome.uk/space?l=27062"
 },
 {
+"id": "th-e143hg-cubitt-town-library",
+"name": "Cubitt Town Library",
+"address": "Strattondale Street, London, E14 3HG",
+"postcode": "E14 3HG",
+"lat": 51.49599538662523,
+"lng": -0.011710622773922132,
+"phone": "0333 370 4700",
+"website": "https://www.ideastore.co.uk/visit-us/cubitt-town-library",
+"source": "Tower Hamlets warm hubs",
+"source_url": "https://services1.arcgis.com/KZuCGRSe2K5BiG1Z/arcgis/rest/services/WarmHubs/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json"
+},
+{
 "id": "ww-69004052",
 "name": "Currock House Community Centre",
 "address": "Currock House Community Centre, Carlisle, Cumbria CA2 4BS",
@@ -1129,6 +1441,42 @@
 "website": "https://cambsacre.org.uk/cambridgeshire-community-hubs-network/",
 "source": "Warm Welcome",
 "source_url": "https://www.warmwelcome.uk/space?l=27175"
+},
+{
+"id": "cherwell-ox160td-dog-social-club-knit-and-natter-warm-welcome",
+"name": "Dog Social Club Knit and Natter Warm Welcome",
+"address": "Highmarket House, North Bar Place, Banbury, OX16 0TD",
+"postcode": "OX16 0TD",
+"lat": 52.06241119452053,
+"lng": -1.3415373180021437,
+"phone": "0333 321 1992",
+"website": "https://www.careuk.com/care-homes/highmarket-house-banbury",
+"source": "Cherwell District Council warm spaces",
+"source_url": "https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json"
+},
+{
+"id": "cherwell-ox52ds-dovecote-caf",
+"name": "Dovecote Café",
+"address": "High Street, Kidlington, OX5 2DS",
+"postcode": "OX5 2DS",
+"lat": 51.825934302095675,
+"lng": -1.2833601080336794,
+"phone": "01865 374983",
+"website": "https://www.kidlington-baptist.org.uk/",
+"source": "Cherwell District Council warm spaces",
+"source_url": "https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json"
+},
+{
+"id": "cherwell-ox154et-drop-in-for-tea-toast-and-a-chat",
+"name": "Drop in for Tea, Toast and a Chat",
+"address": "Church Street, Bloxham, Banbury, OX15 4ET",
+"postcode": "OX15 4ET",
+"lat": 52.01751483255782,
+"lng": -1.3744271934286159,
+"phone": "01295 720252",
+"website": "https://www.cherwell.gov.uk/warm-spaces",
+"source": "Cherwell District Council warm spaces",
+"source_url": "https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json"
 },
 {
 "id": "swk-dulwich-leisure-centre",
@@ -1237,6 +1585,18 @@
 "website": "https://vai.org.uk/warm-spaces-in-islington/",
 "source": "Voluntary Action Islington warm spaces list",
 "source_url": "https://vai.org.uk/warm-spaces-in-islington/"
+},
+{
+"id": "nland-ne646st-elizabethan-hall",
+"name": "Elizabethan Hall",
+"address": "Hepple road, newbiggin by the sea",
+"postcode": "NE64 6ST",
+"lat": 55.17933,
+"lng": -1.52325,
+"phone": "07562499442",
+"website": "https://www.northumberland.gov.uk/Welfare-and-benefits/Warm-spaces.aspx",
+"source": "Northumberland County Council warm spaces",
+"source_url": "https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json"
 },
 {
 "id": "cambs-elm-community-living-room",
@@ -1407,6 +1767,18 @@
 "source_url": "https://www.warmwelcome.uk/space?l=28545"
 },
 {
+"id": "cherwell--font-caf",
+"name": "Font Café",
+"address": "High Street Hook, Norton",
+"postcode": "",
+"lat": 51.99544334249487,
+"lng": -1.4841897147848813,
+"phone": "01608 737995",
+"website": "https://www.cherwell.gov.uk/warm-spaces",
+"source": "Cherwell District Council warm spaces",
+"source_url": "https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json"
+},
+{
 "id": "ww-69275865",
 "name": "Footprints Coffee Morning",
 "address": "Trinity Methodist Church, Biggleswade, Bedfordshire SG18 0AP",
@@ -1513,6 +1885,18 @@
 "website": "https://gatewayleisure.co.uk/",
 "source": "Warm Welcome",
 "source_url": "https://www.warmwelcome.uk/space?l=26438"
+},
+{
+"id": "ww-65438940",
+"name": "Gedling Library",
+"address": "Wollaton Ave, Gedling NG4 4HX",
+"postcode": "NG4 4HX",
+"lat": 52.9816,
+"lng": -1.093628,
+"phone": "01623 677 200",
+"website": "https://www.inspireculture.org.uk/reading-information/find-a-library/gedling-library/visiting-us/",
+"source": "Warm Welcome",
+"source_url": "https://www.warmwelcome.uk/space?l=27541"
 },
 {
 "id": "ww-64711952",
@@ -1705,6 +2089,18 @@
 "website": "https://cambsacre.org.uk/cambridgeshire-community-hubs-network/",
 "source": "Warm Welcome",
 "source_url": "https://www.warmwelcome.uk/space?l=27159"
+},
+{
+"id": "nland-ne659sf-hadston-house",
+"name": "Hadston House",
+"address": "Bondicar Road, Hadston, N65 9SF",
+"postcode": "NE65 9SF",
+"lat": 55.29334,
+"lng": -1.60366,
+"phone": "01670 761537",
+"website": "https://www.northumberland.gov.uk/Welfare-and-benefits/Warm-spaces.aspx",
+"source": "Northumberland County Council warm spaces",
+"source_url": "https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json"
 },
 {
 "id": "ww-55474526",
@@ -1969,6 +2365,66 @@
 "website": "https://www.tajmahalcommunityhub.org/",
 "source": "Warm Welcome",
 "source_url": "https://www.warmwelcome.uk/space?l=25998"
+},
+{
+"id": "th-e35es-idea-store-bow",
+"name": "Idea Store Bow",
+"address": "1 Gladstone Place, Roman Road, London, E3 5ES",
+"postcode": "E3 5ES",
+"lat": 51.53249921672147,
+"lng": -0.029788414388161474,
+"phone": "0333 370 4700",
+"website": "https://www.ideastore.co.uk/visit-us/idea-store-bow",
+"source": "Tower Hamlets warm hubs",
+"source_url": "https://services1.arcgis.com/KZuCGRSe2K5BiG1Z/arcgis/rest/services/WarmHubs/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json"
+},
+{
+"id": "th-e146bt-idea-store-chrisp-street",
+"name": "Idea Store Chrisp Street",
+"address": "1 Vesey Path, East India Dock Road, London, E14 6BT",
+"postcode": "E14 6BT",
+"lat": 51.51161027101047,
+"lng": -0.014437225951322971,
+"phone": "0333 370 4700",
+"website": "https://www.ideastore.co.uk/visit-us/idea-store-chrisp-street",
+"source": "Tower Hamlets warm hubs",
+"source_url": "https://services1.arcgis.com/KZuCGRSe2K5BiG1Z/arcgis/rest/services/WarmHubs/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json"
+},
+{
+"id": "th-e12fb-idea-store-watney-market",
+"name": "Idea Store Watney Market",
+"address": "260 Commercial Road, London, E1 2FB",
+"postcode": "E1 2FB",
+"lat": 51.51434153331237,
+"lng": -0.057320859554650806,
+"phone": "0333 370 4700",
+"website": "https://www.ideastore.co.uk/visit-us/idea-store-watney-market",
+"source": "Tower Hamlets warm hubs",
+"source_url": "https://services1.arcgis.com/KZuCGRSe2K5BiG1Z/arcgis/rest/services/WarmHubs/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json"
+},
+{
+"id": "th-e11bu-idea-store-whitechapel",
+"name": "Idea Store Whitechapel",
+"address": "321 Whitechapel Road, London, E1 1BU",
+"postcode": "E1 1BU",
+"lat": 51.52004254660858,
+"lng": -0.05799363447322773,
+"phone": "0333 370 4700",
+"website": "https://www.ideastore.co.uk/visit-us/idea-store-whitechapel",
+"source": "Tower Hamlets warm hubs",
+"source_url": "https://services1.arcgis.com/KZuCGRSe2K5BiG1Z/arcgis/rest/services/WarmHubs/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json"
+},
+{
+"id": "ww-65438945",
+"name": "Inham Nook Library",
+"address": "Barn Croft, Chilwell NG9 4HU",
+"postcode": "NG9 4HU",
+"lat": 52.923819,
+"lng": -1.247685,
+"phone": "01623 677 200",
+"website": "https://www.inspireculture.org.uk/reading-information/find-a-library/inham-nook-library/visiting-us/",
+"source": "Warm Welcome",
+"source_url": "https://www.warmwelcome.uk/space?l=27546"
 },
 {
 "id": "ww-55475981",
@@ -2295,6 +2751,18 @@
 "source_url": "https://www.carmarthenshire.gov.wales/home/council-services/community-information/warm-hubs/"
 },
 {
+"id": "ww-65441904",
+"name": "Llandaff North & Gabalfa Hub",
+"address": "Llandaff North & Gabalfa Hub, Cardiff, Wales CF14 2HU",
+"postcode": "CF14 2HU",
+"lat": 51.502614,
+"lng": -3.223206,
+"phone": "029 2078 5588",
+"website": "https://cardiffhubs.co.uk/hub/llandaff-north-and-gabalfa-hub/",
+"source": "Warm Welcome",
+"source_url": "https://www.warmwelcome.uk/space?l=25254"
+},
+{
 "id": "cmn-llandovery-warm-hub",
 "name": "Llandovery Warm Hub",
 "address": "Llandovery Youth and Community Centre, Gerwyn House, Market Square, Llandovery, SA20 0AB",
@@ -2355,6 +2823,18 @@
 "source_url": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces"
 },
 {
+"id": "ww-55475641",
+"name": "Longton Library",
+"address": "Longton Library, Lancashire PR4 5HA",
+"postcode": "PR4 5HA",
+"lat": 53.727772,
+"lng": -2.780192,
+"phone": "0300 123 6703",
+"website": "https://www.lancashire.gov.uk/libraries/find-a-library/longton-library/",
+"source": "Warm Welcome",
+"source_url": "https://www.warmwelcome.uk/space?l=23083"
+},
+{
 "id": "eln-macmerry-miners",
 "name": "Macmerry Miners",
 "address": "Main Road, Macmerry, EH33 1QF",
@@ -2389,6 +2869,18 @@
 "website": "https://cambsacre.org.uk/cambridgeshire-community-hubs-network/",
 "source": "Warm Welcome",
 "source_url": "https://www.warmwelcome.uk/space?l=27177"
+},
+{
+"id": "ww-65438919",
+"name": "Mansfield Central Library",
+"address": "Four Seasons Centre, West Gate, Mansfield NG18 1NH",
+"postcode": "NG18 1NH",
+"lat": 53.145433,
+"lng": -1.198191,
+"phone": "01623 677 200",
+"website": "https://www.inspireculture.org.uk/reading-information/find-a-library/mansfield-central-library/visiting-us/",
+"source": "Warm Welcome",
+"source_url": "https://www.warmwelcome.uk/space?l=27520"
 },
 {
 "id": "hav-mardyke-community",
@@ -2523,6 +3015,18 @@
 "source_url": "https://www.warmwelcome.uk/space?l=27296"
 },
 {
+"id": "ww-65438950",
+"name": "Misterton Community Partnership Library",
+"address": "High Street, Misterton, Doncaster DN10 4BU",
+"postcode": "DN10 4BU",
+"lat": 53.443447,
+"lng": -0.846632,
+"phone": "01623 677 200",
+"website": "https://www.inspireculture.org.uk/reading-information/find-a-library/misterton-library/visiting-us/",
+"source": "Warm Welcome",
+"source_url": "https://www.warmwelcome.uk/space?l=27552"
+},
+{
 "id": "ww-55475350",
 "name": "Morden Leisure Centre",
 "address": "Morden Leisure Centre, Surrey SM4 5HE",
@@ -2545,6 +3049,18 @@
 "website": "https://moretonmethodist.org.uk/",
 "source": "Warm Welcome",
 "source_url": "https://www.warmwelcome.uk/space?l=19318"
+},
+{
+"id": "nland-ne611sr-morpeth-sports-leisure-centre",
+"name": "Morpeth Sports & Leisure Centre",
+"address": "Gas House Lane, Morpeth, NE611SR",
+"postcode": "NE61 1SR",
+"lat": 55.16775,
+"lng": -1.68323,
+"phone": "01670 620200",
+"website": "https://www.northumberland.gov.uk/Welfare-and-benefits/Warm-spaces.aspx",
+"source": "Northumberland County Council warm spaces",
+"source_url": "https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json"
 },
 {
 "id": "ww-55474913",
@@ -2643,6 +3159,18 @@
 "source_url": "https://www.warmwelcome.uk/space?l=24893"
 },
 {
+"id": "nland-ne250rp-new-hartley-community-centre-association-memoria",
+"name": "New Hartley Community Centre Association (Memorial Hall)",
+"address": "10 St. Michaels Avenue, New Hartley, Tyne & Wear, NE25 0RP",
+"postcode": "NE25 0RP",
+"lat": 55.08412,
+"lng": -1.51803,
+"phone": "0191 237 5426",
+"website": "https://www.northumberland.gov.uk/Welfare-and-benefits/Warm-spaces.aspx",
+"source": "Northumberland County Council warm spaces",
+"source_url": "https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json"
+},
+{
 "id": "hav-new-windmill-hall",
 "name": "New Windmill Hall Community Association",
 "address": "New Windmill Hall, St. Mary’s Lane, Upminster, RM14 2QH",
@@ -2665,6 +3193,18 @@
 "website": "https://www.eastlothian.gov.uk/benefits-and-support/community-support/warm-place-friendly-face/faside",
 "source": "Council directory",
 "source_url": "https://www.eastlothian.gov.uk/benefits-and-support/community-support/warm-place-friendly-face/faside"
+},
+{
+"id": "nland-ne646hg-newbiggin-sports-community-hub",
+"name": "Newbiggin Sports & Community Hub",
+"address": "Woodhorn Road Newbiggin-by-the-sea. NE64 6HG",
+"postcode": "NE64 6HG",
+"lat": 55.1863,
+"lng": -1.51719,
+"phone": "01670 622639",
+"website": "https://www.northumberland.gov.uk/Welfare-and-benefits/Warm-spaces.aspx",
+"source": "Northumberland County Council warm spaces",
+"source_url": "https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json"
 },
 {
 "id": "ww-64379177",
@@ -2979,6 +3519,30 @@
 "source_url": "https://www.warmwelcome.uk/space?l=14840"
 },
 {
+"id": "cherwell-ox160ej-play-and-learn",
+"name": "Play and Learn",
+"address": "New Futures Centre, Hilton Road, Banbury, OX16 0EJ",
+"postcode": "OX16 0EJ",
+"lat": 52.06237244296005,
+"lng": -1.3506874623953022,
+"phone": "01865 323700",
+"website": "https://fisd.oxfordshire.gov.uk/kb5/oxfordshire/directory/service.page?id=RHnT69sAPQs",
+"source": "Cherwell District Council warm spaces",
+"source_url": "https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json"
+},
+{
+"id": "nland-ne209eg-ponteland-leisure-centre",
+"name": "Ponteland Leisure Centre",
+"address": "Callerton Lane, Ponteland, NE20 9EG",
+"postcode": "NE20 9EG",
+"lat": 55.04892,
+"lng": -1.74091,
+"phone": "01670 620200",
+"website": "https://www.northumberland.gov.uk/Welfare-and-benefits/Warm-spaces.aspx",
+"source": "Northumberland County Council warm spaces",
+"source_url": "https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json"
+},
+{
 "id": "cmn-pontyberem-hall",
 "name": "Pontyberem Hall",
 "address": "Pontyberem Memorial Hall, 38 Coalbrook Street, Pontyberem, SA15 5HU",
@@ -3037,6 +3601,18 @@
 "website": "https://projectstthomas.co.uk/",
 "source": "Warm Welcome",
 "source_url": "https://www.warmwelcome.uk/space?l=26551"
+},
+{
+"id": "nland-ne425dq-prudhoe-waterworld",
+"name": "Prudhoe Waterworld",
+"address": "Front Street, Prudhoe, NE42 5DQ",
+"postcode": "NE42 5DQ",
+"lat": 54.96137,
+"lng": -1.84562,
+"phone": "01670 620200",
+"website": "https://www.northumberland.gov.uk/Welfare-and-benefits/Warm-spaces.aspx",
+"source": "Northumberland County Council warm spaces",
+"source_url": "https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json"
 },
 {
 "id": "ww-68719263",
@@ -3207,6 +3783,18 @@
 "source_url": "https://www.warmwelcome.uk/space?l=25786"
 },
 {
+"id": "nland-ne657tz-rothbury-library",
+"name": "Rothbury Library",
+"address": "Rothbury Library, Front Street , Rothbury Northumberland NE65 7TZ",
+"postcode": "NE65 7TZ",
+"lat": 55.30889,
+"lng": -1.91495,
+"phone": "01669 620428",
+"website": "https://www.northumberland.gov.uk/Welfare-and-benefits/Warm-spaces.aspx",
+"source": "Northumberland County Council warm spaces",
+"source_url": "https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json"
+},
+{
 "id": "ww-68672328",
 "name": "Rottingdean Library",
 "address": "The Grange, Rottingdean",
@@ -3217,6 +3805,18 @@
 "website": "https://www.brighton-hove.gov.uk/libraries-leisure-and-arts/libraries/our-libraries-and-their-opening-times/rottingdean-library",
 "source": "Brighton & Hove City Council warm spaces",
 "source_url": "https://gis.brighton-hove.gov.uk/server/rest/services/Hosted/Warm_spaces_October_26/FeatureServer/0/query?where=1=1&outFields=*&f=json"
+},
+{
+"id": "ww-55592198",
+"name": "Round About Cafe",
+"address": "Round About Café, Westfield Corner, Mansbridge, Southampton SO18 2LE",
+"postcode": "SO18 2LE",
+"lat": 50.941946,
+"lng": -1.372844,
+"phone": "023 8067 2700",
+"website": "https://www.roundaboutcafe.org/",
+"source": "Warm Welcome",
+"source_url": "https://www.warmwelcome.uk/space?l=22094"
 },
 {
 "id": "ww-69056096",
@@ -3351,6 +3951,18 @@
 "source_url": "https://www.warmwelcome.uk/space?l=24319"
 },
 {
+"id": "nland-ne250ae-seaton-deleval-library",
+"name": "Seaton Deleval Library",
+"address": "The Pavilion, Astley Community Park, Seaton Deleval, NE25 0AE",
+"postcode": "NE25 0AE",
+"lat": 55.07141,
+"lng": -1.52411,
+"phone": "01670 623930",
+"website": "https://www.northumberland.gov.uk/Welfare-and-benefits/Warm-spaces.aspx",
+"source": "Northumberland County Council warm spaces",
+"source_url": "https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json"
+},
+{
 "id": "ww-55473794",
 "name": "Seaview Project",
 "address": "Southwater Centre, St Leonards on Sea, Uk TN37  6LB",
@@ -3411,6 +4023,18 @@
 "source_url": "https://www.warmwelcome.uk/space?l=21778"
 },
 {
+"id": "cherwell-ox162pq-shop-and-museum",
+"name": "Shop and Museum",
+"address": "Spiceball Park Road Banbury OX16 2PQ",
+"postcode": "OX16 2PQ",
+"lat": 52.063405074701386,
+"lng": -1.3333827119174504,
+"phone": "01295 272917",
+"website": "https://www.cherwell.gov.uk/warm-spaces",
+"source": "Cherwell District Council warm spaces",
+"source_url": "https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json"
+},
+{
 "id": "ww-57952739",
 "name": "Shrewsbury House Community Centre",
 "address": "Bushmoor Crescent, London, London SE18 3EG",
@@ -3447,6 +4071,18 @@
 "source_url": "https://www.sign-post.info/home/core-services/signpost-tendring"
 },
 {
+"id": "ww-55474396",
+"name": "Silverdale Library",
+"address": "25 Emesgate Lane, Silverdale, Carnforth LA5 0RA",
+"postcode": "LA5 0RA",
+"lat": 54.16844,
+"lng": -2.826927,
+"phone": "0300 123 6703",
+"website": "https://www.lancashire.gov.uk/libraries-and-archives/libraries/find-a-library/silverdale-library/",
+"source": "Warm Welcome",
+"source_url": "https://www.warmwelcome.uk/space?l=23254"
+},
+{
 "id": "ww-68685671",
 "name": "Sinfin Moor Church Centre - Connect",
 "address": "Sinfin Moor  Church, Derbyshire DE24 3DH",
@@ -3481,6 +4117,18 @@
 "website": "https://cambsacre.org.uk/cambridgeshire-community-hubs-network/",
 "source": "Warm Welcome",
 "source_url": "https://www.warmwelcome.uk/space?l=27152"
+},
+{
+"id": "cherwell-ox165hd-soup-and-a-smile",
+"name": "Soup and a Smile",
+"address": "Dashwood Road Banbury OX16 5HD",
+"postcode": "OX16 5HD",
+"lat": 52.058041977197284,
+"lng": -1.3394046369370052,
+"phone": "07399 471662",
+"website": "https://www.cherwell.gov.uk/warm-spaces",
+"source": "Cherwell District Council warm spaces",
+"source_url": "https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json"
 },
 {
 "id": "vai-south-library",
@@ -3721,6 +4369,18 @@
 "website": "https://stjohnspevenseyroad.org.uk/",
 "source": "Warm Welcome",
 "source_url": "https://www.warmwelcome.uk/space?l=19410"
+},
+{
+"id": "cherwell-ox154dw-st-johns-the-baptist-church",
+"name": "St Johns the Baptist Church",
+"address": "Church Street, Bodicote, OX15 4DW",
+"postcode": "OX15 4DW",
+"lat": 52.03566211686789,
+"lng": -1.3309065662947666,
+"phone": "01295 250282",
+"website": "https://www.bodicotechurch.org/",
+"source": "Cherwell District Council warm spaces",
+"source_url": "https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json"
 },
 {
 "id": "sw-st-john-s-hoxton-n16np",
@@ -4071,6 +4731,42 @@
 "source_url": "https://www.warmwelcome.uk/space?l=27164"
 },
 {
+"id": "ww-62567470",
+"name": "Stroud Library",
+"address": "Five Valleys Shopping Centre, Gloucestershire GL5 1RR",
+"postcode": "GL5 1RR",
+"lat": 51.746218,
+"lng": -2.218865,
+"phone": "01452 425555",
+"website": "https://gloslibraries.uk/library/stroud-library",
+"source": "Warm Welcome",
+"source_url": "https://www.warmwelcome.uk/space?l=22965"
+},
+{
+"id": "cherwell-ox160en-sunrise-multi-cultural-project",
+"name": "Sunrise Multi Cultural Project",
+"address": "60 Orchard Way, Banbury, OX16 0EN",
+"postcode": "OX16 0EN",
+"lat": 52.06298974104449,
+"lng": -1.3526126404522252,
+"phone": "01295 701728",
+"website": "https://sunrisemulticultural.org.uk/",
+"source": "Cherwell District Council warm spaces",
+"source_url": "https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json"
+},
+{
+"id": "ww-65438942",
+"name": "Sutton Bonington Library",
+"address": "Village Hall, St Anne's Lane, Sutton Bonington, Loughborough LE12 5NJ",
+"postcode": "LE12 5NJ",
+"lat": 52.82044,
+"lng": -1.249232,
+"phone": "01623 677 200",
+"website": "https://www.inspireculture.org.uk/reading-information/find-a-library/sutton-bonington-library/visiting-us/",
+"source": "Warm Welcome",
+"source_url": "https://www.warmwelcome.uk/space?l=27543"
+},
+{
 "id": "ww-64379394",
 "name": "Sway Community Hub",
 "address": "Sway Youth Centre, Sway, Sway SO41 6BA",
@@ -4153,6 +4849,18 @@
 "website": "www.newlifecommunitychurch.co.uk",
 "source": "Warm Welcome",
 "source_url": "https://www.warmwelcome.uk/space?l=28506"
+},
+{
+"id": "nland-ne236yb-the-cramlington-hub",
+"name": "The Cramlington Hub",
+"address": "Retail Park, Manor Walks, Cramlington, NE23 6YB",
+"postcode": "NE23 6YB",
+"lat": 55.08505,
+"lng": -1.59182,
+"phone": "01670 713021",
+"website": "https://www.northumberland.gov.uk/Welfare-and-benefits/Warm-spaces.aspx",
+"source": "Northumberland County Council warm spaces",
+"source_url": "https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json"
 },
 {
 "id": "hav-friendship-cafe-myplace",
@@ -4827,6 +5535,18 @@
 "source_url": "https://www.warmwelcome.uk/space?l=26885"
 },
 {
+"id": "cherwell-ox160jj-warm-welcome",
+"name": "Warm Welcome",
+"address": "Dover Avenue, Banbury, OX16 0JJ",
+"postcode": "OX16 0JJ",
+"lat": 52.06177680037107,
+"lng": -1.365554366371831,
+"phone": "01295 981176",
+"website": "https://thehillbanbury.com/",
+"source": "Cherwell District Council warm spaces",
+"source_url": "https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json"
+},
+{
 "id": "ww-55476124",
 "name": "Warm Welcome @ The Dolphin",
 "address": "The Dolphin, 316 High Street, Sutton, Surrey SM1 1PR",
@@ -4947,6 +5667,18 @@
 "source_url": "https://www.warmwelcome.uk/space?l=27916"
 },
 {
+"id": "nland-ne463pd-wentworth-leisure-centre",
+"name": "Wentworth Leisure Centre",
+"address": "Wentworth Place, Hexham, NE46 3PD",
+"postcode": "NE46 3PD",
+"lat": 54.97281,
+"lng": -2.09671,
+"phone": "01670 620200",
+"website": "https://www.northumberland.gov.uk/Welfare-and-benefits/Warm-spaces.aspx",
+"source": "Northumberland County Council warm spaces",
+"source_url": "https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json"
+},
+{
 "id": "ww-55474116",
 "name": "Wesley Warm Welcome",
 "address": "Wesley Methodist Church, Essex SS9 1SJ SS9 1SJ",
@@ -4969,6 +5701,18 @@
 "website": "www.wesleysbaildon.org",
 "source": "Warm Welcome",
 "source_url": "https://www.warmwelcome.uk/space?l=15987"
+},
+{
+"id": "ww-55473008",
+"name": "West End Arts Library",
+"address": "35 St Martin's Street, London WC2H 7DE",
+"postcode": "WC2H 7DE",
+"lat": 51.510106,
+"lng": -0.129923,
+"phone": "020 7641 6200",
+"website": "https://www.westminster.gov.uk/leisure-libraries-and-community/library-opening-times-and-contact-details/west-end-arts-library",
+"source": "Warm Welcome",
+"source_url": "https://www.warmwelcome.uk/space?l=23771"
 },
 {
 "id": "ww-55474493",
@@ -5005,6 +5749,18 @@
 "website": "https://cambsacre.org.uk/cambridgeshire-community-hubs-network/",
 "source": "Warm Welcome",
 "source_url": "https://www.warmwelcome.uk/space?l=27149"
+},
+{
+"id": "ww-57952178",
+"name": "Westbury Library",
+"address": "Westbury House, 15 Edward Street, Westbury BA13 3BD",
+"postcode": "BA13 3BD",
+"lat": 51.261754,
+"lng": -2.183777,
+"phone": "01373 822294",
+"website": "https://apps.wiltshire.gov.uk/librariesinformation/Library/Index/31?isSearchPage=False&isListPage=True",
+"source": "Warm Welcome",
+"source_url": "https://www.warmwelcome.uk/space?l=25448"
 },
 {
 "id": "ww-61263084",
@@ -5091,6 +5847,30 @@
 "source_url": "https://www.warmwelcome.uk/space?l=16836"
 },
 {
+"id": "nland-ne662jh-willowbrun-sports-leisure-centre",
+"name": "Willowbrun Sports & Leisure Centre",
+"address": "Willowburn Avenue, Alnwick, NE66 2JH",
+"postcode": "NE66 2JH",
+"lat": 55.40245,
+"lng": -1.69602,
+"phone": "01670 620200",
+"website": "https://www.northumberland.gov.uk/Welfare-and-benefits/Warm-spaces.aspx",
+"source": "Northumberland County Council warm spaces",
+"source_url": "https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json"
+},
+{
+"id": "nland-ne662jh-willowburn-sports-and-leisure-centre",
+"name": "Willowburn Sports and Leisure Centre",
+"address": "Willowburn Avenue, Alnwick, NE66 2JH",
+"postcode": "NE66 2JH",
+"lat": 55.40245,
+"lng": -1.69602,
+"phone": "07787752969",
+"website": "https://www.northumberland.gov.uk/Welfare-and-benefits/Warm-spaces.aspx",
+"source": "Northumberland County Council warm spaces",
+"source_url": "https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json"
+},
+{
 "id": "ww-55475956",
 "name": "Wimbledon Leisure Centre",
 "address": "Wimbledon Leisure Centre And Spa, sw19  1ew",
@@ -5151,6 +5931,18 @@
 "source_url": "https://gis.brighton-hove.gov.uk/server/rest/services/Hosted/Warm_spaces_October_26/FeatureServer/0/query?where=1=1&outFields=*&f=json"
 },
 {
+"id": "ww-57953028",
+"name": "Wollaton Library",
+"address": "Wollaton Library, Nottingham, Nottinghamshire NG8 2NA",
+"postcode": "NG8 2NA",
+"lat": 52.951404,
+"lng": -1.223229,
+"phone": "0115 915 2809",
+"website": "https://www.nottinghamcitylibraries.co.uk/library/wollaton-library/",
+"source": "Warm Welcome",
+"source_url": "https://www.warmwelcome.uk/space?l=25537"
+},
+{
 "id": "ww-57952338",
 "name": "Women Connect First",
 "address": "Women Connect First, Cardiff, South Glamorgan CF11 6LP",
@@ -5199,6 +5991,18 @@
 "source_url": "https://www.warmwelcome.uk/space?l=28600"
 },
 {
+"id": "nland-ne716bl-wooler-library",
+"name": "Wooler Library",
+"address": "c/o The Cheviot Centre, 12 Padgepool Place, Wooler. Northumberland NE71 6BL",
+"postcode": "NE71 6BL",
+"lat": 55.54653,
+"lng": -2.01813,
+"phone": "01668 282123",
+"website": "https://www.northumberland.gov.uk/Welfare-and-benefits/Warm-spaces.aspx",
+"source": "Northumberland County Council warm spaces",
+"source_url": "https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json"
+},
+{
 "id": "ww-57952293",
 "name": "Wymondham Abbey",
 "address": "Wymondham Abbey, Wymondham, NR18 0PH",
@@ -5209,6 +6013,18 @@
 "website": "https://www.wymondhamabbey.org.uk/about-us/",
 "source": "Warm Welcome",
 "source_url": "https://www.warmwelcome.uk/space?l=25818"
+},
+{
+"id": "cherwell-ox51te-yarnton-community-drop-in",
+"name": "Yarnton Community Drop In",
+"address": "The Paddocks, Yarnton, Kidlington, OX5 1TE",
+"postcode": "OX5 1TE",
+"lat": 51.80623000844839,
+"lng": -1.3066612294273188,
+"phone": "07947 659788",
+"website": "https://www.cherwell.gov.uk/warm-spaces",
+"source": "Cherwell District Council warm spaces",
+"source_url": "https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json"
 },
 {
 "id": "ww-69175071",

@@ -10,7 +10,7 @@ Score = average of opening-times and phone fill rates (0-100). Flagged if it dro
 
 - warmspaces: Cambridgeshire ACRE: 40
 - warmspaces: Council directory: 46.6
-- warmspaces: Warm Welcome: 49
+- warmspaces: Warm Welcome: 49.1
 - own site blackcountryfoodbank.org.uk: 50
 - own site cvoea.co.uk: 50
 - own site thebigfoodproject.co.uk: 50
@@ -22,14 +22,17 @@ Score = average of opening-times and phone fill rates (0-100). Flagged if it dro
 - own site widnesfoodbank.org.uk: 50
 - own site canterburyfoodbank.org: 50
 - warmspaces: Southwark Council warm spaces page: 50
+- warmspaces: Northumberland County Council warm spaces: 50
 - warmspaces: Voluntary Action Islington warm spaces list: 50
+- warmspaces: Cherwell District Council warm spaces: 50
+- warmspaces: Tower Hamlets warm hubs: 50
 - warmspaces: Brighton & Hove City Council warm spaces: 50
 - warmspaces: Voluntary Action Islington warm spaces (daily sweep): 50
 - own site salvationarmy.org.uk: 54.2
-- IFAN: 54.8
 - own site familyfoodbank.org: 57.1
 - own site purleyfoodhub.net: 57.1
 - own site meonvalleyfoodbank.co.uk: 57.1
+- IFAN: 57.3
 - own site calderwoodbaptist.co.uk: 58.4
 - own site lutonfoodbank.org.uk: 58.4
 - own site loveworks.org.uk: 58.4
@@ -39,15 +42,15 @@ Score = average of opening-times and phone fill rates (0-100). Flagged if it dro
 - own site edinburghnefoodbank.com: 60
 - own site bristolnorthwestfoodbank.org.uk: 60
 - own site soarvalleyoutreach.org.uk: 62.5
-- Give Food (independent): 63.7
+- Give Food (independent): 63.8
 - own site stratforduponavon.foodbank.org.uk: 70
 - own site warwickdistrict.foodbank.org.uk: 71.5
 - own site gloucester.foodbank.org.uk: 71.5
 - own site waveney.foodbank.org.uk: 75
 - own site edinburghfoodproject.org: 75
+- shelters: Homeless Link: 75
 - own site horshamdistrict.foodbank.org.uk: 83.3
 - own site lincolnlarder.co.uk: 83.3
-- shelters: Manual (verified from source pages): 83.3
 - own site westlothian.foodbank.org.uk: 85
 - own site andover.foodbank.org.uk: 85.7
 - own site newcastlestaffs.foodbank.org.uk: 85.7
@@ -71,6 +74,7 @@ Score = average of opening-times and phone fill rates (0-100). Flagged if it dro
 - own site bournemouth.foodbank.org.uk: 91.7
 - own site wirral.foodbank.org.uk: 91.7
 - shelters: Homeless Link Find help + 2026 corroboration: 91.7
+- shelters: Manual (verified from source pages): 92.3
 - own site swansea.foodbank.org.uk: 92.8
 - own site eastbristol.foodbank.org.uk: 92.8
 - own site chesterfield.foodbank.org.uk: 92.8
@@ -78,7 +82,6 @@ Score = average of opening-times and phone fill rates (0-100). Flagged if it dro
 - own site basingstoke.foodbank.org.uk: 93.8
 - own site taffely.foodbank.org.uk: 93.8
 - own site greenwich.foodbank.org.uk: 93.8
-- own site salford.foodbank.org.uk: 93.8
 - own site hinckleyarea.foodbank.org.uk: 94.5
 - own site cambridgecity.foodbank.org.uk: 94.5
 - own site cardiff.foodbank.org.uk: 94.5
@@ -153,6 +156,7 @@ Score = average of opening-times and phone fill rates (0-100). Flagged if it dro
 - own site harrow.foodbank.org.uk: 100
 - own site eastbourne.foodbank.org.uk: 100
 - own site runnymede.foodbank.org.uk: 100
+- own site salford.foodbank.org.uk: 100
 - own site bromleyborough.foodbank.org.uk: 100
 - own site strouddistrict.foodbank.org.uk: 100
 - own site eppingforest.foodbank.org.uk: 100
