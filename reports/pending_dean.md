@@ -229,22 +229,22 @@ Run 2026-11-01. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
 
 
 <!-- times crosscheck fb -->
-## Opening-times changes from the refresh (fb): 5 auto-applied, 52 held
+## Opening-times changes from the refresh (fb): 8 auto-applied, 48 held
 
+- AUTO-APPLIED `pantry` PANTRY Foodbank (strict, 2 identical runs). Undo: `python scripts/times_revert.py fb:pantry`
 - AUTO-APPLIED `enniskillen` Enniskillen Foodbank (strict, 2 identical runs). Undo: `python scripts/times_revert.py fb:enniskillen`
+- AUTO-APPLIED `lw-storehouse` LW Storehouse Foodbank (strict, 2 identical runs). Undo: `python scripts/times_revert.py fb:lw-storehouse`
 - AUTO-APPLIED `warminster-and-district` Warminster and District Foodbank (strict, 2 identical runs). Undo: `python scripts/times_revert.py fb:warminster-and-district`
 - AUTO-APPLIED `comfort-memorial-food-for-all` Comfort Memorial Food For All Foodbank (strict, 2 identical runs). Undo: `python scripts/times_revert.py fb:comfort-memorial-food-for-all`
 - AUTO-APPLIED `st-james-thornton` St James Thornton Foodbank (strict, 2 identical runs). Undo: `python scripts/times_revert.py fb:st-james-thornton`
+- AUTO-APPLIED `ifan-84cd0bf40986bfc9a427c6-0` St Laurence's Larder & Open Kitchen (strict, 2 identical runs). Undo: `python scripts/times_revert.py fb:ifan-84cd0bf40986bfc9a427c6-0`
 - AUTO-APPLIED `ifan-da5df633f7eabc8fbdb2a3-0` Castleman Community Larder CIC (strict, 2 identical runs). Undo: `python scripts/times_revert.py fb:ifan-da5df633f7eabc8fbdb2a3-0`
 - **Colchester Foodbank** (`colchester`, CO3 8RG): own site now Monday-Saturday 10:00 am to 2:00 pm  
   source: https://colchester.foodbank.org.uk  
-  why held: new own-site times look like office/centre hours; own site lists several centres (10 postcodes); cannot tie one table to this listing; new own-site times look like office/centre hours; not one clear weekly client-hours block (kept as text for review); transient failure; stored times left unchanged
-- **PBP Foodbank** (`pbp`, SA17 4TA): own site now Tuesday 10AM - 4PM | Wednesday 10AM - 4PM | Thursday 10AM - 4PM | Friday 10AM - 4PM  
-  source: https://cetma.org.uk/projects/pbp-food-bank/  
-  why held: new own-site times look like office/centre hours; own site lists several centres (3 postcodes); cannot tie one table to this listing; new own-site times look like office/centre hours; not one clear weekly client-hours block (kept as text for review)
+  why held: new own-site times look like office/centre hours; own site lists several centres (10 postcodes); cannot tie one table to this listing; new own-site times look like office/centre hours; not one clear weekly client-hours block (kept as text for review)
 - **CETMA Llanelli** (`pbp/cetma-llanelli`, SA15 1YU): own site now Tuesday 10AM - 4PM | Wednesday 10AM - 4PM | Thursday 10AM - 4PM | Friday 12PM - 4PM  
   source: https://cetma.org.uk/projects/pbp-food-bank/  
-  why held: new own-site times look like office/centre hours; own site lists several centres (3 postcodes); cannot tie one table to this listing; new own-site times look like office/centre hours; not one clear weekly client-hours block (kept as text for review); would cut known hours to fewer sessions (5 to 4) and the source does not say that session ended; review; times not read identically on 2 separate runs yet
+  why held: new own-site times look like office/centre hours; own site lists several centres (3 postcodes); cannot tie one table to this listing; new own-site times look like office/centre hours; not one clear weekly client-hours block (kept as text for review); would cut known hours to fewer sessions (5 to 4) and the source does not say that session ended; review; transient failure; stored times left unchanged
 - **North Oxfordshire Foodbank** (`north-oxfordshire`, OX5 2DS): own site now Friday 11.00am – 1.00pm  
   source: https://northoxfordshirecommunityfoodbank.org.uk/  
   why held: own site lists several centres (3 postcodes); cannot tie one table to this listing; would cut known hours to fewer days (drops Mon) and the source does not say that session ended; review
@@ -260,9 +260,6 @@ Run 2026-11-01. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
 - **Ellesmere Port** (`west-cheshire/ellesmere-port`, CH65 6RS): own site now Mon Closed; Tue 10:00 - 12:00; Wed Closed; Thu Closed; Fri 10:00 - 12:00; Sat Closed; Sun Closed  
   source: https://westcheshire.foodbank.org.uk  
   why held: own site lists several centres (15 postcodes); cannot tie one table to this listing; would cut known hours to fewer days (drops Mon, Wed, Thu, Sat, Sun) and the source does not say that session ended; review
-- **PANTRY Foodbank** (`pantry`, SA8 4HD): own site now Sats & Tues 10am-12pm | Tuesday 10am - 12pm | Saturday 10am - 12pm  
-  source: https://www.pantryfoodbank.org  
-  why held: times not read identically on 2 separate runs yet
 - **Storehouse Melton Foodbank** (`storehouse-melton`, LE13 1NW): own site now Monday 11:00am - 1:00pm | Wednesday 11:00am - 1:00pm | Friday 11:00am - 1:00pm  
   source: https://www.storehousemelton.org.uk  
   why held: source page never mentions a food bank or this listing's name (rule 21: a host church page counts only when it names the food bank)
@@ -311,9 +308,6 @@ Run 2026-11-01. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
 - **The Bus Shelter Shop Foodbank** (`the-bus-shelter-shop`, IP11 7AJ): own site now Monday 10 am - 4 pm | Tuesday 10 am–4 pm | Wednesday 10 am–4 pm | Thursday 10 am–4 pm | Friday 10 am–4 pm | Saturday 10 am–4 pm  
   source: https://www.thebusshelteripswich.co.uk/  
   why held: new own-site times look like office/centre hours; new own-site times look like office/centre hours; not one clear weekly client-hours block (kept as text for review); jumble: 6 separate time blocks read from one page; review only; would cut known hours to fewer sessions (7 to 6) and the source does not say that session ended; review
-- **LW Storehouse Foodbank** (`lw-storehouse`, PR7 3AB): own site now TUESDAYS 10.00AM – 2.00PM | FRIDAYS 10.00AM – 2.00PM  
-  source: https://lwstorehouse.com/  
-  why held: times not read identically on 2 separate runs yet
 - **Chichester District Foodbank** (`chichester-district`, PO19 8ET): own site now Monday 2-4pm | Wednesday 9.30-11.30am | Friday 4-6pm  
   source: https://chichesterdistrict.foodbank.org.uk  
   why held: day not on the same line as its times on the own-site page; would cut known hours to fewer sessions (8 to 3) and the source does not say that session ended; review; would cut known hours to fewer days (drops Tue, Thu) and the source does not say that session ended; review
@@ -386,9 +380,6 @@ Run 2026-11-01. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
 - **St Paul's Pantry (St Paul's Wimbledon Parkside)** (`ifan-53c68645aa831ab649ac43-0`, SW19 6EW): own site now Mondays 3.00 - 5.00 pm | Tuesdays 10.00am - 12pm | Wednesdays 3.30 to 5.30 pm | Thursday 6.30 - 7.30 pm  
   source: https://stpaulsparkside.org.uk/  
   why held: day not on the same line as its times on the own-site page
-- **St Laurence's Larder & Open Kitchen** (`ifan-84cd0bf40986bfc9a427c6-0`, NW6 7BJ): own site now Wednesday 10.00am - 2.00pm | Thursday 11.00am - 2.00pm | Monday 12.00 - 2.00pm  
-  source: https://www.laurenceslarder.org.uk  
-  why held: times not read identically on 2 separate runs yet
 - **Hangar Community Hub CIC** (`ifan-9d9a5ae13b3923c3fd7d0b-0`, CF11 8TT): own site now Mon-Fri 9-2pm  
   source: https://hangarhub.org  
   why held: new own-site times look like office/centre hours; new own-site times look like office/centre hours; not one clear weekly client-hours block (kept as text for review)

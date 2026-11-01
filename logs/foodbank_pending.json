@@ -6,7 +6,7 @@
   "reason": "omitted this run: schema: opening_times text missing",
   "recheck": {
    "source_url": "https://www.givefood.org.uk/needs/at/ty-hapus/",
-   "fetched_at": "2026-11-01T06:01:25+00:00",
+   "fetched_at": "2026-11-01T13:58:06+00:00",
    "record_sha256": "b0e866a45c8a2997e190a18049394e4084176fdcfb62d9c1c1f9e406071fec86",
    "schema_errors": [
     "opening_times text missing"
@@ -20,7 +20,7 @@
   "reason": "omitted this run: no source record this run",
   "recheck": {
    "source_url": null,
-   "fetched_at": "2026-11-01T06:01:25+00:00",
+   "fetched_at": "2026-11-01T13:58:06+00:00",
    "record_sha256": null,
    "schema_errors": []
   }
@@ -32,7 +32,7 @@
   "reason": "omitted this run: no source record this run",
   "recheck": {
    "source_url": null,
-   "fetched_at": "2026-11-01T06:01:25+00:00",
+   "fetched_at": "2026-11-01T13:58:06+00:00",
    "record_sha256": null,
    "schema_errors": [
     "lat out of UK range",
