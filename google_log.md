@@ -1,5 +1,5 @@
 # Google search log (helpmap shelters)
-Updated 1 Nov 2026 09:40 GMT
+Updated 1 Nov 2026 10:46 GMT — Serper finished; all 545 towns in `data/all_towns.txt` listed below.
 
 ## Googled (earlier pass), 188 towns
 - Brighton
@@ -753,6 +753,530 @@ Updated 1 Nov 2026 09:40 GMT
 
 - North West|Heswall
 
+- North West|Heywood
+
+- North West|Hindley
+
+- North West|Horwich
+
+- North West|Huyton
+
+- North West|Hyde
+
+- North West|Knutsford
+
+- North West|Leigh
+
+- North West|Lytham St Annes
+
+- North West|Maghull
+
+- North West|Maryport
+
+- North West|Nantwich
+
+- North West|Nelson
+
+- North West|Newton-le-Willows
+
+- North West|Northwich
+
+- North West|Ormskirk
+
+- North West|Poulton-le-Fylde
+
+- North West|Prescot
+
+- North West|Prestwich
+
+- North West|Radcliffe
+
+- North West|Rawtenstall
+
+- North West|Sale
+
+- North West|Sandbach
+
+- North West|Stalybridge
+
+- North West|Swinton
+
+- North West|Thornton-Cleveleys
+
+- North West|Ulverston
+
+- North West|Urmston
+
+- North West|Walkden
+
+- North West|Wallasey
+
+- North West|Westhoughton
+
+- North West|Widnes
+
+- North West|Wilmslow
+
+- North West|Winsford
+
+- North West|Workington
+
+- Northallerton
+
+- Northern Ireland|Antrim
+
+- Northern Ireland|Ballycastle
+
+- Northern Ireland|Ballyclare
+
+- Northern Ireland|Ballymoney
+
+- Northern Ireland|Banbridge
+
+- Northern Ireland|Carrickfergus
+
+- Northern Ireland|Comber
+
+- Northern Ireland|Craigavon
+
+- Northern Ireland|Downpatrick
+
+- Northern Ireland|Dungiven
+
+- Northern Ireland|Holywood
+
+- Northern Ireland|Kilkeel
+
+- Northern Ireland|Limavady
+
+- Northern Ireland|Lurgan
+
+- Northern Ireland|Magherafelt
+
+- Northern Ireland|Newtownabbey
+
+- Northern Ireland|Newtownards
+
+- Northern Ireland|Portadown
+
+- Northern Ireland|Portrush
+
+- Northern Ireland|Warrenpoint
+
+- Oadby
+
+- Oakham
+
+- Okehampton
+
+- Oldbury
+
+- Ossett
+
+- Oswestry
+
+- Otley
+
+- Oxted
+
+- Paignton
+
+- Peacehaven
+
+- Pembroke Dock
+
+- Penarth
+
+- Penistone
+
+- Petersfield
+
+- Pontefract
+
+- Pontypool
+
+- Porth
+
+- Porthcawl
+
+- Portishead
+
+- Potters Bar
+
+- Prestatyn
+
+- Pudsey
+
+- Radstock
+
+- Rayleigh
+
+- Redbridge
+
+- Retford
+
+- Richmond
+
+- Rickmansworth
+
+- Ringwood
+
+- Ripley
+
+- Ripon
+
+- Rochester
+
+- Romsey
+
+- Ross-on-Wye
+
+- Rothwell
+
+- Rowley Regis
+
+- Royal Wootton Bassett
+
+- Royston
+
+- Rugeley
+
+- Rushden
+
+- Ruthin
+
+- Ryde
+
+- Saffron Walden
+
+- Saltash
+
+- Sandown
+
+- Sandy
+
+- Scotland|Alloa
+
+- Scotland|Annan
+
+- Scotland|Arbroath
+
+- Scotland|Ardrossan
+
+- Scotland|Barrhead
+
+- Scotland|Bathgate
+
+- Scotland|Bearsden
+
+- Scotland|Bellshill
+
+- Scotland|Blairgowrie
+
+- Scotland|Bo'ness
+
+- Scotland|Bonnybridge
+
+- Scotland|Bonnyrigg
+
+- Scotland|Broxburn
+
+- Scotland|Buckie
+
+- Scotland|Cambuslang
+
+- Scotland|Carluke
+
+- Scotland|Clydebank
+
+- Scotland|Crieff
+
+- Scotland|Cumnock
+
+- Scotland|Cupar
+
+- Scotland|Denny
+
+- Scotland|Dingwall
+
+- Scotland|Dumbarton
+
+- Scotland|Dunoon
+
+- Scotland|East Kilbride
+
+- Scotland|Elgin
+
+- Scotland|Ellon
+
+- Scotland|Erskine
+
+- Scotland|Forfar
+
+- Scotland|Fort William
+
+- Scotland|Fraserburgh
+
+- Scotland|Galashiels
+
+- Scotland|Girvan
+
+- Scotland|Glenrothes
+
+- Scotland|Grangemouth
+
+- Scotland|Haddington
+
+- Scotland|Hamilton
+
+- Scotland|Hawick
+
+- Scotland|Inverurie
+
+- Scotland|Irvine
+
+- Scotland|Johnstone
+
+- Scotland|Kelso
+
+- Scotland|Kirkintilloch
+
+- Scotland|Kirkwall
+
+- Scotland|Lanark
+
+- Scotland|Larbert
+
+- Scotland|Largs
+
+- Scotland|Lerwick
+
+- Scotland|Leven
+
+- Scotland|Methil
+
+- Scotland|Montrose
+
+- Scotland|Musselburgh
+
+- Scotland|Nairn
+
+- Scotland|Newton Mearns
+
+- Scotland|Oban
+
+- Scotland|Peebles
+
+- Scotland|Penicuik
+
+- Scotland|Peterhead
+
+- Scotland|Port Glasgow
+
+- Scotland|Prestwick
+
+- Scotland|Renfrew
+
+- Scotland|Rutherglen
+
+- Scotland|Saltcoats
+
+- Scotland|St Andrews
+
+- Scotland|Stenhousemuir
+
+- Scotland|Stonehaven
+
+- Scotland|Stornoway
+
+- Scotland|Stranraer
+
+- Scotland|Thurso
+
+- Scotland|Troon
+
+- Scotland|Wick
+
+- Seaford
+
+- Sedgley
+
+- Shaftesbury
+
+- Sheerness
+
+- Shepshed
+
+- Shepton Mallet
+
+- Sherborne
+
+- Shipley
+
+- Shirebrook
+
+- Shirley
+
+- Shotton
+
+- Sidmouth
+
+- Skipton
+
+- Sleaford
+
+- Smethwick
+
+- Snodland
+
+- South West England + Wales
+
+- Southwark
+
+- Spalding
+
+- St Ives
+
+- St Neots
+
+- Stamford
+
+- Stapleford
+
+- Staveley
+
+- Stocksbridge
+
+- Stone
+
+- Stourbridge
+
+- Stourport-on-Severn
+
+- Stowmarket
+
+- Stratford-upon-Avon
+
+- Street
+
+- Sudbury
+
+- Sunbury
+
+- Surrey: Farnham
+
+- Sussex: Shoreham-by-Sea
+
+- Sutton
+
+- Sutton-in-Ashfield
+
+- Swadlincote
+
+- Swanage
+
+- Swanley
+
+- Tavistock
+
+- Teignmouth
+
+- Tewkesbury
+
+- Thame
+
+- Thatcham
+
+- Thirsk
+
+- Thornbury
+
+- Thorne
+
+- Tilbury
+
+- Tipton
+
+- Todmorden
+
+- Tonypandy
+
+- Totnes
+
+- Totton
+
+- Towcester
+
+- Tower Hamlets
+
+- Tring
+
+- Uckfield
+
+- Uttoxeter
+
+- WM: Sutton Coldfield
+
+- Waltham Forest
+
+- Walton-on-Thames
+
+- Wandsworth
+
+- Wantage
+
+- Ware
+
+- Warminster
+
+- Warwick
+
+- Waterlooville
+
+- Wath-upon-Dearne
+
+- Wednesbury
+
+- Welshpool
+
+- West Midlands
+
+- Westbury
+
+- Westminster
+
+- Wetherby
+
+- Weybridge
+
+- Whitby
+
+- Whitchurch
+
+- Whitstable
+
+- Wickford
+
+- Wigston
+
+- Willenhall
+
+- Wimborne Minster
+
+- Witham
+
+- Withernsea
+
+- Wokingham
+
+- Wymondham
+
+- Keighley
+
+- Yate
+
+- Ystrad Mynach
+
 ## Still to Google: every other town in towns_se/sw/mid/north lists (web-searched only)
 
 ## Merge timing (Dean 1 Nov 2026 10:07 UTC)
@@ -761,5 +1285,5 @@ Google Serper A-grade places go live in **one final PR after** agent bc-95f199ae
 
 ## Credits
 
-- Used (this run): 843
-- Estimated remaining: 1657
+- Used (this run): 1629
+- Estimated remaining: 871
