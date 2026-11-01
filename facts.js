@@ -41,7 +41,8 @@
   };
   function row(en, cy, body) {
     const tag = /<(div|table|ul)\b/.test(body) ? 'div' : 'p';
-    return `<${tag} class="xrow"><b>${B(esc(en), esc(cy))}:</b> ${body}</${tag}>`;
+    const ot = en === 'Opening times' ? ' ot' : '';
+    return `<${tag} class="xrow${ot}"><b>${B(esc(en), esc(cy))}:</b> ${body}</${tag}>`;
   }
   function phrase(en, cy) { return B(esc(en), esc(cy || en)); }
   function winter(i) {

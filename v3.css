@@ -629,6 +629,7 @@ html[data-v3k=sh] #list,html[data-v3k=ws] #list,html[data-v3k=sh] #otshut,html[d
 footer a[href^="tel:"],.legal a[href^="tel:"]{padding-left:10px!important;padding-right:10px!important;margin-left:-10px!important;margin-right:-10px!important}
 /* 28 Oct QA round 3 M2: the desktop map pop-up ✕ was Leaflet's 24x24px; now a 44x44px tap target (same glyph), and the pop-up text keeps clear of it. Leaflet pop-ups are used with both map engines. */
 .leaflet-container a.leaflet-popup-close-button{width:44px!important;height:44px!important;font:24px/44px Tahoma,Verdana,sans-serif!important;top:0!important;right:0!important;text-align:center!important}
+.leaflet-popup-content{max-height:min(60vh,480px);overflow-y:auto}
 .leaflet-popup-content .pop>h3,.leaflet-popup-content .pop>.ncb:first-child,.leaflet-popup-content .pop>:first-child{padding-right:30px}
 /* Uniform fact rows (31 Oct 2026). Same block on every card. Full width so the Directions | Call row does not move sideways. */
 #list .card>.ufact,#xextra .card>.ufact,#sheet .card>.ufact,.leaflet-popup-content .ufact{order:8;flex:1 1 100%;width:100%;min-width:0;margin-top:8px}
@@ -687,7 +688,9 @@ html body .leaflet-popup-content :is(a.btn.gm,a.btn.call:not(.xfb),button.v3shar
 html body :is(#list,#xextra,#sheet,#sheetBody) :is(.card,.pop) :is(a.btn.gm,a.btn.call:not(.xfb),button.v3share,a.btn.web) :is(span,.xdom,.xnum),
 html body .leaflet-popup-content :is(a.btn.gm,a.btn.call:not(.xfb),button.v3share,a.btn.web) :is(span,.xdom,.xnum){font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif!important}
 /* Shelter symbol strip: directly under the map, shelter layer only. Dark box, thin blue border, 28px symbols, one line at 390px. */
-#xsym{display:none;margin:6px 8px 0;justify-content:space-between;align-items:center;gap:6px;padding:7px 10px;border-radius:10px;background:rgba(10,22,40,.88);border:1.5px solid #56B4E9;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:12px;font-weight:600;color:#e8edf6;white-space:nowrap;box-sizing:border-box}
+#xsym{display:none;margin:6px 8px 0;justify-content:space-between;align-items:center;gap:6px;padding:7px 10px;border-radius:10px;background:rgba(10,22,40,.88);border:1.5px solid #56B4E9;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:12px;font-weight:600;color:#e8edf6;white-space:nowrap;box-sizing:border-box;max-width:calc(100% - 16px);overflow:hidden}
+#xsym .xsy{min-width:0;overflow:hidden}
+#v3big .v3b{overflow:hidden;min-width:0}
 html[data-v3k=sh] #xsym{display:flex}
 #xsym .xsy{display:flex;align-items:center;gap:5px;white-space:nowrap;min-width:0}
 #xsym svg{width:28px;height:28px;flex:none;display:block}
