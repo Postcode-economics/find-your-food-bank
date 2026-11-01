@@ -377,6 +377,7 @@ def alert(text, root=None):
 def _recompute(slot):
     steps = slot.get("steps") or {}
     slot["applied"] = sum(int(s.get("applied") or 0) for s in steps.values())
+    slot["applied_this_run"] = sum(int(s.get("applied_this_run") or s.get("applied") or 0) for s in steps.values())
     slot["held"] = sum(int(s.get("held") or 0) for s in steps.values())
     slot["stale_cleared"] = sum(int(s.get("stale_cleared") or 0) for s in steps.values())
     rejected, errors, alerts, cov = [], [], [], {}
@@ -405,7 +406,7 @@ def finish(root, layer, step, applied=0, held=0, rejected=None, stale_cleared=0,
     cov = dict(coverage if coverage is not None else merged(layer, root))
     slot = data.setdefault("layers", {}).setdefault(layer, {"steps": {}})
     slot.setdefault("steps", {})[step] = {
-        "applied": int(applied or 0), "held": int(held or 0), "stale_cleared": int(stale_cleared or 0),
+        "applied": int(applied or 0), "applied_this_run": int(applied or 0), "held": int(held or 0), "stale_cleared": int(stale_cleared or 0),
         "rejected": list(rejected or [])[:200], "errors": list(errors or [])[:40],
         "alerts": list(alerts or []), "coverage": cov, "enabled": enabled(),
     }
@@ -464,20 +465,49 @@ def finish_times(root, layer, tlog):
     """One times-step summary. No file on a dry run, so a dry run's reports stay as they were."""
     if os.environ.get("DRY_RUN") or os.environ.get("SAMPLE"):
         return {}
-    applied = held = stale = 0
+    applied_this_run = _times_applied_this_run(root, layer)
+    held = stale = 0
     rejected = []
     for i, rec in (tlog or {}).items():
         if not isinstance(rec, dict):
             continue
-        if rec.get("auto_applied"):
-            applied += 1
-        elif rec.get("status") == "stale_cleared":
+        if rec.get("status") == "stale_cleared":
             stale += 1
         elif rec.get("status") == "held_for_dean":
             held += 1
             if len(rejected) < 200:
                 rejected.append({"id": i, "reasons": list(rec.get("held") or [rec.get("reason") or ""])})
-    return finish(root, layer, "times", applied, held, rejected, stale_cleared=stale, coverage=merged(layer, root))
+    slot = finish(root, layer, "times", applied_this_run, held, rejected, stale_cleared=stale, coverage=merged(layer, root))
+    if slot and root:
+        step = ((slot.get("layers") or {}).get(layer) or {}).get("steps", {}).get("times")
+        if isinstance(step, dict):
+            step["applied_this_run"] = int(applied_this_run or 0)
+    return slot
+
+
+def _times_applied_this_run(root, layer):
+    """Auto-applies logged today on this layer (not every listing still marked auto_applied in the check log)."""
+    if not root or not layer:
+        return 0
+    kind = {"foodbanks": "fb", "shelters": "sh", "warmspaces": "ws"}.get(layer)
+    if not kind:
+        return 0
+    lp = os.path.join(root, "reports", "times_auto_applied.json")
+    if not os.path.exists(lp):
+        return 0
+    try:
+        log = json.load(open(lp, encoding="utf-8"))
+    except Exception:
+        return 0
+    today = _today()
+    n = 0
+    for e in log or []:
+        if not isinstance(e, dict) or e.get("reverted") or e.get("kind") != kind:
+            continue
+        ts = (e.get("second_run_at") or e.get("first_run_at") or "")[:10]
+        if ts == today:
+            n += 1
+    return n
 
 
 def undone_access(root):
@@ -504,8 +534,9 @@ def digest_lines(data):
         seen.add(line)
         L.append("- **%s: %s**" % (ALERT, line) if not str(line).startswith(ALERT) else "- **%s**" % line)
     for name, slot in sorted((data.get("layers") or {}).items()):
-        L.append("- %s: applied %d, held %d, rejected %d, stale cleared %d" % (
-            name, int(slot.get("applied") or 0), int(slot.get("held") or 0),
+        applied_run = int(slot.get("applied_this_run") or slot.get("applied") or 0)
+        L.append("- %s: applied %d this run, held %d, rejected %d, stale cleared %d" % (
+            name, applied_run, int(slot.get("held") or 0),
             len(slot.get("rejected") or []), int(slot.get("stale_cleared") or 0)))
         for rej in (slot.get("rejected") or [])[:8]:
             L.append("  - %s: %s" % (rej.get("id"), "; ".join(rej.get("reasons") or [])))

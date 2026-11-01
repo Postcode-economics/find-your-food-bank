@@ -7,7 +7,7 @@ gate, which stays quiet below its attempt floor. It prints a log annotation and 
 the digest alert. It does not exit: the refresh has to publish, and the coverage gate
 already holds auto-applies when renders fail.
 """
-import os, shutil, sys, tempfile, unittest
+import json, os, shutil, sys, tempfile, unittest
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "scripts"))
 import intelligent_rails as IR
 
@@ -56,9 +56,13 @@ class EveryRenderFailed(unittest.TestCase):
         line = IR.every_render_failed("foodbanks")
         d = tempfile.mkdtemp()
         try:
+            os.makedirs(os.path.join(d, "reports"), exist_ok=True)
+            json.dump([{"kind": "fb", "second_run_at": "2026-10-31T12:00:00+00:00", "reverted": False}],
+                      open(os.path.join(d, "reports", "times_auto_applied.json"), "w"))
             IR.finish_times(d, "foodbanks", {"x": {"auto_applied": True}, "y": {"status": "held_for_dean", "held": ["fewer days"]}})
             before = IR.load_summary(d)
             self.assertEqual(before["layers"]["foodbanks"]["applied"], 1)
+            self.assertEqual(before["layers"]["foodbanks"]["steps"]["times"]["applied_this_run"], 1)
             self.assertEqual(before["layers"]["foodbanks"]["held"], 1)
             self.assertNotIn(line, before.get("alerts") or [])
             self.assertTrue(IR.record_render_failure(d, "foodbanks", line))
@@ -74,7 +78,7 @@ class EveryRenderFailed(unittest.TestCase):
             text = "\n".join(IR.digest_lines(data))
             self.assertIn(line, text)
             self.assertIn("INTELLIGENT MODE ALERT", text)
-            self.assertIn("applied 3, held 1", text)
+            self.assertIn("applied 3 this run, held 1", text)
             os.environ["DRY_RUN"] = "1"
             try:
                 self.assertFalse(IR.record_render_failure(d, "foodbanks", line + " again"))
