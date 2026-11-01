@@ -1,12 +1,12 @@
 Google/Serper verify batch 1 — 2026-11-01
-Towns in serper state: 32
+Towns in serper state at completion: 48
 
 Summary
-  A-grade added (google_a_items.json): 1
-  B-grade held (held_google.json): 28 new rows (28 total held)
-  live+manual dedupe index: 287 ids / 308 URLs (at run start)
+  A-grade added (logs/google_a_items.json): 1
+  B-grade held (held_google.json): 57 rows
+  Dedupe index at start: 287 live+manual ids / 308 URLs
 
-Per town (A / B held this batch):
+Per town (A / B held):
   Aberdare: 0 / 2
   Abergavenny: 0 / 3
   Abergele: 0 / 1
@@ -18,32 +18,47 @@ Per town (A / B held this batch):
   Alton: 0 / 3
   Amersham: 0 / 2
   Amesbury: 0 / 3
-  Ammanford: 0 / 0
-  Arnold: 0 / 0
-  Ashby-de-la-Zouch: 0 / 0
-  Atherstone: 0 / 0
-  Attleborough: 0 / 0
-  Banstead: 0 / 0
-  Bargoed: 0 / 0
-  Barking: 0 / 0
-  Barnet: 0 / 0
-  Barton-upon-Humber: 0 / 0
-  Batley: 0 / 0
-  Beaconsfield: 0 / 0
-  Beccles: 0 / 0
-  Bedworth: 0 / 0
-  Belper: 0 / 0
-  Benfleet: 0 / 0
-  Berkhamsted: 0 / 0
-  Berks/Bucks/Oxon: Windsor: 0 / 0
-  Beverley: 0 / 0
-  Bewdley: 0 / 0
-  Bexhill: 0 / 0
+  Ammanford: 0 / 1
+  Arnold: 0 / 1
+  Ashby-de-la-Zouch: 0 / 1
+  Atherstone: 0 / 1
+  Attleborough: 0 / 1
+  Banstead: 0 / 1
+  Bargoed: 0 / 1
+  Barking: 0 / 1
+  Barnet: 0 / 2
+  Barton-upon-Humber: 0 / 1
+  Batley: 0 / 1
+  Beaconsfield: 0 / 1
+  Beccles: 0 / 1
+  Bedworth: 0 / 1
+  Belper: 0 / 2
+  Benfleet: 0 / 1
+  Berkhamsted: 0 / 1
+  Berks/Bucks/Oxon: Windsor: 0 / 1
+  Beverley: 0 / 1
+  Bewdley: 0 / 1
+  Bexhill: 0 / 1
+  Bexley: 0 / 1
+  Biddulph: 0 / 1
+  Bideford: 0 / 0
+  Biggleswade: 0 / 0
+  Billericay: 0 / 0
+  Bilston: 0 / 0
+  Bingley: 0 / 1
+  Blackwood: 0 / 0
+  Blandford Forum: 0 / 1
+  Bletchley: 0 / 0
+  Bloxwich: 0 / 0
+  Bolsover: 0 / 1
+  Borehamwood: 0 / 1
+  Bourne: 0 / 0
+  Brackley: 0 / 0
+  Brecon: 0 / 0
 
-A-grade
-  Alfreton — Amber Valley Foyer Project (young_people, DE56 1JF, 01773 824066)
+A-grade (strict)
+  Alfreton — Amber Valley Foyer Project (young_people; DE56 1JF; 01773 824066)
 
 Notes
-  Strict A: excluded directories (shelter/homeless.org), news, wrong geography, women's refuges, supported housing-only.
-  NWHA (Abergele) blocked by Cloudflare 403 from verifier.
-  Most Welsh/Valleys towns surfaced only generic advice or out-of-area results.
+  Operator fetch blocks: nwha.org.uk (403), hyh.org.uk/borehamwood (403), bolsover.gov.uk (403).
+  Towns with 0 B: organic results were generic national advice or clearly wrong geography only.

@@ -167,6 +167,180 @@
       "url": "https://www.bristol.gov.uk/residents/housing/help-with-housing/homeless-or-at-risk-of-being-homeless/sleeping-rough/night-shelters",
       "name": "Bristol day/night shelters",
       "reason": "Wrong geography (Bristol)"
+    },
+    {
+      "town": "Ammanford",
+      "url": "https://www.waverley.gov.uk/services/housing/finding-a-home/worried-about-becoming-homeless/local-hostels-and-night-shelters",
+      "name": "Waverley local hostels list",
+      "reason": "Wrong geography (Wales vs Surrey)"
+    },
+    {
+      "town": "Arnold",
+      "url": "https://www.waverley.gov.uk/services/housing/finding-a-home/worried-about-becoming-homeless/local-hostels-and-night-shelters",
+      "name": "Waverley local hostels list",
+      "reason": "Wrong geography (Nottingham vs Surrey)"
+    },
+    {
+      "town": "Ashby-de-la-Zouch",
+      "url": "https://housingcare.org/housing-care/facility-info-1038-brown-court-ashby-de-la-zouch-england",
+      "name": "Brown Court",
+      "reason": "Supported housing facility listing; not verified homeless hostel/day centre"
+    },
+    {
+      "town": "Atherstone",
+      "url": "https://www.waverley.gov.uk/services/housing/finding-a-home/worried-about-becoming-homeless/local-hostels-and-night-shelters",
+      "name": "Waverley local hostels list",
+      "reason": "Wrong geography"
+    },
+    {
+      "town": "Attleborough",
+      "url": "https://www.attleboroughdaycentre.co.uk/",
+      "name": "Attleborough Day Centre",
+      "reason": "Older people's day centre; not homeless service"
+    },
+    {
+      "town": "Banstead",
+      "url": "https://www.reigate-banstead.gov.uk/info/20299/housing_options/180/facing_homelessness/4",
+      "name": "Reigate & Banstead facing homelessness",
+      "reason": "Council signposting; no local service card with phone+postcode"
+    },
+    {
+      "town": "Bargoed",
+      "url": "https://www.rctcbc.gov.uk/EN/Resident/Housing/Homelessoratrisk/Homelessnessadviceandsupport.aspx",
+      "name": "RCT Housing Solutions",
+      "reason": "Council referral page only"
+    },
+    {
+      "town": "Barking",
+      "url": "https://housingjustice.org.uk/shelters/hope-4-barking-dagenham-night-shelter",
+      "name": "Hope 4 Barking Dagenham Night Shelter",
+      "reason": "Housing Justice news/blog page (2020); not operator page confirming open shelter"
+    },
+    {
+      "town": "Barnet",
+      "url": "https://www.stjamesnewbarnet.com/community/night-shelter",
+      "name": "St James New Barnet Winter Shelter",
+      "reason": "Communal night shelter not running; hotel project via Together in Barnet/HAB"
+    },
+    {
+      "town": "Barnet",
+      "url": "https://londonwaitingroom.nhs.uk/homeless-action-barnet",
+      "name": "Homeless Action in Barnet",
+      "reason": "Duplicate: HAB day centre/shelter route already in live+manual"
+    },
+    {
+      "town": "Barton-upon-Humber",
+      "url": "https://www.bartonuponhumbertowncouncil.gov.uk/help-for-the-homeless-in-barton",
+      "name": "Barton Town Council homelessness page",
+      "reason": "Signposting only; no named local hostel/day centre on page"
+    },
+    {
+      "town": "Batley",
+      "url": "https://www.waverley.gov.uk/services/housing/finding-a-home/worried-about-becoming-homeless/local-hostels-and-night-shelters",
+      "name": "Waverley local hostels list",
+      "reason": "Wrong geography"
+    },
+    {
+      "town": "Beaconsfield",
+      "url": "https://wyhoc.org.uk/",
+      "name": "Wycombe Homeless Connection",
+      "reason": "Duplicate in live+manual; wrong town (High Wycombe)"
+    },
+    {
+      "town": "Beccles",
+      "url": "https://www.waverley.gov.uk/services/housing/finding-a-home/worried-about-becoming-homeless/local-hostels-and-night-shelters",
+      "name": "Waverley local hostels list",
+      "reason": "Wrong geography (Suffolk vs Surrey)"
+    },
+    {
+      "town": "Bedworth",
+      "url": "https://www.nuneatonandbedworth.gov.uk/downloads/file/1682/advice-for-finding-a-place-to-stay-if-you-are-street-homeless",
+      "name": "Nuneaton & Bedworth street homeless advice PDF",
+      "reason": "Council advice leaflet; no A-grade service confirmation"
+    },
+    {
+      "town": "Belper",
+      "url": "https://rivernetworkcharity.org.uk/belper",
+      "name": "River Network Housing Belper",
+      "reason": "General supported housing application page; excluded category"
+    },
+    {
+      "town": "Belper",
+      "url": "https://www.communitydirectoryderbyshire.org.uk/view/3287/amber-valley-foyer-project",
+      "name": "Amber Valley Foyer Project",
+      "reason": "Same service graded A under Alfreton search (dedupe)"
+    },
+    {
+      "town": "Benfleet",
+      "url": "https://castlepoint.essexfrontline.org.uk/Library/ServiceDetail/68878d23cb0e0042a51ff622",
+      "name": "ECL Benfleet Learning Disabilities Day Centre",
+      "reason": "Learning disabilities day centre; not homeless service"
+    },
+    {
+      "town": "Berkhamsted",
+      "url": "https://www.movingwithdacorum.org.uk/Data/Pub/PublicWebsite/ImageLibrary/Homeless%20directory.pdf",
+      "name": "Hertfordshire homeless directory PDF",
+      "reason": "Regional directory; not single verified service page"
+    },
+    {
+      "town": "Berks/Bucks/Oxon: Windsor",
+      "url": "https://www.windsorhomelessproject.org/",
+      "name": "Windsor Homeless Project (Alma Beacon drop-in)",
+      "reason": "Drop-in confirmed but no verbatim UK phone on fetched pages; fails strict A"
+    },
+    {
+      "town": "Beverley",
+      "url": "https://www.hull.gov.uk/homelessness/rough-sleeper-team",
+      "name": "Hull rough sleeper team",
+      "reason": "Wrong geography (Hull vs Beverley)"
+    },
+    {
+      "town": "Bewdley",
+      "url": "https://www.carehome.co.uk/day-care-centres/index.cfm/searchtown/Bewdley",
+      "name": "Adult day care directory",
+      "reason": "Care directory; not homeless day centre"
+    },
+    {
+      "town": "Bexhill",
+      "url": "https://wuth.org/",
+      "name": "Warming Up The Homeless",
+      "reason": "Duplicate URL/name in live+manual (Hastings night shelter)"
+    },
+    {
+      "town": "Bexley",
+      "url": "https://housingjustice.org.uk/shelters/bexley-winter-night-shelter",
+      "name": "Bexley Winter Night Shelter",
+      "reason": "Housing Justice news page (2020); not operator confirmation of open shelter"
+    },
+    {
+      "town": "Biddulph",
+      "url": "https://www.staffordshireconnects.info/kb5/staffordshire/directory/service.page?id=",
+      "name": "T Lives Day Care Centre listing",
+      "reason": "Staffordshire Connects directory entry; not verified homeless day centre on operator page"
+    },
+    {
+      "town": "Borehamwood",
+      "url": "https://www.hyh.org.uk/borehamwood-homeless-charity",
+      "name": "Borehamwood Homeless Charity (hyh)",
+      "reason": "Operator page returned 403; could not verify A criteria"
+    },
+    {
+      "town": "Bolsover",
+      "url": "https://www.bolsover.gov.uk/homelessness-housing-advice/homelessness",
+      "name": "Bolsover District Council homelessness",
+      "reason": "Council page returned 403 from verifier; likely advice-only"
+    },
+    {
+      "town": "Blandford Forum",
+      "url": "https://www.helpandkindness.co.uk/search/blandford/homelessness",
+      "name": "Help and Kindness homelessness listings",
+      "reason": "Regional directory; not single verified service"
+    },
+    {
+      "town": "Bingley",
+      "url": "https://homelesshostelstaff.co.uk/night-concierge/bradford/",
+      "name": "Homeless Hostel Staff Bradford",
+      "reason": "Staffing agency; not a hostel service"
     }
   ],
   "meta": {
