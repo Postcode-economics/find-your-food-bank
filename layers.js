@@ -47,7 +47,10 @@ const SYM={
  youth:'<g class="xmk"><text x="16" y="15.3" text-anchor="middle" font-family="system-ui,Segoe UI,Arial" font-weight="900" font-size="10" textLength="15.6" lengthAdjust="spacingAndGlyphs" fill="#0A1628">16</text><text x="16" y="24" text-anchor="middle" font-family="system-ui,Segoe UI,Arial" font-weight="900" font-size="10" textLength="15.6" lengthAdjust="spacingAndGlyphs" fill="#0A1628">25</text></g>',
  food:'<g class="xmk"><path d="M9 13.5h14l-1.3 10.5H10.3z" fill="#0A1628"/><path d="M12 13.5V12a4 4 0 0 1 8 0v1.5" fill="none" stroke="#0A1628" stroke-width="2"/></g>',
  flame:'<g class="xmk"><path d="M16.2 7.2c.4 3.2-2.4 4.6-2.2 8 .2 2.2 2.2 3.2 4.2 2.4 1.2-2.4-.4-4 1.4-6.2 1.8 2.4 2.6 4.8 1.2 7.6a5.2 5.2 0 1 1-9.4-2.8c.8-2.6 2.8-4 4.8-9z" fill="#0A1628"/></g>'};
-const symKey=i=>!i?'house':(i.kind==='day_centre'||i.service==='day_centre')?'sun':i.kind==='young_people'?'youth':'house';
+const shDay=i=>{const U=window.UFacts;if(U&&U.isDayCentre)return U.isDayCentre(i);const k=String((i&&i.kind)||(i&&i.service)||'').toLowerCase().replace(/-/g,' ').replace(/_/g,' ');return i&&i.label==='Day centre'||k==='day centre'};
+const shYouth=i=>{const U=window.UFacts;if(U&&U.isYouth)return U.isYouth(i);if(!i||i.kind==='young_people')return!!(i&&i.kind==='young_people');const name=String(i.name||''),groups=(i.groups||[]).join(' '),blob=name+' '+groups;return/\bfoyers?\b/i.test(name)||(/\bhousing\b/i.test(name)&&/16\s*[-–to]{1,3}\s*25/i.test(blob))||/\byoung people\b/i.test(name)||/16\s*[-–to]{1,3}\s*2[0-9]/i.test(name)||/16\s*[-–to]{1,3}\s*2[0-9]/i.test(groups)};
+const shHostel=i=>i&&!shDay(i)&&!shYouth(i);
+const symKey=i=>!i?'house':shDay(i)?'sun':shYouth(i)?'youth':'house';
 const symSvg=(key,px)=>`<svg ${px?`width="${px}" height="${px}" `:''}viewBox="1.6 1.6 28.8 28.8" aria-hidden="true"><path d="M3 3h26v26H3z" fill="#56B4E9" stroke="#0A1628" stroke-width="2.5"/>${SYM[key]}</svg>`;
 const symBox=key=>symSvg(key,28);
 const SHP={sq:(c,sym)=>`<svg width="32" height="40" viewBox="0 0 32 40"><path d="M3 3h26v26H21l-5 9-5-9H3z" fill="${c}" stroke="#0A1628" stroke-width="2.5"/>${SYM[sym||'house']}</svg>`,
@@ -66,8 +69,8 @@ const hdr=document.querySelector('header');hdr.insertBefore(bar,hdr.querySelecto
 const keyRow=(ico,bKey,small)=>`<div class="xkey-row"><span class="xkey-ico" aria-hidden="true">${ico}</span><span class="xkey-txt"><b data-t="${bKey}"></b> ${small}</span></div>`;
 const lg=document.createElement('div');lg.id='xleg';lg.innerHTML=
  keyRow(`<i class="sw tear" style="background:#F5C518"></i>`,'fb','<small id="u_fb"></small>')+
- keyRow(symSvg('house',20),'sh','<small id="u_sh"></small>')+
  keyRow(`<i class="sw dia" style="background:${LAYERS.ws.col}"></i>`,'ws','<small id="u_ws"></small>')+
+ keyRow(symSvg('house',20),'sh','<small id="u_sh"></small>')+
  keyRow(symSvg('sun',20),'dayCentre','<small data-t="dayOnly"></small>')+
  keyRow(symSvg('youth',20),'youth','<small data-t="youthOnly"></small>');
 const ft=document.querySelector('footer');const fu=document.createElement('div');fu.id='xupd';ft.prepend(fu);fu.append(...lg.children);
@@ -143,7 +146,7 @@ function fbAcc(i){let a='';try{if(typeof acc==='function')a=acc(i)}catch(e){}
  if(a==='walkin')return '<span class="xacc xacc-open_access"><span class="v-en">Walk-in</span><span class="v-cy" lang="cy">Galw heibio</span></span>';
  return ''}
 function cardTop(layer,i){const sk=layer==='fb'?'food':layer==='ws'?'flame':symKey(i);
- if(!window.UFacts&&i&&i.kind==='young_people')return `<span class="xkind xyouth">${t('youth')}</span>`;
+ if(!window.UFacts&&i&&shYouth(i))return `<span class="xkind xyouth">${t('youth')}</span>`;
  const sym=`<span class="xmkbox" data-sym="${sk}">${symSvg(sk,26)}</span>`;
  let en,cy;
  if(layer==='sh'){const pillKey=sk==='sun'?'dayCentre':sk==='youth'?'pillYouth':(i.kind==='hostel'||/\bhostel\b/i.test(i.name||''))?'pillHostel':'pillNight';en=T.en[pillKey];cy=T.cy[pillKey]}
@@ -165,8 +168,8 @@ function shSource(i){const host=u=>esc(String(u||'').replace(/^https?:\/\/(www\.
  if(!bits.length)return '';
  return `<p class="xsrc"><b>${bi('src')}:</b> ${bits.join(' · ')}</p>`}
 function detail(k,i,dist){const tel0=(i.phone||'').replace(/[^\d+]/g,''),tel=i.tel!==undefined?(/^0\d{9,10}$/.test(i.tel)?i.tel:''):(/^(0\d{9,10}|\+44\d{9,10})$/.test(tel0)?tel0:''),row=(l,v)=>v&&v.length?`<p class="xrow"><b>${t(l)}:</b> ${v}</p>`:'';
- const day=k==='sh'&&i.kind==='day_centre';
- const youth=k==='sh'&&i.kind==='young_people';
+ const day=k==='sh'&&shDay(i);
+ const youth=k==='sh'&&shYouth(i);
  const dayHtml=day?`<p class="xday">${t('dayOnly')}</p>`:youth?`<p class="xday">${t('youthOnly')}</p>`:'';
  const fmtNum=s=>window.ukfmt?ukfmt(String(s||'').trim()):String(s||'').trim();
  const phoneHtml=[i.phone_label?window.phLab(i):'',i.phone_unconfirmed?`<span class="psrc">${lang==='cy'?'Rhif heb ei gadarnhau ar wefan swyddogol':'Number not yet confirmed on an official site'}</span>`:'',String(i.phone||'').includes(' or ')?`<span class="xalt">${lang==='cy'?'Neu':'Or'}: ${String(i.phone).split(' or ').slice(1).map(x=>esc(fmtNum(x))).join(', ')}</span>`:''].filter(Boolean).join(' · ');
@@ -203,8 +206,9 @@ document.querySelectorAll('.xt').forEach(b=>b.onclick=()=>toggle(b.dataset.l,b.g
 // ---- nearest lists for the extra layers, alongside (not inside) the food bank list
 let lastPos=null;const openOnly={sh:false,ws:false},verOnly={sh:false,ws:false},dayOnly={sh:false},youthOnly={sh:false},typeOn={shost:false};
 function shelterTypeOk(i){const day=dayOnly.sh,youth=youthOnly.sh,hostel=typeOn.shost;if(!day&&!youth&&!hostel)return true;
- if(day&&(i.kind==='day_centre'||i.service==='day_centre'))return true;if(youth&&i.kind==='young_people')return true;
- return !!(hostel&&i.kind!=='day_centre'&&i.service!=='day_centre'&&i.kind!=='young_people')}
+ if(day&&shDay(i))return true;if(youth&&shYouth(i))return true;
+ return !!(hostel&&shHostel(i))}
+window.shDay=shDay;window.shYouth=shYouth;window.shHostel=shHostel;window.shelterTypeOk=shelterTypeOk;
 function syncTypeChips(){const map={shost:typeOn.shost,youth:youthOnly.sh,sday:dayOnly.sh};Object.keys(map).forEach(k=>{const e=document.querySelector('#chips [data-f="'+k+'"]');if(e)e.setAttribute('aria-pressed',String(!!map[k]))})}
 function syncPins(k){const L_=LAYERS[k];if(!L_||!L_.group||!L_._ms)return;const ot=!!(typeof F!=='undefined'&&F.open&&window.V3);
  L_._ms.forEach(m=>{const i=m._si;if(!i)return;const show=(k!=='sh'||shelterTypeOk(i))&&!(ot&&(i.ended||V3.shutToday(k,i)));m._keep=show;const on=L_.group.hasLayer(m);if(show&&!on)L_.group.addLayer(m);else if(!show&&on)L_.group.removeLayer(m)});if(k==='sh')window.__shPins=L_._ms}
