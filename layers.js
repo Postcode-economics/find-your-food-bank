@@ -52,7 +52,18 @@ const shYouth=i=>{const U=window.UFacts;if(U&&U.isYouth)return U.isYouth(i);if(!
 const shDay=i=>{const U=window.UFacts;if(U&&U.isDayCentre)return U.isDayCentre(i);if(shYouth(i))return false;const k=String((i&&i.kind)||(i&&i.service)||'').toLowerCase().replace(/-/g,' ').replace(/_/g,' ');return i&&i.label==='Day centre'||k==='day centre'};
 const shHostel=i=>i&&!shDay(i)&&!shYouth(i);
 const symKey=i=>!i?'house':shYouth(i)?'youth':shDay(i)?'sun':'house';
-const symSvg=(key,px)=>`<svg ${px?`width="${px}" height="${px}" `:''}viewBox="1.6 1.6 28.8 28.8" aria-hidden="true"><path d="M3 3h26v26H3z" fill="#56B4E9" stroke="#0A1628" stroke-width="2.5"/>${SYM[key]}</svg>`;
+/* Card/list type icons (Dean 1 Nov): shell colour and shape match map pins and footer key —
+   food bank yellow teardrop, warm space orange diamond, shelter blue square (house / sun / youth inside). */
+const SYM_SHELL={
+ food:{fill:'#F5C518',d:'M16 5.2c-5.4 0-9.8 4.2-9.8 9.6 0 6.8 9.8 12.8 9.8 12.8s9.8-6 9.8-12.8c0-5.4-4.4-9.6-9.8-9.6z'},
+ flame:{fill:'#D55E00',d:'M16 4.2L26.8 16 16 27.8 5.2 16z'},
+ house:{fill:'#56B4E9',d:'M3 3h26v26H3z'},
+ sun:{fill:'#56B4E9',d:'M3 3h26v26H3z'},
+ youth:{fill:'#56B4E9',d:'M3 3h26v26H3z'}};
+const symSvg=(key,px)=>{const sh=SYM_SHELL[key]||SYM_SHELL.house;const inner=SYM[key]||'';
+ return `<svg ${px?`width="${px}" height="${px}" `:''}viewBox="1.6 1.6 28.8 28.8" aria-hidden="true"><path d="${sh.d}" fill="${sh.fill}" stroke="#0A1628" stroke-width="2.5"/>${inner}</svg>`};
+window.symSvg=symSvg;
+window.SYM_SHELL=SYM_SHELL;
 const symBox=key=>symSvg(key,28);
 const SHP={sq:(c,sym)=>`<svg width="32" height="40" viewBox="0 0 32 40"><path d="M3 3h26v26H21l-5 9-5-9H3z" fill="${c}" stroke="#0A1628" stroke-width="2.5"/>${SYM[sym||'house']}</svg>`,
  dia:(c)=>`<svg width="34" height="40" viewBox="0 0 34 40"><path d="M17 1l15 15-15 23L2 16z" fill="${c}" stroke="#0A1628" stroke-width="2.5"/><path d="M13 21c0-4 4-5 3-9 4 2 6 6 4 10a4 4 0 0 1-7-1z" fill="#0A1628"/></svg>`};
@@ -69,8 +80,8 @@ bar.innerHTML=seg('fb','#F5C518','tear',true)+seg('sh',LAYERS.sh.col,'sq',false)
 const hdr=document.querySelector('header');hdr.insertBefore(bar,hdr.querySelector('h1').nextSibling);
 const keyRow=(ico,bKey,small)=>`<div class="xkey-row"><span class="xkey-ico" aria-hidden="true">${ico}</span><span class="xkey-txt"><b data-t="${bKey}"></b> ${small}</span></div>`;
 const lg=document.createElement('div');lg.id='xleg';lg.innerHTML=
- keyRow(`<i class="sw tear" style="background:#F5C518"></i>`,'fb','<small id="u_fb"></small>')+
- keyRow(`<i class="sw dia" style="background:${LAYERS.ws.col}"></i>`,'ws','<small id="u_ws"></small>')+
+ keyRow(symSvg('food',20),'fb','<small id="u_fb"></small>')+
+ keyRow(symSvg('flame',20),'ws','<small id="u_ws"></small>')+
  keyRow(symSvg('house',20),'sh','<small id="u_sh"></small>')+
  keyRow(symSvg('sun',20),'dayCentre','<small data-t="dayOnly"></small>')+
  keyRow(symSvg('youth',20),'youth','<small data-t="youthOnly"></small>');
@@ -156,7 +167,7 @@ function cardTop(layer,i){const sk=layer==='fb'?'food':layer==='ws'?'flame':symK
  else {en=layer;cy=layer}
  const sea=window.UFacts&&UFacts.winter(i)?'<span class="useason"><span class="v-en">Winter-only</span><span class="v-cy" lang="cy">Gaeaf yn unig</span></span>':'';
  const acc=layer==='fb'?fbAcc(i):accBadge(i);
- return `<div class="xtop">${sym}<span class="tag utag xtype"><span class="v-en">${esc(en)}</span><span class="v-cy" lang="cy">${esc(cy)}</span>${sea}</span>${acc}</div>`}
+ return `<div class="xtop xtop-${layer}">${sym}<span class="tag utag xtype"><span class="v-en">${esc(en)}</span><span class="v-cy" lang="cy">${esc(cy)}</span>${sea}</span>${acc}</div>`}
 window.cardTop=cardTop;
 function shSource(i){const host=u=>esc(String(u||'').replace(/^https?:\/\/(www\.)?/,'').split('/')[0]);
  const bi=k=>`<span class="v-en">${esc(T.en[k])}</span><span class="v-cy" lang="cy">${esc(T.cy[k])}</span>`;
