@@ -206,6 +206,29 @@ STRIP_JS = r"""async ()=>{const bad=[];
  } else if(shown(youth)||shown(host)||shown(day)) bad.push('shelter chips visible off the shelters layer');
  return bad}"""
 
+# Footer map key (Dean 1 Nov 2026): rows must not overlap each other or the Data attribution line.
+KEY_JS = r"""()=>{const bad=[];
+ const rows=[...document.querySelectorAll('#xupd .xkey-row')];
+ if(rows.length!==5) bad.push('key rows '+rows.length);
+ const hit=(a,b,g=2)=>{const ra=a.getBoundingClientRect(),rb=b.getBoundingClientRect();
+  return ra.width>1&&rb.width>1&&!(ra.bottom<=rb.top+g||rb.bottom<=ra.top+g)};
+ for(let i=0;i<rows.length-1;i++) if(hit(rows[i],rows[i+1])) bad.push('key row '+i+' overlaps '+(i+1));
+ const foot=document.querySelector('footer');
+ if(foot&&rows.length){
+  const data=foot.childNodes;
+  for(const n of data){if(n.nodeType!==3||!/Data:/.test(n.textContent||'')) continue;
+   const r=document.createRange(); r.selectNodeContents(n);
+   for(const box of r.getClientRects()){if(box.width<2) continue;
+    for(const row of rows) if(hit(row,{getBoundingClientRect:()=>box})) bad.push('key overlaps Data line');}}}
+ for(const [i,row] of rows.entries()){
+  const txt=row.querySelector('.xkey-txt'); if(!txt||getComputedStyle(txt).position==='absolute') bad.push('row '+i+' text not in flow');
+  const ico=row.querySelector('.xkey-ico svg,.xkey-ico .sw'); if(!ico) bad.push('row '+i+' missing icon');}
+ const sh=rows[1], day=rows[3], youth=rows[4];
+ if(sh&&!sh.querySelector('.xkey-ico svg path[d*="15.5"]')) bad.push('shelters key missing house symbol');
+ if(day&&!day.querySelector('.xkey-ico svg circle')) bad.push('day centre key missing sun symbol');
+ if(youth&&!youth.querySelector('.xkey-ico svg text')) bad.push('youth key missing 16/25 symbol');
+ return bad}"""
+
 # Type pill and symbol square (Dean): same height, tops and bottoms within 0.5px, 26px on a phone.
 ALIGN_JS = r"""()=>{const bad=[];const rows=[...document.querySelectorAll('#xlist .card.xsh .xtop,#sheet.open .xtop')];
  const seen=new Set();
@@ -303,6 +326,22 @@ def run(base=None, measure=False):
                 try:
                     B.goto(pg, base + '/?nocount')
                     pg.wait_for_timeout(1000)
+                    if w == 390 and not measure:
+                        pg.evaluate("()=>{const s=document.getElementById('share');if(s)s.scrollIntoView({block:'center'})}")
+                        pg.wait_for_timeout(400)
+                        for lang in ('en', 'cy'):
+                            if lang == 'cy':
+                                pg.click('#xlang'); pg.wait_for_timeout(600)
+                            bad += ['%dpx %s key %s %s' % (w, mode, lang, x) for x in (pg.evaluate(KEY_JS) or [])]
+                            if lang == 'cy' and pg.evaluate("()=>document.documentElement.lang") == 'cy':
+                                pg.click('#xlang'); pg.wait_for_timeout(400)
+                        for vw in (320, 430):
+                            pg.set_viewport_size({'width': vw, 'height': 900})
+                            pg.wait_for_timeout(300)
+                            pg.evaluate("()=>{const s=document.getElementById('share');if(s)s.scrollIntoView({block:'center'})}")
+                            pg.wait_for_timeout(200)
+                            bad += ['%dpx %s key w%s %s' % (vw, mode, vw, x) for x in (pg.evaluate(KEY_JS) or [])]
+                        pg.set_viewport_size({'width': w, 'height': 900})
                 except Exception as e:
                     bad.append('%dpx %s: page did not open: %s' % (w, mode, str(e).splitlines()[0][:200]))
                     print('FAIL design-lock %dpx %s (page)' % (w, mode), flush=True)
