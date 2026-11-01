@@ -639,13 +639,20 @@ footer a[href^="tel:"],.legal a[href^="tel:"]{padding-left:10px!important;paddin
 #xextra .card>.utag,#sheet .card>.utag,#list .card>.utag,.leaflet-popup-content .utag{order:1!important;flex:1 1 auto!important;min-width:0}
 #xextra .card:is(.xsh,.xws)>.utag,#sheet .card>.utag{margin:0 8px 8px 0!important;align-self:center}
 /* Shelter card top row (Dean): symbol square, then the type pill, then the access pill. Symbol matches the pill, 26px at phone width. */
-html body :is(#xextra,#sheet,#sheetBody) .card>.xtop{display:flex;align-items:flex-start;flex-wrap:wrap;gap:6px;order:1!important;flex:1 1 100%!important;width:100%;margin:0 0 6px!important}
-html body :is(#xextra,#sheet,#sheetBody) .xtop .xmkbox{display:flex;flex:0 0 auto;line-height:0;align-self:flex-start}
-html body :is(#xextra,#sheet,#sheetBody) .xtop .xmkbox svg{width:26px;height:26px;display:block}
-html body :is(#xextra,#sheet,#sheetBody) .xtop .utag{display:inline-flex!important;align-items:center;justify-content:center;box-sizing:border-box;height:26px!important;margin:0!important;padding:0 10px!important;border-radius:999px!important;background:transparent!important;color:#fff!important;border:1.5px solid #56B4E9!important;font-size:14px!important;font-weight:700!important;line-height:1!important;flex:0 1 auto!important;order:0!important;white-space:nowrap;max-width:100%}
-html.light body :is(#xextra,#sheet,#sheetBody) .xtop .utag{color:#0A1628!important;background:#fff!important;border-color:#0072B2!important}
-html body :is(#xextra,#sheet,#sheetBody) .xtop .xacc{display:inline-flex!important;align-items:center;box-sizing:border-box;height:26px!important;margin:0!important;padding:0 10px!important;border-radius:999px!important;font-size:14px!important;font-weight:700!important;line-height:1!important;flex:0 0 auto!important;order:0!important;white-space:nowrap}
-html body :is(#xextra,#sheet,#sheetBody) .xtop .useason{margin:0 0 0 2px;padding:0;border:0;font-size:14px!important;font-weight:700!important;line-height:1!important}
+html body :is(#list,#xextra,#sheet,#sheetBody) :is(.card,.pop)>.xtop,html body .leaflet-popup-content .xtop{display:flex;align-items:flex-start;flex-wrap:wrap;gap:6px;order:1!important;flex:1 1 100%!important;width:100%;margin:0 0 6px!important}
+html body :is(#list,#xextra,#sheet,#sheetBody,.leaflet-popup-content) .xtop .xmkbox{display:flex;flex:0 0 auto;line-height:0;align-self:flex-start}
+html body :is(#list,#xextra,#sheet,#sheetBody,.leaflet-popup-content) .xtop .xmkbox svg{width:26px;height:26px;display:block}
+html body :is(#list,#xextra,#sheet,#sheetBody,.leaflet-popup-content) .xtop .utag{display:inline-flex!important;align-items:center;justify-content:center;box-sizing:border-box;height:26px!important;margin:0!important;padding:0 10px!important;border-radius:999px!important;background:transparent!important;color:#fff!important;border:1.5px solid #56B4E9!important;font-size:14px!important;font-weight:700!important;line-height:1!important;flex:0 1 auto!important;order:0!important;white-space:nowrap;max-width:100%}
+html.light body :is(#list,#xextra,#sheet,#sheetBody,.leaflet-popup-content) .xtop .utag{color:#0A1628!important;background:#fff!important;border-color:#0072B2!important}
+html body :is(#list,#xextra,#sheet,#sheetBody,.leaflet-popup-content) .xtop .xacc{display:inline-flex!important;align-items:center;box-sizing:border-box;height:26px!important;margin:0!important;padding:0 10px!important;border-radius:999px!important;font-size:14px!important;font-weight:700!important;line-height:1!important;flex:0 0 auto!important;order:0!important;white-space:nowrap}
+html body :is(#list,#xextra,#sheet,#sheetBody,.leaflet-popup-content) .xtop .useason{margin:0 0 0 2px;padding:0;border:0;font-size:14px!important;font-weight:700!important;line-height:1!important}
+html body :is(#list,#xextra,#sheet,#sheetBody) :is(.card,.pop)>.xacts,html body .leaflet-popup-content .xacts{display:flex;flex-wrap:wrap;align-items:stretch;gap:8px;order:10;width:100%;flex:1 1 100%;margin-top:12px!important}
+html body .xacts>:is(a.btn.gm,a.btn.call,a.btn.web,button.v3share){flex:1 1 calc(50% - 8px)!important;width:auto!important;max-width:calc(50% - 4px)!important;margin:0!important;min-height:var(--hm-btn-h)!important}
+html body .xacts>a.btn.web{flex-direction:column!important;align-items:center;justify-content:center;overflow-wrap:normal!important;white-space:normal!important;gap:1px;color:#F2F4F8!important;background:transparent!important;border:1px solid rgba(201,209,222,.45)!important;text-decoration:none!important}
+html.light body .xacts>a.btn.web{color:#0A1628!important;border-color:#000!important;background:#fff!important}
+html body .xacts>a.btn.web :is(.v-en,.v-cy,.xdom){color:inherit!important}
+html body .xacts>a.btn.web :is(.v-en,.v-cy){white-space:nowrap}
+html body .xacts>a.btn.web .xdom{font-size:12px!important;font-weight:400!important;line-height:1.15!important;overflow-wrap:anywhere;text-align:center}
 #xextra .card:is(.xsh,.xws)>.xacc,#sheet .card>.xacc{order:1!important;flex:0 0 auto!important;align-self:center;margin:0 0 8px 0!important}
 #xextra .card:is(.xsh,.xws)>.xunv{order:0!important;flex:1 1 100%!important}
 #xextra .card>.xday{order:2;flex:1 1 100%}
@@ -684,6 +691,10 @@ html body .leaflet-popup-content :is(a.btn.gm,a.btn.call:not(.xfb),button.v3shar
 html[data-v3k=sh] #xsym{display:flex}
 #xsym .xsy{display:flex;align-items:center;gap:5px;white-space:nowrap;min-width:0}
 #xsym svg{width:28px;height:28px;flex:none;display:block}
-html body #chips [data-f=youth]{display:none!important}
-html[data-v3k=sh] body #chips [data-f=youth]{display:inline-flex!important}
+html body #chips [data-f=shost],html body #chips [data-f=youth],html body #chips [data-f=sday]{display:none!important}
+html[data-v3k=sh] body #chips [data-f=shost],html[data-v3k=sh] body #chips [data-f=youth],html[data-v3k=sh] body #chips [data-f=sday]{display:inline-flex!important}
 html[data-v3k=sh] #v3filt #chips [data-f=walk],html[data-v3k=sh] #v3filt #chips [data-f=vouch]{display:none!important}
+#v3filt .fchip .xcs{display:inline-flex;line-height:0;flex:none}#v3filt .fchip .xcs svg{width:20px;height:20px;display:block}
+html body #v3filt .fchip[aria-pressed=true]{background:#F5C518!important;color:#0A1628!important;border-color:#F5C518!important}
+html body #v3filt .fchip[aria-pressed=true] .ck{border-color:#0A1628!important;background:#0A1628!important;color:#F5C518!important}
+html body :is(#list,#xextra,#sheet,#sheetBody,.leaflet-popup-content) .xtop :is(.utag,.xacc){font-size:14px!important;font-weight:700!important;line-height:1!important}
