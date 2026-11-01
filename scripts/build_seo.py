@@ -83,7 +83,13 @@ def hours_ws(i):
     return '<table class="t">%s</table>%s' % (rows, extra)
 
 def shelter_public(i):
-    """Same rule as the map: no stale/ended/closed entries, and no OpenStreetMap-only entry (must have own-site evidence)."""
+    """Same rule as the map: no stale/ended/closed entries, and no OpenStreetMap-only entry (must have own-site evidence).
+    A referral hostel is list-only on the council-area page. A postcode or a pin is never its location.
+    Dean 31 Oct 2026 18:31 GMT: one with a town and a phone, confirmed current, is published."""
+    if i.get('card_type') == 'referral_hostel':
+        if i.get('postcode') or isinstance(i.get('lat'), (int, float)) or isinstance(i.get('lng'), (int, float)):
+            return False
+        return bool(i.get('no_pin') and i.get('name') and (i.get('area') or i.get('town')) and i.get('phone'))
     if i.get('stale') or i.get('ended') or i.get('flag_closed') or not i.get('postcode'): return False
     if i.get('source') == 'OpenStreetMap' and not (i.get('evidence_url') or i.get('sign_url')): return False
     return True
@@ -91,6 +97,12 @@ def shelter_public(i):
 ACC = {'referral_only': 'Referral only', 'self_referral': 'Self-referral', 'open_access': 'Open access'}
 
 def card_sh(i):
+    if i.get('card_type') == 'referral_hostel':
+        notice = i.get('notice') or "Referral needed, don't turn up without one"
+        return ('<li class="referral-hostel"><div class="n">%s</div><div class="tag">Referral hostel</div>'
+                '<div class="sub">%s</div><div>%s</div>%s'
+                '<div class="ref"><b>How to get a place</b>: %s</div></li>'
+                % (E(i.get('name')), E(notice), E(i.get('area') or i.get('town') or ''), phone_html(i.get('phone')), E(i.get('referral_route') or '')))
     day = i.get('kind') == 'day_centre'
     youth = i.get('kind') == 'young_people'
     tag = '<div class="tag">Day centre</div>' if day else ('<div class="tag">Young people’s housing (16–25), referral needed</div>' if youth else '<div class="tag">Shelter</div>')
@@ -102,7 +114,7 @@ def card_sh(i):
     if acc or i.get('referral'):
         rt = re.sub(r'^\s*(referral only|self[- ]referral|open access)\s*[:.–-]?\s*', '', i.get('referral') or '', flags=re.I) if i.get('referral') != 'Not stated' else ''
         ref = '<div class="ref"><b>%s</b>%s</div>' % (E(acc or 'Referral'), (': ' + E(rt)) if rt else '')
-        if i.get('access_type') == 'referral_only': ref += '<div class="sub">You need a referral before you go, usually from an outreach team, day centre or the council.</div>'
+        if i.get('access_type') == 'referral_only': ref += '<div class="sub">Referral needed / check before you go</div><div class="sub">You need a referral before you go, usually from an outreach team, day centre or the council.</div>'
     opens = ''
     if i.get('upcoming') or (i.get('scheme_dates') and str(i['scheme_dates']).startswith('Opens')):
         opens = '<div class="opens">%s</div>' % E(i.get('scheme_dates') or ('Opens ' + i.get('scheme_start', '')))
@@ -216,18 +228,45 @@ def area_html(kind, d, lst, updated, card, sub=None, note=''):
     n = len(lst)
     title = '%s in %s – free help near you' % (label, d)
     desc = '%d %s in %s with addresses, phone numbers and opening times. Checked three times a day. Free, no sign-up. Always call before you go.' % (n, noun if n != 1 else noun.rstrip('s'), d)
+    qsrc = next((x.get('postcode') for x in lst if x.get('postcode')), '') or (lst[0].get('area') or lst[0].get('town') or d)
     body = ('<h1>%s in %s</h1><p>%d %s listed in the %s area, taken from the same checked data as the helpmap.uk map. '
             'Details can change, so please call before you go.</p><a class="cta" href="/?q=%s">Open on the map</a>'
             '<p class="chk3"><a href="/faq.html">Checked three times daily</a></p>%s<div class="call">Always call before you go</div><ul class="s">%s</ul><!--xlinks:%s--><p><a href="/%s/">All areas</a></p>'
-            % (E(label), E(d), n, noun if n != 1 else noun.rstrip('s'), E(d), E(urllib.request.quote(lst[0]['postcode'])), note, ''.join(card(i) for i in lst), sub, base))
+            % (E(label), E(d), n, noun if n != 1 else noun.rstrip('s'), E(d), E(urllib.request.quote(qsrc)), note, ''.join(card(i) for i in lst), sub, base))
     return path, page(path, title, desc, body, [('helpmap.uk', '/'), (label, '/%s/' % base), (d, path)], updated)
+
+def _area_name(s):
+    s = re.sub(r"\b(city|council|borough|district|county|of|the)\b", " ", (s or "").lower())
+    return re.sub(r"[^a-z]+", " ", s).strip()
+
+def attach_referral_hostels(groups, items):
+    """Put a referral hostel on the council-area list for its town. No postcode and no map pin."""
+    index = {}
+    for name in list(groups):
+        index.setdefault(_area_name(name), name)
+    for i in items or []:
+        if i.get('card_type') != 'referral_hostel': continue
+        if i.get('postcode') or isinstance(i.get('lat'), (int, float)) or isinstance(i.get('lng'), (int, float)):
+            continue
+        town = (i.get('area') or i.get('town') or '').strip()
+        if not town: continue
+        key = index.get(_area_name(town))
+        if not key:
+            key = town
+            index[_area_name(town)] = town
+        groups.setdefault(key, []).append(i)
+    return groups
 
 def section(kind, items, cache, updated, out, card):
     label, base, noun = kind
-    groups = {}
+    groups, loose = {}, []
     for i in items:
+        if i.get('card_type') == 'referral_hostel':
+            loose.append(i)
+            continue
         d = cache.get(norm_pc(i.get('postcode')))
         if d: groups.setdefault(d, []).append(i)
+    attach_referral_hostels(groups, loose)
     urls = []
     for d, lst in sorted(groups.items()):
         path, text = area_html(kind, d, lst, updated, card)

@@ -24,7 +24,8 @@ def has_phone(layer, i):
     return layer == 'shelters' and bool(i.get('council_ooh') or i.get('council_phone'))
 def problems(layer, i):
     p = [] if has_phone(layer, i) else ['no verified phone']
-    if layer == 'shelters' and not i.get('groups'): p.append("no sourced 'who it's for'")
+    if layer == 'shelters' and not i.get('groups') and i.get('who_for') != 'Not stated':  # Dean 1 Nov 2026 option A: a hand-set 'Not stated' is a sourced answer
+        p.append("no sourced 'who it's for'")
     return p
 def load(p, d):
     try: return json.load(open(os.path.join(ROOT, p)))
@@ -112,7 +113,12 @@ def gate(layer, ref='HEAD'):
                 pr = pr + problems(layer, i)
             if layer == 'foodbanks' and i['id'] in ok:
                 pr = [p for p in pr if p != 'no verified phone']  # Dean-approved food banks may have no published phone (verified details only, 26 Oct)
-            if not auto_rules.may_add(layer, RULES) and i['id'] not in live and i['id'] not in ok:
+            auto_hostel = (layer == 'shelters' and i.get('card_type') == 'referral_hostel'
+                           and (RULES.get('referral_hostel_auto_add') or {}).get('on')
+                           and i.get('phone') and (i.get('town') or i.get('area'))
+                           and not i.get('postcode') and not isinstance(i.get('lat'), (int, float))
+                           and not isinstance(i.get('lng'), (int, float)))
+            if not auto_hostel and not auto_rules.may_add(layer, RULES) and i['id'] not in live and i['id'] not in ok:
                 if not (layer == 'warmspaces' and council_listed_warmspace(i)):
                     pr = ['new place - waiting for your OK (add id to overrides/approved_new_places.json)'] + pr
         if secrets and private_block.matches(i, secrets):
@@ -138,7 +144,7 @@ def gate(layer, ref='HEAD'):
     pd = os.path.join(ROOT, 'reports', 'pending_dean.md'); keep = ''
     if os.path.exists(pd):  # keep the times review list section written by times_finder.py (Dean, 23 Oct)
         t = open(pd).read()
-        for tag in ('times review', 'times crosscheck fb', 'times crosscheck sh', 'times crosscheck ws', 'sweep shelters', 'closures', 'phone lock', 'council line undo', 'rest centre switch-on', 'emergency switch-on', 'held near cities', 'day centre candidates'):  # keep tagged sections in pending_dean.md
+        for tag in ('times review', 'times crosscheck fb', 'times crosscheck sh', 'times crosscheck ws', 'sweep shelters', 'closures', 'phone lock', 'council line undo', 'rest centre switch-on', 'emergency switch-on', 'held near cities', 'day centre candidates', 'referral hostel holds'):  # keep tagged sections in pending_dean.md
             m = re.search(r'(?s)<!-- ' + tag + r' -->.*?<!-- /' + tag + r' -->', t); keep += ('\n\n' + m.group(0) + '\n') if m else ''
     open(pd, 'w').write('\n'.join(md) + keep)
     try:

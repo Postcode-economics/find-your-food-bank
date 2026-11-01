@@ -29,10 +29,11 @@ ENDED = 'This season’s scheme has ended'
 
 # The expected order, worked out here from the data (not from layers.js): Verified only keeps verified places and
 # ones with times checked, Open today drops ended and closed-today places, ended places go last, then nearest first.
+# A Referral hostel has no pin, so it is on the council-area list only and is not in this nearest list.
 EXPECT = """([k, vo, ot]) => {const D = k === 'sh' ? window.SHELTERS : window.WARMSPACES; if (!D || !lastNear) return null;
   const [a, b] = lastNear, r = x => x * Math.PI / 180;
   const hv = (la, ln) => 12742 * Math.asin(Math.sqrt(Math.sin(r(la - a) / 2) ** 2 + Math.cos(r(a)) * Math.cos(r(la)) * Math.sin(r(ln - b) / 2) ** 2));
-  return D.items.filter(i => (!vo || i.tier !== 'unverified' || timesChecked(i)) && !(ot && (i.ended || V3.shutToday(k, i))))
+  return D.items.filter(i => i.card_type !== 'referral_hostel' && typeof i.lat === 'number' && typeof i.lng === 'number' && (!vo || i.tier !== 'unverified' || timesChecked(i)) && !(ot && (i.ended || V3.shutToday(k, i))))
     .map(i => ({id: i.id, e: !!i.ended, d: hv(i.lat, i.lng)})).sort((x, y) => (x.e - y.e) || x.d - y.d).map(x => x.id)}"""
 IDS = "k => [...document.querySelectorAll('#xlist > .card.x' + k)].map(c => c.dataset.id)"
 BTN = """k => {const b = document.getElementById('xmore-' + k); if (!b) return null; const s = getComputedStyle(b);
