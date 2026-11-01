@@ -49,6 +49,24 @@
     const s = String((i && i.season) || '');
     return /winter|swep|cold weather/i.test(s);
   }
+  function isDayCentre(i) {
+    i = i || {};
+    const kind = String(i.kind || i.service || '').toLowerCase().replace(/-/g, ' ').replace(/_/g, ' ');
+    return i.label === 'Day centre' || kind === 'day centre';
+  }
+  function isYouth(i) {
+    i = i || {};
+    if (i.kind === 'young_people') return true;
+    const name = String(i.name || '');
+    const groups = (i.groups || []).join(' ');
+    const blob = name + ' ' + groups;
+    if (/\bfoyers?\b/i.test(name)) return true;
+    if (/\bhousing\b/i.test(name) && /16\s*[-–to]{1,3}\s*25/i.test(blob)) return true;
+    if (/\byoung people\b/i.test(name)) return true;
+    if (/16\s*[-–to]{1,3}\s*2[0-9]/i.test(name)) return true;
+    if (/16\s*[-–to]{1,3}\s*2[0-9]/i.test(groups)) return true;
+    return false;
+  }
   function typeOf(layer, i) {
     i = i || {};
     if (layer === 'ws') return ['Warm space', 'Man cynnes'];
@@ -59,10 +77,10 @@
       }
       return ['Food bank', 'Banc bwyd'];
     }
-    if (i.kind === 'day_centre' || i.service === 'day_centre') return ['Day centre', 'Canolfan ddydd'];
+    if (isDayCentre(i)) return ['Day centre', 'Canolfan ddydd'];
     const name = String(i.name || '');
     const groups = (i.groups || []).join(' ');
-    if (i.kind === 'young_people' || /\bfoyers?\b/i.test(name) || (/\bhousing\b/i.test(name) && /16\s*[-–to]{1,3}\s*25/i.test(name + ' ' + groups)))
+    if (isYouth(i))
       return ['Young people’s housing (16–25), referral needed', 'Tai i bobl ifanc (16–25), angen atgyfeiriad'];
     const hostel = /\bhostel\b/i.test(name);
     const referral = i.access_type === 'referral_only' || /\breferral only\b/i.test(String(i.referral || ''));
@@ -308,7 +326,7 @@
     const change = `<div class="tchg">${B('Times change, call before you go.', 'Mae amseroedd yn newid, ffoniwch cyn mynd.')}</div>`;
     return `<div class="ufact">${row('Who it’s for', 'I bwy mae hwn', who || NS())}${row('How to get in', 'Sut i fynd i mewn', how ? phrase(how[0], how[1]) : NS())}${row('Opening times', 'Oriau agor', (times || NS()) + change)}${row('Wheelchair access', 'Mynediad i gadeiriau olwyn', wheel ? phrase(wheel[0], wheel[1]) : NS())}${row('Facilities', 'Cyfleusterau', fac || NS())}${extra}</div>`;
   }
-  const api = { typeOf, typeRow, winter, whoBits, whoHtml, howPair, wheelPair, facHtml, timesLines, timesHtml, block, checked: checkedHtml, addr: addrHtml, normPc, NS };
+  const api = { typeOf, typeRow, isDayCentre, isYouth, winter, whoBits, whoHtml, howPair, wheelPair, facHtml, timesLines, timesHtml, block, checked: checkedHtml, addr: addrHtml, normPc, NS };
   if (typeof window !== 'undefined') window.UFacts = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
 })();

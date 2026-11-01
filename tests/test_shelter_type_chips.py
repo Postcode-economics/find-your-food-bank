@@ -33,7 +33,8 @@ KINDS = r"""() => [...document.querySelectorAll('#xlist > .card.xsh')].map(c => 
 })"""
 
 PINS = r"""() => { const pins = window.__shPins || []; const kinds = {};
-  pins.filter(m => m._keep).forEach(m => { const i = m._si || {}; const k = i.kind === 'day_centre' || i.service === 'day_centre' ? 'day' : i.kind === 'young_people' ? 'youth' : 'house'; kinds[k] = (kinds[k] || 0) + 1; });
+  const sym = i => !i ? 'house' : (window.shDay && shDay(i) ? 'sun' : (window.shYouth && shYouth(i) ? 'youth' : 'house'));
+  pins.filter(m => m._keep).forEach(m => { const i = m._si || {}; const k = sym(i) === 'sun' ? 'day' : sym(i) === 'youth' ? 'youth' : 'house'; kinds[k] = (kinds[k] || 0) + 1; });
   return kinds; }"""
 
 
@@ -145,26 +146,27 @@ class Chips(unittest.TestCase):
         pg.click('#chips [data-f=shost]')
         self.assertTrue(until(pg, "() => document.querySelectorAll('#xlist > .card.xsh').length > 0"))
         kinds = pg.evaluate(KINDS)
-        self.assertTrue(kinds and all(k['sym'] == 'house' and k['kind'] not in ('day_centre', 'young_people') for k in kinds), kinds)
+        self.assertTrue(kinds and all(k['sym'] == 'house' for k in kinds), kinds)
         pins = pg.evaluate(PINS)
         self.assertEqual(set(pins), {'house'}, pins)
         pg.click('#chips [data-f=shost]')
         pg.click('#chips [data-f=youth]')
         self.assertTrue(until(pg, """() => { const cs=[...document.querySelectorAll('#xlist > .card.xsh')];
-          return cs.length >= 1 && cs.every(c => (SHELTERS.items.find(i => i.id === c.dataset.id) || {}).kind === 'young_people'); }"""))
+          const ok=i=>window.shYouth?shYouth(i):i.kind==='young_people';
+          return cs.length >= 1 && cs.every(c => ok(SHELTERS.items.find(i => i.id === c.dataset.id) || {})); }"""))
         pg.click('#chips [data-f=youth]')
         self.search(pg, 'SW1A 1AA')
         pg.click('#chips [data-f=sday]')
         self.assertTrue(until(pg, "() => document.querySelectorAll('#xlist > .card.xsh').length === 5"))
-        self.assertTrue(all(k['kind'] == 'day_centre' and k['sym'] == 'sun' for k in pg.evaluate(KINDS)))
+        self.assertTrue(all(k['sym'] == 'sun' for k in pg.evaluate(KINDS)))
         self.assertTrue(pg.evaluate("() => { const b=document.getElementById('xmore-sh'); return b && !b.hidden; }"))
         pg.click('#xmore-sh')
         self.assertTrue(until(pg, "() => document.querySelectorAll('#xlist > .card.xsh').length > 5"))
-        self.assertTrue(all(k['kind'] == 'day_centre' for k in pg.evaluate(KINDS)))
+        self.assertTrue(all(k['sym'] == 'sun' for k in pg.evaluate(KINDS)))
         pg.click('#v3open')
         pg.wait_for_timeout(600)
         left = pg.evaluate(KINDS)
-        self.assertTrue(all(k['kind'] == 'day_centre' for k in left), left)
+        self.assertTrue(all(k['sym'] == 'sun' for k in left), left)
         pg.click('#fhide')
         pg.wait_for_timeout(400)
         pg.click('#ftab')

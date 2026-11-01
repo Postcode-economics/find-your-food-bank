@@ -47,7 +47,10 @@ const SYM={
  youth:'<g class="xmk"><text x="16" y="15.3" text-anchor="middle" font-family="system-ui,Segoe UI,Arial" font-weight="900" font-size="10" textLength="15.6" lengthAdjust="spacingAndGlyphs" fill="#0A1628">16</text><text x="16" y="24" text-anchor="middle" font-family="system-ui,Segoe UI,Arial" font-weight="900" font-size="10" textLength="15.6" lengthAdjust="spacingAndGlyphs" fill="#0A1628">25</text></g>',
  food:'<g class="xmk"><path d="M9 13.5h14l-1.3 10.5H10.3z" fill="#0A1628"/><path d="M12 13.5V12a4 4 0 0 1 8 0v1.5" fill="none" stroke="#0A1628" stroke-width="2"/></g>',
  flame:'<g class="xmk"><path d="M16.2 7.2c.4 3.2-2.4 4.6-2.2 8 .2 2.2 2.2 3.2 4.2 2.4 1.2-2.4-.4-4 1.4-6.2 1.8 2.4 2.6 4.8 1.2 7.6a5.2 5.2 0 1 1-9.4-2.8c.8-2.6 2.8-4 4.8-9z" fill="#0A1628"/></g>'};
-const symKey=i=>!i?'house':(i.kind==='day_centre'||i.service==='day_centre')?'sun':i.kind==='young_people'?'youth':'house';
+const shDay=i=>{const U=window.UFacts;if(U&&U.isDayCentre)return U.isDayCentre(i);const k=String((i&&i.kind)||(i&&i.service)||'').toLowerCase().replace(/-/g,' ').replace(/_/g,' ');return i&&i.label==='Day centre'||k==='day centre'};
+const shYouth=i=>{const U=window.UFacts;if(U&&U.isYouth)return U.isYouth(i);if(!i||i.kind==='young_people')return!!(i&&i.kind==='young_people');const name=String(i.name||''),groups=(i.groups||[]).join(' '),blob=name+' '+groups;return/\bfoyers?\b/i.test(name)||(/\bhousing\b/i.test(name)&&/16\s*[-–to]{1,3}\s*25/i.test(blob))||/\byoung people\b/i.test(name)||/16\s*[-–to]{1,3}\s*2[0-9]/i.test(name)||/16\s*[-–to]{1,3}\s*2[0-9]/i.test(groups)};
+const shHostel=i=>i&&!shDay(i)&&!shYouth(i);
+const symKey=i=>!i?'house':shDay(i)?'sun':shYouth(i)?'youth':'house';
 const symSvg=(key,px)=>`<svg ${px?`width="${px}" height="${px}" `:''}viewBox="1.6 1.6 28.8 28.8" aria-hidden="true"><path d="M3 3h26v26H3z" fill="#56B4E9" stroke="#0A1628" stroke-width="2.5"/>${SYM[key]}</svg>`;
 const symBox=key=>symSvg(key,28);
 const SHP={sq:(c,sym)=>`<svg width="32" height="40" viewBox="0 0 32 40"><path d="M3 3h26v26H21l-5 9-5-9H3z" fill="${c}" stroke="#0A1628" stroke-width="2.5"/>${SYM[sym||'house']}</svg>`,
@@ -66,8 +69,8 @@ const hdr=document.querySelector('header');hdr.insertBefore(bar,hdr.querySelecto
 const keyRow=(ico,bKey,small)=>`<div class="xkey-row"><span class="xkey-ico" aria-hidden="true">${ico}</span><span class="xkey-txt"><b data-t="${bKey}"></b> ${small}</span></div>`;
 const lg=document.createElement('div');lg.id='xleg';lg.innerHTML=
  keyRow(`<i class="sw tear" style="background:#F5C518"></i>`,'fb','<small id="u_fb"></small>')+
- keyRow(symSvg('house',20),'sh','<small id="u_sh"></small>')+
  keyRow(`<i class="sw dia" style="background:${LAYERS.ws.col}"></i>`,'ws','<small id="u_ws"></small>')+
+ keyRow(symSvg('house',20),'sh','<small id="u_sh"></small>')+
  keyRow(symSvg('sun',20),'dayCentre','<small data-t="dayOnly"></small>')+
  keyRow(symSvg('youth',20),'youth','<small data-t="youthOnly"></small>');
 const ft=document.querySelector('footer');const fu=document.createElement('div');fu.id='xupd';ft.prepend(fu);fu.append(...lg.children);
@@ -143,7 +146,7 @@ function fbAcc(i){let a='';try{if(typeof acc==='function')a=acc(i)}catch(e){}
  if(a==='walkin')return '<span class="xacc xacc-open_access"><span class="v-en">Walk-in</span><span class="v-cy" lang="cy">Galw heibio</span></span>';
  return ''}
 function cardTop(layer,i){const sk=layer==='fb'?'food':layer==='ws'?'flame':symKey(i);
- if(!window.UFacts&&i&&i.kind==='young_people')return `<span class="xkind xyouth">${t('youth')}</span>`;
+ if(!window.UFacts&&i&&shYouth(i))return `<span class="xkind xyouth">${t('youth')}</span>`;
  const sym=`<span class="xmkbox" data-sym="${sk}">${symSvg(sk,26)}</span>`;
  let en,cy;
  if(layer==='sh'){const pillKey=sk==='sun'?'dayCentre':sk==='youth'?'pillYouth':(i.kind==='hostel'||/\bhostel\b/i.test(i.name||''))?'pillHostel':'pillNight';en=T.en[pillKey];cy=T.cy[pillKey]}
@@ -165,8 +168,8 @@ function shSource(i){const host=u=>esc(String(u||'').replace(/^https?:\/\/(www\.
  if(!bits.length)return '';
  return `<p class="xsrc"><b>${bi('src')}:</b> ${bits.join(' · ')}</p>`}
 function detail(k,i,dist){const tel0=(i.phone||'').replace(/[^\d+]/g,''),tel=i.tel!==undefined?(/^0\d{9,10}$/.test(i.tel)?i.tel:''):(/^(0\d{9,10}|\+44\d{9,10})$/.test(tel0)?tel0:''),row=(l,v)=>v&&v.length?`<p class="xrow"><b>${t(l)}:</b> ${v}</p>`:'';
- const day=k==='sh'&&i.kind==='day_centre';
- const youth=k==='sh'&&i.kind==='young_people';
+ const day=k==='sh'&&shDay(i);
+ const youth=k==='sh'&&shYouth(i);
  const dayHtml=day?`<p class="xday">${t('dayOnly')}</p>`:youth?`<p class="xday">${t('youthOnly')}</p>`:'';
  const fmtNum=s=>window.ukfmt?ukfmt(String(s||'').trim()):String(s||'').trim();
  const phoneHtml=[i.phone_label?window.phLab(i):'',i.phone_unconfirmed?`<span class="psrc">${lang==='cy'?'Rhif heb ei gadarnhau ar wefan swyddogol':'Number not yet confirmed on an official site'}</span>`:'',String(i.phone||'').includes(' or ')?`<span class="xalt">${lang==='cy'?'Neu':'Or'}: ${String(i.phone).split(' or ').slice(1).map(x=>esc(fmtNum(x))).join(', ')}</span>`:''].filter(Boolean).join(' · ');
@@ -203,8 +206,9 @@ document.querySelectorAll('.xt').forEach(b=>b.onclick=()=>toggle(b.dataset.l,b.g
 // ---- nearest lists for the extra layers, alongside (not inside) the food bank list
 let lastPos=null;const openOnly={sh:false,ws:false},verOnly={sh:false,ws:false},dayOnly={sh:false},youthOnly={sh:false},typeOn={shost:false};
 function shelterTypeOk(i){const day=dayOnly.sh,youth=youthOnly.sh,hostel=typeOn.shost;if(!day&&!youth&&!hostel)return true;
- if(day&&(i.kind==='day_centre'||i.service==='day_centre'))return true;if(youth&&i.kind==='young_people')return true;
- return !!(hostel&&i.kind!=='day_centre'&&i.service!=='day_centre'&&i.kind!=='young_people')}
+ if(day&&shDay(i))return true;if(youth&&shYouth(i))return true;
+ return !!(hostel&&shHostel(i))}
+window.shDay=shDay;window.shYouth=shYouth;window.shHostel=shHostel;window.shelterTypeOk=shelterTypeOk;
 function syncTypeChips(){const map={shost:typeOn.shost,youth:youthOnly.sh,sday:dayOnly.sh};Object.keys(map).forEach(k=>{const e=document.querySelector('#chips [data-f="'+k+'"]');if(e)e.setAttribute('aria-pressed',String(!!map[k]))})}
 function syncPins(k){const L_=LAYERS[k];if(!L_||!L_.group||!L_._ms)return;const ot=!!(typeof F!=='undefined'&&F.open&&window.V3);
  L_._ms.forEach(m=>{const i=m._si;if(!i)return;const show=(k!=='sh'||shelterTypeOk(i))&&!(ot&&(i.ended||V3.shutToday(k,i)));m._keep=show;const on=L_.group.hasLayer(m);if(show&&!on)L_.group.addLayer(m);else if(!show&&on)L_.group.removeLayer(m)});if(k==='sh')window.__shPins=L_._ms}
@@ -218,16 +222,19 @@ const XLIM=()=>{const S=window.SHOW_LIMITS||{},f=+S.first,m=+S.more;return {firs
 const xRank={},xOpen={};
 function rankX(k,lat,lng,vo,ot){const L_=LAYERS[k];if(!L_.data)return[];ot=ot&&window.V3&&V3.shutToday;
  return L_.data.items.filter(i=>i.card_type!=='referral_hostel'&&typeof i.lat==='number'&&typeof i.lng==='number'&&(!vo||i.tier!=='unverified'||timesChecked(i))&&!(ot&&(i.ended||V3.shutToday(k,i)))&&(k!=='sh'||shelterTypeOk(i))).map(i=>({i,d:hav(lat,lng,i.lat,i.lng)})).sort((a,b)=>((!!a.i.ended)-(!!b.i.ended))||a.d-b.d)}
+function ensureXRank(k){if(!lastPos||!LAYERS[k]||!LAYERS[k].data)return null;const ot=!!(typeof F!=='undefined'&&F.open);return (xRank[k]=rankX(k,lastPos[0],lastPos[1],verOnly[k],ot))}
+function xMoreRemain(k){const all=(ensureXRank(k)||savedRank(k))||[];const have=new Set([...$x('xlist').querySelectorAll('.card.x'+k)].map(c=>c.dataset.id));return all.filter(it=>!have.has(String(it.i.id))).length}
+function syncXMoreBtn(k){const btn=$x('xmore-'+k);if(!btn||!$x('xlist').contains(btn))return;const left=xMoreRemain(k);if(left<=0){btn.hidden=true;btn.setAttribute('aria-expanded','true')}else{btn.hidden=false;btn.setAttribute('aria-expanded',xOpen[k]?'true':'false')}}
 const xCard=(k,x)=>`<div class="card x${k}${!x.i.ended&&window.V3&&V3.status(k,x.i).st==='closed'?' v3closed':''}" data-id="${esc(x.i.id)}">${detail(k,x.i,x.d)}</div>`;
 const xBtn=k=>`<button type="button" id="xmore-${k}" class="showmore xmore" data-k="${k}" aria-controls="xlist" aria-expanded="${xOpen[k]?'true':'false'}"><span class="v-en">Show more</span><span class="v-cy" lang="cy">Dangos mwy</span></button>`;
 function nearX(lat,lng,label,keep){lastPos=[lat,lng,label];const out=[],save={lat,lng,label,at:new Date().toISOString(),fb:document.getElementById('list').innerHTML};
- const ot=!!(typeof F!=='undefined'&&F.open);save.xf={ot,sh:verOnly.sh,ws:verOnly.ws};const lim=XLIM();
+ const ot=!!(typeof F!=='undefined'&&F.open);save.xf={ot,sh:verOnly.sh,ws:verOnly.ws,shost:typeOn.shost,youth:youthOnly.sh,sday:dayOnly.sh};const lim=XLIM();
  for(const k in LAYERS){const L_=LAYERS[k];if(!L_.on||!L_.data){delete xRank[k];continue}
   const shown=keep?$x('xlist').querySelectorAll('.card.x'+k).length:0;if(!keep)xOpen[k]=false;
   const all=rankX(k,lat,lng,verOnly[k],ot);xRank[k]=all;const r=all.slice(0,Math.max(lim.first,shown));
   (window._fitX=window._fitX||{})[k]=r.length?L.latLngBounds([[lat,lng],...r.slice(0,lim.first).map(x=>[x.i.lat,x.i.lng])]).pad(0.2):null;  /* Dean 25 Oct 20:45: phone map shows the listed results pins (first page; Show more never moves the map) */
   out.push(`<div class="lh" style="color:${L_.col}">${t(k==='sh'?'nSh':'nWs')}</div>`+`<button type="button" class="v3t v3vo" data-k="${k}" aria-pressed="${verOnly[k]}">${t('verOnly')}</button>`+(k==='sh'?`<button type="button" class="v3t v3dc" data-k="sh" aria-pressed="${dayOnly.sh}">${t('dayFilt')}</button>`:'')+(r.length?r.map(x=>xCard(k,x)).join('')+(all.length>r.length?xBtn(k):''):`<p>${t('none')}</p>`))}
- $x('xlist').innerHTML=out.join('');fitSym(document.getElementById('list'));fitSym($x('xlist'));['sh','ws'].forEach(syncPins);pinNote();save.x=$x('xlist').innerHTML;try{localStorage.setItem('lastSearch',JSON.stringify(save))}catch(e){}}
+ $x('xlist').innerHTML=out.join('');fitSym(document.getElementById('list'));fitSym($x('xlist'));['sh','ws'].forEach(k=>{syncXMoreBtn(k);syncPins(k)});pinNote();save.x=$x('xlist').innerHTML;try{localStorage.setItem('lastSearch',JSON.stringify(save))}catch(e){}}
 function pinNote(){let el=document.getElementById('xnopin');if(!el){el=document.createElement('div');el.id='xnopin';el.hidden=true;el.setAttribute('role','note');el.innerHTML='<span class="v-en">Some places have no public address – see the list</span><span class="v-cy" lang="cy">Mae rhai lleoedd heb gyfeiriad cyhoeddus – gweler y rhestr</span>';const mapEl=document.getElementById('map');if(mapEl)mapEl.appendChild(el)}
  const sh=window.v3focus==='sh',items=(LAYERS.sh&&LAYERS.sh.data&&LAYERS.sh.data.items)||[];
  const recs=[...document.querySelectorAll('#xlist > .card.xsh')].map(c=>items.find(i=>i.id===c.dataset.id)).filter(Boolean);
@@ -238,17 +245,22 @@ function pinScroll(x,y){let lock=true,busy=false;const fix=()=>{if(!lock||busy||
 // Cards restored from the saved search (offline) have no ranking in memory: rebuild it from the saved centre and filters.
 function savedRank(k){let s=null;try{s=JSON.parse(localStorage.getItem('lastSearch')||'null')}catch(e){}
  const p=lastPos||(s&&typeof s.lat==='number'?[s.lat,s.lng]:null);if(!p)return null;const f=!lastPos&&s&&s.xf;
+ if(f&&k==='sh'){if('shost' in f)typeOn.shost=!!f.shost;if('youth' in f)youthOnly.sh=!!f.youth;if('sday' in f)dayOnly.sh=!!f.sday;syncTypeChips();syncPins('sh')}
  return rankX(k,p[0],p[1],f?!!f[k]:verOnly[k],f?!!f.ot:!!(typeof F!=='undefined'&&F.open))}
-window.showMoreX=function(k){const list=$x('xlist'),btn=$x('xmore-'+k);if(!list||!btn||!list.contains(btn)||btn.hidden||!LAYERS[k])return 0;
- if(!xRank[k]){if(!LAYERS[k].data)return load(k).then(()=>window.showMoreX(k),()=>0);const r=savedRank(k);if(!r)return 0;xRank[k]=r}
+window.showMoreX=function(k){const list=$x('xlist'),btn=$x('xmore-'+k);if(!list||!btn||!list.contains(btn)||!LAYERS[k])return 0;
+ if(!LAYERS[k].data)return load(k).then(()=>window.showMoreX(k),()=>0);
+ const all=ensureXRank(k)||savedRank(k);if(!all||!all.length)return 0;
+ if(btn.hidden&&xMoreRemain(k)<=0)return 0;
+ if(btn.hidden&&xMoreRemain(k)>0)btn.hidden=false;
  const x=scrollX,y=scrollY,fromBtn=document.activeElement===btn;
  const have=new Set([...list.querySelectorAll('.card.x'+k)].map(c=>c.dataset.id));
- const batch=xRank[k].filter(it=>!have.has(String(it.i.id))).slice(0,XLIM().more);
+ const batch=all.filter(it=>!have.has(String(it.i.id))).slice(0,XLIM().more);
  const tpl=document.createElement('template');tpl.innerHTML=batch.map(it=>xCard(k,it)).join('');const added=[...tpl.content.children];
  if(added.length){btn.before(tpl.content);xOpen[k]=true;fitSym(list)}
- batch.forEach(it=>have.add(String(it.i.id)));const remain=xRank[k].filter(it=>!have.has(String(it.i.id))).length;
- if(remain<=0){btn.hidden=true;btn.setAttribute('aria-expanded','true');if(fromBtn&&added[0]){const h=added[0].querySelector('h3');if(h){h.tabIndex=-1;h.focus({preventScroll:true})}}}
- else{btn.setAttribute('aria-expanded',xOpen[k]?'true':'false');if(fromBtn)btn.focus({preventScroll:true})}
+ batch.forEach(it=>have.add(String(it.i.id)));
+ syncXMoreBtn(k);
+ if(fromBtn&&xMoreRemain(k)<=0&&added[0]){const h=added[0].querySelector('h3');if(h){h.tabIndex=-1;h.focus({preventScroll:true})}}
+ else if(fromBtn&&xMoreRemain(k)>0)btn.focus({preventScroll:true});
  pinScroll(x,y);return added.length};
 document.addEventListener('click',e=>{const b=e.target.closest('#xlist .xmore');if(b)window.showMoreX(b.dataset.k)});
 {const css=document.createElement('style');css.setAttribute('data-showmore','x');
@@ -304,7 +316,10 @@ function remember(){try{if(navigator.onLine)localStorage.setItem('savedAt',new D
 function savedWhen(){const d=savedAt();if(d){const dt=new Date(d);if(!isNaN(+dt))return dstr(dt,true)}const S=window.FB_STAMP;return S&&S.label?(lang==='cy'?cyDates(S.label):S.label):''}
 function banner(){if(!isOff){ban.hidden=true;return}const when=savedWhen();ban.textContent=when?t('offline')+when+t('offEnd'):t('offBare');ban.hidden=false}
 function goOffline(){if(isOff)return;isOff=true;banner();try{const s=JSON.parse(localStorage.getItem('lastSearch')||'null');
- if(s){if(!document.getElementById('list').innerHTML)document.getElementById('list').innerHTML=s.fb;if(!$x('xlist').innerHTML)$x('xlist').innerHTML=s.x}}catch(e){}}
+ if(s){if(!document.getElementById('list').innerHTML)document.getElementById('list').innerHTML=s.fb;if(!$x('xlist').innerHTML)$x('xlist').innerHTML=s.x;
+  if(typeof s.lat==='number'&&typeof s.lng==='number'&&!lastPos)lastPos=[s.lat,s.lng,s.label];
+  if(s.xf){if('shost' in s.xf)typeOn.shost=!!s.xf.shost;if('youth' in s.xf)youthOnly.sh=!!s.xf.youth;if('sday' in s.xf)dayOnly.sh=!!s.xf.sday;syncTypeChips()}
+  ['sh','ws'].forEach(k=>{syncXMoreBtn(k);syncPins(k)})}}catch(e){}}
 addEventListener('offline',goOffline);addEventListener('online',()=>{isOff=false;banner()});
 window.__hmGoOffline=goOffline;if(window.__hmOfflinePending)goOffline();
 if(navigator.serviceWorker)navigator.serviceWorker.addEventListener('message',e=>{if(e.data==='offline')goOffline()});
