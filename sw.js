@@ -1,6 +1,7 @@
 // Offline + traffic hardening (22 Oct 2026). App shell precached; static assets/data stale-while-revalidate (instant from cache,
 // refreshed in the background); page itself network-first; shelters/warm spaces cached only once those layers are opened;
 // OpenStreetMap tile URLs are cache-first, bounded to the 300 most recent, so a later visit still has a map with no network.
+// fyfb-v97 (1 Nov 2026): unified map/card/key icons (food bag pin, warm-space flame diamond); index.html boot pin hit layer; offline shell must match.
 // fyfb-v96: tiles.js remembers painted tiles and fetches the next zoom-out ahead, so zooming out paints with no grey.
 //   layers.js and tiles.js get tags the live site was never asked for (Cloudflare held old copies under the earlier ones).
 // fyfb-v95: OSM tiles are cached and matched by the URL string, so a CORS probe and a no-cors <img> share one entry.
@@ -13,7 +14,7 @@
 // fyfb-v91: tile cache renamed fyfb-tiles2; the old fyfb-tiles store is deleted on activate.
 // fyfb-v90: when this version takes over, MapTiler entries are deleted from the tile cache and are never served from it.
 // OpenStreetMap tiles already in that cache stay.
-const C='fyfb-v96',T='fyfb-tiles2',TMAX=300,SHELL=['./','index.html','data.js','stamp.js','access.js','facts.js','facts.js?v=h25f26f924c18','layers.js','layers.js?v=h796078a67008','layers.css','layers.css?v=h2e7bf96289eb','report.js','register.js','report.css','v3.js','v3.js?v=hcc7d4cda4d2d','v3.css','v3.css?v=h54548c554756','icons.js','fb_secondary.png','privacy.html','terms.html','faq.html','accessibility.html','outcodes.json','counties.json','tiles.js','tiles.js?v=h8e7e4a0c5e68','vendor/maptiler-logo.svg','vendor/leaflet.js','vendor/leaflet.css','vendor/leaflet.markercluster.js','vendor/leaflet.markercluster.js?v=hc3b59fe18416','vendor/MarkerCluster.css','vendor/MarkerCluster.Default.css','header.css?v=h3a2ad6b9d92c'];
+const C='fyfb-v97',T='fyfb-tiles2',TMAX=300,SHELL=['./','index.html','data.js','stamp.js','access.js','facts.js','facts.js?v=h25f26f924c18','layers.js','layers.js?v=h796078a67008','layers.css','layers.css?v=h2e7bf96289eb','report.js','register.js','report.css','v3.js','v3.js?v=hcc7d4cda4d2d','v3.css','v3.css?v=h54548c554756','icons.js','fb_secondary.png','privacy.html','terms.html','faq.html','accessibility.html','outcodes.json','counties.json','tiles.js','tiles.js?v=h8e7e4a0c5e68','vendor/maptiler-logo.svg','vendor/leaflet.js','vendor/leaflet.css','vendor/leaflet.markercluster.js','vendor/leaflet.markercluster.js?v=hc3b59fe18416','vendor/MarkerCluster.css','vendor/MarkerCluster.Default.css','header.css?v=h3a2ad6b9d92c'];
 const TILE=/(^|\.)tile\.openstreetmap\.org$|^api\.maptiler\.com$/;
 // OpenFreeMap backup (27 Oct 2026): versioned tiles, fonts and sprites are cache-first; style and TileJSON are network-first with the cached copy offline.
 const OFM=/^tiles\.openfreemap\.org$/,OFM_FIXED=/^\/(planet\/\d{8}_[^/]+\/|fonts\/|sprites\/ofm_f384\/|natural_earth\/)/;
