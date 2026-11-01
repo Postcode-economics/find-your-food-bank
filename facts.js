@@ -49,23 +49,33 @@
     const s = String((i && i.season) || '');
     return /winter|swep|cold weather/i.test(s);
   }
-  function isDayCentre(i) {
+  function youthBlob(i) {
     i = i || {};
-    const kind = String(i.kind || i.service || '').toLowerCase().replace(/-/g, ' ').replace(/_/g, ' ');
-    return i.label === 'Day centre' || kind === 'day centre';
+    const name = String(i.name || '');
+    const groups = (i.groups || []).join(' ');
+    const wf = Array.isArray(i.who_for) ? i.who_for.join(' ') : String(i.who_for || '');
+    return (name + ' ' + groups + ' ' + wf).replace(/\s+/g, ' ');
   }
   function isYouth(i) {
     i = i || {};
     if (i.kind === 'young_people') return true;
     const name = String(i.name || '');
-    const groups = (i.groups || []).join(' ');
-    const blob = name + ' ' + groups;
-    if (/\bfoyers?\b/i.test(name)) return true;
+    const blob = youthBlob(i);
+    if (/\bfoyers?\b/i.test(blob)) return true;
+    if (/\byoung people\b/i.test(blob)) return true;
+    if (/\byouth\b/i.test(blob)) return true;
+    if (/Age\s*16\s*[-–]\s*25/i.test(blob)) return true;
+    if (/16\s*[-–to]{1,3}\s*25/i.test(blob)) return true;
+    if (/1[678]\s*[-–to]{1,3}\s*2[0-9]/i.test(blob)) return true;
     if (/\bhousing\b/i.test(name) && /16\s*[-–to]{1,3}\s*25/i.test(blob)) return true;
-    if (/\byoung people\b/i.test(name)) return true;
-    if (/16\s*[-–to]{1,3}\s*2[0-9]/i.test(name)) return true;
-    if (/16\s*[-–to]{1,3}\s*2[0-9]/i.test(groups)) return true;
+    if (/young people'?s housing/i.test(blob)) return true;
     return false;
+  }
+  function isDayCentre(i) {
+    i = i || {};
+    if (isYouth(i)) return false;
+    const kind = String(i.kind || i.service || '').toLowerCase().replace(/-/g, ' ').replace(/_/g, ' ');
+    return i.label === 'Day centre' || kind === 'day centre';
   }
   function typeOf(layer, i) {
     i = i || {};
@@ -77,11 +87,11 @@
       }
       return ['Food bank', 'Banc bwyd'];
     }
+    if (isYouth(i))
+      return ['Young people’s housing (16–25), referral needed', 'Tai i bobl ifanc (16–25), angen atgyfeiriad'];
     if (isDayCentre(i)) return ['Day centre', 'Canolfan ddydd'];
     const name = String(i.name || '');
     const groups = (i.groups || []).join(' ');
-    if (isYouth(i))
-      return ['Young people’s housing (16–25), referral needed', 'Tai i bobl ifanc (16–25), angen atgyfeiriad'];
     const hostel = /\bhostel\b/i.test(name);
     const referral = i.access_type === 'referral_only' || /\breferral only\b/i.test(String(i.referral || ''));
     if (hostel && referral) return ['Referral hostel', 'Hostel drwy atgyfeiriad'];
