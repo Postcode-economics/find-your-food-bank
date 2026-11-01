@@ -208,7 +208,7 @@ def name_on_page(name, text):
 def detect_kind(text, name):
     blob = f"{name} {text}"
     if re.search(r"nightstop|night stop", blob, re.I):
-        return "young_people"
+        return "hostel"
     if re.search(r"foyer|16[\s\-–to]{1,3}25|young people.{0,40}homeless", blob, re.I):
         return "young_people"
     if re.search(r"day centre|day center|daytime drop|drop[\s-]in centre", blob, re.I):
@@ -447,6 +447,16 @@ def grade_row(row, index, a_ids, force_playwright=False):
         "last_checked": "2026-11-01",
         "town": town,
     }
+    if kind == "hostel" and re.search(
+        r"nightstop|night stop|emergency (?:bed|accommodation|shelter)|24/7 support",
+        f"{name} {text}",
+        re.I,
+    ):
+        if re.search(r"16[\s\-–to]{1,3}(?:25|30|35)|young people|under 25", text, re.I) or re.search(
+            r"nightstop|night stop", f"{name} {url}", re.I
+        ):
+            entry["groups"] = ["Age 16-25"]
+            entry["who_for"] = ["Age 16-25"]
     if card_type:
         entry["card_type"] = card_type
         entry["no_pin"] = True

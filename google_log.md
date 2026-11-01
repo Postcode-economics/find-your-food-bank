@@ -1292,4 +1292,4 @@ Google Serper A-grade places go live in **one final PR after** agent bc-95f199ae
 
 Automated 86 A-rows were cleared after spot-check failures. Re-graded with Dean rules (Nov 2026): **hostels / young people's housing** need service phone + town → **area card** (`referral_hostel`, no pin); **day centres** need walk-in postcode on the operator page → **pinned** card.
 
-After held re-verify (Playwright retry on fetch failures): **54** rows in `logs/google_a_items.json` — **10 pinned** day centres, **44 area** cards (25 hostel + 19 young_people kinds). Evidence: `logs/google_a_handcheck.md`. Held: **2284** rows. PR **#371** stays unmerged until batch 3 is on `main`.
+After held re-verify (Playwright retry on fetch failures): **38** rows in `logs/google_a_items.json` — **9 pinned** day centres, **29 area** cards (**18** `hostel` including Nightstop/emergency youth as hostel/shelter label, **11** `young_people` foyers/supported). Nightstop rows use `kind: hostel` + **Age 16-25** in who-for, not young_people label.

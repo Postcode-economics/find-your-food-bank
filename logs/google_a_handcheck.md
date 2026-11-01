@@ -13,11 +13,11 @@ SHARE Homeless Action Centre (SHAC) | day_centre | SHARE Homeless Action Centre 
 The Porch | day_centre | The Porch | https://theporch.org.uk/contact-the-porch/
 Calderwood House | hostel | Calderwood House | https://www.ttcwestcumbria.org/our-projects/calderwood-house/
 Crawley Open House | hostel | Crawley Open House | https://www.crawleyopenhouse.co.uk/how-we-help/hostel/
+Dorset Nightstop | hostel | Dorset Nightstop | https://service.actionforchildren.org.uk/dorset-services/dorset-nightstop/
 Eva Burrows Lifehouse | hostel | Eva Burrows Lifehouse | https://www.salvationarmy.org.uk/eva-burrows-1st-stop-project
 Greenwich Homeless Project Night Shelter | hostel | Greenwich Homeless Project Night Shelter | https://greenwichhomelessproject.org.uk/night-shelter/
 Homeless Accommodation – Tai Gogledd Cymru | hostel | Homeless Accommodation – Tai Gogledd Cymru | https://www.nwha.org.uk/find-a-home/homelessness-services/homeless-accommodation/
-Homelessness Charity in Hertfordshire | hostel | Homelessness Charity in Hertfordshire | https://emmaus.org.uk/hertfordshire/
-Horton Housing | hostel | Horton Housing | https://welcomebradford.org/servicesmap/gateway-protection-programme-horton-housing/
+Housing with 24/7 Support | hostel | Housing with 24/7 Support | https://benjaminfoundation.co.uk/housing-homelessness/housing-with-24-7-support/
 IOU Hostel, Hebden Bridge | hostel | IOU Hostel, Hebden Bridge | https://www.hebdenbridgehostel.org/
 Isle of Wight Night Shelter and Outreach Support | hostel | Isle of Wight Night Shelter and Outreach Support | https://www.salvationarmy.org.uk/isle-wight-night-shelter-and-outreach-support
 Kirkwall | hostel | Kirkwall | https://www.hostellingscotland.org.uk/hostels/kirkwall/
@@ -25,15 +25,12 @@ LWS Night Shelter | hostel | LWS Night Shelter | https://www.lwsnightshelter.org
 Lichfield District Council Joins Safeplaces for Emergency | hostel | Lichfield District Council Joins Safeplaces for Emergency | https://safe-places.co.uk/lichfield-district-council-joins-safeplaces-for-emergency-accommodation-options/
 Local Hostels & Night Shelters | hostel | Local Hostels & Night Shelters | https://www.waverley.gov.uk/services/housing/finding-a-home/worried-about-becoming-homeless/local-hostels-and-night-shelters
 National - Housing | hostel | National - Housing | https://www.harpendenhealthpcn.nhs.uk/national-housing
-Our community - Emmaus North East | hostel | Our community - Emmaus North East | https://emmaus.org.uk/north-east/about-us/our-community/
 Rough Sleeping - We are Trinity | hostel | Rough Sleeping - We are Trinity | https://www.wearetrinity.org.uk/rough-sleeping/
 Tabor Living at St Catherine of Siena Church | hostel | Tabor Living at St Catherine of Siena Church | https://www.taborliving.co.uk/st-catherines/
 The Night Shelter Coventry | hostel | The Night Shelter Coventry | https://naccom.org.uk/members/coventry-night-shelter/
 Utility Street Men's Hostel | hostel | Utility Street Men's Hostel | https://www.harmoni.org.uk/utility-street/
 About Us - Hinckley Homeless Group - Lawrence House | young_people | About Us - Hinckley Homeless Group - Lawrence House | https://hinckleyhomeless.com/about-us/
-Dorset Nightstop | young_people | Dorset Nightstop | https://service.actionforchildren.org.uk/dorset-services/dorset-nightstop/
 Home Page - Dewis Housing Port Talbot & Neath | young_people | Home Page - Dewis Housing Port Talbot & Neath | https://www.dewishousing.org/
-Housing with 24/7 Support | young_people | Housing with 24/7 Support | https://benjaminfoundation.co.uk/housing-homelessness/housing-with-24-7-support/
 Kings Ripton Court | young_people | Kings Ripton Court | https://www.salvationarmyhomes.org.uk/homes/kings-ripton-court
 MACS | young_people | MACS | https://www.macsni.org/
 Newark Emmaus Trust: Home | young_people | Newark Emmaus Trust: Home | https://www.newarkemmaustrust.org.uk/

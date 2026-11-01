@@ -7438,7 +7438,9 @@
   "hours": "Not stated",
   "referral": "Referral required (see operator page)",
   "beds": "",
-  "groups": [],
+  "groups": [
+   "Age 16-25"
+  ],
   "season": "Year-round",
   "operator": "Not stated",
   "flag_closed": false,
@@ -7449,8 +7451,10 @@
   "access_type": "referral_only",
   "facilities": "Not stated",
   "checked_on": "2026-11-01",
-  "kind": "young_people",
-  "who_for": "Not stated",
+  "kind": "hostel",
+  "who_for": [
+   "Age 16-25"
+  ],
   "wheelchair": "Not stated",
   "last_checked": "2026-11-01",
   "town": "Bridport",
@@ -7853,7 +7857,9 @@
   "hours": "Not stated",
   "referral": "Referral required (see operator page)",
   "beds": "",
-  "groups": [],
+  "groups": [
+   "Age 16-25"
+  ],
   "season": "Year-round",
   "operator": "Not stated",
   "flag_closed": false,
@@ -7864,8 +7870,10 @@
   "access_type": "referral_only",
   "facilities": "Not stated",
   "checked_on": "2026-11-01",
-  "kind": "young_people",
-  "who_for": "Not stated",
+  "kind": "hostel",
+  "who_for": [
+   "Age 16-25"
+  ],
   "wheelchair": "Not stated",
   "last_checked": "2026-11-01",
   "town": "North Walsham",
