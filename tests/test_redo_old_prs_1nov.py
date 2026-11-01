@@ -68,7 +68,7 @@ class FoodBankTimes(unittest.TestCase):
                 self.assertTrue(e.get("source_url", "").startswith("http"), k)
                 self.assertTrue(all(q.strip() for q in e["quote"]), k)
                 self.assertNotEqual(e["status"], "NO_TIMES", k)  # nothing removed or closed in this PR
-        self.assertEqual(n, 64)
+        self.assertEqual(n, 63)  # the-community-cupboard: main already has the same hours hand-reviewed (31 Oct, structured), kept main's
 
     def test_doubtful_items_were_held_not_changed(self):
         for k in HELD:
