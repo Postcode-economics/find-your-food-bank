@@ -38,7 +38,8 @@ class T(unittest.TestCase):
                     pg.evaluate('scrollTo(0,0)'); print('X', w, k, pg.evaluate("(()=>{const x=document.getElementById('fhide');let e=x,i=[];while(e){if(e.inert)i.push(e.id||e.tagName);e=e.parentElement}return [x.disabled,i,!!x.offsetParent]})()")); pg.click('#fhide', timeout=5000); pg.wait_for_timeout(400)
                     self.assertTrue(pg.evaluate("document.getElementById('v3filt').classList.contains('fclosed')&&!!document.getElementById('ftab').offsetParent"), (w, k, 'x collapses'))
                     pg.click('#ftab'); pg.wait_for_timeout(400)
-                    self.assertTrue(pg.evaluate("!document.getElementById('v3filt').classList.contains('fclosed')&&!!document.querySelector('#v3filt [data-f=walk]').offsetParent"), (w, k, 'tab reopens'))
+                    reopen = "!!document.querySelector('#v3filt [data-f=shost]').offsetParent && !document.querySelector('#v3filt [data-f=walk]').offsetParent" if k == 'sh' else "!!document.querySelector('#v3filt [data-f=walk]').offsetParent"
+                    self.assertTrue(pg.evaluate("!document.getElementById('v3filt').classList.contains('fclosed')&&" + reopen), (w, k, 'tab reopens'))
                     self.assertEqual(errs, [], (w, k)); c.close()
             b.close()
     def test_no_comment_swallows_code(self):

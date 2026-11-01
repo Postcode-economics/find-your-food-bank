@@ -56,12 +56,16 @@ class Static(unittest.TestCase):
         self.assertIn('M8 15.5l8-7.5 8 7.5V24H8z', js)  # house symbol, same box as the sun and 16/25
         self.assertIn('M3 3h26v26H21l-5 9-5-9H3z', js)  # existing square pin outline kept
         self.assertIn("st.id='xsym'", js)
-        self.assertIn("youthOnly.sh&&i.kind!=='young_people'", js)
+        self.assertIn('shelterTypeOk(i)', js)
         self.assertIn('mountShelterStrip', rd('v3.js'))
         home = rd('index.html')
         self.assertIn('data-f="youth"', home)
-        self.assertIn('Young people (16–25)', home)
-        self.assertIn('Pobl ifanc (16–25)', home)
+        self.assertIn('data-f="shost"', home)
+        self.assertIn('data-f="sday"', home)
+        self.assertIn('Hostel or shelter', home)
+        self.assertIn('Young people', home)
+        self.assertIn('Day centre', home)
+        self.assertIn('Pobl ifanc', home)
 
     def test_cache_tag_is_the_new_layers_js(self):
         lh = 'h' + hashlib.sha256(open(os.path.join(R, 'layers.js'), 'rb').read()).hexdigest()[:12]

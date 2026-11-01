@@ -135,10 +135,36 @@
   }
   function wheelPair(i) {
     const w = i && i.wheelchair;
-    if (w === 'yes') return ['Wheelchair accessible', 'Hygyrch i gadeiriau olwyn'];
-    if (w === 'partial') return ['Partly wheelchair accessible', 'Rhannol hygyrch i gadeiriau olwyn'];
-    if (w === 'no') return ['Not wheelchair accessible', 'Ddim yn hygyrch i gadeiriau olwyn'];
+    if (w === 'yes') return ['Yes', 'Ie'];
+    if (w === 'partial') return ['Partly', 'Rhannol'];
+    if (w === 'no') return ['No', 'Na'];
     return null;
+  }
+  function normPc(pc) {
+    const s = String(pc || '').toUpperCase().replace(/[^A-Z0-9]/g, '');
+    if (s.length < 5 || s.length > 7) return '';
+    return s.slice(0, -3) + ' ' + s.slice(-3);
+  }
+  function addrHtml(i) {
+    i = i || {};
+    const raw = String(i.address || '').trim();
+    const found = raw.match(/[A-Z]{1,2}\d[A-Z\d]?\s*\d[A-Z]{2}/i);
+    const pc = normPc(i.postcode || (found && found[0]) || '');
+    const re = pc ? new RegExp(pc.replace(/\s+/g, '\\s*'), 'ig') : null;
+    const seen = {};
+    const out = [];
+    raw.split(',').forEach(part => {
+      let x = (re ? part.replace(re, ' ') : part).replace(/\s+/g, ' ').trim().replace(/^[,.\s]+|[,.\s]+$/g, '');
+      if (!x) return;
+      const w = x.split(' ');
+      if (w.length % 2 === 0 && w.slice(0, w.length / 2).join(' ').toLowerCase() === w.slice(w.length / 2).join(' ').toLowerCase()) x = w.slice(0, w.length / 2).join(' ');
+      const k = x.toLowerCase();
+      if (seen[k]) return;
+      seen[k] = 1;
+      out.push(esc(x));
+    });
+    const body = out.join(', ');
+    return body + (pc ? (body ? ' ' : '') + '<b>' + esc(pc) + '</b>' : '');
   }
   function facHtml(i) {
     const p = [].concat(i.provided || [], i.facilities || []);
@@ -167,7 +193,7 @@
     const arr = (raw || []).map(s => String(s).trim()).filter(Boolean);
     const F = (typeof window !== 'undefined' && window.timesFmt) ? window.timesFmt : null;
     const lines = F ? F.lines(arr) : arr;
-    return lines.map(nextNote);
+    return lines.map(nextNote).map(normClosed).map(dash);
   }
   function hh(v) {
     // A stored 24-hour range is already normalised. Do not run it through the free-text formatter:
@@ -178,7 +204,13 @@
     const v = String(value).trim();
     if (/[ap]m/i.test(v)) return fmtLines([day + ' ' + v]).join(' / ') || (day + ' ' + v);
     if (/closed/i.test(v) && !/\d/.test(v)) return day + ' Closed';
-    return nextNote(day + ' ' + hh(v));
+    return nextNote(normClosed(day + ' ' + hh(v)));
+  }
+  function normClosed(line) {
+    return String(line).replace(/\bclosed\b/gi, 'Closed');
+  }
+  function dash(line) {
+    return String(line).replace(/(\d{1,2}):(\d{2})\s*-\s*(\d{1,2}):(\d{2})/g, (m, a, b, c, d) => a.padStart(2, '0') + ':' + b + '\u2013' + c.padStart(2, '0') + ':' + d);
   }
   function timesLines(layer, i) {
     if (layer === 'sh' && typeof window !== 'undefined' && window.REFONLY && window.REFONLY(i)) return [];
@@ -194,7 +226,7 @@
           if (slots.length) lines.push(nextNote(DN[d] + ' ' + slots.map(x => hh(x.join('-'))).join(', ') + note));
           else if (closed.indexOf(d) >= 0) lines.push(DN[d] + ' Closed');
         });
-        return lines;
+        return lines.map(dash);
       }
       if (t.status === 'TIMES_TEXT_ONLY' && (t.raw || (t.lines && t.lines.length))) {
         const src = (t.lines && t.lines.length) ? t.lines : String(t.raw).split(/\s*\|\s*|\n/);
@@ -213,7 +245,7 @@
       const order = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
       const lines = [];
       order.forEach(d => { if (d in h && String(h[d]).trim()) lines.push(storedLine(d, h[d])); });
-      return lines;
+      return lines.map(dash);
     }
     return [];
   }
@@ -260,7 +292,7 @@
     if (sd && !/^not stated/i.test(String(sd).trim())) extra += row('Scheme dates', 'Dyddiadau’r cynllun', schemeBody(sd));
     return `<div class="ufact">${row('Who it’s for', 'I bwy mae hwn', who || NS())}${row('How to get in', 'Sut i fynd i mewn', how ? phrase(how[0], how[1]) : NS())}${row('Opening times', 'Oriau agor', times || NS())}${row('Wheelchair access', 'Mynediad i gadeiriau olwyn', wheel ? phrase(wheel[0], wheel[1]) : NS())}${row('Facilities', 'Cyfleusterau', fac || NS())}${extra}</div>`;
   }
-  const api = { typeOf, typeRow, winter, whoBits, whoHtml, howPair, wheelPair, facHtml, timesLines, timesHtml, block, checked: checkedHtml, NS };
+  const api = { typeOf, typeRow, winter, whoBits, whoHtml, howPair, wheelPair, facHtml, timesLines, timesHtml, block, checked: checkedHtml, addr: addrHtml, normPc, NS };
   if (typeof window !== 'undefined') window.UFacts = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
 })();

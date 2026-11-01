@@ -23,7 +23,7 @@ CARDS_JS = r"""(sel)=>{const out=[];const rgb=e=>e?getComputedStyle(e).backgroun
   const q=s=>c.querySelector(s),all=s=>[...c.querySelectorAll(s)];const st=q('.v3st');
   const dot=st?getComputedStyle(st,'::before').backgroundColor:null;
   const call=all('a.btn.call').find(a=>(a.getAttribute('href')||'').startsWith('tel:'));
-  const fb=all('a.xfbk,a[href*="facebook.com"].btn');const dir=q('a.btn.gm,a[href*="google.com/maps"]');
+  const fb=all('a.xfbk');const dir=q('a.btn.gm,a[href*="google.com/maps"]');
   const share=all('button,a').find(b=>/Share \/ text this address|Rhannu/.test(b.textContent));
   const rep=all('button,a').find(b=>/Report a problem/.test(b.textContent));
   const links=all('.links a,.src a,a.src').map(a=>a.getAttribute('href')||'');
@@ -61,7 +61,8 @@ BUTTON_JS = r"""(sel)=>{const bad=[];
  const act=el=>el.matches&&el.matches('a.btn.gm,button.v3share,a.btn.web,a.btn.call')&&!el.classList.contains('xfb');
  for(const c of cards){
   const name=((c.querySelector('h3')||{}).textContent||'').trim().slice(0,40);
-  const kids=[...c.children];
+  const box=c.querySelector(':scope > .xacts');
+  const kids=box?[...box.children]:[...c.children];
   const btns=kids.filter(act);
   if(!btns.length) continue;
   const rs=btns.map(b=>b.getBoundingClientRect());
@@ -101,6 +102,8 @@ STRIP_JS = r"""async ()=>{const bad=[];
  if(sh&&!shown(strip)) bad.push('symbol strip hidden while Shelter is selected');
  if(!sh&&shown(strip)) bad.push('symbol strip visible while Shelter is not selected');
  const youth=document.querySelector('#chips [data-f=youth]');
+ const host=document.querySelector('#chips [data-f=shost]');
+ const day=document.querySelector('#chips [data-f=sday]');
  const walk=document.querySelector('#chips [data-f=walk]');
  const vouch=document.querySelector('#chips [data-f=vouch]');
  const ink=svg=>new Promise(ok=>{const img=new Image();
@@ -111,8 +114,17 @@ STRIP_JS = r"""async ()=>{const bad=[];
    ok(n?{w:maxx-minx+1,h:maxy-miny+1}:null);};
   img.onerror=()=>ok(null);img.src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(new XMLSerializer().serializeToString(svg));});
  if(sh){
-  if(!shown(youth)) bad.push('Young people chip hidden on shelters');
+  if(!shown(youth)||!shown(host)||!shown(day)) bad.push('shelter type chips hidden');
   if(shown(walk)||shown(vouch)) bad.push('food-bank chips still visible on shelters');
+  if(innerWidth<=430){
+   const g=el=>el&&el.getBoundingClientRect();
+   const hr=g(host),yr=g(youth),dr=g(day),or=g(document.getElementById('v3open')),xr=g(document.getElementById('fhide')),tr=g(document.getElementById('v3tools'));
+   if(hr&&yr&&Math.abs(hr.top-yr.top)>4) bad.push('chip row 1 split');
+   if(dr&&or&&xr&&(Math.abs(dr.top-or.top)>4||Math.abs(dr.top-xr.top)>4)) bad.push('chip row 2 split');
+   if(xr&&tr&&Math.abs(xr.top-tr.top)<8) bad.push('tools share the reset row');
+   if(xr&&tr&&tr.top-xr.bottom>20) bad.push('gap above list/light '+(tr.top-xr.bottom).toFixed(0));
+   if(xr&&xr.right>innerWidth+1) bad.push('reset overflows');
+  }
   const items=strip?[...strip.querySelectorAll('.xsy')]:[];
   if(items.length!==3) bad.push('strip symbols '+items.length);
   else {
@@ -127,7 +139,7 @@ STRIP_JS = r"""async ()=>{const bad=[];
    if(a.width&&s.width&&!(a.bottom<=s.top+1||s.bottom<=a.top+1||a.right<=s.left+1||s.right<=a.left+1)) bad.push('strip overlaps the map attribution');}
   const more=document.getElementById('xmore-sh');
   if(more&&shown(more)&&more.getBoundingClientRect().height<44) bad.push('Show more under 44px');
- } else if(shown(youth)) bad.push('Young people chip visible off the shelters layer');
+ } else if(shown(youth)||shown(host)||shown(day)) bad.push('shelter chips visible off the shelters layer');
  return bad}"""
 
 # Type pill and symbol square (Dean): same height, tops and bottoms within 0.5px, 26px on a phone.
