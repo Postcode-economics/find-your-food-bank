@@ -246,6 +246,8 @@ class LiveBrowser(unittest.TestCase):
 
     def test_live_helpmap_matrix(self):
         base = os.environ.get('HELPMAP_BASE', 'https://helpmap.uk').rstrip('/')
+        if os.environ.get('CI') and not os.environ.get('HELPMAP_LIVE_MATRIX'):
+            self.skipTest('headed live matrix (set HELMAP_LIVE_MATRIX=1 in deploy-check)')
         if 'skip_live' in os.environ:
             self.skipTest('HELPMAP skip_live')
         rep = run_matrix(base, 'live')
