@@ -341,6 +341,942 @@
       "url": "https://homelesshostelstaff.co.uk/night-concierge/bradford/",
       "name": "Homeless Hostel Staff Bradford",
       "reason": "Staffing agency; not a hostel service"
+    },
+    {
+      "town": "Brent",
+      "url": "https://www.crisis.org.uk/get-help/brent/",
+      "name": "Crisis Skylight Brent",
+      "reason": "Duplicate URL in live+manual"
+    },
+    {
+      "town": "Brent",
+      "url": "https://www.shpslondon.org/",
+      "name": "SHPS Brent (Single Homeless Prevention Service)",
+      "reason": "Operator site fetch failed (403/unreachable); cannot verify"
+    },
+    {
+      "town": "Brent",
+      "url": "https://www.ashfordplace.org.uk/",
+      "name": "Ashford Place",
+      "reason": "Operator site fetch failed; cannot verify open service with phone+postcode"
+    },
+    {
+      "town": "Brent",
+      "url": "https://neasden-greenhillpark.co.uk/services/homeless-provisions-and-people-in-need/",
+      "name": "Neasden Greenhill Park homeless provisions",
+      "reason": "Operator page unreachable"
+    },
+    {
+      "town": "Brent",
+      "url": "https://housingjustice.org.uk/shelters/brent-shelter-of-sanctuary",
+      "name": "Brent Shelter of Sanctuary",
+      "reason": "Housing Justice news/archive page, not operator service page"
+    },
+    {
+      "town": "Brent",
+      "url": "https://www.brent.gov.uk/neighbourhoods-and-communities/community-directory/ashford-place",
+      "name": "Ashford Place (council directory)",
+      "reason": "Council directory listing; not operator site"
+    },
+    {
+      "town": "Brent",
+      "url": "https://uk.depaul.org.uk/",
+      "name": "Depaul UK Willesden",
+      "reason": "Could not fetch Depaul operator page for Willesden hostel; homeless.org directory excluded"
+    },
+    {
+      "town": "Bridgnorth",
+      "url": "https://newsroom.shropshire.gov.uk/2025/04/bridgnorth-parish-rooms/",
+      "name": "Bridgnorth Parish Rooms",
+      "reason": "Council news item; temporary council accommodation not open verified hostel with phone+postcode on operator page"
+    },
+    {
+      "town": "Bridgnorth",
+      "url": "https://bethphage.co.uk/what-we-do/innage-lane/",
+      "name": "Innage Lane Day Opportunities",
+      "reason": "Learning disability day opportunities; not homeless day centre"
+    },
+    {
+      "town": "Bridport",
+      "url": "https://service.actionforchildren.org.uk/dorset-services/dorset-nightstop/",
+      "name": "Dorset Nightstop",
+      "reason": "Operator page: phone only in tel: link not verbatim text; registered address WD18 8AG is head office not local service postcode"
+    },
+    {
+      "town": "Bridport",
+      "url": "https://thebusshelterdorset.org/",
+      "name": "The Bus Shelter Dorset",
+      "reason": "Wrong geography (Weymouth/BCP not Bridport); contact page lacks UK postcode"
+    },
+    {
+      "town": "Bridport",
+      "url": "https://www.ammonitehealth.co.uk/ns-housing",
+      "name": "Ammonite Health Partnership housing page",
+      "reason": "Signposting to Crisis/Shelter helplines; not a homeless service operator"
+    },
+    {
+      "town": "Bridport",
+      "url": "https://www.theharmonycentre.org.uk/harmony-drop-in",
+      "name": "Harmony Centre",
+      "reason": "Mental health drop-in for Bridport; not homeless hostel/day centre"
+    },
+    {
+      "town": "Bridport",
+      "url": "https://home-in-bridport.weebly.com/support.html",
+      "name": "HOME in Bridport Project",
+      "reason": "Community housing project supporters page; no service phone/postcode/type"
+    },
+    {
+      "town": "Brierley Hill",
+      "url": "https://changeintoaction.org.uk/dudley/about",
+      "name": "Change Into Action Dudley",
+      "reason": "Donation/signposting network page; not a named hostel/day centre with phone+postcode"
+    },
+    {
+      "town": "Brierley Hill",
+      "url": "https://dudleyci.co.uk/categories/homelessness",
+      "name": "Dudley Community Information homelessness",
+      "reason": "Local directory hub; not operator site"
+    },
+    {
+      "town": "Brierley Hill",
+      "url": "https://www.bcha.org.uk/our-services/bcha-support/homelessness/",
+      "name": "BCHA homelessness",
+      "reason": "Regional provider overview; fetch failed/incomplete verification for local Brierley Hill service card"
+    },
+    {
+      "town": "Brigg",
+      "url": "https://www.theforgeproject.co.uk/get-in-touch/",
+      "name": "The Forge Project",
+      "reason": "Duplicate URL in live+manual (Scunthorpe day centre)"
+    },
+    {
+      "town": "Brigg",
+      "url": "https://www.lincsymca.co.uk/housing/emergency-accommodation/",
+      "name": "YMCA Lincolnshire Nomad Centre",
+      "reason": "Wrong geography (Lincoln not Brigg); duplicate Nomad in manual"
+    },
+    {
+      "town": "Brigg",
+      "url": "https://www.stgeorgescrypt.org.uk/how-we-help/care-centre",
+      "name": "St George's Crypt Leeds",
+      "reason": "Wrong geography (Leeds)"
+    },
+    {
+      "town": "Brigg",
+      "url": "https://www.livewellnorthlincolnshire.org.uk/service/day-centre-for-the-homeless",
+      "name": "Day centre for the homeless (LiveWell listing)",
+      "reason": "Directory listing; not operator site"
+    },
+    {
+      "town": "Brigg",
+      "url": "https://www.northlincs.gov.uk/council-tax-benefits-and-housing/homeless-services-in-scunthorpe-and-north-lincolnshire/",
+      "name": "North Lincolnshire Council homeless services",
+      "reason": "Council page bot-blocked (403); advice/signposting only"
+    },
+    {
+      "town": "Brighouse",
+      "url": "https://www.highwayhouse.co.uk/",
+      "name": "The Highway House",
+      "reason": "Wrong geography (London N15 on page, not Brighouse)"
+    },
+    {
+      "town": "Brighouse",
+      "url": "https://focus4hope.co.uk/contact-us/",
+      "name": "Focus4Hope",
+      "reason": "Local charity contact has phone+postcode but page is general community support, not a named hostel/night shelter/day centre for homeless"
+    },
+    {
+      "town": "Brighouse",
+      "url": "https://www.livingnorth.com/article/how-brighouse-charity-focus4hope-supporting-homeless-elderly-and-vulnerable-people-west-yorkshire",
+      "name": "Living North article",
+      "reason": "News article; not operator site"
+    },
+    {
+      "town": "Broadstairs",
+      "url": "https://thefoxton.org/contact/",
+      "name": "The Foxton Centre",
+      "reason": "Wrong geography (Preston PR1 / 01772 number; not Thanet)"
+    },
+    {
+      "town": "Broadstairs",
+      "url": "https://www.thanet.gov.uk/info-pages/rough-sleeping/",
+      "name": "Thanet Council rough sleeping",
+      "reason": "Council advice/signposting page; not operator accommodation site"
+    },
+    {
+      "town": "Bromley",
+      "url": "https://bromleyhomeless.org/contact/",
+      "name": "Bromley Homeless",
+      "reason": "Contact page is advice/hosting hub; not emergency shelter listing with shelter type on same page (night shelter on separate page without verbatim phone)"
+    },
+    {
+      "town": "Bromley",
+      "url": "https://bromleyhomeless.org/emergency-night-shelter/",
+      "name": "Bromley Homeless Emergency Night Shelter",
+      "reason": "Night shelter info page has postcode in footer only; no verbatim phone on operator shelter page"
+    },
+    {
+      "town": "Brownhills",
+      "url": "https://streetsupport.net/walsall",
+      "name": "Street Support Walsall",
+      "reason": "Multi-agency directory; not operator site"
+    },
+    {
+      "town": "Buckingham",
+      "url": "https://www.connectionsupport.org.uk/services/rough-sleeper-outreach-buckinghamshire-2/",
+      "name": "Connection Support rough sleeper outreach",
+      "reason": "Outreach service page; Oxford head-office postcode OX2; not fixed hostel/night shelter with local address"
+    },
+    {
+      "town": "Buckingham",
+      "url": "https://wyhoc.org.uk/contact-us/",
+      "name": "Wycombe Homeless Connection",
+      "reason": "Wrong geography for Buckingham town (High Wycombe HP13 service)"
+    },
+    {
+      "town": "Buckley",
+      "url": "https://shareaid.co.uk/pages/share-day-centre",
+      "name": "SHARE Day Centre Chester",
+      "reason": "Wrong geography (Chester CH1; not Buckley Flintshire)"
+    },
+    {
+      "town": "Buckley",
+      "url": "https://thewallich.com/services/ceredigion-solutions-worker/",
+      "name": "Wallich Ceredigion Solutions",
+      "reason": "Wrong geography (West Wales outreach; not Buckley)"
+    },
+    {
+      "town": "Bude",
+      "url": "https://www.harbourhousing.com/contact-us/",
+      "name": "Harbour Housing",
+      "reason": "Operator site fetch returned no verifiable phone+postcode on contact page (St Austell area charity)"
+    },
+    {
+      "town": "Bude",
+      "url": "https://safercornwall.co.uk/homelessness/",
+      "name": "Safer Cornwall homelessness",
+      "reason": "Signposting hub; not operator accommodation page"
+    },
+    {
+      "town": "Bungay",
+      "url": "https://bungaycommunitysupport.org.uk/",
+      "name": "Bungay Community Support",
+      "reason": "Community support contact; not a homeless hostel/night shelter/day centre service page"
+    },
+    {
+      "town": "Burnham-on-Sea",
+      "url": "https://www.neighbourly.com/project/5eaaadc1c7ac8e20683bd8b6",
+      "name": "Neighbourly project listing",
+      "reason": "Third-party listing; not operator site"
+    },
+    {
+      "town": "Burntwood",
+      "url": "https://www.whg.uk.com/find-a-home/get-support-if-youre-homeless/",
+      "name": "WHG homelessness",
+      "reason": "Fetch failed; regional housing association advice page"
+    },
+    {
+      "town": "Caerphilly",
+      "url": "https://www.cbcs.org.uk/contact-us/",
+      "name": "Caerphilly Borough Churches Support",
+      "reason": "Operator contact page without extractable verbatim phone+postcode for a named shelter/day centre"
+    },
+    {
+      "town": "Caerphilly",
+      "url": "https://www.cbcs.org.uk/",
+      "name": "CBCS home",
+      "reason": "No phone+postcode for accommodation service on operator home page"
+    },
+    {
+      "town": "Calne",
+      "url": "https://www.alabare.co.uk/our-services/homeless-accommodation/",
+      "name": "Alabare homeless accommodation",
+      "reason": "Wrong geography (Salisbury SP2 service; not Calne)"
+    },
+    {
+      "town": "Camborne",
+      "url": "https://glencarne.org.uk/contact/",
+      "name": "Glen Carne",
+      "reason": "Operator pages without verbatim phone+postcode for homeless accommodation"
+    },
+    {
+      "town": "Camborne",
+      "url": "https://glencarne.org.uk/",
+      "name": "Glen Carne home",
+      "reason": "No verifiable phone+postcode on operator site"
+    },
+    {
+      "town": "Camden",
+      "url": "https://sjdh.org/",
+      "name": "St John's Downshire Hill",
+      "reason": "Church site; not homeless operator (misleading Serper hit for Camden)"
+    },
+    {
+      "town": "Camden",
+      "url": "https://www.spangroup.com/our-trust/our-projects/thames-reach-camden-spectrum-day-centre/",
+      "name": "Thames Reach Camden Spectrum (Span Group)",
+      "reason": "Trustee project story page; no phone/postcode; operator is Thames Reach not Span"
+    },
+    {
+      "town": "Camden",
+      "url": "https://www.spangroup.com/spectrum-day-centre",
+      "name": "Span Group spectrum-day-centre",
+      "reason": "Fetch failed / not operator service contact page"
+    },
+    {
+      "town": "Cannock",
+      "url": "https://springhousing.org.uk/contact/",
+      "name": "Spring Housing",
+      "reason": "Operator contact without verifiable phone+postcode on fetched page"
+    },
+    {
+      "town": "Cannock",
+      "url": "https://springhousing.org.uk/",
+      "name": "Spring Housing home",
+      "reason": "No phone+postcode for local homeless service"
+    },
+    {
+      "town": "Canvey Island",
+      "url": "https://www.havenshospices.org.uk/",
+      "name": "Havens Hospices",
+      "reason": "Fetch failed; hospice operator not homeless shelter"
+    },
+    {
+      "town": "Cardigan",
+      "url": "https://thewallich.com/services/ceredigion-solutions-worker/",
+      "name": "Wallich Ceredigion Solutions",
+      "reason": "Outreach/solutions worker service; not fixed day centre/hostel with local address+phone on page"
+    },
+    {
+      "town": "Carlton",
+      "url": "https://emmaus.org.uk/village-carlton/contact-us/",
+      "name": "Emmaus Village Carlton",
+      "reason": "Fetch failed; Emmaus community not emergency hostel/night shelter"
+    },
+    {
+      "town": "Carterton",
+      "url": "https://www.homelessoxfordshire.org.uk/contact/",
+      "name": "Homeless Oxfordshire",
+      "reason": "Fetch failed (SSL); Oxfordshire-wide provider not Carterton-local card"
+    },
+    {
+      "town": "Carterton",
+      "url": "https://oxfordshirehomelessmovement.org/organisation/homeless-oxfordshire-ohanlon-house",
+      "name": "Oxfordshire Homeless Movement listing",
+      "reason": "Directory/signposting; not operator own site"
+    },
+    {
+      "town": "Castleford",
+      "url": "https://www.smartmove.org.uk/",
+      "name": "SmartMove",
+      "reason": "Wrong geography (Boston PE21 on site; not Castleford)"
+    },
+    {
+      "town": "Caterham",
+      "url": "https://www.ecaterham.net/2186/homelessness",
+      "name": "East Caterham neighbourhood site",
+      "reason": "Signposting page with generic 0800 number and non-local postcode (IG5); not operator accommodation"
+    },
+    {
+      "town": "Chard",
+      "url": "https://www.alongsidecharity.org.uk/contact",
+      "name": "Alongside Charity",
+      "reason": "Fetch failed"
+    },
+    {
+      "town": "Chard",
+      "url": "https://www.chardcommunityhub.com/warmspeaces",
+      "name": "Chard Community Hub warm spaces",
+      "reason": "Warm space signposting; not homeless hostel/night shelter/day centre"
+    },
+    {
+      "town": "Cheadle",
+      "url": "https://www.caritassalford.org.uk/service/cornerstone-centre/",
+      "name": "Cornerstone Centre Manchester",
+      "reason": "Wrong geography (Manchester M15; not Cheadle Stockport)"
+    },
+    {
+      "town": "Chelmsley Wood",
+      "url": "https://stbasils.org.uk/hub/solihull-youth-hub/",
+      "name": "St Basils Solihull Youth Hub",
+      "reason": "Young people's hub page; Birmingham B9 postcode on page; insufficient verified local hostel/night shelter card with phone+postcode"
+    },
+    {
+      "town": "Chepstow",
+      "url": "https://www.yourhousinggroup.co.uk/im-looking-for-a-home/supported-housing-for-young-people/",
+      "name": "Supported housing for young people",
+      "reason": "Fetch failed or blocked"
+    },
+    {
+      "town": "Chepstow",
+      "url": "https://www.stonewater.org/find-a-home/supported-living/young-people/",
+      "name": "Supported Accommodation For Young People",
+      "reason": "not a hostel/night shelter/day centre service page; no postcode"
+    },
+    {
+      "town": "Chepstow",
+      "url": "https://thewallich.com/services/nightshelter-cardiff/",
+      "name": "Nightshelter Cardiff - Homeless Hostel",
+      "reason": "no verbatim phone"
+    },
+    {
+      "town": "Chesham",
+      "url": "https://www.yourhousinggroup.co.uk/im-looking-for-a-home/supported-housing-for-young-people/",
+      "name": "Supported housing for young people",
+      "reason": "Fetch failed or blocked"
+    },
+    {
+      "town": "Chesham",
+      "url": "https://www.unitymk.org/",
+      "name": "unitymk | UnityMK",
+      "reason": "no verbatim phone"
+    },
+    {
+      "town": "Chesham",
+      "url": "https://www.stonewater.org/find-a-home/supported-living/young-people/",
+      "name": "Supported Accommodation For Young People",
+      "reason": "not a hostel/night shelter/day centre service page; no postcode"
+    },
+    {
+      "town": "Cheshunt",
+      "url": "https://www.stonewater.org/find-a-home/supported-living/young-people/",
+      "name": "Supported Accommodation For Young People",
+      "reason": "not a hostel/night shelter/day centre service page; no postcode"
+    },
+    {
+      "town": "Cheshunt",
+      "url": "https://www.livewest.co.uk/find-a-home/young-people-services",
+      "name": "Young people services",
+      "reason": "not a hostel/night shelter/day centre service page; no verbatim phone; no postcode"
+    },
+    {
+      "town": "Cheshunt",
+      "url": "https://www.havenfirst.org.uk/other-hostels",
+      "name": "Other Hostels",
+      "reason": "not a hostel/night shelter/day centre service page; no verbatim phone; no postcode"
+    },
+    {
+      "town": "Christchurch",
+      "url": "https://www.stonewater.org/find-a-home/supported-living/young-people/",
+      "name": "Supported Accommodation For Young People",
+      "reason": "not a hostel/night shelter/day centre service page; no postcode"
+    },
+    {
+      "town": "Christchurch",
+      "url": "https://www.livewest.co.uk/find-a-home/young-people-services",
+      "name": "Young people services",
+      "reason": "not a hostel/night shelter/day centre service page; no verbatim phone; no postcode"
+    },
+    {
+      "town": "Cinderford",
+      "url": "https://www.yourcircle.org.uk/Search?AI%5B0%5D=2056&Postcode=GL14&StartDate=2025-01-19&EndDate=2026-01-19&DR=False&UDG=False&OrderBy=Name&InfoPageIndex=1&SM=ServiceSearch&SME=False&ServicePageIndex=2",
+      "name": "We found 65 results with 4 filters applied",
+      "reason": "Fetch failed or blocked"
+    },
+    {
+      "town": "Cinderford",
+      "url": "https://www.stonewater.org/find-a-home/supported-living/young-people/",
+      "name": "Supported Accommodation For Young People",
+      "reason": "not a hostel/night shelter/day centre service page; no postcode"
+    },
+    {
+      "town": "Clevedon",
+      "url": "https://www.juliantrust.org.uk/",
+      "name": "Julian Trust | Homeless shelter in Bristol",
+      "reason": "duplicate URL"
+    },
+    {
+      "town": "Clevedon",
+      "url": "https://www.habcentre.org/night-shelter/",
+      "name": "Night shelter",
+      "reason": "duplicate URL"
+    },
+    {
+      "town": "Coleford",
+      "url": "https://www.yourhousinggroup.co.uk/im-looking-for-a-home/supported-housing-for-young-people/",
+      "name": "Supported housing for young people",
+      "reason": "Fetch failed or blocked"
+    },
+    {
+      "town": "Coleford",
+      "url": "https://www.stonewater.org/find-a-home/supported-living/young-people/",
+      "name": "Supported Accommodation For Young People",
+      "reason": "not a hostel/night shelter/day centre service page; no postcode"
+    },
+    {
+      "town": "Coleshill",
+      "url": "https://dementia.warwickshire.gov.uk/directory-record/695/day-centre-in-coleshill-hamilton-wellness-",
+      "name": "Day Centre in Coleshill (Hamilton Wellness)",
+      "reason": "no verbatim phone; no postcode"
+    },
+    {
+      "town": "Connah's Quay",
+      "url": "https://www.stonewater.org/find-a-home/supported-living/young-people/",
+      "name": "Supported Accommodation For Young People",
+      "reason": "not a hostel/night shelter/day centre service page; no postcode"
+    },
+    {
+      "town": "Connah's Quay",
+      "url": "https://www.salvationarmy.org.uk/connahs-quay",
+      "name": "Connah's Quay",
+      "reason": "not a hostel/night shelter/day centre service page"
+    },
+    {
+      "town": "Corby",
+      "url": "https://www.neighbourly.com/project/5885f246c7ac8816e05b50e3",
+      "name": "Corby Nightlight",
+      "reason": "no verbatim phone; no postcode"
+    },
+    {
+      "town": "Corby",
+      "url": "https://www.stonewater.org/find-a-home/supported-living/young-people/",
+      "name": "Supported Accommodation For Young People",
+      "reason": "not a hostel/night shelter/day centre service page; no postcode"
+    },
+    {
+      "town": "Corby",
+      "url": "https://www.livewest.co.uk/find-a-home/young-people-services",
+      "name": "Young people services",
+      "reason": "not a hostel/night shelter/day centre service page; no verbatim phone; no postcode"
+    },
+    {
+      "town": "Corsham",
+      "url": "https://www.stonewater.org/find-a-home/supported-living/young-people/",
+      "name": "Supported Accommodation For Young People",
+      "reason": "not a hostel/night shelter/day centre service page; no postcode"
+    },
+    {
+      "town": "Corsham",
+      "url": "https://www.livewest.co.uk/find-a-home/young-people-services",
+      "name": "Young people services",
+      "reason": "not a hostel/night shelter/day centre service page; no verbatim phone; no postcode"
+    },
+    {
+      "town": "Cottingham",
+      "url": "https://www.livewest.co.uk/find-a-home/young-people-services",
+      "name": "Young people services",
+      "reason": "not a hostel/night shelter/day centre service page; no verbatim phone; no postcode"
+    },
+    {
+      "town": "Cottingham",
+      "url": "https://www.havenfirst.org.uk/other-hostels",
+      "name": "Other Hostels",
+      "reason": "not a hostel/night shelter/day centre service page; no verbatim phone; no postcode"
+    },
+    {
+      "town": "Cowes",
+      "url": "https://www.livewest.co.uk/find-a-home/young-people-services",
+      "name": "Young people services",
+      "reason": "not a hostel/night shelter/day centre service page; no verbatim phone; no postcode"
+    },
+    {
+      "town": "Crediton",
+      "url": "https://www.stonewater.org/find-a-home/supported-living/young-people/",
+      "name": "Supported Accommodation For Young People",
+      "reason": "not a hostel/night shelter/day centre service page; no postcode"
+    },
+    {
+      "town": "Crediton",
+      "url": "https://www.sanctuary-supported-living.co.uk/support-services/young-people/brighton-and-hove-foyer-brighton",
+      "name": "Brighton and Hove Foyer",
+      "reason": "duplicate URL"
+    },
+    {
+      "town": "Crediton",
+      "url": "https://www.livewest.co.uk/find-a-home/young-people-services",
+      "name": "Young people services",
+      "reason": "not a hostel/night shelter/day centre service page; no verbatim phone; no postcode"
+    },
+    {
+      "town": "Crowborough",
+      "url": "https://www.stonewater.org/find-a-home/supported-living/young-people/",
+      "name": "Supported Accommodation For Young People",
+      "reason": "not a hostel/night shelter/day centre service page; no postcode"
+    },
+    {
+      "town": "Crowborough",
+      "url": "https://www.salvationarmyhomes.org.uk/homes/newhaven-foyer",
+      "name": "Newhaven Foyer | East Sussex | Supported Housing",
+      "reason": "not a hostel/night shelter/day centre service page"
+    },
+    {
+      "town": "Cullompton",
+      "url": "https://www.stonewater.org/find-a-home/supported-living/young-people/",
+      "name": "Supported Accommodation For Young People",
+      "reason": "not a hostel/night shelter/day centre service page; no postcode"
+    },
+    {
+      "town": "Cullompton",
+      "url": "https://www.livewest.co.uk/find-a-home/young-people-services",
+      "name": "Young people services",
+      "reason": "not a hostel/night shelter/day centre service page; no verbatim phone; no postcode"
+    },
+    {
+      "town": "Cwmbran",
+      "url": "https://www.stonewater.org/find-a-home/supported-living/young-people/",
+      "name": "Supported Accommodation For Young People",
+      "reason": "not a hostel/night shelter/day centre service page; no postcode"
+    },
+    {
+      "town": "Cwmbran",
+      "url": "https://www.churchinwales.org.uk/en/news-and-events/churches-unite-to-offer-warmth-and-hope-through-cardiffs-winter-night-shelter/",
+      "name": "Churches Unite to Offer Warmth and Hope Through ...",
+      "reason": "no verbatim phone"
+    },
+    {
+      "town": "Daventry",
+      "url": "https://www.stonewater.org/find-a-home/supported-living/young-people/",
+      "name": "Supported Accommodation For Young People",
+      "reason": "not a hostel/night shelter/day centre service page; no postcode"
+    },
+    {
+      "town": "Daventry",
+      "url": "https://www.salvationarmyhomes.org.uk/homes/newhaven-foyer",
+      "name": "Newhaven Foyer | East Sussex | Supported Housing",
+      "reason": "not a hostel/night shelter/day centre service page"
+    },
+    {
+      "town": "Dawlish",
+      "url": "https://www.plymouthonlinedirectory.com/article/1746/George-House-Homeless-Hostel",
+      "name": "George House Homeless Hostel - Plymouth ...",
+      "reason": "Fetch failed or blocked"
+    },
+    {
+      "town": "Dawlish",
+      "url": "https://thewallich.com/services/nightshelter-cardiff/",
+      "name": "Nightshelter Cardiff - Homeless Hostel",
+      "reason": "no verbatim phone"
+    },
+    {
+      "town": "Dawlish",
+      "url": "https://sheltercymru.org.uk/housing-advice/finding-a-place-to-live/emergency-accommodation/emergency-hostels-and-night-shelters/",
+      "name": "Hostels and night shelters",
+      "reason": "Fetch failed or blocked"
+    },
+    {
+      "town": "Deal",
+      "url": "https://www.maggsdaycentre.co.uk/",
+      "name": "Maggs Day Centre: Home",
+      "reason": "not a hostel/night shelter/day centre service page; no verbatim phone; no postcode"
+    },
+    {
+      "town": "Denbigh",
+      "url": "https://www.nwha.org.uk/find-a-home/homelessness-services/homeless-accommodation/",
+      "name": "Homeless Accommodation \u2013 Tai Gogledd Cymru",
+      "reason": "Fetch failed or blocked"
+    },
+    {
+      "town": "Denbigh",
+      "url": "https://www.msvhousing.co.uk/msv-homes/find-an-msv-home/homes-for-young-people/",
+      "name": "Homes for Young People",
+      "reason": "not a hostel/night shelter/day centre service page"
+    },
+    {
+      "town": "Cleethorpes",
+      "url": "https://brighter-futures.org.uk/community/rough-sleeper-outreach-team/",
+      "name": "Rough Sleeper Outreach Team - Stoke-on-Trent",
+      "reason": "No verbatim phone+postcode on operator page for local hostel/night shelter/day centre"
+    },
+    {
+      "town": "Cleethorpes",
+      "url": "https://www.e-lindsey.gov.uk/article/7964/Rough-Sleepers",
+      "name": "Rough Sleepers",
+      "reason": "No verbatim phone+postcode on operator page for local hostel/night shelter/day centre"
+    },
+    {
+      "town": "Cleethorpes",
+      "url": "https://nelincs.simplyconnect.uk/activities/ffe1ce90-9e27-11ec-b6ea-ff9e5953f0e5/daily-drop-in-service-emergency-accomodation?",
+      "name": "Daily Drop in Service & Emergency Accomodation",
+      "reason": "No verbatim phone+postcode on operator page for local hostel/night shelter/day centre"
+    },
+    {
+      "town": "Dewsbury",
+      "url": "https://www.kirklees.gov.uk/sleeping-rough",
+      "name": "Help if you are sleeping rough",
+      "reason": "No verbatim phone+postcode on operator page for local hostel/night shelter/day centre"
+    },
+    {
+      "town": "Dewsbury",
+      "url": "https://www.dewsburyco.org.uk/",
+      "name": "Dewsbury Community Outreach",
+      "reason": "No verbatim phone+postcode on operator page for local hostel/night shelter/day centre"
+    },
+    {
+      "town": "Dewsbury",
+      "url": "https://www.bristol.gov.uk/residents/housing/help-with-housing/homeless-or-at-risk-of-being-homeless/sleeping-rough/night-shelters",
+      "name": "Day services and night shelters",
+      "reason": "No verbatim phone+postcode on operator page for local hostel/night shelter/day centre"
+    },
+    {
+      "town": "Didcot",
+      "url": "https://homelessoxfordshire.uk/",
+      "name": "Homeless Oxfordshire - We open doors for lives shaped by ...",
+      "reason": "No verbatim phone+postcode on operator page for local hostel/night shelter/day centre"
+    },
+    {
+      "town": "Didcot",
+      "url": "https://www.oxford.gov.uk/homelessness/tackle-homelessness/2",
+      "name": "Help for rough sleepers | What we do to tackle homelessness",
+      "reason": "No verbatim phone+postcode on operator page for local hostel/night shelter/day centre"
+    },
+    {
+      "town": "Didcot",
+      "url": "https://oxfordshirehomelessmovement.org/organisation/homeless-oxfordshire-ohanlon-house",
+      "name": "Homeless Oxfordshire - O'Hanlon House",
+      "reason": "No verbatim phone+postcode on operator page for local hostel/night shelter/day centre"
+    },
+    {
+      "town": "Diss",
+      "url": "https://www.waverley.gov.uk/services/housing/finding-a-home/worried-about-becoming-homeless/local-hostels-and-night-shelters",
+      "name": "Local Hostels & Night Shelters",
+      "reason": "No verbatim phone+postcode on operator page for local hostel/night shelter/day centre"
+    },
+    {
+      "town": "Diss",
+      "url": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/diss-homeless-supported-housing-norfolk",
+      "name": "Diss Homeless Supported Housing",
+      "reason": "No verbatim phone+postcode on operator page for local hostel/night shelter/day centre"
+    },
+    {
+      "town": "Diss",
+      "url": "https://www.salvationarmy.org.uk/homelessness/night-shelters",
+      "name": "Night Shelters",
+      "reason": "No verbatim phone+postcode on operator page for local hostel/night shelter/day centre"
+    },
+    {
+      "town": "Driffield",
+      "url": "https://www.waverley.gov.uk/services/housing/finding-a-home/worried-about-becoming-homeless/local-hostels-and-night-shelters",
+      "name": "Local Hostels & Night Shelters",
+      "reason": "No verbatim phone+postcode on operator page for local hostel/night shelter/day centre"
+    },
+    {
+      "town": "Driffield",
+      "url": "https://www.salvationarmy.org.uk/homelessness/night-shelters",
+      "name": "Night Shelters",
+      "reason": "No verbatim phone+postcode on operator page for local hostel/night shelter/day centre"
+    },
+    {
+      "town": "Driffield",
+      "url": "https://www.london.gov.uk/programmes-strategies/housing-and-land/mayors-priorities-londons-housing-and-land/homelessness/services-people-experiencing-homelessness-including-sleeping-rough",
+      "name": "Services for people experiencing homelessness, including ...",
+      "reason": "No verbatim phone+postcode on operator page for local hostel/night shelter/day centre"
+    },
+    {
+      "town": "Droitwich",
+      "url": "https://stpaulshostel.co.uk/",
+      "name": "St Paul's Hostel \u2022 Home",
+      "reason": "No verbatim phone+postcode on operator page for local hostel/night shelter/day centre"
+    },
+    {
+      "town": "Droitwich",
+      "url": "https://www.expedia.co.uk/Droitwich-Hostels.d182512-aaHostels.Travel-Guide-Accommodation",
+      "name": "The Best Droitwich Hostels from \u00a328",
+      "reason": "No verbatim phone+postcode on operator page for local hostel/night shelter/day centre"
+    },
+    {
+      "town": "Droitwich",
+      "url": "https://www.waverley.gov.uk/services/housing/finding-a-home/worried-about-becoming-homeless/local-hostels-and-night-shelters",
+      "name": "Local Hostels & Night Shelters",
+      "reason": "No verbatim phone+postcode on operator page for local hostel/night shelter/day centre"
+    },
+    {
+      "town": "Dronfield",
+      "url": "https://www.ne-derbyshire.gov.uk/housing-and-health/homelessness",
+      "name": "Homelessness",
+      "reason": "No verbatim phone+postcode on operator page for local hostel/night shelter/day centre"
+    },
+    {
+      "town": "Dronfield",
+      "url": "https://www.salvationarmy.org.uk/homelessness/night-shelters",
+      "name": "Night Shelters",
+      "reason": "No verbatim phone+postcode on operator page for local hostel/night shelter/day centre"
+    },
+    {
+      "town": "Dronfield",
+      "url": "https://www.southderbyshire.gov.uk/our-services/housing/homeless-prevention",
+      "name": "Homeless prevention",
+      "reason": "No verbatim phone+postcode on operator page for local hostel/night shelter/day centre"
+    },
+    {
+      "town": "Dunstable",
+      "url": "https://www.centralbedfordshire.gov.uk/housing/homeless/if-youre-risk-becoming-homeless/if-we-offer-you-temporary-accommodation",
+      "name": "If we offer you temporary accommodation",
+      "reason": "No verbatim phone+postcode on operator page for local hostel/night shelter/day centre"
+    },
+    {
+      "town": "Dunstable",
+      "url": "https://www.greaterchange.co.uk/post/temporary-accommodation",
+      "name": "The vast majority of homeless people in the UK aren ...",
+      "reason": "No verbatim phone+postcode on operator page for local hostel/night shelter/day centre"
+    },
+    {
+      "town": "Dunstable",
+      "url": "https://www.yourspaceonline.net/wellbeing/emergency-accommodation/",
+      "name": "Emergency accommodation - Bedford",
+      "reason": "No verbatim phone+postcode on operator page for local hostel/night shelter/day centre"
+    },
+    {
+      "town": "Dursley",
+      "url": "https://www.bristol.gov.uk/residents/housing/help-with-housing/homeless-or-at-risk-of-being-homeless/sleeping-rough/night-shelters",
+      "name": "Day services and night shelters",
+      "reason": "No verbatim phone+postcode on operator page for local hostel/night shelter/day centre"
+    },
+    {
+      "town": "Dursley",
+      "url": "https://www.waverley.gov.uk/services/housing/finding-a-home/worried-about-becoming-homeless/local-hostels-and-night-shelters",
+      "name": "Local Hostels & Night Shelters",
+      "reason": "No verbatim phone+postcode on operator page for local hostel/night shelter/day centre"
+    },
+    {
+      "town": "Dursley",
+      "url": "https://www.salvationarmy.org.uk/homelessness/night-shelters",
+      "name": "Night Shelters",
+      "reason": "No verbatim phone+postcode on operator page for local hostel/night shelter/day centre"
+    },
+    {
+      "town": "EM: Ilkeston",
+      "url": "https://www.salvationarmy.org.uk/homelessness/night-shelters",
+      "name": "Night Shelters",
+      "reason": "No verbatim phone+postcode on operator page for local hostel/night shelter/day centre"
+    },
+    {
+      "town": "EM: Ilkeston",
+      "url": "https://sheltercymru.org.uk/housing-advice/finding-a-place-to-live/emergency-accommodation/emergency-hostels-and-night-shelters/",
+      "name": "Hostels and night shelters",
+      "reason": "No verbatim phone+postcode on operator page for local hostel/night shelter/day centre"
+    },
+    {
+      "town": "EM: Ilkeston",
+      "url": "https://www.gov.uk/guidance/operating-principles-for-night-shelters",
+      "name": "Operating principles for night shelters",
+      "reason": "No verbatim phone+postcode on operator page for local hostel/night shelter/day centre"
+    },
+    {
+      "town": "Ealing",
+      "url": "https://ecwns.org.uk/",
+      "name": "Ealing Churches Winter Night Shelter: ECWNS",
+      "reason": "No verbatim phone+postcode on operator page for local hostel/night shelter/day centre"
+    },
+    {
+      "town": "Ealing",
+      "url": "https://www.ealing.gov.uk/info/201102/finding_a_home/2558/rough_sleeping",
+      "name": "Rough sleeping",
+      "reason": "No verbatim phone+postcode on operator page for local hostel/night shelter/day centre"
+    },
+    {
+      "town": "Ealing",
+      "url": "https://www.chelwest.nhs.uk/your-visit/patient-leaflets/medicine-services/ealing-homeless-services",
+      "name": "Ealing homeless services",
+      "reason": "No verbatim phone+postcode on operator page for local hostel/night shelter/day centre"
+    },
+    {
+      "town": "East Grinstead",
+      "url": "https://www.midsussex.gov.uk/housing-council-tax/homelessness-and-housing-advice/",
+      "name": "Homelessness and Housing Advice",
+      "reason": "No verbatim phone+postcode on operator page for local hostel/night shelter/day centre"
+    },
+    {
+      "town": "East Grinstead",
+      "url": "https://www.crawleyopenhouse.co.uk/",
+      "name": "Crawley Open House - home",
+      "reason": "duplicate URL"
+    },
+    {
+      "town": "East Grinstead",
+      "url": "https://www.salvationarmy.org.uk/homelessness/night-shelters",
+      "name": "Night Shelters",
+      "reason": "No verbatim phone+postcode on operator page for local hostel/night shelter/day centre"
+    },
+    {
+      "town": "East Midlands",
+      "url": "http://www.emsh.org.uk/",
+      "name": "East Midlands Shelter for the Homeless",
+      "reason": "No verbatim phone+postcode on operator page for local hostel/night shelter/day centre"
+    },
+    {
+      "town": "East Midlands",
+      "url": "https://www.waverley.gov.uk/services/housing/finding-a-home/worried-about-becoming-homeless/local-hostels-and-night-shelters",
+      "name": "Local Hostels & Night Shelters",
+      "reason": "No verbatim phone+postcode on operator page for local hostel/night shelter/day centre"
+    },
+    {
+      "town": "East Midlands",
+      "url": "https://www.emh.co.uk/care-support/homelessness-support/",
+      "name": "Homelessness Support",
+      "reason": "No verbatim phone+postcode on operator page for local hostel/night shelter/day centre"
+    },
+    {
+      "town": "Ebbw Vale",
+      "url": "https://www.blaenaugwenthomes.org.uk/content/HousingSupportandAdvice/HousingOptions",
+      "name": "Homelessness - Blaenau Gwent",
+      "reason": "No verbatim phone+postcode on operator page for local hostel/night shelter/day centre"
+    },
+    {
+      "town": "Ebbw Vale",
+      "url": "https://www.blaenau-gwent.gov.uk/en/resident/health-wellbeing-social-care/getting-the-help-you-need/supporting-people/supporting-people-information/",
+      "name": "Supporting People Information",
+      "reason": "No verbatim phone+postcode on operator page for local hostel/night shelter/day centre"
+    },
+    {
+      "town": "Ebbw Vale",
+      "url": "https://search.sheltercymru.org.uk/?yp_services=housing-options",
+      "name": "Housing Options",
+      "reason": "No verbatim phone+postcode on operator page for local hostel/night shelter/day centre"
+    },
+    {
+      "town": "Egham",
+      "url": "https://www.waverley.gov.uk/services/housing/finding-a-home/worried-about-becoming-homeless/local-hostels-and-night-shelters",
+      "name": "Local Hostels & Night Shelters",
+      "reason": "No verbatim phone+postcode on operator page for local hostel/night shelter/day centre"
+    },
+    {
+      "town": "Egham",
+      "url": "https://www.reigate-banstead.gov.uk/info/20299/housing_options/180/facing_homelessness/4",
+      "name": "Rough sleeping | Facing Homelessness",
+      "reason": "No verbatim phone+postcode on operator page for local hostel/night shelter/day centre"
+    },
+    {
+      "town": "Egham",
+      "url": "https://www.salvationarmy.org.uk/homelessness/night-shelters",
+      "name": "Night Shelters",
+      "reason": "No verbatim phone+postcode on operator page for local hostel/night shelter/day centre"
+    },
+    {
+      "town": "Enfield",
+      "url": "https://www.enfield.gov.uk/services/housing/homelessness",
+      "name": "Homelessness",
+      "reason": "No verbatim phone+postcode on operator page for local hostel/night shelter/day centre"
+    },
+    {
+      "town": "Enfield",
+      "url": "https://allpeopleallplaces.org/",
+      "name": "All People All Places",
+      "reason": "No verbatim phone+postcode on operator page for local hostel/night shelter/day centre"
+    },
+    {
+      "town": "Enfield",
+      "url": "https://www.christchurch-southgate.org/parish-life/outreach/winter-night-shelter/",
+      "name": "Winter Night Shelter",
+      "reason": "No verbatim phone+postcode on operator page for local hostel/night shelter/day centre"
+    },
+    {
+      "town": "Epping",
+      "url": "https://www.eppingforestdc.gov.uk/housing/homelessness/rough-sleeping-and-homeless-emergencies/",
+      "name": "Rough sleeping and homeless emergencies",
+      "reason": "No verbatim phone+postcode on operator page for local hostel/night shelter/day centre"
+    },
+    {
+      "town": "Epping",
+      "url": "https://www.waverley.gov.uk/services/housing/finding-a-home/worried-about-becoming-homeless/local-hostels-and-night-shelters",
+      "name": "Local Hostels & Night Shelters",
+      "reason": "No verbatim phone+postcode on operator page for local hostel/night shelter/day centre"
+    },
+    {
+      "town": "Epping",
+      "url": "https://www.salvationarmy.org.uk/homelessness/night-shelters",
+      "name": "Night Shelters",
+      "reason": "No verbatim phone+postcode on operator page for local hostel/night shelter/day centre"
     }
   ],
   "meta": {

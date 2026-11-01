@@ -1,0 +1,88 @@
+Google/Serper verify batch 2 — 2026-11-01
+Towns in serper state at completion: 118 (batch 1 had 49; 71 new towns processed)
+
+Summary
+  A-grade added (logs/google_a_items.json): 1
+  B-grade held appended this batch: 157 rows (held_google.json total: 213)
+  Strict rules: operator site only; no directory/council/news; phone+postcode verbatim for A
+
+A-grade (strict)
+  Brixham — Nightstop South Devon (young_people; TQ4 6ES; 01803551578; depaul.org.uk operator page)
+
+Per new town (A / B held):
+  Berks/Bucks/Oxon: Windsor: 0 / 1
+  Brent: 0 / 7
+  Bridgnorth: 0 / 2
+  Bridport: 0 / 5
+  Brierley Hill: 0 / 3
+  Brigg: 0 / 5
+  Brighouse: 0 / 3
+  Brixham: 1 / 0
+  Broadstairs: 0 / 2
+  Bromley: 0 / 2
+  Brownhills: 0 / 1
+  Buckingham: 0 / 2
+  Buckley: 0 / 2
+  Bude: 0 / 2
+  Bungay: 0 / 1
+  Burnham-on-Sea: 0 / 1
+  Burntwood: 0 / 1
+  Caerphilly: 0 / 2
+  Calne: 0 / 1
+  Camborne: 0 / 2
+  Camden: 0 / 3
+  Cannock: 0 / 2
+  Canvey Island: 0 / 1
+  Cardigan: 0 / 1
+  Carlton: 0 / 1
+  Carterton: 0 / 2
+  Castleford: 0 / 1
+  Caterham: 0 / 1
+  Chard: 0 / 2
+  Cheadle: 0 / 1
+  Chelmsley Wood: 0 / 1
+  Chepstow: 0 / 3
+  Chesham: 0 / 3
+  Cheshunt: 0 / 3
+  Christchurch: 0 / 2
+  Cinderford: 0 / 2
+  Cleethorpes: 0 / 3
+  Clevedon: 0 / 2
+  Coleford: 0 / 2
+  Coleshill: 0 / 1
+  Connah's Quay: 0 / 2
+  Corby: 0 / 3
+  Corsham: 0 / 2
+  Cottingham: 0 / 2
+  Cowes: 0 / 1
+  Crediton: 0 / 3
+  Crowborough: 0 / 2
+  Cullompton: 0 / 2
+  Cwmbran: 0 / 2
+  Daventry: 0 / 2
+  Dawlish: 0 / 3
+  Deal: 0 / 1
+  Denbigh: 0 / 2
+  Dewsbury: 0 / 3
+  Didcot: 0 / 3
+  Diss: 0 / 3
+  Driffield: 0 / 3
+  Droitwich: 0 / 3
+  Dronfield: 0 / 3
+  Dunstable: 0 / 3
+  Dursley: 0 / 3
+  EM: Ilkeston: 0 / 3
+  Ealing: 0 / 3
+  East Grinstead: 0 / 3
+  East Midlands: 0 / 3
+  Ebbw Vale: 0 / 3
+  Egham: 0 / 3
+  Enfield: 0 / 3
+  Epping: 0 / 3
+  Esher: 0 / 0
+  Essex: Brentwood: 0 / 0
+Notes
+  Amber Valley Foyer not re-added (directory source; google_a_items cleared in batch 2).
+  Bromley Homeless: phone+postcode on advice contact page but emergency shelter page lacks verbatim phone — held B.
+  Denbigh Clwyd Alyn held B: regional homelessness services page; multiple sites — not single verified hostel card.
+  Serper state may grow after this snapshot; towns added after batch close are out of scope for this file.
