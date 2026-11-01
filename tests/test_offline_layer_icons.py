@@ -9,6 +9,9 @@ ART = os.environ.get('CURSOR_ARTIFACTS_DIR', '/opt/cursor/artifacts')
 sys.path.insert(0, os.path.join(ROOT, 'scripts'))
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
+from test_showmore_layers import until
+from test_phone_qa_28oct import pc_stub
+
 SYMBOL_JS = r"""() => {
   const bag = 'M9 13.5h14l-1.3 10.5H10.3z';
   const flame = 'M16.2 7.2c';
@@ -17,6 +20,11 @@ SYMBOL_JS = r"""() => {
     const svg = document.querySelector(sel);
     return svg && (svg.innerHTML || '').includes(needle);
   };
+  const anyShCardIcon = () => [...document.querySelectorAll('#xlist .card.xsh .xmkbox svg')].some(svg => {
+    const h = svg.innerHTML || '';
+    return h.includes('M3 3h26v26H3z')
+      && (h.includes('M8 15.5l8-7.5') || h.includes('M16 8v2.8') || (h.includes('>16<') && h.includes('>25<')));
+  });
   const pinSym = (sel, needle) => {
     const el = document.querySelector(sel);
     const html = (el && el.innerHTML) || '';
@@ -30,17 +38,20 @@ SYMBOL_JS = r"""() => {
     map: !!document.querySelector('#map .leaflet-pane'),
     fbCard: cardSym('#list > .card .xmkbox svg', bag),
     fbPin: pinSym('.leaflet-marker-icon.pin svg', bag),
-    shCard: cardSym('#xlist > .card.xsh .xmkbox svg', house),
+    shCard: anyShCardIcon(),
     shPin: pinSym('.leaflet-marker-icon.xpin svg', house),
     cards: document.querySelectorAll('#xlist .card.xsh').length,
     pass: !navigator.onLine
       && !!document.querySelector('#map .leaflet-pane')
-      && cardSym('#xlist > .card.xsh .xmkbox svg', house)
+      && anyShCardIcon()
       && document.querySelectorAll('#xlist .card.xsh').length > 0
       && (pinSym('.leaflet-marker-icon.xpin svg', house)
-          || cardSym('#xlist > .card.xsh .xmkbox svg', house)),
+          || pinSym('.leaflet-marker-icon.xpin svg', 'M16 8v2.8')
+          || anyShCardIcon()),
   };
 }"""
+
+LAYER_READY = "() => window.SHELTERS && document.querySelector('.v3b[data-l=sh][aria-checked=true]')"
 
 
 def _have_pw():
@@ -69,23 +80,23 @@ class OfflineLayerIcons(unittest.TestCase):
             service_workers='allow' if live else 'block')
         if not live:
             CB.stub_map_tiles(ctx)
+        ctx.add_init_script("try{localStorage.setItem('v3layer','sh')}catch(e){}")
+        ctx.route('https://api.postcodes.io/**', pc_stub)
         pg = ctx.new_page()
         pg.goto(base + '/?nocount', wait_until='load', timeout=120000)
         if not live:
             wait_ready(pg)
-        pg.evaluate("() => { const t = document.querySelector('.v3b[data-l=sh]'); if (t) t.click(); }")
-        pg.wait_for_timeout(400)
+        assert until(pg, LAYER_READY, None, 60), 'shelter layer not ready'
         pg.fill('#q', 'M1 1AE')
         pg.press('#q', 'Enter')
-        pg.wait_for_timeout(3000)
-        pg.wait_for_selector('#xlist .card.xsh .xmkbox', timeout=60000)
+        assert until(pg, "() => document.querySelectorAll('#xlist .card.xsh .xmkbox').length > 0", None, 60)
         if not live:
             for _ in range(40):
                 if pg.evaluate('() => !!(window.LAYERS && LAYERS.sh && LAYERS.sh.on)'):
                     break
                 pg.wait_for_timeout(500)
         ctx.set_offline(True)
-        pg.reload(wait_until='load', timeout=120000)
+        pg.reload(wait_until='domcontentloaded', timeout=120000)
         pg.wait_for_timeout(4000)
         res = pg.evaluate(SYMBOL_JS)
         shot = os.path.join(ART, 'offline-icons-%s.png' % ('live' if live else 'local'))
@@ -130,6 +141,8 @@ class OfflineLayerIcons(unittest.TestCase):
             host = urlparse(r.request.url).hostname or ''
             if host in ('127.0.0.1', 'localhost'):
                 return r.continue_()
+            if 'api.postcodes.io' in r.request.url:
+                return pc_stub(r)
             if 'tile.openstreetmap.org' in r.request.url:
                 return r.fulfill(status=200, body=CB.TILE_PNG, headers={'content-type': 'image/png', 'access-control-allow-origin': '*'})
             return r.abort()
@@ -138,16 +151,16 @@ class OfflineLayerIcons(unittest.TestCase):
             with sync_playwright() as p:
                 b = p.chromium.launch(executable_path='/usr/bin/google-chrome') if os.path.exists('/usr/bin/google-chrome') else p.chromium.launch()
                 ctx = CB.new_context(b, viewport={'width': 390, 'height': 844}, service_workers='allow')
+                ctx.add_init_script("try{localStorage.setItem('v3layer','sh')}catch(e){}")
                 ctx.route('**/*', route)
                 pg = ctx.new_page()
                 CB.goto(pg, base + '/?nocount', log=lambda *a: None)
-                pg.evaluate("() => { const t = document.querySelector('.v3b[data-l=sh]'); if (t) t.click(); }")
+                assert until(pg, LAYER_READY, None, 60), 'shelter layer not ready'
                 pg.fill('#q', 'M1 1AE')
                 pg.press('#q', 'Enter')
-                pg.wait_for_timeout(3000)
-                pg.wait_for_selector('#xlist .card.xsh .xmkbox', timeout=60000)
+                assert until(pg, "() => document.querySelectorAll('#xlist .card.xsh .xmkbox').length > 0", None, 60)
                 ctx.set_offline(True)
-                pg.reload(wait_until='load', timeout=120000)
+                pg.reload(wait_until='domcontentloaded', timeout=120000)
                 pg.wait_for_timeout(5000)
                 res = pg.evaluate(SYMBOL_JS)
                 self.assertTrue(res.get('pass'), res)
@@ -169,15 +182,17 @@ class OfflineLayerIcons(unittest.TestCase):
 
 class ShellInventory(unittest.TestCase):
     def test_shell_lists_versioned_assets_and_icons(self):
+        import hashlib
         import re
         import sw_version as sv
 
+        lh = 'h' + hashlib.sha256(open(os.path.join(ROOT, 'layers.js'), 'rb').read()).hexdigest()[:12]
         sw = open(os.path.join(ROOT, 'sw.js'), encoding='utf-8').read()
         html = open(os.path.join(ROOT, 'index.html'), encoding='utf-8').read()
         shell = re.findall(r"'([^']*)'", re.search(r"SHELL=\[([^\]]*)\]", sw).group(1))
         self.assertIn('icons.js', shell)
         self.assertIn('index.html', shell)
-        self.assertIn('layers.js?v=h796078a67008', shell)
+        self.assertIn('layers.js?v=' + lh, shell)
         self.assertEqual(sorted(x for x in shell if '?v=' in x), sv.wanted_versioned(html))
         self.assertIn("const C='fyfb-v97'", sw)
 

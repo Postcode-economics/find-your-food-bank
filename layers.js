@@ -164,7 +164,6 @@ function fbAcc(i){let a='';try{if(typeof acc==='function')a=acc(i)}catch(e){}
  if(a==='walkin')return '<span class="xacc xacc-open_access"><span class="v-en">Walk-in</span><span class="v-cy" lang="cy">Galw heibio</span></span>';
  return ''}
 function cardTop(layer,i){const sk=layer==='fb'?'food':layer==='ws'?'flame':symKey(i);
- if(!window.UFacts&&i&&shYouth(i))return `<span class="xkind xyouth">${t('youth')}</span>`;
  const sym=`<span class="xmkbox" data-sym="${sk}">${symSvg(sk,26)}</span>`;
  let en,cy;
  if(layer==='sh'){const pillKey=sk==='sun'?'dayCentre':sk==='youth'?'pillYouth':(i.kind==='hostel'||/\bhostel\b/i.test(i.name||''))?'pillHostel':'pillNight';en=T.en[pillKey];cy=T.cy[pillKey]}
