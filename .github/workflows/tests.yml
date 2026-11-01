@@ -76,7 +76,10 @@ jobs:
           exit 0
   test:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    # The suite is about 15 minutes of pytest (1 Nov 2026: 1558 passed in 14:45, then the
+    # 15-minute cap cancelled the job before the step could be recorded). Same cap on main
+    # after #375. The tests are unchanged; they need time to finish.
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
         with: {fetch-depth: 0}
