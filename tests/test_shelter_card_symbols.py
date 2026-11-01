@@ -18,8 +18,8 @@ CHECK = r"""() => {
     const svg = box && box.querySelector('svg');
     const id = c.dataset.id || '';
     const item = (window.SHELTERS && SHELTERS.items || []).find(i => i.id === id) || {};
-    const expect = (item.kind === 'day_centre' || item.service === 'day_centre') ? 'sun'
-      : item.kind === 'young_people' ? 'youth' : 'house';
+    const expect = (window.shDay && shDay(item)) ? 'sun'
+      : (window.shYouth && shYouth(item)) ? 'youth' : 'house';
     const html = svg ? svg.outerHTML : '';
     const sr = svg && svg.getBoundingClientRect();
     const lr = lab && lab.getBoundingClientRect();
