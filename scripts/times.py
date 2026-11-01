@@ -53,6 +53,7 @@ def _range(a, b):
 
 def _days(spec):
     """'Monday, Tuesday & Friday' / 'Mon - Thurs' / 'Monday-Friday' -> list of day idx, or None"""
+    spec = (spec or "").lower().strip(" ,;:-–—")
     full = re.findall(r'(mon|tue|wed|thu|fri|sat|sun)[a-z]*|(-|–|—|\bto\b|\bthrough\b|\bthru\b)|(,|&|/|\band\b|\bor\b)|(\S+)', spec)
     out, pend = [], False
     for d, dash, sep, junk in full:
@@ -70,6 +71,7 @@ def _days(spec):
 def parse_segment(seg):
     """-> dict day -> list of ranges ([] = explicitly closed), or None if not fully understood"""
     s = seg.lower().replace('\u00a0', ' ')
+    s = re.sub(r'(?i)\b(\d{1,2}(?:[:.]\d{2})?\s*(?:am|pm))\s+(12(?:[:.]00)?\s*(?:noon|midday|pm))\b', r'\1 - \2', s)
     if re.search(r'month|fortnight|alternat|other|except|week|\b(1st|2nd|3rd|4th|first|second|third|fourth|last)\b|only|donat|appoint|referr|age|term|holiday|evening|morning|afternoon|lunch|by\b|via', s): return None
     s = re.sub(r'^opening times\s*', '', s).strip()
     if re.search(r'[-–—]\s*[-–—]', s): return None  # 'Thursday – – – Friday': a blank cell on their site, don't guess
