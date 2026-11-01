@@ -124,7 +124,10 @@ class T(unittest.TestCase):
                 until(page,
                     """async (name) => {
                         const reg = await navigator.serviceWorker.getRegistration();
-                        if (!reg || !navigator.serviceWorker.controller) return false;
+                        // The worker must have finished installing (its precache is complete) and control
+                        // this page before the network is blocked (redone 1 Nov 2026 from old PR #216).
+                        if (!reg || !reg.active || reg.active.state !== 'activated'
+                            || !navigator.serviceWorker.controller) return false;
                         const c = await caches.open(name);
                         const urls = (await c.keys()).map(k => k.url);
                         return urls.some(u => /\\/data\\.js(?:\\?|$)/.test(u))
