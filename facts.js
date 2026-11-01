@@ -69,10 +69,11 @@
     if (hostel) return ['Hostel', 'Hostel'];
     return ['Night shelter', 'Lloches nos'];
   }
-  function typeRow(layer, i) {
+  function typeRow(layer, i, opt) {
     const t = typeOf(layer, i);
     const sea = winter(i) ? `<span class="useason">${B('Winter-only', 'Gaeaf yn unig')}</span>` : '';
-    return `<div class="tag utag" role="note">${phrase(t[0], t[1])}${sea}</div>`;
+    const icon = (opt && opt.icon) || '';
+    return `<div class="tag utag" role="note">${icon}<span class="utxt">${phrase(t[0], t[1])}${sea}</span></div>`;
   }
   function whoBits(i) {
     const groups = (i.groups || []).map(s => String(s).trim()).filter(Boolean);
