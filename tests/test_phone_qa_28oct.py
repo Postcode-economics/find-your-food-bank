@@ -181,9 +181,10 @@ class PhoneQA(unittest.TestCase):
             r = pg.evaluate("""()=>{const out={small:[],pins:[],stolen:[]};
               const sel='footer a,.legal a,.fresh a,#xupd a,#list .card a:not(.btn),a.v3pl';
               document.querySelectorAll(sel).forEach(a=>{const rs=[...a.getClientRects()];if(!rs.length)return;const h=Math.max(...rs.map(x=>x.height));if(h<44)out.small.push([a.textContent.trim().slice(0,30),h])});
-              const pins=[...document.querySelectorAll('.leaflet-marker-icon.pin')].filter(p=>{const b=p.getBoundingClientRect();return b.top>0&&b.bottom<innerHeight&&b.left>30&&b.right<innerWidth-30});
-              pins.slice(0,5).forEach(p=>{const b=p.getBoundingClientRect(),cx=b.left+b.width/2,cy=b.top+b.height/2;
-                [[cx-20,cy],[cx+20,cy],[cx,cy-20],[cx,cy+20]].forEach(([x,y])=>{const e=document.elementFromPoint(x,y);if(!(e&&(e===p||p.contains(e)||e.closest('.leaflet-marker-icon'))))out.pins.push([x,y,e&&e.className])})});
+              const mapR=document.getElementById('map').getBoundingClientRect();
+              const pins=[...document.querySelectorAll('.leaflet-marker-icon.pin')].filter(p=>{const b=p.getBoundingClientRect();return b.top>mapR.top+8&&b.bottom<mapR.bottom-8&&b.left>mapR.left+8&&b.right<mapR.right-8});
+              pins.slice(0,5).forEach(p=>{const b=p.getBoundingClientRect();
+                [[b.left+2,b.top+b.height/2],[b.right-2,b.top+b.height/2],[b.left+b.width/2,b.top+2],[b.left+b.width/2,b.bottom-2]].forEach(([x,y])=>{const e=document.elementFromPoint(x,y);if(!(e&&(e===p||p.contains(e)||e.closest('.leaflet-marker-icon'))))out.pins.push([Math.round(x),Math.round(y),e&&e.className])})});
               out.npins=pins.length;
               document.querySelectorAll('button,.btn,summary,input,select').forEach(e=>{const b=e.getBoundingClientRect();if(!b.width||b.top<0||b.bottom>innerHeight)return;
                 const cx=b.left+b.width/2,cy=b.top+b.height/2,h=document.elementFromPoint(cx,cy);if(h&&!e.contains(h)&&h.closest('a')&&!e.contains(h.closest('a'))&&!h.closest('a').contains(e))out.stolen.push([e.id||e.className,h.closest('a').textContent.slice(0,20)])});
