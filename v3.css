@@ -654,7 +654,7 @@ html body .xacts>a.btn.web{flex-direction:column!important;align-items:center;ju
 html.light body .xacts>a.btn.web{color:#0A1628!important;border-color:#000!important;background:#fff!important}
 html body .xacts>a.btn.web :is(.v-en,.v-cy,.xdom){color:inherit!important}
 html body .xacts>a.btn.web :is(.v-en,.v-cy){white-space:nowrap}
-html body .xacts>a.btn.web .xdom{display:block;max-width:100%;font-size:12px!important;font-weight:400!important;line-height:1.15!important;overflow:hidden!important;text-overflow:ellipsis!important;white-space:nowrap!important;overflow-wrap:normal!important;text-align:center}
+html body .xacts>a.btn.web .xdom{display:block;max-width:100%;font-size:12px!important;font-weight:400!important;line-height:1.15!important;overflow:hidden!important;white-space:nowrap!important;overflow-wrap:normal!important;text-align:center}
 html body .xacts>button.v3share{white-space:normal;line-height:1.15;text-align:center}
 html body .ufact .xph{font-weight:800;font-variant-numeric:tabular-nums}
 #xnopin{position:absolute;z-index:500;left:8px;bottom:22px;max-width:min(240px,calc(100% - 150px));padding:4px 8px;border-radius:8px;background:rgba(10,22,40,.9);color:#F2F4F8;font-size:12px;font-weight:650;line-height:1.3;pointer-events:none;box-shadow:0 1px 4px rgba(0,0,0,.35)}
