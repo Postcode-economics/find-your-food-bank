@@ -46,7 +46,8 @@ const SYM={
  sun:'<g class="xmk"><circle cx="16" cy="16" r="3.8" fill="#0A1628"/><g stroke="#0A1628" stroke-width="2.4" stroke-linecap="butt"><path d="M16 8v2.8M16 21.2V24M8 16h2.8M21.2 16H24M10.3 10.3l2 2M19.7 19.7l2 2M10.3 21.7l2-2M19.7 12.3l2-2"/></g></g>',
  youth:'<g class="xmk"><text x="16" y="15.3" text-anchor="middle" font-family="system-ui,Segoe UI,Arial" font-weight="900" font-size="10" textLength="15.6" lengthAdjust="spacingAndGlyphs" fill="#0A1628">16</text><text x="16" y="24" text-anchor="middle" font-family="system-ui,Segoe UI,Arial" font-weight="900" font-size="10" textLength="15.6" lengthAdjust="spacingAndGlyphs" fill="#0A1628">25</text></g>'};
 const symKey=i=>!i?'house':(i.kind==='day_centre'||i.service==='day_centre')?'sun':i.kind==='young_people'?'youth':'house';
-const symBox=key=>`<svg width="28" height="28" viewBox="1.6 1.6 28.8 28.8" aria-hidden="true"><path d="M3 3h26v26H3z" fill="#56B4E9" stroke="#0A1628" stroke-width="2.5"/>${SYM[key]}</svg>`;
+const symSvg=(key,px)=>`<svg ${px?`width="${px}" height="${px}" `:''}viewBox="1.6 1.6 28.8 28.8" aria-hidden="true"><path d="M3 3h26v26H3z" fill="#56B4E9" stroke="#0A1628" stroke-width="2.5"/>${SYM[key]}</svg>`;
+const symBox=key=>symSvg(key,28);
 const SHP={sq:(c,sym)=>`<svg width="32" height="40" viewBox="0 0 32 40"><path d="M3 3h26v26H21l-5 9-5-9H3z" fill="${c}" stroke="#0A1628" stroke-width="2.5"/>${SYM[sym||'house']}</svg>`,
  dia:(c)=>`<svg width="34" height="40" viewBox="0 0 34 40"><path d="M17 1l15 15-15 23L2 16z" fill="${c}" stroke="#0A1628" stroke-width="2.5"/><path d="M13 21c0-4 4-5 3-9 4 2 6 6 4 10a4 4 0 0 1-7-1z" fill="#0A1628"/></svg>`};
 const pinIcon=(col,grey,shape,sym)=>L.divIcon({className:'xpin',html:SHP[shape](grey?'#7a8496':col,sym),iconSize:[34,40],iconAnchor:[17,39],popupAnchor:[0,-34]});
@@ -139,7 +140,8 @@ function detail(k,i,dist){const tel0=(i.phone||'').replace(/[^\d+]/g,''),tel=i.t
  const dayHtml=day?`<p class="xday">${t('dayOnly')}</p>`:youth?`<p class="xday">${t('youthOnly')}</p>`:'';
  const phoneHtml=[i.phone_label?window.phLab(i):'',i.phone_unconfirmed?`<span class="psrc">${lang==='cy'?'Rhif heb ei gadarnhau ar wefan swyddogol':'Number not yet confirmed on an official site'}</span>`:'',String(i.phone||'').includes(' or ')?`<span class="xalt">${lang==='cy'?'Neu':'Or'}: ${esc(String(i.phone).split(' or ').slice(1).join(', '))}</span>`:''].filter(Boolean).join(' · ');
  const facts=window.UFacts?UFacts.block(k,i,{phoneHtml})+UFacts.checked(i):(k==='sh'?row('groups',esc((i.groups||[]).map(v).join(' · ')))+(day?'':row('beds',esc(i.beds)))+row('ref',esc(i.referral))+(REFONLY(i)?'':row('hours',hoursHtml(i.hours))):row('hours',hoursHtml(i.hours))+chips(i));
- const typeHtml=window.UFacts?UFacts.typeRow(k,i):(day?`<span class="xkind">${t('dayCentre')}</span>`:youth?`<span class="xkind xyouth">${t('youth')}</span>`:'');
+ const sym=k==='sh'?`<span class="xmkbox" data-sym="${symKey(i)}">${symBox(symKey(i))}</span>`:'';
+ const typeHtml=window.UFacts?UFacts.typeRow(k,i,{icon:sym}):(day?`<span class="xkind">${sym}${t('dayCentre')}</span>`:youth?`<span class="xkind xyouth">${sym}${t('youth')}</span>`:'');
  return `${tierTop(i,k)}${typeHtml}${accBadge(i)}${window.V3?V3.badge(k,i):''}${dayHtml}<h3>${esc(i.name)}</h3>${dist!=null?`<div class="d">${dist*0.621<0.1?'0.1':dist*0.621<10?(dist*0.621).toFixed(1):Math.round(dist*0.621)} ${lang==='cy'?'milltir':(dist*0.621).toFixed(1)==='1.0'?'mile':'miles'}</div>`:''}${window.V3?V3.walk(dist):''}
 
  ${i.ended?`<p class="xw">${IC('alert')}${t('ended')}</p>`:''}${i.stale?`<p class="xw">${IC('alert')}${t('stale')}</p>`:''}
@@ -151,7 +153,9 @@ function detail(k,i,dist){const tel0=(i.phone||'').replace(/[^\d+]/g,''),tel=i.t
  ${false?`<p><a href="${esc(/^https?:/.test(i.website)?i.website:'https://'+i.website)}" target="_blank" rel="noopener">${esc(i.website.replace(/^https?:\/\//,'').slice(0,40))}</a></p>`:''}
  ${lang==='cy'?`<p class="sub">${t('srcNote')}</p>`:''}${i.evidence_url?`<p class="sub xchk">${t('chk')}: <a href="${esc(i.evidence_url)}" target="_blank" rel="noopener">${esc(i.evidence_name||i.evidence_url.replace(/^https?:\/\/(www\.)?/,'').split('/')[0])}</a>, ${fmt(i.verified_on||i.last_verified)}</p><p class="sub xlst">${t('lst')}: <a href="${esc(i.source_url)}" target="_blank" rel="noopener">${esc(i.source)}</a></p>`:(i.tier==='unverified'&&i.sign_url?`<p class="sub xchk">${t('seen')}: <a href="${esc(i.sign_url)}" target="_blank" rel="noopener">${esc(i.sign_url.replace(/^https?:\/\/(www\.)?/,'').split('/')[0])}</a>, ${fmt(i.checked_on)}</p><p class="sub xlst">${t('lst')}: <a href="${esc(i.source_url)}" target="_blank" rel="noopener">${esc(i.source)}</a></p>`:`<p class="sub">${t('src')}: <a href="${esc(i.source_url)}" target="_blank" rel="noopener">${esc(i.source)}</a>, ${t('ver')} ${fmt(i.last_verified)}</p>`)}
  ${window.repB?repB(k,i):''}`}
-function showSheet(html){const s=document.getElementById('sheet');document.getElementById('sheetBody').innerHTML=`<div class="card">${html}</div>`;s.classList.add('open');s.setAttribute('aria-hidden','false')}
+function fitSym(root){const list=(root||document).querySelectorAll('.xmkbox');list.forEach(box=>{box.style.width='';box.style.flexBasis=''});
+ list.forEach(box=>{const lab=box.closest('.utag,.xkind');if(!lab)return;const h=lab.getBoundingClientRect().height;if(h>1){const px=(Math.round(h*10)/10)+'px';box.style.width=px;box.style.flexBasis=px}})}
+function showSheet(html){const s=document.getElementById('sheet');document.getElementById('sheetBody').innerHTML=`<div class="card">${html}</div>`;s.classList.add('open');s.setAttribute('aria-hidden','false');fitSym(s)}
 async function toggle(k,on){if(k==='fb'){const b=document.querySelector('.xt[data-l=fb]');b.setAttribute('aria-pressed',on);on?map.addLayer(cl):map.removeLayer(cl);return}const L_=LAYERS[k],b=document.querySelector(`.xt[data-l=${k}]`);L_.on=on;b.setAttribute('aria-pressed',on);try{localStorage.setItem('lay_'+k,on?'1':'0')}catch(e){}
  if(!on){if(L_.group)map.removeLayer(L_.group);if(lastPos)nearX(...lastPos);return}
  try{await load(k)}catch(e){return}
@@ -180,7 +184,7 @@ function nearX(lat,lng,label,keep){lastPos=[lat,lng,label];const out=[],save={la
   const all=rankX(k,lat,lng,verOnly[k],ot);xRank[k]=all;const r=all.slice(0,Math.max(lim.first,shown));
   (window._fitX=window._fitX||{})[k]=r.length?L.latLngBounds([[lat,lng],...r.slice(0,lim.first).map(x=>[x.i.lat,x.i.lng])]).pad(0.2):null;  /* Dean 25 Oct 20:45: phone map shows the listed results pins (first page; Show more never moves the map) */
   out.push(`<div class="lh" style="color:${L_.col}">${t(k==='sh'?'nSh':'nWs')}</div>`+`<button type="button" class="v3t v3vo" data-k="${k}" aria-pressed="${verOnly[k]}">${t('verOnly')}</button>`+(k==='sh'?`<button type="button" class="v3t v3dc" data-k="sh" aria-pressed="${dayOnly.sh}">${t('dayFilt')}</button>`:'')+(r.length?r.map(x=>xCard(k,x)).join('')+(all.length>r.length?xBtn(k):''):`<p>${t('none')}</p>`))}
- $x('xlist').innerHTML=out.join('');save.x=$x('xlist').innerHTML;try{localStorage.setItem('lastSearch',JSON.stringify(save))}catch(e){}}
+ $x('xlist').innerHTML=out.join('');fitSym($x('xlist'));save.x=$x('xlist').innerHTML;try{localStorage.setItem('lastSearch',JSON.stringify(save))}catch(e){}}
 // Chromium scrolls a newly focused card into view on a later frame: put the scroll position back, including on that frame (as showmore.js).
 function pinScroll(x,y){let lock=true,busy=false;const fix=()=>{if(!lock||busy||(scrollX===x&&scrollY===y))return;busy=true;scrollTo(x,y);busy=false};
  fix();addEventListener('scroll',fix,true);requestAnimationFrame(()=>{fix();requestAnimationFrame(()=>{fix();lock=false;removeEventListener('scroll',fix,true)})})}
@@ -194,7 +198,7 @@ window.showMoreX=function(k){const list=$x('xlist'),btn=$x('xmore-'+k);if(!list|
  const have=new Set([...list.querySelectorAll('.card.x'+k)].map(c=>c.dataset.id));
  const batch=xRank[k].filter(it=>!have.has(String(it.i.id))).slice(0,XLIM().more);
  const tpl=document.createElement('template');tpl.innerHTML=batch.map(it=>xCard(k,it)).join('');const added=[...tpl.content.children];
- if(added.length){btn.before(tpl.content);xOpen[k]=true}
+ if(added.length){btn.before(tpl.content);xOpen[k]=true;fitSym(list)}
  batch.forEach(it=>have.add(String(it.i.id)));const remain=xRank[k].filter(it=>!have.has(String(it.i.id))).length;
  if(remain<=0){btn.hidden=true;btn.setAttribute('aria-expanded','true');if(fromBtn&&added[0]){const h=added[0].querySelector('h3');if(h){h.tabIndex=-1;h.focus({preventScroll:true})}}}
  else{btn.setAttribute('aria-expanded',xOpen[k]?'true':'false');if(fromBtn)btn.focus({preventScroll:true})}
