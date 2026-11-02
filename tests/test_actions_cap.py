@@ -28,6 +28,8 @@ class Cap(unittest.TestCase):
         self.assertIn('"${{ github.event_name }}" != "schedule"', Y)
         self.assertIn("python scripts/quick_check.py", Y)
         self.assertIn('*) quick=0;', Y)
+        self.assertNotIn('data.js|data.full.js|shelters.js', Y)
+        self.assertIn('name: tests-passed', Y)
         self.assertIn('python scripts/old_links.py\n', Y)
 
     def test_a_learning_script_does_not_count_as_the_site(self):
