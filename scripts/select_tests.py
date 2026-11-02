@@ -11,7 +11,8 @@ Main, the nightly run and manual runs always run ALL (see tests.yml).
 """
 import os, re, sys
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# CI runs main's copy from outside the tree and points SELECT_TESTS_ROOT at the checkout.
+ROOT = os.environ.get('SELECT_TESTS_ROOT') or os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ALWAYS_ALL = re.compile(r'^(\.github/|scripts/select_tests\.py$|scripts/common\.py$|overrides/|[^/]*\.(?:js|html|css)$|.*/[^/]*\.(?:js|html|css)$|requirements[^/]*\.txt$|pytest\.ini$|pyproject\.toml$|setup\.cfg$|conftest\.py$|tests/(?!test_)[^/]+$|tests/conftest\.py$)')
 
 def read(p):
