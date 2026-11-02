@@ -1,10 +1,11 @@
 """Publish guard. Exits non-zero (blocking the commit/publish step) unless every published shelter and warm space
 was re-fetched and confirmed in THIS run: each item needs fetched_at within MAX_AGE and an ok entry in the recheck log.
-Two labelled exceptions, each checked strictly: 48h grace (source briefly unreachable), and warm spaces carried forward
-this run by scripts/carry_forward.py (Dean, 28 Oct: shown with 'call before you go', never presented as re-confirmed)."""
+Three labelled exceptions, each checked strictly per item: 48h grace (source briefly unreachable), hand-checked manual
+rows kept through a blocked fetch for MANUAL_BLOCK_DAYS (Dean, 1 Nov), and warm spaces carried forward this run by
+scripts/carry_forward.py (Dean, 28 Oct: shown with 'call before you go', never presented as re-confirmed)."""
 import json, sys, os, datetime, subprocess
 sys.path.insert(0, os.path.dirname(__file__))
-from common import load_js, is_transient, GRACE_HOURS
+from common import load_js, is_transient, GRACE_HOURS, is_fetch_blocked, manual_checked_days, MANUAL_BLOCK_DAYS
 MAX_AGE = datetime.timedelta(hours=int(os.environ.get("MAX_AGE_HOURS", "2")))
 now = datetime.datetime.now(datetime.timezone.utc); bad = []
 ALL = {"foodbanks": ("data.full.js", "FB_DATA", "logs/foodbank_recheck.json"), "shelters": ("shelters.js", "SHELTERS", "logs/shelters_recheck.json"), "warmspaces": ("warmspaces.js", "WARMSPACES", "logs/warmspaces_recheck.json")}
@@ -50,8 +51,13 @@ for OUT, VAR, LOG in [ALL[a] for a in (sys.argv[1:] or ALL)]:
         if x.get("grace"):  # 48h grace: re-fetched this run but source briefly unreachable; last real confirmation < 48h ago
             try: age = now - datetime.datetime.fromisoformat(x.get("fetched_at", ""))
             except Exception: age = None
-            if not (r and is_transient(r) and age is not None and age <= datetime.timedelta(hours=GRACE_HOURS)):
-                bad.append(f"{OUT}: {x['id']} on grace but not eligible (unreachable <48h after last confirmation)")
+            ok48 = bool(r and is_transient(r) and age is not None and age <= datetime.timedelta(hours=GRACE_HOURS))
+            # Same rule as common.verification_gate (Dean, 1 Nov 2026): a hand-checked manual row survives a blocked
+            # fetch (403/429/5xx/timeout) for MANUAL_BLOCK_DAYS from its checked_on date. Checked per item, never page-wide.
+            md = manual_checked_days(x, now)
+            ok_blocked = bool(r and is_fetch_blocked(r) and md is not None and 0 <= md <= MANUAL_BLOCK_DAYS)
+            if not (ok48 or ok_blocked):
+                bad.append(f"{OUT}: {x['id']} on grace but not eligible (not a 48h outage, nor a hand-checked row with a blocked fetch within {MANUAL_BLOCK_DAYS} days)")
             continue
         if not r or not r.get("ok"):
             if OUT == "warmspaces.js" and x.get("carried_forward"):
