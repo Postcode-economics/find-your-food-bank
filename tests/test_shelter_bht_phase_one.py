@@ -4,7 +4,7 @@ import json, os, unittest
 ROOT = os.path.join(os.path.dirname(__file__), "..")
 OV = os.path.join(ROOT, "overrides")
 ID = "man-bht-phase-one"
-REF = "Referral only: ask Brighton & Hove Council's housing team (Supported Accommodation Panel). You need a local connection."
+REF = "Referral only, through Brighton & Hove City Council (Housing Advice, 01273 294400 option 1)."
 
 
 def _j(name):

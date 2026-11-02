@@ -454,8 +454,8 @@ class HandCheck(unittest.TestCase):
         "hl-st-mungos-longhills": "Bristol connection needed: ask Bristol Council's homelessness team (0117 352 6800) or St Mungo's outreach (0117 407 0330) to refer you.",
         "hl-stonepillow-bognor-hostel": "Go to a Stonepillow day centre in Bognor Regis or Chichester for an assessment and referral.",
         "hl-paradigm-housing-group-lea-bridge-house-hostel": "Ask Waltham Forest Council or your outreach worker to apply for you. You'll need photo ID and proof of income.",
-        "ss-63bf328f843d85a21d7bbdce": "Call New Start on 0151 708 7103 or ask your support worker to refer you.",
         "man-google-calderwood-house": "Adults 25+ in West Cumbria: call 01946 439312 to ask about emergency hostel places at Calderwood House in Egremont.",
+        "man-bht-phase-one": "Referral only, through Brighton & Hove City Council (Housing Advice, 01273 294400 option 1).",
     }
     HAND_REF_PREFIX = ("hl-", "ss-", "man-google-")
     OFF = [
@@ -472,6 +472,11 @@ class HandCheck(unittest.TestCase):
         "hl-squared-hostel-for-expected-mothers", "hl-squared-mother-and-baby-hostel",
         "hl-squared-luton-hostels",         "hl-connection-support-fishermead-hostel",  # 1 Nov: phone not on own page
         "man-google-homeless-accommodation-tai-gogledd-cymru",  # 1 Nov: operator page does not verify Denbigh town
+        "man-google-maggs-day-centre-worcester",  # 1 Nov: duplicate of man-maggs-day-centre-worcester
+        "man-google-share-homeless-action-centre-shac",  # 1 Nov: duplicate of man-share-homeless-action-centre-chester
+        "hl-ymca-lincs-nomad-centre",  # 1 Nov: duplicate of man-nomad-centre-ymca-lincolnshire
+        "man-vaughan-house",  # 1 Nov: alcohol detox unit
+        "ss-63bf328f843d85a21d7bbdce",  # 1 Nov: not on New Start page
     ]
 
     def test_published_cards_match_the_hand_check(self):
@@ -487,9 +492,6 @@ class HandCheck(unittest.TestCase):
                 self.assertNotIn("@", line)
                 self.assertEqual(item.get("postcode") or "", "")
                 self.assertTrue(item.get("no_pin"))
-        self.assertEqual(by["ss-63bf328f843d85a21d7bbdce"]["name"], "New Start Harm Reduction (women)")
-        self.assertEqual(by["ss-63bf328f843d85a21d7bbdce"]["groups"], ["Women"])
-        self.assertNotIn("/test", by["ss-63bf328f843d85a21d7bbdce"].get("website") or "")
         refs = [i for i in data["items"] if i.get("card_type") == "referral_hostel"]
         self.assertEqual(sorted(i["id"] for i in refs), sorted(i for i in self.LINES if i.startswith(self.HAND_REF_PREFIX)))
         for iid in self.OFF:
