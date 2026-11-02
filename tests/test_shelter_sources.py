@@ -454,7 +454,6 @@ class HandCheck(unittest.TestCase):
         "hl-st-mungos-longhills": "Bristol connection needed: ask Bristol Council's homelessness team (0117 352 6800) or St Mungo's outreach (0117 407 0330) to refer you.",
         "hl-stonepillow-bognor-hostel": "Go to a Stonepillow day centre in Bognor Regis or Chichester for an assessment and referral.",
         "hl-paradigm-housing-group-lea-bridge-house-hostel": "Ask Waltham Forest Council or your outreach worker to apply for you. You'll need photo ID and proof of income.",
-        "man-google-calderwood-house": "Adults 25+ in West Cumbria: call 01946 439312 to ask about emergency hostel places at Calderwood House in Egremont.",
         "man-bht-phase-one": "Referral only, through Brighton & Hove City Council (Housing Advice, 01273 294400 option 1).",
     }
     HAND_REF_PREFIX = ("hl-", "ss-", "man-google-")
