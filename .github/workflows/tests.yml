@@ -52,13 +52,18 @@ jobs:
           run_all=1
           files=""
           if [ -n "$base" ] && [ "$base" != "0000000000000000000000000000000000000000" ]; then
-            files=$(gh api "repos/${{ github.repository }}/compare/${base}...${head}" --jq '.files[] | .filename, (.previous_filename // empty)' 2>/tmp/changes.err)
-            # Removed or renamed files never go down the quick lane.
-            moved=$(gh api "repos/${{ github.repository }}/compare/${base}...${head}" --jq '[.files[] | select(.status == "removed" or .status == "renamed")] | length' 2>/dev/null || echo err)
+            # One compare call: the file list (with previous names of renamed files) and the count of
+            # removed/renamed files both come from it. Any failure or empty answer -> every check.
+            gh api "repos/${{ github.repository }}/compare/${base}...${head}" > /tmp/compare.json 2>/tmp/changes.err
             code=$?
+            files=""; moved=err
+            if [ "$code" -eq 0 ]; then
+              files=$(jq -r '.files[] | .filename, (.previous_filename // empty)' /tmp/compare.json) || code=1
+              moved=$(jq -r '[.files[] | select(.status == "removed" or .status == "renamed")] | length' /tmp/compare.json) || moved=err
+            fi
             n=$(printf '%s\n' "$files" | grep -c . || true)
-            if [ "$code" -eq 0 ] && [ "$n" -lt 300 ]; then run_all=0
-            else echo "diff unavailable (exit $code, files $n); running every check"; sed -n '1,15p' /tmp/changes.err; fi
+            if [ "$code" -eq 0 ] && [ "$n" -gt 0 ] && [ "$n" -lt 300 ] && [ -n "$moved" ] && [ "$moved" != err ]; then run_all=0
+            else run_all=1; moved=err; echo "diff unavailable (exit $code, files $n, moved $moved); running every check"; sed -n '1,15p' /tmp/changes.err; fi
           else echo "no base commit; running every check"; fi
           if [ "$run_all" -eq 0 ]; then
             browser=0; oldlinks=0; design=0; journeys=0
@@ -76,18 +81,19 @@ jobs:
               esac
             done <<< "$files"
           fi
-          # Quick lane (Dean 2 Nov 2026): a branch/PR whose every changed file is a note (*.md) or an image/logo
-          # in assets/ (no removals or renames) gets quick-check instead of the full suite. Never on main or
+          # Quick lane (Dean 2 Nov 2026): a branch/PR whose every changed file is a note (*.md) or a png/jpg/webp in
+          # assets/ that no test names (no removals or renames) gets quick-check instead of the full suite. Never on main or
           # nightly, and never when the diff could not be read. Publish gates in the refresh workflows are untouched.
           quick=0
-          if [ "$run_all" -eq 0 ] && [ "${{ github.ref }}" != "refs/heads/main" ] && [ "${{ github.event_name }}" != "schedule" ] && [ -n "$files" ]; then
+          if [ "$run_all" -eq 0 ] && [ "$moved" != err ] && [ "${{ github.ref }}" != "refs/heads/main" ] && [ "${{ github.event_name }}" != "schedule" ] && [ -n "$files" ]; then
             quick=1
             if [ "$moved" != "0" ]; then quick=0; echo "full suite: removed/renamed files ($moved)"; fi
             [ "$quick" -eq 1 ] && while IFS= read -r f || [ -n "$f" ]; do
               [ -n "$f" ] || continue
               case "$f" in
-                assets/*.svg|assets/*.png|assets/*.jpg|assets/*.webp|assets/*/*.svg|assets/*/*.png|assets/*/*.jpg|assets/*/*.webp) ;;
-                *.md) ;;
+                assets/*.png|assets/*.jpg|assets/*.webp|assets/*/*.png|assets/*/*.jpg|assets/*/*.webp|*.md)
+                  # A file any test names is never quick-lane.
+                  if grep -rqF -- "$f" tests/ || grep -rqF -- "$(basename "$f")" tests/; then quick=0; echo "full suite: $f is named under tests/"; break; fi ;;
                 *) quick=0; echo "full suite: $f is not content"; break ;;
               esac
             done <<< "$files"

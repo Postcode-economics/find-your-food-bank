@@ -1,14 +1,13 @@
-"""Quick lane for content-only pull requests (2 Nov 2026).
+"""Quick lane for docs/image-only pull requests (2 Nov 2026).
 
-A PR that only changes content (data.js, shelters.js, warmspaces.js, overrides/, data/,
-logos/images, generated area pages, notes) gets this instead of the full suite:
-  1. syntax: every changed .js passes `node --check`, every changed .json parses;
-  2. schema: in a real browser, FB_DATA / SHELTERS / WARMSPACES load, every item has an id,
+A PR whose every changed file is a note (*.md) or a png/jpg/webp in assets/, that no test
+under tests/ names, with nothing removed or renamed, gets this instead of the full suite:
+  1. syntax: changed .js pass `node --check`, changed .json parse (normally none in this lane);
+  2. schema: FB_DATA / SHELTERS / WARMSPACES (and data.full.js) load, every item has an id,
      a name and UK coordinates, and ids are unique per layer;
-  3. smoke render: index.html shows the map and the list with no page errors, and each
-     changed area page opens with no page errors.
-Anything else in the diff sends the PR down the full suite (see tests.yml `changes`).
-Usage: python scripts/quick_check.py FILE...  (the changed files)
+  3. smoke render: index.html shows the map and list at 390/1366 px with no page errors.
+Data files, overrides, svg and everything else go to the full suite (tests.yml `changes`).
+Usage: python scripts/quick_check.py FILE...  (the changed files, from the changes job)
 """
 import functools, http.server, json, os, subprocess, sys, threading
 

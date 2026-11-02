@@ -30,6 +30,12 @@ class Cap(unittest.TestCase):
         self.assertIn('*) quick=0;', Y)
         self.assertNotIn('data.js|data.full.js|shelters.js', Y)
         self.assertIn('name: tests-passed', Y)
+        self.assertNotIn('assets/*.svg', Y)
+        self.assertIn('grep -rqF -- "$f" tests/', Y)
+        # one compare call; its failure forces every check
+        self.assertEqual(Y.count('/compare/${base}...${head}'), 1)
+        self.assertIn('moved=err', Y)
+        self.assertIn('[ "$moved" != err ]', Y)
         self.assertIn('python scripts/old_links.py\n', Y)
 
     def test_a_learning_script_does_not_count_as_the_site(self):
