@@ -1,13 +1,10 @@
-# Refresh guard: foodbanks (2026-11-02T15:20:21+00:00)
+# Refresh guard: foodbanks (2026-11-02T22:47:40+00:00)
 
-foodbanks: kept 10 places, 0 phones, 31 opening times that this run would have dropped. Previous values were kept and published; please check why the source lost them.
+foodbanks: kept 7 places, 0 phones, 30 opening times that this run would have dropped. Previous values were kept and published; please check why the source lost them.
 
-## places kept (10)
+## places kept (7)
 
-- ifan-3598d68070dfe141274bc6-0
-- ifan-4a6217d6ae69c4977d7d70-0
-- ifan-9d9a5ae13b3923c3fd7d0b-0
-- ifan-34121866eb63e9e50d317f-0
+- ifan-85fc4f26365d8e7c333d57-0
 - ty-hapus
 - colchester/wivenhoe
 - ifan-e0054aa041ea174c4f6921-0
@@ -15,7 +12,7 @@ foodbanks: kept 10 places, 0 phones, 31 opening times that this run would have d
 - st-peter-st-pauls-pantry
 - littlehampton-community-fridge
 
-## times kept (31)
+## times kept (30)
 
 - godalming
 - kintyre
@@ -45,7 +42,6 @@ foodbanks: kept 10 places, 0 phones, 31 opening times that this run would have d
 - edinburgh-ne/st-margarets-parish-church-halls
 - edinburgh-ne/south-leith-parish-church-halls
 - ifan-762040c38571b1178c1e2d-0
-- ifan-85fc4f26365d8e7c333d57-0
 - ifan-c894c18cc81d79344bc973-0
 - ifan-ca574aed6b4ff8c310060c-0
 
@@ -54,12 +50,9 @@ foodbanks: kept 10 places, 0 phones, 31 opening times that this run would have d
 - ifan-84cd0bf40986bfc9a427c6-0
 - ifan-9fef48d4f0fd3a3f6896d2-0
 
-## access kept (10)
+## access kept (7)
 
-- ifan-3598d68070dfe141274bc6-0
-- ifan-4a6217d6ae69c4977d7d70-0
-- ifan-9d9a5ae13b3923c3fd7d0b-0
-- ifan-34121866eb63e9e50d317f-0
+- ifan-85fc4f26365d8e7c333d57-0
 - ty-hapus
 - colchester/wivenhoe
 - ifan-e0054aa041ea174c4f6921-0
