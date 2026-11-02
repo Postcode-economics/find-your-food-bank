@@ -34,18 +34,16 @@ def write_js(path, var, obj):
     with open(path, "w", encoding="utf-8") as f:
         f.write(f"var {var}=" + json.dumps(obj, ensure_ascii=False, separators=(",", ":")) + ";\n")
 def merge_lifecycle(prev, fresh, run_day, stale_days=7, close_after=14, keep_closed=30):
-    """Keep previous entries missing from today's scan (last_verified unchanged), flag stale >7d,
-    move to recently_closed after `close_after` days unseen or when flagged closed; purge closed after 30d."""
+    """Keep previous entries missing from today's scan (last_verified unchanged), flag stale >7d.
+    A place that simply disappeared from a feed stays, with its last good data: days unseen are not a closure.
+    `close_after` is unused for that reason (2 Nov 2026). flag_closed still moves a place to recently_closed; closed rows purge after 30d."""
     d = lambda s: datetime.date.fromisoformat(s)
     rd = d(run_day)
     items = {x["id"]: x for x in fresh}
     closed = {x["id"]: x for x in (prev or {}).get("recently_closed", [])}
     for x in (prev or {}).get("items", []):
         if x["id"] in items: continue
-        unseen = (rd - d(x["last_verified"])).days
-        if unseen > close_after:
-            x["closed_on"] = run_day; x["closed_reason"] = f"No longer listed by source (unseen {unseen} days)"; closed[x["id"]] = x
-        else: items[x["id"]] = x
+        items[x["id"]] = x
     for k, x in list(items.items()):
         if x.get("flag_closed"):
             x.setdefault("closed_on", run_day); closed[k] = items.pop(k)
@@ -76,7 +74,71 @@ def is_transient(rc):
     if h in ("error", None): return True
     return isinstance(h, int) and (h in (403, 408, 425, 429) or h >= 500 or 200 <= h < 300)
 
-MANUAL_BLOCK_DAYS = 14  # Dean, 1 Nov 2026: hand-checked rows survive a blocked fetch for 14 days from the last hand-check
+MANUAL_BLOCK_DAYS = 14  # Dean, 1 Nov 2026: a hand-checked row already on the map survives a blocked fetch for 14 days from the last hand-check
+HELD_TAG = "shelter fetch held"  # this run's held shelters, in reports/manual_review.md; rewritten every shelter refresh
+
+def _published_ids(prev):
+    """Ids on the map in the file the build started from. A list or missing file is nothing published."""
+    if not isinstance(prev, dict): return set()
+    return {i.get("id") for i in (prev.get("items") or []) if isinstance(i, dict) and i.get("id")}
+
+CLOSED_REASONS = ("source now says closed/ended", "feed says ended")
+
+def source_says_closed(rc=None, entry=None):
+    """True only when this run's own source says the place has closed. A broken, blocked, 404 or unread page is not closed."""
+    entry = entry or {}
+    if entry.get("flag_closed"): return True
+    reason = ((rc or {}).get("reason") or "")
+    if reason in CLOSED_REASONS or "flagged closed" in reason: return True
+    return False
+
+def record_layer_holds(rows, layer="shelters", root=".", replace=False):
+    """Places left off THIS run (never published, or the source said closed). The next refresh rewrites the list.
+    replace=True is the build. replace=False adds verify_fresh drops. A previous day's file is ignored by the guard."""
+    import datetime
+    root = root or "."
+    run = datetime.date.today().isoformat()
+    path = os.path.join(root, "logs", "%s_held.json" % layer)
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    cur = {}
+    if not replace:
+        try: cur = json.load(open(path, encoding="utf-8"))
+        except Exception: cur = {}
+        if cur.get("run") != run: cur = {}
+    by = {} if replace or cur.get("run") != run else {r["id"]: r for r in (cur.get("held") or []) if isinstance(r, dict) and r.get("id")}
+    for r in rows or []:
+        if r.get("id"): by[r["id"]] = {"id": r["id"], "name": r.get("name") or r["id"], "reason": r.get("reason") or "held this run"}
+    held = [by[k] for k in sorted(by)]
+    json.dump({"run": run, "held": held}, open(path, "w", encoding="utf-8"), indent=1, ensure_ascii=False)
+    _write_hold_report(held, root, layer)
+    return held
+
+def record_shelter_holds(rows, root=".", replace=False):
+    return record_layer_holds(rows, "shelters", root, replace)
+
+def _write_hold_report(held, root, layer="shelters"):
+    """Replace one layer's held section of reports/manual_review.md. Hand-written text and the auto-discovery queue stay."""
+    path = os.path.join(root, "reports", "manual_review.md")
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    tag = HELD_TAG if layer == "shelters" else "fetch held %s" % layer
+    start, end = "<!-- %s -->" % tag, "<!-- /%s -->" % tag
+    title = {"shelters": "Shelters", "warmspaces": "Warm spaces", "foodbanks": "Food banks"}.get(layer, layer)
+    lines = ["## %s held this run (not on the map)" % title, "",
+             "Left out of this run because this place was not already on the map and its page could not be read, or its own source says it has closed. A live listing whose page is blocked, broken or unread stays on the map. Tried again on the next refresh. Not a freeze and not a skip list.", ""]
+    lines += ["- %s (%s): %s" % (r.get("name") or r["id"], r["id"], r.get("reason") or "held this run") for r in held] or ["None this run."]
+    block = start + "\n" + "\n".join(lines) + "\n" + end
+    prev = open(path, encoding="utf-8").read() if os.path.exists(path) else "# Manual review queue (not on the map)\n"
+    if start in prev and end in prev:
+        text = re.sub(re.escape(start) + r".*?" + re.escape(end), lambda _: block, prev, count=1, flags=re.S)
+    else:
+        marker = "<!-- AUTO-DISCOVERY QUEUE"
+        if marker in prev:
+            pre, post = prev.split(marker, 1)
+            text = pre.rstrip() + "\n\n" + block + "\n\n" + marker + post
+        else:
+            text = prev.rstrip() + "\n\n" + block + "\n"
+    if not text.endswith("\n"): text += "\n"
+    open(path, "w", encoding="utf-8").write(text)
 
 def is_fetch_blocked(rc):
     """Source fetch blocked or server failing (403, 429, 5xx, timeout/network error) - never a page that loaded."""
@@ -121,8 +183,17 @@ def infer_shelter_groups(entry, verified=None):
 
 def verification_gate(fresh, prev, verified, run_day, pending_path, autocheck=None, valid_until=None, unverified=None, recheck=True, now=None):
     """Returns (published_fresh, filtered_prev). Writes pending list.
-    recheck=True: every run re-fetches each entry's source page and only publishes what it confirms (scripts/recheck.py)."""
-    pub, pending = [], []
+    recheck=True: every run re-fetches each entry's source page.
+    A place already on the map stays, with its last good data, when this run's page is blocked, broken, 404, timed out or unread.
+    There is no 48-hour or 14-day expiry on that keep. It is left off only when its own source says it has closed.
+    A place that was not on the map, and whose read failed, is held for this run and tried again next run."""
+    pub, pending, held = [], [], []
+    layer_name = os.path.basename(pending_path).replace("_pending.json", "")
+    published_ids = _published_ids(prev)
+    prev_by_id = {}
+    if isinstance(prev, dict):
+        for it in prev.get("items") or []:
+            if isinstance(it, dict) and it.get("id"): prev_by_id[it["id"]] = it
     RC = {}
     if recheck:
         from recheck import recheck_all
@@ -142,20 +213,32 @@ def verification_gate(fresh, prev, verified, run_day, pending_path, autocheck=No
         rc = RC.get(x["id"]) if recheck else None
         if recheck and rc and rc.get("ok"): LC[x["id"]] = rc.get("fetched_at") or now.replace(microsecond=0).isoformat()
         age = _hours_since(LC.get(x["id"]), now) if recheck else None
-        grace = bool((v or (unverified and x["id"] in unverified)) and recheck and is_transient(rc) and age is not None and 0 <= age <= GRACE_HOURS)
-        mdays = manual_checked_days(x, now)
-        blocked = bool(not grace and v and recheck and is_fetch_blocked(rc) and mdays is not None and 0 <= mdays <= MANUAL_BLOCK_DAYS)
-        if blocked:
-            grace = True
-            LC.setdefault(x["id"], str(x["checked_on"])[:10] + "T00:00:00+00:00")
-            graced.append({"id": x["id"], "name": x["name"], "reason": "kept, fetch blocked (%s)" % rc.get("reason"), "http": rc.get("http"),
-                           "last_confirmed": str(x["checked_on"])[:10], "hours_since": round(mdays * 24.0, 1), "kept_fetch_blocked": True})
-        elif grace:
-            graced.append({"id": x["id"], "name": x["name"], "reason": rc.get("reason"), "http": rc.get("http"), "last_confirmed": LC[x["id"]], "hours_since": round(age, 1)})
-        if (v or (unverified and x["id"] in unverified)) and recheck and (rc is None or not rc.get("ok")) and not grace:
-            pending.append({"id": x["id"], "name": x["name"], "first_seen": run_day, "reason": "omitted this run: " + (rc or {}).get("reason", "not re-checked"),
-                            "recheck": {k: (rc or {}).get(k) for k in ("url", "final_url", "fetched_at", "http", "sha256")}}); continue
-        if v and has_evidence and (not valid_until or run_day <= valid_until(v)):
+        failed = bool(recheck and (rc is None or not rc.get("ok")))
+        closed_src = bool(failed and source_says_closed(rc, x))
+        grace = blocked = False
+        if failed and closed_src:
+            reason = "omitted this run: " + ((rc or {}).get("reason") or "source says closed")
+            pending.append({"id": x["id"], "name": x.get("name") or x["id"], "first_seen": run_day, "reason": reason,
+                            "recheck": {k: (rc or {}).get(k) for k in ("url", "final_url", "fetched_at", "http", "sha256")}})
+            held.append({"id": x["id"], "name": x.get("name") or x["id"], "reason": reason})
+            continue
+        if failed and x["id"] in published_ids:
+            # Live listing: keep the last published copy. No 48-hour or 14-day expiry.
+            old = dict(prev_by_id.get(x["id"]) or x)
+            old["grace"] = True; old["kept_fetch_blocked"] = True
+            if old.get("fetched_at"): LC.setdefault(x["id"], old["fetched_at"])
+            graced.append({"id": x["id"], "name": old.get("name") or x.get("name"), "reason": "kept, fetch blocked (%s)" % ((rc or {}).get("reason") or (rc or {}).get("http")),
+                           "http": (rc or {}).get("http"), "last_confirmed": str(old.get("fetched_at") or old.get("checked_on") or "")[:10],
+                           "hours_since": round(age, 1) if age is not None else None, "kept_fetch_blocked": True})
+            pub.append(old)
+            continue
+        if failed:
+            reason = "held this run: read failed, not published before"
+            held.append({"id": x["id"], "name": x.get("name") or x["id"], "reason": reason})
+            pending.append({"id": x["id"], "name": x.get("name") or x["id"], "first_seen": run_day, "reason": reason,
+                            "recheck": {k: (rc or {}).get(k) for k in ("url", "final_url", "fetched_at", "http", "sha256")}})
+            continue
+        if v and has_evidence and (x["id"] in published_ids or not valid_until or run_day <= valid_until(v)):
             x = dict(x); x["verified"] = True; x["evidence_url"] = v.get("evidence_url", ""); x["verified_on"] = v.get("verified_on", "")
             for k in ("phone", "address", "access", "postcode", "lat", "lng", "hours", "evidence_name", "scheme_start", "scheme_end", "scheme_dates"):  # pin/address fixes persist nightly
                 if v.get(k): x[k] = v[k]
@@ -177,7 +260,7 @@ def verification_gate(fresh, prev, verified, run_day, pending_path, autocheck=No
             if v.get("access"): x["referral"] = v["access"][0].upper() + v["access"][1:]
             place_facts.copy_wheelchair(x, v)  # explicit only; a missing wheelchair stays missing
             pub.append(x)
-        elif unverified and x["id"] in unverified and (not valid_until or run_day <= valid_until(dict(verified_on=unverified[x["id"]].get("checked_on", "2000-01-01")))) \
+        elif unverified and x["id"] in unverified and (x["id"] in published_ids or not valid_until or run_day <= valid_until(dict(verified_on=unverified[x["id"]].get("checked_on", "2000-01-01")))) \
                 and unverified[x["id"]].get("sign_url") and not x.get("ended") and not x.get("flag_closed"):
             # Tier 2: confirmed open/accessible some other way (sign of life), no stated hours or formal page.
             u = unverified[x["id"]]; x = dict(x); x["tier"] = "unverified"; x["verified"] = False
@@ -212,11 +295,18 @@ def verification_gate(fresh, prev, verified, run_day, pending_path, autocheck=No
             f.write(f"# {layer}: kept on 48-hour grace ({now.replace(microsecond=0).isoformat()})\n\n")
             f.write("Source page briefly unreachable this run; kept because it was confirmed within the last %d hours.\n\n" % GRACE_HOURS)
             f.write("".join(f"- {g['name']} ({g['id']}): {g['reason']}; last confirmed {g['last_confirmed']} ({g['hours_since']}h ago)\n" for g in graced) or "None this run.\n")
+            f.write("\n## Held this run (not published)\n\n")
+            f.write("A place that was not on the map, whose page could not be read, is left out of this run. A place already on the map stays until its own source says it has closed. There is no 48-hour or 14-day expiry.\n\n")
+            f.write("".join("- %s (%s): %s\n" % (h["name"], h["id"], h["reason"]) for h in held) or "None this run.\n")
+        record_layer_holds(held, layer_name, replace=True)
         verification_gate.graced = graced
+    verification_gate.held = held
     ok = {x["id"] for x in pub}
-    if prev:
+    if isinstance(prev, dict):
         prev = dict(prev)
-        keep = {x["id"] for x in pub}  # only what was confirmed THIS run; nothing carried over
-        prev["items"] = [x for x in prev.get("items", []) if x["id"] in keep]
-        prev["recently_closed"] = [x for x in prev.get("recently_closed", []) if x["id"] in keep]
+        keep = {x["id"] for x in pub}
+        examined = {x.get("id") for x in fresh if isinstance(x, dict)}
+        # A live place missing from this scrape stays. One this run read and then held or closed does not.
+        prev["items"] = [x for x in prev.get("items", []) if x["id"] in keep or x["id"] not in examined]
+        prev["recently_closed"] = [x for x in prev.get("recently_closed", []) if x["id"] in keep or x["id"] not in examined]
     return pub, prev, len(pending)

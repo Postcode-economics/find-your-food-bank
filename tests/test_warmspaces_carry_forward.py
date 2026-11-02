@@ -174,7 +174,7 @@ class Rework(unittest.TestCase):
 
     def test_season_end_respected(self):
         items, carried, nc = C.carry_items([SAIFEE], [], [], '2027-05-01', allowed=set(), valid_until=season_end)
-        self.assertEqual(items, []); self.assertEqual(nc[0]['why'], 'season_ended')
+        self.assertEqual([x['id'] for x in items], [SAIFEE['id']]); self.assertEqual(nc, [])  # verification window is not a closure
         old = dict(SAIFEE, scheme_end='2026-10-20')
         items, _, nc = C.carry_items([old], [], [], '2026-10-28', allowed=set(), valid_until=season_end)
         self.assertEqual(items, []); self.assertEqual(nc[0]['why'], 'season_ended')
@@ -280,17 +280,17 @@ class GuardHonoursBuild(unittest.TestCase):
     def test_run_2027_05_01_build_then_guard(self):
         by, rep = self._workflow('2027-05-01')
         self._never_back(by)
-        self.assertNotIn(KINGS['id'], by)         # season ended (verified 20 Oct 2026, valid to 30 Apr 2027)
-        self.assertNotIn('ww-alive', by)          # every 2026-27 verification has expired on 1 May
+        self.assertIn(KINGS['id'], by)            # past 30 April is not the source saying closed
+        self.assertIn('ww-alive', by)
         self.assertEqual(rep['places'], [])
         lg = json.load(open(os.path.join(self.d, 'logs', 'warmspaces_carry_forward.json')))
-        self.assertEqual({r['id']: r['why'] for r in lg['not_carried']}[KINGS['id']], 'season_ended')
+        self.assertNotIn(KINGS['id'], {r['id'] for r in lg['not_carried']})
 
     def test_run_2027_05_01_guard_alone(self):  # no carry-forward log this run: the guard applies the same rules itself
         by, rep = self._workflow('2027-05-01', carry_log=False)
-        self._never_back(by); self.assertNotIn(KINGS['id'], by); self.assertNotIn('ww-alive', by)
+        self._never_back(by); self.assertIn(KINGS['id'], by); self.assertIn('ww-alive', by)
         why = {r['id']: r['why'] for r in rep['not_restored']}
-        self.assertEqual(why, {KINGS['id']: 'season_ended', 'ww-excl': 'excluded', 'ww-closed': 'closed', 'ww-flagged': 'closed', 'ww-alive': 'season_ended'})
+        self.assertEqual(why, {'ww-excl': 'excluded', 'ww-closed': 'closed', 'ww-flagged': 'closed'})
 
     def _labelled(self, a):
         self.assertTrue(a['call_check']); self.assertEqual(a['carried_note'], 'Not re-confirmed since 2027-02-20 – call before you go')
@@ -331,13 +331,13 @@ class GuardHonoursBuild(unittest.TestCase):
             out, _ = G.guard('warmspaces', [k2], [], run_day='2027-03-01', root=self.d)
         self.assertEqual([x['id'] for x in out], ['ww-keep3'])
 
-    def test_real_kings_church_entry_stays_out_on_2027_05_01(self):
+    def test_real_kings_church_is_not_dropped_for_the_verification_window(self):
         ws = open(os.path.join(ROOT, 'warmspaces.js'), encoding='utf-8').read()
         items = json.loads(ws[ws.index('{'):ws.rindex('}') + 1])['items']
         k = next((x for x in items if 'king' in x['name'].lower() and 'halifax' in x['name'].lower()), None)
         if k is None: self.skipTest("King's Church Halifax not in the committed file")
-        self.assertEqual(C.why_not(k, '2027-05-01', valid_until=C.season_end), 'season_ended')
+        self.assertIsNone(C.why_not(k, '2027-05-01', valid_until=C.season_end))
         out, rep = G.guard('warmspaces', [k], [], run_day='2027-05-01', root=self.d)
-        self.assertEqual(out, [])
+        self.assertEqual([x['id'] for x in out], [k['id']])
 
 if __name__ == '__main__': unittest.main()

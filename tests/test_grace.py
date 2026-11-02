@@ -7,22 +7,26 @@ NOW = datetime.datetime(2026, 10, 23, 12, 0, tzinfo=datetime.timezone.utc)
 V = {"robes": {"evidence_url": "https://robes.org.uk/", "day_time_quote": "7pm", "verified_on": "2026-10-20"}}
 
 class Grace(unittest.TestCase):
-    def run_gate(self, rc, last):
+    def run_gate(self, rc, last, prev=None):
         d = tempfile.mkdtemp(); cwd = os.getcwd(); os.chdir(d)
         try:
             os.makedirs("logs")
             if last: json.dump({"robes": last}, open("logs/sh_last_confirmed.json", "w"))
             with mock.patch("recheck.recheck_all", return_value={"robes": rc}):
-                pub, prev, n = common.verification_gate([{"id": "robes", "name": "Robes"}], None, V, "2026-10-23", "logs/sh_pending.json", now=NOW)
+                pub, _, n = common.verification_gate([{"id": "robes", "name": "Robes", "fetched_at": last or ""}], prev, V, "2026-10-23", "logs/sh_pending.json", now=NOW)
             return pub, json.load(open("logs/sh_last_confirmed.json")), open("reports/sh_grace.md").read()
         finally: os.chdir(cwd)
-    def test_429_within_48h_kept(self):
-        pub, lc, rep = self.run_gate({"ok": False, "http": 429, "reason": "source unreachable this run (HTTP 429)"}, "2026-10-22T13:00:00+00:00")
+    def test_429_within_48h_kept_when_already_published(self):
+        live = {"items": [{"id": "robes", "name": "Robes", "fetched_at": "2026-10-22T13:00:00+00:00"}]}
+        pub, lc, rep = self.run_gate({"ok": False, "http": 429, "reason": "source unreachable this run (HTTP 429)"}, "2026-10-22T13:00:00+00:00", prev=live)
         self.assertEqual([x["id"] for x in pub], ["robes"]); self.assertTrue(pub[0]["grace"]); self.assertIn("Robes", rep)
         self.assertEqual(lc["robes"], "2026-10-22T13:00:00+00:00")
-    def test_timeout_after_48h_dropped(self):
-        pub, _, rep = self.run_gate({"ok": False, "http": "error", "reason": "timeout"}, "2026-10-21T10:00:00+00:00")
-        self.assertEqual(pub, []); self.assertIn("None", rep)
+        pub, _, _ = self.run_gate({"ok": False, "http": 429, "reason": "source unreachable this run (HTTP 429)"}, "2026-10-22T13:00:00+00:00")
+        self.assertEqual(pub, [])  # not on the map yet: held, not published
+    def test_timeout_after_48h_still_kept_when_published(self):
+        live = {"items": [{"id": "robes", "name": "Robes", "fetched_at": "2026-10-21T10:00:00+00:00"}]}
+        pub, _, rep = self.run_gate({"ok": False, "http": "error", "reason": "timeout"}, "2026-10-21T10:00:00+00:00", prev=live)
+        self.assertEqual([x["id"] for x in pub], ["robes"]); self.assertIn("Robes", rep)
     def test_content_failure_never_graced(self):
         pub, _, _ = self.run_gate({"ok": False, "http": 200, "reason": "source now says closed/ended"}, "2026-10-23T08:00:00+00:00")
         self.assertEqual(pub, [])

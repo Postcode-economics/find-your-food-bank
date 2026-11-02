@@ -7,11 +7,12 @@ Every 3x-daily run, inside scripts/build.py:
     (changed_since_last_run). IFAN-discovered entries carry their own-site fetch (HTTP 200, same site, sha256).
  3. Source URL: the entry's Give Food page must be on givefood.org.uk and be the page for THIS record (slug match).
     A rotating sample of pages is fetched live each run (all pages covered every few days); a page that loads but
-    does not name the food bank -> entry left off; a page that does not load -> flagged in the log.
+    does not name the food bank, or does not load, leaves a new place off and keeps one already on the map.
  4. Schema: every published field is validated (id, type, names, UK lat/lng, postcode format, address, phone digits,
     website/givefood URLs, opening_times shape in Mon-Sun order with HH:MM ranges, labels). Failures -> left off.
-Omitted entries go to logs/foodbank_pending.json with the reason; everything is logged in logs/foodbank_recheck.json.
-scripts/verify_fresh.py foodbanks refuses to publish unless every published entry matches this run's log."""
+A place already on the map stays when its page or record cannot be read. A new place with a failed read is omitted
+(logs/foodbank_pending.json) and tried again next run. The whole run still stops if a Give Food API endpoint fails.
+scripts/verify_fresh.py foodbanks does not fail the run for one place."""
 import re, json, os, hashlib, datetime, urllib.request, urllib.parse, ssl
 CTX = ssl.create_default_context()
 UA = {"User-Agent": "foodbank-map-refresh (github actions; recheck)"}
@@ -105,7 +106,7 @@ def sample(items, run_key, per_run):
     cand = [i for i in items if i.get("givefood") and not i.get("manual")]
     cand.sort(key=lambda i: hashlib.md5((i["id"] + run_key).encode()).hexdigest())
     return {i["id"] for i in cand[:per_run]}
-def gate(items, records, api_meta, log_path, pending_path, fetcher=None, per_run=None, run_key=None):
+def gate(items, records, api_meta, log_path, pending_path, fetcher=None, per_run=None, run_key=None, published_ids=None):
     """items: built entries; records: {id: source record dict}; api_meta: {endpoint: meta}. Returns (published, omitted)."""
     fetcher = fetcher or live_fetch
     per_run = int(os.environ.get("FB_LIVE_SAMPLE", "120")) if per_run is None else per_run
@@ -149,7 +150,13 @@ def gate(items, records, api_meta, log_path, pending_path, fetcher=None, per_run
             else: flagged.append("Give Food page did not load this run (HTTP %s)" % L["http"])
         r["ok"] = reason is None; r["reason"] = reason or "confirmed this run"; r["flags"] = flagged
         out[i["id"]] = r
-        if reason: omitted.append({"id": i["id"], "name": i["name"], "postcode": i.get("postcode", ""), "reason": "omitted this run: " + reason,
+        live_already = published_ids is not None and i["id"] in published_ids
+        says_closed = reason and ("says closed" in reason or "feed says ended" in reason or "flagged closed" in reason)
+        if reason and live_already and not says_closed:
+            # The feed row or its page failed this run. Keep the listing; do not stamp a new confirmation.
+            i["grace"] = True; i["kept_fetch_blocked"] = True
+            pub.append(i)
+        elif reason: omitted.append({"id": i["id"], "name": i["name"], "postcode": i.get("postcode", ""), "reason": "omitted this run: " + reason,
                                    "recheck": {k: r.get(k) for k in ("source_url", "fetched_at", "record_sha256", "schema_errors")}})
         else:
             i["fetched_at"] = t; pub.append(i)
@@ -158,4 +165,9 @@ def gate(items, records, api_meta, log_path, pending_path, fetcher=None, per_run
                    "live_checked": len(live), "api": api_meta}
     json.dump(out, open(log_path, "w"), indent=0, ensure_ascii=False)
     json.dump(omitted, open(pending_path, "w"), indent=1, ensure_ascii=False)
+    if published_ids is not None:
+        import common
+        log_dir = os.path.dirname(pending_path)
+        root = os.path.dirname(log_dir) if os.path.basename(log_dir) == "logs" else "."
+        common.record_layer_holds([{"id": o["id"], "name": o.get("name") or o["id"], "reason": o["reason"]} for o in omitted], "foodbanks", root or ".", replace=True)
     return pub, omitted

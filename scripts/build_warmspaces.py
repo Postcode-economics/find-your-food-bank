@@ -185,7 +185,7 @@ json.dump(tlog, open("logs/warmspaces_times_check.json", "w"), indent=0, ensure_
 import hours_norm  # stored hours: Mon-Sun order (fixes e.g. Cat and Mouse Library, Central Library) or own wording once
 sources["Hours normalised"] = {"status": "ok", "changed": hours_norm.apply(fresh, "hours")}
 sources["Own-site times check"] = {"status": "ok", **discover.summary(tlog), "removed_closed": gone}
-sources["Verification gate"] = {"status": "ok", "scraped": raw_count, "published": len(fresh), "pending": n_pending, "kept_on_48h_grace": [g["id"] for g in getattr(verification_gate, "graced", [])]}
+sources["Verification gate"] = {"status": "ok", "scraped": raw_count, "published": len(fresh), "pending": n_pending, "kept_on_48h_grace": [g["id"] for g in getattr(verification_gate, "graced", []) if not g.get("kept_fetch_blocked")], "kept_fetch_blocked": [g["id"] for g in getattr(verification_gate, "graced", []) if g.get("kept_fetch_blocked")], "held_fetch_blocked": [h["id"] for h in getattr(verification_gate, "held", []) or []]}
 if not fresh or (prev and prev["items"] and len(fresh) < 0.8 * len(prev["items"]) and not os.environ.get("FORCE")):
     try:
         import intelligent_rails as _IR
