@@ -44,7 +44,7 @@ const LAYERS={sh:{file:'shelters.js',var:'SHELTERS',col:'#56B4E9',shape:'sq',on:
 const SYM={
  house:'<g class="xmk"><path d="M8 15.5l8-7.5 8 7.5V24H8z" fill="#0A1628"/></g>',
  sun:'<g class="xmk"><circle cx="16" cy="16" r="3.8" fill="#0A1628"/><g stroke="#0A1628" stroke-width="2.4" stroke-linecap="butt"><path d="M16 8v2.8M16 21.2V24M8 16h2.8M21.2 16H24M10.3 10.3l2 2M19.7 19.7l2 2M10.3 21.7l2-2M19.7 12.3l2-2"/></g></g>',
- youth:'<g class="xmk"><text x="16" y="10.5" text-anchor="middle" dominant-baseline="central" font-family="system-ui,Segoe UI,Arial" font-weight="900" font-size="10" fill="#0A1628">16</text><text x="16" y="21.5" text-anchor="middle" dominant-baseline="central" font-family="system-ui,Segoe UI,Arial" font-weight="900" font-size="10" fill="#0A1628">25</text></g>',
+ youth:'<g class="xmk"><text x="16" y="15.3" text-anchor="middle" font-family="system-ui,Segoe UI,Arial" font-weight="900" font-size="10" textLength="15.6" lengthAdjust="spacingAndGlyphs" fill="#0A1628">16</text><text x="16" y="24" text-anchor="middle" font-family="system-ui,Segoe UI,Arial" font-weight="900" font-size="10" textLength="15.6" lengthAdjust="spacingAndGlyphs" fill="#0A1628">25</text></g>',
  food:'<g class="xmk"><path d="M9 13.5h14l-1.3 10.5H10.3z" fill="#0A1628"/><path d="M12 13.5V12a4 4 0 0 1 8 0v1.5" fill="none" stroke="#0A1628" stroke-width="2"/></g>',
  flame:'<g class="xmk"><path d="M16.2 7.2c.4 3.2-2.4 4.6-2.2 8 .2 2.2 2.2 3.2 4.2 2.4 1.2-2.4-.4-4 1.4-6.2 1.8 2.4 2.6 4.8 1.2 7.6a5.2 5.2 0 1 1-9.4-2.8c.8-2.6 2.8-4 4.8-9z" fill="#0A1628"/></g>'};
 const shYouthBlob=i=>{if(!i)return'';const wf=Array.isArray(i.who_for)?i.who_for.join(' '):String(i.who_for||'');return(String(i.name||'')+' '+(i.groups||[]).join(' ')+' '+wf).replace(/\s+/g,' ')};
@@ -86,11 +86,11 @@ bar.innerHTML=seg('fb','#F5C518','tear',true)+seg('sh',LAYERS.sh.col,'sq',false)
 const hdr=document.querySelector('header');hdr.insertBefore(bar,hdr.querySelector('h1').nextSibling);
 const keyRow=(ico,bKey,small)=>`<div class="xkey-row"><span class="xkey-ico" aria-hidden="true">${ico}</span><span class="xkey-txt"><b data-t="${bKey}"></b> ${small}</span></div>`;
 const lg=document.createElement('div');lg.id='xleg';lg.innerHTML=
- keyRow(symSvg('food',28),'fb','<small id="u_fb"></small>')+
- keyRow(symSvg('flame',28),'ws','<small id="u_ws"></small>')+
- keyRow(symSvg('house',28),'sh','<small id="u_sh"></small>')+
- keyRow(symSvg('sun',28),'dayCentre','<small data-t="dayOnly"></small>')+
- keyRow(symSvg('youth',28),'youth','<small data-t="youthOnly"></small>');
+ keyRow(symSvg('food',20),'fb','<small id="u_fb"></small>')+
+ keyRow(symSvg('flame',20),'ws','<small id="u_ws"></small>')+
+ keyRow(symSvg('house',20),'sh','<small id="u_sh"></small>')+
+ keyRow(symSvg('sun',20),'dayCentre','<small data-t="dayOnly"></small>')+
+ keyRow(symSvg('youth',20),'youth','<small data-t="youthOnly"></small>');
 const ft=document.querySelector('footer');const fu=document.createElement('div');fu.id='xupd';ft.prepend(fu);fu.append(...lg.children);
 const lb=document.createElement('button');lb.type='button';lb.id='xlang';hdr.style.position='relative';hdr.prepend(lb);
 document.getElementById('f').after(document.getElementById('msg'));  // search errors show inline under the search box
@@ -164,7 +164,7 @@ function fbAcc(i){let a='';try{if(typeof acc==='function')a=acc(i)}catch(e){}
  if(a==='walkin')return '<span class="xacc xacc-open_access"><span class="v-en">Walk-in</span><span class="v-cy" lang="cy">Galw heibio</span></span>';
  return ''}
 function cardTop(layer,i){const sk=layer==='fb'?'food':layer==='ws'?'flame':symKey(i);
- const sym=`<span class="xmkbox" data-sym="${sk}">${symSvg(sk,28)}</span>`;
+ const sym=`<span class="xmkbox" data-sym="${sk}">${symSvg(sk,26)}</span>`;
  let en,cy;
  if(layer==='sh'){const pillKey=sk==='sun'?'dayCentre':sk==='youth'?'pillYouth':(i.kind==='hostel'||/\bhostel\b/i.test(i.name||''))?'pillHostel':'pillNight';en=T.en[pillKey];cy=T.cy[pillKey]}
  else if(window.UFacts){const p=UFacts.typeOf(layer,i);en=p[0];cy=p[1]}
