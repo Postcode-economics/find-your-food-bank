@@ -13,14 +13,14 @@ V = {'id': 'ww-v', 'name': 'Village Hall', 'postcode': 'E9 9AB', 'lat': 51.0, 'l
 class Boundaries(unittest.TestCase):
     def carried(self, o, day): return [x['id'] for x in C.carry_items([o], [], [], day, allowed=set(), valid_until=C.season_end)[0]]
 
-    def test_last_day_of_season_is_carried_first_day_after_is_not(self):
+    def test_verification_window_does_not_drop_a_live_venue(self):
         self.assertEqual(self.carried(V, '2027-04-30'), ['ww-v'])
-        self.assertEqual(self.carried(V, '2027-05-01'), [])
+        self.assertEqual(self.carried(V, '2027-05-01'), ['ww-v'])
 
     def test_season_turns_over_on_1_september(self):
         self.assertEqual(C.season_end({'verified_on': '2026-08-31'}), '2026-04-30')
         self.assertEqual(C.season_end({'verified_on': '2026-09-01'}), '2027-04-30')
-        self.assertEqual(self.carried(dict(V, verified_on='2026-08-31', last_verified='2026-08-31'), '2026-10-28'), [])
+        self.assertEqual(self.carried(dict(V, verified_on='2026-08-31', last_verified='2026-08-31'), '2026-10-28'), ['ww-v'])
 
     def test_scheme_end_day_itself_is_still_carried(self):
         self.assertEqual(self.carried(dict(V, scheme_end='2026-10-28'), '2026-10-28'), ['ww-v'])

@@ -53,12 +53,12 @@ class Gate(unittest.TestCase):
         self.assertFalse(any(x.get("kept_fetch_blocked") for x in pub))
         pend = json.load(open("logs/shelters_pending.json"))
         self.assertEqual(pend[0]["id"], "man-new")
-        self.assertEqual(pend[0]["reason"], "held this run: fetch blocked, not published before")
+        self.assertEqual(pend[0]["reason"], "held this run: read failed, not published before")
         rep = open("reports/manual_review.md").read()
         self.assertIn("Keep this hand-written line.", rep)
         self.assertIn("<!-- AUTO-DISCOVERY QUEUE: generated, do not edit below -->", rep)
         self.assertIn("man-new", rep)
-        self.assertIn("held this run: fetch blocked, not published before", rep)
+        self.assertIn("held this run: read failed, not published before", rep)
         self.assertNotIn("man-old", rep)
         grace = open("reports/shelters_grace.md").read()
         self.assertIn("man-new", grace)
@@ -104,7 +104,8 @@ class Gate(unittest.TestCase):
         pub = self.gate([row("man-old", checked_on="2026-10-01"), row("man-new")], {"man-old": closed, "man-new": OK}, prev={"items": [old]})
         self.assertEqual([x["id"] for x in pub], ["man-new"])
         pub = self.gate([row("man-old", checked_on="2026-10-01")], {"man-old": BLOCKED}, prev={"items": [dict(old, checked_on="2026-10-01")]})
-        self.assertEqual(pub, [])
+        self.assertEqual([x["id"] for x in pub], ["man-old"])
+        self.assertTrue(pub[0].get("kept_fetch_blocked"))
 
 class Fresh(unittest.TestCase):
     def setUp(self):
@@ -178,7 +179,7 @@ class Fresh(unittest.TestCase):
         rc = json.load(open(self.d + "/logs/shelters_recheck.json"))
         for i in range(5):
             items.append({"id": "s%d" % i, "fetched_at": now})
-            rc["s%d" % i] = {"ok": i < 3, "fetched_at": now}
+            rc["s%d" % i] = {"ok": i < 3, "http": 200, "reason": "confirmed this run" if i < 3 else "source now says closed/ended", "fetched_at": now}
         json.dump(rc, open(self.d + "/logs/shelters_recheck.json", "w"))
         text = js("SHELTERS", items)
         open(self.d + "/shelters.js", "w").write(text)
@@ -196,17 +197,17 @@ class Fresh(unittest.TestCase):
         p = self.go("shelters")
         self.assertEqual(p.returncode, 1)
         self.assertIn("missing", p.stdout)
-    def test_foodbanks_still_fail_on_one_bad_row(self):
+    def test_one_new_food_bank_is_held_and_the_run_continues(self):
         now = datetime.datetime.now(datetime.timezone.utc).replace(microsecond=0).isoformat()
         good = {"id": "fb-ok", "fetched_at": now}
         bad = {"id": "fb-bad", "fetched_at": now}
-        text = js("FB_DATA", [good, bad])
-        open(self.d + "/data.full.js", "w").write(text)
+        self.commit("data.full.js", js("FB_DATA", [good]))
+        open(self.d + "/data.full.js", "w").write(js("FB_DATA", [good, bad]))
         json.dump({"_run": {"fetched_at": now}, "fb-ok": {"ok": True, "fetched_at": now}, "fb-bad": {"ok": False, "http": 403}}, open(self.d + "/logs/foodbank_recheck.json", "w"))
         p = self.go("foodbanks")
-        self.assertEqual(p.returncode, 1, p.stdout + p.stderr)
-        self.assertIn("fb-bad", p.stdout)
-        self.assertEqual(open(self.d + "/data.full.js").read(), text)
+        self.assertEqual(p.returncode, 0, p.stdout + p.stderr)
+        text = open(self.d + "/data.full.js").read()
+        self.assertIn("fb-ok", text); self.assertNotIn("fb-bad", text)
 
 class Guard(unittest.TestCase):
     def test_held_this_run_is_not_restored_and_yesterdays_list_is_not_a_freeze(self):

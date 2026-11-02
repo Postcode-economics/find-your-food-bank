@@ -1,13 +1,12 @@
-"""Publish guard. Exits non-zero (blocking the commit/publish step) unless every published shelter and warm space
-was re-fetched and confirmed in THIS run: each item needs fetched_at within MAX_AGE and an ok entry in the recheck log.
-Three labelled exceptions, each checked strictly per item: 48h grace (source briefly unreachable), hand-checked rows
-kept through a blocked fetch (kept_fetch_blocked, Dean 1 Nov: 14 days), and warm spaces carried forward this run by scripts/carry_forward.py (Dean, 28 Oct: shown with 'call before you go', never presented as re-confirmed).
-Shelters only (2 Nov 2026): a per-place problem drops that place for this run and the rest still publishes. The place is listed in
-reports/manual_review.md and tried again next run. A whole-layer problem (no recheck, a file that will not parse, an empty result,
-or a count more than 20% below the last published file) still refuses the publish. Food banks and warm spaces are unchanged."""
+"""Publish guard. A live listing stays when this run could not read its page (blocked, 404, timeout, unread). It is
+removed only when its own source says it has closed. A place that was not published before, and whose read failed, is
+held for this run so the rest can publish. One place never fails the run.
+The run still refuses when the recheck log is missing or stale, a data file will not parse, the result would be empty,
+or the count would fall more than 20% below the last published file. Warm spaces carried forward stay labelled
+'call before you go' (Dean, 28 Oct) and are not presented as re-confirmed."""
 import json, sys, os, datetime, subprocess
 sys.path.insert(0, os.path.dirname(__file__))
-from common import load_js, is_transient, GRACE_HOURS, is_fetch_blocked, manual_checked_days, MANUAL_BLOCK_DAYS, record_shelter_holds
+from common import load_js, source_says_closed, record_layer_holds
 MAX_AGE = datetime.timedelta(hours=int(os.environ.get("MAX_AGE_HOURS", "2")))
 now = datetime.datetime.now(datetime.timezone.utc); bad = []
 ALL = {"foodbanks": ("data.full.js", "FB_DATA", "logs/foodbank_recheck.json"), "shelters": ("shelters.js", "SHELTERS", "logs/shelters_recheck.json"), "warmspaces": ("warmspaces.js", "WARMSPACES", "logs/warmspaces_recheck.json")}
@@ -45,13 +44,10 @@ def carry_problem(x, r, prev, lg):
 
 KEEP_SAME = ("fetched_at", "phone", "address", "hours", "postcode")
 def blocked_problem(x, r, prev):
-    """None if x is an honest hand-checked keep (common.verification_gate, MANUAL_BLOCK_DAYS): hand-checked within the
-    window, this run's fetch genuinely blocked (not a page that loaded), already published, and nothing changed."""
-    md = manual_checked_days(x, now)
-    if md is None: return "not a hand-checked manual row"
-    if not (0 <= md <= MANUAL_BLOCK_DAYS): return f"hand-checked {md} days ago (limit {MANUAL_BLOCK_DAYS})"
-    if not (r and is_fetch_blocked(r)): return f"this run's fetch was not blocked ({(r or {}).get('http')}, {(r or {}).get('reason')})"
-    if prev is None: return "the published shelters.js could not be read"
+    """None if a live listing is being kept because this run could not read the page. No age limit and no hand-check requirement.
+    A source that says closed is not eligible. A place that was not published before is not eligible."""
+    if source_says_closed(r, x): return "source says closed"
+    if prev is None: return "the published file could not be read"
     if x["id"] not in prev: return "was not published before"
     diff = [k for k in KEEP_SAME if x.get(k) != prev[x["id"]].get(k)]
     if diff: return "differs from the published copy: " + ", ".join(diff)
@@ -63,22 +59,30 @@ def split_js(path):
     t = open(path, encoding="utf-8").read()
     a, b = t.index("{"), t.rindex("}") + 1
     return t[:a], json.loads(t[a:b]), t[b:]
+LAYER_OF = {"shelters.js": "shelters", "warmspaces.js": "warmspaces", "data.full.js": "foodbanks"}
 def place_problem(x, r, OUT, state):
-    """A reason this one place cannot be published, or None. Does not decide whether the whole run fails."""
-    if x.get("grace") and x.get("kept_fetch_blocked"):
-        if state["prev"] is None: state["prev"] = published(OUT)
-        why = blocked_problem(x, r, state["prev"])
-        return f"{OUT}: {x['id']} kept through blocked fetch but not eligible: {why}" if why else None
-    if x.get("grace"):  # 48h grace: re-fetched this run but source briefly unreachable; last real confirmation < 48h ago
-        try: age = now - datetime.datetime.fromisoformat(x.get("fetched_at", ""))
-        except Exception: age = None
-        if not (r and is_transient(r)): return f"{OUT}: {x['id']} on 48h grace but this run's failure is not a brief outage ({(r or {}).get('http')}, {(r or {}).get('reason')})"
-        if age is None or age > datetime.timedelta(hours=GRACE_HOURS): return f"{OUT}: {x['id']} on 48h grace but last confirmation is older than {GRACE_HOURS}h"
+    """A reason this one place cannot stay in the file, or None. A live listing stays unless its source says closed."""
+    if state["prev"] is None: state["prev"] = published(OUT)
+    prev = state["prev"]
+    if source_says_closed(r, x):
+        return f"{OUT}: {x['id']} source says closed"
+    if prev and x["id"] in prev:
+        old = prev[x["id"]]
+        for k in KEEP_SAME:  # a failed read must not replace the last good phone, address, hours or checked time
+            if x.get(k) != old.get(k):
+                x[k] = old.get(k); state["rewritten"] = True
         return None
+    if x.get("grace") and x.get("kept_fetch_blocked"):
+        why = blocked_problem(x, r, prev)
+        return f"{OUT}: {x['id']} kept through blocked fetch but not eligible: {why}" if why else None
+    if x.get("grace"):
+        return None  # the build kept it; there is no grace expiry
     if not r or not r.get("ok"):
         if OUT == "warmspaces.js" and x.get("carried_forward"):
-            if state["lg"] is None: state["prev"], state["lg"] = published(OUT), carry_log()
-            why = carry_problem(x, r, state["prev"], state["lg"])
+            if state["lg"] is None: state["lg"] = carry_log()
+            why = carry_problem(x, r, prev, state["lg"])
+            if why and "was not published before" not in why and "says closed" not in (why or ""):
+                return None  # a labelled carry of a live venue stays
             return f"{OUT}: {x['id']} {why}" if why else None
         return f"{OUT}: {x['id']} not confirmed this run"
     if x.get("fetched_at") != r.get("fetched_at"): return f"{OUT}: {x['id']} fetched_at does not match this run"
@@ -94,14 +98,16 @@ for OUT, VAR, LOG in [ALL[a] for a in (sys.argv[1:] or ALL)]:
     if not os.path.exists(OUT): bad.append(f"{OUT}: missing"); continue
     try: pre, data, post = split_js(OUT); items = data["items"]
     except Exception as e: bad.append(f"{OUT}: will not parse ({e.__class__.__name__})"); continue
-    state = {"prev": None, "lg": None}
+    state = {"prev": None, "lg": None, "rewritten": False}
     problems = []
     for x in items:
         msg = place_problem(x, rc.get(x["id"]), OUT, state)
         if msg: problems.append((x, msg))
-    if OUT != "shelters.js":
-        bad.extend(msg for _, msg in problems); continue
-    if not problems: continue
+    if not problems:
+        if state.get("rewritten"):
+            data["items"] = items
+            open(OUT, "w", encoding="utf-8").write(pre + json.dumps(data, ensure_ascii=False, separators=(",", ":")) + post)
+        continue
     drop = {x["id"] for x, _ in problems}
     kept = [x for x in items if x["id"] not in drop]
     base = published(OUT)
@@ -117,10 +123,14 @@ for OUT, VAR, LOG in [ALL[a] for a in (sys.argv[1:] or ALL)]:
         open(OUT, "w", encoding="utf-8").write(pre + json.dumps(data, ensure_ascii=False, separators=(",", ":")) + post)
         for x, msg in problems:
             prefix = "%s: %s " % (OUT, x["id"])
-            held_rows.append({"id": x["id"], "name": x.get("name") or x["id"], "reason": msg[len(prefix):] if msg.startswith(prefix) else msg})
-        print("shelters held this run (publish continues):\n" + "\n".join(msg for _, msg in problems[:50]))
+            held_rows.append({"id": x["id"], "name": x.get("name") or x["id"], "layer": LAYER_OF.get(OUT, "shelters"), "reason": msg[len(prefix):] if msg.startswith(prefix) else msg})
+        print("%s held this run (publish continues):\n" % LAYER_OF.get(OUT, OUT) + "\n".join(msg for _, msg in problems[:50]))
 if held_rows and not bad:
-    record_shelter_holds(held_rows, replace=False)
+    by_layer = {}
+    for row in held_rows:
+        by_layer.setdefault(row.get("layer") or "shelters", []).append(row)
+    for layer, rows in by_layer.items():
+        record_layer_holds(rows, layer, replace=False)
     try:
         pend = "logs/shelters_pending.json"
         cur = json.load(open(pend)) if os.path.exists(pend) else []

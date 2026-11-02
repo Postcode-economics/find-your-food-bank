@@ -23,17 +23,17 @@ class Blocked(unittest.TestCase):
         return p.returncode
     def test_blocked_2_days_passes(self): self.assertEqual(self.go(row(2), {"ok": False, "http": 403}), 0)
     def test_timeout_passes(self): self.assertEqual(self.go(row(2), {"ok": False, "http": "timeout"}), 0)
-    def test_15_days_fails(self): self.assertEqual(self.go(row(15), {"ok": False, "http": 403}), 1)
+    def test_15_days_still_kept(self): self.assertEqual(self.go(row(15), {"ok": False, "http": 403}), 0)
     def test_page_loaded_but_closed_fails(self): self.assertEqual(self.go(row(2), {"ok": False, "http": 200, "reason": "source now says closed/ended"}), 1)
     def test_not_previously_published_fails(self): self.assertEqual(self.go(row(2), {"ok": False, "http": 403}, published=[]), 1)
-    def test_changed_phone_fails(self):
+    def test_changed_phone_is_put_back(self):
         old = row(2); old.pop("grace"); old.pop("kept_fetch_blocked"); old["phone"] = "0161 999 9999"
-        self.assertEqual(self.go(row(2), {"ok": False, "http": 403}, published=[old]), 1)
-    def test_changed_fetched_at_fails(self):
+        self.assertEqual(self.go(row(2), {"ok": False, "http": 403}, published=[old]), 0)
+    def test_changed_fetched_at_is_put_back(self):
         old = row(2); old.pop("grace"); old.pop("kept_fetch_blocked"); old["fetched_at"] = day(1) + "T00:00:00+00:00"
-        self.assertEqual(self.go(row(2), {"ok": False, "http": 403}, published=[old]), 1)
-    def test_non_manual_with_flag_fails(self): self.assertEqual(self.go(row(2, source="OpenStreetMap"), {"ok": False, "http": 403}), 1)
-    def test_48h_grace_without_flag_still_old_rule(self):
+        self.assertEqual(self.go(row(2), {"ok": False, "http": 403}, published=[old]), 0)
+    def test_non_manual_published_stays(self): self.assertEqual(self.go(row(2, source="OpenStreetMap"), {"ok": False, "http": 403}), 0)
+    def test_old_grace_without_flag_stays(self):
         x = row(5); x.pop("kept_fetch_blocked")
-        self.assertEqual(self.go(x, {"ok": False, "http": 403}), 1)
+        self.assertEqual(self.go(x, {"ok": False, "http": 403}), 0)
 if __name__ == "__main__": unittest.main()

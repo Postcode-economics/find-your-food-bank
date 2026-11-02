@@ -79,9 +79,9 @@ def ws_not_restorable(run_day, root=None, closed_ids=()):
     for i in closed_ids: nc.setdefault(i, 'closed')
     return nc
 
-def _shelter_holds(root, run_day):
-    """Ids the shelter build or verify_fresh left off this run. A log from another day is ignored, so nothing stays frozen."""
-    path = os.path.join(root or ROOT, "logs", "shelters_held.json")
+def _layer_holds(layer, root, run_day):
+    """Ids this run left off on purpose (never published, or the source said closed). Another day's file is ignored."""
+    path = os.path.join(root or ROOT, "logs", "%s_held.json" % layer)
     try:
         lg = json.load(open(path, encoding="utf-8"))
     except Exception:
@@ -101,13 +101,13 @@ def guard(layer, old_items, new_items, run_day=None, closed_ids=(), root=None):
     new = {i['id']: i for i in new_items}
     mv = moved_index(new_items)
     moved = lambda o: moved_to(o, mv) is not None
-    held_sh = _shelter_holds(root, run_day) if layer == 'shelters' else {}
+    held_sh = _layer_holds(layer, root, run_day)
     out = list(new_items); rep = {'places': [], 'phones': [], 'times': []}
     for o in old_items:
         n = new.get(o['id'])
         if n is None:
             if removal_ok(o, ok, ex) or moved(o): continue
-            if layer == 'shelters' and o['id'] in held_sh:  # left out on purpose this run; the next refresh tries it again
+            if o['id'] in held_sh:  # left off on purpose this run (new and unread, or the source said closed)
                 rep.setdefault('not_restored', []).append({'id': o['id'], 'why': held_sh[o['id']]}); continue
             if layer == 'warmspaces':  # never undo the build's deliberate drops; a restored venue gets carry-forward's label + link check
                 why = skip_ws.get(o['id']) or CF.why_not(o, run_day, valid_until=CF.season_end)
