@@ -50,8 +50,23 @@ class Workflow(unittest.TestCase):
         self.assertIn('git diff --no-renames --name-only', self.y)
         self.assertIn('no picker on main: full suite', self.y)
         self.assertIn('|| sel=ALL', self.y)
-        for ev in ('refs/heads/main', 'schedule', 'workflow_dispatch'):
-            self.assertIn(ev, self.y)
+        self.assertIn('"${changed[@]}"', self.y)  # changed files passed quoted
+        self.assertNotIn('select_tests.py $files', self.y)
+
+    def test_only_pull_request_narrows(self):
+        # Push runs share the cancel group with PR runs; a push run diffing only its last push must not narrow.
+        self.assertNotIn('github.event.before', self.y)
+        bases = re.findall(r'base=\$\{\{([^}]*)\}\}', self.y)
+        self.assertTrue(bases)
+        for b in bases:
+            self.assertEqual(b.strip(), 'github.event.pull_request.base.sha')
+        pick = self.y[self.y.index('name: Pick tests'):]
+        pick = pick[:pick.index('selected_tests.txt')]
+        self.assertIn('[ "${{ github.event_name }}" = "pull_request" ]', pick)
+        ch = self.y[self.y.index('quick=0'):]
+        ch = ch[:ch.index('quick=1')]
+        self.assertIn('[ "${{ github.event_name }}" = "pull_request" ]', ch)
+        self.assertIn('base=""', self.y[:self.y.index('quick=0')])
 
 
 if __name__ == '__main__':
