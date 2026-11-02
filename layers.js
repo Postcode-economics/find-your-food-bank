@@ -44,8 +44,8 @@ const LAYERS={sh:{file:'shelters.js',var:'SHELTERS',col:'#56B4E9',shape:'sq',on:
 const SYM={
  house:'<g class="xmk"><path d="M8 15.5l8-7.5 8 7.5V24H8z" fill="#0A1628"/></g>',
  sun:'<g class="xmk"><circle cx="16" cy="16" r="3.8" fill="#0A1628"/><g stroke="#0A1628" stroke-width="2.4" stroke-linecap="butt"><path d="M16 8v2.8M16 21.2V24M8 16h2.8M21.2 16H24M10.3 10.3l2 2M19.7 19.7l2 2M10.3 21.7l2-2M19.7 12.3l2-2"/></g></g>',
- youth:'<g class="xmk"><text x="16" y="15.3" text-anchor="middle" font-family="system-ui,Segoe UI,Arial" font-weight="900" font-size="10" textLength="15.6" lengthAdjust="spacingAndGlyphs" fill="#0A1628">16</text><text x="16" y="24" text-anchor="middle" font-family="system-ui,Segoe UI,Arial" font-weight="900" font-size="10" textLength="15.6" lengthAdjust="spacingAndGlyphs" fill="#0A1628">25</text></g>',
- food:'<g class="xmk"><path d="M9 13.5h14l-1.3 10.5H10.3z" fill="#0A1628"/><path d="M12 13.5V12a4 4 0 0 1 8 0v1.5" fill="none" stroke="#0A1628" stroke-width="2"/></g>',
+ youth:'<g class="xmk"><text x="16" y="15.3" text-anchor="middle" font-family="system-ui,Segoe UI,Arial" font-weight="900" font-size="10" fill="#0A1628">16</text><text x="16" y="24" text-anchor="middle" font-family="system-ui,Segoe UI,Arial" font-weight="900" font-size="10" fill="#0A1628">25</text></g>',
+ food:'<g class="xmk"><path d="M9 13.5h14l-1.3 10.5H10.3z" fill="#F5C518" stroke="#0A1628" stroke-width="1"/><path d="M12 13.5V12a4 4 0 0 1 8 0v1.5" fill="#F5C518" stroke="#0A1628" stroke-width="2"/></g>',
  flame:'<g class="xmk"><path d="M16.2 7.2c.4 3.2-2.4 4.6-2.2 8 .2 2.2 2.2 3.2 4.2 2.4 1.2-2.4-.4-4 1.4-6.2 1.8 2.4 2.6 4.8 1.2 7.6a5.2 5.2 0 1 1-9.4-2.8c.8-2.6 2.8-4 4.8-9z" fill="#0A1628"/></g>'};
 const shYouthBlob=i=>{if(!i)return'';const wf=Array.isArray(i.who_for)?i.who_for.join(' '):String(i.who_for||'');return(String(i.name||'')+' '+(i.groups||[]).join(' ')+' '+wf).replace(/\s+/g,' ')};
 const shYouth=i=>{const U=window.UFacts;if(U&&U.isYouth)return U.isYouth(i);if(!i||i.kind==='young_people')return!!(i&&i.kind==='young_people');const name=String(i.name||''),blob=shYouthBlob(i);return/\bfoyers?\b/i.test(blob)||/\byoung people\b/i.test(blob)||/\byouth\b/i.test(blob)||/Age\s*16\s*[-–]\s*25/i.test(blob)||/16\s*[-–to]{1,3}\s*25/i.test(blob)||/1[678]\s*[-–to]{1,3}\s*2[0-9]/i.test(blob)||(/\bhousing\b/i.test(name)&&/16\s*[-–to]{1,3}\s*25/i.test(blob))||/young people'?s housing/i.test(blob)};
@@ -63,7 +63,12 @@ const SYM_SHELL={
 const symSvg=(key,px,grey)=>{
  const sh=SYM_SHELL[key]||SYM_SHELL.house;const inner=SYM[key]||'';
  const fill=grey?'#7a8496':sh.fill;
- return `<svg ${px?`width="${px}" height="${px}" `:''}viewBox="1.6 1.6 28.8 28.8" aria-hidden="true"><path d="${sh.d}" fill="${fill}" stroke="#0A1628" stroke-width="2.5"/>${inner}</svg>`};
+ const shell=`<path d="${sh.d}" fill="${fill}" stroke="#0A1628" stroke-width="2.5"/>`;
+ /* Warm-space cards and the key stay a 28px box. The map pin is the same drawing at 34px, so scale the
+    graphic around the viewBox centre until the painted diamond matches that pin. The pin call (34) is unscaled. */
+ const zoom=key==='flame'&&px&&+px!==34;
+ const body=zoom?`<g transform="translate(16 16) scale(${34/+px}) translate(-16 -16)">${shell}${inner}</g>`:shell+inner;
+ return `<svg ${px?`width="${px}" height="${px}" `:''}viewBox="1.6 1.6 28.8 28.8"${zoom?' overflow="visible"':''} aria-hidden="true">${body}</svg>`};
 window.symSvg=symSvg;
 window.SYM=SYM;
 window.SYM_SHELL=SYM_SHELL;
@@ -208,7 +213,7 @@ function detail(k,i,dist){const tel0=(i.phone||'').replace(/[^\d+]/g,''),tel=i.t
  ${window.repB?repB(k,i):''}
  ${contact.rest?`<div class="xafter">${contact.rest}</div>`:''}
  ${shSource(i)}`}
-function fitSym(root){(root||document).querySelectorAll('.xtop').forEach(row=>{const pill=row.querySelector('.utag,.xkind'),svg=row.querySelector('.xmkbox svg'),sp=row.querySelector('.xmkbox');if(!pill||!svg||!sp)return;sp.style.marginTop='0px';const h=pill.getBoundingClientRect().height;if(!(h>1))return;const px=Math.round(h*100)/100;svg.style.width=px+'px';svg.style.height=px+'px';svg.setAttribute('width',px);svg.setAttribute('height',px);const tr=pill.getBoundingClientRect(),sr=svg.getBoundingClientRect();sp.style.marginTop=(tr.top-sr.top)+'px'})}
+function fitSym(root){(root||document).querySelectorAll('.xtop').forEach(row=>{const pill=row.querySelector('.utag,.xkind'),svg=row.querySelector('.xmkbox svg'),sp=row.querySelector('.xmkbox');if(!pill||!svg||!sp)return;sp.style.marginTop='0px';svg.setAttribute('width','28');svg.setAttribute('height','28');const tr=pill.getBoundingClientRect(),sr=svg.getBoundingClientRect();sp.style.marginTop=(tr.top-sr.top)+'px'})}
 window.fitSym=fitSym;
 function showSheet(html){if(!html||!/<h3[\s>]/.test(html)){if(window.closeSheet)closeSheet();return}const s=document.getElementById('sheet');document.getElementById('sheetBody').innerHTML=`<div class="card">${html}</div>`;s.classList.add('open');s.setAttribute('aria-hidden','false');fitSym(s)}
 function sheetEmpty(){const s=document.getElementById('sheet');return !!(s&&s.classList.contains('open')&&!((document.querySelector('#sheetBody h3')||{}).textContent||'').trim())}

@@ -188,7 +188,7 @@ class ShellInventory(unittest.TestCase):
         self.assertIn('index.html', shell)
         self.assertIn('layers.js?v=' + lh, shell)
         self.assertEqual(sorted(x for x in shell if '?v=' in x), sv.wanted_versioned(html))
-        self.assertIn("const C='fyfb-v99'", sw)
+        self.assertIn("const C='fyfb-v100'", sw)
 
 
 if __name__ == '__main__':
