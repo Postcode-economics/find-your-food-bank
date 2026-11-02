@@ -160,7 +160,9 @@ def verification_gate(fresh, prev, verified, run_day, pending_path, autocheck=No
             for k in ("phone", "address", "access", "postcode", "lat", "lng", "hours", "evidence_name", "scheme_start", "scheme_end", "scheme_dates"):  # pin/address fixes persist nightly
                 if v.get(k): x[k] = v[k]
             x["tier"] = "verified"
-            if grace: x["grace"] = True; x["fetched_at"] = LC[x["id"]]
+            if grace:
+                x["grace"] = True; x["fetched_at"] = LC[x["id"]]
+                if blocked: x["kept_fetch_blocked"] = True  # internal marker read by verify_fresh; no public label
             elif rc and rc.get("ok"):  # Dean: every successful re-check moves the shown checked date forward
                 x["first_verified_on"] = v.get("verified_on", ""); x["verified_on"] = x["last_verified"] = run_day
             if not grace and rc: x["fetched_at"] = rc.get("fetched_at"); x["recheck"] = {k: rc.get(k) for k in ("times_found", "days_found", "postcode_found", "referral_found")}
@@ -180,7 +182,9 @@ def verification_gate(fresh, prev, verified, run_day, pending_path, autocheck=No
             # Tier 2: confirmed open/accessible some other way (sign of life), no stated hours or formal page.
             u = unverified[x["id"]]; x = dict(x); x["tier"] = "unverified"; x["verified"] = False
             x["sign_url"] = u["sign_url"]; x["checked_on"] = (rc or {}).get("fetched_at", "")[:10] or u.get("checked_on", "")
-            if grace: x["grace"] = True; x["fetched_at"] = LC[x["id"]]; x["checked_on"] = LC[x["id"]][:10]
+            if grace:
+                x["grace"] = True; x["fetched_at"] = LC[x["id"]]; x["checked_on"] = LC[x["id"]][:10]
+                if blocked: x["kept_fetch_blocked"] = True
             elif rc: x["fetched_at"] = rc.get("fetched_at")
             if rc and rc.get("ok") and not grace: x["last_verified"] = run_day
             if u.get("access_type"): x["access_type"] = u["access_type"]
