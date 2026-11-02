@@ -42,10 +42,10 @@ label.tog{display:flex;width:100%;min-height:48px;align-items:center;gap:10px;cu
 /* Map key under Share: one flex row per entry, icon 20px top-aligned, text wraps in normal flow (Dean 1 Nov 2026). */
 #xupd{display:flex;flex-direction:column;flex-wrap:nowrap;gap:2px;margin-bottom:8px;width:100%;box-sizing:border-box}
 #xupd .xkey-row{display:flex;align-items:flex-start;gap:8px;width:100%;position:relative}
-#xupd .xkey-ico{flex:0 0 20px;width:20px;display:flex;align-items:flex-start;justify-content:center;line-height:0;margin-top:.15em}
-#xupd .xkey-ico svg{width:20px;height:20px;display:block;flex:0 0 20px}
-#xupd .xkey-ico .sw{width:20px;height:20px;flex:0 0 20px;margin:0}
-#xupd .xkey-ico .sw.dia{width:18px;height:18px;flex:0 0 18px;margin-top:1px}
+#xupd .xkey-ico{flex:0 0 28px;width:28px;display:flex;align-items:flex-start;justify-content:center;line-height:0;margin-top:.15em}
+#xupd .xkey-ico svg{width:28px;height:28px;display:block;flex:0 0 28px}
+#xupd .xkey-ico .sw{width:28px;height:28px;flex:0 0 28px;margin:0}
+#xupd .xkey-ico .sw.dia{width:28px;height:28px;flex:0 0 28px;margin:0;transform:none}
 #xupd .xkey-txt{flex:1;min-width:0}
 #xupd b{color:#F2F4F8}
 #sheet{padding-top:48px!important}#sheet .handle{position:absolute;top:0;left:56px;right:56px;height:48px;margin:0!important;background:transparent}
