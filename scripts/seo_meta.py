@@ -72,7 +72,7 @@ def dataset(iso):
         'name': 'helpmap.uk: UK food banks, homeless shelters and warm spaces',
         'description': 'Free map data of UK food banks, homeless shelters, day centres, young people\'s housing and warm spaces, with addresses, phone numbers and opening times. '
                        'Almost every listing is checked three times a day against its own source page, and a deep sweep three times a day looks for new places. '
-                       'We also monitor the severe weather and homelessness pages of all 383 UK councils on every shelter refresh, '
+                       'We also monitor the severe weather and homelessness pages of all 382 UK councils on every shelter refresh, '
                        'and every 10 minutes we read Met Office, Environment Agency, SEPA, Natural Resources Wales and UK Emergency Alerts warnings '
                        'so emergency rest centres (ERCs) opened for floods, storms and other major incidents are picked up quickly.',
         'url': SITE + '/', 'isAccessibleForFree': True, 'inLanguage': ['en-GB', 'cy'], 'spatialCoverage': {'@type': 'Place', 'name': 'United Kingdom'},
