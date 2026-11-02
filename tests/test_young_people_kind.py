@@ -22,7 +22,7 @@ class Kind(unittest.TestCase):
         L = _r("layers.js")
         self.assertIn("youth:'Young people’s housing (16–25), referral needed'", L)
         self.assertIn("youth:'Tai i bobl ifanc (16–25), angen atgyfeiriad'", L)
-        self.assertIn("keyRow(symSvg('youth',20),'youth'", L)  # key line (flex row, data-t youth)
+        self.assertIn("keyRow(symSvg('youth',28),'youth'", L)  # key line (flex row, data-t youth)
         self.assertIn("i.kind==='young_people'", L)
         self.assertIn("pillYouth", L)
         self.assertIn('class="xmkbox" data-sym="${sk}"', L)
