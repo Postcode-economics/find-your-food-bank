@@ -1,8 +1,7 @@
 """Publish guard. Exits non-zero (blocking the commit/publish step) unless every published shelter and warm space
 was re-fetched and confirmed in THIS run: each item needs fetched_at within MAX_AGE and an ok entry in the recheck log.
-Three labelled exceptions, each checked strictly per item: 48h grace (source briefly unreachable), hand-checked manual
-rows kept through a blocked fetch for MANUAL_BLOCK_DAYS (Dean, 1 Nov), and warm spaces carried forward this run by
-scripts/carry_forward.py (Dean, 28 Oct: shown with 'call before you go', never presented as re-confirmed)."""
+Three labelled exceptions, each checked strictly per item: 48h grace (source briefly unreachable), hand-checked rows
+kept through a blocked fetch (kept_fetch_blocked, Dean 1 Nov: 14 days), and warm spaces carried forward this run by scripts/carry_forward.py (Dean, 28 Oct: shown with 'call before you go', never presented as re-confirmed)."""
 import json, sys, os, datetime, subprocess
 sys.path.insert(0, os.path.dirname(__file__))
 from common import load_js, is_transient, GRACE_HOURS, is_fetch_blocked, manual_checked_days, MANUAL_BLOCK_DAYS
@@ -41,6 +40,20 @@ def carry_problem(x, r, prev, lg):
     if r and (r.get("reason") or "") in CLOSED: return "carried but source says closed/ended this run"
     return None
 
+KEEP_SAME = ("fetched_at", "phone", "address", "hours", "postcode")
+def blocked_problem(x, r, prev):
+    """None if x is an honest hand-checked keep (common.verification_gate, MANUAL_BLOCK_DAYS): hand-checked within the
+    window, this run's fetch genuinely blocked (not a page that loaded), already published, and nothing changed."""
+    md = manual_checked_days(x, now)
+    if md is None: return "not a hand-checked manual row"
+    if not (0 <= md <= MANUAL_BLOCK_DAYS): return f"hand-checked {md} days ago (limit {MANUAL_BLOCK_DAYS})"
+    if not (r and is_fetch_blocked(r)): return f"this run's fetch was not blocked ({(r or {}).get('http')}, {(r or {}).get('reason')})"
+    if prev is None: return "the published shelters.js could not be read"
+    if x["id"] not in prev: return "was not published before"
+    diff = [k for k in KEEP_SAME if x.get(k) != prev[x["id"]].get(k)]
+    if diff: return "differs from the published copy: " + ", ".join(diff)
+    return None
+
 for OUT, VAR, LOG in [ALL[a] for a in (sys.argv[1:] or ALL)]:
     if not os.path.exists(LOG): bad.append(f"{LOG} missing"); continue
     rc = json.load(open(LOG)); run = rc.get("_run", {})
@@ -48,16 +61,16 @@ for OUT, VAR, LOG in [ALL[a] for a in (sys.argv[1:] or ALL)]:
     prev = lg = None
     for x in load_js(OUT, VAR)["items"]:
         r = rc.get(x["id"])
+        if x.get("grace") and x.get("kept_fetch_blocked"):
+            if prev is None: prev = published(OUT)
+            why = blocked_problem(x, r, prev)
+            if why: bad.append(f"{OUT}: {x['id']} kept through blocked fetch but not eligible: {why}")
+            continue
         if x.get("grace"):  # 48h grace: re-fetched this run but source briefly unreachable; last real confirmation < 48h ago
             try: age = now - datetime.datetime.fromisoformat(x.get("fetched_at", ""))
             except Exception: age = None
-            ok48 = bool(r and is_transient(r) and age is not None and age <= datetime.timedelta(hours=GRACE_HOURS))
-            # Same rule as common.verification_gate (Dean, 1 Nov 2026): a hand-checked manual row survives a blocked
-            # fetch (403/429/5xx/timeout) for MANUAL_BLOCK_DAYS from its checked_on date. Checked per item, never page-wide.
-            md = manual_checked_days(x, now)
-            ok_blocked = bool(r and is_fetch_blocked(r) and md is not None and 0 <= md <= MANUAL_BLOCK_DAYS)
-            if not (ok48 or ok_blocked):
-                bad.append(f"{OUT}: {x['id']} on grace but not eligible (not a 48h outage, nor a hand-checked row with a blocked fetch within {MANUAL_BLOCK_DAYS} days)")
+            if not (r and is_transient(r)): bad.append(f"{OUT}: {x['id']} on 48h grace but this run's failure is not a brief outage ({(r or {}).get('http')}, {(r or {}).get('reason')})")
+            elif age is None or age > datetime.timedelta(hours=GRACE_HOURS): bad.append(f"{OUT}: {x['id']} on 48h grace but last confirmation is older than {GRACE_HOURS}h")
             continue
         if not r or not r.get("ok"):
             if OUT == "warmspaces.js" and x.get("carried_forward"):
