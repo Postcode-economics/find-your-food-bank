@@ -102,8 +102,13 @@ jobs:
           base=${{ github.event.pull_request.base.sha || github.event.before }}
           sel=ALL
           if [ "${{ github.ref }}" != "refs/heads/main" ] && [ "${{ github.event_name }}" != "schedule" ] && [ "${{ github.event_name }}" != "workflow_dispatch" ] \
-             && [ -n "$base" ] && [ "$base" != "0000000000000000000000000000000000000000" ] && files=$(git diff --name-only "$base" HEAD); then
-            sel=$(python scripts/select_tests.py $files) || sel=ALL
+             && [ -n "$base" ] && [ "$base" != "0000000000000000000000000000000000000000" ] && files=$(git diff --no-renames --name-only "$base" HEAD); then
+            # Run main's copy of the picker, so a PR cannot change which tests it gets. No picker on main -> full suite.
+            if git show origin/main:scripts/select_tests.py > /tmp/select_tests.py 2>/dev/null && [ -s /tmp/select_tests.py ]; then
+              cp /tmp/select_tests.py scripts/.select_tests_main.py
+              sel=$(python scripts/.select_tests_main.py $files) || sel=ALL
+              rm -f scripts/.select_tests_main.py
+            else echo "no picker on main: full suite"; fi
           else echo "main, nightly, manual or no base: full suite"; fi
           [ -n "$sel" ] || sel=ALL
           printf '%s\n' "$sel" > selected_tests.txt

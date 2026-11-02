@@ -5,13 +5,14 @@ Prints either "ALL" or the test files to run, one per line. Rules:
   * a changed tests/test_*.py runs itself;
   * any other file maps to every test that names it (module name for scripts/*.py, file
     name otherwise), following scripts that import a changed script, transitively;
-  * shared test helpers, fixtures, CI config, requirements, or ANY file no test names -> ALL.
+  * shared test helpers, CI config, requirements, this picker, scripts/common.py, overrides/, and
+    any .js/.html/.css (site, sw.js, data*.js, shelters.js, warmspaces.js), or ANY file no test names -> ALL.
 Main, the nightly run and manual runs always run ALL (see tests.yml).
 """
 import os, re, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-ALWAYS_ALL = re.compile(r'^(\.github/|requirements[^/]*\.txt$|pytest\.ini$|pyproject\.toml$|setup\.cfg$|conftest\.py$|tests/(?!test_)[^/]+$|tests/conftest\.py$)')
+ALWAYS_ALL = re.compile(r'^(\.github/|scripts/select_tests\.py$|scripts/common\.py$|overrides/|[^/]*\.(?:js|html|css)$|.*/[^/]*\.(?:js|html|css)$|requirements[^/]*\.txt$|pytest\.ini$|pyproject\.toml$|setup\.cfg$|conftest\.py$|tests/(?!test_)[^/]+$|tests/conftest\.py$)')
 
 def read(p):
     try:
