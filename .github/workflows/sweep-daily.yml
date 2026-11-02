@@ -38,8 +38,6 @@ jobs:
         continue-on-error: true
         timeout-minutes: 35
         run: python scripts/times_finder.py --render
-      - name: Stamp this run's UK date and time (footer last updated / checked)
-        run: python scripts/stamp.py write sweep && python scripts/stamp.py verify
       - name: Page dates - WebPage/Dataset/FAQ JSON-LD dateModified, home 'Updated' line, sitemap.xml lastmod (fail-safe)
         continue-on-error: true
         run: python scripts/seo_meta.py
@@ -52,6 +50,8 @@ jobs:
           /tmp/suite/bin/python -m pytest -q tests
       - name: Validate before publishing (a failure stops the push)
         run: python scripts/validate.py gate
+      - name: Stamp this run's UK date and time (footer last updated / checked)
+        run: python scripts/stamp.py write sweep && python scripts/stamp.py verify
       - name: Commit new entries and the sweep log
         id: commit
         run: |
