@@ -136,7 +136,7 @@ class LiveShelterChips(unittest.TestCase):
     def test_footer_key_row_order_in_layers_js(self):
         js = open(os.path.join(ROOT, 'layers.js'), encoding='utf-8').read()
         fb = js.index("keyRow(symSvg('food',28)")
-        ws = js.index("keyRow(symSvg('flame',28)")
+        ws = js.index("keyRow(symSvg('flame',34)")
         sh = js.index("keyRow(symSvg('house',28),'sh'")
         day = js.index("keyRow(symSvg('sun',28),'dayCentre'")
         youth = js.index("keyRow(symSvg('youth',28),'youth'")

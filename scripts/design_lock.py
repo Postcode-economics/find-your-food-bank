@@ -234,11 +234,10 @@ KEY_JS = r"""()=>{const bad=[];
  if(youth&&!youth.querySelector('.xkey-ico svg text')) bad.push('youth key missing 16/25 symbol');
  const keySvgs=[...document.querySelectorAll('#xupd .xkey-row .xkey-ico svg')];
  if(keySvgs.length===5){
-  const boxes=keySvgs.map(s=>s.getBoundingClientRect());
-  const w=boxes[0].width,h=boxes[0].height;
-  for(let i=1;i<boxes.length;i++) if(Math.abs(boxes[i].width-w)>0.5||Math.abs(boxes[i].height-h)>0.5) bad.push('key icon box row '+i+' '+boxes[i].width.toFixed(1)+'x'+boxes[i].height.toFixed(1)+' vs '+w.toFixed(1)+'x'+h.toFixed(1));
-  if(innerWidth<=430&&(Math.abs(w-28)>0.5||Math.abs(h-28)>0.5)) bad.push('key icons not 28px box '+w.toFixed(1)+'x'+h.toFixed(1));
-  for(let i=0;i<keySvgs.length;i++) if(+keySvgs[i].getAttribute('width')!==28||+keySvgs[i].getAttribute('height')!==28) bad.push('key svg attr row '+i);
+  const want=[28,34,28,28,28];
+  keySvgs.forEach((s,i)=>{const b=s.getBoundingClientRect();
+   if(Math.abs(b.width-want[i])>0.5||Math.abs(b.height-want[i])>0.5) bad.push('key icon row '+i+' '+b.width.toFixed(1)+'x'+b.height.toFixed(1)+' wanted '+want[i]);
+   if(+s.getAttribute('width')!==want[i]||+s.getAttribute('height')!==want[i]) bad.push('key svg attr row '+i);});
  }
  return bad}"""
 

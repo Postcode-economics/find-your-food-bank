@@ -644,7 +644,8 @@ footer a[href^="tel:"],.legal a[href^="tel:"]{padding-left:10px!important;paddin
 html body :is(#list,#xextra,#sheet,#sheetBody) :is(.card,.pop)>.xtop,html body .leaflet-popup-content .xtop{display:flex;align-items:center;flex-wrap:wrap;gap:6px;order:1!important;flex:1 1 100%!important;width:100%;margin:0 0 6px!important}
 #xextra .card:is(.xsh,.xws)>.xtop{order:0!important;align-self:flex-start;width:100%!important;margin:0 0 8px!important}
 html body :is(#list,#xextra,#sheet,#sheetBody,.leaflet-popup-content) .xtop .xmkbox{display:flex;flex:0 0 auto;line-height:0;align-self:center}
-html body :is(#list,#xextra,#sheet,#sheetBody,.leaflet-popup-content) .xtop .xmkbox svg{width:28px!important;height:28px!important;display:block;overflow:visible}
+html body :is(#list,#xextra,#sheet,#sheetBody,.leaflet-popup-content) .xtop .xmkbox svg{width:28px!important;height:28px!important;display:block}
+html body :is(#list,#xextra,#sheet,#sheetBody,.leaflet-popup-content) .xtop .xmkbox[data-sym=flame] svg{width:34px!important;height:34px!important}
 html body :is(#list,#xextra,#sheet,#sheetBody,.leaflet-popup-content) .xtop .utag{display:inline-flex!important;align-items:center;justify-content:center;box-sizing:border-box;height:28px!important;margin:0!important;padding:0 10px!important;border-radius:999px!important;background:transparent!important;color:#fff!important;border:1.5px solid #56B4E9!important;font-size:14px!important;font-weight:700!important;line-height:1!important;flex:0 1 auto!important;order:0!important;white-space:nowrap;max-width:100%}
 html body :is(#list,#xextra,#sheet,#sheetBody,.leaflet-popup-content) .xtop.xtop-fb .utag{border-color:#F5C518!important}
 html body :is(#list,#xextra,#sheet,#sheetBody,.leaflet-popup-content) .xtop.xtop-ws .utag{border-color:#D55E00!important}
