@@ -66,8 +66,8 @@ def _fail(row):
         return 'symbol then type pill'
     if abs(row['dTop']) > 0.5 or abs(row['dBot']) > 0.5:
         return 'icon not aligned to the pill %s' % row
-    if abs(row['h'] - row['w']) > 0.5 or abs(row['h'] - 26) > 0.5:
-        return 'icon not 26px square %s' % row
+    if abs(row['h'] - row['w']) > 0.5 or abs(row['h'] - 28) > 0.5:
+        return 'icon not 28px square %s' % row
     return ''
 
 
@@ -146,6 +146,6 @@ class Render(unittest.TestCase):
                 self.assertLessEqual(abs(live['dTop']), 0.5)
                 self.assertLessEqual(abs(live['dBot']), 0.5)
                 self.assertLessEqual(abs(live['h'] - live['w']), 0.5)
-                self.assertLessEqual(abs(live['h'] - 26), 0.5)
+                self.assertLessEqual(abs(live['h'] - 28), 0.5)
             finally:
                 b.close()
