@@ -5,6 +5,9 @@ Places added automatically by discovery today. Each passed: valid postcode in it
 ## Food banks: 0 added
 - none
 
+## Deep sweep (council pages): 0 added
+- none
+
 ## Warm spaces: 0 added
 - none
 

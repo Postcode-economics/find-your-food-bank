@@ -341,6 +341,8 @@ Built 23 Oct 2026. Nothing here is a pin. Ready items were checked against own s
 - QUEUED Community Food Bank Skye & Lochalsh · IV51 9EH — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED The People's Pantry · G42 7BX · https://www.govanhillbaths.com/pantry/ — own site does not show food aid
 
+### Deep sweep (council pages): 0 queued, 0 rejected
+
 ### Warm spaces: 2232 queued, 2 rejected
 - QUEUED Eastbrook Manor Community Centre, Fishersgate · https://www.adur-worthing.gov.uk/warm-spaces/ — directory listing only, with no 2026-27 season dates (latest stated start: none); no postcode
 - QUEUED East Worthing Baptist Church · https://www.adur-worthing.gov.uk/warm-spaces/ — directory listing only, with no 2026-27 season dates (latest stated start: none); no postcode
