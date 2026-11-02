@@ -23,11 +23,20 @@ class Kind(unittest.TestCase):
         self.assertIn("youth:'Young people’s housing (16–25), referral needed'", L)
         self.assertIn("youth:'Tai i bobl ifanc (16–25), angen atgyfeiriad'", L)
         self.assertIn("keyRow(symSvg('youth',28),'youth'", L)  # key line (flex row, data-t youth)
+        self.assertIn('y="10.5"', L)
+        self.assertIn('y="21.5"', L)
+        self.assertIn('dominant-baseline="central"', L)
+        self.assertNotIn('textLength="15.6"', L)
         self.assertIn("i.kind==='young_people'", L)
         self.assertIn("pillYouth", L)
         self.assertIn('class="xmkbox" data-sym="${sk}"', L)
         self.assertIn("if(i.no_pin)return;", L)  # town-level cards get no marker
         self.assertIn(".xkind.xyouth{border-color:#56B4E9", _r("layers.css"))
+        chip = _r("index.html")
+        self.assertIn('data-f="youth"', chip)
+        youth = chip[chip.index('data-f="youth"'):chip.index('data-f="youth"') + 700]
+        self.assertIn('y="10.5"', youth)
+        self.assertIn('y="21.5"', youth)
         self.assertIn("i.kind==='young_people'", _r("v3.js"))
 
     def test_never_emergency_or_swep(self):

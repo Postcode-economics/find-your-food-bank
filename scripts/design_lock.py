@@ -232,6 +232,7 @@ KEY_JS = r"""()=>{const bad=[];
  if(sh&&!sh.querySelector('.xkey-ico svg path[d*="15.5"]')) bad.push('shelters key missing house symbol');
  if(day&&!day.querySelector('.xkey-ico svg circle')) bad.push('day centre key missing sun symbol');
  if(youth&&!youth.querySelector('.xkey-ico svg text')) bad.push('youth key missing 16/25 symbol');
+ if(youth){const yt=youth.querySelectorAll('.xkey-ico svg text'); if(yt.length<2||yt[0].getAttribute('y')!=='10.5'||yt[1].getAttribute('y')!=='21.5') bad.push('youth key 16/25 not centred');}
  const keySvgs=[...document.querySelectorAll('#xupd .xkey-row .xkey-ico svg')];
  if(keySvgs.length===5){
   const boxes=keySvgs.map(s=>s.getBoundingClientRect());

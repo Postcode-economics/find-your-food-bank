@@ -356,8 +356,8 @@ def run_heal(case):
         if route.request.resource_type == 'document':
             docs.append(url[:160])
         if path.endswith('version.json'):
-            # Must name a build other than the page's own fyfb-v99, or the heal reload never starts.
-            return route.fulfill(status=200, body=b'{"build":"fyfb-v100"}',
+            # Must name a build other than the page's own fyfb-v100, or the heal reload never starts.
+            return route.fulfill(status=200, body=b'{"build":"fyfb-v101"}',
                                  headers={'content-type': 'application/json', 'cache-control': 'no-store'})
         return local_file(route)
 
