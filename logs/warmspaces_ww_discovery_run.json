@@ -1,46 +1,67 @@
 {
  "run": "2026-11-02",
- "candidates": 2,
+ "candidates": 3,
  "already_on_map": 0,
- "new": 2,
+ "new": 3,
  "added": [],
  "flagged": [
   {
-   "id": "ww-69492656",
-   "name": "Cromer Parish Church lounge",
-   "postcode": "NR27 9HH",
-   "website": "www.cromer-church.org.uk",
+   "id": "ww-69500941",
+   "name": "Birchwood Community Hub",
+   "postcode": "WA3 7PT",
+   "website": "https://livewirewarrington.co.uk/library/our-libraries/",
    "directory": "Warm Welcome",
-   "directory_url": "https://www.warmwelcome.uk/space?l=22836",
+   "directory_url": "https://www.warmwelcome.uk/space?l=23240",
    "reasons": [
+    "own site does not mention a warm space",
     "directory listing only, with no 2026-27 season dates (latest stated start: none)"
    ],
-   "url": "www.cromer-church.org.uk",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
+   "url": "https://livewirewarrington.co.uk/library/our-libraries/",
+   "final_url": "https://livewirewarrington.co.uk/library/our-libraries/",
+   "http": 200,
+   "sha256": "a31401f42065a19ab8cf115f46ca713f2aa9bb9af7c9e195ce3ec2a7795a85fa",
+   "etag": "",
+   "last_modified": ""
   },
   {
-   "id": "ww-69493052",
-   "name": "CSREC (Central Scotland Regional Equality Council)",
-   "postcode": "FK8 1RW",
-   "website": "www.csrec.org.uk",
+   "id": "ww-69500942",
+   "name": "Lymm Library",
+   "postcode": "WA13 0QW",
+   "website": "https://livewirewarrington.co.uk/library/our-libraries/",
    "directory": "Warm Welcome",
-   "directory_url": "https://www.warmwelcome.uk/space?l=28692",
+   "directory_url": "https://www.warmwelcome.uk/space?l=23244",
    "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+    "own site does not mention a warm space"
    ],
-   "url": "www.csrec.org.uk",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
+   "url": "https://livewirewarrington.co.uk/library/our-libraries/",
+   "final_url": "https://livewirewarrington.co.uk/library/our-libraries/",
+   "http": 200,
+   "sha256": "a31401f42065a19ab8cf115f46ca713f2aa9bb9af7c9e195ce3ec2a7795a85fa",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "ww-69500943",
+   "name": "Orford Library",
+   "postcode": "WA2 8HE",
+   "website": "https://livewirewarrington.co.uk/library/our-libraries/",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=23246",
+   "reasons": [
+    "own site does not mention a warm space"
+   ],
+   "url": "https://livewirewarrington.co.uk/library/our-libraries/",
+   "final_url": "https://livewirewarrington.co.uk/library/our-libraries/",
+   "http": 200,
+   "sha256": "a31401f42065a19ab8cf115f46ca713f2aa9bb9af7c9e195ce3ec2a7795a85fa",
+   "etag": "",
+   "last_modified": ""
   }
  ],
  "rejected": [],
- "follow_skipped": [],
+ "follow_skipped": [
+  "ww-69500941",
+  "ww-69500942"
+ ],
  "verified_proposals": []
 }
