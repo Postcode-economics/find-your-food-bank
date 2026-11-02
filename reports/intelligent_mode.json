@@ -1,12 +1,12 @@
 {
- "run": "2026-11-01",
+ "run": "2026-11-02",
  "layers": {
   "foodbanks": {
    "steps": {
     "times": {
-     "applied": 3,
-     "applied_this_run": 3,
-     "held": 48,
+     "applied": 1,
+     "applied_this_run": 1,
+     "held": 50,
      "stale_cleared": 0,
      "rejected": [
       {
@@ -25,8 +25,7 @@
         "own site lists several centres (3 postcodes); cannot tie one table to this listing",
         "new own-site times look like office/centre hours",
         "not one clear weekly client-hours block (kept as text for review)",
-        "would cut known hours to fewer sessions (5 to 4) and the source does not say that session ended; review",
-        "transient failure; stored times left unchanged"
+        "would cut known hours to fewer sessions (5 to 4) and the source does not say that session ended; review"
        ]
       },
       {
@@ -293,6 +292,17 @@
        ]
       },
       {
+       "id": "patch",
+       "reasons": [
+        "new own-site times look like office/centre hours",
+        "own site lists several centres (4 postcodes); cannot tie one table to this listing",
+        "new own-site times look like office/centre hours",
+        "not one clear weekly client-hours block (kept as text for review)",
+        "would cut known hours to fewer days (drops Sat) and the source does not say that session ended; review",
+        "times not read identically on 2 separate runs yet"
+       ]
+      },
+      {
        "id": "3food4u/tottenham-sda",
        "reasons": [
         "known skip: times listed above each address; finder read them onto the next centre (Budworth Hall got Epping's Friday)",
@@ -377,6 +387,13 @@
        ]
       },
       {
+       "id": "ifan-5b9fd1318a04132921a389-0",
+       "reasons": [
+        "day not on the same line as its times on the own-site page",
+        "times not read identically on 2 separate runs yet"
+       ]
+      },
+      {
        "id": "ifan-9d9a5ae13b3923c3fd7d0b-0",
        "reasons": [
         "new own-site times look like office/centre hours",
@@ -390,13 +407,10 @@
      "coverage": {
       "sites": 15,
       "sites_opened": 14,
-      "render_attempts": 566,
-      "render_errors": 2,
+      "render_attempts": 559,
+      "render_errors": 5,
       "source_pages": 18,
-      "source_opened": 16,
-      "budget_skipped": 0,
-      "hours_review_due": 1733,
-      "hours_review_opened": 998
+      "source_opened": 16
      },
      "enabled": true
     },
@@ -409,11 +423,11 @@
      "errors": [],
      "alerts": [],
      "coverage": {
-      "render_attempts": 1176,
+      "render_attempts": 1026,
       "render_errors": 5,
       "budget_skipped": 0,
       "hours_review_due": 1736,
-      "hours_review_opened": 1197,
+      "hours_review_opened": 1048,
       "sites": 15,
       "sites_opened": 14,
       "source_pages": 18,
@@ -422,9 +436,9 @@
      "enabled": true
     }
    },
-   "applied": 3,
-   "applied_this_run": 3,
-   "held": 48,
+   "applied": 1,
+   "applied_this_run": 1,
+   "held": 50,
    "stale_cleared": 0,
    "rejected": [
     {
@@ -443,8 +457,7 @@
       "own site lists several centres (3 postcodes); cannot tie one table to this listing",
       "new own-site times look like office/centre hours",
       "not one clear weekly client-hours block (kept as text for review)",
-      "would cut known hours to fewer sessions (5 to 4) and the source does not say that session ended; review",
-      "transient failure; stored times left unchanged"
+      "would cut known hours to fewer sessions (5 to 4) and the source does not say that session ended; review"
      ]
     },
     {
@@ -711,6 +724,17 @@
      ]
     },
     {
+     "id": "patch",
+     "reasons": [
+      "new own-site times look like office/centre hours",
+      "own site lists several centres (4 postcodes); cannot tie one table to this listing",
+      "new own-site times look like office/centre hours",
+      "not one clear weekly client-hours block (kept as text for review)",
+      "would cut known hours to fewer days (drops Sat) and the source does not say that session ended; review",
+      "times not read identically on 2 separate runs yet"
+     ]
+    },
+    {
      "id": "3food4u/tottenham-sda",
      "reasons": [
       "known skip: times listed above each address; finder read them onto the next centre (Budworth Hall got Epping's Friday)",
@@ -795,6 +819,13 @@
      ]
     },
     {
+     "id": "ifan-5b9fd1318a04132921a389-0",
+     "reasons": [
+      "day not on the same line as its times on the own-site page",
+      "times not read identically on 2 separate runs yet"
+     ]
+    },
+    {
      "id": "ifan-9d9a5ae13b3923c3fd7d0b-0",
      "reasons": [
       "new own-site times look like office/centre hours",
@@ -808,18 +839,18 @@
    "coverage": {
     "sites": 15,
     "sites_opened": 14,
-    "render_attempts": 1176,
+    "render_attempts": 1026,
     "render_errors": 5,
     "source_pages": 18,
     "source_opened": 16,
     "budget_skipped": 0,
     "hours_review_due": 1736,
-    "hours_review_opened": 1197
+    "hours_review_opened": 1048
    }
   }
  },
  "alerts": [],
  "would_block": [],
  "enabled": true,
- "generated_at": "2026-11-01T14:48:41+00:00"
+ "generated_at": "2026-11-02T07:05:49+00:00"
 }
