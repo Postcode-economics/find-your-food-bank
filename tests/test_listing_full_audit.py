@@ -45,7 +45,7 @@ def footer_key_order():
     text = open(LAYERS, encoding='utf-8').read()
     marks = (
         "symSvg('food',28)",
-        "symSvg('flame',28)",
+        "keyRow(symSvg('flame',34)",
         "symSvg('house',28)",
         "symSvg('sun',28)",
         "symSvg('youth',28)",
@@ -102,13 +102,14 @@ class FullAudit(unittest.TestCase):
         self.assertNotIn('M13 21c0-4', js, 'warm space map must not use the old droplet marker')
         self.assertIn("symSvg('flame',34", js, 'warm space map marker must use symSvg(flame)')
         self.assertIn("symSvg('food',28)", js)
-        self.assertIn("symSvg('flame',28)", js)
+        self.assertIn("symSvg('flame',34)", js)
         key_block = js[js.index('const lg=document.createElement'):js.index('const ft=document.querySelector')]
-        card_top = js[js.index('function cardTop'):js.index('function cardTop') + 350]
-        self.assertIn("symSvg(sk,28)", card_top)
+        card_top = js[js.index('function cardTop'):js.index('function cardTop') + 400]
+        self.assertIn("symSvg(sk,px)", card_top)
+        self.assertIn("sk==='flame'?34:28", card_top)
         for needle in ("symSvg('food'", "symSvg('flame'"):
             self.assertIn(needle, key_block, 'footer key must use unified symbols')
-        self.assertIn("symSvg(sk,28)", card_top, 'card top must use unified symSvg')
+        self.assertIn("symSvg(sk,px)", card_top, 'card top must use unified symSvg')
         self.assertIn("sk=layer==='fb'?'food':layer==='ws'?'flame'", card_top)
 
 

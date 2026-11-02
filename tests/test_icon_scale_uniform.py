@@ -11,39 +11,38 @@ ART = os.environ.get('CURSOR_ARTIFACTS_DIR', '/opt/cursor/artifacts')
 CH = '/usr/bin/google-chrome'
 
 BOX_CHECK = r"""() => {
-  const tol = 0.5, want = 28;
+  const tol = 0.5;
   const bad = [];
+  const keyWant = [28, 34, 28, 28, 28];
   const keySvgs = [...document.querySelectorAll('#xupd .xkey-row .xkey-ico svg')];
   if (keySvgs.length !== 5) bad.push('key rows ' + keySvgs.length);
-  else {
-    const boxes = keySvgs.map(s => s.getBoundingClientRect());
-    const w = boxes[0].width, h = boxes[0].height;
-    for (let i = 1; i < boxes.length; i++) {
-      if (Math.abs(boxes[i].width - w) > tol || Math.abs(boxes[i].height - h) > tol)
-        bad.push('key box mismatch row ' + i);
-    }
-    if (Math.abs(w - want) > tol || Math.abs(h - want) > tol) bad.push('key box ' + w.toFixed(2) + 'x' + h.toFixed(2));
-  }
-  const cardSvgs = [
-    document.querySelector('#list > .card .xmkbox svg'),
-    document.querySelector('#xlist > .card.xws .xmkbox svg'),
-    document.querySelector('#xlist > .card.xsh .xmkbox svg'),
-  ].filter(Boolean);
-  for (const svg of cardSvgs) {
+  else keySvgs.forEach((s, i) => {
+    const b = s.getBoundingClientRect();
+    if (Math.abs(b.width - keyWant[i]) > tol || Math.abs(b.height - keyWant[i]) > tol)
+      bad.push('key row ' + i + ' ' + b.width.toFixed(2) + 'x' + b.height.toFixed(2));
+  });
+  const cardWant = [
+    ['#list > .card .xmkbox svg', 28],
+    ['#xlist > .card.xws .xmkbox svg', 34],
+    ['#xlist > .card.xsh .xmkbox svg', 28],
+  ];
+  for (const [sel, want] of cardWant) {
+    const svg = document.querySelector(sel);
+    if (!svg) continue;
     const b = svg.getBoundingClientRect();
     if (b.width < 1) continue;
     if (Math.abs(b.width - want) > tol || Math.abs(b.height - want) > tol)
-      bad.push('card box ' + b.width.toFixed(2) + 'x' + b.height.toFixed(2));
+      bad.push('card ' + want + ' got ' + b.width.toFixed(2) + 'x' + b.height.toFixed(2));
   }
   const chipSvgs = document.documentElement.dataset.v3k === 'sh'
     ? [...document.querySelectorAll('#chips [data-f=shost] .xcs svg, #chips [data-f=youth] .xcs svg, #chips [data-f=sday] .xcs svg')]
     : [];
   for (const svg of chipSvgs) {
     const b = svg.getBoundingClientRect();
-    if (Math.abs(b.width - want) > tol || Math.abs(b.height - want) > tol)
+    if (Math.abs(b.width - 28) > tol || Math.abs(b.height - 28) > tol)
       bad.push('chip box ' + b.width.toFixed(2) + 'x' + b.height.toFixed(2));
   }
-  return { bad, keyCount: keySvgs.length, cardCount: cardSvgs.length, chipCount: chipSvgs.length };
+  return { bad, keyCount: keySvgs.length, chipCount: chipSvgs.length };
 }"""
 
 
