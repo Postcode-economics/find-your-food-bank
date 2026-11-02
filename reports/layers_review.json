@@ -241,24 +241,7 @@
  "warmspaces.js": {
   "added": [],
   "removed": [],
-  "changed": [
-   {
-    "id": "ww-69082337",
-    "name": "North Warm Welcome",
-    "fields": [
-     "scheme_dates",
-     "upcoming"
-    ],
-    "before": {
-     "scheme_dates": "Opens 2 Nov 2026",
-     "upcoming": true
-    },
-    "after": {
-     "scheme_dates": "Not stated by source",
-     "upcoming": null
-    }
-   }
-  ],
+  "changed": [],
   "tier_flips": [],
   "upcoming": [
    "Cornerstone United Reformed Church @ Parrs Wood Road – Opens 4 Nov 2026",
@@ -295,7 +278,7 @@
    },
    {
     "id": "ww-64379057",
-    "reason": "source no longer names this place"
+    "reason": "source unreachable this run (HTTP error)"
    },
    {
     "id": "ww-68672284",
@@ -326,12 +309,12 @@
     "reason": "schema: hours value invalid: Thu=10:00 - 12:30, 14:00 - 16:30"
    },
    {
-    "id": "ww-55592264",
-    "reason": "source unreachable this run (HTTP error)"
-   },
-   {
     "id": "ww-68762729",
     "reason": "published times not found on source this run"
+   },
+   {
+    "id": "ww-64432631",
+    "reason": "source unreachable this run (HTTP error)"
    },
    {
     "id": "ww-57952222",

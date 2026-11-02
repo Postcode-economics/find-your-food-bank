@@ -343,7 +343,7 @@ Built 23 Oct 2026. Nothing here is a pin. Ready items were checked against own s
 
 ### Deep sweep (council pages): 0 queued, 0 rejected
 
-### Warm spaces: 2232 queued, 2 rejected
+### Warm spaces: 2234 queued, 2 rejected
 - QUEUED Eastbrook Manor Community Centre, Fishersgate · https://www.adur-worthing.gov.uk/warm-spaces/ — directory listing only, with no 2026-27 season dates (latest stated start: none); no postcode
 - QUEUED East Worthing Baptist Church · https://www.adur-worthing.gov.uk/warm-spaces/ — directory listing only, with no 2026-27 season dates (latest stated start: none); no postcode
 - QUEUED East Worthing Community Centre · https://www.adur-worthing.gov.uk/warm-spaces/ — directory listing only, with no 2026-27 season dates (latest stated start: none); no postcode
@@ -439,7 +439,7 @@ Built 23 Oct 2026. Nothing here is a pin. Ready items were checked against own s
 - QUEUED The Exchange · DA8 1RS · https://www.theexchangeerith.com/ — directory listing only, with no 2026-27 season dates (latest stated start: none); postcode DA8 1RS not recognised by postcodes.io
 - QUEUED St Andrews Church · DA14 4RY · https://www.achurchnearyou.com/church/9867/service-and-events/events-all/ — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Europa Gym · DA1 4FA · https://www.bexley.gov.uk/services/cost-living/help-cost-living/warm-and-welcoming-places — directory listing only, with no 2026-27 season dates (latest stated start: none)
-- QUEUED A Father's Child Services CIC · B18 7AF · https://www.afcscic.org — own site does not mention a warm space
+- QUEUED A Father's Child Services CIC · B18 7AF · https://www.afcscic.org — own site unreachable (HTTP error)
 - QUEUED Acocks Green Baptist Church · B27 6HG · https://www.birmingham.gov.uk/directory_record/421152/acocks_green_baptist_church — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Acocks Green Library · B27 7XH · https://www.birmingham.gov.uk/libraries/ — directory link is a council page, not the place's own site; own site does not mention a warm space; directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Age Connects West Midlands - Boldmere · B73 5TJ · https://www.birmingham.gov.uk/directory_record/430256/age_connects_west_midlands_-_boldmere — directory listing only, with no 2026-27 season dates (latest stated start: none)
@@ -493,7 +493,7 @@ Built 23 Oct 2026. Nothing here is a pin. Ready items were checked against own s
 - QUEUED Chats and Crafts CIC · B31 3BS · https://www.birmingham.gov.uk/directory_record/904979/chats_and_crafts_cic — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Christ Calling Ministries - Project Breaking Bread Warm Welcome · B7 5SN · https://www.birmingham.gov.uk/directory_record/521975/christ_calling_ministries_-_project_breaking_bread_warm_welcome — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Christ Church Summerfield · B16 0EZ · https://www.birmingham.gov.uk/directory_record/494174/christ_church_summerfield — directory listing only, with no 2026-27 season dates (latest stated start: none)
-- QUEUED Church of God of Prophecy · B18 7DL · https://aberdeenstcogop.org.uk/ — own site does not mention a warm space; directory listing only, with no 2026-27 season dates (latest stated start: none)
+- QUEUED Church of God of Prophecy · B18 7DL · https://aberdeenstcogop.org.uk/ — own site does not mention a warm space
 - QUEUED Church of the Ascension Hall Green · B28 8JQ · http://www.ascensionhallgreen.uk/ — own site does not mention a warm space
 - QUEUED Church Road Surgery (Saathi House) · B6 5UP · https://www.birmingham.gov.uk/directory_record/858815/church_road_surgery_saathi_house — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Churchcentral · B12 0HD · https://www.birmingham.gov.uk/directory_record/435119/churchcentral — directory listing only, with no 2026-27 season dates (latest stated start: none)
