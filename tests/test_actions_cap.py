@@ -17,9 +17,17 @@ class Cap(unittest.TestCase):
         for job, out in (('old-links', 'oldlinks'), ('browser-tests', 'browser'),
                          ('design-lock', 'design'), ('journeys', 'journeys')):
             self.assertIn("needs.changes.outputs.%s == '1'" % out, Y, job)
-        # the plain pytest job always runs; it is not behind that gate
+        # the plain pytest job always runs except in the content-only quick lane (2 Nov 2026),
+        # and it still runs if the changes job failed
         test_job = Y.split('\n  test:\n', 1)[1].split('\n  old-links:', 1)[0]
-        self.assertNotIn('needs:', test_job)
+        self.assertIn("if: ${{ !cancelled() && needs.changes.outputs.quick != '1' }}", test_job)
+        self.assertEqual(test_job.count('needs.changes.outputs'), 1)
+
+    def test_quick_lane_never_on_main_or_nightly(self):
+        self.assertIn('"${{ github.ref }}" != "refs/heads/main"', Y)
+        self.assertIn('"${{ github.event_name }}" != "schedule"', Y)
+        self.assertIn("python scripts/quick_check.py", Y)
+        self.assertIn('*) quick=0;', Y)
         self.assertIn('python scripts/old_links.py\n', Y)
 
     def test_a_learning_script_does_not_count_as_the_site(self):
