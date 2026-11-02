@@ -7,7 +7,7 @@ Every 3x-daily run, inside scripts/build.py:
     (changed_since_last_run). IFAN-discovered entries carry their own-site fetch (HTTP 200, same site, sha256).
  3. Source URL: the entry's Give Food page must be on givefood.org.uk and be the page for THIS record (slug match).
     A rotating sample of pages is fetched live each run (all pages covered every few days); a page that loads but
-    does not name the food bank -> entry left off; a page that does not load -> flagged in the log.
+    does not name the food bank, or does not load, leaves a new place off and keeps one already on the map.
  4. Schema: every published field is validated (id, type, names, UK lat/lng, postcode format, address, phone digits,
     website/givefood URLs, opening_times shape in Mon-Sun order with HH:MM ranges, labels). Failures -> left off.
 A place already on the map stays when its page or record cannot be read. A new place with a failed read is omitted
