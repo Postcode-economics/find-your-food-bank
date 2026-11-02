@@ -23,6 +23,7 @@ class ManualBlocked(unittest.TestCase):
             pub, rep, pend = self.run_gate({"ok": False, "http": h, "reason": "source unreachable this run (HTTP %s)" % h})
             self.assertEqual([x["id"] for x in pub], ["m1"], h); self.assertIn("kept, fetch blocked", rep); self.assertEqual(pend, [])
             self.assertTrue(any(g.get("kept_fetch_blocked") for g in common.verification_gate.graced))
+            self.assertTrue(pub[0].get("grace") and pub[0].get("kept_fetch_blocked"), h)  # marker verify_fresh needs
     def test_dropped_after_14_days(self):
         pub, _, pend = self.run_gate({"ok": False, "http": 403, "reason": "x"}, checked_on="2026-10-17")
         self.assertEqual(pub, []); self.assertEqual(len(pend), 1)
