@@ -150,6 +150,11 @@ print("place lock:", restored, "address/pin fields kept;", json.dumps(place_lock
 import google_handcheck  # man-google-* stays off the map unless it is on the hand-check list
 items, held_google = google_handcheck.keep(items, ".")
 sources["man-google hand check"] = {"status": "ok", "published": sum(1 for x in items if str(x.get("id") or "").startswith("man-google-")), "held": [x.get("id") for x in held_google]}
+excl = set(shelter_sources.excluded_shelter_ids("."))
+if excl:
+    before = len(items)
+    items = [x for x in items if x.get("id") not in excl]
+    sources["shelter exclusions"] = {"status": "ok", "dropped": before - len(items)}
 try:
     import intelligent_rails as _IR
     _IR.finish_times(".", "shelters", tlog)
