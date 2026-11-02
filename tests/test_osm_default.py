@@ -233,7 +233,7 @@ class OfflineOsmTiles(unittest.TestCase):
                     return (await c.keys()).some(r => r.url.includes('maptiler.com'));
                 }""")
                 self.assertTrue(seeded)
-                override['body'] = sw_text.replace("const C='fyfb-v99'", "const C='fyfb-v99'", 1)
+                override['body'] = sw_text.replace("const C='fyfb-v99'", "const C='fyfb-v100'", 1)
                 bumped = page.evaluate("""async () => {
                     const reg = await navigator.serviceWorker.getRegistration();
                     const done = new Promise(resolve => {
