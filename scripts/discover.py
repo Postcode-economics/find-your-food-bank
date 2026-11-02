@@ -177,6 +177,74 @@ def own_site_check(c, kind, fetcher=fetch_raw, today=None):
 # ---------- times cross-check ----------
 DAYN = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"]
 TIMESPAN = re.compile(r"((?:\b(?:mon(?:day)?|tues?(?:day)?|wed(?:nesday)?|weds|thu(?:rs?)?(?:day)?|fri(?:day)?|sat(?:urday)?|sun(?:day)?)s?\b\.?(?:\s*(?:,|&|and|-|–|to|through|thru)\s*)?)+)[\s:,(]*((?:\d{1,2}(?:[:.]\d{2})?\s*(?:am|pm)?|noon|midday)\s*(?:-|–|—|to|until|till)\s*(?:\d{1,2}(?:[:.]\d{2})?\s*(?:am|pm)?|noon|midday))", re.I)
+# 'Saturday New Opening Hours' is its own block. The day named in that heading stays with the block.
+HOURS_HEADING = re.compile(
+    r"(?i)(?<![A-Za-z])"
+    r"(?:(?:mon(?:day)?|tues?(?:day)?|wed(?:nesday)?|weds|thu(?:rs?)?(?:day)?|fri(?:day)?|sat(?:urday)?|sun(?:day)?)s?\s+)?"
+    r"(?:(?:new|normal|revised|updated)\s+)?opening\s+hours\b")
+# A short phrase may sit between the days and the clock times inside one opening-hours block
+# ('Monday and Thursday mornings 8:30 - 11:30', 'Saturday New Opening Hours 1pm to 3pm').
+_HOURS_GAP = (r"(?:\s+(?:mornings?|afternoons?|evenings?|lunchtime))?"
+              r"(?:\s+for\s+a(?:\s+[A-Za-z]+){0,4}\s+(?:breakfast|lunch|dinner|meal))?"
+              r"(?:\s+new\s+opening\s+hours)?")
+BLOCK_SPAN = re.compile(
+    r"((?:\b(?:mon(?:day)?|tues?(?:day)?|wed(?:nesday)?|weds|thu(?:rs?)?(?:day)?|fri(?:day)?|sat(?:urday)?|sun(?:day)?)s?\b\.?(?:\s*(?:,|&|and|-|–|to|through|thru)\s*)?)+)"
+    + _HOURS_GAP +
+    r"[\s:,(]*((?:\d{1,2}(?:[:.]\d{2})?\s*(?:am|pm)?|noon|midday)\s*(?:-|–|—|to|until|till)\s*(?:\d{1,2}(?:[:.]\d{2})?\s*(?:am|pm)?|noon|midday))", re.I)
+class _Span:
+    """A day/time match with positions in the page text. Same .start/.end/.group as a regex match."""
+    def __init__(self, start, end, days, times):
+        self._s, self._e, self._d, self._t = start, end, days, times
+    def start(self): return self._s
+    def end(self): return self._e
+    def group(self, n): return self._d if n == 1 else self._t
+def hours_block_ranges(text):
+    """Every opening-hours block on the page: from its heading to the next heading.
+    None when the page has no such heading (the reader keeps the plain day/time scan)."""
+    t = text or ""
+    heads = list(HOURS_HEADING.finditer(t))
+    if not heads: return None
+    out = []
+    for i, h in enumerate(heads):
+        end = heads[i + 1].start() if i + 1 < len(heads) else min(len(t), h.end() + 400)
+        out.append((h.start(), end))
+    return out
+def _hours_block_belongs(chunk, postcode):
+    """A block with no postcode is this place's (a footer widget repeats the same hours).
+    A block that names a different postcode and not this one belongs to another centre."""
+    if not postcode: return True
+    pcs = find_pcs(chunk)
+    if not pcs: return True
+    return norm_pc(postcode) in pcs
+def place_time_spans(text, postcode):
+    """Day/time spans for this place. Every opening-hours block is read, not only the first
+    one whose clock times sit next to a day name. None when the postcode cannot be tied to a block."""
+    text = text or ""
+    base = postcode_block(text, postcode)
+    if base is None: return None
+    off = 0 if base is text else text.find(base)
+    if off < 0: off = 0
+    spans, seen = [], set()
+    def add(start, end, days, times):
+        key = (start, days, times)
+        if key in seen: return
+        seen.add(key)
+        spans.append(_Span(start, end, days, times))
+    for m in TIMESPAN.finditer(base):
+        add(off + m.start(), off + m.end(), m.group(1), m.group(2))
+    for a, b in hours_block_ranges(text) or []:
+        chunk = text[a:b]
+        if not _hours_block_belongs(chunk, postcode): continue
+        for m in BLOCK_SPAN.finditer(chunk):
+            add(a + m.start(), a + m.end(), m.group(1), m.group(2))
+    spans.sort(key=lambda s: (s.start(), s.end()))
+    return spans
+def _day_time_matches(text):
+    """Spans day_same_line and the source-day check use. Hours headings: every block, including a
+    breakfast line whose days and times are not touching."""
+    t = text or ""
+    if hours_block_ranges(t): return list(BLOCK_SPAN.finditer(t))
+    return list(TIMESPAN.finditer(t))
 FB_CLIENT_LINE = re.compile(r"food\s*bank|foodbank|food parcel|emergency food|open for anyone", re.I)
 CAFE_LINE = re.compile(r"caf[eé]|coffee\s+(?:shop|morning)|\bshop\s+open", re.I)
 PLACE_HEAD = re.compile(r"\b([A-Z][A-Z]+(?:\s+[A-Z][A-Z]+)*)\b")
@@ -298,7 +366,8 @@ def source_open_days(texts):
         if ext and ext.get("structured"):
             days.update(d for d, v in ext["structured"].items() if v)
             continue
-        for m in TIMESPAN.finditer(t2):
+        # No table: still count every hours block, so a breakfast line is not dropped.
+        for m in _day_time_matches(t2):
             days.update(_span_days(m.group(1)))
     return days
 def drops_source_days_reason(new, texts):
@@ -341,23 +410,39 @@ def extract_times(text, postcode=None, rejected=None, name=None):
         else: found.append((m.start(), (m.group(1) + " " + m.group(2)).strip()))
     ords = [(a, a + len(x) + 20) for a, x in found]
     last_why = ""
-    for m in TIMESPAN.finditer(t):
-        if any(a <= m.start() < b for a, b in ords): continue
-        follows = prev_end is not None and m.start() - prev_end < 40 and not re.search(r"[.;]\s", t[prev_end:m.start()])   # a list continuing straight on from the last line (a full stop ends it)
-        ctx = not_client_context(t, m.start(), prev_end)
-        if ctx == "volunteer" and FB_CLIENT_LINE.search(_span_line(t, m.start(), m.end())): ctx = ""
-        why = ("non-client hours (%s)" % ctx) if ctx else ("agency/professional-only line" if agency_only_after(t, m.end()) else "")
-        if not why and prev_skipped and follows: why = last_why + " (same list)"
-        skip = bool(why)
-        prev_end, prev_skipped = m.end(), skip
-        if skip:   # office / warehouse / donation / bin hours are not client times
-            last_why = why.replace(" (same list)", ""); _reject(rejected, m, why); continue
-        line = _span_line(t, m.start(), m.end())
-        if CAFE_LINE.search(line) and not FB_CLIENT_LINE.search(line): _reject(rejected, m, "café/coffee-shop hours, not food bank"); continue
-        seg = (m.group(1).strip(" ,&-–") + " " + m.group(2)).strip()
-        nxt = t[m.end():m.end() + 40]; nxt = nxt[:min([len(nxt)] + [x.start() for x in TIMESPAN.finditer(nxt)])]
-        if APPT.search(nxt) or APPT.search(t[max(0, m.start() - 30):m.start()]): seg += " (by appointment)"
-        found.append((m.start(), seg))
+    tried = set()
+    def _take_spans(src, spans, check_ords=False):
+        nonlocal prev_end, prev_skipped, last_why
+        for m in spans:
+            if check_ords and any(a <= m.start() < b for a, b in ords): continue
+            seg0 = (m.group(1).strip(" ,&-–") + " " + m.group(2)).strip().lower()
+            if seg0 in tried: continue   # already read, or already rejected as non-client (do not revive it from a shorter block)
+            follows = prev_end is not None and m.start() - prev_end < 40 and not re.search(r"[.;]\s", src[prev_end:m.start()])   # a list continuing straight on from the last line (a full stop ends it)
+            whyctx = not_client_context(src, m.start(), prev_end)
+            if whyctx == "volunteer" and FB_CLIENT_LINE.search(_span_line(src, m.start(), m.end())): whyctx = ""
+            why = ("non-client hours (%s)" % whyctx) if whyctx else ("agency/professional-only line" if agency_only_after(src, m.end()) else "")
+            if not why and prev_skipped and follows: why = last_why + " (same list)"
+            skip = bool(why)
+            prev_end, prev_skipped = m.end(), skip
+            tried.add(seg0)
+            if skip:   # office / warehouse / donation / bin hours are not client times
+                last_why = why.replace(" (same list)", ""); _reject(rejected, m, why); continue
+            line = _span_line(src, m.start(), m.end())
+            if CAFE_LINE.search(line) and not FB_CLIENT_LINE.search(line): _reject(rejected, m, "café/coffee-shop hours, not food bank"); continue
+            seg = (m.group(1).strip(" ,&-–") + " " + m.group(2)).strip()
+            nxt = src[m.end():m.end() + 40]; nxt = nxt[:min([len(nxt)] + [x.start() - m.end() for x in spans if x.start() >= m.end()])]
+            if APPT.search(nxt) or APPT.search(src[max(0, m.start() - 30):m.start()]): seg += " (by appointment)"
+            found.append((m.start(), seg))
+    _take_spans(t, list(TIMESPAN.finditer(t)), check_ords=True)
+    # Every opening-hours block on this place's page, including one whose days and clock times
+    # are separated by 'mornings' or by a 'Saturday New Opening Hours' heading. Context stays
+    # inside that block, so another centre's donation line is not read onto these times.
+    prev_end, prev_skipped = None, False
+    for a, b in hours_block_ranges(text) or []:
+        chunk = text[a:b]
+        if not _hours_block_belongs(chunk, postcode): continue
+        _take_spans(chunk, list(BLOCK_SPAN.finditer(chunk)))
+        prev_end, prev_skipped = None, False
     for _, seg in sorted(found):
         if seg.lower() not in seen: seen.add(seg.lower()); segs.append(seg)
     if any(FB_CLIENT_LINE.search(s) for s in segs) and any(CAFE_LINE.search(s) and not FB_CLIENT_LINE.search(s) for s in segs):
@@ -437,12 +522,11 @@ def live_hours_ok(table, text, postcode):
         rec = {d: [list(p) for p in v] for d, v in table.items() if v}
         return (rec == lay["structured"], lay["quote"] if rec == lay["structured"] else "")
     text = R27.clean(text or "")   # office/phone days are NOT dropped here: a day the page lists must be accounted for
-    block = postcode_block(text or "", postcode)
-    if block is None or not isinstance(table, dict): return False, ""
+    if not isinstance(table, dict): return False, ""
     from times import _days, DAYS, _range
     recorded = {d for d, slots in table.items() if slots}
     if not recorded: return False, ""
-    spans = list(TIMESPAN.finditer(block))
+    spans = place_time_spans(text, postcode)
     if not spans: return False, ""
     page_days, endpoints = set(), set()
     split = re.compile(r"\s*(?:-|–|—|\bto\b|\buntil\b|\btill\b)\s*", re.I)
@@ -459,9 +543,7 @@ def live_hours_ok(table, text, postcode):
     for slots in table.values():
         for pair in slots or []:
             if len(pair) != 2 or pair[0] not in endpoints or pair[1] not in endpoints: return False, ""
-    base = (text or "").find(block)
-    if base < 0: base = 0
-    at = base + spans[0].start()
+    at = spans[0].start()
     quote = (text or "")[max(0, at - 60):at + 180].strip()
     if not quote or quote not in (text or ""): return False, ""
     return True, quote
@@ -888,7 +970,7 @@ def day_same_line(st, texts):
     if not st: return False
     seen = {}
     for t in texts or []:
-        for m in TIMESPAN.finditer(t or ""):
+        for m in _day_time_matches(t):
             tm = sorted(norm_times(m.group(2)))
             for d in _span_days(m.group(1)): seen.setdefault(d, set()).update(tm)
     for d, spans in st.items():

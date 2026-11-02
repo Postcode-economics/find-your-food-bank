@@ -382,11 +382,10 @@ No new place (food bank, shelter or warm space) is added automatically: each wai
 
 
 <!-- times crosscheck sh -->
-## Opening-times changes from the refresh (sh): 5 auto-applied, 29 held
+## Opening-times changes from the refresh (sh): 4 auto-applied, 29 held
 
 - AUTO-APPLIED `man-gloucester-city-mission-homeless-day-provision` Gloucester City Mission Homeless Day Provision (strict, 2 identical runs). Undo: `python scripts/times_revert.py sh:man-gloucester-city-mission-homeless-day-provision`
 - AUTO-APPLIED `man-action-for-barnsley-homeless` Action for Barnsley Homeless (strict, 2 identical runs). Undo: `python scripts/times_revert.py sh:man-action-for-barnsley-homeless`
-- AUTO-APPLIED `man-hug-safe-space-bexhill-rother-homelessness-unity-g` HUG Safe Space (Bexhill & Rother Homelessness Unity Group) (strict, 2 identical runs). Undo: `python scripts/times_revert.py sh:man-hug-safe-space-bexhill-rother-homelessness-unity-g`
 - AUTO-APPLIED `man-first-stop-centre` First Stop Centre (strict, 2 identical runs). Undo: `python scripts/times_revert.py sh:man-first-stop-centre`
 - AUTO-APPLIED `man-hope-trinity` hope@trinity (strict, 2 identical runs). Undo: `python scripts/times_revert.py sh:man-hope-trinity`
 - **Portsmouth Rough Sleeping Hub (Society of St James / PCC)** (`man-portsmouth-rough-sleeping-hub-society-of-st-james-`, PO1 3HL): own site now Monday to Thursday 8.30am to 5pm | Friday 8.30am to 4pm  
