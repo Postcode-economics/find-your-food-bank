@@ -90,5 +90,9 @@ class Uniform(unittest.TestCase):
         self.assertGreater(got['counts'].get('sh', 0), 50, got['counts'])
         self.assertGreater(got['counts'].get('ws', 0), 50, got['counts'])
         self.assertEqual(got['problems'], [], 'checked %s across %s' % (got['n'], got['counts']))
-        self.assertIn('1 Nov 2026', got.get('hall', ''), got.get('hall'))
+        # A Give Food row with no date of its own shows the dataset fetch day, not a frozen calendar date.
+        fetched = json.loads(open(os.path.join(ROOT, 'data.full.js'), encoding='utf-8').read().split('=', 1)[1].rstrip().rstrip(';'))['fetched']
+        y, mo, d = fetched[:10].split('-')
+        months = 'Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec'.split()
+        self.assertIn('%d %s %s' % (int(d), months[int(mo) - 1], y), got.get('hall', ''), got.get('hall'))
         self.assertEqual(got.get('foyer'), 'Referral needed: Brighton & Hove City Council Housing Options team')

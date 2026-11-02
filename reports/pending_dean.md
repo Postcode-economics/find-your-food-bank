@@ -232,7 +232,7 @@ Run 2026-11-02. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
 
 
 <!-- times crosscheck fb -->
-## Opening-times changes from the refresh (fb): 8 auto-applied, 50 held
+## Opening-times changes from the refresh (fb): 7 auto-applied, 50 held
 
 - AUTO-APPLIED `pantry` PANTRY Foodbank (strict, 2 identical runs). Undo: `python scripts/times_revert.py fb:pantry`
 - AUTO-APPLIED `enniskillen` Enniskillen Foodbank (strict, 2 identical runs). Undo: `python scripts/times_revert.py fb:enniskillen`
@@ -240,7 +240,6 @@ Run 2026-11-02. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
 - AUTO-APPLIED `warminster-and-district` Warminster and District Foodbank (strict, 2 identical runs). Undo: `python scripts/times_revert.py fb:warminster-and-district`
 - AUTO-APPLIED `comfort-memorial-food-for-all` Comfort Memorial Food For All Foodbank (strict, 2 identical runs). Undo: `python scripts/times_revert.py fb:comfort-memorial-food-for-all`
 - AUTO-APPLIED `st-james-thornton` St James Thornton Foodbank (strict, 2 identical runs). Undo: `python scripts/times_revert.py fb:st-james-thornton`
-- AUTO-APPLIED `ifan-84cd0bf40986bfc9a427c6-0` St Laurence's Larder & Open Kitchen (strict, 2 identical runs). Undo: `python scripts/times_revert.py fb:ifan-84cd0bf40986bfc9a427c6-0`
 - AUTO-APPLIED `ifan-da5df633f7eabc8fbdb2a3-0` Castleman Community Larder CIC (strict, 2 identical runs). Undo: `python scripts/times_revert.py fb:ifan-da5df633f7eabc8fbdb2a3-0`
 - **Colchester Foodbank** (`colchester`, CO3 8RG): own site now Monday-Saturday 10:00 am to 2:00 pm  
   source: https://colchester.foodbank.org.uk  
