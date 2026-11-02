@@ -22,4 +22,4 @@ An alert is raised when a city has fewer than 5 warm spaces or no shelter or day
 - Kingston upon Hull: 5 warm spaces, 1 shelter, 0 day centres — ok
 - Stoke-on-Trent: 1 warm space, 2 shelters, 1 day centre — fewer than 5 warm spaces (1)
 - Southampton: 5 warm spaces, 1 shelter, 1 day centre — ok
-- Brighton and Hove: 25 warm spaces, 1 shelter, 4 day centres — ok
+- Brighton and Hove: 25 warm spaces, 1 shelter, 3 day centres — ok
