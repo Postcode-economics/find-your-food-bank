@@ -86,11 +86,11 @@ bar.innerHTML=seg('fb','#F5C518','tear',true)+seg('sh',LAYERS.sh.col,'sq',false)
 const hdr=document.querySelector('header');hdr.insertBefore(bar,hdr.querySelector('h1').nextSibling);
 const keyRow=(ico,bKey,small)=>`<div class="xkey-row"><span class="xkey-ico" aria-hidden="true">${ico}</span><span class="xkey-txt"><b data-t="${bKey}"></b> ${small}</span></div>`;
 const lg=document.createElement('div');lg.id='xleg';lg.innerHTML=
- keyRow(symSvg('food',20),'fb','<small id="u_fb"></small>')+
- keyRow(symSvg('flame',20),'ws','<small id="u_ws"></small>')+
- keyRow(symSvg('house',20),'sh','<small id="u_sh"></small>')+
- keyRow(symSvg('sun',20),'dayCentre','<small data-t="dayOnly"></small>')+
- keyRow(symSvg('youth',20),'youth','<small data-t="youthOnly"></small>');
+ keyRow(symSvg('food',28),'fb','<small id="u_fb"></small>')+
+ keyRow(symSvg('flame',28),'ws','<small id="u_ws"></small>')+
+ keyRow(symSvg('house',28),'sh','<small id="u_sh"></small>')+
+ keyRow(symSvg('sun',28),'dayCentre','<small data-t="dayOnly"></small>')+
+ keyRow(symSvg('youth',28),'youth','<small data-t="youthOnly"></small>');
 const ft=document.querySelector('footer');const fu=document.createElement('div');fu.id='xupd';ft.prepend(fu);fu.append(...lg.children);
 const lb=document.createElement('button');lb.type='button';lb.id='xlang';hdr.style.position='relative';hdr.prepend(lb);
 document.getElementById('f').after(document.getElementById('msg'));  // search errors show inline under the search box
@@ -164,7 +164,7 @@ function fbAcc(i){let a='';try{if(typeof acc==='function')a=acc(i)}catch(e){}
  if(a==='walkin')return '<span class="xacc xacc-open_access"><span class="v-en">Walk-in</span><span class="v-cy" lang="cy">Galw heibio</span></span>';
  return ''}
 function cardTop(layer,i){const sk=layer==='fb'?'food':layer==='ws'?'flame':symKey(i);
- const sym=`<span class="xmkbox" data-sym="${sk}">${symSvg(sk,26)}</span>`;
+ const sym=`<span class="xmkbox" data-sym="${sk}">${symSvg(sk,28)}</span>`;
  let en,cy;
  if(layer==='sh'){const pillKey=sk==='sun'?'dayCentre':sk==='youth'?'pillYouth':(i.kind==='hostel'||/\bhostel\b/i.test(i.name||''))?'pillHostel':'pillNight';en=T.en[pillKey];cy=T.cy[pillKey]}
  else if(window.UFacts){const p=UFacts.typeOf(layer,i);en=p[0];cy=p[1]}

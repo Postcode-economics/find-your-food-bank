@@ -232,6 +232,14 @@ KEY_JS = r"""()=>{const bad=[];
  if(sh&&!sh.querySelector('.xkey-ico svg path[d*="15.5"]')) bad.push('shelters key missing house symbol');
  if(day&&!day.querySelector('.xkey-ico svg circle')) bad.push('day centre key missing sun symbol');
  if(youth&&!youth.querySelector('.xkey-ico svg text')) bad.push('youth key missing 16/25 symbol');
+ const keySvgs=[...document.querySelectorAll('#xupd .xkey-row .xkey-ico svg')];
+ if(keySvgs.length===5){
+  const boxes=keySvgs.map(s=>s.getBoundingClientRect());
+  const w=boxes[0].width,h=boxes[0].height;
+  for(let i=1;i<boxes.length;i++) if(Math.abs(boxes[i].width-w)>0.5||Math.abs(boxes[i].height-h)>0.5) bad.push('key icon box row '+i+' '+boxes[i].width.toFixed(1)+'x'+boxes[i].height.toFixed(1)+' vs '+w.toFixed(1)+'x'+h.toFixed(1));
+  if(innerWidth<=430&&(Math.abs(w-28)>0.5||Math.abs(h-28)>0.5)) bad.push('key icons not 28px box '+w.toFixed(1)+'x'+h.toFixed(1));
+  for(let i=0;i<keySvgs.length;i++) if(+keySvgs[i].getAttribute('width')!==28||+keySvgs[i].getAttribute('height')!==28) bad.push('key svg attr row '+i);
+ }
  return bad}"""
 
 # Map marker inner symbol must match card icon and footer key (Dean 1 Nov 2026).
@@ -245,7 +253,7 @@ SYM_MATCH_JS = r"""layer=>{const bad=[];const bag='M9 13.5h14l-1.3 10.5H10.3z';c
  if(!key||!inner(key).includes(needle)) bad.push('key symbol');
  return bad}"""
 
-# Type pill and symbol square (Dean): same height, tops and bottoms within 0.5px, 26px on a phone.
+# Type pill and symbol square (Dean): same height, tops and bottoms within 0.5px, 28px on a phone.
 ALIGN_JS = r"""()=>{const bad=[];const rows=[...document.querySelectorAll('#xlist .card.xsh .xtop,#sheet.open .xtop')];
  const seen=new Set();
  if(!rows.length) return ['no shelter top row'];
@@ -261,7 +269,8 @@ ALIGN_JS = r"""()=>{const bad=[];const rows=[...document.querySelectorAll('#xlis
   if(Math.abs(sr.top-tr.top)>0.5||Math.abs(sr.bottom-tr.bottom)>0.5) bad.push(name+' align '+sr.top.toFixed(2)+' '+tr.top.toFixed(2)+' / '+sr.bottom.toFixed(2)+' '+tr.bottom.toFixed(2));
   if(Math.abs(sr.height-tr.height)>0.5) bad.push(name+' height '+sr.height.toFixed(2)+' vs '+tr.height.toFixed(2));
   if(Math.abs(sr.width-sr.height)>0.5) bad.push(name+' symbol not square');
-  if(innerWidth<=430&&Math.abs(tr.height-26)>0.5) bad.push(name+' pill '+tr.height.toFixed(2)+'px');
+  if(innerWidth<=430&&Math.abs(tr.height-28)>0.5) bad.push(name+' pill '+tr.height.toFixed(2)+'px');
+  if(innerWidth<=430&&Math.abs(sr.width-28)>0.5||innerWidth<=430&&Math.abs(sr.height-28)>0.5) bad.push(name+' symbol box '+sr.width.toFixed(2)+'x'+sr.height.toFixed(2));
  }
  for(const s of ['house','sun','youth']) if(!seen.has(s)) bad.push('missing '+s);
  return bad}"""
