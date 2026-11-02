@@ -6,6 +6,10 @@ on:
     tags-ignore: ['offline-map-*']
     branches: ['**']
   pull_request:
+  # Nightly full run of every job, whatever changed (Dean 2 Nov 2026).
+  schedule:
+    - cron: '30 2 * * *'
+  workflow_dispatch:
 # One run per branch. A push and the pull request for that branch share it, and a newer
 # push cancels the older run. This account can run 20 jobs at once. Without this, every
 # commit queued five jobs twice (the push and the pull request), and the long browser
@@ -89,7 +93,24 @@ jobs:
           cache: pip
           cache-dependency-path: .github/workflows/tests.yml
       - run: pip install pytest==9.1.1
-      - run: python -m pytest -q tests
+      # Targeted tests (Dean 2 Nov 2026): branches and PRs run only the test files that name a changed file
+      # (scripts/select_tests.py); anything unmapped, shared test helpers or CI config run the full suite.
+      # main, the nightly schedule and manual runs always run every test.
+      - name: Pick tests
+        id: pick
+        run: |
+          base=${{ github.event.pull_request.base.sha || github.event.before }}
+          sel=ALL
+          if [ "${{ github.ref }}" != "refs/heads/main" ] && [ "${{ github.event_name }}" != "schedule" ] && [ "${{ github.event_name }}" != "workflow_dispatch" ] \
+             && [ -n "$base" ] && [ "$base" != "0000000000000000000000000000000000000000" ] && files=$(git diff --name-only "$base" HEAD); then
+            sel=$(python scripts/select_tests.py $files) || sel=ALL
+          else echo "main, nightly, manual or no base: full suite"; fi
+          [ -n "$sel" ] || sel=ALL
+          printf '%s\n' "$sel" > selected_tests.txt
+          echo "selected: $(wc -l < selected_tests.txt) line(s)"; cat selected_tests.txt
+      - run: |
+          if [ "$(cat selected_tests.txt)" = ALL ]; then python -m pytest -q tests
+          else python -m pytest -q $(cat selected_tests.txt); fi
       # Alert-only for one week (Dean 27 Oct 2026): reports date mismatches as warnings, never fails.
       - name: Date check (alert-only)
         continue-on-error: true
