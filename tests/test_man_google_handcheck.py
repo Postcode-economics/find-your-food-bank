@@ -13,7 +13,6 @@ ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 sys.path.insert(0, os.path.join(ROOT, "scripts"))
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import google_handcheck as G
-from test_shelter_sources import HandCheck
 
 
 def _published():
@@ -26,11 +25,13 @@ def _manual():
 
 
 class ManGoogleHandCheck(unittest.TestCase):
-    def test_allowlist_is_the_hand_check_list(self):
-        lines = {k for k in HandCheck.LINES if k.startswith("man-google-")}
-        self.assertEqual(G.allowed(ROOT), lines)
-        self.assertIn("man-google-calderwood-house", lines)
-        self.assertNotIn("man-google-homeless-accommodation-tai-gogledd-cymru", lines)
+    def test_allowlist_matches_hand_check_file(self):
+        path = os.path.join(ROOT, "overrides", "man_google_handcheck.json")
+        want = set(json.load(open(path, encoding="utf-8")))
+        self.assertEqual(G.allowed(ROOT), want)
+        self.assertIn("man-google-calderwood-house", want)
+        self.assertIn("man-google-day-centre", want)
+        self.assertNotIn("man-google-homeless-accommodation-tai-gogledd-cymru", want)
 
     def test_published_map_has_no_man_google_outside_the_list(self):
         allow = G.allowed(ROOT)
