@@ -44,8 +44,8 @@ const LAYERS={sh:{file:'shelters.js',var:'SHELTERS',col:'#56B4E9',shape:'sq',on:
 const SYM={
  house:'<g class="xmk"><path d="M8 15.5l8-7.5 8 7.5V24H8z" fill="#0A1628"/></g>',
  sun:'<g class="xmk"><circle cx="16" cy="16" r="3.8" fill="#0A1628"/><g stroke="#0A1628" stroke-width="2.4" stroke-linecap="butt"><path d="M16 8v2.8M16 21.2V24M8 16h2.8M21.2 16H24M10.3 10.3l2 2M19.7 19.7l2 2M10.3 21.7l2-2M19.7 12.3l2-2"/></g></g>',
- youth:'<g class="xmk"><text x="16" y="15.3" text-anchor="middle" font-family="system-ui,Segoe UI,Arial" font-weight="900" font-size="10" textLength="15.6" lengthAdjust="spacingAndGlyphs" fill="#0A1628">16</text><text x="16" y="24" text-anchor="middle" font-family="system-ui,Segoe UI,Arial" font-weight="900" font-size="10" textLength="15.6" lengthAdjust="spacingAndGlyphs" fill="#0A1628">25</text></g>',
- food:'<g class="xmk"><path d="M9 13.5h14l-1.3 10.5H10.3z" fill="#0A1628"/><path d="M12 13.5V12a4 4 0 0 1 8 0v1.5" fill="none" stroke="#0A1628" stroke-width="2"/></g>',
+ youth:'<g class="xmk"><text x="15.7" y="15.3" text-anchor="middle" font-family="system-ui,Segoe UI,Arial" font-weight="900" font-size="10" textLength="15.6" lengthAdjust="spacingAndGlyphs" fill="#0A1628">16</text><text x="15.7" y="24" text-anchor="middle" font-family="system-ui,Segoe UI,Arial" font-weight="900" font-size="10" textLength="15.6" lengthAdjust="spacingAndGlyphs" fill="#0A1628">25</text></g>',
+ food:'<g class="xmk"><path d="M9 13.5h14l-1.3 10.5H10.3z" fill="#F5C518" stroke="#0A1628" stroke-width="1"/><path d="M12 13.5V12a4 4 0 0 1 8 0v1.5" fill="#F5C518" stroke="#0A1628" stroke-width="2"/></g>',
  flame:'<g class="xmk"><path d="M16.2 7.2c.4 3.2-2.4 4.6-2.2 8 .2 2.2 2.2 3.2 4.2 2.4 1.2-2.4-.4-4 1.4-6.2 1.8 2.4 2.6 4.8 1.2 7.6a5.2 5.2 0 1 1-9.4-2.8c.8-2.6 2.8-4 4.8-9z" fill="#0A1628"/></g>'};
 const shYouthBlob=i=>{if(!i)return'';const wf=Array.isArray(i.who_for)?i.who_for.join(' '):String(i.who_for||'');return(String(i.name||'')+' '+(i.groups||[]).join(' ')+' '+wf).replace(/\s+/g,' ')};
 const shYouth=i=>{const U=window.UFacts;if(U&&U.isYouth)return U.isYouth(i);if(!i||i.kind==='young_people')return!!(i&&i.kind==='young_people');const name=String(i.name||''),blob=shYouthBlob(i);return/\bfoyers?\b/i.test(blob)||/\byoung people\b/i.test(blob)||/\byouth\b/i.test(blob)||/Age\s*16\s*[-–]\s*25/i.test(blob)||/16\s*[-–to]{1,3}\s*25/i.test(blob)||/1[678]\s*[-–to]{1,3}\s*2[0-9]/i.test(blob)||(/\bhousing\b/i.test(name)&&/16\s*[-–to]{1,3}\s*25/i.test(blob))||/young people'?s housing/i.test(blob)};
@@ -84,10 +84,10 @@ const bar=document.createElement('div');bar.id='xbar';bar.setAttribute('role','t
 const seg=(k,col,shape,on)=>`<button type="button" class="xt" data-l="${k}" aria-pressed="${on}"><i class="sw ${shape}" style="background:${col}"></i><span data-t="${k}"></span></button>`;
 bar.innerHTML=seg('fb','#F5C518','tear',true)+seg('sh',LAYERS.sh.col,'sq',false)+seg('ws',LAYERS.ws.col,'dia',false);
 const hdr=document.querySelector('header');hdr.insertBefore(bar,hdr.querySelector('h1').nextSibling);
-const keyRow=(ico,bKey,small)=>`<div class="xkey-row"><span class="xkey-ico" aria-hidden="true">${ico}</span><span class="xkey-txt"><b data-t="${bKey}"></b> ${small}</span></div>`;
+const keyRow=(ico,bKey,small)=>{const sym={fb:'food',ws:'flame',sh:'house',dayCentre:'sun',youth:'youth'}[bKey]||'';return `<div class="xkey-row" data-sym="${sym}"><span class="xkey-ico" aria-hidden="true">${ico}</span><span class="xkey-txt"><b data-t="${bKey}"></b> ${small}</span></div>`};
 const lg=document.createElement('div');lg.id='xleg';lg.innerHTML=
  keyRow(symSvg('food',28),'fb','<small id="u_fb"></small>')+
- keyRow(symSvg('flame',28),'ws','<small id="u_ws"></small>')+
+ keyRow(symSvg('flame',34),'ws','<small id="u_ws"></small>')+
  keyRow(symSvg('house',28),'sh','<small id="u_sh"></small>')+
  keyRow(symSvg('sun',28),'dayCentre','<small data-t="dayOnly"></small>')+
  keyRow(symSvg('youth',28),'youth','<small data-t="youthOnly"></small>');
@@ -164,7 +164,7 @@ function fbAcc(i){let a='';try{if(typeof acc==='function')a=acc(i)}catch(e){}
  if(a==='walkin')return '<span class="xacc xacc-open_access"><span class="v-en">Walk-in</span><span class="v-cy" lang="cy">Galw heibio</span></span>';
  return ''}
 function cardTop(layer,i){const sk=layer==='fb'?'food':layer==='ws'?'flame':symKey(i);
- const sym=`<span class="xmkbox" data-sym="${sk}">${symSvg(sk,28)}</span>`;
+ const px=sk==='flame'?34:28;const sym=`<span class="xmkbox" data-sym="${sk}">${symSvg(sk,px)}</span>`;
  let en,cy;
  if(layer==='sh'){const pillKey=sk==='sun'?'dayCentre':sk==='youth'?'pillYouth':(i.kind==='hostel'||/\bhostel\b/i.test(i.name||''))?'pillHostel':'pillNight';en=T.en[pillKey];cy=T.cy[pillKey]}
  else if(window.UFacts){const p=UFacts.typeOf(layer,i);en=p[0];cy=p[1]}
@@ -208,7 +208,7 @@ function detail(k,i,dist){const tel0=(i.phone||'').replace(/[^\d+]/g,''),tel=i.t
  ${window.repB?repB(k,i):''}
  ${contact.rest?`<div class="xafter">${contact.rest}</div>`:''}
  ${shSource(i)}`}
-function fitSym(root){(root||document).querySelectorAll('.xtop').forEach(row=>{const pill=row.querySelector('.utag,.xkind'),svg=row.querySelector('.xmkbox svg'),sp=row.querySelector('.xmkbox');if(!pill||!svg||!sp)return;sp.style.marginTop='0px';const h=pill.getBoundingClientRect().height;if(!(h>1))return;const px=Math.round(h*100)/100;svg.style.width=px+'px';svg.style.height=px+'px';svg.setAttribute('width',px);svg.setAttribute('height',px);const tr=pill.getBoundingClientRect(),sr=svg.getBoundingClientRect();sp.style.marginTop=(tr.top-sr.top)+'px'})}
+function fitSym(root){(root||document).querySelectorAll('.xtop').forEach(row=>{const pill=row.querySelector('.utag,.xkind'),svg=row.querySelector('.xmkbox svg'),sp=row.querySelector('.xmkbox');if(!pill||!svg||!sp)return;sp.style.marginTop='0px';const px=sp.dataset.sym==='flame'?34:28;svg.setAttribute('width',px);svg.setAttribute('height',px);const tr=pill.getBoundingClientRect(),sr=svg.getBoundingClientRect();if(Math.abs(sr.height-tr.height)<=1)sp.style.marginTop=(tr.top-sr.top)+'px'})}
 window.fitSym=fitSym;
 function showSheet(html){if(!html||!/<h3[\s>]/.test(html)){if(window.closeSheet)closeSheet();return}const s=document.getElementById('sheet');document.getElementById('sheetBody').innerHTML=`<div class="card">${html}</div>`;s.classList.add('open');s.setAttribute('aria-hidden','false');fitSym(s)}
 function sheetEmpty(){const s=document.getElementById('sheet');return !!(s&&s.classList.contains('open')&&!((document.querySelector('#sheetBody h3')||{}).textContent||'').trim())}
