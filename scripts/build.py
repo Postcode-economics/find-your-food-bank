@@ -226,7 +226,7 @@ def main():
     allc = {i['id']: i.pop('_own_all_closed') for i in items if '_own_all_closed' in i}  # kept out of the recheck gate
     before = len(items)
     try:
-        items, omitted = fb_recheck.gate(items, records, api_meta, os.path.join(ROOT, 'logs', 'foodbank_recheck.json'), os.path.join(ROOT, 'logs', 'foodbank_pending.json'))
+        items, omitted = fb_recheck.gate(items, records, api_meta, os.path.join(ROOT, 'logs', 'foodbank_recheck.json'), os.path.join(ROOT, 'logs', 'foodbank_pending.json'), published_ids={x['id'] for x in load_prev_items()})
     except RuntimeError as e: die(str(e))
     print('recheck gate: %d of %d published, %d omitted; opening_times normalised on %d' % (len(items), before, len(omitted), n_ot))
     show_closed = set(load_json(os.path.join(ROOT, 'overrides', 'show_all_closed.json'), {}).get('ids', []))

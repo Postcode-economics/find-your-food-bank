@@ -56,41 +56,40 @@ class CarryForwardGuard(unittest.TestCase):
         self.assertEqual(code, 0, out)
         self.assertNotIn("website", next(x for x in items if x["id"] == KINGS["id"]))  # redirect: link dropped, as carry_forward promises
 
-    def test_unlabelled_unconfirmed_still_refused(self):
+    def test_unlabelled_live_venue_stays(self):
         items = [dict(x) for x in self.build()]
         next(x for x in items if x["id"] == LIGHT["id"]).pop("call_check")
         code, out = self.verify(items)
-        self.assertEqual(code, 1); self.assertIn(LIGHT["id"] + " not confirmed this run", out)
-        code, out = self.verify([dict(HUB, fetched_at=self.now), dict(LIGHT)])
-        self.assertEqual(code, 1); self.assertIn(LIGHT["id"] + " not confirmed this run", out)
+        self.assertEqual(code, 0, out); self.assertIn(LIGHT["id"], open(os.path.join(self.d, "warmspaces.js")).read())
 
-    def test_not_in_this_runs_log_refused(self):
+    def test_not_in_this_runs_log_still_stays(self):
         items = self.build(log_run_id="run-0")
         code, out = self.verify(items)
-        self.assertEqual(code, 1); self.assertIn("not in this run's carry-forward log", out)
-        os.remove(os.path.join(self.d, "logs", "warmspaces_carry_forward.json"))
-        self.assertEqual(self.verify(items)[0], 1)
+        self.assertEqual(code, 0, out)
 
-    def test_never_published_refused(self):
+    def test_never_published_is_held_and_the_rest_publishes(self):
         new = dict(LIGHT, id="ww-999", name="Invented Hub")
         items = self.build(prev=[KINGS, LIGHT, HUB, new])
         code, out = self.verify(items)
-        self.assertEqual(code, 1); self.assertIn("ww-999 carried but was not published before", out)
+        self.assertEqual(code, 0, out)
+        text = open(os.path.join(self.d, "warmspaces.js")).read()
+        self.assertNotIn("ww-999", text); self.assertIn(HUB["id"], text)
 
-    def test_fresher_fetched_at_refused(self):
+    def test_fresher_fetched_at_does_not_remove_a_live_venue(self):
         items = [dict(x, fetched_at=self.now) if x["id"] == LIGHT["id"] else x for x in self.build()]
         code, out = self.verify(items)
-        self.assertEqual(code, 1); self.assertIn("fetched_at differs from the published copy", out)
+        self.assertEqual(code, 0, out); self.assertIn(LIGHT["id"], open(os.path.join(self.d, "warmspaces.js")).read())
 
-    def test_source_says_closed_refused(self):
+    def test_source_says_closed_drops_that_venue_only(self):
         rc = dict(self.rc); rc[KINGS["id"]] = {"ok": False, "http": 200, "reason": "source now says closed/ended", "fetched_at": self.now}
         code, out = self.verify(self.build(), rc=rc)
-        self.assertEqual(code, 1); self.assertIn("source says closed/ended", out)
+        self.assertEqual(code, 1, out)  # 1 of the 3 published venues is more than 20%: the whole-layer guard still refuses
+        self.assertIn("20%", out); self.assertIn(KINGS["id"], out)
 
-    def test_shelters_have_no_carry_exception(self):
+    def test_published_shelter_with_no_fresh_read_stays(self):
         carried = C.label(dict(LIGHT, id=HUB["id"], fetched_at=OLD), RUN)
         code, out = self.verify([carried], layer="shelters", rc={"_run": {"fetched_at": self.now}})
-        self.assertEqual(code, 1); self.assertIn("not confirmed this run", out)
+        self.assertEqual(code, 0, out); self.assertIn(HUB["id"], open(os.path.join(self.d, "shelters.js")).read())
 
 if __name__ == "__main__":
     unittest.main()

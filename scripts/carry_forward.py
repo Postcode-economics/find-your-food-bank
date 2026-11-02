@@ -80,13 +80,11 @@ def why_not(o, run_day, excluded=(), allowed=(), skip=(), valid_until=season_end
     return None
 
 def season_ok(o, run_day, valid_until):
-    """Same season rule as the verification gate: a verification is valid only to the end of its winter season."""
-    if o.get('ended'): return False
+    """A live venue stays past the winter verification window. It drops when its own record says it ended
+    (ended, or scheme_end already passed). valid_until is kept for callers and is not a removal."""
+    if o.get('ended') or o.get('flag_closed'): return False
     se = o.get('scheme_end') or ''
     if len(se) == 10 and se[4] == '-' and se < run_day: return False
-    if valid_until:
-        d = o.get('verified_on') or o.get('last_verified') or o.get('first_verified_on')
-        if d and run_day > valid_until({'verified_on': d[:10]}): return False
     return True
 
 def carry_items(prev_items, items, closed, run_day, excluded=(), allowed=None, skip=(), pending=None, valid_until=None, confirmed=None):
@@ -99,6 +97,9 @@ def carry_items(prev_items, items, closed, run_day, excluded=(), allowed=None, s
     carried, not_carried = [], []
     for o in prev_items or []:
         if o['id'] in have: continue
+        preason = (pend.get(o['id']) or {}).get('reason') or ''
+        if 'source now says closed' in preason or 'feed says ended' in preason:
+            not_carried.append({'id': o['id'], 'name': o.get('name', ''), 'why': 'closed'}); continue
         why = why_not(o, run_day, excluded, allowed, skip, valid_until)
         if not why:
             m = refresh_guard.moved_to(o, near)
