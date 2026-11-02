@@ -336,6 +336,20 @@
    "applied": true
   },
   {
+   "id": "ww-64717116",
+   "layer": "warmspaces",
+   "name": "Adapt Community Warm Space",
+   "postcode": "NE46 3HN",
+   "address": "Burn Lane, Hexham NE46 3HN",
+   "evidence_url": "https://www.adapt-ne.org.uk/index.php/community-hub/",
+   "day_time_quote": "Monday – Friday 9am-5pm",
+   "source_url": "https://www.warmwelcome.uk/space?l=27865",
+   "website": "https://adapt-ne.org.uk/index.php/community-hub/",
+   "found_via": "direct",
+   "checked_on": "2026-11-02",
+   "rule": "official or own page states a weekday and a time"
+  },
+  {
    "id": "ww-64821439",
    "layer": "warmspaces",
    "name": "The Hive",
@@ -419,6 +433,20 @@
    "rule": "official or own page states a weekday and a time",
    "applied": false,
    "not_applied_reason": "spud.org.uk is SPUD's Spudworks gallery, not this hub. The hub is already live as ww-64379394. Exact id exclusion only; the host is not excluded."
+  },
+  {
+   "id": "ww-65438726",
+   "layer": "warmspaces",
+   "name": "Addlestone Library",
+   "postcode": "KT15 2AF",
+   "address": "Addlestone Library, Runnymede Civic Centre, Station Road, Addlestone, Surrey KT15 2AF",
+   "evidence_url": "https://www.surreycc.gov.uk/libraries/your-library/find-your-nearest/addlestone",
+   "day_time_quote": "Tuesday 9.30am until 5pm | Wednesday 9.30am until 5pm | Thursday 9.30am until 5pm | Friday 9.30am until 5pm | Saturday 9.30am until 5pm",
+   "source_url": "https://www.warmwelcome.uk/space?l=20489",
+   "website": "https://www.surreycc.gov.uk/libraries/your-library/find-your-nearest/addlestone",
+   "found_via": "direct",
+   "checked_on": "2026-11-02",
+   "rule": "official or own page states a weekday and a time"
   },
   {
    "id": "ww-65438919",
@@ -629,6 +657,20 @@
    "applied": true
   },
   {
+   "id": "ww-68672274",
+   "layer": "warmspaces",
+   "name": "Accrington library",
+   "postcode": "BB5 1NQ",
+   "address": "Lancashire County Council, Accrington, Lancashire BB5 1NQ",
+   "evidence_url": "https://www.lancashire.gov.uk/libraries-and-archives/libraries/find-a-library/accrington-library/",
+   "day_time_quote": "Mondays, Thursdays, Fridays and Saturdays 10am-12pm",
+   "source_url": "https://www.warmwelcome.uk/space?l=22911",
+   "website": "https://www.lancashire.gov.uk/libraries-and-archives/libraries/find-a-library/accrington-library/",
+   "found_via": "direct",
+   "checked_on": "2026-11-02",
+   "rule": "official or own page states a weekday and a time"
+  },
+  {
    "id": "ww-68672289",
    "layer": "warmspaces",
    "name": "Oxted Library",
@@ -727,6 +769,20 @@
    "website": "https://www.newcastle.gov.uk/services/libraries-and-culture",
    "found_via": "search",
    "checked_on": "2026-10-31",
+   "rule": "official or own page states a weekday and a time"
+  },
+  {
+   "id": "ww-69441298",
+   "layer": "warmspaces",
+   "name": "Newbiggin Hall Library at Galafield",
+   "postcode": "NE5 1LZ",
+   "address": "The Galafield Centre, Newcastle upon Tyne, Tyne and Wear NE5 1LZ",
+   "evidence_url": "https://new.newcastle.gov.uk/search?s=Newbiggin+Hall+Library+at+Galafield",
+   "day_time_quote": "Tuesday 10am to 2pm",
+   "source_url": "https://www.warmwelcome.uk/space?l=28670",
+   "website": "https://www.newcastle.gov.uk/services/libraries-and-culture",
+   "found_via": "search",
+   "checked_on": "2026-11-02",
    "rule": "official or own page states a weekday and a time"
   }
  ]
