@@ -159,7 +159,7 @@ ROWS_JS = r"""(sel)=>{const bad=[];
 
 # Shelter symbols (Dean 31 Oct): the strip sits under the map only while Shelter is selected,
 # its three symbols share one box, and it does not cover the OpenStreetMap credit.
-STRIP_JS = r"""async ()=>{const bad=[];
+STRIP_JS = r"""()=>{const bad=[];
  const shown=el=>!!(el&&el.getClientRects().length&&getComputedStyle(el).display!=='none');
  const sh=document.documentElement.dataset.v3k==='sh';
  const strip=document.getElementById('xsym');
@@ -170,13 +170,6 @@ STRIP_JS = r"""async ()=>{const bad=[];
  const day=document.querySelector('#chips [data-f=sday]');
  const walk=document.querySelector('#chips [data-f=walk]');
  const vouch=document.querySelector('#chips [data-f=vouch]');
- const ink=svg=>new Promise(ok=>{const img=new Image();
-  img.onload=()=>{const c=document.createElement('canvas');c.width=300;c.height=300;const x=c.getContext('2d');x.drawImage(img,0,0,300,300);
-   const d=x.getImageData(0,0,300,300).data;let minx=300,miny=300,maxx=0,maxy=0,n=0;
-   for(let y=40;y<260;y++)for(let xx=40;xx<260;xx++){const o=(y*300+xx)*4;if(d[o+3]<20||d[o]>=40||d[o+1]>=50||d[o+2]>=70)continue;n++;
-    if(xx<minx)minx=xx;if(y<miny)miny=y;if(xx>maxx)maxx=xx;if(y>maxy)maxy=y;}
-   ok(n?{w:maxx-minx+1,h:maxy-miny+1}:null);};
-  img.onerror=()=>ok(null);img.src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(new XMLSerializer().serializeToString(svg));});
  if(sh){
   if(!shown(youth)||!shown(host)||!shown(day)) bad.push('shelter type chips hidden');
   if(shown(walk)||shown(vouch)) bad.push('food-bank chips still visible on shelters');
@@ -194,9 +187,14 @@ STRIP_JS = r"""async ()=>{const bad=[];
   else {
    const tops=items.map(el=>el.getBoundingClientRect().top);
    if(Math.max(...tops)-Math.min(...tops)>2) bad.push('strip is not one line');
-   const boxes=[]; for(const el of items) boxes.push(await ink(el.querySelector('svg')));
-   if(boxes.some(b=>!b)) bad.push('symbol ink missing '+JSON.stringify(boxes));
-   else boxes.forEach((b,i)=>{if(Math.abs(b.h-boxes[0].h)>4||Math.abs(b.w-boxes[0].w)>20) bad.push('symbol '+i+' ink '+b.w+'x'+b.h+' vs '+boxes[0].w+'x'+boxes[0].h);});
+   const boxes=items.map(el=>{const s=el.querySelector('svg'); if(!s) return null; const r=s.getBoundingClientRect(); return {w:r.width,h:r.height,aw:+s.getAttribute('width'),ah:+s.getAttribute('height')};});
+   if(boxes.some(b=>!b)) bad.push('strip symbol svg missing');
+   else{
+    for(let i=0;i<boxes.length;i++){
+     if(Math.abs(boxes[i].w-boxes[0].w)>0.5||Math.abs(boxes[i].h-boxes[0].h)>0.5) bad.push('strip symbol '+i+' box '+boxes[i].w.toFixed(1)+'x'+boxes[i].h.toFixed(1)+' vs '+boxes[0].w.toFixed(1)+'x'+boxes[0].h.toFixed(1));
+     if(boxes[i].aw!==28||boxes[i].ah!==28) bad.push('strip symbol '+i+' svg not 28px');
+    }
+   }
   }
   const attr=document.querySelector('#map .leaflet-control-attribution');
   if(attr&&strip){const a=attr.getBoundingClientRect(),s=strip.getBoundingClientRect();
