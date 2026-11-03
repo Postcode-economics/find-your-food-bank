@@ -19,10 +19,17 @@ finder and its two-run check only monitor for later changes.
    site format (rule 16, UK time).
 5. **Type and icon** (shelters): `kind` is `hostel`, `day_centre`, `young_people`, or unset (standard
    hostel/night-shelter house icon). The same value drives the map pin, card icon and type label.
-5b. **Pin matches the real type** (all layers): food bank warehouses / drop-off points (`kind`
-   `warehouse` / `dropoff`: donations only, no collections or walk-ins) never use the walk-in/voucher food
-   bank pin. Today they get the separate box-with-arrow marker (`whIcon`, `nc()` in index.html) and the
-   "Donations only" label. Pin design changes need Dean's OK first.
+5b. **Pin matches the real type** (all layers). Required uniform layout for every donations-only food
+   bank place (`kind` `warehouse` or `dropoff`: no collections or walk-ins), with no exceptions:
+   - **Map pin**: `whIcon` in index.html: white rounded square (`#F2F4F8`) with a dark `#0A1628` outline
+     and a dark down arrow. The same pin when selected (`select()` / `icFor()` via `nc()`); never the
+     yellow walk-in/voucher food bank pin.
+   - **Card**: the red-edged "Donations only" `ncb` banner with the box icon, name, address, then the
+     "Get food at:" list of centres (or "Contact the food bank for where to get food."), same fields as
+     every other warehouse card.
+   - New listings get this automatically by setting `kind`; `tests/test_donation_pins.py` fails the build
+     otherwise. Known locked variation: `b30-south-birmingham` shows a 📦 emoji in its label (wording
+     locked by tests/test_labels.py). Pin design changes need Dean's OK first.
 6. **Phone**: a verified number (`phone`, with `phone_source` where the number came from elsewhere); one
    tel: button, UK spacing.
 7. **Who it's for / how to get in**: sourced `access` / `access_type` (referral only / open access tags),
