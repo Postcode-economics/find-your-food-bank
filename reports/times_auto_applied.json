@@ -6480,5 +6480,27 @@
   "first_run_at": "2026-11-01T03:43:22+00:00",
   "second_run_at": "2026-11-01T22:19:00+00:00",
   "revert": "python scripts/times_revert.py sh:man-hope-trinity"
+ },
+ {
+  "id": "man-doorway-young-people-16-25",
+  "kind": "sh",
+  "path": "cross_check",
+  "name": "Doorway (young people 16-25)",
+  "old": "Not stated",
+  "new": {
+   "Fri": "09:00 - 16:30"
+  },
+  "new_structured": {
+   "fri": [
+    [
+     "09:00",
+     "16:30"
+    ]
+   ]
+  },
+  "source_url": "https://www.doorway.org.uk/contact",
+  "first_run_at": "2026-11-01T22:19:00+00:00",
+  "second_run_at": "2026-11-03T00:34:53+00:00",
+  "revert": "python scripts/times_revert.py sh:man-doorway-young-people-16-25"
  }
 ]

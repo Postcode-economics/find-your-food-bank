@@ -1,13 +1,148 @@
 {
  "shelters.js": {
-  "added": [],
+  "added": [
+   {
+    "id": "man-ss-barnardos-nightstop-leeds",
+    "name": "Nightstop Leeds (Barnardo's Futures, 16-21)",
+    "tier": "verified"
+   },
+   {
+    "id": "man-ss-bethany-house-edinburgh",
+    "name": "Bethany House (Bethany Christian Trust)",
+    "tier": "verified"
+   },
+   {
+    "id": "man-ss-bradford-nightstop",
+    "name": "Bradford Nightstop (16-25)",
+    "tier": "verified"
+   },
+   {
+    "id": "man-ss-brighter-futures-90-hope-street",
+    "name": "90 Hope Street hostel (Brighter Futures)",
+    "tier": "verified"
+   },
+   {
+    "id": "man-ss-caritas-morning-star-hostel",
+    "name": "Morning Star Hostel (Caritas Salford)",
+    "tier": "verified"
+   },
+   {
+    "id": "man-ss-depaul-nightstop-greater-manchester",
+    "name": "Nightstop Greater Manchester (Depaul, 16-25)",
+    "tier": "verified"
+   },
+   {
+    "id": "man-ss-high-peak-homeless-help",
+    "name": "High Peak Homeless Help emergency accommodation",
+    "tier": "verified"
+   },
+   {
+    "id": "man-ss-langley-tekoa-house",
+    "name": "Tekoa House (Langley House Trust)",
+    "tier": "verified"
+   },
+   {
+    "id": "man-ss-local-solutions-homeground",
+    "name": "Homeground (Local Solutions, 16-21)",
+    "tier": "verified"
+   },
+   {
+    "id": "man-ss-michael-house-boscombe",
+    "name": "Michael House (dry house)",
+    "tier": "verified"
+   },
+   {
+    "id": "man-ss-new-start-belmont-drive",
+    "name": "Belmont Drive Project (New Start)",
+    "tier": "verified"
+   },
+   {
+    "id": "man-ss-new-start-harm-reduction-women",
+    "name": "New Start harm reduction service (women 18+)",
+    "tier": "verified"
+   },
+   {
+    "id": "man-ss-new-start-prospect-lodge",
+    "name": "Prospect Lodge (New Start)",
+    "tier": "verified"
+   },
+   {
+    "id": "man-ss-open-homes-nottingham-nightstop",
+    "name": "Nottingham Nightstop (Open Homes, 16-25)",
+    "tier": "verified"
+   },
+   {
+    "id": "man-ss-salvation-army-pleasance-lifehouse",
+    "name": "The Pleasance Lifehouse (Salvation Army)",
+    "tier": "verified"
+   },
+   {
+    "id": "man-ss-sanctuary-trust-step-rochdale",
+    "name": "STEP emergency night accommodation (Sanctuary Trust)",
+    "tier": "verified"
+   },
+   {
+    "id": "man-ss-signposts-start-over-shelter",
+    "name": "Start Over Shelter (Signposts)",
+    "tier": "verified"
+   },
+   {
+    "id": "man-ss-ssj-10-southampton-street",
+    "name": "10 Southampton Street hostel (Society of St James)",
+    "tier": "verified"
+   },
+   {
+    "id": "man-ss-st-annes-hostel-birmingham",
+    "name": "St Anne's Hostel (men 25+, dogs welcome)",
+    "tier": "verified"
+   },
+   {
+    "id": "man-ss-st-basils-milner-court",
+    "name": "St Basils Milner Court (18-25)",
+    "tier": "verified"
+   },
+   {
+    "id": "man-ss-st-basils-yardley-house",
+    "name": "St Basils Yardley House (16-24)",
+    "tier": "verified"
+   },
+   {
+    "id": "man-ss-st-georges-crypt-leeds",
+    "name": "St George's Crypt emergency accommodation",
+    "tier": "verified"
+   },
+   {
+    "id": "man-ss-whitechapel-aigburth-drive",
+    "name": "Aigburth Drive harm reduction hostel (Whitechapel Centre, men 35+)",
+    "tier": "verified"
+   },
+   {
+    "id": "man-ss-ymca-derbyshire-london-road",
+    "name": "YMCA Derbyshire hostel",
+    "tier": "verified"
+   }
+  ],
   "removed": [],
-  "changed": [],
+  "changed": [
+   {
+    "id": "man-aberdeen-cyrenians-direct-access",
+    "name": "Aberdeen Cyrenians",
+    "fields": [
+     "referral"
+    ],
+    "before": {
+     "referral": "Drop in (Direct Access service); call 0300 303 0903"
+    },
+    "after": {
+     "referral": "Drop in; option 1 Direct Access"
+    }
+   }
+  ],
   "tier_flips": [],
   "upcoming": [
-   "Glass Door Winter Night Shelters (3 circuits) – Opens 21 Nov 2026 until 22 Mar 2027",
    "Barnet Winter Night Shelter (Homeless Action in Barnet) – Opens 8 Nov 2026",
    "Glasgow City Mission Overnight Welcome Centre – Opens 1 Dec 2026 until 31 Mar 2027",
+   "Glass Door Winter Night Shelters (3 circuits) – Opens 21 Nov 2026 until 22 Mar 2027",
    "St Peter's Parish Night Shelter (Roath) – Opens 4 Dec 2026 until 31 Mar 2027"
   ],
   "ended": [],
@@ -105,10 +240,6 @@
     "reason": "source unreachable this run (HTTP 404)"
    },
    {
-    "id": "osm-way-753792449",
-    "reason": "source unreachable this run (HTTP 403)"
-   },
-   {
     "id": "osm-way-931997512",
     "reason": "OpenStreetMap-only: own-site page does not show this place's postcode or street address this run"
    },
@@ -121,12 +252,8 @@
     "reason": "OpenStreetMap-only: own-site page does not show this place's postcode or street address this run"
    },
    {
-    "id": "osm-way-979361293",
-    "reason": "source unreachable this run (HTTP 403)"
-   },
-   {
     "id": "osm-way-1104948217",
-    "reason": "source no longer names this place"
+    "reason": "source unreachable this run (HTTP 403)"
    },
    {
     "id": "osm-way-1158181491",
@@ -146,18 +273,6 @@
    },
    {
     "id": "osm-relation-2707322",
-    "reason": "source unreachable this run (HTTP 403)"
-   },
-   {
-    "id": "hl-ymca-lincs-nomad-centre",
-    "reason": "source unreachable this run (HTTP 403)"
-   },
-   {
-    "id": "hl-st-annes-hostel-birmingham",
-    "reason": "source unreachable this run (HTTP 403)"
-   },
-   {
-    "id": "hl-st-georges-crypt-leeds",
     "reason": "source unreachable this run (HTTP 403)"
    },
    {
@@ -206,19 +321,7 @@
    },
    {
     "id": "hl-dawn-centre-temporary-accommodation-project",
-    "reason": "source unreachable this run (HTTP 403)"
-   },
-   {
-    "id": "hl-paradigm-housing-group-lea-bridge-house-hostel",
-    "reason": "source unreachable this run (HTTP 403)"
-   },
-   {
-    "id": "hl-st-mungos-longhills",
-    "reason": "source unreachable this run (HTTP 403)"
-   },
-   {
-    "id": "hl-stonepillow-bognor-hostel",
-    "reason": "source unreachable this run (HTTP 403)"
+    "reason": "schema: referral requirement not stated"
    },
    {
     "id": "man-google-lancaster-district-homeless-action-service",
@@ -235,6 +338,54 @@
    {
     "id": "man-nomad-centre-ymca-lincolnshire",
     "reason": "source unreachable this run (HTTP 403)"
+   },
+   {
+    "id": "man-ss-belvidere-family-centre",
+    "reason": "schema: referral requirement not stated"
+   },
+   {
+    "id": "man-ss-riverside-project-394",
+    "reason": "source unreachable this run (HTTP 403)"
+   },
+   {
+    "id": "man-ss-homeless-action-elm-house",
+    "reason": "source unreachable this run (HTTP 403)"
+   },
+   {
+    "id": "man-ss-homeless-action-holly-house",
+    "reason": "source unreachable this run (HTTP 403)"
+   },
+   {
+    "id": "man-ss-bradford-cyrenians-hostel",
+    "reason": "source unreachable this run (HTTP error)"
+   },
+   {
+    "id": "man-ss-wheatley-dunedin-harbour",
+    "reason": "source unreachable this run (HTTP 403)"
+   },
+   {
+    "id": "man-ss-ymca-together-leeds-street",
+    "reason": "schema: referral requirement not stated"
+   },
+   {
+    "id": "man-ss-riverside-wilson-carlile-house",
+    "reason": "source unreachable this run (HTTP 403)"
+   },
+   {
+    "id": "man-ss-spin-supporting-people-in-need",
+    "reason": "schema: referral requirement not stated"
+   },
+   {
+    "id": "man-ss-pcha-somers-road",
+    "reason": "schema: referral requirement not stated"
+   },
+   {
+    "id": "man-ss-jimmys-cambridge-east-road",
+    "reason": "schema: referral requirement not stated"
+   },
+   {
+    "id": "man-ss-saviour-trust-pontefract",
+    "reason": "schema: referral requirement not stated"
    }
   ]
  },

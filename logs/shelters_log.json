@@ -1,5 +1,291 @@
 [
  {
+  "run": "2026-11-02",
+  "result": "ok",
+  "items": 326,
+  "stale": 0,
+  "recently_closed": 0,
+  "sources": {
+   "OpenStreetMap (Overpass)": {
+    "status": "ok",
+    "count": 99
+   },
+   "Manual (verified from source pages)": {
+    "status": "ok",
+    "count": 337
+   },
+   "nightshelter.org.uk": {
+    "status": "not scraped: domain is parked (redirects to a lander page); no data"
+   },
+   "StreetLink (thestreetlink.org.uk)": {
+    "status": "not scraped: 403 to automated requests; it is a referral service, not a shelter directory"
+   },
+   "LHF Atlas": {
+    "status": "not scraped: map is an interactive app with no public data export; London-only"
+   },
+   "Crisis / Shelter / St Mungo's / Thames Reach": {
+    "status": "not scraped: no public shelter directory; services are via referral (council/outreach)"
+   },
+   "Shelter directory proposals": {
+    "status": "ok",
+    "verified": 5,
+    "held": 1290,
+    "day_centre_candidates": 254,
+    "excluded": 9,
+    "by_source": {
+     "homeless_link": {
+      "found": 1021,
+      "verified": 4,
+      "held": 983,
+      "excluded": 3,
+      "already_listed": 13,
+      "day_centre_candidates": 18,
+      "reader": {
+       "status": "ok",
+       "pages": 86,
+       "pages_read": 86,
+       "services_read": 1021,
+       "service_failures": 0
+      }
+     },
+     "street_support": {
+      "found": 565,
+      "verified": 1,
+      "held": 302,
+      "excluded": 6,
+      "already_listed": 22,
+      "day_centre_candidates": 234,
+      "reader": {
+       "status": "ok",
+       "accommodation": {
+        "status": "ok",
+        "total": 319,
+        "fetched": 319
+       },
+       "dropin": {
+        "status": "ok",
+        "total": 246,
+        "fetched": 246
+       }
+      }
+     },
+     "lifehouses": {
+      "found": 15,
+      "verified": 0,
+      "held": 5,
+      "excluded": 0,
+      "already_listed": 8,
+      "day_centre_candidates": 2,
+      "reader": {
+       "status": "ok",
+       "sitemap_place_pages": 15,
+       "page_fetch_failures": 0,
+       "stated_on_page": 44,
+       "note": "Lifehouses page says 44 services; sitemap exposed 15 place pages (news URLs excluded)"
+      }
+     },
+     "nihe": {
+      "found": 0,
+      "verified": 0,
+      "held": 0,
+      "excluded": 0,
+      "already_listed": 0,
+      "day_centre_candidates": 0,
+      "reader": {
+       "status": "failed: NIHE page HTTP 403; Housing Rights PDF HTTP 200"
+      }
+     }
+    }
+   },
+   "Discovery": {
+    "status": "ok",
+    "candidates": 35,
+    "new": 28,
+    "added_unverified": 0,
+    "flagged": 28
+   },
+   "Hours normalised": {
+    "status": "ok",
+    "changed": 29
+   },
+   "Own-site times check": {
+    "status": "ok",
+    "no_website": 21,
+    "none_published": 209,
+    "unreachable": 15,
+    "differs_review": 55,
+    "unconfirmed": 14,
+    "held_for_dean": 31,
+    "confirmed": 1,
+    "changed": 5,
+    "removed_closed": []
+   },
+   "Verification gate": {
+    "status": "ok",
+    "scraped": 436,
+    "published": 352,
+    "pending": 84,
+    "kept_on_48h_grace": [],
+    "kept_fetch_blocked": [
+     "osm-way-1158181491 (hand-checked 2026-10-31)",
+     "man-connection-st-martins (hand-checked )",
+     "man-brighton-hove-foyer (hand-checked )",
+     "man-positive-pathways-drop-in-depaul (hand-checked 2026-10-31)",
+     "man-dominion-community-hub (hand-checked 2026-10-31)",
+     "man-the-brick-queen-s-hall-action-on-poverty-day-centr (hand-checked 2026-10-31)",
+     "man-providence-row-dellow-centre (hand-checked 2026-10-31)",
+     "man-harp-bradbury-day-centre (hand-checked 2026-10-31)",
+     "man-trafalgar-house-sanctuary (hand-checked 2026-10-31)",
+     "man-home4good-centre-dunfermline (hand-checked 2026-10-31)",
+     "man-victoria-house (hand-checked 2026-10-31)",
+     "man-oak-house-homeless-action (hand-checked 2026-10-31)",
+     "hl-dawn-centre-temporary-accommodation-project (hand-checked 2026-10-31)",
+     "man-google-lancaster-district-homeless-action-service (hand-checked 2026-11-01)",
+     "man-google-day-centre (hand-checked 2026-11-01)",
+     "man-kip-telford (hand-checked 2026-11-01)",
+     "man-nomad-centre-ymca-lincolnshire (hand-checked 2026-11-01)"
+    ],
+    "held_fetch_blocked": [
+     "osm-node-839135604",
+     "osm-node-1243077938",
+     "osm-node-3126125844",
+     "osm-node-3724769904",
+     "osm-node-4490110694",
+     "osm-node-5048168684",
+     "osm-node-5113222471",
+     "osm-node-6480884322",
+     "osm-node-7257703002",
+     "osm-node-9067373694",
+     "osm-node-9596043207",
+     "osm-node-9696469499",
+     "osm-node-11702060791",
+     "osm-node-11815272405",
+     "osm-node-12804949354",
+     "osm-node-12876936676",
+     "osm-node-13078865908",
+     "osm-node-13661455428",
+     "osm-node-14178877191",
+     "osm-way-32349145",
+     "osm-way-56777384",
+     "osm-way-81353303",
+     "osm-way-86915090",
+     "osm-way-97716790",
+     "osm-way-97799459",
+     "osm-way-103443901",
+     "osm-way-112817892",
+     "osm-way-136647984",
+     "osm-way-147871099",
+     "osm-way-152789142",
+     "osm-way-157731534",
+     "osm-way-171300312",
+     "osm-way-172932545",
+     "osm-way-173078399",
+     "osm-way-318977041",
+     "osm-way-327576971",
+     "osm-way-369362320",
+     "osm-way-379771476",
+     "osm-way-408710018",
+     "osm-way-453369056",
+     "osm-way-560767993",
+     "osm-way-567941601",
+     "osm-way-569033362",
+     "osm-way-585259224",
+     "osm-way-639048084",
+     "osm-way-642121557",
+     "osm-way-673331522",
+     "osm-way-679300044",
+     "osm-way-699201604",
+     "osm-way-699839857",
+     "osm-way-774694067",
+     "osm-way-931997512",
+     "osm-way-931997513",
+     "osm-way-936508369",
+     "osm-way-1104948217",
+     "osm-way-1110034236",
+     "osm-way-1126940021",
+     "osm-way-1224548824",
+     "osm-way-1262733230",
+     "osm-way-1268379059",
+     "osm-way-1279024352",
+     "osm-way-1311059304",
+     "osm-way-1383660740",
+     "osm-way-1499433619",
+     "osm-relation-2707322",
+     "osm-relation-3996349",
+     "hl-ymca-lincs-nomad-centre",
+     "man-vaughan-house",
+     "ss-63bf328f843d85a21d7bbdce",
+     "man-google-share-homeless-action-centre-shac",
+     "man-google-maggs-day-centre-worcester",
+     "man-google-homeless-accommodation-tai-gogledd-cymru",
+     "man-ss-belvidere-family-centre",
+     "man-ss-riverside-project-394",
+     "man-ss-homeless-action-elm-house",
+     "man-ss-homeless-action-holly-house",
+     "man-ss-bradford-cyrenians-hostel",
+     "man-ss-wheatley-dunedin-harbour",
+     "man-ss-ymca-together-leeds-street",
+     "man-ss-riverside-wilson-carlile-house",
+     "man-ss-spin-supporting-people-in-need",
+     "man-ss-pcha-somers-road",
+     "man-ss-jimmys-cambridge-east-road",
+     "man-ss-saviour-trust-pontefract"
+    ]
+   },
+   "Seasonal dates": {
+    "status": "ok",
+    "upcoming": 4,
+    "expired": []
+   },
+   "Manual contacts": {
+    "status": "ok",
+    "phones_filled": 22,
+    "missing_any_number": [
+     "man-google-iou-hostel-hebden-bridge"
+    ]
+   },
+   "man-google hand check": {
+    "status": "ok",
+    "published": 6,
+    "held": [
+     "man-google-about-us-hinckley-homeless-group-lawrence-house",
+     "man-google-calderwood-house",
+     "man-google-clock-tower-sanctuary",
+     "man-google-crawley-open-house-hostel",
+     "man-google-dorset-nightstop",
+     "man-google-eva-burrows-lifehouse",
+     "man-google-greenwich-homeless-project-night-shelter",
+     "man-google-home-page-dewis-housing-port-talbot-neath",
+     "man-google-housing-with-24-7-support",
+     "man-google-iou-hostel-hebden-bridge",
+     "man-google-isle-of-wight-night-shelter-outreach",
+     "man-google-kings-ripton-court",
+     "man-google-kirkwall",
+     "man-google-lichfield-district-council-joins-safeplaces-for-em",
+     "man-google-local-hostels-night-shelters",
+     "man-google-lws-night-shelter",
+     "man-google-macs",
+     "man-google-national-housing",
+     "man-google-newark-emmaus-trust-home",
+     "man-google-over-80-years-supporting-homeless-young-people",
+     "man-google-reach-haverhill-warm-hubs",
+     "man-google-rough-sleeping-we-are-trinity",
+     "man-google-supported-accommodation-for-young-people",
+     "man-google-tabor-living-st-catherine",
+     "man-google-the-foyer-isle-of-wight",
+     "man-google-the-night-shelter-coventry",
+     "man-google-torbay-foyer",
+     "man-google-utility-street-mens-hostel",
+     "man-google-ymca-mendip-including-ymca-south-somerset"
+    ]
+   },
+   "shelter exclusions": {
+    "status": "ok",
+    "dropped": 0
+   }
+  }
+ },
+ {
   "run": "2026-11-01",
   "result": "ok",
   "items": 329,
