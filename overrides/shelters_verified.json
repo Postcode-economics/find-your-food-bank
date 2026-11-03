@@ -6174,8 +6174,10 @@
   "phone": "0151 329 0307",
   "note": "Street Support find, hand check 2 Nov 2026: shap.org.uk confirms it is running, the phone and the access route. Pin is the postcodes.io centroid.",
   "facilities": [
-   "Private bathroom and kitchen",
-   "Laundry"
+   "Self-contained flat with a kitchen and bathroom",
+   "Laundry",
+   "Communal meeting rooms",
+   "Large garden and a play area for young children"
   ],
   "who_for": [
    "Homeless families"
@@ -6202,7 +6204,9 @@
   "verified_on": "2026-11-02",
   "phone": "01582 825303",
   "note": "Street Support find, hand check 2 Nov 2026: signpostsso.org confirms it is running, the phone and the access route. Pin is the postcodes.io centroid.",
-  "facilities": "Not stated",
+  "facilities": [
+   "Cooking and laundry facilities"
+  ],
   "who_for": [
    "Single homeless people, of any gender, aged 21 and over"
   ],
@@ -6278,7 +6282,9 @@
   "verified_on": "2026-11-02",
   "phone": "01332 579550",
   "note": "Street Support find, hand check 2 Nov 2026: ymcaderbyshire.org.uk confirms it is running, the phone and the access route. Pin is the postcodes.io centroid.",
-  "facilities": "Not stated",
+  "facilities": [
+   "Some are self-contained and some have communal cooking or laundry facilities"
+  ],
   "who_for": "Not stated",
   "groups": [],
   "season": "Year-round",
@@ -6318,13 +6324,25 @@
   "evidence_url": "https://www.salvationarmy.org.uk/pleasance",
   "name": "The Pleasance Lifehouse (Salvation Army)",
   "quote": "The Pleasance is a Rapid Access Accommodation service ... All referrals come from Streetwork. Their team can be contacted on at 18 South Bridge, Edinburgh, EH1 1LL, and on 0808 178 2323.",
-  "referral": "All referrals come from Streetwork: 0808 178 2323. Couples and individuals.",
+  "referral": "All referrals come from Streetwork: 18 South Bridge, Edinburgh, EH1 1LL, 0808 178 2323.",
   "verified_on": "2026-11-02",
   "phone": "0808 178 2323",
   "note": "Street Support find, hand check 2 Nov 2026: salvationarmy.org.uk confirms it is running, the phone and the access route. Pin is the postcodes.io centroid.",
-  "facilities": "Not stated",
-  "who_for": "Not stated",
-  "groups": [],
+  "facilities": [
+   "Breakfast included",
+   "Kitchens",
+   "Gym",
+   "Laundry",
+   "Pets are generally welcome"
+  ],
+  "who_for": [
+   "Couples and individuals",
+   "Must be able to access Housing benefit, and have a right to support from the City of Edinburgh Council"
+  ],
+  "groups": [
+   "Couples and individuals",
+   "Must be able to access Housing benefit, and have a right to support from the City of Edinburgh Council"
+  ],
   "hours": "",
   "season": "Year-round",
   "kind": "hostel",
@@ -6346,7 +6364,10 @@
   "note": "Street Support find, hand check 2 Nov 2026: stannesbirmingham.org.uk confirms it is running, the phone and the access route. Pin is the postcodes.io centroid.",
   "facilities": [
    "Breakfast and dinner (half board)",
-   "Support worker"
+   "Support worker",
+   "8 ensuite rooms; the rest have shared toilet and shower facilities",
+   "Learning, TV and dining rooms",
+   "Dogs are allowed to stay in their owners’ rooms"
   ],
   "who_for": [
    "Men 25+"
@@ -6368,17 +6389,32 @@
   "evidence_url": "https://homelessaction.org/contact/",
   "name": "Elm House (Homeless Action)",
   "quote": "Elm House. 22-24 Derby Road Blackpool FY1 2JF 01253 625520",
-  "referral": "All referrals come through Blackpool Council Housing Options: 01253 477760 (Mon-Fri).",
+  "referral": "Referral via Blackpool's Housing Options team (a referral MUST be submitted by them): 01253 477760, housing.options@blackpool.gov.uk.",
   "verified_on": "2026-11-02",
   "phone": "01253 625520",
   "note": "Street Support find, hand check 2 Nov 2026: homelessaction.org confirms it is running, the phone and the access route. Pin is the postcodes.io centroid.",
-  "facilities": "Not stated",
-  "who_for": "Not stated",
-  "groups": [],
+  "facilities": [
+   "Fob entry, monitored by CCTV",
+   "Own key to own bedroom, with a personal safe",
+   "4 meals a day – breakfast, lunch, dinner and supper",
+   "Ensuite and shared bathroom facilities",
+   "WiFi",
+   "Free washing facilities on site; dryers available",
+   "Free bed linen, towel and toiletry pack",
+   "Communal lounge area, with a TV and tea / coffee facilities"
+  ],
+  "who_for": [
+   "Clients aged 18 and over",
+   "High support needs, such as drug/alcohol dependence, mental health issues, learning difficulties, ex-offenders and entrenched rough sleepers"
+  ],
+  "groups": [
+   "Clients aged 18 and over",
+   "High support needs, such as drug/alcohol dependence, mental health issues, learning difficulties, ex-offenders and entrenched rough sleepers"
+  ],
   "hours": "",
   "season": "Year-round",
   "kind": "hostel",
-  "address": "Elm House, 22/24, Derby Road, Blackpool",
+  "address": "Elm House, 22-24 Derby Road, Blackpool",
   "postcode": "FY1 2JF",
   "lat": 53.828571,
   "lng": -3.054268
@@ -6390,17 +6426,32 @@
   "evidence_url": "https://homelessaction.org/contact/",
   "name": "Holly House (Homeless Action)",
   "quote": "Holly House. 20 Pleasant Street Blackpool FY1 2HU 01253 291975.",
-  "referral": "Referral through Blackpool Council Housing Options: 01253 477760 (Mon-Fri).",
+  "referral": "Referral via Blackpool's Housing Options team (a referral MUST be submitted by them): 01253 477760, housing.options@blackpool.gov.uk.",
   "verified_on": "2026-11-02",
   "phone": "01253 291975",
   "note": "Street Support find, hand check 2 Nov 2026: homelessaction.org confirms it is running, the phone and the access route. Pin is the postcodes.io centroid.",
-  "facilities": "Not stated",
-  "who_for": "Not stated",
-  "groups": [],
+  "facilities": [
+   "Fob entry, monitored by CCTV",
+   "Own key to own bedroom, with a personal safe",
+   "4 meals a day – breakfast, lunch, dinner and supper",
+   "Ensuite and shared bathroom facilities",
+   "WiFi",
+   "Free washing facilities on site; dryers available",
+   "Free bed linen, towel and toiletry pack",
+   "Communal lounge area, with a TV and tea / coffee facilities"
+  ],
+  "who_for": [
+   "Clients aged 18 and over",
+   "High support needs, such as drug/alcohol dependence, mental health issues, learning difficulties, ex-offenders and entrenched rough sleepers"
+  ],
+  "groups": [
+   "Clients aged 18 and over",
+   "High support needs, such as drug/alcohol dependence, mental health issues, learning difficulties, ex-offenders and entrenched rough sleepers"
+  ],
   "hours": "",
   "season": "Year-round",
   "kind": "hostel",
-  "address": "Holly House, 20, Pleasant Street, Blackpool",
+  "address": "Holly House, 20 Pleasant Street, Blackpool",
   "postcode": "FY1 2HU",
   "lat": 53.825181,
   "lng": -3.052345
@@ -6477,7 +6528,9 @@
   "phone": "0131 624 5800",
   "note": "Street Support find, hand check 2 Nov 2026: wheatleyhomes-east.com confirms it is running, the phone and the access route. Pin is the postcodes.io centroid.",
   "facilities": [
-   "Six self-contained supported flats"
+   "Six self-contained supported flats",
+   "Key worker",
+   "Gym groups, football sessions, cooking classes and alternative therapy sessions"
   ],
   "who_for": [
    "Single people or couples"
@@ -6504,9 +6557,16 @@
   "verified_on": "2026-11-02",
   "phone": "0151 708 7103",
   "note": "Street Support find, hand check 2 Nov 2026: newstarthomes.org.uk confirms it is running, the phone and the access route. Pin is the postcodes.io centroid.",
-  "facilities": "Not stated",
-  "who_for": "Not stated",
-  "groups": [],
+  "facilities": [
+   "11 self-contained, 1-bedroom starter flats, fully furnished and equipped",
+   "Designated Support Worker"
+  ],
+  "who_for": [
+   "Single homeless people who are identified as being high risk/high need"
+  ],
+  "groups": [
+   "Single homeless people who are identified as being high risk/high need"
+  ],
   "hours": "",
   "season": "Year-round",
   "kind": "hostel",
@@ -6529,8 +6589,12 @@
   "facilities": [
    "En-suite rooms"
   ],
-  "who_for": "Not stated",
-  "groups": [],
+  "who_for": [
+   "Individuals who are homeless or at risk of becoming homeless"
+  ],
+  "groups": [
+   "Individuals who are homeless or at risk of becoming homeless"
+  ],
   "season": "Year-round",
   "kind": "hostel",
   "address": "51 Prospect Vale, Liverpool",
@@ -6574,9 +6638,13 @@
   "phone": "0345 111 0000",
   "note": "Street Support find, hand check 2 Nov 2026: riverside.org.uk confirms it is running, the phone and the access route. Pin is the postcodes.io centroid.",
   "facilities": [
-   "Shared kitchen",
-   "Laundry",
-   "Training room and computer room"
+   "38 single bedrooms",
+   "Shared bathrooms",
+   "A spacious shared kitchen",
+   "Laundry facilities",
+   "A large communal lounge",
+   "Training room and computer room",
+   "A large, well‑established garden"
   ],
   "who_for": [
    "Men aged 18 and over"
@@ -6604,7 +6672,9 @@
   "verified_on": "2026-11-02",
   "phone": "0161 272 9515",
   "note": "Street Support find, hand check 2 Nov 2026: supportingpeopleinneed.org confirms it is running, the phone and the access route. Pin is the postcodes.io centroid.",
-  "facilities": "Not stated",
+  "facilities": [
+   "20 single occupancy bedrooms"
+  ],
   "who_for": [
    "Homeless men"
   ],
@@ -6630,7 +6700,10 @@
   "verified_on": "2026-11-02",
   "phone": "01706 713337",
   "note": "Street Support find, hand check 2 Nov 2026: langleytrust.org confirms it is running, the phone and the access route. Pin is the postcodes.io centroid.",
-  "facilities": "Not stated",
+  "facilities": [
+   "Single bedrooms with shared communal spaces",
+   "No pets (not able to accommodate pets)"
+  ],
   "who_for": [
    "Homeless men who have offended"
   ],
@@ -6644,7 +6717,7 @@
   "postcode": "OL16 2AB",
   "lat": 53.614352,
   "lng": -2.147447,
-  "beds": "27"
+  "beds": "27 beds in the main house"
  },
  "man-ss-ssj-10-southampton-street": {
   "access": "Referral from Southampton's Street Homeless Prevention Team (023 8083 2343) or a local agency.",
@@ -6707,13 +6780,20 @@
   "evidence_url": "https://www.jimmyscambridge.org.uk/",
   "name": "Jimmy's Cambridge emergency accommodation",
   "quote": "Contact Jimmy's Jimmy's Cambridge, 1 East Road, Cambridge, CB1 1BD Telephone: 01223 576085",
-  "referral": "Call 01223 576085 to ask how to get a place.",
+  "referral": "Call 01223 576085 or email info@jimmyscambridge.org.uk. Referrals also accepted from local partner organisations; if sleeping rough, contact the Street Outreach Team on 01223 366 292 (weekdays 08:00–16:00). For immediate support, come to 1 East Road.",
   "verified_on": "2026-11-02",
   "phone": "01223 576085",
   "note": "Street Support find, hand check 2 Nov 2026: jimmyscambridge.org.uk confirms it is running, the phone and the access route. Pin is the postcodes.io centroid.",
-  "facilities": "Not stated",
-  "who_for": "Not stated",
-  "groups": [],
+  "facilities": [
+   "Single person en-suite bedroom",
+   "A room, clothes, food, toiletries"
+  ],
+  "who_for": [
+   "People who are rough sleeping"
+  ],
+  "groups": [
+   "People who are rough sleeping"
+  ],
   "hours": "",
   "season": "Year-round",
   "kind": "hostel",
@@ -6733,7 +6813,10 @@
   "verified_on": "2026-11-02",
   "phone": "0151 286 6010",
   "note": "Street Support find, hand check 2 Nov 2026: localsolutions.org.uk confirms it is running, the phone and the access route. Pin is the postcodes.io centroid.",
-  "facilities": "Not stated",
+  "facilities": [
+   "29 fully furnished rooms with shared kitchens and bathrooms",
+   "24/7 on-site staff"
+  ],
   "who_for": [
    "Young people aged 16–21 (up to 24 in some cases)"
   ],
@@ -6935,7 +7018,9 @@
   "verified_on": "2026-11-02",
   "phone": "0151 708 7103",
   "note": "Street Support find, hand check 2 Nov 2026: newstarthomes.org.uk confirms it is running, the phone and the access route. Referral hostel, list only, no pin.",
-  "facilities": "Not stated",
+  "facilities": [
+   "On-site in-reach services: complimentary therapy, pre-abstinence support, primary health care"
+  ],
   "who_for": [
    "Females aged 18+ who are Liverpool residents"
   ],
