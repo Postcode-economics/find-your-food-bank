@@ -1,31 +1,35 @@
 {
  "run": "2026-11-03",
- "pages": 1611,
- "failed": 6,
+ "pages": 1606,
+ "failed": 7,
  "errors": [
   [
-   "https://www.camden.gov.uk/warm-spaces-in-camden",
-   403
+   "https://cms.essex.gov.uk/help-cost-living/find-warm-space",
+   401
   ],
   [
-   "https://www.camden.gov.uk/warm-spaces-in-camden",
-   403
+   "https://cms.essex.gov.uk/news/2022/new-ps100000-fund-help-create-warm-and-welcoming-spaces",
+   401
   ],
   [
-   "https://www.lewes-eastbourne.gov.uk/article/1261/Help-for-people-sleeping-rough",
-   403
+   "https://cms.essex.gov.uk/news/2022/warm-welcome-awaits-winter-essex-libraries",
+   401
   ],
   [
-   "https://www.lewes-eastbourne.gov.uk/article/1261/Help-for-people-sleeping-rough",
-   403
+   "https://cms.essex.gov.uk/news/2023/essex-councils-awarded-ps210000-tackle-rough-sleeping",
+   401
   ],
   [
-   "https://www.cherwell.gov.uk/Warm-Spaces",
-   404
+   "https://cms.essex.gov.uk/news/2025/support-rough-sleepers-continue",
+   401
   ],
   [
-   "https://www.westminster.gov.uk/event/warm-and-welcome-space-kensington-palace",
-   403
+   "https://www.castlepoint.gov.uk/w/housing-swep-alert-wording",
+   "error"
+  ],
+  [
+   "https://www.rugby.gov.uk/warmhubs",
+   "error"
   ]
  ],
  "added": [],
