@@ -87,7 +87,14 @@ def run(base=None):
                     pg.wait_for_timeout(7000)
                     try: pg.wait_for_function("document.readyState==='complete'", timeout=15000)
                     except Exception: pass
-                    st = page_ok(pg, link); r.update(st)
+                    st = page_ok(pg, link)
+                    if not st['ok'] and not st['why'].startswith('area'):
+                        # 3 Nov: a slow layer (?l=ws timed out live and auto-reverted #417) gets up to 20s more to draw.
+                        # Same page, no reload: a bot page already failed above, and an empty map after 20s still fails.
+                        try: pg.wait_for_function("document.querySelectorAll('#map .leaflet-marker-icon').length>0&&typeof items!=='undefined'&&items.length>500", timeout=20000)
+                        except Exception: pass
+                        st = page_ok(pg, link); st['why'] += ' (after extra wait)' if st['ok'] else ''
+                    r.update(st)
                     if OLD_COMMITS[commit] and link.split('?')[0].split('#')[0] in ('/', '/index.html'):
                         got = pg.evaluate("(document.querySelector('meta[name=helpmap-build]')||{}).content||''")
                         if got != build: r['ok'] = False; r['why'] += ', build %s != %s' % (got, build)
