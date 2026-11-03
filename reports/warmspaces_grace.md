@@ -1,11 +1,12 @@
-# warmspaces: kept on 48-hour grace (2026-11-03T14:18:09+00:00)
+# warmspaces: kept on 48-hour grace (2026-11-03T21:48:12+00:00)
 
 Source page briefly unreachable this run; kept because it was confirmed within the last 48 hours.
 
 - Canford Heath Library (ww-65437341): kept, fetch blocked (schema: hours value invalid: Mon=10:00 - 13:00, 14:00 - 17:00; hours value invalid: Thu=10:00 - 13:00, 14:00 - 17:00; hours value invalid: Fri=10:00 - 13:00, 14:00 - 17:00); last confirmed  (Noneh ago)
 - Churchdown Library (ww-62587523): kept, fetch blocked (schema: hours value invalid: Tue=10:00 - 13:00, 14:00 - 18:00; hours value invalid: Wed=10:00 - 13:00, 14:00 - 17:00; hours value invalid: Thu=10:00 - 13:00, 14:00 - 17:00); last confirmed  (Noneh ago)
 - Inham Nook Library (ww-65438945): kept, fetch blocked (schema: hours value invalid: Thu=10:00 - 12:30, 14:00 - 16:30); last confirmed  (Noneh ago)
-- The King's Church Halifax (ww-65441920): kept, fetch blocked (source URL now redirects to a different site (cornerstonechurchhalifax.co.uk)); last confirmed 2026-10-26 (191.2h ago)
+- Marlborough Road Methodist Church Banbury (ww-55592264): kept, fetch blocked (source unreachable this run (HTTP error)); last confirmed 2026-11-02 (7.5h ago)
+- The King's Church Halifax (ww-65441920): kept, fetch blocked (source URL now redirects to a different site (cornerstonechurchhalifax.co.uk)); last confirmed 2026-10-26 (198.7h ago)
 - Canford Heath Library (ww-65437341): kept, fetch blocked (schema: hours value invalid: Mon=10:00 - 13:00, 14:00 - 17:00; hours value invalid: Thu=10:00 - 13:00, 14:00 - 17:00; hours value invalid: Fri=10:00 - 13:00, 14:00 - 17:00); last confirmed  (Noneh ago)
 - Churchdown Library (ww-62587523): kept, fetch blocked (schema: hours value invalid: Tue=10:00 - 13:00, 14:00 - 18:00; hours value invalid: Wed=10:00 - 13:00, 14:00 - 17:00; hours value invalid: Thu=10:00 - 13:00, 14:00 - 17:00); last confirmed  (Noneh ago)
 - Inham Nook Library (ww-65438945): kept, fetch blocked (schema: hours value invalid: Thu=10:00 - 12:30, 14:00 - 16:30); last confirmed  (Noneh ago)
