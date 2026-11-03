@@ -4,7 +4,7 @@ Instagram in-app browser UA at 390px: first install an OLD release (service work
 request routing), then open the link against the current site and check the map and listings render with no page errors and the
 current build. Usage: python scripts/old_links.py [BASE_URL] (default: local checkout). Exit 1 on any failure.
 Report: reports/old_links.md + logs/old_links.json."""
-import functools, http.server, json, mimetypes, os, subprocess, sys, tempfile, threading
+import functools, http.server, json, mimetypes, os, subprocess, sys, tempfile, threading, time
 from playwright.sync_api import sync_playwright
 import check_browser as B
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
@@ -44,6 +44,7 @@ def page_ok(pg, link):
       const n=typeof items!=='undefined'?items.length:0;return {ok:pane&&pins>0&&n>500,why:'pins '+pins+', items '+n+', map '+pane}})()""")
 
 def run(base=None):
+    run.extra = 0
     srv = None
     if not base:
         h = functools.partial(http.server.SimpleHTTPRequestHandler, directory=ROOT); h.log_message = lambda *a: None
@@ -87,7 +88,16 @@ def run(base=None):
                     pg.wait_for_timeout(7000)
                     try: pg.wait_for_function("document.readyState==='complete'", timeout=15000)
                     except Exception: pass
-                    st = page_ok(pg, link); r.update(st)
+                    st = page_ok(pg, link)
+                    if not st['ok'] and not st['why'].startswith('area') and run.extra < 180:
+                        # 3 Nov: a slow layer (?l=ws timed out live and auto-reverted #417) gets up to 20s more to draw.
+                        # Same page, no reload: a bot page already failed above, and an empty map after 20s still fails.
+                        t0 = time.time()
+                        try: pg.wait_for_function("document.querySelectorAll('#map .leaflet-marker-icon').length>0&&typeof items!=='undefined'&&items.length>500", timeout=20000)
+                        except Exception: pass
+                        run.extra += time.time() - t0   # capped at 3 min per shard so a bad deploy can't time the shard out
+                        st = page_ok(pg, link); st['why'] += ' (after extra wait)' if st['ok'] else ''
+                    r.update(st)
                     if OLD_COMMITS[commit] and link.split('?')[0].split('#')[0] in ('/', '/index.html'):
                         got = pg.evaluate("(document.querySelector('meta[name=helpmap-build]')||{}).content||''")
                         if got != build: r['ok'] = False; r['why'] += ', build %s != %s' % (got, build)
