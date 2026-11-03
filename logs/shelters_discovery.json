@@ -92,7 +92,7 @@
    "url": "https://housethehomeless.com",
    "final_url": "https://housethehomeless.com",
    "http": 200,
-   "sha256": "404279202b0c821b37d8e612db13e91db2ee7da4f7b5f3e8acf454773f9fe8fc",
+   "sha256": "5e0b62b8aba2c5976f9cf2e8256a5686379a5a5fb72e37cd2fce61dc77cc3ce4",
    "etag": "",
    "last_modified": ""
   },
@@ -127,8 +127,8 @@
    "url": "https://www.shrewsburyark.co.uk/",
    "final_url": "https://www.shrewsburyark.co.uk/",
    "http": 200,
-   "sha256": "a8c10b9d642811ea9fc97b9b2ff38f51a2e0312a7e98bf65cc877ae93ff6b3ec",
-   "etag": "W/\"ebd741841b58dd73a87f80262af12069\"",
+   "sha256": "14922538a0e86be1a20a96b7157b7ab65a6b108ad440138801f32493fada7f30",
+   "etag": "W/\"55c2a038d36d1d74f12ab62656e9df88\"",
    "last_modified": ""
   },
   {
@@ -146,7 +146,7 @@
    "url": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-intensive-housing-management",
    "final_url": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-supported-accommodation",
    "http": 200,
-   "sha256": "39bc7b501125cb71f32ad480ccad622ba7a4e2d643d611e411199674cc9f4c9b",
+   "sha256": "5ffe0317f724190717cbf3c258fbf889a9089c70fbac4a78452b7033749cd8c5",
    "etag": "",
    "last_modified": ""
   },
@@ -258,8 +258,8 @@
    "final_url": "https://centrepoint.org.uk/",
    "http": 200,
    "sha256": "f33b7e960cacf2acb850d574209a20a8220749569a021677abf911440f3f2aa7",
-   "etag": "\"1793657260\"",
-   "last_modified": "Mon, 02 Nov 2026 22:07:40 GMT"
+   "etag": "\"1793727929\"",
+   "last_modified": "Tue, 03 Nov 2026 17:45:29 GMT"
   },
   {
    "id": "osm-way-172932545",
@@ -361,15 +361,14 @@
    "directory": null,
    "directory_url": null,
    "reasons": [
-    "OpenStreetMap-only: needs verification on the place's own site before it can be added",
-    "own site unreachable (HTTP error)"
+    "OpenStreetMap-only: needs verification on the place's own site before it can be added"
    ],
    "url": "https://www.manna-house.org.uk/",
    "final_url": "https://www.manna-house.org.uk/",
-   "http": "error",
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
+   "http": 200,
+   "sha256": "131a0709aa8202fead931b5c1b6e1c2d1942e4f7ae8ad4beebd6304920325bfc",
+   "etag": "",
+   "last_modified": ""
   },
   {
    "id": "osm-way-699201604",
@@ -420,8 +419,8 @@
    "url": "https://www.eastclaytonfarm.org.uk/",
    "final_url": "https://www.eastclaytonfarm.org.uk/",
    "http": 200,
-   "sha256": "ad0cd0cfe5a7d4708dabca36edf2c43087871067ef5a9b2eb334eb2aaaf87ade",
-   "etag": "W/\"9fa0bd909a78feece16ebdbffd32dd5f\"",
+   "sha256": "3bd05b0848da82cdb6a8a28592dc78969d56b441d48c7e1f667c594a231e3695",
+   "etag": "W/\"5689358a0ef7d59266dccb6e1daae348\"",
    "last_modified": ""
   },
   {

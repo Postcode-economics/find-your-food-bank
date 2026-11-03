@@ -105,6 +105,10 @@
     "reason": "source unreachable this run (HTTP 404)"
    },
    {
+    "id": "osm-way-753792449",
+    "reason": "source unreachable this run (HTTP 403)"
+   },
+   {
     "id": "osm-way-931997512",
     "reason": "OpenStreetMap-only: own-site page does not show this place's postcode or street address this run"
    },
@@ -115,6 +119,10 @@
    {
     "id": "osm-way-936508369",
     "reason": "OpenStreetMap-only: own-site page does not show this place's postcode or street address this run"
+   },
+   {
+    "id": "osm-way-979361293",
+    "reason": "source unreachable this run (HTTP 403)"
    },
    {
     "id": "osm-way-1104948217",
@@ -141,6 +149,10 @@
     "reason": "source unreachable this run (HTTP 403)"
    },
    {
+    "id": "hl-st-annes-hostel-birmingham",
+    "reason": "source unreachable this run (HTTP 403)"
+   },
+   {
     "id": "man-ymca-watford-charter",
     "reason": "published times not found on source this run"
    },
@@ -159,10 +171,6 @@
    {
     "id": "man-dominion-community-hub",
     "reason": "source unreachable this run (HTTP 403)"
-   },
-   {
-    "id": "man-urban-outreach-street-life-drop-in-amber-centre",
-    "reason": "source unreachable this run (HTTP 503)"
    },
    {
     "id": "man-the-brick-queen-s-hall-action-on-poverty-day-centr",
@@ -194,7 +202,19 @@
    },
    {
     "id": "hl-dawn-centre-temporary-accommodation-project",
-    "reason": "schema: referral requirement not stated"
+    "reason": "source unreachable this run (HTTP 403)"
+   },
+   {
+    "id": "hl-paradigm-housing-group-lea-bridge-house-hostel",
+    "reason": "source unreachable this run (HTTP 403)"
+   },
+   {
+    "id": "hl-st-mungos-longhills",
+    "reason": "source unreachable this run (HTTP 403)"
+   },
+   {
+    "id": "hl-stonepillow-bognor-hostel",
+    "reason": "source unreachable this run (HTTP 403)"
    },
    {
     "id": "man-google-lancaster-district-homeless-action-service",
@@ -245,12 +265,24 @@
     "reason": "schema: referral requirement not stated"
    },
    {
+    "id": "man-ss-ssj-10-southampton-street",
+    "reason": "source unreachable this run (HTTP 403)"
+   },
+   {
     "id": "man-ss-pcha-somers-road",
     "reason": "schema: referral requirement not stated"
    },
    {
     "id": "man-ss-jimmys-cambridge-east-road",
     "reason": "schema: referral requirement not stated"
+   },
+   {
+    "id": "man-ss-st-basils-milner-court",
+    "reason": "source unreachable this run (HTTP 403)"
+   },
+   {
+    "id": "man-ss-st-basils-yardley-house",
+    "reason": "source unreachable this run (HTTP 403)"
    },
    {
     "id": "man-ss-saviour-trust-pontefract",
