@@ -322,3 +322,13 @@ def verification_gate(fresh, prev, verified, run_day, pending_path, autocheck=No
         prev["items"] = [x for x in prev.get("items", []) if x["id"] in keep or x["id"] not in examined]
         prev["recently_closed"] = [x for x in prev.get("recently_closed", []) if x["id"] in keep or x["id"] not in examined]
     return pub, prev, len(pending)
+
+
+def fill_referral_routes(items):
+    """Referral cards show referral_route; if a kept (last-good) card lost it, copy the card's own checked
+    referral line back so one card can't fail a whole publish. Never invents text. Returns ids fixed."""
+    fixed = []
+    for x in items:
+        if x.get("card_type") == "referral_hostel" and not x.get("referral_route") and x.get("referral"):
+            x["referral_route"] = x["referral"]; fixed.append(x.get("id"))
+    return fixed
