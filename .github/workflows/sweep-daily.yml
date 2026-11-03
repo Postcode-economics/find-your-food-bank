@@ -43,6 +43,8 @@ jobs:
         run: python scripts/seo_meta.py
       # Nothing is pushed unless this run's files pass the same suite as the CI 'test' job and the publish validator.
       # A clean venv without Playwright, so the browser checks skip exactly as in that job.
+      - name: Refill referral lines dropped from kept referral cards (one card never fails the run)
+        run: python scripts/fill_referral_routes.py
       - name: Full test suite on this run's files (a failure stops the push)
         timeout-minutes: 25
         run: |

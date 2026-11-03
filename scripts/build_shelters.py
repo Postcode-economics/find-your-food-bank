@@ -161,6 +161,7 @@ try:
 except Exception as ex:
     print("intelligent mode summary skipped: %s" % ex)
 if os.environ.get("DRY_RUN"): print("DRY RUN:", len(items), "shelters", json.dumps(sources)[:1500]); sys.exit(0)
+fill_referral_routes(items)
 write_js(OUT, "SHELTERS", {"updated": RUN, "items": items, "recently_closed": closed, "sources": sources})
 append_log(LOG, {"run": RUN, "result": "ok", "items": len(items), "stale": sum(x["stale"] for x in items), "recently_closed": len(closed), "sources": sources})
 print(len(items), "shelters")
