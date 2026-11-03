@@ -6,7 +6,7 @@
     "times": {
      "applied": 0,
      "applied_this_run": 0,
-     "held": 48,
+     "held": 50,
      "stale_cleared": 0,
      "rejected": [
       {
@@ -123,6 +123,16 @@
        ]
       },
       {
+       "id": "st-annes-advice-nottingham",
+       "reasons": [
+        "new own-site times look like office/centre hours",
+        "new own-site times look like office/centre hours",
+        "new own-site times look like office/shop hours (identical Mon-Fri block, no distribution wording)",
+        "not one clear weekly client-hours block (kept as text for review)",
+        "times not read identically on 2 separate runs yet"
+       ]
+      },
+      {
        "id": "kirkby-storehouse",
        "reasons": [
         "day not on the same line as its times on the own-site page"
@@ -169,13 +179,6 @@
         "not one clear weekly client-hours block (kept as text for review)",
         "jumble: 6 separate time blocks read from one page; review only",
         "would cut known hours to fewer sessions (7 to 6) and the source does not say that session ended; review"
-       ]
-      },
-      {
-       "id": "new-wortley-community-centre",
-       "reasons": [
-        "day not on the same line as its times on the own-site page",
-        "times not read identically on 2 separate runs yet"
        ]
       },
       {
@@ -269,8 +272,7 @@
         "own site lists several centres (4 postcodes); cannot tie one table to this listing",
         "new own-site times look like office/centre hours",
         "not one clear weekly client-hours block (kept as text for review)",
-        "would cut known hours to fewer days (drops Sat) and the source does not say that session ended; review",
-        "times not read identically on 2 separate runs yet"
+        "would cut known hours to fewer days (drops Sat) and the source does not say that session ended; review"
        ]
       },
       {
@@ -296,6 +298,20 @@
         "known skip: times listed above each address; finder read them onto the next centre (Budworth Hall got Epping's Friday)",
         "own site lists several centres (10 postcodes); cannot tie one table to this listing",
         "would cut known hours to fewer days (drops Mon, Tue, Wed, Thu, Sat, Sun) and the source does not say that session ended; review"
+       ]
+      },
+      {
+       "id": "st-james-thornton",
+       "reasons": [
+        "times not read identically on 2 separate runs yet"
+       ]
+      },
+      {
+       "id": "coventry/st-francis-of-assisi",
+       "reasons": [
+        "own site lists several centres (16 postcodes); cannot tie one table to this listing",
+        "would cut known hours to fewer days (drops Tue, Wed, Thu) and the source does not say that session ended; review",
+        "times not read identically on 2 separate runs yet"
        ]
       },
       {
@@ -383,10 +399,13 @@
      "coverage": {
       "sites": 15,
       "sites_opened": 13,
-      "render_attempts": 560,
+      "render_attempts": 558,
       "render_errors": 4,
       "source_pages": 18,
-      "source_opened": 15
+      "source_opened": 15,
+      "budget_skipped": 0,
+      "hours_review_due": 1736,
+      "hours_review_opened": 955
      },
      "enabled": true
     },
@@ -399,11 +418,11 @@
      "errors": [],
      "alerts": [],
      "coverage": {
-      "render_attempts": 933,
-      "render_errors": 5,
+      "render_attempts": 1098,
+      "render_errors": 6,
       "budget_skipped": 0,
       "hours_review_due": 1736,
-      "hours_review_opened": 955,
+      "hours_review_opened": 1144,
       "sites": 15,
       "sites_opened": 13,
       "source_pages": 18,
@@ -414,7 +433,7 @@
    },
    "applied": 0,
    "applied_this_run": 0,
-   "held": 48,
+   "held": 50,
    "stale_cleared": 0,
    "rejected": [
     {
@@ -531,6 +550,16 @@
      ]
     },
     {
+     "id": "st-annes-advice-nottingham",
+     "reasons": [
+      "new own-site times look like office/centre hours",
+      "new own-site times look like office/centre hours",
+      "new own-site times look like office/shop hours (identical Mon-Fri block, no distribution wording)",
+      "not one clear weekly client-hours block (kept as text for review)",
+      "times not read identically on 2 separate runs yet"
+     ]
+    },
+    {
      "id": "kirkby-storehouse",
      "reasons": [
       "day not on the same line as its times on the own-site page"
@@ -577,13 +606,6 @@
       "not one clear weekly client-hours block (kept as text for review)",
       "jumble: 6 separate time blocks read from one page; review only",
       "would cut known hours to fewer sessions (7 to 6) and the source does not say that session ended; review"
-     ]
-    },
-    {
-     "id": "new-wortley-community-centre",
-     "reasons": [
-      "day not on the same line as its times on the own-site page",
-      "times not read identically on 2 separate runs yet"
      ]
     },
     {
@@ -677,8 +699,7 @@
       "own site lists several centres (4 postcodes); cannot tie one table to this listing",
       "new own-site times look like office/centre hours",
       "not one clear weekly client-hours block (kept as text for review)",
-      "would cut known hours to fewer days (drops Sat) and the source does not say that session ended; review",
-      "times not read identically on 2 separate runs yet"
+      "would cut known hours to fewer days (drops Sat) and the source does not say that session ended; review"
      ]
     },
     {
@@ -704,6 +725,20 @@
       "known skip: times listed above each address; finder read them onto the next centre (Budworth Hall got Epping's Friday)",
       "own site lists several centres (10 postcodes); cannot tie one table to this listing",
       "would cut known hours to fewer days (drops Mon, Tue, Wed, Thu, Sat, Sun) and the source does not say that session ended; review"
+     ]
+    },
+    {
+     "id": "st-james-thornton",
+     "reasons": [
+      "times not read identically on 2 separate runs yet"
+     ]
+    },
+    {
+     "id": "coventry/st-francis-of-assisi",
+     "reasons": [
+      "own site lists several centres (16 postcodes); cannot tie one table to this listing",
+      "would cut known hours to fewer days (drops Tue, Wed, Thu) and the source does not say that session ended; review",
+      "times not read identically on 2 separate runs yet"
      ]
     },
     {
@@ -791,18 +826,18 @@
    "coverage": {
     "sites": 15,
     "sites_opened": 13,
-    "render_attempts": 933,
-    "render_errors": 5,
+    "render_attempts": 1098,
+    "render_errors": 6,
     "source_pages": 18,
     "source_opened": 15,
     "budget_skipped": 0,
     "hours_review_due": 1736,
-    "hours_review_opened": 955
+    "hours_review_opened": 1144
    }
   }
  },
  "alerts": [],
  "would_block": [],
  "enabled": true,
- "generated_at": "2026-11-03T07:04:53+00:00"
+ "generated_at": "2026-11-03T15:10:58+00:00"
 }
