@@ -1,6 +1,6 @@
 {
  "run": "2026-11-03",
- "seconds": 48.8,
+ "seconds": 58.4,
  "pages": [
   {
    "council": "Armagh City, Banbridge and Craigavon Borough Council",
@@ -1392,8 +1392,8 @@
    "council": "Lisburn and Castlereagh City Council",
    "url": "https://www.lisburncastlereagh.gov.uk/news",
    "kind": "news",
-   "http": null,
-   "status": "unreachable",
+   "http": 200,
+   "status": "checked",
    "quote": "",
    "rest_centre": null
   },

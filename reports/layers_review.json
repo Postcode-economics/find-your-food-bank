@@ -14,7 +14,7 @@
   "recheck_failed": [
    {
     "id": "osm-node-839135604",
-    "reason": "source unreachable this run (HTTP error)"
+    "reason": "OpenStreetMap-only: own-site page does not show this place's postcode or street address this run"
    },
    {
     "id": "osm-node-3724769904",
@@ -137,10 +137,6 @@
     "reason": "OpenStreetMap-only: own-site page does not show this place's postcode or street address this run"
    },
    {
-    "id": "osm-way-1553098331",
-    "reason": "source unreachable this run (HTTP 520)"
-   },
-   {
     "id": "osm-relation-2707322",
     "reason": "source unreachable this run (HTTP 403)"
    },
@@ -161,12 +157,12 @@
     "reason": "source unreachable this run (HTTP 403)"
    },
    {
-    "id": "man-the-brick-queen-s-hall-action-on-poverty-day-centr",
-    "reason": "source unreachable this run (HTTP 403)"
+    "id": "man-the-wellspring",
+    "reason": "source unreachable this run (HTTP 504)"
    },
    {
-    "id": "man-ymca-bournemouth-delta-house-hostel",
-    "reason": "source unreachable this run (HTTP error)"
+    "id": "man-the-brick-queen-s-hall-action-on-poverty-day-centr",
+    "reason": "source unreachable this run (HTTP 403)"
    },
    {
     "id": "man-providence-row-dellow-centre",
@@ -191,10 +187,6 @@
    {
     "id": "man-oak-house-homeless-action",
     "reason": "source unreachable this run (HTTP 403)"
-   },
-   {
-    "id": "man-one-ymca-bishops-stortford",
-    "reason": "source unreachable this run (HTTP error)"
    },
    {
     "id": "hl-dawn-centre-temporary-accommodation-project",
@@ -238,7 +230,7 @@
    },
    {
     "id": "man-ss-ymca-together-leeds-street",
-    "reason": "source unreachable this run (HTTP error)"
+    "reason": "schema: referral requirement not stated"
    },
    {
     "id": "man-ss-riverside-wilson-carlile-house",
