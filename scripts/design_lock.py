@@ -31,7 +31,7 @@ CARDS_JS = r"""(sel)=>{const out=[];const rgb=e=>e?getComputedStyle(e).backgroun
   const timesShown=!!q('.ot .raw,.ot table,.ot li,.raw,table,.hrs,.xhours');
   out.push({name:(q('h3')||{}).textContent||'',k:c.dataset.k||'',status:st?st.className.replace('v3st','').trim():null,statusText:st?st.textContent.trim():'',dot,
    call:call?{href:call.getAttribute('href'),text:call.textContent.trim(),bg:rgb(call)}:null,
-   fb:fb.map(a=>a.getAttribute('href')),dir:dir?{href:dir.getAttribute('href'),bg:rgb(dir)}:null,share:!!share,report:!!rep,
+   fb:fb.map(a=>a.getAttribute('href')),webfb:all('a.btn.web').map(a=>a.getAttribute('href')||'').filter(h=>/^https?:\/\/([a-z0-9-]+\.)*(facebook\.com|fb\.com|fb\.me)\//i.test(h)),dir:dir?{href:dir.getAttribute('href'),bg:rgb(dir)}:null,share:!!share,report:!!rep,
    badge:(q('.tag')||{}).textContent||'',links,small,timesShown})}
  return out}"""
 
@@ -304,6 +304,7 @@ def check(cards, mode, where, k='fb'):
             if not digits or digits not in ''.join(ch for ch in c['call']['text'] if ch.isdigit()): bad.append(n + ': call button number %r vs %r' % (c['call']['text'], c['call']['href']))
             if c['call']['bg'] != LOCK['call'][mode]: bad.append(n + ': call colour %s' % c['call']['bg'])
             if c['fb']: bad.append(n + ': Facebook button shown although there is a phone')
+            if c.get('webfb'): bad.append(n + ': Facebook page as the Website button although there is a phone')
         for f in c['fb']:
             if not f.startswith('https://www.facebook.com/'): bad.append(n + ': Facebook href %s' % f)
         for h in c['links']:
@@ -319,8 +320,11 @@ VIS_JS = """s=>{const m=document.getElementById('map').getBoundingClientRect();c
   .map(e=>e.getBoundingClientRect()).find(b=>b.width&&b.left>m.left+20&&b.right<m.right-20&&b.top>Math.max(m.top,0)+20&&b.bottom<Math.min(m.bottom,innerHeight)-20);return p?[p.left+p.width/2,p.top+p.height/2]:null}"""
 
 def data_counts(pg):
-    return pg.evaluate("""(()=>{const fb=items;const tel=i=>typeof telOf==='function'?telOf(i):(i.phone||i.tel);
+    return pg.evaluate(r"""(()=>{const fb=items;const tel=i=>typeof telOf==='function'?telOf(i):(i.phone||i.tel);
       const r={foodbanks:fb.length,fb_call:fb.filter(i=>tel(i)).length,fb_facebook:fb.filter(i=>!tel(i)&&i.fb_page).length};
+      // Every food bank with a phone, rendered: no Facebook button of any kind (Message or a Facebook Website button).
+      const FBB=/<a class="btn (web|call xfbk)" href="https?:\/\/([a-z0-9-]+\.)*(facebook\.com|fb\.com|fb\.me)\//i;
+      r.fb_phone_fb_button=typeof card==='function'?fb.filter(i=>tel(i)).filter(i=>{try{return FBB.test(card(i))}catch(e){return false}}).map(i=>i.name):[];
       for(const [k,v] of [['ws','WARMSPACES'],['sh','SHELTERS']]){const d=(window[v]&&window[v].items)||((typeof LAYERS!=='undefined'&&LAYERS[k].data)||{}).items||[];r[k]=d.length;r[k+'_call']=d.filter(i=>i.phone).length}
       return r})()""")
 
@@ -459,6 +463,8 @@ def run(base=None, measure=False):
     base_c = LOCK.get('baseline_counts_v87', {})
     for k2, v in base_c.items():
         if isinstance(counts, dict) and isinstance(counts.get(k2), int) and counts[k2] < v * 0.97: bad.append('count %s dropped: %s vs v87 %s' % (k2, counts[k2], v))
+    if isinstance(counts, dict) and counts.get('fb_phone_fb_button'):
+        bad += ['%s: Facebook button on a card with a phone (data-wide)' % n for n in counts['fb_phone_fb_button']]
     print('cards', seen, 'problems', len(bad), 'known', len(set(KNOWN)), 'tiles', TILES, 'real_tile', probe.get('status'), 'counts', counts)
     for x in bad[:40]: print(' FAIL', x)
     return bad, counts, seen

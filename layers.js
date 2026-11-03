@@ -150,7 +150,7 @@ const accBadge=i=>{const a=i.access_type;return a==='referral_only'?`<span class
 const tierTop=(i,k)=>{const unk=!!(k&&window.V3&&V3.status(k,i).st==='unknown');const chk=!unk&&timesChecked(i);const refH=i.card_type==='referral_hostel'?`<div class="xrefhostel">${t('refHostel')}</div><div class="xunv">${i.notice?esc(i.notice):t('refTurn')}</div>`:'';return refH+(i.tier==='unverified'?(chk?`<div class="xunv xtchk">${t('tchk').replace('{d}',fmt(chk))}</div>`:(unk?'':`<div class="xunv">${t('unv')}</div>`)):'')};
 // Contact block (23 Oct): website + email up top; council line and national fallbacks, always labelled as NOT the venue's own number
 const tl=x=>String(x||'').replace(/[^\d+]/g,'');
-function shContact(i,tel,k){const cy=lang==='cy',o=[],sh=k!=='ws';const w=webUrl(i.website);
+function shContact(i,tel,k){const cy=lang==='cy',o=[],sh=k!=='ws';const w0=webUrl(i.website),w=w0&&!(tel&&window.isFbUrl&&isFbUrl(w0))?w0:null;  // no Facebook button when there is a phone
  if(w)o.push(`<a class="btn web" href="${esc(i.website.trim())}" target="_blank" rel="noopener">${cy?'Gwefan':'Website'}<span class="xdom">${esc(w.hostname.replace(/^www\./i,''))}</span></a>`);
  const web=o[0]&&o[0].indexOf('btn web')>=0?o.shift():'';
  const email=i.email?`<a href="mailto:${esc(i.email)}">${esc(i.email)}</a>`:'';

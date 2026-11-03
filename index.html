@@ -214,7 +214,7 @@ function fbSource(i){const tel=telOf(i),bits=[];
  if(tel&&!i.phone_label)bits.push(`<span class="psrc">${i.phone_checked?`<span class="v-en">Phone number checked on their site</span><span class="v-cy" lang="cy">Rhif ffôn wedi’i wirio ar eu gwefan</span>`:`<span class="v-en">Phone number from Give Food</span><span class="v-cy" lang="cy">Rhif ffôn gan Give Food</span>`}</span>`);
  if(i.source_label){const u=i.evidence_url||web(i);bits.push(u?`<a href="${esc(u)}" target="_blank" rel="noopener">${esc(i.source_label)}</a>`:esc(i.source_label))}
  if(acc(i)==='unconfirmed')bits.push(`<span class="v-en">Walk-in not confirmed – call before you go</span><span class="v-cy" lang="cy">Galw heibio heb ei gadarnhau – ffoniwch cyn mynd</span>`);
- if(i.givefood&&webUrl(i.website))bits.push(`<a href="${esc(i.givefood)}" target="_blank" rel="noopener"><span class="v-en">Give Food page</span><span class="v-cy" lang="cy">Tudalen Give Food</span></a>`);
+ if(i.givefood&&webUrl(i.website)&&!(tel&&isFbUrl(webUrl(i.website))))bits.push(`<a href="${esc(i.givefood)}" target="_blank" rel="noopener"><span class="v-en">Give Food page</span><span class="v-cy" lang="cy">Tudalen Give Food</span></a>`);
  return bits.length?`<p class="xsrc"><b><span class="v-en">Source</span><span class="v-cy" lang="cy">Ffynhonnell</span>:</b> ${bits.join(' · ')}</p>`:''}
 const chkDates=[...new Set(items.map(i=>i.opening_times&&i.opening_times.checked_date).filter(Boolean))].sort();
 function shownLines(t){const src=(t.lines&&t.lines.length)?t.lines:[String(t.raw||'').trim()];return window.timesFmt?timesFmt.lines(src):src.map(x=>String(x).trim()).filter(Boolean)}  // display only: uniform day + 24-hour lines, originals kept when unsafe
@@ -260,12 +260,15 @@ const phLab=i=>{const t=phLabText(i&&i.phone_label);return t?`<span class="plab"
 window.phLab=phLab;window.phLabText=phLabText;
 const todayLine=i=>{const s=parsed(i),td=DK[pageNow().getDay()],t=i.opening_times;if(s){const r=s[td]||[];if(r.length)return `<div class="ptd">${IC('clock')}<b>Today:</b> ${r.map(x=>x.join('–')).join(', ')}${t&&t.notes&&t.notes[td]?' '+esc(t.notes[td]):''}</div>`;if(dayClosed(i,td))return `<div class="ptd">${IC('clock')}<b>Today:</b> Closed</div>`;return ''}
  return t&&t.status==='TIMES_TEXT_ONLY'&&t.raw?(i.source_label?`<div class="ptd">${IC('clock')}${shownLines(t).map(esc).join('<br>')}</div>`:`<div class="ptd">${IC('clock')}Check times on their website</div>`):''};
-function webBtn(i){const u=webUrl(i.website),href=u?i.website.trim():(i.givefood||'');if(!href)return'';const host=u?u.hostname.replace(/^www\./i,''):'';
+// Card rule: a Facebook button only shows when there is no phone. That covers a Facebook page in the website field too (Give Food often lists one),
+// so with a phone it falls back to the Give Food page like a card with no website.
+const isFbUrl=u=>!!u&&/(^|\.)(facebook\.com|fb\.com|fb\.me)$/i.test(u.hostname);window.isFbUrl=isFbUrl;
+function webBtn(i,tel){const u0=webUrl(i.website),u=u0&&!(tel&&isFbUrl(u0))?u0:null,href=u?i.website.trim():(i.givefood||'');if(!href)return'';const host=u?u.hostname.replace(/^www\./i,''):'';
  return `<a class="btn web" href="${esc(href)}" target="_blank" rel="noopener"><span class="v-en">Website</span><span class="v-cy" lang="cy">Gwefan</span>${host?`<span class="xdom">${esc(host)}</span>`:''}</a>`}
 function placeActs(i,tel){const dir=`<a class="btn gm" href="${gmaps(i)}" target="_blank" rel="noopener">Directions</a>`;
  const call=tel?`<a class="btn call" href="tel:${esc(tel)}">${IC('phone')}<span class="xnum">${ph1(i)}</span></a>`:!tel&&i.fb_page?`<a class="btn call xfbk" data-ph="1" data-fb="1" data-off="1" href="${esc(i.fb_page)}" target="_blank" rel="noopener" aria-label="Send a message on Facebook"><span>Send a message</span></a>`:'';
  const share=window.V3?V3.share(i):'';
- return `<div class="xacts">${dir}${call}${webBtn(i)}${share}</div>`}
+ return `<div class="xacts">${dir}${call}${webBtn(i,tel)}${share}</div>`}
 function card(i,dist){const tel=telOf(i);
  const phoneHtml=[i.phone_label?phLab(i):'',phAlt(i)].filter(Boolean).join(' · ');
  const phoneNumber=tel?`<span class="xph">${ph1(i)}</span>`:'';
@@ -276,7 +279,7 @@ function card(i,dist){const tel=telOf(i);
  if(nc(i))return `<div class="ncb" role="note">${ncl(i)}</div>${top}<h3>${esc(i.name)}</h3>${dist!=null?`<div class="d">${miles(dist)}</div>`:''}<p>${where}</p>
  <div class="lh">Get food at:</div>${(i.centres||[]).length?'<ul class="cen">'+i.centres.map(c=>`<li><a href="#" data-cid="${esc(c.id)}">${esc(c.name)}</a><span>${esc(c.address)}</span>${c.lat!=null&&c.lng!=null?`<a class="btn cdir" href="${gmaps(c)}" target="_blank" rel="noopener">Directions</a>`:''}</li>`).join('')+'</ul>':'<p>Contact the food bank for where to get food.</p>'}
  ${facts}${checked}
- ${tel?`<div class="xacts"><a class="btn call" href="tel:${esc(tel)}">${IC('phone')}<span class="xnum">${ph1(i)}</span><small>Phone (to donate or ask)</small></a>${webBtn(i)}</div>`:(webBtn(i)?`<div class="xacts">${webBtn(i)}</div>`:'')}${window.repB?repB('fb',i):''}${fbSource(i)}`;
+ ${tel?`<div class="xacts"><a class="btn call" href="tel:${esc(tel)}">${IC('phone')}<span class="xnum">${ph1(i)}</span><small>Phone (to donate or ask)</small></a>${webBtn(i,tel)}</div>`:(webBtn(i,tel)?`<div class="xacts">${webBtn(i,tel)}</div>`:'')}${window.repB?repB('fb',i):''}${fbSource(i)}`;
  return `${i.notice?`<div class="ncb" role="note">${esc(i.notice)}</div>`:''}${top}${window.V3?V3.badge('fb',i):''}<h3>${esc(i.name)}</h3>${dist!=null?`<div class="d">${miles(dist)}</div>`:''}
  ${i.name!==i.foodbank?`<p class="sub">Part of ${esc(i.foodbank)}</p>`:''}<p>${where}</p>
  ${i.moved_to_postcode?'<p class="warn">Pin placed at the postcode centre. Check the address.</p>':''}

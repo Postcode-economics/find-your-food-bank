@@ -180,7 +180,7 @@ def card_sh(i):
     if day and i.get('offer'):
         hrs = '<div class="sub"><b>Offers:</b> %s</div>' % E(i['offer']) + hrs
     note = '<div class="sub">%s</div>' % E(i['postcode_note']) if i.get('postcode_note') else ''
-    web = '<div><a href="%s" rel="noopener nofollow">Website</a></div>' % E(i['website']) if i.get('website') else ''
+    web = web_link(i)
     return ('<li><div class="n">%s</div>%s%s<div>%s</div>%s%s%s%s%s<div class="sub">Times change, call before you go.</div></li>'
             % (E(i['name']), tag, opens, E(i.get('address')), note, phone_html(i.get('phone'), i.get('phone_label')), web, sh_contact(i), _facts(i, ref, hrs)))
 
@@ -204,6 +204,16 @@ def sh_contact(i):
               'or your local council&#39;s homeless team. Someone sleeping rough: <a href="https://thestreetlink.org.uk/" rel="noopener">StreetLink</a></div>')
     return o
 
+FB_HOST = re.compile(r'^https?://([a-z0-9-]+\.)*(facebook\.com|fb\.com|fb\.me)(/|$)', re.I)
+
+def web_link(i):
+    """Website link. Card rule (same as index.html webBtn): no Facebook button when there is a phone, so a Facebook page in the
+    website field falls back to the Give Food page (or nothing) on a card that has a phone."""
+    w = (i.get('website') or '').strip()
+    if w and FB_HOST.match(w) and (i.get('tel') or i.get('phone')):
+        w = i.get('givefood') or ''
+    return '<div><a href="%s" rel="noopener nofollow">Website</a></div>' % E(w) if w else ''
+
 def phone_html(p, label=''):
     if not p: return ''
     extra = ''
@@ -217,13 +227,13 @@ def card_fb(i, acc):
     tag = ('<div class="tag v">Foodbank voucher needed – no walk-ins without a referral</div>' if a == 'voucher'
            else '<div class="tag">Food bank – get food here</div>')
     extra = '<div class="sub">Walk-in not confirmed – call before you go</div>' if a == 'unconfirmed' else ''
-    web = '<div><a href="%s" rel="noopener nofollow">Website</a></div>' % E(i['website']) if i.get('website') else ''
+    web = web_link(i)
     how = 'Voucher' if a == 'voucher' else ('Walk-in' if a == 'walkin' else 'Not stated')
     return ('<li><div class="n">%s</div>%s%s<div>%s</div>%s%s%s<div class="sub">Times change, call before you go.</div></li>'
             % (E(i['name']), tag, extra, E(i.get('address')), phone_html(i.get('phone')) + ws_fallback(i), _facts(i, how, hours_fb(i)), web))
 
 def card_ws(i):
-    web = '<div><a href="%s" rel="noopener nofollow">Website</a></div>' % E(i['website']) if i.get('website') else ''
+    web = web_link(i)
     tag = '<div class="tag">Warm space</div>'
     if i.get('tier') == 'unverified': tag += ' <div class="tag v">Unverified – call before you go</div>'
     opens = ''
