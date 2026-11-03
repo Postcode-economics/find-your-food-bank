@@ -4,8 +4,9 @@
   requests per council, polite) for links about SWEP / severe weather / rough sleeping.
 * Every run: fetch each SWEP page and classify it from the council's own wording: active / not active / unknown.
   Writes logs/swep_status.json and lists changes (activated / deactivated) for Dean's daily review.
-Nothing here changes the map: SWEP is reached through outreach/StreetLink, not a walk-in address, so it is
-flagged for review, never auto-pinned."""
+A shelter or emergency provision the page confirms is open, on the council's or the provider's own
+page, is published onto the shelter map (scripts/swep_live.py). A place with no verified phone stays
+held for this run only. Conditional and general wording still do not count as open."""
 import json, os, re, sys, datetime, concurrent.futures as cf, urllib.parse, time
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import auto_rules; RULES = auto_rules.load()  # Dean 25 Oct 2026: refresh stops if overrides/auto_apply_rules.json is missing
@@ -69,6 +70,7 @@ def run(fetcher=None, run_day=None, threads=8):
         txt = page_text(h)
         st, q = classify_html(h, run_day) if r.get("http") == 200 else ("unreachable", "")
         p = {"council": s["council"], "url": s["url"], "http": r.get("http"), "status": st, "quote": q,
+             "code": s.get("code"), "site": s.get("site"),
              "checked_at": datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds"), "_text": txt}
         try:
             import incident_rest_centre_switch_on as irso
@@ -88,7 +90,11 @@ def run(fetcher=None, run_day=None, threads=8):
         q = dict(p)
         q.pop("_text", None)
         saved.append(q)
-    out = {"run": run_day, "sources": len(srcs), "active": [p["council"] for p in saved if p["status"] == "active"], "changes": changes, "pages": saved}
+    published = _publish(pages, run_day)
+    out = {"run": run_day, "sources": len(srcs), "active": [p["council"] for p in saved if p["status"] == "active"], "changes": changes, "pages": saved,
+           "live": published.get("live") or [], "held": len(published.get("held") or [])}
+    if published.get("error"):
+        out["publish_error"] = published["error"]
     json.dump(out, open(LOG, "w"), indent=1, ensure_ascii=False)
     try:
         import rest_centre_sources as rcsrc
@@ -150,7 +156,8 @@ def full(fetcher=None, run_day=None, threads=8):
             r = fetcher(u); h = r.get("html") or r.get("text") or ""
             txt = page_text(h)
             st, q = classify_html(h, run_day) if r.get("http") == 200 else ("unreachable", "")
-            pg = {"url": u, "http": r.get("http"), "status": st, "quote": q, "rest_centre": None}
+            pg = {"url": u, "http": r.get("http"), "status": st, "quote": q, "rest_centre": None,
+                  "council": c["name"], "code": c["code"], "site": c.get("site"), "_text": txt}
             try:
                 import incident_rest_centre_switch_on as irso
                 work = dict(pg, council=c["name"], url=u)
@@ -183,6 +190,17 @@ def full(fetcher=None, run_day=None, threads=8):
     for c in out:
         for p in c.get("pages", []):
             new_full_pages.append(dict(p, council=c.get("council"), url=p.get("url")))
+    live_pages = []
+    for c in out:
+        for p in c.get("pages") or []:
+            live_pages.append(p)
+    published = _publish(live_pages, run_day)
+    for p in live_pages:
+        p.pop("_text", None)
+    cov["live"] = published.get("live") or []
+    cov["held"] = len(published.get("held") or [])
+    if published.get("error"):
+        cov["publish_error"] = published["error"]
     json.dump({"run": run_day, "coverage": cov, "councils": out}, open(FULL_LOG, "w"), indent=1, ensure_ascii=False)
     rc_pages, rc_seconds, rc_prev = _rest_centre_pages(run_day)
     try:
@@ -226,9 +244,22 @@ def _switch_on(prev_swep, prev_rc, new_swep, new_rc, run_day):
         return msg
 
 
+def _publish(pages, run_day):
+    try:
+        import swep_live
+        return swep_live.apply(pages, run_day=run_day, root=os.getcwd())
+    except Exception as e:
+        msg = "%s: %s" % (type(e).__name__, e)
+        print("::error::SWEP live publish failed: %s" % msg, file=sys.stderr)
+        return {"error": msg, "live": [], "held": []}
+
+
 def finish(result):
     if isinstance(result, dict) and result.get("alert_error"):
         print("::error::rest centre switch-on alert or issue open/close failed: %s" % result["alert_error"], file=sys.stderr)
+        sys.exit(1)
+    if isinstance(result, dict) and result.get("publish_error"):
+        print("::error::SWEP live publish failed: %s" % result["publish_error"], file=sys.stderr)
         sys.exit(1)
 
 

@@ -43,9 +43,21 @@ class Faq(unittest.TestCase):
         g, b = fmt(hs[0], mi).replace(":00", ""), fmt(hs[0] + 1, mi).replace(":00", "")
         self.assertIn(f"re-checked in full once a day, at {g} UK time in winter (GMT) or {b} in summer (BST)", self.s)
         self.assertIn(f"am {g} amser y DU yn y gaeaf (GMT) neu {b} yn yr haf (BST)", self.s)
-    def test_swep_never_changes_map(self):
-        self.assertIn("never changes the map", rd(os.path.join(".github", "workflows", "refresh-shelters.yml")))
-        self.assertNotIn("swep", (rd("layers.js") + rd("v3.js") + rd("index.html")).lower())
+    def test_swep_confirmed_open_goes_on_the_shelter_map(self):
+        # The watch publishes a confirmed-open place. It stays off the red incident pin and the incident banner.
+        wf = rd(os.path.join(".github", "workflows", "refresh-shelters.yml"))
+        daily = rd(os.path.join(".github", "workflows", "swep-daily.yml"))
+        self.assertNotIn("never changes the map", wf)
+        self.assertNotIn("never changes the map", daily)
+        self.assertIn("goes on the map", wf)
+        layers = rd("layers.js")
+        self.assertIn("Severe weather shelter (SWEP)", layers)
+        self.assertIn("i.kind==='severe_weather'&&i.badge", layers.replace(" ", ""))
+        self.assertNotIn("open tonight", layers.lower())
+        self.assertIn("Rough sleeper shelter open tonight", rd(os.path.join("scripts", "swep_live.py")))
+        self.assertNotIn("#FF3B30", layers)
+        self.assertIn("severe_weather", rd("facts.js"))
+        self.assertNotIn("swep", rd("v3.js").lower())
     def test_label_texts_explained(self):
         lj = rd("layers.js")
         for en in ("Unverified – call before you go", "Times checked {d} – call before you go"):
