@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-02",
+ "generated": "2026-11-03",
  "layer": "shelters",
  "about": "Verified new shelters for review. Not published. A directory postcode is a referral address, never the pin. A proposal is only listed when an operator or official page names the place and shows a building postcode, with opening times or an access route. Phones are present only when that confirming page showed them; applying a proposal means adding the phone to overrides/phone_baseline.json in a reviewed change. Council-line fields are not set. Women's refuges are excluded and not mapped. Day centres are held candidates (no Day centre map label until that change is on main).",
  "day_centre_label": "held candidates only",
@@ -7,10 +7,10 @@
   "by_source": {
    "homeless_link": {
     "found": 1021,
-    "verified": 4,
-    "held": 983,
-    "excluded": 3,
-    "already_listed": 13,
+    "verified": 3,
+    "held": 987,
+    "excluded": 2,
+    "already_listed": 11,
     "day_centre_candidates": 18,
     "reader": {
      "status": "ok",
@@ -23,9 +23,9 @@
    "street_support": {
     "found": 565,
     "verified": 1,
-    "held": 302,
+    "held": 292,
     "excluded": 6,
-    "already_listed": 22,
+    "already_listed": 32,
     "day_centre_candidates": 234,
     "reader": {
      "status": "ok",
@@ -68,11 +68,11 @@
     }
    }
   },
-  "verified": 5,
-  "held": 1290,
+  "verified": 4,
+  "held": 1284,
   "day_centre_candidates": 254,
-  "excluded": 9,
-  "already_listed": 43
+  "excluded": 8,
+  "already_listed": 51
  },
  "proposals": [
   {
@@ -116,29 +116,6 @@
    "access": "Mixed 18 65 Accept self-referrals and referrals from local Partner agencies",
    "access_type": "self_referral",
    "operator_page": "https://www.jimmyscambridge.org.uk/",
-   "evidence": "official directory entry + operator page names the place and shows the building postcode",
-   "postcode_note": "building postcode is from the operator page; the directory listing had no postcode"
-  },
-  {
-   "id": "hl-one-ymca-welwyn-garden-city-hostel",
-   "name": "One YMCA - Welwyn Garden City Hostel",
-   "directory": "Homeless Link",
-   "directory_url": "https://homeless.org.uk/homeless-england/service/one-ymca-welwyn-garden-city-hostel/",
-   "website": "http://www.oneymca.org",
-   "referral_address": "",
-   "referral_postcode": "",
-   "category": "emergency",
-   "status": "verified",
-   "layer": "shelters",
-   "address": "r Journeys Kai’s story Read more Your Journeys Kerrie's Story Read more Your Journeys Akram's Story Read more Contact Us Open 24 Hours One YMCA 90 Peartree Lane Welwyn Garden City ",
-   "postcode": "AL7 3UL",
-   "lat": null,
-   "lng": null,
-   "phone": "01707 351 400",
-   "phone_source": "https://oneymca.org/what-we-do/accommodation/hostels/welwyn-garden-city-hostel/",
-   "access": "Residents can also walk into the large town and further out to enjoy rural areas",
-   "access_type": "open_access",
-   "operator_page": "https://oneymca.org/what-we-do/accommodation/hostels/welwyn-garden-city-hostel/",
    "evidence": "official directory entry + operator page names the place and shows the building postcode",
    "postcode_note": "building postcode is from the operator page; the directory listing had no postcode"
   },
@@ -2396,7 +2373,7 @@
    "referral_postcode": "",
    "category": "publishable",
    "status": "held",
-   "reason": "no building postcode on the operator page (directory postcode is a referral address only)"
+   "reason": "operator site unreachable (HTTP error)"
   },
   {
    "id": "hl-depaul-uk-callcott-road",
@@ -2456,7 +2433,7 @@
    "referral_postcode": "",
    "category": "publishable",
    "status": "held",
-   "reason": "no building postcode on the operator page (directory postcode is a referral address only)"
+   "reason": "operator site unreachable (HTTP error)"
   },
   {
    "id": "hl-depaul-uk-nightstop-greater-manchester",
@@ -5881,6 +5858,18 @@
    "reason": "not clearly an emergency, direct-access, night shelter or hostel"
   },
   {
+   "id": "hl-one-ymca-bishops-stortford-hostel",
+   "name": "One YMCA - Bishop's Stortford Hostel",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/one-ymca-bishops-stortford-hostel/",
+   "website": "https://oneymca.org/",
+   "referral_address": "",
+   "referral_postcode": "",
+   "category": "publishable",
+   "status": "held",
+   "reason": "operator site unreachable (HTTP 520)"
+  },
+  {
    "id": "hl-one-ymca-hatfield-hostel",
    "name": "One YMCA - Hatfield Hostel",
    "directory": "Homeless Link",
@@ -5890,7 +5879,19 @@
    "referral_postcode": "",
    "category": "publishable",
    "status": "held",
-   "reason": "no building postcode on the operator page (directory postcode is a referral address only)"
+   "reason": "operator site unreachable (HTTP 520)"
+  },
+  {
+   "id": "hl-one-ymca-welwyn-garden-city-hostel",
+   "name": "One YMCA - Welwyn Garden City Hostel",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/one-ymca-welwyn-garden-city-hostel/",
+   "website": "http://www.oneymca.org",
+   "referral_address": "",
+   "referral_postcode": "",
+   "category": "publishable",
+   "status": "held",
+   "reason": "operator site unreachable (HTTP 520)"
   },
   {
    "id": "hl-onward-homes-limited-alt-bank-house",
@@ -7235,6 +7236,18 @@
    "category": "unclassified",
    "status": "held",
    "reason": "not clearly an emergency, direct-access, night shelter or hostel"
+  },
+  {
+   "id": "hl-roundabout",
+   "name": "Roundabout",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/roundabout/",
+   "website": "http://www.roundabouthomeless.org",
+   "referral_address": "",
+   "referral_postcode": "",
+   "category": "publishable",
+   "status": "held",
+   "reason": "operator site unreachable (HTTP error)"
   },
   {
    "id": "hl-rush-house-supported-accommodation",
@@ -11199,6 +11212,18 @@
    "reason": "not clearly an emergency, direct-access, night shelter or hostel"
   },
   {
+   "id": "hl-ymca-liverpool",
+   "name": "You Matter",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/ymca-liverpool/",
+   "website": "https://ymcatogether.org.uk/",
+   "referral_address": "",
+   "referral_postcode": "",
+   "category": "publishable",
+   "status": "held",
+   "reason": "operator site unreachable (HTTP error)"
+  },
+  {
    "id": "hl-ymca-london-city-and-north-landaid-house",
    "name": "YMCA London City and North - LandAid House",
    "directory": "Homeless Link",
@@ -12025,7 +12050,7 @@
    "referral_postcode": "",
    "category": "publishable",
    "status": "held",
-   "reason": "operator site unreachable (HTTP 404)"
+   "reason": "operator site unreachable (HTTP error)"
   },
   {
    "id": "ss-5b84076d46e3da44e8d50010",
@@ -12085,7 +12110,7 @@
    "referral_postcode": "",
    "category": "publishable",
    "status": "held",
-   "reason": "operator site unreachable (HTTP 404)"
+   "reason": "operator site unreachable (HTTP error)"
   },
   {
    "id": "ss-5b84076d46e3da44e8d50011",
@@ -12265,7 +12290,7 @@
    "referral_postcode": "",
    "category": "publishable",
    "status": "held",
-   "reason": "operator site unreachable (HTTP error)"
+   "reason": "operator site unreachable (HTTP 404)"
   },
   {
    "id": "ss-6a1023239e11f366aaa8ee48",
@@ -12565,7 +12590,7 @@
    "referral_postcode": "BD8 7EP",
    "category": "publishable",
    "status": "held",
-   "reason": "operator site unreachable (HTTP error)"
+   "reason": "operator site unreachable (HTTP 404)"
   },
   {
    "id": "ss-59ad57cd0221fa06dc14915b",
@@ -12578,18 +12603,6 @@
    "category": "hosted",
    "status": "held",
    "reason": "hosted accommodation (no fixed shelter building)"
-  },
-  {
-   "id": "ss-65e8281a672c55ba64cad603",
-   "name": "90 Hope Street",
-   "directory": "Street Support",
-   "directory_url": "https://www.streetsupport.net/find-help",
-   "website": "",
-   "referral_address": "90 Hope Street, Stoke-on-Trent, ST1 5BY",
-   "referral_postcode": "ST1 5BY",
-   "category": "publishable",
-   "status": "held",
-   "reason": "no operator page to confirm a building address"
   },
   {
    "id": "ss-65e82c87672c55ba64cad806",
@@ -13492,18 +13505,6 @@
    "reason": "longer-term supported housing or Emmaus — not published"
   },
   {
-   "id": "ss-591337b1254ac57c6c111abe",
-   "name": "Tekoa House",
-   "directory": "Street Support",
-   "directory_url": "https://www.streetsupport.net/find-help",
-   "website": "",
-   "referral_address": "Langley House Trust, Tekoa House, Walker St, Rochdale, OL16 2AB",
-   "referral_postcode": "OL16 2AB",
-   "category": "publishable",
-   "status": "held",
-   "reason": "no operator page to confirm a building address"
-  },
-  {
    "id": "ss-5c1b5846ce24611558a78100",
    "name": "Grace Hosting",
    "directory": "Street Support",
@@ -13574,18 +13575,6 @@
    "category": "supported",
    "status": "held",
    "reason": "longer-term supported housing or Emmaus — not published"
-  },
-  {
-   "id": "ss-59133761254ac55e48349ebd",
-   "name": "Homeground",
-   "directory": "Street Support",
-   "directory_url": "https://www.streetsupport.net/find-help",
-   "website": "http://www.mainstayliverpool.org.uk",
-   "referral_address": "Homeground Hostel, 286-316 Scotland Rd, Liverpool, L5 5AE",
-   "referral_postcode": "L5 5AE",
-   "category": "publishable",
-   "status": "held",
-   "reason": "operator site unreachable (HTTP error)"
   },
   {
    "id": "ss-5c0236fff20b1e15cce322fa",
@@ -13667,18 +13656,6 @@
    "website": "http://maryseacoleha.com/how-we-help/eligibility-and-referral/",
    "referral_address": "28 Brantwood, Luton, LU1 1JJ",
    "referral_postcode": "LU1 1JJ",
-   "category": "supported",
-   "status": "held",
-   "reason": "longer-term supported housing or Emmaus — not published"
-  },
-  {
-   "id": "ss-5f9069e4172f101e0c1b9ab9",
-   "name": "Michael House",
-   "directory": "Street Support",
-   "directory_url": "https://www.streetsupport.net/find-help",
-   "website": "",
-   "referral_address": "Michael House, 46 Grosvenor Gardens, Bournemouth, Dorset, BH1 4HH",
-   "referral_postcode": "BH1 4HH",
    "category": "supported",
    "status": "held",
    "reason": "longer-term supported housing or Emmaus — not published"
@@ -13804,18 +13781,6 @@
    "reason": "no operator page to confirm a building address"
   },
   {
-   "id": "ss-59133761254ac55e48349ec1",
-   "name": "Belmont Drive Supported Housing Project",
-   "directory": "Street Support",
-   "directory_url": "https://www.streetsupport.net/find-help",
-   "website": "http://www.mainstayliverpool.org.uk",
-   "referral_address": "81-83 Belmont Drive, Liverpool, L6 7UP",
-   "referral_postcode": "L6 7UP",
-   "category": "publishable",
-   "status": "held",
-   "reason": "operator site unreachable (HTTP error)"
-  },
-  {
    "id": "ss-59133762254ac55e48349ec5",
    "name": "Dispersed Service  (New Start)",
    "directory": "Street Support",
@@ -13838,18 +13803,6 @@
    "category": "publishable",
    "status": "held",
    "reason": "no building postcode on the operator page (directory postcode is a referral address only)"
-  },
-  {
-   "id": "ss-59d623465b38be11fc5a74e6",
-   "name": "Prospect Lodge",
-   "directory": "Street Support",
-   "directory_url": "https://www.streetsupport.net/find-help",
-   "website": "http://www.mainstayliverpool.org.uk",
-   "referral_address": "51 Prospect Vale, Liverpool, L6 8PF",
-   "referral_postcode": "L6 8PF",
-   "category": "publishable",
-   "status": "held",
-   "reason": "operator site unreachable (HTTP error)"
   },
   {
    "id": "ss-63bf4077843d85a21d7bc04d",
@@ -14560,18 +14513,6 @@
    "reason": "longer-term supported housing or Emmaus — not published"
   },
   {
-   "id": "ss-5c73dc058498fc1570fcba46",
-   "name": "Milner Court",
-   "directory": "Street Support",
-   "directory_url": "https://www.streetsupport.net/find-help",
-   "website": "",
-   "referral_address": "110 St Andrew&39;s Road, Birmingham, B9 4NA",
-   "referral_postcode": "B9 4NA",
-   "category": "publishable",
-   "status": "held",
-   "reason": "no operator page to confirm a building address"
-  },
-  {
    "id": "ss-5c73de438498fc1570fcbb10",
    "name": "Yardley House",
    "directory": "Street Support",
@@ -14812,18 +14753,6 @@
    "reason": "no operator page to confirm a building address"
   },
   {
-   "id": "ss-5fb7eaf7172f101e0c293c8d",
-   "name": "The Pleasance Lifehouse",
-   "directory": "Street Support",
-   "directory_url": "https://www.streetsupport.net/find-help",
-   "website": "",
-   "referral_address": "1 Pleasance, Edinburgh, EH8 9UE",
-   "referral_postcode": "EH8 9UE",
-   "category": "publishable",
-   "status": "held",
-   "reason": "no operator page to confirm a building address"
-  },
-  {
    "id": "ss-5fa1f351172f101e0c2155a4",
    "name": "The Saviour Trust (Wakefield)",
    "directory": "Street Support",
@@ -14831,18 +14760,6 @@
    "website": "",
    "referral_address": "All Saints Church Hall, Baghill Lane, Pntefract, WF8 2HA",
    "referral_postcode": "WF8 2HA",
-   "category": "publishable",
-   "status": "held",
-   "reason": "no operator page to confirm a building address"
-  },
-  {
-   "id": "ss-5ab0f2f9e3992c265cc4988c",
-   "name": "10 Southampton Street Intensive hostel",
-   "directory": "Street Support",
-   "directory_url": "https://www.streetsupport.net/find-help",
-   "website": "",
-   "referral_address": "10 Southampton Street, Southampton, SO15 2ED",
-   "referral_postcode": "SO15 2ED",
    "category": "publishable",
    "status": "held",
    "reason": "no operator page to confirm a building address"
@@ -15326,18 +15243,6 @@
    "category": "supported",
    "status": "held",
    "reason": "longer-term supported housing or Emmaus — not published"
-  },
-  {
-   "id": "ss-65a0c848e01d350ab985b7ce",
-   "name": "YMCA Derbyshire Housing",
-   "directory": "Street Support",
-   "directory_url": "https://www.streetsupport.net/find-help",
-   "website": "",
-   "referral_address": "770 London Road, Wilmorton, Derby, DE24 8UT",
-   "referral_postcode": "DE24 8UT",
-   "category": "publishable",
-   "status": "held",
-   "reason": "no operator page to confirm a building address"
   },
   {
    "id": "ss-5d4a21bffb9654433cff1825",
@@ -18738,11 +18643,6 @@
   {
    "id": "hl-st-mungos-starlight",
    "name": "St Mungo's - Starlight",
-   "reason": "women's refuge or domestic abuse service — never mapped"
-  },
-  {
-   "id": "hl-ymca-liverpool",
-   "name": "You Matter",
    "reason": "women's refuge or domestic abuse service — never mapped"
   },
   {

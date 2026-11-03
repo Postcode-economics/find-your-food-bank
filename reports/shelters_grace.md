@@ -1,24 +1,27 @@
-# shelters: kept on 48-hour grace (2026-11-03T00:32:29+00:00)
+# shelters: kept on 48-hour grace (2026-11-03T05:00:45+00:00)
 
 Source page briefly unreachable this run; kept because it was confirmed within the last 48 hours.
 
-- Swan Lodge (osm-way-1158181491): kept, fetch blocked (OpenStreetMap-only: own-site page does not show this place's postcode or street address this run); last confirmed 2026-10-31 (49.6h ago)
+- Swan Lodge (osm-way-1158181491): kept, fetch blocked (OpenStreetMap-only: own-site page does not show this place's postcode or street address this run); last confirmed 2026-10-31 (54.1h ago)
+- Peartree Campus (osm-way-1553098331): kept, fetch blocked (source unreachable this run (HTTP 520)); last confirmed 2026-11-01 (4.5h ago)
 - The Connection at St Martin's (man-connection-st-martins): kept, fetch blocked (schema: hours value invalid: Wed=Morning: women only); last confirmed  (Noneh ago)
 - Brighton and Hove Foyer (man-brighton-hove-foyer): kept, fetch blocked (schema: postcode invalid); last confirmed  (Noneh ago)
-- Positive Pathways drop-in (Depaul) (man-positive-pathways-drop-in-depaul): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-10-31 (72.5h ago)
-- Dominion Community Hub (man-dominion-community-hub): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-10-31 (72.5h ago)
-- The Brick (Queen's Hall Action on Poverty) day centre (man-the-brick-queen-s-hall-action-on-poverty-day-centr): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-10-31 (72.5h ago)
-- Providence Row (Dellow Centre) (man-providence-row-dellow-centre): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-10-31 (72.5h ago)
-- HARP Bradbury Day Centre (man-harp-bradbury-day-centre): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-10-31 (72.5h ago)
-- Trafalgar House (Sanctuary) (man-trafalgar-house-sanctuary): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-10-31 (72.5h ago)
-- Home4Good Centre (Dunfermline) (man-home4good-centre-dunfermline): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-10-31 (72.5h ago)
-- Victoria House (man-victoria-house): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-10-31 (72.5h ago)
-- Oak House (Homeless Action) (man-oak-house-homeless-action): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-10-31 (72.5h ago)
-- Dawn Centre - Temporary Accommodation Project (hl-dawn-centre-temporary-accommodation-project): kept, fetch blocked (schema: referral requirement not stated); last confirmed 2026-10-31 (72.5h ago)
-- Lancaster & District Homeless Action Service (man-google-lancaster-district-homeless-action-service): kept, fetch blocked (source unreachable this run (HTTP error)); last confirmed 2026-11-01 (48.5h ago)
-- Whitechapel Mission Day Centre (man-google-day-centre): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-11-01 (48.5h ago)
-- KiP Telford (man-kip-telford): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-11-01 (48.5h ago)
-- Nomad Centre (YMCA Lincolnshire) (man-nomad-centre-ymca-lincolnshire): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-11-01 (48.5h ago)
+- Positive Pathways drop-in (Depaul) (man-positive-pathways-drop-in-depaul): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-10-31 (77.0h ago)
+- Dominion Community Hub (man-dominion-community-hub): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-10-31 (77.0h ago)
+- The Brick (Queen's Hall Action on Poverty) day centre (man-the-brick-queen-s-hall-action-on-poverty-day-centr): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-10-31 (77.0h ago)
+- YMCA Bournemouth Delta House Hostel (man-ymca-bournemouth-delta-house-hostel): kept, fetch blocked (source unreachable this run (HTTP error)); last confirmed 2026-11-01 (4.5h ago)
+- Providence Row (Dellow Centre) (man-providence-row-dellow-centre): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-10-31 (77.0h ago)
+- HARP Bradbury Day Centre (man-harp-bradbury-day-centre): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-10-31 (77.0h ago)
+- Trafalgar House (Sanctuary) (man-trafalgar-house-sanctuary): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-10-31 (77.0h ago)
+- Home4Good Centre (Dunfermline) (man-home4good-centre-dunfermline): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-10-31 (77.0h ago)
+- Victoria House (man-victoria-house): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-10-31 (77.0h ago)
+- Oak House (Homeless Action) (man-oak-house-homeless-action): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-10-31 (77.0h ago)
+- One YMCA Bishop's Stortford Hostel (man-one-ymca-bishops-stortford): kept, fetch blocked (source unreachable this run (HTTP error)); last confirmed 2026-11-01 (4.5h ago)
+- Dawn Centre - Temporary Accommodation Project (hl-dawn-centre-temporary-accommodation-project): kept, fetch blocked (schema: referral requirement not stated); last confirmed 2026-10-31 (77.0h ago)
+- Lancaster & District Homeless Action Service (man-google-lancaster-district-homeless-action-service): kept, fetch blocked (source unreachable this run (HTTP error)); last confirmed 2026-11-01 (53.0h ago)
+- Whitechapel Mission Day Centre (man-google-day-centre): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-11-01 (53.0h ago)
+- KiP Telford (man-kip-telford): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-11-01 (53.0h ago)
+- Nomad Centre (YMCA Lincolnshire) (man-nomad-centre-ymca-lincolnshire): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-11-01 (53.0h ago)
 
 ## Held this run (not published)
 
@@ -96,15 +99,3 @@ A place that was not on the map, whose page could not be read, is left out of th
 - SHARE Homeless Action Centre (SHAC) (man-google-share-homeless-action-centre-shac): held this run: read failed, not published before
 - Maggs Day Centre (man-google-maggs-day-centre-worcester): held this run: read failed, not published before
 - Homeless Accommodation – Tai Gogledd Cymru (man-google-homeless-accommodation-tai-gogledd-cymru): held this run: read failed, not published before
-- Belvidere Family Centre (families) (man-ss-belvidere-family-centre): held this run: read failed, not published before
-- Project 394 (Riverside, women) (man-ss-riverside-project-394): held this run: read failed, not published before
-- Elm House (Homeless Action) (man-ss-homeless-action-elm-house): held this run: read failed, not published before
-- Holly House (Homeless Action) (man-ss-homeless-action-holly-house): held this run: read failed, not published before
-- Bradford Cyrenians hostel (men 18+) (man-ss-bradford-cyrenians-hostel): held this run: read failed, not published before
-- Dunedin Harbour hostel (Wheatley Homes East) (man-ss-wheatley-dunedin-harbour): held this run: read failed, not published before
-- Leeds Street (You Matter, formerly YMCA Together) (man-ss-ymca-together-leeds-street): held this run: read failed, not published before
-- Wilson Carlile House (Riverside, men 18+) (man-ss-riverside-wilson-carlile-house): held this run: read failed, not published before
-- SPIN hostel (Supporting People in Need) (man-ss-spin-supporting-people-in-need): held this run: read failed, not published before
-- Somers Road (Portsmouth Churches HA, women) (man-ss-pcha-somers-road): held this run: read failed, not published before
-- Jimmy's Cambridge emergency accommodation (man-ss-jimmys-cambridge-east-road): held this run: read failed, not published before
-- The Saviour Trust supported accommodation (man-ss-saviour-trust-pontefract): held this run: read failed, not published before

@@ -222,7 +222,7 @@ No new place (food bank, shelter or warm space) is added automatically: each wai
 <!-- times review -->
 ## Opening-times review list (times_finder)
 
-Run 2026-11-02. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs; each has its undo command). Every other row is not on the map and needs a hand check before it is added.
+Run 2026-11-03. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs; each has its undo command). Every other row is not on the map and needs a hand check before it is added.
 
 - **Holy Trinity Church, Wester Hailes** (`ifan-5b9fd1318a04132921a389-0`, EH14 2SL): Mondays 9.15am – 11.00am | Mondays 9.30am – 11.00am  
   source: https://www.holytrinitywesterhailes.org.uk  
@@ -385,16 +385,17 @@ Run 2026-11-02. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
 
 
 <!-- times crosscheck sh -->
-## Opening-times changes from the refresh (sh): 5 auto-applied, 31 held
+## Opening-times changes from the refresh (sh): 6 auto-applied, 30 held
 
 - AUTO-APPLIED `man-doorway-young-people-16-25` Doorway (young people 16-25) (strict, 2 identical runs). Undo: `python scripts/times_revert.py sh:man-doorway-young-people-16-25`
 - AUTO-APPLIED `man-gloucester-city-mission-homeless-day-provision` Gloucester City Mission Homeless Day Provision (strict, 2 identical runs). Undo: `python scripts/times_revert.py sh:man-gloucester-city-mission-homeless-day-provision`
 - AUTO-APPLIED `man-action-for-barnsley-homeless` Action for Barnsley Homeless (strict, 2 identical runs). Undo: `python scripts/times_revert.py sh:man-action-for-barnsley-homeless`
+- AUTO-APPLIED `man-hug-safe-space-bexhill-rother-homelessness-unity-g` HUG Safe Space (Bexhill & Rother Homelessness Unity Group) (strict, 2 identical runs). Undo: `python scripts/times_revert.py sh:man-hug-safe-space-bexhill-rother-homelessness-unity-g`
 - AUTO-APPLIED `man-first-stop-centre` First Stop Centre (strict, 2 identical runs). Undo: `python scripts/times_revert.py sh:man-first-stop-centre`
 - AUTO-APPLIED `man-hope-trinity` hope@trinity (strict, 2 identical runs). Undo: `python scripts/times_revert.py sh:man-hope-trinity`
 - **The Connection at St Martin's** (`man-connection-st-martins`, WC2N 4HW): own site now Monday-Tuesday, Thursday-Friday 9am-1.30pm  
   source: https://www.connection-at-stmartins.org.uk/get-help-homelessness/  
-  why held: new own-site times look like office/centre hours; would cut known hours to fewer days (drops Wed) and the source does not say that session ended; review; times not read identically on 2 separate runs yet
+  why held: new own-site times look like office/centre hours; would cut known hours to fewer days (drops Wed) and the source does not say that session ended; review
 - **Portsmouth Rough Sleeping Hub (Society of St James / PCC)** (`man-portsmouth-rough-sleeping-hub-society-of-st-james-`, PO1 3HL): own site now Monday to Thursday 8.30am to 5pm | Friday 8.30am to 4pm  
   source: https://www.portsmouth.gov.uk/services/housing/looking-for-a-home/if-you-are-at-risk-of-becoming-homeless/sleeping-rough  
   why held: new own-site times look like office/centre hours; new own-site times look like general venue opening hours, not a warm-space session
@@ -422,9 +423,6 @@ Run 2026-11-02. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
 - **SHOC (Slough Homeless Our Concern)** (`man-shoc-slough-homeless-our-concern`, SL1 1TX): own site now Monday – Friday 10:00 – 14:30 | Saturday 11:00 – 14:00  
   source: https://www.sloughhomeless.org.uk/contact-us/  
   why held: new own-site times look like office/centre hours; new own-site times look like general venue opening hours (identical weekday block, not warm-space session wording); new own-site times look like general venue opening hours, not a warm-space session
-- **HUG Safe Space (Bexhill & Rother Homelessness Unity Group)** (`man-hug-safe-space-bexhill-rother-homelessness-unity-g`, TN40 1JG): own site now Saturday 1pm to 3pm | Monday and Thursday 8:30 - 11:30 am | Saturday 1 pm - 3 pm  
-  source: https://bexhillhug.org.uk/  
-  why held: times not read identically on 2 separate runs yet
 - **Highway House** (`man-highway-house`, N15 4QL): own site now Tuesday and Friday 12pm to 4pm  
   source: https://haringey.gov.uk/adult-social-care/adult-social-care-directory/highway-house  
   why held: day not on the same line as its times on the own-site page
@@ -484,7 +482,7 @@ Run 2026-11-02. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
   why held: postcode not matched exactly on the own-site page; own site lists several centres (2 postcodes); cannot tie one table to this listing; new own-site times look like office/centre hours; new own-site times look like general venue opening hours (identical weekday block, not warm-space session wording); new own-site times look like general venue opening hours, not a warm-space session
 - **Morning Star Hostel (Caritas Salford)** (`man-ss-caritas-morning-star-hostel`, M15 6JS): own site now Monday to Friday 9.30am to 1pm  
   source: https://www.caritassalford.org.uk/service/morning-star/  
-  why held: day not on the same line as its times on the own-site page; times not read identically on 2 separate runs yet
+  why held: day not on the same line as its times on the own-site page
 <!-- /times crosscheck sh -->
 
 
@@ -696,6 +694,8 @@ The 29 Oct 05:44 warm spaces refresh (477f83f73) gave these 16 warm spaces a cou
 - Wesley Warm Welcome (SS9 1SJ) | ww-55474116 | council_phone 01702 215000 removed
 - Windmill Warmbank (N18 1PL) | ww-59974983 | council_phone 020 8379 1000 removed
 <!-- /council line undo -->
+
+
 <!-- held near cities -->
 ## Held near cities
 
@@ -722,7 +722,7 @@ Counts of held warm spaces, shelters and day-centre candidates within 10km of ea
 - Southampton: 56 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
 - Brighton and Hove: 13 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
 
-264 held places had no outcode centroid, so they are not counted under a city.
+252 held places had no outcode centroid, so they are not counted under a city.
 <!-- /held near cities -->
 
 

@@ -6502,5 +6502,41 @@
   "first_run_at": "2026-11-01T22:19:00+00:00",
   "second_run_at": "2026-11-03T00:34:53+00:00",
   "revert": "python scripts/times_revert.py sh:man-doorway-young-people-16-25"
+ },
+ {
+  "id": "man-hug-safe-space-bexhill-rother-homelessness-unity-g",
+  "kind": "sh",
+  "path": "cross_check",
+  "name": "HUG Safe Space (Bexhill & Rother Homelessness Unity Group)",
+  "old": "Not stated",
+  "new": {
+   "Mon": "08:30 - 11:30",
+   "Thu": "08:30 - 11:30",
+   "Sat": "13:00 - 15:00"
+  },
+  "new_structured": {
+   "mon": [
+    [
+     "08:30",
+     "11:30"
+    ]
+   ],
+   "thu": [
+    [
+     "08:30",
+     "11:30"
+    ]
+   ],
+   "sat": [
+    [
+     "13:00",
+     "15:00"
+    ]
+   ]
+  },
+  "source_url": "https://bexhillhug.org.uk/",
+  "first_run_at": "2026-11-03T00:34:53+00:00",
+  "second_run_at": "2026-11-03T05:03:20+00:00",
+  "revert": "python scripts/times_revert.py sh:man-hug-safe-space-bexhill-rother-homelessness-unity-g"
  }
 ]
