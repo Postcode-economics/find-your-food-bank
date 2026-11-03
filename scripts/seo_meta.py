@@ -138,11 +138,12 @@ def put_chk(s, t, rel):
     return s.replace('</body>', js + '</body>', 1)
 
 def swep_counts(root=ROOT):
-    """Dean 25 Oct: SWEP figures on faq.html come from the data each run (never hand-edited)."""
+    """Dean 25 Oct: SWEP figures on faq.html come from the data each run (never hand-edited).
+    3 Nov: councils = the sweep's own council list (scripts/sweep_sources.json), so a council's extra page (e.g. Birmingham (news)) is not a second council."""
     try:
         src = json.load(open(os.path.join(root, 'overrides', 'swep_sources.json')))
         st = json.load(open(os.path.join(root, 'logs', 'swep_status.json')))
-        return {'swep-councils': len({x.get('council') for x in src if isinstance(x, dict) and x.get('council')}), 'swep-pages': st['sources'] if isinstance(st.get('sources'), int) else len(st.get('sources') or [])}
+        return {'swep-councils': len(json.load(open(os.path.join(root, 'scripts', 'sweep_sources.json')))['councils']), 'swep-pages': st['sources'] if isinstance(st.get('sources'), int) else len(st.get('sources') or [])}
     except Exception:
         return {}
 
