@@ -27,6 +27,11 @@ def problems(layer, i):
     if layer == 'shelters' and not i.get('groups') and i.get('who_for') != 'Not stated':  # Dean 1 Nov 2026 option A: a hand-set 'Not stated' is a sourced answer
         p.append("no sourced 'who it's for'")
     return p
+# Dean blanket approval (30 Oct 2026, old per-id OK step removed 3 Nov 2026): a warm space that passed its
+# own-source verification (verification_gate in build_warmspaces.py: verified record or own-site
+# check, re-fetched this run, current season) needs no id in approved_new_places.json. Every other check (phone,
+# who it's for, season holds, private blocklist, hand checks) still applies. Food banks keep their approval list.
+VERIFIED_LAYERS = ('warmspaces',)  # shelters keep the per-id OK for now (separate decision)
 def load(p, d):
     try: return json.load(open(os.path.join(ROOT, p)))
     except Exception: return d
@@ -118,7 +123,8 @@ def gate(layer, ref='HEAD'):
                            and i.get('phone') and (i.get('town') or i.get('area'))
                            and not i.get('postcode') and not isinstance(i.get('lat'), (int, float))
                            and not isinstance(i.get('lng'), (int, float)))
-            if not auto_hostel and not auto_rules.may_add(layer, RULES) and i['id'] not in live and i['id'] not in ok:
+            if (not auto_hostel and not auto_rules.may_add(layer, RULES) and i['id'] not in live and i['id'] not in ok
+                    and layer not in VERIFIED_LAYERS):
                 if not (layer == 'warmspaces' and council_listed_warmspace(i)):
                     pr = ['new place - waiting for your OK (add id to overrides/approved_new_places.json)'] + pr
         if secrets and private_block.matches(i, secrets):
@@ -142,7 +148,7 @@ def gate(layer, ref='HEAD'):
             lg[layer].append(dict(id='lancs-pending-%s' % (s.get('objectid') or 'x'), name=s.get('name'), postcode=s.get('postcode'),
                                   source='Lancashire County Council warm spaces', why=[LANCS_HOLD], held_on=now))
     json.dump(lg, open(os.path.join(ROOT, 'logs', 'pending_dean.json'), 'w'), indent=1, ensure_ascii=False)
-    md = ['# New places held back for Dean (not published)', '', 'No new place (food bank, shelter or warm space) is added automatically: each waits here for your OK (add its id under its layer in overrides/approved_new_places.json). Approved shelters / warm spaces also need a verified phone number (shelters also a sourced "who it\'s for") before it goes on the map.', '']
+    md = ['# New places held back for Dean (not published)', '', 'New food banks and shelters wait here for your OK (add the id to overrides/foodbank_approved_new.json or overrides/approved_new_places.json). Warm spaces that pass their own-source verification need no OK (blanket approval, 30 Oct 2026) but still need a verified phone number (shelters also a sourced "who it\'s for") before it goes on the map.', '']
     for L, xs in lg.items():
         md += [f'## {L} ({len(xs)})', ''] + [f"- {x['name']} ({x.get('postcode') or ''}) - {', '.join(x['why'])} - {x.get('source') or ''}" for x in xs] + ['']
     pd = os.path.join(ROOT, 'reports', 'pending_dean.md'); keep = ''
