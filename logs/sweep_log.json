@@ -1,8 +1,37 @@
 {
- "run": "2026-11-02",
+ "run": "2026-11-03",
  "pages": 1606,
- "failed": 0,
- "errors": [],
+ "failed": 7,
+ "errors": [
+  [
+   "https://www.camden.gov.uk/warm-spaces-in-camden",
+   403
+  ],
+  [
+   "https://www.camden.gov.uk/warm-spaces-in-camden",
+   403
+  ],
+  [
+   "https://www.lewes-eastbourne.gov.uk/article/1261/Help-for-people-sleeping-rough",
+   403
+  ],
+  [
+   "https://www.lewes-eastbourne.gov.uk/article/1261/Help-for-people-sleeping-rough",
+   403
+  ],
+  [
+   "https://drupal.northumberland.gov.uk/education-skills/schools/school-transport/information-parents-during-periods-severe-weather",
+   "error"
+  ],
+  [
+   "https://www.cherwell.gov.uk/Warm-Spaces",
+   404
+  ],
+  [
+   "https://www.westminster.gov.uk/event/warm-and-welcome-space-kensington-palace",
+   403
+  ]
+ ],
  "added": [],
  "status": "ok"
 }

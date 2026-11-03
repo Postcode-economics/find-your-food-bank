@@ -5,10 +5,11 @@ No new place (food bank, shelter or warm space) is added automatically: each wai
 ## foodbanks (0)
 
 
-## warmspaces (204)
+## warmspaces (205)
 
 - Age UK Gloucester House (LE13 1JE) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.melton.gov.uk/leisure-health-and-community/cost-of-living/warm-spaces-in-melton/
 - Age UK Surrey (GU8 5EZ) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- Alcombe Friendship Centre (TA24 6AN) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=26120
 - Angelic Network CIC (GU22 7BD) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
 - Angy Care Health Foundation (DA11 9NE) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=27103
 - Bevendean Community Church (BN2 4LT) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://gis.brighton-hove.gov.uk/server/rest/services/Hosted/Warm_spaces_October_26/FeatureServer/0/query?where=1=1&outFields=*&f=json
@@ -216,8 +217,6 @@ No new place (food bank, shelter or warm space) is added automatically: each wai
 
 - Salford Foyer (M6 5WX) - no sourced 'who it's for' - https://www.openstreetmap.org/way/979361293
 - St Mungo's (SE1 0ES) - no sourced 'who it's for' - https://www.openstreetmap.org/way/753792449
-
-
 <!-- times review -->
 ## Opening-times review list (times_finder)
 
@@ -227,8 +226,6 @@ Run 2026-11-03. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
   source: https://www.holytrinitywesterhailes.org.uk  
   why: hand-checked times are protected; finder only flags differences; not one clear weekly client-hours block (kept as text for review); times not read identically on 2 separate runs yet; jumble: Mon given different times in separate blocks on one page; review only
 <!-- /times review -->
-
-
 <!-- times crosscheck fb -->
 ## Opening-times changes from the refresh (fb): 7 auto-applied, 47 held
 
@@ -600,16 +597,13 @@ Run 2026-11-03. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
   source: https://www.westminster.gov.uk/leisure-libraries-and-community/library-opening-times-and-contact-details/west-end-arts-library  
   why held: new own-site times look like office/centre hours; new own-site times look like general venue opening hours (identical weekday block, not warm-space session wording); new own-site times look like general venue opening hours, not a warm-space session
 <!-- /times crosscheck ws -->
-
-
 <!-- sweep shelters -->
 ## Shelter candidates from the sweep (review only)
 
-Run 2026-11-02. Nothing here is on the map. Each needs a hand check before it is added.
+Run 2026-11-03. Nothing here is on the map. Each needs a hand check before it is added.
 
 - none this run
 <!-- /sweep shelters -->
-
 
 <!-- closures -->
 ## Possible closures - still on the map with "May have closed" note (0)
@@ -737,10 +731,13 @@ Counts of held warm spaces, shelters and day-centre candidates within 10km of ea
 Council day-centre / rough-sleeping pages and Homeless Link's day-centre category. Not on the map.
 Publish only via the Day centre label once that label exists. Until then these stay held.
 
+- Blaenau Gwent County Borough Council The General Offices Steelworks Road Ebbw Va (NP23 6DN) — https://www.blaenau-gwent.gov.uk/en/resident/health-wellbeing-social-care/services-that-are-provided-by-the-council/day-services-provision-day-centres/
 - Beacon House Day Centre () — https://homeless.org.uk/homeless-england/service/beacon-house-day-centre/
 - Chester Aid To The Homeless Harold Tomlins Day Cen () — https://homeless.org.uk/homeless-england/service/chester-aid-to-the-homeless-harold-tomlins-day-cen/
 - Coastline Housing Day Centre () — Monday 9am to 5pm | Tuesday 9am to 5pm | Wednesday 9am to 5pm | Thursday 9am to  — https://homeless.org.uk/homeless-england/service/coastline-housing-day-centre/
 - First Base Day Centre () — https://homeless.org.uk/homeless-england/service/first-base-day-centre/
+- If you would like to know more about Community Options and its services please c (NP23 4AR) — https://www.blaenau-gwent.gov.uk/en/resident/health-wellbeing-social-care/services-that-are-provided-by-the-council/day-services-provision-day-centres/
+- Woodcock Hill (HA3 0PQ) — Monday to Friday 8.00am to 4.30pm — https://www.brent.gov.uk/adult-social-care/staying-independent/day-centres/john-billam-resource-centre
 <!-- /day centre candidates -->
 
 

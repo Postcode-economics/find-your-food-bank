@@ -215,6 +215,20 @@
    "not_applied_reason": "own page states the weekday and time, but it does not give a single venue phone, so it cannot be published"
   },
   {
+   "id": "ww-57952111",
+   "layer": "warmspaces",
+   "name": "Alcester Library and Information Centre",
+   "postcode": "B49 5DZ",
+   "address": "Alcester Library, Alcester, Warwickshire B49 5DZ",
+   "evidence_url": "https://www.warwickshire.gov.uk/directory-record/592/alcester-library-and-information-centre",
+   "day_time_quote": "Monday 9.30am to 5.30pm | Wednesday 9.30am to 5.30pm | Thursday 9.30am to 5.30pm | Friday 9.30am to 5.30pm | Saturday 10am to 1pm | Wednesdays 10.30am to 11am (on request)",
+   "source_url": "https://www.warmwelcome.uk/space?l=26020",
+   "website": "https://www.warwickshire.gov.uk/directory-record/592/alcester-library-and-information-centre",
+   "found_via": "direct",
+   "checked_on": "2026-11-03",
+   "rule": "official or own page states a weekday and a time"
+  },
+  {
    "id": "ww-57952178",
    "layer": "warmspaces",
    "name": "Westbury Library",
@@ -230,6 +244,20 @@
    "checked_on": "2026-10-31",
    "rule": "official or own page states a weekday and a time",
    "applied": true
+  },
+  {
+   "id": "ww-57952674",
+   "layer": "warmspaces",
+   "name": "Aldbourne Library",
+   "postcode": "SN8 2DW",
+   "address": "Wiltshire Council, Marlborough, Wiltshire SN8 2DW",
+   "evidence_url": "https://apps.wiltshire.gov.uk/librariesinformation/Library/Index/4?isSearchPage=False&isListPage=True",
+   "day_time_quote": "Monday 1.30pm to 4.30pm | Tuesday 10am to 12pm",
+   "source_url": "https://www.warmwelcome.uk/space?l=25465",
+   "website": "https://apps.wiltshire.gov.uk/librariesinformation/Library/Index/4?isSearchPage=False&isListPage=True",
+   "found_via": "direct",
+   "checked_on": "2026-11-03",
+   "rule": "official or own page states a weekday and a time"
   },
   {
    "id": "ww-57953028",
@@ -265,6 +293,20 @@
    "rule": "official or own page states a weekday and a time",
    "applied": false,
    "not_applied_reason": "own page states the weekday and time, but it does not give a single venue phone, so it cannot be published"
+  },
+  {
+   "id": "ww-57979417",
+   "layer": "warmspaces",
+   "name": "Age Friendly drop in",
+   "postcode": "M18 8PE",
+   "address": "Gorton Central, Lancashire M18 8PE",
+   "evidence_url": "https://www.hmhc.co.uk/ageing-in-place-project",
+   "day_time_quote": "Mondays 1-3pm | Mondays 10-11am | Wednesdays 10-11am",
+   "source_url": "https://www.warmwelcome.uk/space?l=24098",
+   "website": "https://www.hmhc.co.uk",
+   "found_via": "link",
+   "checked_on": "2026-11-03",
+   "rule": "official or own page states a weekday and a time"
   },
   {
    "id": "ww-62567470",
@@ -334,6 +376,20 @@
    "checked_on": "2026-10-31",
    "rule": "official or own page states a weekday and a time",
    "applied": true
+  },
+  {
+   "id": "ww-64432663",
+   "layer": "warmspaces",
+   "name": "Age UK Ashford",
+   "postcode": "CT21 6BD",
+   "address": "Farrow Court, Stanhope Road, Kent, Kent CT21 6BD",
+   "evidence_url": "https://www.ageuk.org.uk/hythelymingeashford/",
+   "day_time_quote": "Monday to Friday 9am-3.30pm",
+   "source_url": "https://www.warmwelcome.uk/space?l=15438",
+   "website": "https://www.ageuk.org.uk/hythelymingeashford",
+   "found_via": "direct",
+   "checked_on": "2026-11-03",
+   "rule": "official or own page states a weekday and a time"
   },
   {
    "id": "ww-64717116",
@@ -415,6 +471,20 @@
    "checked_on": "2026-10-31",
    "rule": "official or own page states a weekday and a time",
    "applied": true
+  },
+  {
+   "id": "ww-65437349",
+   "layer": "warmspaces",
+   "name": "Akroyd Library",
+   "postcode": "HX3 6HG",
+   "address": "Akoroyd Library, Bankfield Museum, West Yorkshire HX3 6HG",
+   "evidence_url": "https://new.calderdale.gov.uk/libraries/locations/akroyd-library",
+   "day_time_quote": "Tuesday 10am to 4pm | Thursday 10am to 4pm | Friday 10am to 4pm | Saturday 10am to 12pm",
+   "source_url": "https://www.warmwelcome.uk/space?l=23228",
+   "website": "http://www.calderdale.gov.uk/v2/residents/leisure-and-culture/libraries",
+   "found_via": "sitemap",
+   "checked_on": "2026-11-03",
+   "rule": "official or own page states a weekday and a time"
   },
   {
    "id": "ww-65437497",
@@ -727,6 +797,20 @@
    "website": "https://www.newcastle.gov.uk/services/libraries-and-culture",
    "found_via": "search",
    "checked_on": "2026-11-01",
+   "rule": "official or own page states a weekday and a time"
+  },
+  {
+   "id": "ww-69441267",
+   "layer": "warmspaces",
+   "name": "Newburn Library",
+   "postcode": "NE15 8LN",
+   "address": "Newburn High Street, NE15 8LN",
+   "evidence_url": "https://new.newcastle.gov.uk/search?s=Newburn+Library",
+   "day_time_quote": "Wednesday 10am to 1pm | Friday 10am to 1pm | Saturday 10am to 2pm | Saturdays 10.30am to 12.30pm | Fridays 10:30am to 11am",
+   "source_url": "https://www.warmwelcome.uk/space?l=26178",
+   "website": "https://www.newcastle.gov.uk/services/libraries-culture/libraries-newcastle/newburn-library",
+   "found_via": "search",
+   "checked_on": "2026-11-03",
    "rule": "official or own page states a weekday and a time"
   },
   {
