@@ -4,7 +4,7 @@ Sources: Met Office, Environment Agency, SEPA, Natural Resources Wales, UK Emerg
 
 Contains Natural Resources Wales information © Natural Resources Wales and database right.
 
-- no warnings
+- **Met Office** [yellow] Yellow warning of fog affecting Northern Ireland - shelters/warm spaces in area: Simon Community – 242 Antrim Road, Simon Community – Armagh, Simon Community – Bonds Hill, The Meeting Place; SWEP active: none
 
 ## Alert-triggered council shelter page re-check
 

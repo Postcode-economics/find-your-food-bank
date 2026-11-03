@@ -1,18 +1,15 @@
-# Refresh guard: foodbanks (2026-11-02T22:47:40+00:00)
+# Refresh guard: foodbanks (2026-11-03T07:04:55+00:00)
 
-foodbanks: kept 7 places, 0 phones, 30 opening times that this run would have dropped. Previous values were kept and published; please check why the source lost them.
+foodbanks: kept 4 places, 0 phones, 32 opening times that this run would have dropped. Previous values were kept and published; please check why the source lost them.
 
-## places kept (7)
+## places kept (4)
 
-- ifan-85fc4f26365d8e7c333d57-0
-- ty-hapus
+- ifan-01c4e7b3eb5fb6efb0189d-1
 - colchester/wivenhoe
 - ifan-e0054aa041ea174c4f6921-0
 - ifan-efde0ad76e7a121fb1cf96-0
-- st-peter-st-pauls-pantry
-- littlehampton-community-fridge
 
-## times kept (30)
+## times kept (32)
 
 - godalming
 - kintyre
@@ -25,6 +22,7 @@ foodbanks: kept 7 places, 0 phones, 30 opening times that this run would have dr
 - community-works
 - alnwick-district
 - klsb
+- st-james-thornton
 - earlsfield
 - whitby
 - honiton
@@ -44,18 +42,16 @@ foodbanks: kept 7 places, 0 phones, 30 opening times that this run would have dr
 - ifan-762040c38571b1178c1e2d-0
 - ifan-c894c18cc81d79344bc973-0
 - ifan-ca574aed6b4ff8c310060c-0
+- ifan-85fc4f26365d8e7c333d57-0
 
 ## fb_pages kept (2)
 
 - ifan-84cd0bf40986bfc9a427c6-0
 - ifan-9fef48d4f0fd3a3f6896d2-0
 
-## access kept (7)
+## access kept (4)
 
-- ifan-85fc4f26365d8e7c333d57-0
-- ty-hapus
+- ifan-01c4e7b3eb5fb6efb0189d-1
 - colchester/wivenhoe
 - ifan-e0054aa041ea174c4f6921-0
 - ifan-efde0ad76e7a121fb1cf96-0
-- st-peter-st-pauls-pantry
-- littlehampton-community-fridge

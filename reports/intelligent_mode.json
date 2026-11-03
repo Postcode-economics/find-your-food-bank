@@ -1,12 +1,12 @@
 {
- "run": "2026-11-02",
+ "run": "2026-11-03",
  "layers": {
   "foodbanks": {
    "steps": {
     "times": {
      "applied": 0,
      "applied_this_run": 0,
-     "held": 47,
+     "held": 48,
      "stale_cleared": 0,
      "rejected": [
       {
@@ -31,8 +31,7 @@
         "new own-site times look like office/centre hours",
         "new own-site times look like office/centre hours",
         "new own-site times look like office/shop hours (identical Mon-Fri block, no distribution wording)",
-        "not one clear weekly client-hours block (kept as text for review)",
-        "times not read identically on 2 separate runs yet"
+        "not one clear weekly client-hours block (kept as text for review)"
        ]
       },
       {
@@ -124,15 +123,6 @@
        ]
       },
       {
-       "id": "st-annes-advice-nottingham",
-       "reasons": [
-        "new own-site times look like office/centre hours",
-        "new own-site times look like office/centre hours",
-        "new own-site times look like office/shop hours (identical Mon-Fri block, no distribution wording)",
-        "not one clear weekly client-hours block (kept as text for review)"
-       ]
-      },
-      {
        "id": "kirkby-storehouse",
        "reasons": [
         "day not on the same line as its times on the own-site page"
@@ -179,6 +169,13 @@
         "not one clear weekly client-hours block (kept as text for review)",
         "jumble: 6 separate time blocks read from one page; review only",
         "would cut known hours to fewer sessions (7 to 6) and the source does not say that session ended; review"
+       ]
+      },
+      {
+       "id": "new-wortley-community-centre",
+       "reasons": [
+        "day not on the same line as its times on the own-site page",
+        "times not read identically on 2 separate runs yet"
        ]
       },
       {
@@ -266,6 +263,17 @@
        ]
       },
       {
+       "id": "patch",
+       "reasons": [
+        "new own-site times look like office/centre hours",
+        "own site lists several centres (4 postcodes); cannot tie one table to this listing",
+        "new own-site times look like office/centre hours",
+        "not one clear weekly client-hours block (kept as text for review)",
+        "would cut known hours to fewer days (drops Sat) and the source does not say that session ended; review",
+        "times not read identically on 2 separate runs yet"
+       ]
+      },
+      {
        "id": "3food4u/tottenham-sda",
        "reasons": [
         "known skip: times listed above each address; finder read them onto the next centre (Budworth Hall got Epping's Friday)",
@@ -312,8 +320,7 @@
       {
        "id": "cann-hall",
        "reasons": [
-        "day not on the same line as its times on the own-site page",
-        "times not read identically on 2 separate runs yet"
+        "day not on the same line as its times on the own-site page"
        ]
       },
       {
@@ -376,13 +383,10 @@
      "coverage": {
       "sites": 15,
       "sites_opened": 13,
-      "render_attempts": 563,
-      "render_errors": 5,
+      "render_attempts": 560,
+      "render_errors": 4,
       "source_pages": 18,
-      "source_opened": 15,
-      "budget_skipped": 0,
-      "hours_review_due": 1736,
-      "hours_review_opened": 947
+      "source_opened": 15
      },
      "enabled": true
     },
@@ -395,22 +399,22 @@
      "errors": [],
      "alerts": [],
      "coverage": {
-      "render_attempts": 1005,
+      "render_attempts": 933,
       "render_errors": 5,
       "budget_skipped": 0,
       "hours_review_due": 1736,
-      "hours_review_opened": 1029,
+      "hours_review_opened": 955,
       "sites": 15,
-      "sites_opened": 14,
+      "sites_opened": 13,
       "source_pages": 18,
-      "source_opened": 16
+      "source_opened": 15
      },
      "enabled": true
     }
    },
    "applied": 0,
    "applied_this_run": 0,
-   "held": 47,
+   "held": 48,
    "stale_cleared": 0,
    "rejected": [
     {
@@ -435,8 +439,7 @@
       "new own-site times look like office/centre hours",
       "new own-site times look like office/centre hours",
       "new own-site times look like office/shop hours (identical Mon-Fri block, no distribution wording)",
-      "not one clear weekly client-hours block (kept as text for review)",
-      "times not read identically on 2 separate runs yet"
+      "not one clear weekly client-hours block (kept as text for review)"
      ]
     },
     {
@@ -528,15 +531,6 @@
      ]
     },
     {
-     "id": "st-annes-advice-nottingham",
-     "reasons": [
-      "new own-site times look like office/centre hours",
-      "new own-site times look like office/centre hours",
-      "new own-site times look like office/shop hours (identical Mon-Fri block, no distribution wording)",
-      "not one clear weekly client-hours block (kept as text for review)"
-     ]
-    },
-    {
      "id": "kirkby-storehouse",
      "reasons": [
       "day not on the same line as its times on the own-site page"
@@ -583,6 +577,13 @@
       "not one clear weekly client-hours block (kept as text for review)",
       "jumble: 6 separate time blocks read from one page; review only",
       "would cut known hours to fewer sessions (7 to 6) and the source does not say that session ended; review"
+     ]
+    },
+    {
+     "id": "new-wortley-community-centre",
+     "reasons": [
+      "day not on the same line as its times on the own-site page",
+      "times not read identically on 2 separate runs yet"
      ]
     },
     {
@@ -670,6 +671,17 @@
      ]
     },
     {
+     "id": "patch",
+     "reasons": [
+      "new own-site times look like office/centre hours",
+      "own site lists several centres (4 postcodes); cannot tie one table to this listing",
+      "new own-site times look like office/centre hours",
+      "not one clear weekly client-hours block (kept as text for review)",
+      "would cut known hours to fewer days (drops Sat) and the source does not say that session ended; review",
+      "times not read identically on 2 separate runs yet"
+     ]
+    },
+    {
      "id": "3food4u/tottenham-sda",
      "reasons": [
       "known skip: times listed above each address; finder read them onto the next centre (Budworth Hall got Epping's Friday)",
@@ -716,8 +728,7 @@
     {
      "id": "cann-hall",
      "reasons": [
-      "day not on the same line as its times on the own-site page",
-      "times not read identically on 2 separate runs yet"
+      "day not on the same line as its times on the own-site page"
      ]
     },
     {
@@ -779,19 +790,19 @@
    "alerts": [],
    "coverage": {
     "sites": 15,
-    "sites_opened": 14,
-    "render_attempts": 1005,
+    "sites_opened": 13,
+    "render_attempts": 933,
     "render_errors": 5,
     "source_pages": 18,
-    "source_opened": 16,
+    "source_opened": 15,
     "budget_skipped": 0,
     "hours_review_due": 1736,
-    "hours_review_opened": 1029
+    "hours_review_opened": 955
    }
   }
  },
  "alerts": [],
  "would_block": [],
  "enabled": true,
- "generated_at": "2026-11-02T22:47:39+00:00"
+ "generated_at": "2026-11-03T07:04:53+00:00"
 }
