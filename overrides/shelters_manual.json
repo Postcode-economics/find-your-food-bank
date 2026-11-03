@@ -1225,7 +1225,7 @@
     "lng": -1.883745,
     "phone": "0121 772 4406",
     "website": "https://stannesbirmingham.org.uk/",
-    "hours": "",
+    "hours": "Open 24 hours a day, 7 days a week",
     "referral": "Direct access self-referral (main hostel), subject to interview; single men 25+",
     "beds": "",
     "groups": [
@@ -1238,7 +1238,10 @@
     "source_url": "https://homeless.org.uk/homeless-england/service/st-annes-hostel/",
     "last_verified": "2026-10-21",
     "stale": false,
-    "access_type": "self_referral"
+    "access_type": "self_referral",
+    "hours_quote": "Direct access self-referral accommodation in the main hostel and open 24 hours a day 7 days a week.",
+    "hours_source": "https://homeless.org.uk/homeless-england/service/st-annes-hostel/",
+    "hours_checked": "2026-11-03"
   },
   {
     "id": "hl-nightsafe-blackburn",
@@ -1647,7 +1650,7 @@
     "lng": -0.396236,
     "phone": "01923 353600",
     "website": "https://oneymca.org/what-we-do/accommodation/hostels/watford-hostel/",
-    "hours": "",
+    "hours": "Open 24 hours",
     "referral": "By application: online housing form, then a meeting. Not for emergencies; contact the council.",
     "beds": "150",
     "groups": [],
@@ -1658,7 +1661,10 @@
     "source_url": "https://www.stalbans.gov.uk/rough-sleeping",
     "last_verified": "2026-10-30",
     "stale": false,
-    "access_type": "referral_only"
+    "access_type": "referral_only",
+    "hours_quote": "Contact Us Open 24 Hours Charter House Charter Place Watford WD17 2RT",
+    "hours_source": "https://oneymca.org/what-we-do/accommodation/hostels/watford-hostel/",
+    "hours_checked": "2026-11-03"
   },
   {
     "id": "man-first-base-brighton",
@@ -6620,7 +6626,7 @@
     "no_pin": true,
     "phone": "0117 352 6800",
     "website": "http://www.mungos.org",
-    "hours": "",
+    "hours": "Staffed 24 hours a day, 7 days a week",
     "referral": "Bristol connection needed: ask Bristol Council's homelessness team (0117 352 6800) or St Mungo's outreach (0117 407 0330) to refer you.",
     "groups": [],
     "season": "Year-round",
@@ -6636,7 +6642,10 @@
     "who_for": "Not stated",
     "last_checked": "2026-10-31",
     "checked_on": "2026-10-31",
-    "access_type": "referral_only"
+    "access_type": "referral_only",
+    "hours_quote": "Staff available 24/7.",
+    "hours_source": "https://homeless.org.uk/homeless-england/service/st-mungos-longhills/",
+    "hours_checked": "2026-11-03"
   },
   {
     "id": "hl-stonepillow-bognor-hostel",
@@ -8479,7 +8488,7 @@
     "name": "90 Hope Street hostel (Brighter Futures)",
     "phone": "01782 406000",
     "website": "https://brighter-futures.org.uk/the-housing-pathway/homelessness-accommodation/",
-    "hours": "",
+    "hours": "Staffed 24 hours a day, 7 days a week",
     "referral": "Referral needed (Brighter Futures does not take emergency walk-ins): call 01782 406000.",
     "beds": "",
     "groups": [],
@@ -8499,7 +8508,10 @@
     "address": "90 Hope Street, Hanley, Stoke-on-Trent",
     "postcode": "ST1 5BY",
     "lat": 53.029142,
-    "lng": -2.178571
+    "lng": -2.178571,
+    "hours_quote": "The hostel is staffed by a friendly, experienced team available 24/7",
+    "hours_source": "https://brighter-futures.org.uk/the-housing-pathway/homelessness-accommodation/",
+    "hours_checked": "2026-11-03"
   },
   {
     "id": "man-ss-ymca-derbyshire-london-road",
@@ -8678,7 +8690,7 @@
     "name": "Bradford Cyrenians hostel (men 18+)",
     "phone": "01274 481039",
     "website": "https://www.bradfordcyrenians.org.uk/hostel-provision/",
-    "hours": "",
+    "hours": "Staffed 24 hours a day",
     "referral": "Men 18+. Referral via Bradford Council Housing Options: 01274 435999 (out of hours 01274 381999).",
     "beds": "",
     "groups": [
@@ -8702,7 +8714,10 @@
     "address": "255-257 Manningham Lane, Bradford",
     "postcode": "BD8 7EP",
     "lat": 53.806409,
-    "lng": -1.765346
+    "lng": -1.765346,
+    "hours_quote": "The scheme is staffed 24 hours a day with security guard cover at night.",
+    "hours_source": "https://www.bradfordcyrenians.org.uk/hostel-provision/",
+    "hours_checked": "2026-11-03"
   },
   {
     "id": "man-ss-michael-house-boscombe",
@@ -8790,7 +8805,7 @@
     "name": "Prospect Lodge (New Start)",
     "phone": "0151 708 7103",
     "website": "https://www.newstarthomes.org.uk/copy-of-community-housing",
-    "hours": "",
+    "hours": "Staffed 24 hours a day",
     "referral": "Referral via a Liverpool MainStay assessment. Info: 0151 708 7103.",
     "beds": "",
     "groups": [],
@@ -8810,14 +8825,17 @@
     "address": "51 Prospect Vale, Liverpool",
     "postcode": "L6 8PF",
     "lat": 53.416989,
-    "lng": -2.938195
+    "lng": -2.938195,
+    "hours_quote": "The service is staffed 24 hours per day by a team of dedicated Project Workers",
+    "hours_source": "https://www.newstarthomes.org.uk/copy-of-community-housing",
+    "hours_checked": "2026-11-03"
   },
   {
     "id": "man-ss-ymca-together-leeds-street",
     "name": "Leeds Street (You Matter, formerly YMCA Together)",
     "phone": "0151 600 3530",
     "website": "https://you-matter.org.uk/what-we-do/homelessness-support/",
-    "hours": "",
+    "hours": "Staffed 24 hours a day, 7 days a week",
     "referral": "Call 0151 600 3530 to ask how to get a place.",
     "beds": "",
     "groups": [],
@@ -8837,7 +8855,10 @@
     "address": "15 Leeds Street, Liverpool",
     "postcode": "L3 6HU",
     "lat": 53.412853,
-    "lng": -2.991694
+    "lng": -2.991694,
+    "hours_quote": "with staff available 24 hours a day, seven days a week",
+    "hours_source": "https://you-matter.org.uk/what-we-do/homelessness-support/",
+    "hours_checked": "2026-11-03"
   },
   {
     "id": "man-ss-riverside-wilson-carlile-house",
@@ -8875,7 +8896,7 @@
     "name": "SPIN hostel (Supporting People in Need)",
     "phone": "0161 272 9515",
     "website": "https://supportingpeopleinneed.org/contact-us",
-    "hours": "",
+    "hours": "Open 24 hours, 365 days a year",
     "referral": "Hostel for homeless men. Call 0161 272 9515 to ask about a bed.",
     "beds": "",
     "groups": [
@@ -8899,7 +8920,10 @@
     "address": "Coverdale Baptist Church, Coverdale Crescent, Ardwick, Manchester",
     "postcode": "M12 4FG",
     "lat": 53.46743,
-    "lng": -2.214164
+    "lng": -2.214164,
+    "hours_quote": "Hours We are open 24 hours per day, 365 days per year.",
+    "hours_source": "https://supportingpeopleinneed.org/contact-us",
+    "hours_checked": "2026-11-03"
   },
   {
     "id": "man-ss-langley-tekoa-house",
@@ -8937,7 +8961,7 @@
     "name": "10 Southampton Street hostel (Society of St James)",
     "phone": "023 8083 2343",
     "website": "https://homeless.org.uk/homeless-england/service/society-of-st-james-10-southampton-street/",
-    "hours": "",
+    "hours": "Staffed 24 hours a day, 7 days a week",
     "referral": "Referral from Southampton's Street Homeless Prevention Team (023 8083 2343) or a local agency.",
     "beds": "",
     "groups": [],
@@ -8958,7 +8982,10 @@
     "address": "10 Southampton Street, Southampton",
     "postcode": "SO15 2ED",
     "lat": 50.913448,
-    "lng": -1.405262
+    "lng": -1.405262,
+    "hours_quote": "Staffed 24/7, fully catered provision.",
+    "hours_source": "https://homeless.org.uk/homeless-england/service/society-of-st-james-10-southampton-street",
+    "hours_checked": "2026-11-03"
   },
   {
     "id": "man-ss-pcha-somers-road",
@@ -9023,7 +9050,7 @@
     "name": "Homeground (Local Solutions, 16-21)",
     "phone": "0151 709 0990",
     "website": "https://localsolutions.org.uk/liverpool-city-region-services/support-accommodation/homeground/",
-    "hours": "",
+    "hours": "Staffed 24 hours a day, 7 days a week",
     "referral": "Young people 16-21. Referral via a Liverpool MainStay assessment.",
     "beds": "",
     "groups": [
@@ -9047,7 +9074,10 @@
     "address": "286-316 Scotland Road, Liverpool",
     "postcode": "L5 5AE",
     "lat": 53.420883,
-    "lng": -2.981543
+    "lng": -2.981543,
+    "hours_quote": "24/7 on-site staff to provide support and reassurance",
+    "hours_source": "https://localsolutions.org.uk/liverpool-city-region-services/support-accommodation/homeground/",
+    "hours_checked": "2026-11-03"
   },
   {
     "id": "man-ss-st-basils-milner-court",
@@ -9329,7 +9359,7 @@
     "name": "STEP emergency night accommodation (Sanctuary Trust)",
     "phone": "0300 303 8548",
     "website": "https://sanctuarytrust.org.uk/projects/step/",
-    "hours": "",
+    "hours": "Open 7pm to 9am, every night",
     "referral": "Referral through Rochdale Borough Housing homelessness team: 0300 303 8548. Open 7pm-9am.",
     "beds": "",
     "groups": [],
@@ -9355,7 +9385,10 @@
     "no_pin": true,
     "lat": null,
     "lng": null,
-    "referral_route": "Referral through Rochdale Borough Housing homelessness team: 0300 303 8548. Open 7pm-9am."
+    "referral_route": "Referral through Rochdale Borough Housing homelessness team: 0300 303 8548. Open 7pm-9am.",
+    "hours_quote": "Open 7pm – Overnight – 9am 24/7/ 365",
+    "hours_source": "https://sanctuarytrust.org.uk/projects/step/",
+    "hours_checked": "2026-11-03"
   },
   {
     "id": "man-ss-high-peak-homeless-help",
