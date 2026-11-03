@@ -264,7 +264,7 @@ class Workflows(unittest.TestCase):
             "refresh-warmspaces.yml": "warmspaces",
             "refresh-shelters.yml": "shelters,emergency",
             "incident-rest-centre-watch.yml": "emergency",
-            "swep-daily.yml": "emergency",
+            "swep-daily.yml": "shelters,emergency",
         }
         call = 'python scripts/new_live_email.py --layers %s --baseline "$LIVE_BASELINE" --send'
         for name, layers in cases.items():

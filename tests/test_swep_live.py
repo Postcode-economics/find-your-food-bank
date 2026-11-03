@@ -67,6 +67,9 @@ class Publish(unittest.TestCase):
         self.assertEqual(row["kind"], "severe_weather")
         self.assertEqual(row["label"], L.LABEL)
         self.assertEqual(row["badge"], L.BADGE)
+        self.assertEqual(row["swep_badge"], L.BADGE)
+        import new_live_email as mail
+        self.assertEqual(mail.type_label(row, "shelters"), "SWEP")
         self.assertEqual(row["verified_on"], NOW)
         self.assertEqual(row["last_verified"], NOW)
         self.assertEqual(row["checked_on"], NOW)

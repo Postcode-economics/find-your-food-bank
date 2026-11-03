@@ -8,8 +8,9 @@ environment variable cannot change the address.
 A place counts as new when its id is in the published file at HEAD and was not
 in that file at the baseline commit the run started from (the map that was
 already live). Food banks, warm spaces and shelters come from their layer
-files. SWEP and emergency provision come from incident_rest_centre_live.json,
-and only while that file is public. Nothing is sent when that diff is empty.
+files, including a SWEP shelter the watch has published into shelters.js.
+Incident rest centres come from incident_rest_centre_live.json, and only while
+that file is public. Nothing is sent when that diff is empty.
 
 Sending uses Brevo's transactional API (POST https://api.brevo.com/v3/smtp/email).
 The key is the repository secret BREVO_API_KEY. Without --send this is a dry

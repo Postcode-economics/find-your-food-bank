@@ -326,6 +326,7 @@ def places_from_page(page, run_day, geocoder=None, used=None, shared_numbers=Non
             "label": LABEL,
             "label_cy": LABEL_CY,
             "badge": BADGE,
+            "swep_badge": BADGE,
             "source": council,
             "source_url": url,
             "evidence_url": url,
