@@ -102,7 +102,7 @@ class Render(unittest.TestCase):
                 self.assertIn('sun', seen)
                 # The foyer is not in the nearest five of a generic search. Open it directly.
                 p.evaluate("""() => {
-                  const i = SHELTERS.items.find(x => x.kind === 'young_people');
+                  const i = SHELTERS.items.find(x => x.kind === 'young_people' && x.lat != null);  // no-pin referral cards (PR #396) have no lat
                   nearest(i.lat, i.lng, i.postcode || i.name);
                 }""")
                 p.wait_for_timeout(500)
