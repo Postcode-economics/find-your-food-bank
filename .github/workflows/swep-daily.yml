@@ -1,7 +1,8 @@
 name: SWEP daily full check (all UK councils)
 # Dean, 23 Oct 2026: once a day re-check every UK council's SWEP page (scripts/sweep_sources.json, ~382),
 # flag new / dead pages and status changes, and write logs/swep_full.json + reports/swep_daily.md for the daily review.
-# 05:00 UTC = 06:00 UK in summer time (05:00 UK in winter). Read-only on council sites; never contacts anyone; never changes the map.
+# 05:00 UTC = 06:00 UK in summer time (05:00 UK in winter). Read-only on council sites; never contacts anyone.
+# A shelter or emergency provision the page confirms is open is published onto the map. No verified phone stays held.
 on:
   schedule:
     - cron: "0 5 * * *"
@@ -38,7 +39,7 @@ jobs:
         id: commit
         if: steps.full.outcome == 'success' || steps.full.outcome == 'failure'
         run: |
-          bash scripts/git_add_existing.sh logs/swep_full.json reports/swep_daily.md logs/rest_centre_status.json logs/incident_rest_centre_pages.json logs/incident_rest_centre_switch_state.json logs/incident_rest_centre_live_state.json incident_rest_centre_live.json incident_rest_centre_live.js reports/pending_dean.md logs/swep_tracker.json reports/swep_tracker.md
+          bash scripts/git_add_existing.sh shelters.js logs/swep_live_held.json logs/swep_full.json reports/swep_daily.md logs/rest_centre_status.json logs/incident_rest_centre_pages.json logs/incident_rest_centre_switch_state.json logs/incident_rest_centre_live_state.json incident_rest_centre_live.json incident_rest_centre_live.js reports/pending_dean.md logs/swep_tracker.json reports/swep_tracker.md
           if git diff --cached --quiet; then echo "No change"; exit 0; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -53,7 +54,7 @@ jobs:
         continue-on-error: true
         env:
           BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
-        run: python scripts/new_live_email.py --layers emergency --baseline "$LIVE_BASELINE" --send || true
+        run: python scripts/new_live_email.py --layers shelters,emergency --baseline "$LIVE_BASELINE" --send || true
       - name: Alert - SWEP daily check failed
         if: always() && (failure() || steps.full.outcome == 'failure')
         env:

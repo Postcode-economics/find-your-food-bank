@@ -141,8 +141,11 @@ def card_sh(i):
                 % (E(i.get('name')), E(notice), E(i.get('area') or i.get('town') or ''), phone_html(i.get('phone')), E(i.get('referral_route') or '')))
     day = i.get('kind') == 'day_centre'
     youth = i.get('kind') == 'young_people'
+    swep = i.get('kind') == 'severe_weather'
     kind_name = i.get('name') or ''
-    if day:
+    if swep:
+        type_en = 'Severe weather shelter (SWEP)'
+    elif day:
         type_en = 'Day centre'
     elif youth:
         type_en = "Young people’s housing (16–25), referral needed"
@@ -155,6 +158,8 @@ def card_sh(i):
     else:
         type_en = 'Night shelter'
     tag = '<div class="tag">%s</div>' % E(type_en)
+    if swep:
+        tag += ' <span class="useason">%s</span>' % E(i.get('badge') or 'Rough sleeper shelter open tonight')
     if re.search(r'winter|swep|cold weather', str(i.get('season') or ''), re.I):
         tag += ' <span class="useason">Winter-only</span>'
 
