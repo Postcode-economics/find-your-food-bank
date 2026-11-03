@@ -5,11 +5,10 @@ No new place (food bank, shelter or warm space) is added automatically: each wai
 ## foodbanks (0)
 
 
-## warmspaces (205)
+## warmspaces (204)
 
 - Age UK Gloucester House (LE13 1JE) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.melton.gov.uk/leisure-health-and-community/cost-of-living/warm-spaces-in-melton/
 - Age UK Surrey (GU8 5EZ) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
-- Alcombe Friendship Centre (TA24 6AN) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=26120
 - Angelic Network CIC (GU22 7BD) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
 - Angy Care Health Foundation (DA11 9NE) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=27103
 - Bevendean Community Church (BN2 4LT) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://gis.brighton-hove.gov.uk/server/rest/services/Hosted/Warm_spaces_October_26/FeatureServer/0/query?where=1=1&outFields=*&f=json
@@ -217,6 +216,8 @@ No new place (food bank, shelter or warm space) is added automatically: each wai
 
 - Salford Foyer (M6 5WX) - no sourced 'who it's for' - https://www.openstreetmap.org/way/979361293
 - St Mungo's (SE1 0ES) - no sourced 'who it's for' - https://www.openstreetmap.org/way/753792449
+
+
 <!-- times review -->
 ## Opening-times review list (times_finder)
 
@@ -226,6 +227,8 @@ Run 2026-11-03. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
   source: https://www.holytrinitywesterhailes.org.uk  
   why: hand-checked times are protected; finder only flags differences; not one clear weekly client-hours block (kept as text for review); times not read identically on 2 separate runs yet; jumble: Mon given different times in separate blocks on one page; review only
 <!-- /times review -->
+
+
 <!-- times crosscheck fb -->
 ## Opening-times changes from the refresh (fb): 6 auto-applied, 48 held
 
@@ -599,6 +602,8 @@ Run 2026-11-03. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
   source: https://www.westminster.gov.uk/leisure-libraries-and-community/library-opening-times-and-contact-details/west-end-arts-library  
   why held: new own-site times look like office/centre hours; new own-site times look like general venue opening hours (identical weekday block, not warm-space session wording); new own-site times look like general venue opening hours, not a warm-space session
 <!-- /times crosscheck ws -->
+
+
 <!-- sweep shelters -->
 ## Shelter candidates from the sweep (review only)
 
@@ -606,6 +611,7 @@ Run 2026-11-03. Nothing here is on the map. Each needs a hand check before it is
 
 - none this run
 <!-- /sweep shelters -->
+
 
 <!-- closures -->
 ## Possible closures - still on the map with "May have closed" note (0)
@@ -695,8 +701,6 @@ The 29 Oct 05:44 warm spaces refresh (477f83f73) gave these 16 warm spaces a cou
 - Wesley Warm Welcome (SS9 1SJ) | ww-55474116 | council_phone 01702 215000 removed
 - Windmill Warmbank (N18 1PL) | ww-59974983 | council_phone 020 8379 1000 removed
 <!-- /council line undo -->
-
-
 <!-- held near cities -->
 ## Held near cities
 
@@ -761,11 +765,3 @@ Hand check 31 Oct 2026. A directory listing alone is not enough. Nothing here is
 - **Adullam Homes HA - Bury ABEN (Phase 3)** (`hl-adullam-homes-ha-bury-aben-phase-3`): directory record only; an operator or council page has not confirmed it is running now and the phone
 - **Our Way Leeds Emergency Accommodation** (`hl-turning-lives-around-seacole-scheme`): id/name mismatch (the id is Turning Lives Around Seacole; the name is Our Way Leeds)
 <!-- /referral hostel holds -->
-
-<!-- rest centre switch-on -->
-## Rest centre and SWEP switch-ons (waiting for Dean)
-
-Council pages say these are ON. Incident rest centres go live when overrides/incident_rest_centre_mode.json has public true. A GitHub issue was also opened for each switch-on.
-
-- **North Tyneside Council** — [Severe weather shelter (SWEP)] SWEP — https://www.northtyneside.gov.uk/housing/homelessness/if-you-are-homeless-or-sleeping-rough — “seasonal (council page): SWEP is active between 1 November and 31 March”
-<!-- /rest centre switch-on -->

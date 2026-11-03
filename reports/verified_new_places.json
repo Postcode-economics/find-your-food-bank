@@ -8675,7 +8675,7 @@
    "referral_postcode": "",
    "category": "publishable",
    "status": "held",
-   "reason": "operator site unreachable (HTTP error)"
+   "reason": "no building postcode on the operator page (directory postcode is a referral address only)"
   },
   {
    "id": "hl-solo-housing-suffolk-visiting-support",
@@ -8699,7 +8699,7 @@
    "referral_postcode": "",
    "category": "publishable",
    "status": "held",
-   "reason": "operator site unreachable (HTTP error)"
+   "reason": "no building postcode on the operator page (directory postcode is a referral address only)"
   },
   {
    "id": "hl-southern-housing-group-atkinson-house",
