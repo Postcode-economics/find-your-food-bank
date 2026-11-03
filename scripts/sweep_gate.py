@@ -45,8 +45,11 @@ def run(py, args, cwd="."):
 
 def main():
     py = sys.argv[1] if len(sys.argv) > 1 else sys.executable
-    code, text = run(py, ["tests"])
-    print(text[-6000:])
+    if len(sys.argv) > 3:   # the workflow ran the suite already: log path and exit code
+        text, code = open(sys.argv[2], encoding="utf-8", errors="replace").read(), int(sys.argv[3])
+    else:
+        code, text = run(py, ["tests"])
+        print(text[-6000:])
     import alert
     if code == 0:
         try: alert.resolve(ALERT_KEY)

@@ -51,7 +51,9 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           python -m venv /tmp/suite && /tmp/suite/bin/pip install -q pytest==9.1.1
-          python scripts/sweep_gate.py /tmp/suite/bin/python
+          set +e; /tmp/suite/bin/python -m pytest -q tests > /tmp/suite.log 2>&1; code=$?; set -e
+          tail -c 8000 /tmp/suite.log
+          python scripts/sweep_gate.py /tmp/suite/bin/python /tmp/suite.log $code
       - name: Validate before publishing (a failure stops the push)
         run: python scripts/validate.py gate
       - name: Stamp this run's UK date and time (footer last updated / checked)
