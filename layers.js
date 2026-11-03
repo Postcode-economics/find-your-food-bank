@@ -184,6 +184,7 @@ function shSource(i){const host=u=>esc(String(u||'').replace(/^https?:\/\/(www\.
  else if(i.tier==='unverified'&&i.sign_url){bits.push(`${bi('seen')}: <a href="${esc(i.sign_url)}" target="_blank" rel="noopener">${host(i.sign_url)}</a>, ${fmt(i.checked_on)}`);
   bits.push(`${bi('lst')}: <a href="${esc(i.source_url)}" target="_blank" rel="noopener">${esc(i.source)}</a>`)}
  else if(i.source||i.source_url)bits.push(`<a href="${esc(i.source_url||'')}" target="_blank" rel="noopener">${esc(i.source||host(i.source_url))}</a>, ${bi('ver')} ${fmt(i.last_verified)}`);
+ if(i.discovery_url&&i.discovery_label)bits.push(`<span class="xvia"><span class="v-en">Found via</span><span class="v-cy" lang="cy">Daethpwyd o hyd iddo drwy</span> <a href="${esc(i.discovery_url)}" target="_blank" rel="noopener">${esc(i.discovery_label)}</a></span>`);
  if(!bits.length)return '';
  return `<p class="xsrc"><b>${bi('src')}:</b> ${bits.join(' · ')}</p>`}
 function detail(k,i,dist){const tel0=(i.phone||'').replace(/[^\d+]/g,''),tel=i.tel!==undefined?(/^0\d{9,10}$/.test(i.tel)?i.tel:''):(/^(0\d{9,10}|\+44\d{9,10})$/.test(tel0)?tel0:''),row=(l,v)=>v&&v.length?`<p class="xrow"><b>${t(l)}:</b> ${v}</p>`:'';
