@@ -20,6 +20,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with: {fetch-depth: 0}
+      - name: Remember the published map
+        run: echo "LIVE_BASELINE=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -170,6 +172,12 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: python scripts/findings_report.py foodbanks || true
+      - name: New place email (fail-safe)
+        if: always() && steps.commit.outcome == 'success'
+        continue-on-error: true
+        env:
+          BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
+        run: python scripts/new_live_email.py --layers foodbanks --baseline "$LIVE_BASELINE" --send || true
       - name: Alerts + morning digest (point 9, scripts/digest.py)
         # After the publish, so a digest or alert failure never stops the data going out; not continue-on-error, so it turns the run red.
         id: digest
