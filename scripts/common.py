@@ -181,6 +181,14 @@ def infer_shelter_groups(entry, verified=None):
         return ["Young people"]
     return []
 
+def _approved_ids(layer):
+    """Ids Dean approved for this layer in overrides/approved_new_places.json (hand-checked before they were added)."""
+    try:
+        d = json.load(open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "overrides", "approved_new_places.json"), encoding="utf-8"))
+        return set((d.get(layer) or {}).keys())
+    except Exception:
+        return set()
+
 def verification_gate(fresh, prev, verified, run_day, pending_path, autocheck=None, valid_until=None, unverified=None, recheck=True, now=None):
     """Returns (published_fresh, filtered_prev). Writes pending list.
     recheck=True: every run re-fetches each entry's source page.
@@ -232,6 +240,9 @@ def verification_gate(fresh, prev, verified, run_day, pending_path, autocheck=No
                            "hours_since": round(age, 1) if age is not None else None, "kept_fetch_blocked": True})
             pub.append(old)
             continue
+        if failed and has_evidence and v.get("verified_on") and x["id"] in _approved_ids(layer_name):
+            # Hand-verified and approved new place: publish from its verified data; a failed re-read is not a closure.
+            x = dict(x); x["verified_fallback"] = True; failed = False; rc = None
         if failed:
             reason = "held this run: read failed, not published before"
             held.append({"id": x["id"], "name": x.get("name") or x["id"], "reason": reason})
