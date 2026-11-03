@@ -263,7 +263,6 @@ class Workflows(unittest.TestCase):
             "refresh.yml": "foodbanks",
             "refresh-warmspaces.yml": "warmspaces",
             "refresh-shelters.yml": "shelters,emergency",
-            "incident-rest-centre-watch.yml": "emergency",
             "swep-daily.yml": "shelters,emergency",
         }
         call = 'python scripts/new_live_email.py --layers %s --baseline "$LIVE_BASELINE" --send'
@@ -274,6 +273,15 @@ class Workflows(unittest.TestCase):
             self.assertIn("BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}", text, name)
             self.assertIn("steps.commit.outcome == 'success'", text, name)
             self.assertNotIn("other@", text, name)
+
+    def test_incident_loop_sends_after_each_publish(self):
+        # The 10-minute loop publishes inside one long job, so it emails after each push.
+        wf = open(os.path.join(ROOT, ".github", "workflows", "incident-rest-centre-watch.yml"), encoding="utf-8").read()
+        loop = open(os.path.join(ROOT, "scripts", "incident_rest_centre_watch_loop.sh"), encoding="utf-8").read()
+        self.assertIn("BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}", wf)
+        self.assertIn('python scripts/new_live_email.py --layers emergency --baseline "$1" --send', loop)
+        self.assertIn('push_with_retry || return 1\n  send_new_place_email "$baseline"', loop)
+        self.assertNotIn("other@", wf + loop)
 
 
 if __name__ == "__main__":
