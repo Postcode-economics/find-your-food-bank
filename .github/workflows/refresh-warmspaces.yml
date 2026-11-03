@@ -16,6 +16,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with: {fetch-depth: 0}
+      - name: Remember the published map
+        run: echo "LIVE_BASELINE=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -118,6 +120,12 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: python scripts/findings_report.py warmspaces || true
+      - name: New place email (fail-safe)
+        if: always() && steps.commit.outcome == 'success'
+        continue-on-error: true
+        env:
+          BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
+        run: python scripts/new_live_email.py --layers warmspaces --baseline "$LIVE_BASELINE" --send || true
       - name: Alert - run failed (nothing new published)
         if: failure()
         env:

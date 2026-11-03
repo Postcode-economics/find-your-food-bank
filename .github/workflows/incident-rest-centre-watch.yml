@@ -20,6 +20,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with: {fetch-depth: 0}
+      - name: Remember the published map
+        run: echo "LIVE_BASELINE=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -30,6 +32,7 @@ jobs:
           NRW_FLOOD_API_KEY: ${{ secrets.NRW_FLOOD_API_KEY }}
         run: python scripts/incident_rest_centre_watch.py
       - name: Commit and deploy only if the live file or state changed
+        id: commit
         if: steps.watch.outcome == 'success'
         run: |
           bash scripts/git_add_existing.sh incident_rest_centre_live.json incident_rest_centre_live.js logs/incident_rest_centre_live_state.json logs/incident_rest_centre_switch_state.json logs/incident_rest_centre_pages.json reports/pending_dean.md
@@ -46,6 +49,12 @@ jobs:
           done
           echo "::error::incident rest centre watch could not be pushed"
           exit 1
+      - name: New place email (fail-safe)
+        if: always() && steps.commit.outcome == 'success'
+        continue-on-error: true
+        env:
+          BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
+        run: python scripts/new_live_email.py --layers emergency --baseline "$LIVE_BASELINE" --send || true
       - name: Alert - incident rest centre watch failed
         if: failure()
         env:
