@@ -76,3 +76,20 @@ def test_rejected_schema_still_runs_every_check_and_blocks():
     code, left, pending, out = _run_gate('foodbanks', [live], [live, new], meta={'schema_version': 1})
     assert code == 0, out
     assert left == ['fb-live'] and pending == ['fb-new']
+
+
+def test_verified_warmspace_needs_no_per_id_ok_but_phone_still_holds():
+    """Dean 3 Nov 2026: a warm space that passed own-source verification needs no id in approved_new_places.json;
+    the 'no verified phone' hold is unchanged."""
+    import json, os, shutil, subprocess, tempfile
+    d = tempfile.mkdtemp(); run = lambda *a: subprocess.run(a, cwd=d, check=True, capture_output=True)
+    for sub in ('logs', 'reports', 'overrides'): os.makedirs(os.path.join(d, sub))
+    w = lambda items: open(os.path.join(d, 'warmspaces.js'), 'w').write('window.WS=' + json.dumps({'items': items}) + ';')
+    w([dict(id='old', tel='01000000000', name='Old')]); run('git', 'init', '-q'); run('git', 'add', '-A')
+    run('git', '-c', 'user.name=t', '-c', 'user.email=t@t', 'commit', '-qm', 'base')
+    w([dict(id='old', tel='01000000000', name='Old'), dict(id='ww-1', tel='01000000001', name='New'), dict(id='ww-2', name='NoPhone')])
+    old = pg.ROOT; pg.ROOT = d
+    try: held = pg.gate('warmspaces')
+    finally: pg.ROOT = old
+    assert [(i['id'], pr) for i, pr in held] == [('ww-2', ['no verified phone'])]
+    shutil.rmtree(d)
