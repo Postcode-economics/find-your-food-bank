@@ -491,7 +491,7 @@ class HandCheck(unittest.TestCase):
                 self.assertNotIn("@", line)
                 self.assertEqual(item.get("postcode") or "", "")
                 self.assertTrue(item.get("no_pin"))
-        refs = [i for i in data["items"] if i.get("card_type") == "referral_hostel"]
+        refs = [i for i in data["items"] if i.get("card_type") == "referral_hostel" and i["id"].startswith(self.HAND_REF_PREFIX)]  # man-ss-* referral cards come from overrides (PR #396)
         self.assertEqual(sorted(i["id"] for i in refs), sorted(i for i in self.LINES if i.startswith(self.HAND_REF_PREFIX)))
         for iid in self.OFF:
             self.assertNotIn(iid, by)

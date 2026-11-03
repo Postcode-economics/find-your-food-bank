@@ -269,6 +269,7 @@ def verification_gate(fresh, prev, verified, run_day, pending_path, autocheck=No
                     x["groups"] = g
                     x["groups_source"] = v.get("evidence_url") or v.get("evidence_name") or ""
             if v.get("access"): x["referral"] = v["access"][0].upper() + v["access"][1:]
+            if v.get("access") and x.get("card_type") == "referral_hostel": x["referral_route"] = x["referral"]  # referral cards show this line
             place_facts.copy_wheelchair(x, v)  # explicit only; a missing wheelchair stays missing
             pub.append(x)
         elif unverified and x["id"] in unverified and (x["id"] in published_ids or not valid_until or run_day <= valid_until(dict(verified_on=unverified[x["id"]].get("checked_on", "2000-01-01")))) \
