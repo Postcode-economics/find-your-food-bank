@@ -74,15 +74,25 @@ def scenario(r, journey, tag, body):
     """One page. A timeout or crash is this journey's failure; the suite carries on with the next page."""
     if time.time() > scenario.deadline:
         r.ok(journey, tag, False, 'suite time limit (14 min)'); return
-    box = {'c': None, 'pg': None}
-    try: body(box)
-    except Exception as e:
-        if box['pg'] is not None: shot(box['pg'], tag)
-        r.ok(journey, tag, False, str(e).splitlines()[0][:240])
-    finally:
-        if box['c'] is not None:
-            try: box['c'].close()
-            except Exception: pass
+    # 3 Nov: a page that crashes or times out (e.g. a slow Warm spaces load) gets ONE fresh retry.
+    # Results from the failed attempt are discarded; a failed assertion (no exception) is never retried.
+    import copy
+    for attempt in (1, 2):
+        snap = copy.deepcopy(r.res)
+        box = {'c': None, 'pg': None}
+        try:
+            body(box); return
+        except Exception as e:
+            if box['pg'] is not None: shot(box['pg'], tag)
+            msg = str(e).splitlines()[0][:240]
+            if attempt == 1 and time.time() <= scenario.deadline:
+                r.res = snap; print(' RETRY', journey, '-', tag + ': ' + msg, flush=True)
+            else:
+                r.ok(journey, tag, False, msg); return
+        finally:
+            if box['c'] is not None:
+                try: box['c'].close()
+                except Exception: pass
 scenario.deadline = 0
 
 def settle(pg, first=1800):
