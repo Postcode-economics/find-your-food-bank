@@ -128,19 +128,111 @@ class Watch(unittest.TestCase):
 class Workflow(unittest.TestCase):
     def test_schedule_and_single_alert(self):
         text = open(os.path.join(ROOT, ".github", "workflows", "incident-rest-centre-watch.yml"), encoding="utf-8").read()
+        loop = open(os.path.join(ROOT, "scripts", "incident_rest_centre_watch_loop.sh"), encoding="utf-8").read()
+        body = text + "\n" + loop
         self.assertIn("name: Incident rest centre watch (every 10 min)", text)
         self.assertIn('cron: "*/10 * * * *"', text)
         self.assertIn("group: incident-rest-centre-watch", text)
         self.assertIn("cancel-in-progress: false", text)
-        self.assertEqual(text.count("alert.py open incident-watch"), 1)
-        self.assertIn("python scripts/incident_rest_centre_watch.py", text)
+        self.assertEqual(body.count("alert.py open incident-watch"), 1)
+        self.assertIn("python scripts/incident_rest_centre_watch.py", loop)
+        self.assertIn("bash scripts/incident_rest_centre_watch_loop.sh", text)
         self.assertNotIn("playwright", text)
+        self.assertNotIn("playwright", loop)
         shelters = open(os.path.join(ROOT, ".github", "workflows", "refresh-shelters.yml"), encoding="utf-8").read()
         self.assertIn("Council-area browser test", shelters)
         self.assertIn("playwright==1.47.0", shelters)
         daily = open(os.path.join(ROOT, ".github", "workflows", "swep-daily.yml"), encoding="utf-8").read()
         self.assertIn("continue-on-error: true", daily[daily.index("id: full"):daily.index("Commit logs")])
         self.assertIn("::error::", daily)
+
+    def test_loop_repeats_inside_the_job_limit_and_does_not_lock_the_site(self):
+        import incident_rest_centre_schedule as schedule
+        text = open(os.path.join(ROOT, ".github", "workflows", "incident-rest-centre-watch.yml"), encoding="utf-8").read()
+        loop = open(os.path.join(ROOT, "scripts", "incident_rest_centre_watch_loop.sh"), encoding="utf-8").read()
+        self.assertIn("timeout-minutes: %d" % (schedule.JOB_TIMEOUT_S // 60), text)
+        self.assertLessEqual(schedule.JOB_TIMEOUT_S, 6 * 3600)
+        self.assertGreaterEqual(schedule.HANDOFF_BUFFER_S, schedule.wait_seconds(0) + 120)
+        self.assertGreaterEqual(schedule.loop_budget_s(), 30 * schedule.INTERVAL_S)
+        self.assertIn("actions: write", text)
+        self.assertIn("gh workflow run incident-rest-centre-watch.yml", text)
+        self.assertIn("python scripts/incident_rest_centre_schedule.py wait", text)
+        self.assertIn("python scripts/alert.py resolve incident-watch", loop)
+        # The same six paths as the old one-shot publish. Not the site, and no lock.
+        for path in (
+            "incident_rest_centre_live.json",
+            "incident_rest_centre_live.js",
+            "logs/incident_rest_centre_live_state.json",
+            "logs/incident_rest_centre_switch_state.json",
+            "logs/incident_rest_centre_pages.json",
+            "reports/pending_dean.md",
+        ):
+            self.assertIn(path, loop)
+        for banned in ("index.html", "data.js", "shelters.js", "warmspaces.js", "stamp.js", "flock", "place_lock", "phone_lock"):
+            self.assertNotIn(banned, text)
+            self.assertNotIn(banned, loop)
+
+
+class Schedule(unittest.TestCase):
+    def test_about_six_checks_an_hour_and_a_handoff_before_six_hours(self):
+        import incident_rest_centre_schedule as schedule
+        interval = schedule.INTERVAL_S
+        self.assertEqual(interval, 600)
+        budget = schedule.loop_budget_s()
+        elapsed = 0
+        work = 30
+        runs = 0
+        while runs < 1000:
+            runs += 1
+            elapsed += work
+            if not schedule.should_continue(elapsed, budget, interval):
+                break
+            elapsed += interval - work
+        per_hour = runs / (elapsed / 3600)
+        self.assertGreaterEqual(per_hour, 5.5)
+        self.assertLessEqual(per_hour, 6.5)
+        self.assertGreaterEqual(runs, 30)
+        self.assertLessEqual(elapsed + schedule.wait_seconds(work), schedule.JOB_TIMEOUT_S)
+
+    def test_wait_lands_the_next_run_about_ten_minutes_later(self):
+        import incident_rest_centre_schedule as schedule
+        self.assertEqual(schedule.wait_seconds(0), 600 - schedule.STARTUP_ALLOWANCE_S)
+        self.assertEqual(schedule.wait_seconds(60), 600 - 60 - schedule.STARTUP_ALLOWANCE_S)
+        self.assertEqual(schedule.wait_seconds(590), schedule.MIN_WAIT_S)
+        self.assertEqual(schedule.wait_seconds(-5), schedule.wait_seconds(0))
+        self.assertTrue(schedule.should_continue(0, schedule.loop_budget_s(), 600))
+        self.assertTrue(schedule.should_continue(schedule.loop_budget_s() - 600, schedule.loop_budget_s(), 600))
+        self.assertFalse(schedule.should_continue(schedule.loop_budget_s() - 599, schedule.loop_budget_s(), 600))
+
+    def test_cli_and_loop_script(self):
+        import subprocess
+        script = os.path.join(ROOT, "scripts", "incident_rest_centre_schedule.py")
+        loop = os.path.join(ROOT, "scripts", "incident_rest_centre_watch_loop.sh")
+        self.assertEqual(subprocess.run(["bash", "-n", loop], check=True).returncode, 0)
+        self.assertEqual(subprocess.check_output(["python", script, "interval"], text=True).strip(), "600")
+        self.assertEqual(subprocess.check_output(["python", script, "continue", "0", "0", "600"], text=True).strip(), "no")
+        d = tempfile.mkdtemp()
+        try:
+            env = os.environ.copy()
+            env.update({
+                "INCIDENT_WATCH_STUB": "1",
+                "INCIDENT_WATCH_BUDGET_S": "0",
+                "INCIDENT_WATCH_INTERVAL_S": "600",
+                "INCIDENT_WATCH_SKIP_SLEEP": "1",
+                "INCIDENT_WATCH_LOG": os.path.join(d, "log"),
+                "INCIDENT_WATCH_STAMP": os.path.join(d, "stamp"),
+            })
+            r = subprocess.run(["bash", loop], cwd=ROOT, env=env, text=True, capture_output=True)
+            self.assertEqual(r.returncode, 0, r.stderr + r.stdout)
+            self.assertEqual(open(env["INCIDENT_WATCH_LOG"]).read().split(), ["watch"])
+            env["INCIDENT_WATCH_BUDGET_S"] = "99999"
+            env["INCIDENT_WATCH_MAX_RUNS"] = "3"
+            env["INCIDENT_WATCH_LOG"] = os.path.join(d, "log3")
+            r = subprocess.run(["bash", loop], cwd=ROOT, env=env, text=True, capture_output=True)
+            self.assertEqual(r.returncode, 0, r.stderr + r.stdout)
+            self.assertEqual(open(env["INCIDENT_WATCH_LOG"]).read().split(), ["watch", "watch", "watch"])
+        finally:
+            shutil.rmtree(d, ignore_errors=True)
 
 
 class Wording(unittest.TestCase):
