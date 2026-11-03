@@ -804,7 +804,6 @@ Left out of this run because this place was not already on the map and its page 
 - Shawn Martin Peacock (ww-55474282): held this run: read failed, not published before
 - Custom House Library (ww-55474284): held this run: read failed, not published before
 - St Michael and All Angels Church Hall (ww-55474285): held this run: read failed, not published before
-- New Life Community Church Breakfast Hub (ww-55474287): held this run: read failed, not published before
 - St. Hugh's Church, Banbury (ww-55474288): held this run: read failed, not published before
 - Sherborne Warm Hub (ww-55474289): held this run: read failed, not published before
 - Tea&Chat (ww-55474290): held this run: read failed, not published before
@@ -1298,7 +1297,6 @@ Left out of this run because this place was not already on the map and its page 
 - Orchardhill Parish Church (ww-55475484): held this run: read failed, not published before
 - Avonway Community Centre (ww-55475486): held this run: read failed, not published before
 - Wednesday's Warm Welcome (ww-55475488): held this run: read failed, not published before
-- The Centre @ Halton (ww-55475490): held this run: read failed, not published before
 - [DELETED] Parkside Community Hub (ww-55475493): held this run: read failed, not published before
 - Mortimer Methodist Church (ww-55475495): held this run: read failed, not published before
 - Ebbw FachCommunity Group (ww-55475497): held this run: read failed, not published before
@@ -5580,6 +5578,10 @@ Left out of this run because this place was not already on the map and its page 
 - Birchwood Community Hub (ww-69500941): held this run: read failed, not published before
 - Lymm Library (ww-69500942): held this run: read failed, not published before
 - Orford Library (ww-69500943): held this run: read failed, not published before
+- New Life Community Church Breakfast Hub (ww-69526044): held this run: read failed, not published before
+- The Centre @ Halton (ww-69526045): held this run: read failed, not published before
+- Jenni Pullen (ww-69526052): held this run: read failed, not published before
+- Otley Courthouse (ww-69526068): held this run: read failed, not published before
 <!-- /fetch held warmspaces -->
 
 <!-- AUTO-DISCOVERY QUEUE: generated, do not edit below -->
@@ -5915,7 +5917,7 @@ Left out of this run because this place was not already on the map and its page 
 
 ### Deep sweep (council pages): 0 queued, 0 rejected
 
-### Warm spaces: 2151 queued, 2 rejected
+### Warm spaces: 2154 queued, 2 rejected
 - QUEUED Eastbrook Manor Community Centre, Fishersgate · https://www.adur-worthing.gov.uk/warm-spaces/ — directory listing only, with no 2026-27 season dates (latest stated start: none); no postcode
 - QUEUED East Worthing Baptist Church · https://www.adur-worthing.gov.uk/warm-spaces/ — directory listing only, with no 2026-27 season dates (latest stated start: none); no postcode
 - QUEUED East Worthing Community Centre · https://www.adur-worthing.gov.uk/warm-spaces/ — directory listing only, with no 2026-27 season dates (latest stated start: none); no postcode
@@ -6059,7 +6061,7 @@ Left out of this run because this place was not already on the map and its page 
 - QUEUED Chats and Crafts CIC · B31 3BS · https://www.birmingham.gov.uk/directory_record/904979/chats_and_crafts_cic — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Christ Calling Ministries - Project Breaking Bread Warm Welcome · B7 5SN · https://www.birmingham.gov.uk/directory_record/521975/christ_calling_ministries_-_project_breaking_bread_warm_welcome — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Christ Church Summerfield · B16 0EZ · https://www.birmingham.gov.uk/directory_record/494174/christ_church_summerfield — directory listing only, with no 2026-27 season dates (latest stated start: none)
-- QUEUED Church of God of Prophecy · B18 7DL · https://aberdeenstcogop.org.uk/ — own site does not mention a warm space; directory listing only, with no 2026-27 season dates (latest stated start: none)
+- QUEUED Church of God of Prophecy · B18 7DL · https://aberdeenstcogop.org.uk/ — own site does not mention a warm space
 - QUEUED Church of the Ascension Hall Green · B28 8JQ · http://www.ascensionhallgreen.uk/ — own site does not mention a warm space
 - QUEUED Church Road Surgery (Saathi House) · B6 5UP · https://www.birmingham.gov.uk/directory_record/858815/church_road_surgery_saathi_house — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Churchcentral · B12 0HD · https://www.birmingham.gov.uk/directory_record/435119/churchcentral — directory listing only, with no 2026-27 season dates (latest stated start: none)

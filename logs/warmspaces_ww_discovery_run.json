@@ -1,55 +1,21 @@
 {
  "run": "2026-11-03",
- "candidates": 5,
- "already_on_map": 0,
- "new": 5,
+ "candidates": 4,
+ "already_on_map": 1,
+ "new": 3,
  "added": [],
  "flagged": [
   {
-   "id": "ww-69500941",
-   "name": "Birchwood Community Hub",
-   "postcode": "WA3 7PT",
-   "website": "https://livewirewarrington.co.uk/library/our-libraries/",
+   "id": "ww-69526044",
+   "name": "New Life Community Church Breakfast Hub",
+   "postcode": "CF39 8AB",
+   "website": "newlifetonyrefail.co.uk",
    "directory": "Warm Welcome",
-   "directory_url": "https://www.warmwelcome.uk/space?l=23240",
-   "reasons": [
-    "own site did not return the page (HTTP 202; usually a bot check)"
-   ],
-   "url": "https://livewirewarrington.co.uk/library/our-libraries/",
-   "final_url": "https://livewirewarrington.co.uk/library/our-libraries/",
-   "http": 202,
-   "sha256": "b21975aa4a9b50af6ad127b3dadbb386ec4cac589ca11c761ff5b0794489fe91",
-   "etag": "",
-   "last_modified": ""
-  },
-  {
-   "id": "ww-69500942",
-   "name": "Lymm Library",
-   "postcode": "WA13 0QW",
-   "website": "https://livewirewarrington.co.uk/library/our-libraries/",
-   "directory": "Warm Welcome",
-   "directory_url": "https://www.warmwelcome.uk/space?l=23244",
-   "reasons": [
-    "own site did not return the page (HTTP 202; usually a bot check)"
-   ],
-   "url": "https://livewirewarrington.co.uk/library/our-libraries/",
-   "final_url": "https://livewirewarrington.co.uk/library/our-libraries/",
-   "http": 202,
-   "sha256": "05404a8a8788294160e00aa03f5408c542c71b600a2afcbb3983ba8b6eaf2616",
-   "etag": "",
-   "last_modified": ""
-  },
-  {
-   "id": "ww-69388174",
-   "name": "St David's Community Food Larder and Cafe",
-   "postcode": "NN2 7QB",
-   "website": "",
-   "directory": "Warm Welcome",
-   "directory_url": "https://www.warmwelcome.uk/space?l=28652",
+   "directory_url": "https://www.warmwelcome.uk/space?l=14951",
    "reasons": [
     "directory listing only, with no 2026-27 season dates (latest stated start: none)"
    ],
-   "url": "",
+   "url": "newlifetonyrefail.co.uk",
    "final_url": null,
    "http": null,
    "sha256": null,
@@ -57,16 +23,16 @@
    "last_modified": null
   },
   {
-   "id": "ww-69396060",
-   "name": "Rugby Methodist Church Centre",
-   "postcode": "CV22 7TB",
-   "website": "",
+   "id": "ww-69526045",
+   "name": "The Centre @ Halton",
+   "postcode": "LA2 6NB",
+   "website": "haltoncentre.org",
    "directory": "Warm Welcome",
-   "directory_url": "https://www.warmwelcome.uk/space?l=27440",
+   "directory_url": "https://www.warmwelcome.uk/space?l=21753",
    "reasons": [
     "directory listing only, with no 2026-27 season dates (latest stated start: none)"
    ],
-   "url": "",
+   "url": "haltoncentre.org",
    "final_url": null,
    "http": null,
    "sha256": null,
@@ -74,24 +40,26 @@
    "last_modified": null
   },
   {
-   "id": "ww-69405086",
-   "name": "St Nicholas Hall (Tuesday Coffee Morning)",
-   "postcode": "HU4 6SA",
-   "website": "http://www.stnicholashull.org",
+   "id": "ww-69526052",
+   "name": "Jenni Pullen",
+   "postcode": "EH5 2HF",
+   "website": "",
    "directory": "Warm Welcome",
-   "directory_url": "https://www.warmwelcome.uk/space?l=23053",
+   "directory_url": "https://www.warmwelcome.uk/space?l=28698",
    "reasons": [
-    "own site unreachable (HTTP error)"
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
    ],
-   "url": "http://www.stnicholashull.org",
-   "final_url": "http://www.stnicholashull.org",
-   "http": "error",
+   "url": "",
+   "final_url": null,
+   "http": null,
    "sha256": null,
    "etag": null,
    "last_modified": null
   }
  ],
  "rejected": [],
- "follow_skipped": [],
+ "follow_skipped": [
+  "ww-69526044"
+ ],
  "verified_proposals": []
 }
