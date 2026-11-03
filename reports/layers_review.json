@@ -1,67 +1,6 @@
 {
  "shelters.js": {
-  "added": [
-   {
-    "id": "man-ss-belvidere-family-centre",
-    "name": "Belvidere Family Centre (families)",
-    "tier": "verified"
-   },
-   {
-    "id": "man-ss-bradford-cyrenians-hostel",
-    "name": "Bradford Cyrenians hostel (men 18+)",
-    "tier": "verified"
-   },
-   {
-    "id": "man-ss-homeless-action-elm-house",
-    "name": "Elm House (Homeless Action)",
-    "tier": "verified"
-   },
-   {
-    "id": "man-ss-homeless-action-holly-house",
-    "name": "Holly House (Homeless Action)",
-    "tier": "verified"
-   },
-   {
-    "id": "man-ss-jimmys-cambridge-east-road",
-    "name": "Jimmy's Cambridge emergency accommodation",
-    "tier": "verified"
-   },
-   {
-    "id": "man-ss-pcha-somers-road",
-    "name": "Somers Road (Portsmouth Churches HA, women)",
-    "tier": "verified"
-   },
-   {
-    "id": "man-ss-riverside-project-394",
-    "name": "Project 394 (Riverside, women)",
-    "tier": "verified"
-   },
-   {
-    "id": "man-ss-riverside-wilson-carlile-house",
-    "name": "Wilson Carlile House (Riverside, men 18+)",
-    "tier": "verified"
-   },
-   {
-    "id": "man-ss-saviour-trust-pontefract",
-    "name": "The Saviour Trust supported accommodation",
-    "tier": "verified"
-   },
-   {
-    "id": "man-ss-spin-supporting-people-in-need",
-    "name": "SPIN hostel (Supporting People in Need)",
-    "tier": "verified"
-   },
-   {
-    "id": "man-ss-wheatley-dunedin-harbour",
-    "name": "Dunedin Harbour hostel (Wheatley Homes East)",
-    "tier": "verified"
-   },
-   {
-    "id": "man-ss-ymca-together-leeds-street",
-    "name": "Leeds Street (You Matter, formerly YMCA Together)",
-    "tier": "verified"
-   }
-  ],
+  "added": [],
   "removed": [],
   "changed": [],
   "tier_flips": [],
@@ -326,11 +265,27 @@
  "warmspaces.js": {
   "added": [],
   "removed": [],
-  "changed": [],
+  "changed": [
+   {
+    "id": "ww-69206790",
+    "name": "Desborough Baptist Church Warm Welcome Space",
+    "fields": [
+     "scheme_dates",
+     "upcoming"
+    ],
+    "before": {
+     "scheme_dates": "Opens 3 Nov 2026",
+     "upcoming": true
+    },
+    "after": {
+     "scheme_dates": "Not stated by source",
+     "upcoming": null
+    }
+   }
+  ],
   "tier_flips": [],
   "upcoming": [
    "Cornerstone United Reformed Church @ Parrs Wood Road – Opens 4 Nov 2026",
-   "Desborough Baptist Church Warm Welcome Space – Opens 3 Nov 2026",
    "Greenmount Old School – Opens 5 Jan 2027",
    "NAN activity space/meeting room – Opens 5 Nov 2026",
    "wee blether with soup and sandwich at Seescape – Opens 5 Nov 2026"
@@ -346,12 +301,24 @@
     "reason": "source no longer names this place"
    },
    {
+    "id": "ww-57979418",
+    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
+   },
+   {
     "id": "ww-69189484",
     "reason": "source URL now redirects to a different site (soulsurvivor.church)"
    },
    {
     "id": "ww-65437341",
     "reason": "schema: hours value invalid: Mon=10:00 - 13:00, 14:00 - 17:00; hours value invalid: Thu=10:00 - 13:00, 14:00 - 17:00; hours value invalid: Fri=10:00 - 13:00, 14:00 - 17:00"
+   },
+   {
+    "id": "ww-63443263",
+    "reason": "source unreachable this run (HTTP 403)"
+   },
+   {
+    "id": "ww-55475500",
+    "reason": "source unreachable this run (HTTP 403)"
    },
    {
     "id": "ww-62587523",
@@ -374,6 +341,10 @@
     "reason": "source unreachable this run (HTTP 403)"
    },
    {
+    "id": "ww-59130027",
+    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
+   },
+   {
     "id": "ww-68642792",
     "reason": "published days not found on source this run"
    },
@@ -390,8 +361,24 @@
     "reason": "source unreachable this run (HTTP 403)"
    },
    {
+    "id": "ww-67979812",
+    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
+   },
+   {
     "id": "ww-65438945",
     "reason": "schema: hours value invalid: Thu=10:00 - 12:30, 14:00 - 16:30"
+   },
+   {
+    "id": "ww-65437506",
+    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
+   },
+   {
+    "id": "ww-58358850",
+    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
+   },
+   {
+    "id": "ww-57952705",
+    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
    },
    {
     "id": "ww-68762729",
@@ -414,12 +401,24 @@
     "reason": "source unreachable this run (HTTP 404)"
    },
    {
+    "id": "ww-65437496",
+    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
+   },
+   {
     "id": "ww-65441920",
     "reason": "source URL now redirects to a different site (cornerstonechurchhalifax.co.uk)"
    },
    {
     "id": "ww-68769406",
     "reason": "published times not found on source this run"
+   },
+   {
+    "id": "ww-69080400",
+    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
+   },
+   {
+    "id": "ww-68672320",
+    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
    },
    {
     "id": "ww-65441921",

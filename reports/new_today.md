@@ -5,3 +5,6 @@ Places added automatically by discovery today. Each passed: valid postcode in it
 ## Shelters: 0 added
 - none
 
+## Warm spaces: 0 added
+- none
+

@@ -5,11 +5,10 @@ No new place (food bank, shelter or warm space) is added automatically: each wai
 ## foodbanks (0)
 
 
-## warmspaces (205)
+## warmspaces (204)
 
 - Age UK Gloucester House (LE13 1JE) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.melton.gov.uk/leisure-health-and-community/cost-of-living/warm-spaces-in-melton/
 - Age UK Surrey (GU8 5EZ) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
-- Alcombe Friendship Centre (TA24 6AN) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=26120
 - Angelic Network CIC (GU22 7BD) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
 - Angy Care Health Foundation (DA11 9NE) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=27103
 - Bevendean Community Church (BN2 4LT) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://gis.brighton-hove.gov.uk/server/rest/services/Hosted/Warm_spaces_October_26/FeatureServer/0/query?where=1=1&outFields=*&f=json
@@ -487,14 +486,17 @@ Run 2026-11-03. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
 
 
 <!-- times crosscheck ws -->
-## Opening-times changes from the refresh (ws): 0 auto-applied, 35 held
+## Opening-times changes from the refresh (ws): 0 auto-applied, 37 held
 
-- **Alcombe Friendship Centre** (`ww-57951531`, TA24 6AN): own site now Wednesdays 3pm – 4pm  
-  source: https://www.westsomersetmethodists.org.uk/alcombe/  
-  why held: would cut known hours to fewer days (drops Fri) and the source does not say that session ended; review
 - **Bishops Stortford Methodist Church** (`ww-64379621`, CM23 3AZ): own site now Tues - Thurs 10am - 4pm | Mondays and Saturdays 10am - 12pm  
   source: https://www.bsm-church.org.uk  
   why held: would cut known hours to fewer days (drops Fri) and the source does not say that session ended; review
+- **Canford Heath Library** (`ww-65437341`, BH17 8UE): own site now Monday 10am to 1pm | Thursday 10am to 1pm | Friday 10am to 1pm | Saturday 10am to 1pm  
+  source: https://www.bcpcouncil.gov.uk/libraries/find-a-library/canford-heath-library  
+  why held: would cut known hours to fewer days (drops Tue, Wed) and the source does not say that session ended; review; times not read identically on 2 separate runs yet
+- **Canford Heath Library** (`ww-65437341`, BH17 8UE): own site now Monday 10am to 1pm | Thursday 10am to 1pm | Friday 10am to 1pm | Saturday 10am to 1pm  
+  source: https://www.bcpcouncil.gov.uk/libraries/find-a-library/canford-heath-library  
+  why held: would cut known hours to fewer days (drops Tue, Wed) and the source does not say that session ended; review; times not read identically on 2 separate runs yet
 - **Centenary Methodist Church** (`ww-55475042`, PE21 6NY): own site now Mon-Fri 9.00-1.30pm  
   source: https://www.centenarymethodistchurchboston.org.uk/  
   why held: new own-site times look like office/centre hours; new own-site times look like general venue opening hours, not a warm-space session; this change was undone by Dean; not re-applied
@@ -507,9 +509,12 @@ Run 2026-11-03. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
 - **Gateway** (`ww-58567193`, OL16 1SN): own site now Monday to Friday 9:30am – 3:30pm  
   source: https://gatewayleisure.co.uk/  
   why held: new own-site times look like office/centre hours
-- **Jubilee Church, Wirral** (`ww-65437506`, CH45 0LA): own site now Thursdays 1pm-3pm  
-  source: https://jubileechurchwirral.org.uk/  
-  why held: day not on the same line as its times on the own-site page; would cut known hours to fewer days (drops Fri, Sun) and the source does not say that session ended; review
+- **Inham Nook Library** (`ww-65438945`, NG9 4HU): own site now Thu 10AM - 12:30PM | Sat 10AM - 1PM  
+  source: https://www.inspireculture.org.uk/reading-information/find-a-library/inham-nook-library/visiting-us/  
+  why held: own site lists several centres (2 postcodes); cannot tie one table to this listing; source page is not the warm space's own session page (general venue or directory page); times not read identically on 2 separate runs yet
+- **Inham Nook Library** (`ww-65438945`, NG9 4HU): own site now Thu 10AM - 12:30PM | Sat 10AM - 1PM  
+  source: https://www.inspireculture.org.uk/reading-information/find-a-library/inham-nook-library/visiting-us/  
+  why held: own site lists several centres (2 postcodes); cannot tie one table to this listing; source page is not the warm space's own session page (general venue or directory page); times not read identically on 2 separate runs yet
 - **Kirkliston Parish Church** (`ww-55473134`, EH29 9AX): own site now Fridays 6:00pm - 8:00pm  
   source: https://www.kirklistonparish.org  
   why held: day not on the same line as its times on the own-site page
@@ -545,7 +550,7 @@ Run 2026-11-03. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
   why held: jumble: 7 separate time blocks read from one page; review only
 - **Rushenden Warm Hub** (`ww-64432631`, ME11 5LX): own site now Mon -Thurs 10am to 4pm  
   source: https://www.friendlyfacesofkent.co.uk  
-  why held: own site lists several centres (6 postcodes); cannot tie one table to this listing; new own-site times look like office/centre hours; times not read identically on 2 separate runs yet; this change was undone by Dean; not re-applied
+  why held: own site lists several centres (6 postcodes); cannot tie one table to this listing; new own-site times look like office/centre hours; this change was undone by Dean; not re-applied
 - **Shipston Community Warm Hub** (`ww-65413950`, CV36 4AX): own site now Mondays and Thursdays 11am - 12pm | Tuesday 9:30am to 11am  
   source: https://www.shwp.org.uk/  
   why held: day not on the same line as its times on the own-site page
@@ -701,28 +706,28 @@ The 29 Oct 05:44 warm spaces refresh (477f83f73) gave these 16 warm spaces a cou
 
 Counts of held warm spaces, shelters and day-centre candidates within 10km of each top-20 city centre (outcode centroid). Not on the map.
 
-- London: 229 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
-- Birmingham: 73 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
-- Manchester: 108 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
-- Glasgow: 61 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
-- Leeds: 32 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
-- Liverpool: 53 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
-- Newcastle upon Tyne: 88 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
-- Sheffield: 46 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
-- Bristol: 89 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
-- Belfast: 11 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist; no independent website: Warm Welcome listing alone is not evidence
-- Leicester: 49 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
-- Edinburgh: 14 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
-- Cardiff: 64 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
-- Coventry: 35 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
-- Bradford: 33 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
-- Nottingham: 61 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
-- Kingston upon Hull: 19 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
-- Stoke-on-Trent: 25 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
-- Southampton: 56 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
-- Brighton and Hove: 13 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
+- London: 0 warm spaces, 0 shelters, 0 day centres — main reason: none held
+- Birmingham: 0 warm spaces, 0 shelters, 0 day centres — main reason: none held
+- Manchester: 0 warm spaces, 0 shelters, 0 day centres — main reason: none held
+- Glasgow: 0 warm spaces, 0 shelters, 0 day centres — main reason: none held
+- Leeds: 0 warm spaces, 0 shelters, 0 day centres — main reason: none held
+- Liverpool: 0 warm spaces, 0 shelters, 0 day centres — main reason: none held
+- Newcastle upon Tyne: 0 warm spaces, 0 shelters, 0 day centres — main reason: none held
+- Sheffield: 0 warm spaces, 0 shelters, 0 day centres — main reason: none held
+- Bristol: 0 warm spaces, 0 shelters, 0 day centres — main reason: none held
+- Belfast: 0 warm spaces, 0 shelters, 0 day centres — main reason: none held
+- Leicester: 0 warm spaces, 0 shelters, 0 day centres — main reason: none held
+- Edinburgh: 0 warm spaces, 0 shelters, 0 day centres — main reason: none held
+- Cardiff: 0 warm spaces, 0 shelters, 0 day centres — main reason: none held
+- Coventry: 0 warm spaces, 0 shelters, 0 day centres — main reason: none held
+- Bradford: 0 warm spaces, 0 shelters, 0 day centres — main reason: none held
+- Nottingham: 0 warm spaces, 0 shelters, 0 day centres — main reason: none held
+- Kingston upon Hull: 0 warm spaces, 0 shelters, 0 day centres — main reason: none held
+- Stoke-on-Trent: 0 warm spaces, 0 shelters, 0 day centres — main reason: none held
+- Southampton: 0 warm spaces, 0 shelters, 0 day centres — main reason: none held
+- Brighton and Hove: 0 warm spaces, 0 shelters, 0 day centres — main reason: none held
 
-252 held places had no outcode centroid, so they are not counted under a city.
+5523 held places had no outcode centroid, so they are not counted under a city.
 <!-- /held near cities -->
 
 

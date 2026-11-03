@@ -1,8 +1,8 @@
 {
- "run": "2026-11-02",
- "candidates": 4082,
- "already_on_map": 1845,
- "new": 2237,
+ "run": "2026-11-03",
+ "candidates": 3858,
+ "already_on_map": 1708,
+ "new": 2150,
  "added": [
   {
    "id": "oi-birmingham-council-marlborough-primary-school-b10-9ny",
@@ -17,18 +17,6 @@
    "last_modified": ""
   },
   {
-   "id": "oi-birmingham-council-saifee-mosque-b18-6pu",
-   "name": "Saifee Mosque",
-   "postcode": "B18 6PU",
-   "directory": "Open Innovations: Birmingham Council",
-   "url": "https://uk.thedawoodibohras.com/birmingham/",
-   "final_url": "https://uk.thedawoodibohras.com/birmingham/",
-   "http": 200,
-   "sha256": "37139a18ac2e9e6b406412ab32f8b42ae6a1f4b8a9de49c0e6b97b2afc53628c",
-   "etag": "",
-   "last_modified": ""
-  },
-  {
    "id": "oi-birmingham-council-the-midlands-greek-cypriot-association-b23-7sj",
    "name": "The Midlands Greek & Cypriot Association",
    "postcode": "B23 7SJ",
@@ -36,7 +24,7 @@
    "url": "https://www.midlandsgreek.org/",
    "final_url": "https://www.midlandsgreek.org/",
    "http": 200,
-   "sha256": "69a3bd734544e327037ef77ab5f2da21c67185a2e6669995ee0f0a0440a45a39",
+   "sha256": "c5fc5c7b53bb446f9996d582625ade068cb8c31211f137ffbf5dd44c8e41fd20",
    "etag": "",
    "last_modified": ""
   }
@@ -144,40 +132,6 @@
     "no postcode"
    ],
    "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi-angus-council-andy-s-man-club-dd11-1hb",
-   "name": "Andy's Man Club",
-   "postcode": "DD11 1HB",
-   "website": "https://www.facebook.com/andysmanclubarbroath",
-   "directory": "Open Innovations: Angus Council",
-   "directory_url": "https://andysmanclub.co.uk/",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "https://www.facebook.com/andysmanclubarbroath",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi-angus-council-dementia-support-hub-dd10-8jg",
-   "name": "Dementia support hub",
-   "postcode": "DD10 8JG",
-   "website": "https://www.facebook.com/MontroseConnections",
-   "directory": "Open Innovations: Angus Council",
-   "directory_url": "https://www.angus.gov.uk/community_spaces",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "https://www.facebook.com/MontroseConnections",
    "final_url": null,
    "http": null,
    "sha256": null,
@@ -661,57 +615,6 @@
    "last_modified": null
   },
   {
-   "id": "oi-barnsley-council-great-houghton-youth-group-s72-0eg",
-   "name": "Great Houghton Youth Group",
-   "postcode": "S72 0EG",
-   "website": "",
-   "directory": "Open Innovations: Barnsley Council",
-   "directory_url": "https://www.barnsley.gov.uk/services/community-and-volunteering/welcoming-spaces/",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi-barnsley-council-honeywell-good-food-pantry-s71-1pz",
-   "name": "Honeywell Good Food Pantry",
-   "postcode": "S71 1PZ",
-   "website": "",
-   "directory": "Open Innovations: Barnsley Council",
-   "directory_url": "https://www.barnsley.gov.uk/services/community-and-volunteering/welcoming-spaces/",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi-barnsley-council-tankersley-community-association-s75-3ap",
-   "name": "Tankersley Community Association",
-   "postcode": "S75 3AP",
-   "website": "",
-   "directory": "Open Innovations: Barnsley Council",
-   "directory_url": "https://www.barnsley.gov.uk/services/community-and-volunteering/welcoming-spaces/",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
    "id": "oi-barnsley-council-penistone-paramount-s36-6dy",
    "name": "Penistone Paramount",
    "postcode": "S36 6DY",
@@ -729,16 +632,16 @@
    "last_modified": null
   },
   {
-   "id": "oi-barnsley-council-royston-friends-association-s71-4ln",
-   "name": "Royston Friends Association",
-   "postcode": "S71 4LN",
-   "website": "https://www.facebook.com/groups/850029847185275/",
+   "id": "oi-barnsley-council-forge-rockingham-centre-s74-0py",
+   "name": "Forge - Rockingham Centre",
+   "postcode": "S74 0PY",
+   "website": "",
    "directory": "Open Innovations: Barnsley Council",
    "directory_url": "https://www.barnsley.gov.uk/services/community-and-volunteering/welcoming-spaces/",
    "reasons": [
     "directory listing only, with no 2026-27 season dates (latest stated start: none)"
    ],
-   "url": "https://www.facebook.com/groups/850029847185275/",
+   "url": "",
    "final_url": null,
    "http": null,
    "sha256": null,
@@ -746,26 +649,9 @@
    "last_modified": null
   },
   {
-   "id": "oi-barnsley-council-ad-astra-s71-1sh",
-   "name": "Ad Astra",
-   "postcode": "S71 1SH",
-   "website": "https://www.facebook.com/adastrabarnsley/",
-   "directory": "Open Innovations: Barnsley Council",
-   "directory_url": "https://www.barnsley.gov.uk/services/community-and-volunteering/welcoming-spaces/",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "https://www.facebook.com/adastrabarnsley/",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi-barnsley-council-inclusion-in-action-s70-5ef",
-   "name": "Inclusion in Action",
-   "postcode": "S70 5EF",
+   "id": "oi-barnsley-council-hoyland-and-birdwell-methodist-church-s70-5bx",
+   "name": "Hoyland and Birdwell Methodist Church",
+   "postcode": "S70 5BX",
    "website": "",
    "directory": "Open Innovations: Barnsley Council",
    "directory_url": "https://www.barnsley.gov.uk/services/community-and-volunteering/welcoming-spaces/",
@@ -1086,6 +972,23 @@
    "last_modified": null
   },
   {
+   "id": "oi-bath-and-north-east-somerset-council-cafe-at-the-centre-ba1-1jw",
+   "name": "Cafe at the Centre",
+   "postcode": "BA1 1JW",
+   "website": "",
+   "directory": "Open Innovations: Bath and North East Somerset Council",
+   "directory_url": "https://livewell.bathnes.gov.uk/cost-living-crisis/warm-places-list/cafe-centre",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
    "id": "oi-bath-and-north-east-somerset-council-rose-cottage-ba2-1db",
    "name": "Rose Cottage",
    "postcode": "BA2 1DB",
@@ -1245,23 +1148,6 @@
    "website": "",
    "directory": "Open Innovations: Bath and North East Somerset Council",
    "directory_url": "https://livewell.bathnes.gov.uk/cost-living-crisis/warm-places-list/sally-ann-cafe",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi-bath-and-north-east-somerset-council-bath-housing-welfare-and-advice-service-ba1-1jq",
-   "name": "Bath Housing, Welfare and Advice Service",
-   "postcode": "BA1 1JQ",
-   "website": "",
-   "directory": "Open Innovations: Bath and North East Somerset Council",
-   "directory_url": "https://livewell.bathnes.gov.uk/cost-living-crisis/warm-places-list/bath-housing-welfare-and-advice-service",
    "reasons": [
     "directory listing only, with no 2026-27 season dates (latest stated start: none)"
    ],
@@ -1677,14 +1563,14 @@
    "directory": "Open Innovations: Birmingham Council",
    "directory_url": "https://www.birmingham.gov.uk/directory_record/904980/a_fathers_child_services_cic",
    "reasons": [
-    "own site does not mention a warm space"
+    "own site unreachable (HTTP 500)"
    ],
    "url": "https://www.afcscic.org",
    "final_url": "https://www.afcscic.org",
-   "http": 200,
-   "sha256": "fa3c40d12ebd292c45e865a212cf65ca53554190e812457a77b2f1f3a086d4c5",
-   "etag": "",
-   "last_modified": ""
+   "http": 500,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
   },
   {
    "id": "oi-birmingham-council-acocks-green-baptist-church-b27-6hg",
@@ -1781,14 +1667,14 @@
    "directory": "Open Innovations: Birmingham Council",
    "directory_url": "https://www.birmingham.gov.uk/directory_record/876246/al_mahdi_institute",
    "reasons": [
-    "own site does not mention a warm space"
+    "own site did not return the page (HTTP 202; usually a bot check)"
    ],
    "url": "https://almahdi.edu/",
    "final_url": "https://almahdi.edu/",
-   "http": 200,
-   "sha256": "b0cea54929949c9f9317f521016e321e67c7551ddaea80631a9455c07888e499",
+   "http": 202,
+   "sha256": "2290316ea65ba5eea1984fd7adae25b1e42f2c962a0086aec5e167fec855c2d5",
    "etag": "",
-   "last_modified": "Mon, 02 Nov 2026 20:44:49 GMT"
+   "last_modified": ""
   },
   {
    "id": "oi-birmingham-council-all-saint-s-church-and-centre-b74-4tr",
@@ -2092,7 +1978,7 @@
    "url": "https://www.birminghamleisure.com/beeches-pool-fitness-centre/",
    "final_url": "https://www.moreleisure.com/beeches-pool-fitness-centre/",
    "http": 200,
-   "sha256": "56427c926e596f1fe73e3630510b5498d0fcc4be3676beb360322f86bf096e79",
+   "sha256": "812a667e17450db442336e81b90d98bc2725ea628d0325d8657479e01cb788f1",
    "etag": "",
    "last_modified": ""
   },
@@ -2211,7 +2097,7 @@
    "url": "https://www.birminghamleisure.com/billesley-tennis-fitness-centre/",
    "final_url": "https://www.moreleisure.com/billesley-tennis-fitness-centre/",
    "http": 200,
-   "sha256": "dc1d7070602d2965cd632e90b2f57f82ddb002998bac10725683ee9227c3d63b",
+   "sha256": "c0adf7f4a6288b8598ea39eade3e401d071c787e3f4e260c39f0d4105071fc40",
    "etag": "",
    "last_modified": ""
   },
@@ -2383,8 +2269,8 @@
    "url": "https://www.blesstcic.com/",
    "final_url": "https://www.blesstcic.com/",
    "http": 200,
-   "sha256": "ea9729b348bc6ed4867acbbaf096802c9ec170dacc7f95a4f8f94d641d45dd8d",
-   "etag": "W/\"f47a6e22ae9c99c87b8fef97e8eb8378\"",
+   "sha256": "e24c96f95ccfb7590b586275dec15a63f35a00b7ff8e7869112fb9966a7cad5f",
+   "etag": "W/\"b430d3a29df54c9f4474d6b55ea2df47\"",
    "last_modified": ""
   },
   {
@@ -2599,13 +2485,12 @@
    "directory": "Open Innovations: Birmingham Council",
    "directory_url": "https://www.birmingham.gov.uk/directory_record/666738/church_of_god_of_prophecy",
    "reasons": [
-    "own site does not mention a warm space",
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+    "own site did not return the page (HTTP 202; usually a bot check)"
    ],
    "url": "https://aberdeenstcogop.org.uk/",
    "final_url": "https://aberdeenstcogop.org.uk/",
-   "http": 200,
-   "sha256": "6564a9de0230dc7f0ea35f2cecbdafda4f82ca364da86996adbcd8f199ab8340",
+   "http": 202,
+   "sha256": "af8a56cfedff7ac5fca47ff6d82ef37a7b832f259844ccb2c4b42e7cd11a37d1",
    "etag": "",
    "last_modified": ""
   },
@@ -2617,14 +2502,14 @@
    "directory": "Open Innovations: Birmingham Council",
    "directory_url": "https://www.birmingham.gov.uk/directory_record/860068/church_of_the_ascension_hall_green",
    "reasons": [
-    "own site does not mention a warm space"
+    "own site unreachable (HTTP 403)"
    ],
    "url": "http://www.ascensionhallgreen.uk/",
-   "final_url": "https://ascensionhallgreen.uk/",
-   "http": 200,
-   "sha256": "5b54a9d377712f1a67047c51b91c29706fa79538283df74d3c2384b931c5200a",
-   "etag": "W/\"67-1793350054;gz\"",
-   "last_modified": ""
+   "final_url": "http://www.ascensionhallgreen.uk/",
+   "http": 403,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
   },
   {
    "id": "oi-birmingham-council-church-road-surgery-saathi-house-b6-5up",
@@ -3015,7 +2900,7 @@
    "url": "https://www.birminghamleisure.com/fox-hollies-leisure-centre/",
    "final_url": "https://www.moreleisure.com/fox-hollies-leisure-centre/",
    "http": 200,
-   "sha256": "7e9f517e861594b4632643ffe705d05c6662c4965c197eb9ba8f2f62d8c625ac",
+   "sha256": "daf07a25cb299c6b163f90f90aedf9ff838b0e9713c41c85c741289a654a8773",
    "etag": "",
    "last_modified": ""
   },
@@ -3339,7 +3224,7 @@
    "url": "https://saheli.co.uk",
    "final_url": "https://saheli.co.uk",
    "http": 200,
-   "sha256": "3b18f47d6a91960766418b7556f43f7d81d500c9286e67e471cc964b5357b7d8",
+   "sha256": "761ce3f0db0bacb057a3fbd341ce9add94ab091d4362a4e9511df5a49173968b",
    "etag": "",
    "last_modified": ""
   },
@@ -3788,8 +3673,8 @@
    "final_url": "https://www.aston.ac.uk/current-students/health-and-wellbeing/chaplaincy",
    "http": 200,
    "sha256": "34f5bbabaaf90a986a73b66b34b515eab7ab67c7650575aa471c7f3f9f26ee77",
-   "etag": "\"1793654100\"",
-   "last_modified": "Mon, 02 Nov 2026 21:15:00 GMT"
+   "etag": "\"1793685381\"",
+   "last_modified": "Tue, 03 Nov 2026 05:56:21 GMT"
   },
   {
    "id": "oi-birmingham-council-moseley-community-development-trust-b13-8dd",
@@ -3957,8 +3842,8 @@
    "url": "https://newbigintrust.uk/",
    "final_url": "https://www.newbigintrust.uk/",
    "http": 200,
-   "sha256": "c14813b7368f10217eed96129e723f12e9014d8733c3e94dc794b8f2424bad65",
-   "etag": "W/\"c25b7917b997e8d223752654def7ac86\"",
+   "sha256": "8123be62e7d39666fb121638514bd2a4a43fdb59d116d90595509e44d4f81b77",
+   "etag": "W/\"71f395eacf4f42a8664d202c44bfa855--gzip\"",
    "last_modified": ""
   },
   {
@@ -3974,7 +3859,7 @@
    "url": "https://www.birminghamleisure.com/northfield-leisure-centre/",
    "final_url": "https://www.moreleisure.com/northfield-leisure-centre/",
    "http": 200,
-   "sha256": "1946562905a41c0394b288750c1c30aaca44a636952475acbef659ce2d473931",
+   "sha256": "2c4cac1bf3c36cab6b6854e61af443907cc52ff708b1c2896a2801a1ccf6a0e3",
    "etag": "",
    "last_modified": ""
   },
@@ -4422,6 +4307,23 @@
    "last_modified": null
   },
   {
+   "id": "oi-birmingham-council-saifee-mosque-b18-6pu",
+   "name": "Saifee Mosque",
+   "postcode": "B18 6PU",
+   "website": "https://uk.thedawoodibohras.com/birmingham/",
+   "directory": "Open Innovations: Birmingham Council",
+   "directory_url": "https://www.birmingham.gov.uk/directory_record/626580/saifee_mosque",
+   "reasons": [
+    "own site did not return the page (HTTP 202; usually a bot check)"
+   ],
+   "url": "https://uk.thedawoodibohras.com/birmingham/",
+   "final_url": "https://uk.thedawoodibohras.com/birmingham/",
+   "http": 202,
+   "sha256": "accd64ad3b8ef3d99c2468ab1f9f7f90c999749ffdc1d513048ecaf41a196984",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
    "id": "oi-birmingham-council-selly-oak-neighbourhood-network-scheme-at-stirchley-baths-b30-2jt",
    "name": "Selly Oak Neighbourhood Network Scheme at Stirchley Baths",
    "postcode": "B30 2JT",
@@ -4570,7 +4472,7 @@
    "url": "https://www.placesleisure.org/centres/sparkhill-pool-and-fitness-centre/",
    "final_url": "https://www.placesleisure.org/centres/sparkhill-pool-and-fitness-centre/",
    "http": 200,
-   "sha256": "14bc6ea2758756e3a8f782ac00873c5f67fabafa2ab21c4181f7fb351b915900",
+   "sha256": "0d6d4dca61ecd4574c5d8f8e40d512a7dbd55b16ed86375543ff7219d1caf785",
    "etag": "",
    "last_modified": ""
   },
@@ -5030,7 +4932,7 @@
    "url": "https://stpetersmaney.org.uk",
    "final_url": "https://stpetersmaney.org.uk",
    "http": 200,
-   "sha256": "761920b3e262e0ef586dcaee4fa31a619ca6e2299c87cd9a497af364fe01cd79",
+   "sha256": "ea7c14c4c395f39d3c92ea670995ab65b898a57ad98fef9b98a01fa2bedab64e",
    "etag": "",
    "last_modified": ""
   },
@@ -5081,7 +4983,7 @@
    "url": "https://www.birminghamleisure.com/stechford-leisure-centre/",
    "final_url": "https://www.moreleisure.com/stechford-leisure-centre/",
    "http": 200,
-   "sha256": "94f3e6a53de4a91ace97142005d482e6cb474f5903eb2dd4420d213b04b8f879",
+   "sha256": "ceed093b1aa45393ca00b0a357ca57efd0347d5cf91b49c9090ca3ded4e0080e",
    "etag": "",
    "last_modified": ""
   },
@@ -5116,7 +5018,7 @@
    "url": "https://stryx.co.uk/What-s-On",
    "final_url": "https://stryx.co.uk/What-s-On",
    "http": 200,
-   "sha256": "fc6ad2a101c78f9687e5e76a7e58fe2496be7dd3568aaf65cf18951e46227d00",
+   "sha256": "772180bf32b7cbe369937ebcf42608ce9e08e863644d7fcc287abc7ecc76e21d",
    "etag": "",
    "last_modified": ""
   },
@@ -5458,7 +5360,7 @@
    "http": 200,
    "sha256": "c9ba8f447ee0f11b09044e4791c27a2f18be36c237a56d3bd03bd039b61ca9bc",
    "etag": "\"3cc16adb27ffc12c9f30adb3be841bab\"",
-   "last_modified": "Mon, 02 Nov 2026 21:45:24 GMT"
+   "last_modified": "Mon, 02 Nov 2026 20:27:48 GMT"
   },
   {
    "id": "oi-birmingham-council-walmley-library-b76-1np",
@@ -5609,7 +5511,7 @@
    "url": "https://www.birminghamleisure.com/wyndley-leisure-centre/",
    "final_url": "https://www.moreleisure.com/wyndley-leisure-centre/",
    "http": 200,
-   "sha256": "18bca57b2b3a4b4f044c8273d2dab3a51a0097080f65bf998a2881a6f6480b30",
+   "sha256": "f25251b98672a517827c6d7f4b6b6096f63a4bd6364adc3b1799537a2a4e1907",
    "etag": "",
    "last_modified": ""
   },
@@ -5627,7 +5529,7 @@
    "url": "https://yourmoneyyourwaycic.co.uk/",
    "final_url": "https://yourmoneyyourwaycic.co.uk/",
    "http": 200,
-   "sha256": "1a85b2163d2c383353ed7d7b7e7e55cd01ee4f18a05d89a2c9dcf62f73914d2d",
+   "sha256": "7759855d1a643b51d882ed1b81f7d37d0c17434b7b030c9895f8d4e5b10006a1",
    "etag": "",
    "last_modified": ""
   },
@@ -5797,7 +5699,7 @@
    "url": "https://poolecommunitiestrust.org.uk/home/branksome-centre/",
    "final_url": "https://poolecommunitiestrust.org.uk/poole-communities-trust/branksome-centre/",
    "http": 200,
-   "sha256": "06ee1d2d4506ae58deef68bf5afb7483c8a0797c6987d21301cedda577e00794",
+   "sha256": "8800345218dbdc1f46d6d61ebe2f7d13637cfa02feb008eef152c6f40048f7b0",
    "etag": "",
    "last_modified": ""
   },
@@ -7200,12 +7102,12 @@
    "last_modified": null
   },
   {
-   "id": "oi-braintree-council-first-stop-centre-education-classes-cm7-9ae",
-   "name": "First Stop Centre - Education Classes",
-   "postcode": "CM7 9AE",
+   "id": "oi-braintree-council-meet-up-mondays-co7-9ql",
+   "name": "Meet up Mondays",
+   "postcode": "CO7 9QL",
    "website": "",
    "directory": "Open Innovations: Braintree Council",
-   "directory_url": "https://braintree.essexfrontline.org.uk/Library/ServiceDetail/64a28bd61b2136ddbdd5bdf3",
+   "directory_url": "https://braintree.essexfrontline.org.uk/Library/ServiceDetail/682edc57157f4e3ce56350f4",
    "reasons": [
     "directory listing only, with no 2026-27 season dates (latest stated start: none)"
    ],
@@ -7217,9 +7119,9 @@
    "last_modified": null
   },
   {
-   "id": "oi-braintree-council-meet-up-mondays-co7-9ql",
+   "id": "oi-braintree-council-meet-up-mondays-cm7-9ae",
    "name": "Meet up Mondays",
-   "postcode": "CO7 9QL",
+   "postcode": "CM7 9AE",
    "website": "",
    "directory": "Open Innovations: Braintree Council",
    "directory_url": "https://braintree.essexfrontline.org.uk/Library/ServiceDetail/682edc57157f4e3ce56350f4",
@@ -7240,23 +7142,6 @@
    "website": "",
    "directory": "Open Innovations: Braintree Council",
    "directory_url": "https://braintree.essexfrontline.org.uk/Library/ServiceDetail/682edc57157f4e3ce56350f4",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi-braintree-council-the-united-reformed-church-of-halstead-co9-1hj",
-   "name": "The United Reformed Church of Halstead",
-   "postcode": "CO9 1HJ",
-   "website": "",
-   "directory": "Open Innovations: Braintree Council",
-   "directory_url": "https://braintree.essexfrontline.org.uk/Library/ServiceDetail/6543a57a854909afd0509051",
    "reasons": [
     "directory listing only, with no 2026-27 season dates (latest stated start: none)"
    ],
@@ -7302,29 +7187,12 @@
    "last_modified": null
   },
   {
-   "id": "oi-braintree-council-feering-community-living-room-co5-9qb",
-   "name": "Feering Community Living Room",
-   "postcode": "CO5 9QB",
+   "id": "oi-braintree-council-the-lounge-wellbeing-warm-space-co8-5jg",
+   "name": "The Lounge - Wellbeing & Warm space",
+   "postcode": "CO8 5JG",
    "website": "",
    "directory": "Open Innovations: Braintree Council",
-   "directory_url": "https://braintree.essexfrontline.org.uk/Library/ServiceDetail/65b25d1a1313df589d14a77f",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi-braintree-council-feering-community-living-room-co5-9sb",
-   "name": "Feering Community Living Room",
-   "postcode": "CO5 9SB",
-   "website": "",
-   "directory": "Open Innovations: Braintree Council",
-   "directory_url": "https://braintree.essexfrontline.org.uk/Library/ServiceDetail/65b25d1a1313df589d14a77f",
+   "directory_url": "https://braintree.essexfrontline.org.uk/Library/ServiceDetail/65b78e441313df589d965f90",
    "reasons": [
     "directory listing only, with no 2026-27 season dates (latest stated start: none)"
    ],
@@ -7353,12 +7221,12 @@
    "last_modified": null
   },
   {
-   "id": "oi-braintree-council-the-lounge-wellbeing-warm-space-co8-5jg",
-   "name": "The Lounge - Wellbeing & Warm space",
-   "postcode": "CO8 5JG",
+   "id": "oi-braintree-council-hatfield-peverel-village-hall-cm3-2hp",
+   "name": "Hatfield Peverel Village Hall",
+   "postcode": "CM3 2HP",
    "website": "",
    "directory": "Open Innovations: Braintree Council",
-   "directory_url": "https://braintree.essexfrontline.org.uk/Library/ServiceDetail/65b78e441313df589d965f90",
+   "directory_url": "https://braintree.essexfrontline.org.uk/Library/ServiceDetail/65450b7d854909afd096bc8c",
    "reasons": [
     "directory listing only, with no 2026-27 season dates (latest stated start: none)"
    ],
@@ -7370,12 +7238,46 @@
    "last_modified": null
   },
   {
-   "id": "oi-braintree-council-hatfield-peverel-village-hall-cm3-2hp",
-   "name": "Hatfield Peverel Village Hall",
-   "postcode": "CM3 2HP",
+   "id": "oi-braintree-council-the-united-reformed-church-of-halstead-co9-1hj",
+   "name": "The United Reformed Church of Halstead",
+   "postcode": "CO9 1HJ",
    "website": "",
    "directory": "Open Innovations: Braintree Council",
-   "directory_url": "https://braintree.essexfrontline.org.uk/Library/ServiceDetail/65450b7d854909afd096bc8c",
+   "directory_url": "https://braintree.essexfrontline.org.uk/Library/ServiceDetail/6543a57a854909afd0509051",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "oi-braintree-council-feering-community-living-room-co5-9qb",
+   "name": "Feering Community Living Room",
+   "postcode": "CO5 9QB",
+   "website": "",
+   "directory": "Open Innovations: Braintree Council",
+   "directory_url": "https://braintree.essexfrontline.org.uk/Library/ServiceDetail/65b25d1a1313df589d14a77f",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "oi-braintree-council-feering-community-living-room-co5-9sb",
+   "name": "Feering Community Living Room",
+   "postcode": "CO5 9SB",
+   "website": "",
+   "directory": "Open Innovations: Braintree Council",
+   "directory_url": "https://braintree.essexfrontline.org.uk/Library/ServiceDetail/65b25d1a1313df589d14a77f",
    "reasons": [
     "directory listing only, with no 2026-27 season dates (latest stated start: none)"
    ],
@@ -12344,7 +12246,7 @@
    "url": "https://park-play.com/register",
    "final_url": "https://park-play.com/register/",
    "http": 200,
-   "sha256": "2dde63e483cebe9737f439e3fcd996aed1ede8125fdce90d64b471e368e40ec2",
+   "sha256": "ff9bb392dddf75d66a864acb3692135cb80ff637f12003b71c1c1cafcaa19db2",
    "etag": "",
    "last_modified": ""
   },
@@ -12452,250 +12354,12 @@
    "last_modified": null
   },
   {
-   "id": "oi-communities-1st-st-michael-s-woolmer-green-warm-welcome-sg3-6xa",
-   "name": "St Michael's Woolmer Green Warm Welcome",
-   "postcode": "SG3 6XA",
-   "website": "",
-   "directory": "Open Innovations: Communities 1st",
-   "directory_url": "https://www.communities1st.org.uk/warm-hubs/st-michael039s-woolmer-green-warm-welcome/626941",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi-communities-1st-hertfordshire-libraries-wd23-1fa",
-   "name": "Hertfordshire Libraries",
-   "postcode": "WD23 1FA",
-   "website": "",
-   "directory": "Open Innovations: Communities 1st",
-   "directory_url": "https://www.communities1st.org.uk/warm-hubs/hertfordshire-libraries/628730",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi-communities-1st-radlett-reform-synagogue-wd7-7aa",
-   "name": "Radlett Reform Synagogue",
-   "postcode": "WD7 7AA",
-   "website": "",
-   "directory": "Open Innovations: Communities 1st",
-   "directory_url": "https://www.communities1st.org.uk/warm-hubs/radlett-reform-synagogue/628822",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi-communities-1st-greenwood-united-reformed-church-al2-3hg",
-   "name": "Greenwood United Reformed Church",
-   "postcode": "AL2 3HG",
-   "website": "",
-   "directory": "Open Innovations: Communities 1st",
-   "directory_url": "https://www.communities1st.org.uk/warm-hubs/greenwood-united-reformed-church/637218",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi-communities-1st-ymca-chiltern-group-wd25-7qu",
-   "name": "YMCA Chiltern Group",
-   "postcode": "WD25 7QU",
-   "website": "",
-   "directory": "Open Innovations: Communities 1st",
-   "directory_url": "https://www.communities1st.org.uk/warm-hubs/ymca-chiltern-group/637118",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi-communities-1st-open-door-berkhamsted-hp41hu",
-   "name": "Open Door, Berkhamsted",
-   "postcode": "HP41HU",
-   "website": "",
-   "directory": "Open Innovations: Communities 1st",
-   "directory_url": "https://www.communities1st.org.uk/warm-hubs/open-door-berkhamsted/628853",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi-communities-1st-sopwell-residents-association-al1-2ef",
-   "name": "Sopwell Residents Association",
-   "postcode": "AL1 2EF",
-   "website": "",
-   "directory": "Open Innovations: Communities 1st",
-   "directory_url": "https://www.communities1st.org.uk/warm-hubs/sopwell-residents-association/627023",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi-communities-1st-churches-together-in-hoddesdon-broxbourne-and-wormley-en76lb",
-   "name": "Churches Together in Hoddesdon, Broxbourne and Wormley",
-   "postcode": "EN76LB",
-   "website": "",
-   "directory": "Open Innovations: Communities 1st",
-   "directory_url": "https://www.communities1st.org.uk/warm-hubs/churches-together-in-hoddesdon-broxbourne-and-wormley/618634",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi-communities-1st-offley-warm-hub-sg5-3dx",
-   "name": "Offley Warm Hub",
-   "postcode": "SG5 3DX",
-   "website": "",
-   "directory": "Open Innovations: Communities 1st",
-   "directory_url": "https://www.communities1st.org.uk/warm-hubs/offley-warm-hub/637311",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
    "id": "oi-communities-1st-hertfordshire-libraries-al4-9tu",
    "name": "Hertfordshire Libraries",
    "postcode": "AL4 9TU",
    "website": "",
    "directory": "Open Innovations: Communities 1st",
    "directory_url": "https://www.communities1st.org.uk/warm-hubs/hertfordshire-libraries/628727",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi-communities-1st-the-youth-booth-hp2-4ew",
-   "name": "The Youth Booth",
-   "postcode": "HP2 4EW",
-   "website": "",
-   "directory": "Open Innovations: Communities 1st",
-   "directory_url": "https://www.communities1st.org.uk/warm-hubs/the-youth-booth/632041",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi-communities-1st-st-john-s-church-al51dj",
-   "name": "St John's Church",
-   "postcode": "AL51DJ",
-   "website": "",
-   "directory": "Open Innovations: Communities 1st",
-   "directory_url": "https://www.communities1st.org.uk/warm-hubs/st-john039s-church/632810",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi-communities-1st-hertfordshire-libraries-al5-2ru",
-   "name": "Hertfordshire Libraries",
-   "postcode": "AL5 2RU",
-   "website": "",
-   "directory": "Open Innovations: Communities 1st",
-   "directory_url": "https://www.communities1st.org.uk/warm-hubs/hertfordshire-libraries/628728",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi-communities-1st-shrimad-rajchandra-mission-dharampur-srmd-uk-wd23-3ad",
-   "name": "Shrimad Rajchandra Mission Dharampur (SRMD) UK",
-   "postcode": "WD23 3AD",
-   "website": "",
-   "directory": "Open Innovations: Communities 1st",
-   "directory_url": "https://www.communities1st.org.uk/warm-hubs/shrimad-rajchandra-mission-dharampur-srmd-uk/702496",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi-communities-1st-churches-together-in-hoddesdon-broxbourne-and-wormley-en8-7ga",
-   "name": "Churches Together in Hoddesdon, Broxbourne and Wormley",
-   "postcode": "EN8 7GA",
-   "website": "",
-   "directory": "Open Innovations: Communities 1st",
-   "directory_url": "https://www.communities1st.org.uk/warm-hubs/churches-together-in-hoddesdon-broxbourne-and-wormley/618633",
    "reasons": [
     "directory listing only, with no 2026-27 season dates (latest stated start: none)"
    ],
@@ -12724,12 +12388,165 @@
    "last_modified": null
   },
   {
+   "id": "oi-communities-1st-open-door-berkhamsted-hp41hu",
+   "name": "Open Door, Berkhamsted",
+   "postcode": "HP41HU",
+   "website": "",
+   "directory": "Open Innovations: Communities 1st",
+   "directory_url": "https://www.communities1st.org.uk/warm-hubs/open-door-berkhamsted/628853",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "oi-communities-1st-st-michael-s-woolmer-green-warm-welcome-sg3-6xa",
+   "name": "St Michael's Woolmer Green Warm Welcome",
+   "postcode": "SG3 6XA",
+   "website": "",
+   "directory": "Open Innovations: Communities 1st",
+   "directory_url": "https://www.communities1st.org.uk/warm-hubs/st-michael039s-woolmer-green-warm-welcome/626941",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "oi-communities-1st-churches-together-in-hoddesdon-broxbourne-and-wormley-en8-7ga",
+   "name": "Churches Together in Hoddesdon, Broxbourne and Wormley",
+   "postcode": "EN8 7GA",
+   "website": "",
+   "directory": "Open Innovations: Communities 1st",
+   "directory_url": "https://www.communities1st.org.uk/warm-hubs/churches-together-in-hoddesdon-broxbourne-and-wormley/618633",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "oi-communities-1st-ymca-chiltern-group-wd25-7qu",
+   "name": "YMCA Chiltern Group",
+   "postcode": "WD25 7QU",
+   "website": "",
+   "directory": "Open Innovations: Communities 1st",
+   "directory_url": "https://www.communities1st.org.uk/warm-hubs/ymca-chiltern-group/637118",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
    "id": "oi-communities-1st-st-mary-s-welwyn-church-al6-9lx",
    "name": "St Mary's Welwyn Church",
    "postcode": "AL6 9LX",
    "website": "",
    "directory": "Open Innovations: Communities 1st",
    "directory_url": "https://www.communities1st.org.uk/warm-hubs/st-mary039s-welwyn-church/628756",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "oi-communities-1st-sopwell-residents-association-al1-2ef",
+   "name": "Sopwell Residents Association",
+   "postcode": "AL1 2EF",
+   "website": "",
+   "directory": "Open Innovations: Communities 1st",
+   "directory_url": "https://www.communities1st.org.uk/warm-hubs/sopwell-residents-association/627023",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "oi-communities-1st-greenwood-united-reformed-church-al2-3hg",
+   "name": "Greenwood United Reformed Church",
+   "postcode": "AL2 3HG",
+   "website": "",
+   "directory": "Open Innovations: Communities 1st",
+   "directory_url": "https://www.communities1st.org.uk/warm-hubs/greenwood-united-reformed-church/637218",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "oi-communities-1st-red-trust-bushey-wd23-3dg",
+   "name": "Red Trust Bushey",
+   "postcode": "WD23 3DG",
+   "website": "",
+   "directory": "Open Innovations: Communities 1st",
+   "directory_url": "https://www.communities1st.org.uk/warm-hubs/red-trust-bushey/614742",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "oi-communities-1st-st-peter-s-church-st-albans-al1-3hg",
+   "name": "St Peter's Church, St Albans",
+   "postcode": "AL1 3HG",
+   "website": "",
+   "directory": "Open Innovations: Communities 1st",
+   "directory_url": "https://www.communities1st.org.uk/warm-hubs/st-peter039s-church-st-albans/629651",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "oi-communities-1st-offley-warm-hub-sg5-3dx",
+   "name": "Offley Warm Hub",
+   "postcode": "SG5 3DX",
+   "website": "",
+   "directory": "Open Innovations: Communities 1st",
+   "directory_url": "https://www.communities1st.org.uk/warm-hubs/offley-warm-hub/637311",
    "reasons": [
     "directory listing only, with no 2026-27 season dates (latest stated start: none)"
    ],
@@ -12758,12 +12575,12 @@
    "last_modified": null
   },
   {
-   "id": "oi-communities-1st-churches-together-in-hoddesdon-broxbourne-and-wormley-en11-8ds",
-   "name": "Churches Together in Hoddesdon, Broxbourne and Wormley",
-   "postcode": "EN11 8DS",
+   "id": "oi-communities-1st-red-trust-bushey-wd23-1bd",
+   "name": "Red Trust Bushey",
+   "postcode": "WD23 1BD",
    "website": "",
    "directory": "Open Innovations: Communities 1st",
-   "directory_url": "https://www.communities1st.org.uk/warm-hubs/churches-together-in-hoddesdon-broxbourne-and-wormley/618501",
+   "directory_url": "https://www.communities1st.org.uk/warm-hubs/red-trust-bushey/614743",
    "reasons": [
     "directory listing only, with no 2026-27 season dates (latest stated start: none)"
    ],
@@ -12775,12 +12592,80 @@
    "last_modified": null
   },
   {
-   "id": "oi-communities-1st-marshalswick-baptist-free-church-al4-9ql",
-   "name": "Marshalswick Baptist Free Church",
-   "postcode": "AL4 9QL",
+   "id": "oi-communities-1st-hertfordshire-libraries-wd23-1fa",
+   "name": "Hertfordshire Libraries",
+   "postcode": "WD23 1FA",
    "website": "",
    "directory": "Open Innovations: Communities 1st",
-   "directory_url": "https://www.communities1st.org.uk/warm-hubs/marshalswick-baptist-free-church/637124",
+   "directory_url": "https://www.communities1st.org.uk/warm-hubs/hertfordshire-libraries/628730",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "oi-communities-1st-shrimad-rajchandra-mission-dharampur-srmd-uk-wd23-3ad",
+   "name": "Shrimad Rajchandra Mission Dharampur (SRMD) UK",
+   "postcode": "WD23 3AD",
+   "website": "",
+   "directory": "Open Innovations: Communities 1st",
+   "directory_url": "https://www.communities1st.org.uk/warm-hubs/shrimad-rajchandra-mission-dharampur-srmd-uk/702496",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "oi-communities-1st-the-youth-booth-hp2-4ew",
+   "name": "The Youth Booth",
+   "postcode": "HP2 4EW",
+   "website": "",
+   "directory": "Open Innovations: Communities 1st",
+   "directory_url": "https://www.communities1st.org.uk/warm-hubs/the-youth-booth/632041",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "oi-communities-1st-churches-together-in-hoddesdon-broxbourne-and-wormley-en76lb",
+   "name": "Churches Together in Hoddesdon, Broxbourne and Wormley",
+   "postcode": "EN76LB",
+   "website": "",
+   "directory": "Open Innovations: Communities 1st",
+   "directory_url": "https://www.communities1st.org.uk/warm-hubs/churches-together-in-hoddesdon-broxbourne-and-wormley/618634",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "oi-communities-1st-radlett-reform-synagogue-wd7-7aa",
+   "name": "Radlett Reform Synagogue",
+   "postcode": "WD7 7AA",
+   "website": "",
+   "directory": "Open Innovations: Communities 1st",
+   "directory_url": "https://www.communities1st.org.uk/warm-hubs/radlett-reform-synagogue/628822",
    "reasons": [
     "directory listing only, with no 2026-27 season dates (latest stated start: none)"
    ],
@@ -12809,9 +12694,43 @@
    "last_modified": null
   },
   {
-   "id": "oi-community-action-derby-derby-refugee-forum-de1-1ln",
-   "name": "Derby Refugee Forum",
-   "postcode": "DE1 1LN",
+   "id": "oi-community-action-derby-clear-mind-derby-de24-8hq",
+   "name": "Clear Mind Derby",
+   "postcode": "DE24 8HQ",
+   "website": "",
+   "directory": "Open Innovations: Community Action Derby",
+   "directory_url": "https://www.communityactionderby.org.uk/crisis-support/help-with-the-cost-of-living/warm-welcome-hubs",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "oi-community-action-derby-reach-community-grocers-de24-8hy",
+   "name": "Reach Community Grocers",
+   "postcode": "DE24 8HY",
+   "website": "",
+   "directory": "Open Innovations: Community Action Derby",
+   "directory_url": "https://www.communityactionderby.org.uk/crisis-support/help-with-the-cost-of-living/warm-welcome-hubs",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "oi-community-action-derby-derby-urban-church-de1-2gu",
+   "name": "Derby Urban Church",
+   "postcode": "DE1 2GU",
    "website": "",
    "directory": "Open Innovations: Community Action Derby",
    "directory_url": "https://www.communityactionderby.org.uk/crisis-support/help-with-the-cost-of-living/warm-welcome-hubs",
@@ -12846,40 +12765,6 @@
    "id": "oi-community-action-derby-food-and-education-enterprise-cic-de1-2gd",
    "name": "Food and Education Enterprise CIC",
    "postcode": "DE1 2GD",
-   "website": "",
-   "directory": "Open Innovations: Community Action Derby",
-   "directory_url": "https://www.communityactionderby.org.uk/crisis-support/help-with-the-cost-of-living/warm-welcome-hubs",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi-community-action-derby-id-derby-de1-2hf",
-   "name": "ID Derby",
-   "postcode": "DE1 2HF",
-   "website": "",
-   "directory": "Open Innovations: Community Action Derby",
-   "directory_url": "https://www.communityactionderby.org.uk/crisis-support/help-with-the-cost-of-living/warm-welcome-hubs",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi-community-action-derby-sahahra-de23-8fz",
-   "name": "Sahahra",
-   "postcode": "DE23 8FZ",
    "website": "",
    "directory": "Open Innovations: Community Action Derby",
    "directory_url": "https://www.communityactionderby.org.uk/crisis-support/help-with-the-cost-of-living/warm-welcome-hubs",
@@ -12945,94 +12830,9 @@
    "last_modified": null
   },
   {
-   "id": "oi-community-action-derby-feel-alive-cic-de1-3at",
-   "name": "Feel Alive CIC",
-   "postcode": "DE1 3AT",
-   "website": "",
-   "directory": "Open Innovations: Community Action Derby",
-   "directory_url": "https://www.communityactionderby.org.uk/crisis-support/help-with-the-cost-of-living/warm-welcome-hubs",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi-community-action-derby-st-alkmunds-community-living-room-de22-1gu",
-   "name": "St Alkmunds - Community Living Room",
-   "postcode": "DE22 1GU",
-   "website": "",
-   "directory": "Open Innovations: Community Action Derby",
-   "directory_url": "https://www.communityactionderby.org.uk/crisis-support/help-with-the-cost-of-living/warm-welcome-hubs",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi-community-action-derby-mackworth-estate-community-association-de22-4ju",
-   "name": "Mackworth Estate Community Association",
-   "postcode": "DE22 4JU",
-   "website": "",
-   "directory": "Open Innovations: Community Action Derby",
-   "directory_url": "https://www.communityactionderby.org.uk/crisis-support/help-with-the-cost-of-living/warm-welcome-hubs",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi-community-action-derby-umbrella-de22-4ld",
-   "name": "Umbrella",
-   "postcode": "DE22 4LD",
-   "website": "",
-   "directory": "Open Innovations: Community Action Derby",
-   "directory_url": "https://www.communityactionderby.org.uk/crisis-support/help-with-the-cost-of-living/warm-welcome-hubs",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
    "id": "oi-community-action-derby-our-mickleover-de3-0ed",
    "name": "Our Mickleover",
    "postcode": "DE3 0ED",
-   "website": "",
-   "directory": "Open Innovations: Community Action Derby",
-   "directory_url": "https://www.communityactionderby.org.uk/crisis-support/help-with-the-cost-of-living/warm-welcome-hubs",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi-community-action-derby-community-one-de23-8pb",
-   "name": "Community One",
-   "postcode": "DE23 8PB",
    "website": "",
    "directory": "Open Innovations: Community Action Derby",
    "directory_url": "https://www.communityactionderby.org.uk/crisis-support/help-with-the-cost-of-living/warm-welcome-hubs",
@@ -13067,23 +12867,6 @@
    "id": "oi-community-action-derby-hindu-welfare-and-cultural-centre-de23-6qb",
    "name": "Hindu Welfare and Cultural Centre",
    "postcode": "DE23 6QB",
-   "website": "",
-   "directory": "Open Innovations: Community Action Derby",
-   "directory_url": "https://www.communityactionderby.org.uk/crisis-support/help-with-the-cost-of-living/warm-welcome-hubs",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi-community-action-derby-st-giles-rsquo-church-after-school-club-de23-8de",
-   "name": "St Giles’ Church (After-School Club)",
-   "postcode": "DE23 8DE",
    "website": "",
    "directory": "Open Innovations: Community Action Derby",
    "directory_url": "https://www.communityactionderby.org.uk/crisis-support/help-with-the-cost-of-living/warm-welcome-hubs",
@@ -19400,1240 +19183,6 @@
    "last_modified": null
   },
   {
-   "id": "oi--helpandkindness-alderholt-lunch-club-sp6-3bq",
-   "name": "Alderholt Lunch Club",
-   "postcode": "SP6 3BQ",
-   "website": "",
-   "directory": "Open Innovations: #HelpAndKindness",
-   "directory_url": "https://www.helpandkindness.co.uk/service/532/alderholt-lunch-club",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi--helpandkindness-angels-community-lunch-dt3-6bu",
-   "name": "Angels Community Lunch",
-   "postcode": "DT3 6BU",
-   "website": "",
-   "directory": "Open Innovations: #HelpAndKindness",
-   "directory_url": "https://www.helpandkindness.co.uk/service/533/angels-community-lunch",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi--helpandkindness-anna-s-comfort-companionship-50-7108",
-   "name": "Anna's Comfort Companionship",
-   "postcode": "",
-   "website": "",
-   "directory": "Open Innovations: #HelpAndKindness",
-   "directory_url": "https://www.helpandkindness.co.uk/service/6900/anna%27s-comfort-companionship",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)",
-    "no postcode"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi--helpandkindness-balance-and-movement-exercise-class-dt10-1ew",
-   "name": "Balance and Movement Exercise Class",
-   "postcode": "DT10 1EW",
-   "website": "",
-   "directory": "Open Innovations: #HelpAndKindness",
-   "directory_url": "https://www.helpandkindness.co.uk/service/481/balance-and-movement-exercise-class",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi--helpandkindness-barchester-healthcare-upton-bay-care-home-bh15-4hy",
-   "name": "Barchester Healthcare - Upton Bay Care Home",
-   "postcode": "BH15 4HY",
-   "website": "",
-   "directory": "Open Innovations: #HelpAndKindness",
-   "directory_url": "https://www.helpandkindness.co.uk/service/1010/barchester-healthcare---upton-bay-care-home",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi--helpandkindness-blandford-connect-dt11-7tp",
-   "name": "Blandford Connect",
-   "postcode": "DT11 7TP",
-   "website": "",
-   "directory": "Open Innovations: #HelpAndKindness",
-   "directory_url": "https://www.helpandkindness.co.uk/service/5825/blandford-connect",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi--helpandkindness-board-games-afternoon-bh20-6ey",
-   "name": "Board Games Afternoon",
-   "postcode": "BH20 6EY",
-   "website": "",
-   "directory": "Open Innovations: #HelpAndKindness",
-   "directory_url": "https://www.helpandkindness.co.uk/service/5812/board-games-afternoon",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi--helpandkindness-buckland-newton-lunch-club-dt2-7bz",
-   "name": "Buckland Newton Lunch Club",
-   "postcode": "DT2 7BZ",
-   "website": "",
-   "directory": "Open Innovations: #HelpAndKindness",
-   "directory_url": "https://www.helpandkindness.co.uk/service/1451/buckland-newton-lunch-club",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi--helpandkindness-cake-n-cuppa-dt6-6qt",
-   "name": "Cake 'n' Cuppa",
-   "postcode": "DT6 6QT",
-   "website": "",
-   "directory": "Open Innovations: #HelpAndKindness",
-   "directory_url": "https://www.helpandkindness.co.uk/service/3708/cake-%27n%27-cuppa",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi--helpandkindness-care-curious-hub-bh14-9ds",
-   "name": "Care Curious Hub",
-   "postcode": "BH14 9DS",
-   "website": "",
-   "directory": "Open Innovations: #HelpAndKindness",
-   "directory_url": "https://www.helpandkindness.co.uk/service/5821/care-curious-hub",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi--helpandkindness-cattistock-community-hub-dt2-0jh",
-   "name": "Cattistock Community Hub",
-   "postcode": "DT2 0JH",
-   "website": "",
-   "directory": "Open Innovations: #HelpAndKindness",
-   "directory_url": "https://www.helpandkindness.co.uk/service/5562/cattistock-community-hub",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi--helpandkindness-chase-community-of-friends-lunch-club-sp5-5nj",
-   "name": "Chase Community of Friends Lunch Club",
-   "postcode": "SP5 5NJ",
-   "website": "",
-   "directory": "Open Innovations: #HelpAndKindness",
-   "directory_url": "https://www.helpandkindness.co.uk/service/3547/chase-community-of-friends-lunch-club",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi--helpandkindness-chickerell-lunch-club-dt4-9tw",
-   "name": "Chickerell Lunch Club",
-   "postcode": "DT4 9TW",
-   "website": "",
-   "directory": "Open Innovations: #HelpAndKindness",
-   "directory_url": "https://www.helpandkindness.co.uk/service/3646/chickerell-lunch-club",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi--helpandkindness-chickerell-methodist-church-community-activities-incl-christmas-2025-dt3-",
-   "name": "Chickerell Methodist Church - Community Activities, incl Christmas 2025",
-   "postcode": "DT3 4DX",
-   "website": "",
-   "directory": "Open Innovations: #HelpAndKindness",
-   "directory_url": "https://www.helpandkindness.co.uk/service/6072/chickerell-methodist-church---community-activities%2C-incl-christmas-2025",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi--helpandkindness-child-okeford-lunch-club-dt11-8ex",
-   "name": "Child Okeford Lunch Club",
-   "postcode": "DT11 8EX",
-   "website": "",
-   "directory": "Open Innovations: #HelpAndKindness",
-   "directory_url": "https://www.helpandkindness.co.uk/service/3599/child-okeford-lunch-club",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi--helpandkindness-coffee-morning-poole-bh15-4au",
-   "name": "Coffee Morning, Poole",
-   "postcode": "BH15 4AU",
-   "website": "",
-   "directory": "Open Innovations: #HelpAndKindness",
-   "directory_url": "https://www.helpandkindness.co.uk/service/415/coffee-morning%2C-poole",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi--helpandkindness-community-larder-and-hot-soup-lunch-dt1-1lb",
-   "name": "Community Larder and Hot Soup Lunch",
-   "postcode": "DT1 1LB",
-   "website": "",
-   "directory": "Open Innovations: #HelpAndKindness",
-   "directory_url": "https://www.helpandkindness.co.uk/service/5868/community-larder-and-hot-soup-lunch",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi--helpandkindness-cowleaze-lunch-club-dt2-8ew",
-   "name": "Cowleaze Lunch Club",
-   "postcode": "DT2 8EW",
-   "website": "",
-   "directory": "Open Innovations: #HelpAndKindness",
-   "directory_url": "https://www.helpandkindness.co.uk/service/600/cowleaze-lunch-club",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi--helpandkindness-cranborne-lunch-club-bh21-5pp",
-   "name": "Cranborne Lunch Club",
-   "postcode": "BH21 5PP",
-   "website": "",
-   "directory": "Open Innovations: #HelpAndKindness",
-   "directory_url": "https://www.helpandkindness.co.uk/service/3788/cranborne-lunch-club",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi--helpandkindness-don-t-dine-alone-ferndown-bh22-8da",
-   "name": "Don't Dine Alone - Ferndown",
-   "postcode": "BH22 8DA",
-   "website": "",
-   "directory": "Open Innovations: #HelpAndKindness",
-   "directory_url": "https://www.helpandkindness.co.uk/service/560/don%27t-dine-alone---ferndown",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi--helpandkindness-dorchester-connect-lunch-club-dt1-1sh",
-   "name": "Dorchester Connect Lunch Club",
-   "postcode": "DT1 1SH",
-   "website": "",
-   "directory": "Open Innovations: #HelpAndKindness",
-   "directory_url": "https://www.helpandkindness.co.uk/service/903/dorchester-connect-lunch-club",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi--helpandkindness-dorset-blind-association-bournemouth-poole-coffee-morning-bh14-9ht",
-   "name": "Dorset Blind Association - Bournemouth & Poole Coffee Morning",
-   "postcode": "BH14 9HT",
-   "website": "",
-   "directory": "Open Innovations: #HelpAndKindness",
-   "directory_url": "https://www.helpandkindness.co.uk/service/5093/dorset-blind-association---bournemouth-%26-poole-coffee-morning",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi--helpandkindness-dorset-craft-workshops-dt1-1jp",
-   "name": "Dorset Craft Workshops",
-   "postcode": "DT1 1JP",
-   "website": "",
-   "directory": "Open Innovations: #HelpAndKindness",
-   "directory_url": "https://www.helpandkindness.co.uk/service/5819/dorset-craft-workshops",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi--helpandkindness-dorset-pain-management-service-dt6-5bn",
-   "name": "Dorset Pain Management Service",
-   "postcode": "DT6 5BN",
-   "website": "",
-   "directory": "Open Innovations: #HelpAndKindness",
-   "directory_url": "https://www.helpandkindness.co.uk/service/6225/dorset-pain-management-service",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi--helpandkindness-durweston-village-hall-dt11-0qa",
-   "name": "Durweston Village Hall",
-   "postcode": "DT11 0QA",
-   "website": "",
-   "directory": "Open Innovations: #HelpAndKindness",
-   "directory_url": "https://www.helpandkindness.co.uk/service/1685/durweston-village-hall",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi--helpandkindness-east-cliff-urc-lunch-club-50-7255",
-   "name": "East Cliff URC Lunch Club",
-   "postcode": "",
-   "website": "",
-   "directory": "Open Innovations: #HelpAndKindness",
-   "directory_url": "https://www.helpandkindness.co.uk/service/561/east-cliff-urc-lunch-club",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)",
-    "no postcode"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi--helpandkindness-ferndown-cic-bh22-8lj",
-   "name": "Ferndown CIC",
-   "postcode": "BH22 8LJ",
-   "website": "",
-   "directory": "Open Innovations: #HelpAndKindness",
-   "directory_url": "https://www.helpandkindness.co.uk/service/6051/ferndown-cic",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi--helpandkindness-gillingham-community-cinema-sp8-4dz",
-   "name": "Gillingham Community Cinema",
-   "postcode": "SP8 4DZ",
-   "website": "",
-   "directory": "Open Innovations: #HelpAndKindness",
-   "directory_url": "https://www.helpandkindness.co.uk/service/5826/gillingham-community-cinema",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)",
-    "source pin 36.7 km from its postcode"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi--helpandkindness-golden-years-lunch-club-bh21-6sg",
-   "name": "Golden Years Lunch Club",
-   "postcode": "BH21 6SG",
-   "website": "",
-   "directory": "Open Innovations: #HelpAndKindness",
-   "directory_url": "https://www.helpandkindness.co.uk/service/4394/golden-years-lunch-club",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi--helpandkindness-harleston-house-lunch-club-bh21-1db",
-   "name": "Harleston House Lunch Club",
-   "postcode": "BH21 1DB",
-   "website": "",
-   "directory": "Open Innovations: #HelpAndKindness",
-   "directory_url": "https://www.helpandkindness.co.uk/service/3597/harleston-house-lunch-club",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi--helpandkindness-hyacinth-house-care-home-bh21-2dj",
-   "name": "Hyacinth House Care Home",
-   "postcode": "BH21 2DJ",
-   "website": "",
-   "directory": "Open Innovations: #HelpAndKindness",
-   "directory_url": "https://www.helpandkindness.co.uk/service/5944/hyacinth-house-care-home",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi--helpandkindness-jaybee-care-services-sp7-8dp",
-   "name": "Jaybee care services",
-   "postcode": "SP7 8DP",
-   "website": "",
-   "directory": "Open Innovations: #HelpAndKindness",
-   "directory_url": "https://www.helpandkindness.co.uk/service/5791/jaybee-care-services",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi--helpandkindness-joy-cafe-bh1-4hb",
-   "name": "Joy Cafe",
-   "postcode": "BH1 4HB",
-   "website": "",
-   "directory": "Open Innovations: #HelpAndKindness",
-   "directory_url": "https://www.helpandkindness.co.uk/service/6223/joy-cafe",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi--helpandkindness-jurassic-coast-cafe-bh20-6he",
-   "name": "Jurassic Coast Cafe",
-   "postcode": "BH20 6HE",
-   "website": "",
-   "directory": "Open Innovations: #HelpAndKindness",
-   "directory_url": "https://www.helpandkindness.co.uk/service/6050/jurassic-coast-cafe",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)",
-    "source pin 8.8 km from its postcode"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi--helpandkindness-kj-home-care-50-6099",
-   "name": "KJ Home Care",
-   "postcode": "",
-   "website": "",
-   "directory": "Open Innovations: #HelpAndKindness",
-   "directory_url": "https://www.helpandkindness.co.uk/service/6605/kj-home-care",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)",
-    "no postcode"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi--helpandkindness-kate-s-companion-care-50-7137",
-   "name": "Kate's Companion Care",
-   "postcode": "",
-   "website": "",
-   "directory": "Open Innovations: #HelpAndKindness",
-   "directory_url": "https://www.helpandkindness.co.uk/service/6542/kate%27s-companion-care",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)",
-    "no postcode"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi--helpandkindness-kings-park-care-home-arts-and-crafts-warm-hub-bh22-9eu",
-   "name": "Kings Park Care Home - Arts and Crafts Warm Hub",
-   "postcode": "BH22 9EU",
-   "website": "",
-   "directory": "Open Innovations: #HelpAndKindness",
-   "directory_url": "https://www.helpandkindness.co.uk/service/5945/kings-park-care-home---arts-and-crafts-warm-hub",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi--helpandkindness-let-s-lunch-briantspuddle-dt2-7ht",
-   "name": "Let's Lunch - Briantspuddle",
-   "postcode": "DT2 7HT",
-   "website": "",
-   "directory": "Open Innovations: #HelpAndKindness",
-   "directory_url": "https://www.helpandkindness.co.uk/service/604/let%27s-lunch---briantspuddle",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi--helpandkindness-lovely-lunches-dt6-3ss",
-   "name": "Lovely Lunches",
-   "postcode": "DT6 3SS",
-   "website": "",
-   "directory": "Open Innovations: #HelpAndKindness",
-   "directory_url": "https://www.helpandkindness.co.uk/service/3784/lovely-lunches",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi--helpandkindness-lyme-regis-youth-club-dt7-3bs",
-   "name": "Lyme Regis Youth Club",
-   "postcode": "DT7 3BS",
-   "website": "",
-   "directory": "Open Innovations: #HelpAndKindness",
-   "directory_url": "https://www.helpandkindness.co.uk/service/5810/lyme-regis-youth-club",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi--helpandkindness-lytchett-matravers-methodist-church-lunch-club-bh16-6ea",
-   "name": "Lytchett Matravers Methodist Church Lunch Club",
-   "postcode": "BH16 6EA",
-   "website": "",
-   "directory": "Open Innovations: #HelpAndKindness",
-   "directory_url": "https://www.helpandkindness.co.uk/service/5162/lytchett-matravers-methodist-church-lunch-club",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi--helpandkindness-marnhull-lunch-club-dt10-1ps",
-   "name": "Marnhull Lunch Club",
-   "postcode": "DT10 1PS",
-   "website": "",
-   "directory": "Open Innovations: #HelpAndKindness",
-   "directory_url": "https://www.helpandkindness.co.uk/service/3629/marnhull-lunch-club",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)",
-    "source pin 6.2 km from its postcode"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi--helpandkindness-milicent-dzivakwi-50-9446",
-   "name": "Milicent Dzivakwi",
-   "postcode": "",
-   "website": "",
-   "directory": "Open Innovations: #HelpAndKindness",
-   "directory_url": "https://www.helpandkindness.co.uk/service/7142/milicent-dzivakwi",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)",
-    "no postcode"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi--helpandkindness-milton-abbas-lunch-club-dt11-0bw",
-   "name": "Milton Abbas Lunch Club",
-   "postcode": "DT11 0BW",
-   "website": "",
-   "directory": "Open Innovations: #HelpAndKindness",
-   "directory_url": "https://www.helpandkindness.co.uk/service/477/milton-abbas-lunch-club",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi--helpandkindness-my-place-dorset-well-being-and-cooking-dt4-9dl",
-   "name": "My Place Dorset - Well Being and Cooking",
-   "postcode": "DT4 9DL",
-   "website": "",
-   "directory": "Open Innovations: #HelpAndKindness",
-   "directory_url": "https://www.helpandkindness.co.uk/service/948/my-place-dorset---well-being-and-cooking",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi--helpandkindness-osmington-lunch-club-dt3-6ft",
-   "name": "Osmington Lunch Club",
-   "postcode": "DT3 6FT",
-   "website": "",
-   "directory": "Open Innovations: #HelpAndKindness",
-   "directory_url": "https://www.helpandkindness.co.uk/service/704/osmington-lunch-club",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi--helpandkindness-parley-place-care-home-west-parley-bh22-8sl",
-   "name": "Parley Place Care Home - West Parley",
-   "postcode": "BH22 8SL",
-   "website": "",
-   "directory": "Open Innovations: #HelpAndKindness",
-   "directory_url": "https://www.helpandkindness.co.uk/service/6013/parley-place-care-home---west-parley",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi--helpandkindness-pavilion-in-the-park-pip-poundbury-dt1-2fg",
-   "name": "Pavilion in the Park (PIP Poundbury)",
-   "postcode": "DT1 2FG",
-   "website": "",
-   "directory": "Open Innovations: #HelpAndKindness",
-   "directory_url": "https://www.helpandkindness.co.uk/service/3972/pavilion-in-the-park-%28pip-poundbury%29",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi--helpandkindness-piddletrenthide-lunch-club-dt2-7qf",
-   "name": "Piddletrenthide Lunch Club",
-   "postcode": "DT2 7QF",
-   "website": "",
-   "directory": "Open Innovations: #HelpAndKindness",
-   "directory_url": "https://www.helpandkindness.co.uk/service/2669/piddletrenthide-lunch-club",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi--helpandkindness-puddletown-monthly-lunch-club-dt2-8sg",
-   "name": "Puddletown Monthly Lunch Club",
-   "postcode": "DT2 8SG",
-   "website": "",
-   "directory": "Open Innovations: #HelpAndKindness",
-   "directory_url": "https://www.helpandkindness.co.uk/service/3698/puddletown-monthly-lunch-club",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi--helpandkindness-puncknowle-swyre-and-west-bexington-lunch-club-dt2-9bj",
-   "name": "Puncknowle, Swyre and West Bexington Lunch Club",
-   "postcode": "DT2 9BJ",
-   "website": "",
-   "directory": "Open Innovations: #HelpAndKindness",
-   "directory_url": "https://www.helpandkindness.co.uk/service/623/puncknowle%2C-swyre-and-west-bexington-lunch-club",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi--helpandkindness-selwood-house-care-home-dt2-9fn",
-   "name": "Selwood House Care Home",
-   "postcode": "DT2 9FN",
-   "website": "",
-   "directory": "Open Innovations: #HelpAndKindness",
-   "directory_url": "https://www.helpandkindness.co.uk/service/5870/selwood-house-care-home",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi--helpandkindness-sewcial-crafters-dt11-0jx",
-   "name": "Sewcial Crafters",
-   "postcode": "DT11 0JX",
-   "website": "",
-   "directory": "Open Innovations: #HelpAndKindness",
-   "directory_url": "https://www.helpandkindness.co.uk/service/5816/sewcial-crafters",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi--helpandkindness-soulfood-dt4-8ns",
-   "name": "Soulfood",
-   "postcode": "DT4 8NS",
-   "website": "",
-   "directory": "Open Innovations: #HelpAndKindness",
-   "directory_url": "https://www.helpandkindness.co.uk/service/574/soulfood",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi--helpandkindness-st-george-s-church-lunch-club-bh15-3eu",
-   "name": "St George's Church Lunch Club",
-   "postcode": "BH15 3EU",
-   "website": "",
-   "directory": "Open Innovations: #HelpAndKindness",
-   "directory_url": "https://www.helpandkindness.co.uk/service/615/st-george%27s-church-lunch-club",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi--helpandkindness-st-john-s-wimborne-lunch-club-bh21-1ae",
-   "name": "St John's Wimborne Lunch Club",
-   "postcode": "BH21 1AE",
-   "website": "",
-   "directory": "Open Innovations: #HelpAndKindness",
-   "directory_url": "https://www.helpandkindness.co.uk/service/614/st-john%27s-wimborne-lunch-club",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi--helpandkindness-st-mary-s-church-puddletown-dt2-8sl",
-   "name": "St Mary's Church, Puddletown",
-   "postcode": "DT2 8SL",
-   "website": "",
-   "directory": "Open Innovations: #HelpAndKindness",
-   "directory_url": "https://www.helpandkindness.co.uk/service/4349/st-mary%27s-church%2C-puddletown",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi--helpandkindness-st-michael-s-church-hamworthy-bh15-4hr",
-   "name": "St Michael's Church - Hamworthy",
-   "postcode": "BH15 4HR",
-   "website": "",
-   "directory": "Open Innovations: #HelpAndKindness",
-   "directory_url": "https://www.helpandkindness.co.uk/service/6655/st-michael%27s-church---hamworthy",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)",
-    "source pin 2.2 km from its postcode"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi--helpandkindness-st-paul-s-sherborne-meet-eat-lunch-club-dt9-4du",
-   "name": "St Paul's Sherborne Meet & Eat Lunch Club",
-   "postcode": "DT9 4DU",
-   "website": "",
-   "directory": "Open Innovations: #HelpAndKindness",
-   "directory_url": "https://www.helpandkindness.co.uk/service/588/st-paul%27s-sherborne-meet-%26-eat-lunch-club",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi--helpandkindness-st-peter-s-church-lunch-club-bh14-0nn",
-   "name": "St Peter's Church Lunch Club",
-   "postcode": "BH14 0NN",
-   "website": "",
-   "directory": "Open Innovations: #HelpAndKindness",
-   "directory_url": "https://www.helpandkindness.co.uk/service/609/st-peter%27s-church-lunch-club",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi--helpandkindness-sturminster-marshall-seniors-lunch-club-50-8026",
-   "name": "Sturminster Marshall Seniors Lunch Club",
-   "postcode": "",
-   "website": "",
-   "directory": "Open Innovations: #HelpAndKindness",
-   "directory_url": "https://www.helpandkindness.co.uk/service/5094/sturminster-marshall-seniors-lunch-club",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)",
-    "no postcode"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi--helpandkindness-swanage-royal-british-legion-lunch-club-bh19-2pa",
-   "name": "Swanage Royal British Legion Lunch Club",
-   "postcode": "BH19 2PA",
-   "website": "",
-   "directory": "Open Innovations: #HelpAndKindness",
-   "directory_url": "https://www.helpandkindness.co.uk/service/5095/swanage-royal-british-legion-lunch-club",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi--helpandkindness-tea-together-dt2-0aq",
-   "name": "Tea Together",
-   "postcode": "DT2 0AQ",
-   "website": "",
-   "directory": "Open Innovations: #HelpAndKindness",
-   "directory_url": "https://www.helpandkindness.co.uk/service/6224/tea-together",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi--helpandkindness-the-courtyard-craft-centre-bh16-6ba",
-   "name": "The Courtyard - Craft Centre",
-   "postcode": "BH16 6BA",
-   "website": "",
-   "directory": "Open Innovations: #HelpAndKindness",
-   "directory_url": "https://www.helpandkindness.co.uk/service/5814/the-courtyard---craft-centre",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi--helpandkindness-the-quiet-space-warm-welcome-dt1-3rq",
-   "name": "The Quiet Space - Warm Welcome",
-   "postcode": "DT1 3RQ",
-   "website": "",
-   "directory": "Open Innovations: #HelpAndKindness",
-   "directory_url": "https://www.helpandkindness.co.uk/service/4849/the-quiet-space---warm-welcome",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi--helpandkindness-the-reptile-academy-bh21-5ht",
-   "name": "The Reptile Academy",
-   "postcode": "BH21 5HT",
-   "website": "",
-   "directory": "Open Innovations: #HelpAndKindness",
-   "directory_url": "https://www.helpandkindness.co.uk/service/6095/the-reptile-academy",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi--helpandkindness-the-ryland-room-lunch-club-dt11-8uz",
-   "name": "The Ryland Room Lunch Club",
-   "postcode": "DT11 8UZ",
-   "website": "",
-   "directory": "Open Innovations: #HelpAndKindness",
-   "directory_url": "https://www.helpandkindness.co.uk/service/3640/the-ryland-room-lunch-club",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi--helpandkindness-the-west-purbeck-benefice-bh20-6dl",
-   "name": "The West Purbeck Benefice",
-   "postcode": "BH20 6DL",
-   "website": "",
-   "directory": "Open Innovations: #HelpAndKindness",
-   "directory_url": "https://www.helpandkindness.co.uk/service/6626/the-west-purbeck-benefice",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi--helpandkindness-united-church-lunch-club-bh22-9nf",
-   "name": "United Church Lunch Club",
-   "postcode": "BH22 9NF",
-   "website": "",
-   "directory": "Open Innovations: #HelpAndKindness",
-   "directory_url": "https://www.helpandkindness.co.uk/service/3544/united-church-lunch-club",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi--helpandkindness-walc-house-bh19-1hd",
-   "name": "Walc House",
-   "postcode": "BH19 1HD",
-   "website": "",
-   "directory": "Open Innovations: #HelpAndKindness",
-   "directory_url": "https://www.helpandkindness.co.uk/service/6797/walc-house",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi--helpandkindness-westham-wigglers-dt4-0ar",
-   "name": "Westham Wigglers",
-   "postcode": "DT4 0AR",
-   "website": "",
-   "directory": "Open Innovations: #HelpAndKindness",
-   "directory_url": "https://www.helpandkindness.co.uk/service/5838/westham-wigglers",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi--helpandkindness-weymouth-park-community-centre-dt4-7hr",
-   "name": "Weymouth Park Community Centre",
-   "postcode": "DT4 7HR",
-   "website": "",
-   "directory": "Open Innovations: #HelpAndKindness",
-   "directory_url": "https://www.helpandkindness.co.uk/service/1895/weymouth-park-community-centre",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
    "id": "oi-herefordshire-council-bodenham-st-michael-all-angels-church-52-1543",
    "name": "Bodenham St Michael & All Angels' Church",
    "postcode": "",
@@ -21263,7 +19812,7 @@
    "postcode": "LE9 7AW",
    "website": "",
    "directory": "Open Innovations: Hinckley and Bosworth Council",
-   "directory_url": "https://www.facebook.com/esbaptistchurch/?locale=en_GB",
+   "directory_url": "https://www.hinckley-bosworth.gov.uk/info/200411/cost_of_living_support",
    "reasons": [
     "directory listing only, with no 2026-27 season dates (latest stated start: none)"
    ],
@@ -21280,7 +19829,7 @@
    "postcode": "LE9 7NL",
    "website": "",
    "directory": "Open Innovations: Hinckley and Bosworth Council",
-   "directory_url": "https://www.facebook.com/esbaptistchurch/?locale=en_GB",
+   "directory_url": "https://www.google.com/goto?url=CAESbgHrOzAVDAr0q4uAfZxrLu7yX5OxGFj_U1-At-TgJhNKtTmCAbg3EV9Mp_Y5KZ9Isn7QyW6Fg-kB9FL1Z8-MI0SNnz7srvGaU3-p0T6kM_AQ-PiyxYQzFMUkRuHPTTHJgMiTDau4TLuDitX2jflw",
    "reasons": [
     "directory listing only, with no 2026-27 season dates (latest stated start: none)"
    ],
@@ -34354,8 +32903,8 @@
    "last_modified": null
   },
   {
-   "id": "oi-suffolk-rural-coffee-caravan-all-hallows-church-ip3-0en",
-   "name": "All Hallows Church",
+   "id": "oi-suffolk-rural-coffee-caravan-all-hallows-church-ipswich-ip3-0en",
+   "name": "All Hallows Church - Ipswich",
    "postcode": "IP3 0EN",
    "website": "",
    "directory": "Open Innovations: Suffolk - Rural Coffee Caravan",
@@ -34411,6 +32960,40 @@
    "website": "",
    "directory": "Open Innovations: Suffolk - Rural Coffee Caravan",
    "directory_url": "https://ruralcoffeecaravan.org.uk/c-a-f-e-events-locations/",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "oi-suffolk-rural-coffee-caravan-all-saints-coffee-morning-ip1-2pq",
+   "name": "All Saints Coffee Morning",
+   "postcode": "IP1 2PQ",
+   "website": "",
+   "directory": "Open Innovations: Suffolk - Rural Coffee Caravan",
+   "directory_url": "https://ruralcoffeecaravan.org.uk/c-a-f-e-events-locations/",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "oi-suffolk-rural-coffee-caravan-dalham-village-hall-coffee-morning-cb8-8tf",
+   "name": "Dalham Village Hall Coffee Morning",
+   "postcode": "CB8 8TF",
+   "website": "",
+   "directory": "Open Innovations: Suffolk - Rural Coffee Caravan",
+   "directory_url": "https://dalham.com/",
    "reasons": [
     "directory listing only, with no 2026-27 season dates (latest stated start: none)"
    ],
@@ -38284,74 +36867,6 @@
    "sha256": null,
    "etag": null,
    "last_modified": null
-  },
-  {
-   "id": "oi-westmorland-council-ambleside-parish-centre-la22-9dh",
-   "name": "Ambleside Parish Centre",
-   "postcode": "LA22 9DH",
-   "website": "",
-   "directory": "Open Innovations: Westmorland Council",
-   "directory_url": "https://www.westmorlandandfurness.gov.uk/warmspots/ambleside-parish-centre",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi-westmorland-council-armathwaite-old-school-hall-ca4-9pf",
-   "name": "Armathwaite Old School hall",
-   "postcode": "CA4 9PF",
-   "website": "",
-   "directory": "Open Innovations: Westmorland Council",
-   "directory_url": "https://www.westmorlandandfurness.gov.uk/warmspots/armathwaite-old-school-hall",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi-westmorland-council-arragons-cycles-ca11-7lu",
-   "name": "Arragons Cycles",
-   "postcode": "CA11 7LU",
-   "website": "",
-   "directory": "Open Innovations: Westmorland Council",
-   "directory_url": "https://www.westmorlandandfurness.gov.uk/warmspots/arragons-cycles",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi-westmorland-council-askham-and-district-community-centre-la11-6dp",
-   "name": "Askham and District Community Centre",
-   "postcode": "LA11 6DP",
-   "website": "",
-   "directory": "Open Innovations: Westmorland Council",
-   "directory_url": "https://www.westmorlandandfurness.gov.uk/warmspots/askham-and-district-community-centre",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
   }
  ],
  "rejected": [
@@ -38379,7 +36894,6 @@
   }
  ],
  "follow_skipped": [
-  "oi-birmingham-council-a-father-s-child-services-cic-b18-7af",
   "oi-birmingham-council-acocks-green-library-b27-7xh",
   "oi-birmingham-council-kings-norton-library-b30-3eu"
  ],
