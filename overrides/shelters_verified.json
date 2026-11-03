@@ -2,12 +2,12 @@
  "hl-dawn-centre-temporary-accommodation-project": {
   "access": "Single adults and couples with no children who have a Leicester connection: call 0116 221 2770 or Leicester Housing Options.",
   "access_type": "referral_only",
-  "day_time_quote": "",
+  "day_time_quote": "13 full time staff, 24 hour waking cover.",
   "evidence_name": "Homeless Link",
   "evidence_url": "https://homeless.org.uk/homeless-england/service/dawn-centre-temporary-accommodation-project/",
   "facilities": "Not stated",
   "groups": [],
-  "hours": "",
+  "hours": "Staffed 24 hours a day",
   "name": "Dawn Centre - Temporary Accommodation Project",
   "note": "Hand check 31 Oct 2026. Operator or council page confirms it is running now and the phone. Referral hostel, list only, no pin. No email in the referral line.",
   "phone": "0116 221 2770",
@@ -54,12 +54,12 @@
  "hl-paradigm-housing-group-lea-bridge-house-hostel": {
   "access": "Ask Waltham Forest Council or your outreach worker to apply for you. You'll need photo ID and proof of income.",
   "access_type": "referral_only",
-  "day_time_quote": "",
+  "day_time_quote": "6 full time staff on-site, 24 hour waking cover.",
   "evidence_name": "Homeless Link",
   "evidence_url": "https://homeless.org.uk/homeless-england/service/paradigm-housing-group-lea-bridge-house-hostel/",
   "facilities": "Not stated",
   "groups": [],
-  "hours": "",
+  "hours": "Staffed 24 hours a day",
   "name": "Paradigm Housing Group - Lea Bridge House Hostel",
   "note": "Hand check 31 Oct 2026. Operator or council page confirms it is running now and the phone. Referral hostel, list only, no pin. No email in the referral line.",
   "phone": "01628 811 955",
@@ -124,7 +124,7 @@
   "evidence_url": "https://700club.org.uk/hostel-accommodation/",
   "facilities": "Not stated",
   "groups": [],
-  "hours": "Not stated",
+  "hours": "Staffed 24 hours a day",
   "lat": 54.52301,
   "lng": -1.557192,
   "name": "700 Club hostel",
@@ -135,7 +135,8 @@
   "referral": "Referral through Darlington Borough Council Housing Options Team",
   "season": "Year-round",
   "verified_on": "2026-10-31",
-  "who_for": "Not stated"
+  "who_for": "Not stated",
+  "day_time_quote": "The project is staffed 24 hours a day by both trained support workers and housing management staff."
  },
  "man-999-club-the-gateway": {
   "access": "No referral needed; Lewisham/Greenwich connection",
@@ -271,7 +272,7 @@
   "evidence_url": "https://www.alongsidecharity.org.uk/b-nes",
   "facilities": "Not stated",
   "groups": [],
-  "hours": "Not stated",
+  "hours": "Staffed 24 hours a day",
   "lat": 51.37887,
   "lng": -2.356595,
   "name": "Alongside Manvers Street Hostel",
@@ -282,7 +283,8 @@
   "referral": "Self-referral or via agencies; first come first served",
   "season": "Year-round",
   "verified_on": "2026-10-31",
-  "who_for": "Not stated"
+  "who_for": "Not stated",
+  "day_time_quote": "Manvers St Hostel, in Bath, provides 20 beds with 24-hour staff support."
  },
  "man-angel-trust-safe-night-hub": {
   "access": "Referral via DCC Homeless Prevention 03000 268000",
@@ -355,7 +357,13 @@
   "evidence_url": "https://beaconhouseministries.org.uk/contact-us/",
   "facilities": "Not stated",
   "groups": [],
-  "hours": "Not stated",
+  "hours": {
+   "Mon": "10:00 - 14:00",
+   "Tue": "10:00 - 14:00",
+   "Wed": "10:00 - 14:00",
+   "Thu": "10:00 - 14:00",
+   "Fri": "10:00 - 14:00"
+  },
   "lat": 51.887577,
   "lng": 0.895097,
   "name": "Beacon House",
@@ -366,7 +374,8 @@
   "referral": "Drop-in",
   "season": "Daytime only",
   "verified_on": "2026-10-31",
-  "who_for": "Not stated"
+  "who_for": "Not stated",
+  "day_time_quote": "Day Centre opening times: Monday to Friday, 10:00 – 14:00"
  },
  "man-bethany-welcome-centre": {
   "access": "Walk-in: present at the door at ELS House, or get in touch",
@@ -444,7 +453,12 @@
   "evidence_url": "https://birminghamcitymission.org.uk/care-centre",
   "facilities": "Not stated",
   "groups": [],
-  "hours": "Not stated",
+  "hours": {
+   "Mon": "10:00 - 16:00",
+   "Tue": "10:00 - 16:00",
+   "Wed": "10:00 - 16:00",
+   "Thu": "10:00 - 16:00"
+  },
   "lat": 52.473565,
   "lng": -1.905201,
   "name": "Birmingham City Mission Care Centre",
@@ -455,7 +469,8 @@
   "referral": "Drop in",
   "season": "Daytime only",
   "verified_on": "2026-10-31",
-  "who_for": "Not stated"
+  "who_for": "Not stated",
+  "day_time_quote": "BCM's Care Centre is open on Monday, Tuesday, Wednesday and Thursday from 10am to 4pm at 8-10 Washington Street"
  },
  "man-bishopbridge-house-st-martins": {
   "access": "Direct access, no referral needed; or Pathways 01603 984694",
@@ -465,7 +480,7 @@
   "evidence_url": "https://stmartinshousing.org.uk/how-we-help/our-services/roofless/direct-access-hostel/",
   "facilities": "Not stated",
   "groups": [],
-  "hours": "Not stated",
+  "hours": "Staffed 24 hours a day, 7 days a week",
   "lat": 52.632009,
   "lng": 1.310903,
   "name": "Bishopbridge House (St Martins)",
@@ -476,7 +491,8 @@
   "referral": "Direct access, no referral needed; or Pathways 01603 984694",
   "season": "Year-round",
   "verified_on": "2026-10-31",
-  "who_for": "Not stated"
+  "who_for": "Not stated",
+  "day_time_quote": "In the hostel there are friendly and experienced staff available 24/7"
  },
  "man-bognor-housing-trust": {
   "access": "Supported housing for single homeless people; referral",
@@ -577,7 +593,13 @@
   "evidence_url": "https://thewallich.com/services/solutions-centre-bridgend/",
   "facilities": "Not stated",
   "groups": [],
-  "hours": "Not stated",
+  "hours": {
+   "Mon": "09:30 - 12:00",
+   "Tue": "09:30 - 12:00",
+   "Wed": "09:30 - 12:00",
+   "Thu": "09:30 - 12:00",
+   "Fri": "09:30 - 12:00"
+  },
   "lat": 51.506531,
   "lng": -3.582727,
   "name": "Bridgend Solutions Centre (The Wallich)",
@@ -588,7 +610,8 @@
   "referral": "Drop in mornings; appointments afternoons",
   "season": "Daytime only",
   "verified_on": "2026-10-31",
-  "who_for": "Not stated"
+  "who_for": "Not stated",
+  "day_time_quote": "Open door policy Monday to Friday, 9:30am- 12pm. More formal appointment system Monday to Friday, 1pm – 5pm"
  },
  "man-brighton-hove-foyer": {
   "access": "For ages 16-25. Referral needed: Brighton & Hove City Council Housing Options team.",
@@ -668,7 +691,14 @@
   "evidence_url": "https://www.carecent.org.uk/",
   "facilities": "Not stated",
   "groups": [],
-  "hours": "Not stated",
+  "hours": {
+   "Mon": "08:30 - 10:45",
+   "Tue": "08:30 - 10:45",
+   "Wed": "08:30 - 10:45",
+   "Thu": "08:30 - 10:45 / 13:00 - 15:00",
+   "Fri": "08:30 - 10:45",
+   "Sat": "08:30 - 10:45"
+  },
   "lat": 53.96004,
   "lng": -1.077783,
   "name": "Carecent",
@@ -679,7 +709,8 @@
   "referral": "Drop in",
   "season": "Daytime only",
   "verified_on": "2026-10-31",
-  "who_for": "Not stated"
+  "who_for": "Not stated",
+  "day_time_quote": "Carecent is open to people aged 18+ six mornings a week – Monday to Saturday from 8.30am to 10.45am. We also offer an afternoon session on a Thursday between 1pm-3pm during the colder months (October-April)"
  },
  "man-catching-lives-canterbury-open-centre": {
   "access": "Drop in",
@@ -1015,7 +1046,13 @@
   "evidence_url": "https://www.crisis.org.uk/get-help/birmingham/",
   "facilities": "Not stated",
   "groups": [],
-  "hours": "Not stated",
+  "hours": {
+   "Mon": "09:00 - 17:00",
+   "Tue": "09:00 - 17:00",
+   "Wed": "09:00 - 17:00",
+   "Thu": "09:00 - 17:00",
+   "Fri": "09:00 - 17:00"
+  },
   "lat": 52.475208,
   "lng": -1.883069,
   "name": "Crisis Skylight Birmingham",
@@ -1026,7 +1063,8 @@
   "referral": "Self-referral by phone/email; drop in weekdays 9am-4pm",
   "season": "Daytime only",
   "verified_on": "2026-10-31",
-  "who_for": "Not stated"
+  "who_for": "Not stated",
+  "day_time_quote": "Opening hours: Monday-Friday between 9 am to 5 pm (please contact us before visiting if you can)"
  },
  "man-crisis-skylight-brent": {
   "access": "Self-referral in person, drop-in Mon-Fri 10am-1pm; 16+",
@@ -1096,7 +1134,12 @@
   "evidence_url": "https://www.crisis.org.uk/get-help/edinburgh/",
   "facilities": "Not stated",
   "groups": [],
-  "hours": "Not stated",
+  "hours": {
+   "Tue": "12:30 - 15:30",
+   "Wed": "09:30 - 15:30",
+   "Thu": "09:30 - 15:30",
+   "Fri": "09:30 - 15:30"
+  },
   "lat": 55.950955,
   "lng": -3.182917,
   "name": "Crisis Skylight Edinburgh",
@@ -1107,7 +1150,8 @@
   "referral": "Drop in / self-referral",
   "season": "Daytime only",
   "verified_on": "2026-10-31",
-  "who_for": "Not stated"
+  "who_for": "Not stated",
+  "day_time_quote": "Opening hours: Wednesday, Thursday, and Friday: 9:30 am – 3:30 pm; Tuesday: 12:30 pm – 3:30 pm"
  },
  "man-crisis-skylight-merseyside": {
   "access": "Self-refer by phone/email or drop in; 16+",
@@ -1117,7 +1161,11 @@
   "evidence_url": "https://www.crisis.org.uk/get-help/merseyside/",
   "facilities": "Not stated",
   "groups": [],
-  "hours": "Not stated",
+  "hours": {
+   "Mon": "09:30 - 12:30",
+   "Wed": "09:30 - 12:30",
+   "Fri": "09:30 - 12:30"
+  },
   "lat": 53.400247,
   "lng": -2.979158,
   "name": "Crisis Skylight Merseyside",
@@ -1128,7 +1176,8 @@
   "referral": "Self-refer by phone/email or drop in; 16+",
   "season": "Daytime only",
   "verified_on": "2026-10-31",
-  "who_for": "Not stated"
+  "who_for": "Not stated",
+  "day_time_quote": "Opening hours: Monday, Wednesday and Friday, 9:30 am – 12:30 pm (please contact us before visiting)"
  },
  "man-crisis-skylight-newcastle": {
   "access": "",
@@ -1138,7 +1187,13 @@
   "evidence_url": "https://www.crisis.org.uk/get-help/newcastle/",
   "facilities": "Not stated",
   "groups": [],
-  "hours": "Not stated",
+  "hours": {
+   "Mon": "09:30 - 16:30",
+   "Tue": "12:00 - 16:30",
+   "Wed": "09:30 - 16:30",
+   "Thu": "09:30 - 16:30",
+   "Fri": "09:30 - 16:30"
+  },
   "lat": 54.971203,
   "lng": -1.603723,
   "name": "Crisis Skylight Newcastle",
@@ -1149,7 +1204,8 @@
   "referral": "",
   "season": "Daytime only",
   "verified_on": "2026-10-31",
-  "who_for": "Not stated"
+  "who_for": "Not stated",
+  "day_time_quote": "Opening hours: Mon, Wed, Thu, Fri: 9:30am-4.30pm; Tue: 12:00pm-4:30pm"
  },
  "man-crisis-skylight-oxford": {
   "access": "Self-referral by phone/email",
@@ -1159,7 +1215,13 @@
   "evidence_url": "https://www.crisis.org.uk/get-help/oxford",
   "facilities": "Not stated",
   "groups": [],
-  "hours": "Not stated",
+  "hours": {
+   "Mon": "09:00 - 17:00",
+   "Tue": "09:00 - 17:00",
+   "Wed": "09:00 - 17:00",
+   "Thu": "09:00 - 17:00",
+   "Fri": "09:00 - 17:00"
+  },
   "lat": 51.753578,
   "lng": -1.262514,
   "name": "Crisis Skylight Oxford",
@@ -1170,7 +1232,8 @@
   "referral": "Self-referral by phone/email",
   "season": "Daytime only",
   "verified_on": "2026-10-31",
-  "who_for": "Not stated"
+  "who_for": "Not stated",
+  "day_time_quote": "Opening hours: Monday to Friday, 9am - 5pm"
  },
  "man-crisis-skylight-south-wales": {
   "access": "Self-refer 01792 674931 or drop in",
@@ -1180,7 +1243,13 @@
   "evidence_url": "https://www.crisis.org.uk/get-help/south-wales/",
   "facilities": "Not stated",
   "groups": [],
-  "hours": "Not stated",
+  "hours": {
+   "Mon": "09:00 - 12:00 / 13:00 - 16:00",
+   "Tue": "09:00 - 12:00 / 13:00 - 16:00",
+   "Wed": "09:00 - 12:00 / 13:00 - 16:00",
+   "Thu": "09:00 - 12:00 / 13:00 - 16:00",
+   "Fri": "09:00 - 12:00 / 13:00 - 16:00"
+  },
   "lat": 51.618728,
   "lng": -3.952399,
   "name": "Crisis Skylight South Wales",
@@ -1191,7 +1260,8 @@
   "referral": "Self-refer 01792 674931 or drop in",
   "season": "Daytime only",
   "verified_on": "2026-10-31",
-  "who_for": "Not stated"
+  "who_for": "Not stated",
+  "day_time_quote": "Opening hours: Monday – Friday 9am – 4pm (excluding bank holidays). We are closed between 12pm and 1pm daily."
  },
  "man-crossreach-cunningham-house": {
   "access": "Referral (City of Edinburgh Council); call to discuss",
@@ -1201,7 +1271,7 @@
   "evidence_url": "https://www.crossreach.org.uk/our-locations/cunningham-house",
   "facilities": "Not stated",
   "groups": [],
-  "hours": "Not stated",
+  "hours": "Staffed 24 hours a day, 7 days a week",
   "lat": 55.948485,
   "lng": -3.188398,
   "name": "CrossReach Cunningham House",
@@ -1212,7 +1282,8 @@
   "referral": "Referral (City of Edinburgh Council); call to discuss",
   "season": "Year-round",
   "verified_on": "2026-10-31",
-  "who_for": "Not stated"
+  "who_for": "Not stated",
+  "day_time_quote": "Office hours 24 hours (Monday - Sunday)"
  },
  "man-daystop-gloucestershire-nightstop": {
   "access": "For ages 16-25 in Gloucestershire who are homeless or at risk. Daystop referral form on the Nightstop website.",
@@ -1295,7 +1366,7 @@
   "evidence_url": "https://www.doorstep.org.uk/",
   "facilities": "Not stated",
   "groups": [],
-  "hours": "Not stated",
+  "hours": "Staffed 24 hours a day",
   "lat": 53.769296,
   "lng": -0.384027,
   "name": "Doorstep (Hull)",
@@ -1306,7 +1377,8 @@
   "referral": "Referrals from any source incl. self-application; interview with Housing Support Officer",
   "season": "Year-round",
   "verified_on": "2026-10-31",
-  "who_for": "Not stated"
+  "who_for": "Not stated",
+  "day_time_quote": "You will have access to Doorstep staff 24 hours a day."
  },
  "man-doorway-young-people-16-25": {
   "access": "Drop-in, ages 16-25",
@@ -1417,7 +1489,12 @@
   "evidence_url": "https://www.firststopcentre.com/location-and-opening-times",
   "facilities": "Not stated",
   "groups": [],
-  "hours": "Not stated",
+  "hours": {
+   "Mon": "10:30 - 13:30",
+   "Tue": "10:30 - 13:30",
+   "Thu": "10:30 - 13:30",
+   "Fri": "10:30 - 13:30"
+  },
   "lat": 51.880937,
   "lng": 0.551812,
   "name": "First Stop Centre",
@@ -1428,7 +1505,8 @@
   "referral": "Drop-in, anyone welcome; postal address service; canteen",
   "season": "Daytime only",
   "verified_on": "2026-10-31",
-  "who_for": "Not stated"
+  "who_for": "Not stated",
+  "day_time_quote": "Monday 10:30AM- 1:30PM Tuesday 10:30AM-1:30PM Wednesday Closed Thursday 10:30AM-1:30PM Friday 10:30AM-1:30PM"
  },
  "man-first-stop-darlington": {
   "access": "Drop-in",
@@ -2276,7 +2354,12 @@
   "evidence_url": "https://graveshamsanctuary.uk/about/get-help/",
   "facilities": "Not stated",
   "groups": [],
-  "hours": "Not stated",
+  "hours": {
+   "Mon": "10:30 - 13:30",
+   "Tue": "10:30 - 13:30",
+   "Wed": "10:30 - 13:30",
+   "Fri": "10:30 - 13:30"
+  },
   "lat": 51.438732,
   "lng": 0.369243,
   "name": "Gravesham Sanctuary day centre & winter night shelter",
@@ -2287,7 +2370,8 @@
   "referral": "Drop in or helpline",
   "season": "Daytime only",
   "verified_on": "2026-10-31",
-  "who_for": "Not stated"
+  "who_for": "Not stated",
+  "day_time_quote": "At our day centre, we can also offer food and a hot drink, as well as clothes and other essentials. We are open Mondays, Tuesdays, Wednesdays and Fridays, 10:30 AM – 1:30 PM."
  },
  "man-greenlaw-house": {
   "access": "Council",
@@ -2739,7 +2823,7 @@
   "evidence_url": "https://www.torbay.gov.uk/housing/homelessness/about-leonard-stocks-centre/",
   "facilities": "Not stated",
   "groups": [],
-  "hours": "Not stated",
+  "hours": "Staffed 24 hours a day",
   "lat": 50.467558,
   "lng": -3.53241,
   "name": "Leonard Stocks Centre",
@@ -2750,7 +2834,8 @@
   "referral": "Referral via Torbay Council Housing Options (01803 208723) or the Rough Sleeping team",
   "season": "Year-round",
   "verified_on": "2026-10-31",
-  "who_for": "Not stated"
+  "who_for": "Not stated",
+  "day_time_quote": "Staff provide support 24 hours a day."
  },
  "man-lhm360-glasgow": {
   "access": "Drop in.",
@@ -2839,7 +2924,13 @@
   "evidence_url": "https://www.homelesscare.org.uk/maidstone-day-centre",
   "facilities": "Not stated",
   "groups": [],
-  "hours": "Not stated",
+  "hours": {
+   "Mon": "08:00 - 14:00",
+   "Tue": "08:00 - 14:00",
+   "Wed": "08:00 - 14:00",
+   "Thu": "08:00 - 14:00",
+   "Fri": "08:00 - 14:00"
+  },
   "lat": 51.270476,
   "lng": 0.524837,
   "name": "Maidstone Day Centre",
@@ -2850,7 +2941,8 @@
   "referral": "Drop-in",
   "season": "Daytime only",
   "verified_on": "2026-10-31",
-  "who_for": "Not stated"
+  "who_for": "Not stated",
+  "day_time_quote": "Opening Hours Mon - Fri 8:00 am – 2:00 pm Weekends Closed"
  },
  "man-manna-day-centre": {
   "access": "Drop in. Open 7 days.",
@@ -2910,7 +3002,7 @@
   "evidence_url": "https://goleudy.org/our-services/providing-housing/maple-tree/",
   "facilities": "Not stated",
   "groups": [],
-  "hours": "Not stated",
+  "hours": "Staffed 24 hours a day",
   "ignore_phrases": [
    "Community Fridge - now closed"
   ],
@@ -2924,7 +3016,8 @@
   "referral": "Referral: With Bridgend Council",
   "season": "Year-round",
   "verified_on": "2026-10-31",
-  "who_for": "Not stated"
+  "who_for": "Not stated",
+  "day_time_quote": "Maple Tree House is a 24-hour supported hostel based in Bridgend"
  },
  "man-mary-rose-court-basingstoke": {
   "access": "referral via Basingstoke & Deane Council, Julian House or May Place",
@@ -2947,7 +3040,10 @@
   "evidence_url": "https://mertonfaithinaction.org/",
   "facilities": "Not stated",
   "groups": [],
-  "hours": "Not stated",
+  "hours": {
+   "Wed": "10:00 - 14:30",
+   "Fri": "10:00 - 14:30"
+  },
   "lat": 51.415472,
   "lng": -0.199266,
   "name": "Merton Faith in Action homeless drop-in",
@@ -2958,7 +3054,8 @@
   "referral": "Drop-in",
   "season": "Daytime only",
   "verified_on": "2026-10-31",
-  "who_for": "Not stated"
+  "who_for": "Not stated",
+  "day_time_quote": "Our Drop-in is open every Wednesday and Friday from 10.00am to 2.30pm."
  },
  "man-new-horizon-youth-centre": {
   "access": "Drop-in for homeless young people 16-24 (youth day centre, not housing)",
@@ -3250,7 +3347,14 @@
   "evidence_url": "https://p3charity.org/services/wolverhampton-navigator",
   "facilities": "Not stated",
   "groups": [],
-  "hours": "Not stated",
+  "hours": {
+   "Mon": "07:30 - 17:00",
+   "Tue": "07:30 - 17:00",
+   "Wed": "07:30 - 17:00",
+   "Thu": "07:30 - 17:30",
+   "Fri": "07:30 - 17:30",
+   "Sat": "07:30 - 12:00"
+  },
   "lat": 52.58647,
   "lng": -2.132036,
   "name": "P3 Wolverhampton Street Outreach (Navigator)",
@@ -3261,7 +3365,8 @@
   "referral": "Drop in; 24/7 freephone 0800 107 6753",
   "season": "Daytime only",
   "verified_on": "2026-10-31",
-  "who_for": "Not stated"
+  "who_for": "Not stated",
+  "day_time_quote": "Address 4 Waterloo Road, Wolverhampton WV1 4BL Monday–Wednesday 07:30am–5pm Thursday–Friday 07:30am–5:30pm Saturday 07:30am–12noon"
  },
  "man-padley-ymca-derbyshire-community-hub": {
   "access": "Open access, no appointment",
@@ -3271,7 +3376,13 @@
   "evidence_url": "https://ymcaderbyshire.org.uk/our-services/padley-group/",
   "facilities": "Not stated",
   "groups": [],
-  "hours": "Not stated",
+  "hours": {
+   "Mon": "09:00 - 15:00",
+   "Tue": "09:00 - 15:00",
+   "Wed": "09:00 - 15:00",
+   "Thu": "09:00 - 15:00",
+   "Fri": "09:00 - 15:00"
+  },
   "lat": 52.920231,
   "lng": -1.50037,
   "name": "Padley@YMCA Derbyshire Community Hub",
@@ -3282,7 +3393,8 @@
   "referral": "Open access, no appointment",
   "season": "Daytime only",
   "verified_on": "2026-10-31",
-  "who_for": "Not stated"
+  "who_for": "Not stated",
+  "day_time_quote": "Opening Times Monday 9am - 3.00pm Tuesday 9am - 3.00pm Wednesday 9am - 3.00pm Thursday 9am - 3.00pm Friday 9am - 3.00pm"
  },
  "man-pathways-of-chesterfield": {
   "access": "Drop-in; out of hours Derbyshire P3 0808 169 2333",
@@ -3292,7 +3404,12 @@
   "evidence_url": "https://www.pathwaysofchesterfield.co.uk/contact-us/",
   "facilities": "Not stated",
   "groups": [],
-  "hours": "Not stated",
+  "hours": {
+   "Mon": "10:00 - 12:30",
+   "Tue": "10:00 - 12:30",
+   "Thu": "10:00 - 12:30",
+   "Fri": "10:00 - 12:30"
+  },
   "lat": 53.238198,
   "lng": -1.436297,
   "name": "Pathways of Chesterfield",
@@ -3303,7 +3420,8 @@
   "referral": "Drop-in; out of hours Derbyshire P3 0808 169 2333",
   "season": "Daytime only",
   "verified_on": "2026-10-31",
-  "who_for": "Not stated"
+  "who_for": "Not stated",
+  "day_time_quote": "Our drop in sessions are open at 10am – 12.30pm on Mondays, Tuesdays, Thursdays and Fridays at our main office- 120 Saltergate."
  },
  "man-paxton-street-hostel-goleudy": {
   "access": "Via Swansea Council housing options",
@@ -3635,7 +3753,10 @@
   "evidence_url": "https://www.salvationarmy.org.uk/newcastle-under-lyme",
   "facilities": "Not stated",
   "groups": [],
-  "hours": "Not stated",
+  "hours": {
+   "Tue": "08:30 - 14:00",
+   "Thu": "09:00 - 12:00"
+  },
   "lat": 53.012558,
   "lng": -2.230102,
   "name": "Salvation Army Newcastle-under-Lyme Homeless Hub",
@@ -3646,7 +3767,8 @@
   "referral": "Drop-in",
   "season": "Daytime only",
   "verified_on": "2026-10-31",
-  "who_for": "Not stated"
+  "who_for": "Not stated",
+  "day_time_quote": "Tuesday 8:30AM to 2:00PM- Homeless Hub Thursday 9:00AM to 12:00PM- Multi-Agency Drop in for the Homeless"
  },
  "man-salvation-army-the-well-croydon": {
   "access": "Drop-in",
@@ -3795,7 +3917,15 @@
   "evidence_url": "https://www.simonscotland.org/support-service/our-support-and-access-hubs/",
   "facilities": "Not stated",
   "groups": [],
-  "hours": "Not stated",
+  "hours": {
+   "Mon": "09:00 - 17:00",
+   "Tue": "09:00 - 17:00",
+   "Wed": "10:00 - 17:00",
+   "Thu": "09:00 - 17:00",
+   "Fri": "09:00 - 17:00",
+   "Sat": "09:00 - 17:00",
+   "Sun": "09:00 - 17:00"
+  },
   "lat": 55.949238,
   "lng": -3.182112,
   "name": "Simon Community Scotland Edinburgh Support Hub",
@@ -3806,7 +3936,8 @@
   "referral": "Drop in, no appointment",
   "season": "Daytime only",
   "verified_on": "2026-10-31",
-  "who_for": "Not stated"
+  "who_for": "Not stated",
+  "day_time_quote": "Edinburgh Support Hub 22 Holyrood Road, EH8 8AF Open Mon to Fri 9am until 5.00pm (except Wednesday when we open at 10am) and Sat & Sun 9am to 5pm."
  },
  "man-simon-community-scotland-glasgow-access-hub": {
   "access": "Drop in; 24h helpline 0800 027 7466",
@@ -3816,7 +3947,15 @@
   "evidence_url": "https://www.simonscotland.org/support-service/our-support-and-access-hubs/",
   "facilities": "Not stated",
   "groups": [],
-  "hours": "Not stated",
+  "hours": {
+   "Mon": "09:00 - 17:00",
+   "Tue": "09:00 - 17:00",
+   "Wed": "10:00 - 17:00",
+   "Thu": "09:00 - 17:00",
+   "Fri": "09:00 - 17:00",
+   "Sat": "09:00 - 17:00",
+   "Sun": "09:00 - 17:00"
+  },
   "lat": 55.858342,
   "lng": -4.264802,
   "name": "Simon Community Scotland Glasgow Access Hub",
@@ -3827,7 +3966,8 @@
   "referral": "Drop in; 24h helpline 0800 027 7466",
   "season": "Daytime only",
   "verified_on": "2026-10-31",
-  "who_for": "Not stated"
+  "who_for": "Not stated",
+  "day_time_quote": "Glasgow Access Hub 74-80 Brown Street, Glasgow, G2 8PD Open 7 days, 9am-5pm (except Wednesday when we open at 10am)"
  },
  "man-sir-julian-hodge-hostel-the-wallich": {
   "access": "Referral via Cardiff Council Single Person Gateway",
@@ -3858,7 +3998,11 @@
   "evidence_url": "https://www.ascendpathways.org.uk/Somewhere-To-Go-Project/Pathway-Services/",
   "facilities": "Not stated",
   "groups": [],
-  "hours": "Not stated",
+  "hours": {
+   "Mon": "10:30 - 14:30",
+   "Wed": "10:30 - 14:30",
+   "Fri": "10:30 - 14:30"
+  },
   "lat": 51.350021,
   "lng": -2.976442,
   "name": "Somewhere To Go Project",
@@ -3869,7 +4013,8 @@
   "referral": "Drop in, no appointment, 18+",
   "season": "Daytime only",
   "verified_on": "2026-10-31",
-  "who_for": "Not stated"
+  "who_for": "Not stated",
+  "day_time_quote": "The drop ins take place Mondays, Wednesdays and Fridays between 10.30 and 2.30pm."
  },
  "man-spires-centre": {
   "access": "Drop-in",
@@ -3901,7 +4046,7 @@
   "evidence_url": "https://thewallich.com/services/st-johns-wrexham/",
   "facilities": "Not stated",
   "groups": [],
-  "hours": "Not stated",
+  "hours": "Staffed 24 hours a day, 7 days a week",
   "lat": 53.050422,
   "lng": -2.992184,
   "name": "St John's Hostel (The Wallich)",
@@ -3912,7 +4057,8 @@
   "referral": "Referral from Wrexham County Borough Council Gateway homelessness team",
   "season": "Year-round",
   "verified_on": "2026-10-31",
-  "who_for": "Not stated"
+  "who_for": "Not stated",
+  "day_time_quote": "St John’s Hostel has support staff onsite, 24/7, 365 days a year."
  },
  "man-st-joseph-s-night-shelter-stonepillow": {
   "access": "Self referral or agency referral (council hostel list)",
@@ -3999,7 +4145,13 @@
   "evidence_url": "https://www.stwilfridscentre.org/contact-us",
   "facilities": "Not stated",
   "groups": [],
-  "hours": "Not stated",
+  "hours": {
+   "Mon": "10:00 - 15:30",
+   "Tue": "10:00 - 15:30",
+   "Wed": "10:00 - 15:30",
+   "Thu": "10:00 - 15:30",
+   "Fri": "10:00 - 15:30"
+  },
   "lat": 53.366789,
   "lng": -1.469197,
   "name": "St Wilfrid's Centre",
@@ -4010,7 +4162,8 @@
   "referral": "Drop in",
   "season": "Daytime only",
   "verified_on": "2026-10-31",
-  "who_for": "Not stated"
+  "who_for": "Not stated",
+  "day_time_quote": "Monday to Friday Centre opening hours: 10am to 3:30pm Office hours: 9am to 4:30pm"
  },
  "man-stonepillow-bognor-regis-hub": {
   "access": "Drop in",
@@ -4064,7 +4217,13 @@
   "groups": [
    "Young people 16-25"
   ],
-  "hours": "Not stated",
+  "hours": {
+   "Mon": "12:30 - 15:30",
+   "Tue": "12:30 - 15:30",
+   "Wed": "12:30 - 15:30",
+   "Thu": "12:30 - 15:30",
+   "Fri": "12:30 - 15:30"
+  },
   "lat": 53.820092,
   "lng": -3.044379,
   "name": "Streetlife - The Base (young people 16-25)",
@@ -4078,7 +4237,8 @@
   "who_for": [
    "Young people 16-25"
   ],
-  "kind": "young_people"
+  "kind": "young_people",
+  "day_time_quote": "Why not come to our friendly afternoon drop-in sessions? Mon-Fri at The Base, 12.30pm – 3:30pm"
  },
  "man-streets2homes-day-centre": {
   "access": "Register in person",
@@ -4088,7 +4248,13 @@
   "evidence_url": "https://streets2homes.co.uk/homeless-what-to-do/",
   "facilities": "Not stated",
   "groups": [],
-  "hours": "Not stated",
+  "hours": {
+   "Mon": "09:30 - 14:00",
+   "Tue": "09:30 - 14:00",
+   "Wed": "09:30 - 14:00",
+   "Thu": "09:30 - 14:00",
+   "Fri": "09:30 - 14:00"
+  },
   "lat": 51.772423,
   "lng": 0.09012,
   "name": "Streets2Homes Day Centre",
@@ -4099,7 +4265,8 @@
   "referral": "Register in person",
   "season": "Daytime only",
   "verified_on": "2026-10-31",
-  "who_for": "Not stated"
+  "who_for": "Not stated",
+  "day_time_quote": "please come to the Streets2Homes day centre between 9.30am-2pm Monday to Friday to register."
  },
  "man-sutton-night-watch-day-centre": {
   "access": "Drop-in",
@@ -4177,7 +4344,13 @@
   "evidence_url": "https://www.tauntonopendoor.org.uk/what-we-do/",
   "facilities": "Not stated",
   "groups": [],
-  "hours": "Not stated",
+  "hours": {
+   "Mon": "09:30 - 12:45",
+   "Tue": "09:30 - 12:45",
+   "Wed": "09:30 - 12:45",
+   "Thu": "09:30 - 12:45",
+   "Fri": "09:30 - 12:45"
+  },
   "lat": 51.011092,
   "lng": -3.100921,
   "name": "Taunton Open Door",
@@ -4188,7 +4361,8 @@
   "referral": "Drop in",
   "season": "Daytime only",
   "verified_on": "2026-10-31",
-  "who_for": "Not stated"
+  "who_for": "Not stated",
+  "day_time_quote": "01823 271996 Monday to Friday: 9.30am – 12.45pm"
  },
  "man-the-brick-queen-s-hall-action-on-poverty-day-centr": {
   "access": "Self-referral drop-in; ABEN beds via Wigan Housing Options homeless assessment",
@@ -4219,7 +4393,13 @@
   "evidence_url": "https://www.bridgeleicester.org/contact-us",
   "facilities": "Not stated",
   "groups": [],
-  "hours": "Not stated",
+  "hours": {
+   "Mon": "09:30 - 14:30",
+   "Tue": "10:15 - 14:30",
+   "Thu": "09:30 - 14:30",
+   "Fri": "09:30 - 14:30",
+   "Sat": "09:00 - 13:00"
+  },
   "lat": 52.642924,
   "lng": -1.126813,
   "name": "The Bridge Homelessness to Hope",
@@ -4230,7 +4410,8 @@
   "referral": "Drop-in 18+",
   "season": "Daytime only",
   "verified_on": "2026-10-31",
-  "who_for": "Not stated"
+  "who_for": "Not stated",
+  "day_time_quote": "Opening Times Monday 9.30 am - 2.30 pm Tuesday 10.15 am - 2.30 pm Thursday 9.30 am - 2.30 pm Friday 9.30 am - 2.30 pm Saturday 9am-1pm"
  },
  "man-the-chapman-centre-ihag": {
   "access": "Reception drop-in; support by appointment",
@@ -4262,7 +4443,7 @@
   "evidence_url": "https://www.falconsupportservices.org.uk/contact",
   "facilities": "Not stated",
   "groups": [],
-  "hours": "Not stated",
+  "hours": "Open 24 hours a day, 7 days a week",
   "lat": 52.771412,
   "lng": -1.202539,
   "name": "The Falcon Centre (Falcon Support Services)",
@@ -4273,7 +4454,8 @@
   "referral": "Walk-in: drop in 24/7 at 27-31 Pinfold Gate",
   "season": "Year-round",
   "verified_on": "2026-10-31",
-  "who_for": "Not stated"
+  "who_for": "Not stated",
+  "day_time_quote": "Drop in and see us 24/7 The Falcon Centre, 27-31 Pinfold Gate, Loughborough"
  },
  "man-the-ferry-project": {
   "access": "Phone or email the Hub (referral form on the page), then visit",
@@ -4389,7 +4571,13 @@
   "evidence_url": "https://swindonnightshelter.org.uk/",
   "facilities": "Not stated",
   "groups": [],
-  "hours": "Not stated",
+  "hours": {
+   "Mon": "09:30 - 14:00",
+   "Tue": "09:30 - 14:00",
+   "Wed": "09:30 - 14:00",
+   "Thu": "09:30 - 14:00",
+   "Fri": "09:30 - 14:00"
+  },
   "lat": 51.562886,
   "lng": -1.768474,
   "name": "The Haven Day Centre / Swindon Night Shelter",
@@ -4400,7 +4588,8 @@
   "referral": "Drop in; emergency beds via council Homelessness Team 01793 445500",
   "season": "Daytime only",
   "verified_on": "2026-10-31",
-  "who_for": "Not stated"
+  "who_for": "Not stated",
+  "day_time_quote": "Open Monday - Friday from 9.30am to 2pm. Serving breakfast and lunch."
  },
  "man-the-hope-centre-minehead": {
   "access": "Drop in",
@@ -4410,7 +4599,10 @@
   "evidence_url": "https://www.thehopecentreminehead.org.uk/",
   "facilities": "Not stated",
   "groups": [],
-  "hours": "Not stated",
+  "hours": {
+   "Tue": "10:30 - 14:00",
+   "Fri": "10:30 - 14:00"
+  },
   "lat": 51.206067,
   "lng": -3.481556,
   "name": "The Hope Centre Minehead",
@@ -4421,7 +4613,8 @@
   "referral": "Drop in",
   "season": "Daytime only",
   "verified_on": "2026-10-31",
-  "who_for": "Not stated"
+  "who_for": "Not stated",
+  "day_time_quote": "The Hope Centre is open in the Minehead Baptist Church Hall each Tuesday & Friday between 10.30am and 2pm."
  },
  "man-the-hope-hub": {
   "access": "Drop in; EAS via Surrey Heath BC",
@@ -4462,7 +4655,7 @@
   "evidence_url": "https://macari-foundation.co.uk/contact/",
   "facilities": "Not stated",
   "groups": [],
-  "hours": "Not stated",
+  "hours": "Open 24 hours a day, 7 days a week",
   "lat": 53.000341,
   "lng": -2.184114,
   "name": "The Macari Centre (Victoria)",
@@ -4473,7 +4666,8 @@
   "referral": "Self-referral and agency referral",
   "season": "Year-round",
   "verified_on": "2026-10-31",
-  "who_for": "Not stated"
+  "who_for": "Not stated",
+  "day_time_quote": "The Macari Centre (Victoria) in Stoke is open every day of the year, 24 hours a day, including Christmas Day"
  },
  "man-the-margins-project-union-chapel": {
   "access": "Drop-in",
@@ -4630,7 +4824,12 @@
   "evidence_url": "https://www.turnaround.org.uk/guests",
   "facilities": "Not stated",
   "groups": [],
-  "hours": "Not stated",
+  "hours": {
+   "Mon": "10:00 - 15:00",
+   "Tue": "10:00 - 15:00",
+   "Wed": "10:00 - 15:00",
+   "Thu": "10:00 - 15:00"
+  },
   "lat": 51.45754,
   "lng": -2.566426,
   "name": "Turnaround Centre (formerly Bristol Methodist Centre)",
@@ -4641,7 +4840,8 @@
   "referral": "Everyone welcome, drop-in",
   "season": "Daytime only",
   "verified_on": "2026-10-31",
-  "who_for": "Not stated"
+  "who_for": "Not stated",
+  "day_time_quote": "CURRENT OPENING TIMES The Turnaround Centre is open during the week Monday, 10 am - 3 pm ... Tuesday, 10 am - 3 pm ... Wednesday, 10 am - 3 pm ... Thursday, 10 am - 3 pm"
  },
  "man-turning-tides-st-clare-s-community-hub": {
   "access": "Drop in; route into Turning Tides accommodation",
@@ -4722,7 +4922,7 @@
   "evidence_url": "https://thewallich.com/services/ty-raena/",
   "facilities": "Not stated",
   "groups": [],
-  "hours": "Not stated",
+  "hours": "Staffed 24 hours a day",
   "lat": 51.590886,
   "lng": -3.778772,
   "name": "Ty Raena (The Wallich)",
@@ -4733,7 +4933,8 @@
   "referral": "Referral via Neath Port Talbot gateway (spgateway@npt.gov.uk)",
   "season": "Year-round",
   "verified_on": "2026-10-31",
-  "who_for": "Not stated"
+  "who_for": "Not stated",
+  "day_time_quote": "As well as housing and 24-hour support, residents can take part in wellbeing activities"
  },
  "man-ty-tom-jones-the-wallich": {
   "access": "Contact service",
@@ -4781,7 +4982,9 @@
   "evidence_url": "https://www.urbanoutreach.co.uk/street-life/",
   "facilities": "Not stated",
   "groups": [],
-  "hours": "Not stated",
+  "hours": {
+   "Wed": "13:00 - 15:00"
+  },
   "lat": 53.582993,
   "lng": -2.438192,
   "name": "Urban Outreach - Street Life drop-in (Amber Centre)",
@@ -4792,7 +4995,8 @@
   "referral": "Drop-in session; referral into Street Life made there. Homeless: Bolton Housing Options 01204 335900",
   "season": "Daytime only",
   "verified_on": "2026-10-31",
-  "who_for": "Not stated"
+  "who_for": "Not stated",
+  "day_time_quote": "Every Wednesday afternoon, between 1.00pm and 3.00pm, Street Life operates a drop-in at our Amber Centre on Snowden Street."
  },
  "man-victoria-house": {
   "access": "Council temporary accommodation",
@@ -4916,7 +5120,7 @@
   "evidence_url": "https://www.ymcabournemouth.org.uk/housing/housing-support/",
   "facilities": "Not stated",
   "groups": [],
-  "hours": "Not stated",
+  "hours": "Staffed 24 hours a day, 7 days a week",
   "lat": 50.718214,
   "lng": -1.873147,
   "name": "YMCA Bournemouth Delta House Hostel",
@@ -4927,7 +5131,8 @@
   "referral": "73 BCP-funded beds; referrals only from SP Hub (BCP housing 01202 123147)",
   "season": "Year-round",
   "verified_on": "2026-10-31",
-  "who_for": "Not stated"
+  "who_for": "Not stated",
+  "day_time_quote": "24/7 support on-site"
  },
  "man-ymca-cardiff-the-walk": {
   "access": "Referrals exclusively through Cardiff Council's Single Person's Gateway",
@@ -6122,13 +6327,14 @@
   "groups": [
    "Men"
   ],
-  "hours": "",
+  "hours": "Open 24 hours a day, 7 days a week",
   "season": "Year-round",
   "kind": "hostel",
   "address": "104 Denmark Road, Manchester",
   "postcode": "M15 6JS",
   "lat": 53.461133,
-  "lng": -2.240655
+  "lng": -2.240655,
+  "day_time_quote": "Opening hours: 24 hours a day, 7 days a week (Manager and support staff enquiries: Monday to Friday, 9am to 5pm)"
  },
  "man-ss-st-georges-crypt-leeds": {
   "access": "By referral through Leeds Housing Options (0113 222 4412, 9am-5pm Mon-Fri).",
@@ -6170,13 +6376,14 @@
   "groups": [
    "Families"
   ],
-  "hours": "",
+  "hours": "Staffed 24 hours a day, 7 days a week",
   "season": "Year-round",
   "kind": "hostel",
   "address": "7-9 Belvidere Road, Princes Park, Liverpool",
   "postcode": "L8 3TF",
   "lat": 53.384874,
-  "lng": -2.957125
+  "lng": -2.957125,
+  "day_time_quote": "delivering accommodation-based housing-related support 24 hours a day, 7 days a week"
  },
  "man-ss-signposts-start-over-shelter": {
   "access": "Single people aged 21+: call 01582 722629 and press 1 for advice and admissions.",
@@ -6266,13 +6473,14 @@
   "facilities": "Not stated",
   "who_for": "Not stated",
   "groups": [],
-  "hours": "",
+  "hours": "Open 24 hours a day, 7 days a week",
   "season": "Year-round",
   "kind": "hostel",
   "address": "770 London Road, Wilmorton, Derby",
   "postcode": "DE24 8UT",
   "lat": 52.905804,
-  "lng": -1.451574
+  "lng": -1.451574,
+  "day_time_quote": "YMCA Derbyshire is open 24/7, 365 days a year."
  },
  "man-ss-bethany-house-edinburgh": {
   "access": "Referral through the City of Edinburgh Council.",
@@ -6590,13 +6798,14 @@
   "groups": [
    "Men"
   ],
-  "hours": "",
+  "hours": "Staffed 24 hours a day",
   "season": "Year-round",
   "kind": "hostel",
   "address": "Walker Street, Rochdale",
   "postcode": "OL16 2AB",
   "lat": 53.614671,
-  "lng": -2.147129
+  "lng": -2.147129,
+  "day_time_quote": "24-hour staffing"
  },
  "man-ss-ssj-10-southampton-street": {
   "access": "Referral from Southampton's Street Homeless Prevention Team (023 8083 2343) or a local agency.",

@@ -27969,5 +27969,25 @@
     ]
    ]
   }
+ },
+ "bexhill/sidley": {
+  "card_name": "Sidley",
+  "checked_date": "2026-11-03",
+  "matched_by": "postcode",
+  "quote": [
+   "Sidley Hub Canada Way (Off Buxton Drive) Sidley, Bexhill-on-Sea, East Sussex TN39 4FL Get directions Collection only Collection times Closed today Monday-Thursday Closed Friday 10:00 am to 11:30 am Saturday-Sunday Closed"
+  ],
+  "raw": "Friday 10:00 am to 11:30 am",
+  "reader": "hand-reviewed 2026-11-03 (rule 85 backfill; read on the food bank's own voucher page)",
+  "source_url": "https://bexhill.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "10:00",
+     "11:30"
+    ]
+   ]
+  }
  }
 }
