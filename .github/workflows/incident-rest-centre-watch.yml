@@ -2,26 +2,35 @@ name: Incident rest centre watch (every 10 min)
 # Reads Met Office, Environment Agency, SEPA, Natural Resources Wales and UK Emergency Alerts.
 # Amber, red, or a severe flood warning (level red on those feeds) re-scans only that council's
 # rest centre pages. No warning and no open rest centre: no council pages are fetched.
-# Publishes only when the live file or switch-on state changes. One open alert issue if the run errors.
+# Publishes only when the live file or switch-on state changes. One open alert issue if a check errors.
+# GitHub's scheduler often starts only a few dozen of a */10 cron (28 runs in one day). This job
+# repeats the check every 10 minutes until near the 6-hour limit, then starts the next run itself.
+# The cron is the backup if that chain has stopped. One run at a time, so a queued cron does not
+# double-fetch. A push of these scheduling files starts the chain; later data commits do not.
 on:
   schedule:
     - cron: "*/10 * * * *"
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/incident-rest-centre-watch.yml
+      - scripts/incident_rest_centre_watch_loop.sh
+      - scripts/incident_rest_centre_schedule.py
 permissions:
   contents: write
   issues: write
+  actions: write   # gh workflow run, to start the next loop
 concurrency:
   group: incident-rest-centre-watch
   cancel-in-progress: false
 jobs:
   watch:
     runs-on: ubuntu-latest
-    timeout-minutes: 4
+    timeout-minutes: 360
     steps:
       - uses: actions/checkout@v4
         with: {fetch-depth: 0}
-      - name: Remember the published map
-        run: echo "LIVE_BASELINE=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -30,40 +39,34 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           NRW_FLOOD_API_KEY: ${{ secrets.NRW_FLOOD_API_KEY }}
-        run: python scripts/incident_rest_centre_watch.py
-      - name: Commit and deploy only if the live file or state changed
-        id: commit
-        if: steps.watch.outcome == 'success'
+          BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
+        run: bash scripts/incident_rest_centre_watch_loop.sh
+      - name: Start the next check before this job hits the 6-hour limit
+        if: ${{ always() && (steps.watch.outcome == 'success' || steps.watch.outcome == 'failure') }}
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
-          bash scripts/git_add_existing.sh incident_rest_centre_live.json incident_rest_centre_live.js logs/incident_rest_centre_live_state.json logs/incident_rest_centre_switch_state.json logs/incident_rest_centre_pages.json reports/pending_dean.md
-          if git diff --cached --quiet; then echo "No change"; exit 0; fi
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "Incident rest centre watch $(date -u +%F-%H%M)"
-          in_rebase() { [ -d "$(git rev-parse --git-path rebase-merge)" ] || [ -d "$(git rev-parse --git-path rebase-apply)" ]; }
-          for n in 1 2 3; do
-            if git pull --rebase --autostash && git push; then exit 0; fi
-            if in_rebase && { bash scripts/refresh_rebase_conflicts.sh; GIT_EDITOR=true git rebase --continue; } && git push; then exit 0; fi
-            git rebase --abort 2>/dev/null || true
+          set -uo pipefail
+          stamp="${RUNNER_TEMP}/incident-watch-start"
+          if [ -f "$stamp" ]; then start=$(cat "$stamp"); else start=$(date +%s); fi
+          elapsed=$(( $(date +%s) - start ))
+          if [ "$elapsed" -lt 0 ]; then elapsed=0; fi
+          wait=$(python scripts/incident_rest_centre_schedule.py wait "$elapsed")
+          ref="${GITHUB_REF_NAME}"
+          requested=0
+          for n in 1 2 3 4 5; do
+            if gh workflow run incident-rest-centre-watch.yml --ref "$ref"; then
+              echo "Next incident rest centre watch requested on ${ref}"
+              requested=1
+              break
+            fi
+            echo "::warning::could not request the next run (try ${n})"
             sleep $((n * 5))
           done
-          echo "::error::incident rest centre watch could not be pushed"
-          exit 1
-      - name: New place email (fail-safe)
-        if: always() && steps.commit.outcome == 'success'
-        continue-on-error: true
-        env:
-          BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
-        run: python scripts/new_live_email.py --layers emergency --baseline "$LIVE_BASELINE" --send || true
-      - name: Alert - incident rest centre watch failed
-        if: failure()
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          echo "::error::Incident rest centre watch failed"
-          python scripts/alert.py open incident-watch "Incident rest centre watch failed" "The 10-minute rest centre (council-run) watch did not finish. Open the run log. A later successful run closes this issue."
-      - name: Clear the watch alert after a good run
-        if: success()
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: python scripts/alert.py resolve incident-watch
+          if [ "$requested" -ne 1 ]; then
+            echo "::error::could not start the next incident rest centre watch"
+            exit 1
+          fi
+          # The queued run cannot start until this job leaves the concurrency group.
+          echo "Last check started ${elapsed}s ago; holding ${wait}s so the next one is about 10 minutes after it"
+          sleep "$wait"
