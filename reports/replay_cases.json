@@ -223,7 +223,7 @@
 {
 "access": "unclear",
 "hours_hash": "",
-"http": 200,
+"http": null,
 "phones": [],
 "url": "http://www.raftfoundation.org"
 },
@@ -306,7 +306,7 @@
 },
 {
 "access": "walkin",
-"hours_hash": "9444d28349f0",
+"hours_hash": "95147c158388",
 "http": 200,
 "phones": [
 "07973166940"
@@ -396,7 +396,7 @@
 {
 "access": "voucher",
 "hours_hash": "",
-"http": 200,
+"http": null,
 "phones": [],
 "url": "https://abergeledistrict.foodbank.org.uk"
 },
@@ -448,7 +448,7 @@
 {
 "access": "unclear",
 "hours_hash": "",
-"http": 200,
+"http": null,
 "phones": [
 "02088255588",
 "02088257819",
@@ -1627,7 +1627,7 @@
 "url": "https://cobhamarea.foodbank.org.uk"
 },
 {
-"access": "voucher",
+"access": "unclear",
 "hours_hash": "",
 "http": 200,
 "phones": [
@@ -2515,7 +2515,7 @@
 "url": "https://fosse.foodbank.org.uk"
 },
 {
-"access": "voucher",
+"access": "unclear",
 "hours_hash": "5c402cdc2b05",
 "http": 200,
 "phones": [],
@@ -2770,9 +2770,12 @@
 },
 {
 "access": "unclear",
-"hours_hash": "",
-"http": null,
-"phones": [],
+"hours_hash": "1649b5fb049d",
+"http": 200,
+"phones": [
+"02083050520",
+"02088503855"
+],
 "url": "https://greenwich.foodbank.org.uk"
 },
 {
@@ -3060,7 +3063,7 @@
 {
 "access": "unclear",
 "hours_hash": "",
-"http": 429,
+"http": 200,
 "phones": [
 "07463942463",
 "07859905903"
@@ -3372,7 +3375,7 @@
 "url": "https://landportra.wordpress.com/2016/05/31/landport-foodbank/"
 },
 {
-"access": "voucher",
+"access": "unclear",
 "hours_hash": "",
 "http": 200,
 "phones": [],
@@ -3540,7 +3543,7 @@
 "url": "https://liphookfoodbank.com"
 },
 {
-"access": "voucher",
+"access": "unclear",
 "hours_hash": "",
 "http": 200,
 "phones": [],
@@ -3835,8 +3838,8 @@
 },
 {
 "access": "unclear",
-"hours_hash": "220a4636eee6",
-"http": 200,
+"hours_hash": "",
+"http": null,
 "phones": [
 "01908322800",
 "07874964505"
@@ -4183,8 +4186,8 @@
 },
 {
 "access": "walkin",
-"hours_hash": "7774a5b35425",
-"http": 200,
+"hours_hash": "",
+"http": 429,
 "phones": [
 "07723121794"
 ],
@@ -4217,8 +4220,8 @@
 },
 {
 "access": "unclear",
-"hours_hash": "6772ed003fcb",
-"http": 200,
+"hours_hash": "",
+"http": null,
 "phones": [
 "01389717792",
 "07368496836",
@@ -4323,8 +4326,8 @@
 },
 {
 "access": "mixed",
-"hours_hash": "",
-"http": null,
+"hours_hash": "6bc0057e3221",
+"http": 200,
 "phones": [
 "01646699275"
 ],
@@ -4410,7 +4413,7 @@
 "url": "https://plympton.foodbank.org.uk"
 },
 {
-"access": "unclear",
+"access": "voucher",
 "hours_hash": "f974009eef8a",
 "http": 200,
 "phones": [

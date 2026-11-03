@@ -1,6 +1,6 @@
-# Refresh guard: foodbanks (2026-11-03T15:11:05+00:00)
+# Refresh guard: foodbanks (2026-11-03T22:51:12+00:00)
 
-foodbanks: kept 3 places, 0 phones, 32 opening times that this run would have dropped. Previous values were kept and published; please check why the source lost them.
+foodbanks: kept 3 places, 0 phones, 31 opening times that this run would have dropped. Previous values were kept and published; please check why the source lost them.
 
 ## places kept (3)
 
@@ -8,7 +8,7 @@ foodbanks: kept 3 places, 0 phones, 32 opening times that this run would have dr
 - ifan-e0054aa041ea174c4f6921-0
 - ifan-efde0ad76e7a121fb1cf96-0
 
-## times kept (32)
+## times kept (31)
 
 - godalming
 - kintyre
@@ -21,7 +21,6 @@ foodbanks: kept 3 places, 0 phones, 32 opening times that this run would have dr
 - community-works
 - alnwick-district
 - klsb
-- st-james-thornton
 - earlsfield
 - whitby
 - honiton
