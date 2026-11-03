@@ -4,7 +4,7 @@ Instagram in-app browser UA at 390px: first install an OLD release (service work
 request routing), then open the link against the current site and check the map and listings render with no page errors and the
 current build. Usage: python scripts/old_links.py [BASE_URL] (default: local checkout). Exit 1 on any failure.
 Report: reports/old_links.md + logs/old_links.json."""
-import functools, http.server, json, mimetypes, os, subprocess, sys, tempfile, threading
+import functools, http.server, json, mimetypes, os, subprocess, sys, tempfile, threading, time
 from playwright.sync_api import sync_playwright
 import check_browser as B
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
