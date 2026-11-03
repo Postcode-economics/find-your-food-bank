@@ -15,7 +15,7 @@ Journeys (each counted pass/fail):
   J7 phone: one-finger drag on the map shows the two-finger note.
 Usage: journeys.py [base-url]   (default: serve this checkout locally). Exit 1 on any failure.
 Results: reports/journeys.md, logs/journeys.json, screenshots of failures in logs/journeys/."""
-import functools, http.server, json, os, sys, threading, time
+import copy, functools, http.server, json, os, sys, threading, time
 import check_browser as B
 ROOT = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
 SHOTS = os.path.join(ROOT, 'logs', 'journeys')
@@ -76,16 +76,16 @@ def scenario(r, journey, tag, body):
         r.ok(journey, tag, False, 'suite time limit (14 min)'); return
     # 3 Nov: a page that crashes or times out (e.g. a slow Warm spaces load) gets ONE fresh retry.
     # Results from the failed attempt are discarded; a failed assertion (no exception) is never retried.
-    import copy
     for attempt in (1, 2):
-        snap = copy.deepcopy(r.res)
+        snap = copy.deepcopy(r.res); fails0 = sum(v['fail'] for v in r.res.values())
         box = {'c': None, 'pg': None}
         try:
             body(box); return
         except Exception as e:
-            if box['pg'] is not None: shot(box['pg'], tag)
+            if box['pg'] is not None: shot(box['pg'], tag + ('' if attempt == 1 else ' retry'))
             msg = str(e).splitlines()[0][:240]
-            if attempt == 1 and time.time() <= scenario.deadline:
+            clean = sum(v['fail'] for v in r.res.values()) == fails0  # a check already failed on this try: never retry it away
+            if attempt == 1 and clean and time.time() <= scenario.deadline:
                 r.res = snap; print(' RETRY', journey, '-', tag + ': ' + msg, flush=True)
             else:
                 r.ok(journey, tag, False, msg); return
