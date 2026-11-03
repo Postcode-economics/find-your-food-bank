@@ -77,6 +77,8 @@ def place_problem(x, r, OUT, state):
         return f"{OUT}: {x['id']} kept through blocked fetch but not eligible: {why}" if why else None
     if x.get("grace"):
         return None  # the build kept it; there is no grace expiry
+    if x.get("verified_fallback") and x.get("verified") and x.get("evidence_url"):
+        return None  # hand-verified, approved new place published from its verified data after a failed read
     if not r or not r.get("ok"):
         if OUT == "warmspaces.js" and x.get("carried_forward"):
             if state["lg"] is None: state["lg"] = carry_log()
