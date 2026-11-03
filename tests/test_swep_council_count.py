@@ -12,6 +12,9 @@ class T(unittest.TestCase):
         for f in ('index.html', os.path.join('scripts', 'seo_meta.py')):
             t = open(os.path.join(ROOT, f)).read()
             self.assertIn('all %d UK councils' % n, t, f)
-        self.assertIn('<span data-n="swep-councils">%d</span>' % n, open(os.path.join(ROOT, 'faq.html')).read())
+        faq = open(os.path.join(ROOT, 'faq.html')).read()
+        self.assertIn('<span data-n="swep-councils">%d</span>' % n, faq)
+        import re
+        self.assertEqual(set(re.findall(r'every UK council \((\d+)\)', faq)), {str(n)})
 
 if __name__ == '__main__': unittest.main()
