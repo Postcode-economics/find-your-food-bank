@@ -332,3 +332,21 @@ def fill_referral_routes(items):
         if x.get("card_type") == "referral_hostel" and not x.get("referral_route") and x.get("referral"):
             x["referral_route"] = x["referral"]; fixed.append(x.get("id"))
     return fixed
+
+VERIFIED_RESTORE_FIELDS = ("name", "phone", "address", "postcode", "lat", "lng", "access", "access_type", "referral", "evidence_url", "evidence_name")
+def restore_verified_fields(items, verified):
+    """Repair, don't drop (rule 82, Dean 3 Nov 2026): a hand-checked card whose field is missing or empty gets that
+    field back from its own verified data (as PR #403 publishes from it). Never overwrites a value and never
+    invents one. Referral cards also get referral_route from the verified referral line. Returns ids repaired."""
+    fixed = []
+    for x in items:
+        v = (verified or {}).get(x.get("id"))
+        if not isinstance(v, dict) or not v.get("verified_on"): continue
+        hit = False
+        for k in VERIFIED_RESTORE_FIELDS:
+            if x.get(k) in (None, "") and v.get(k) not in (None, ""):
+                x[k] = v[k]; hit = True
+        if x.get("card_type") == "referral_hostel" and not x.get("referral_route") and (x.get("referral") or v.get("referral")):
+            x["referral_route"] = x.get("referral") or v["referral"]; hit = True
+        if hit: fixed.append(x.get("id"))
+    return fixed
