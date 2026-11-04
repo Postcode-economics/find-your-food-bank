@@ -404,6 +404,8 @@ def card_from_source(src, now, warning_end=None, nation="england", postcode=None
     src = src or {}
     if src.get("kind") == "day_centre" or src.get("service") == "day_centre":
         return {"publish": "hold", "tell_dean": "a day centre is daytime help with no overnight bed", "card": None}
+    if src.get("kind") == "advice_service":
+        return {"publish": "hold", "tell_dean": "an advice service has no beds, food or drop-in", "card": None}
     if src.get("kind") == "young_people":
         return {"publish": "hold", "tell_dean": "young people's housing is referral-only, not an emergency bed", "card": None}
     if src.get("example"): return {"publish": "hold", "tell_dean": "example data is never listed", "card": None}
