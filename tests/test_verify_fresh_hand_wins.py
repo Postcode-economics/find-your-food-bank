@@ -15,15 +15,20 @@ class VerifyFreshHandWins(unittest.TestCase):
         json.dump(manual, open(os.path.join(d, "overrides", "shelters_manual.json"), "w"))
         json.dump({}, open(os.path.join(d, "overrides", "shelters_verified.json"), "w"))
         open(os.path.join(d, "shelters.js"), "w").write(js(published))
-        e = {"cwd": d, "stdout": subprocess.DEVNULL, "stderr": subprocess.DEVNULL}
-        subprocess.run(["git", "init", "-q"], **e); subprocess.run(["git", "-c", "user.email=t@t", "-c", "user.name=t", "add", "-A"], **e)
-        subprocess.run(["git", "-c", "user.email=t@t", "-c", "user.name=t", "commit", "-qm", "pub"], **e)
+        env = {k: v for k, v in os.environ.items() if not k.startswith("GIT_")}
+        env.update(GIT_CONFIG_NOSYSTEM="1", GIT_CONFIG_GLOBAL=os.devnull)
+        e = {"cwd": d, "capture_output": True, "text": True, "env": env, "check": True}
+        subprocess.run(["git", "init", "-q"], **e); subprocess.run(["git", "add", "-A"], **e)
+        subprocess.run(["git", "-c", "user.email=t@t", "-c", "user.name=t", "-c", "commit.gpgsign=false", "commit", "-qm", "pub"], **e)
+        # the published copy must be readable at HEAD, or verify_fresh has nothing to protect and this test proves nothing
+        self.assertIn('"id":"b"', subprocess.run(["git", "show", "HEAD:shelters.js"], **e).stdout)
         open(os.path.join(d, "shelters.js"), "w").write(js(built))
         now = datetime.datetime.now(datetime.timezone.utc).isoformat()
         log = {"_run": {"fetched_at": now}}
         for b in built: log[b["id"]] = {"ok": True, "fetched_at": b.get("fetched_at")}
         json.dump(log, open(os.path.join(d, "logs", "shelters_log.json"), "w"))
-        subprocess.run([sys.executable, "scripts/verify_fresh.py", "shelters"], cwd=d, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        vf = subprocess.run([sys.executable, "scripts/verify_fresh.py", "shelters"], cwd=d, capture_output=True, text=True, env=env)
+        self.vf_out = vf.stdout + vf.stderr
         t = open(os.path.join(d, "shelters.js")).read()
         return {i["id"]: i for i in json.loads(t[t.index("{"):t.rindex("}") + 1])["items"]}
 
@@ -36,7 +41,7 @@ class VerifyFreshHandWins(unittest.TestCase):
         self.assertEqual(out["a"]["address"], "1 Rd, Hulme")
         self.assertEqual(out["a"]["hours"], "Staffed 24/7")
         self.assertEqual(out["a"]["phone"], "0161 000 0000")
-        self.assertEqual(out["b"]["address"], "2 Rd")
+        self.assertEqual(out["b"]["address"], "2 Rd", getattr(self, "vf_out", ""))
         self.assertEqual(out["b"]["hours"], "")
 
 if __name__ == "__main__":
