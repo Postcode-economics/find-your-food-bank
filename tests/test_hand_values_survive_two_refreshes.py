@@ -51,7 +51,8 @@ class TwoRefreshes(unittest.TestCase):
                 if json.dumps(got.get(f)) != json.dumps(want): lost.append((m["id"], f, want, got.get(f)))
             if m.get("no_pin"):
                 for f in ("lat", "lng", "postcode"):
-                    if f in got: lost.append((m["id"], f, "absent on no_pin", got[f]))
+                    # keys stay present but empty (missing lat broke nearest-first sort / KeyError in build)
+                    if got.get(f, "MISSING") not in ("", None): lost.append((m["id"], f, "empty on no_pin", got.get(f, "MISSING")))
         self.assertEqual(lost, [])
 
 if __name__ == "__main__":
