@@ -209,7 +209,7 @@ STRIP_JS = r"""async ()=>{const bad=[];
 # Footer map key (Dean 1 Nov 2026): rows must not overlap each other or the Data attribution line.
 KEY_JS = r"""()=>{const bad=[];
  const rows=[...document.querySelectorAll('#xupd .xkey-row')];
- if(rows.length!==5) bad.push('key rows '+rows.length);
+ if(rows.length!==6) bad.push('key rows '+rows.length);  // 6 since 4 Nov 2026: Advice service row (Dean)
  const hit=(a,b,g=2)=>{const ra=a.getBoundingClientRect(),rb=b.getBoundingClientRect();
   return ra.width>1&&rb.width>1&&!(ra.bottom<=rb.top+g||rb.bottom<=ra.top+g)};
  for(let i=0;i<rows.length-1;i++) if(hit(rows[i],rows[i+1])) bad.push('key row '+i+' overlaps '+(i+1));
@@ -225,8 +225,10 @@ KEY_JS = r"""()=>{const bad=[];
   const ico=row.querySelector('.xkey-ico svg,.xkey-ico .sw'); if(!ico) bad.push('row '+i+' missing icon');}
  const sh=rows[2], day=rows[3], youth=rows[4], ws=rows[1];
  const order=rows.map(r=>{const b=r.querySelector('b[data-t]');return b?b.dataset.t:null});
- if(JSON.stringify(order)!=='["fb","ws","sh","dayCentre","youth"]') bad.push('key order '+JSON.stringify(order));
+ if(JSON.stringify(order)!=='["fb","ws","sh","dayCentre","youth","adviceService"]') bad.push('key order '+JSON.stringify(order));
  if(ws&&!ws.querySelector('.xkey-ico svg path[d*="27.8"], .xkey-ico svg path[d*="M16 4"]')) bad.push('warm spaces key missing diamond symbol');
+ const adv=rows[5];
+ if(adv&&adv.getAttribute('data-sym')!=='info') bad.push('advice service key missing info symbol');
  const fb=rows[0];
  if(fb&&!fb.querySelector('.xkey-ico svg path[d*="9.8"], .xkey-ico svg path[d*="M16 5"]')) bad.push('food bank key missing teardrop symbol');
  if(sh&&!sh.querySelector('.xkey-ico svg path[d*="15.5"]')) bad.push('shelters key missing house symbol');
