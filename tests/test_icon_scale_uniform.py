@@ -15,7 +15,7 @@ BOX_CHECK = r"""() => {
   const bad = [];
   const keyWant = [28, 34, 28, 28, 28];
   const keySvgs = [...document.querySelectorAll('#xupd .xkey-row .xkey-ico svg')];
-  if (keySvgs.length !== 5) bad.push('key rows ' + keySvgs.length);
+  if (keySvgs.length !== 6) bad.push('key rows ' + keySvgs.length);  // 6 since 4 Nov 2026: Advice service key row
   else keySvgs.forEach((s, i) => {
     const b = s.getBoundingClientRect();
     if (Math.abs(b.width - keyWant[i]) > tol || Math.abs(b.height - keyWant[i]) > tol)
