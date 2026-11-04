@@ -1,11 +1,117 @@
-# shelters: kept on 48-hour grace (2026-11-04T00:00:00+00:00)
+# shelters: kept on 48-hour grace (2026-11-03T21:52:58+00:00)
 
 Source page briefly unreachable this run; kept because it was confirmed within the last 48 hours.
 
-- New (man-ss-x): kept, fetch blocked (HTTP 403); last confirmed 2026-11-01 (72.0h ago)
+- Swan Lodge (osm-way-1158181491): kept, fetch blocked (OpenStreetMap-only: own-site page does not show this place's postcode or street address this run); last confirmed 2026-10-31 (71.0h ago)
+- St Anne's Hostel (hl-st-annes-hostel-birmingham): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-11-01 (7.0h ago)
+- One YMCA Watford Hostel (Charter House) (man-ymca-watford-charter): kept, fetch blocked (published times not found on source this run); last confirmed 2026-11-01 (15.3h ago)
+- The Connection at St Martin's (man-connection-st-martins): kept, fetch blocked (schema: hours value invalid: Wed=Morning: women only); last confirmed  (Noneh ago)
+- Brighton and Hove Foyer (man-brighton-hove-foyer): kept, fetch blocked (schema: postcode invalid); last confirmed  (Noneh ago)
+- Positive Pathways drop-in (Depaul) (man-positive-pathways-drop-in-depaul): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-10-31 (93.9h ago)
+- Dominion Community Hub (man-dominion-community-hub): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-10-31 (93.9h ago)
+- The Brick (Queen's Hall Action on Poverty) day centre (man-the-brick-queen-s-hall-action-on-poverty-day-centr): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-10-31 (93.9h ago)
+- Providence Row (Dellow Centre) (man-providence-row-dellow-centre): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-10-31 (93.9h ago)
+- HARP Bradbury Day Centre (man-harp-bradbury-day-centre): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-10-31 (93.9h ago)
+- Trafalgar House (Sanctuary) (man-trafalgar-house-sanctuary): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-10-31 (93.9h ago)
+- Home4Good Centre (Dunfermline) (man-home4good-centre-dunfermline): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-10-31 (93.9h ago)
+- Victoria House (man-victoria-house): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-10-31 (93.9h ago)
+- Oak House (Homeless Action) (man-oak-house-homeless-action): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-10-31 (93.9h ago)
+- Dawn Centre - Temporary Accommodation Project (hl-dawn-centre-temporary-accommodation-project): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-10-31 (93.9h ago)
+- Paradigm Housing Group - Lea Bridge House Hostel (hl-paradigm-housing-group-lea-bridge-house-hostel): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-10-31 (7.0h ago)
+- St Mungo's - Longhills (hl-st-mungos-longhills): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-10-31 (7.0h ago)
+- Stonepillow - Bognor Hostel (hl-stonepillow-bognor-hostel): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-10-31 (7.0h ago)
+- Lancaster & District Homeless Action Service (man-google-lancaster-district-homeless-action-service): kept, fetch blocked (source unreachable this run (HTTP error)); last confirmed 2026-11-01 (69.9h ago)
+- Whitechapel Mission Day Centre (man-google-day-centre): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-11-01 (69.9h ago)
+- KiP Telford (man-kip-telford): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-11-01 (69.9h ago)
+- Nomad Centre (YMCA Lincolnshire) (man-nomad-centre-ymca-lincolnshire): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-11-01 (69.9h ago)
+- Belvidere Family Centre (families) (man-ss-belvidere-family-centre): kept, fetch blocked (schema: referral requirement not stated); last confirmed 2026-11-02 (Noneh ago)
+- Project 394 (Riverside, women) (man-ss-riverside-project-394): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-11-02 (Noneh ago)
+- Elm House (Homeless Action) (man-ss-homeless-action-elm-house): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-11-02 (Noneh ago)
+- Holly House (Homeless Action) (man-ss-homeless-action-holly-house): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-11-02 (Noneh ago)
+- Dunedin Harbour hostel (Wheatley Homes East) (man-ss-wheatley-dunedin-harbour): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-11-02 (Noneh ago)
+- Leeds Street (You Matter, formerly YMCA Together) (man-ss-ymca-together-leeds-street): kept, fetch blocked (schema: referral requirement not stated); last confirmed 2026-11-02 (Noneh ago)
+- Wilson Carlile House (Riverside, men 18+) (man-ss-riverside-wilson-carlile-house): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-11-02 (Noneh ago)
+- SPIN hostel (Supporting People in Need) (man-ss-spin-supporting-people-in-need): kept, fetch blocked (schema: referral requirement not stated); last confirmed 2026-11-02 (Noneh ago)
+- 10 Southampton Street hostel (Society of St James) (man-ss-ssj-10-southampton-street): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-11-03 (7.0h ago)
+- Somers Road (Portsmouth Churches HA, women) (man-ss-pcha-somers-road): kept, fetch blocked (schema: referral requirement not stated); last confirmed 2026-11-02 (Noneh ago)
+- Jimmy's Cambridge emergency accommodation (man-ss-jimmys-cambridge-east-road): kept, fetch blocked (schema: referral requirement not stated); last confirmed 2026-11-02 (Noneh ago)
+- St Basils Milner Court (18-25) (man-ss-st-basils-milner-court): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-11-03 (7.0h ago)
+- St Basils Yardley House (16-24) (man-ss-st-basils-yardley-house): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-11-03 (7.0h ago)
+- The Saviour Trust supported accommodation (man-ss-saviour-trust-pontefract): kept, fetch blocked (schema: referral requirement not stated); last confirmed 2026-11-02 (Noneh ago)
 
 ## Held this run (not published)
 
 A place that was not on the map, whose page could not be read, is left out of this run. A place already on the map stays until its own source says it has closed. There is no 48-hour or 14-day expiry.
 
-None this run.
+- North Hertfordshire Sanctuary (osm-node-839135604): held this run: read failed, not published before
+- The Gap Centre (osm-node-1243077938): held this run: read failed, not published before
+- HARP (osm-node-3126125844): held this run: read failed, not published before
+- Julian House (osm-node-3724769904): held this run: read failed, not published before
+- Willow Lodge (osm-node-4490110694): held this run: read failed, not published before
+- Alms Houses (osm-node-5048168684): held this run: read failed, not published before
+- Foyer (osm-node-5113222471): held this run: read failed, not published before
+- Home 4 Good (osm-node-6480884322): held this run: read failed, not published before
+- House The Homeless (osm-node-7257703002): held this run: read failed, not published before
+- The Wellspring Stockport (osm-node-9067373694): held this run: read failed, not published before
+- Pobl Clifton Place (osm-node-9596043207): held this run: read failed, not published before
+- The Wallich (osm-node-9696469499): held this run: read failed, not published before
+- The Shrewsbury Ark (osm-node-11702060791): held this run: read failed, not published before
+- Llamau (osm-node-11815272405): held this run: read failed, not published before
+- Sandwood House (osm-node-12804949354): held this run: read failed, not published before
+- 999 Club (osm-node-12876936676): held this run: read failed, not published before
+- Open Door (osm-node-13078865908): held this run: read failed, not published before
+- Help The Homeless Leicester (osm-node-13661455428): held this run: read failed, not published before
+- Centrepoint (osm-node-14178877191): held this run: read failed, not published before
+- Queens Hotel (osm-way-32349145): held this run: read failed, not published before
+- Derby City Mission (osm-way-56777384): held this run: read failed, not published before
+- YMCA London City and North (osm-way-81353303): held this run: read failed, not published before
+- Guildry House (osm-way-86915090): held this run: read failed, not published before
+- O'Hanlon House (osm-way-97716790): held this run: read failed, not published before
+- The Queens Arms (osm-way-97799459): held this run: read failed, not published before
+- Ben's Centre (osm-way-103443901): held this run: read failed, not published before
+- St Martins House Under 1 Roof (osm-way-112817892): held this run: read failed, not published before
+- Riverside (osm-way-136647984): held this run: read failed, not published before
+- Evolve Housing (osm-way-147871099): held this run: read failed, not published before
+- Catching Lives (osm-way-152789142): held this run: read failed, not published before
+- Wirral Ark (osm-way-157731534): held this run: read failed, not published before
+- Centrepoint Camberwell Foyer (osm-way-171300312): held this run: read failed, not published before
+- St. Mungo's Broadway (osm-way-172932545): held this run: read failed, not published before
+- Saint Wilfrid's Centre (osm-way-173078399): held this run: read failed, not published before
+- Fairholme House (osm-way-318977041): held this run: read failed, not published before
+- Aidan House (osm-way-327576971): held this run: read failed, not published before
+- Roffey Place (osm-way-369362320): held this run: read failed, not published before
+- The Beacon Centre (osm-way-379771476): held this run: read failed, not published before
+- The Trinity Foyer (osm-way-408710018): held this run: read failed, not published before
+- The Dawn Centre (osm-way-453369056): held this run: read failed, not published before
+- Newbury House (osm-way-560767993): held this run: read failed, not published before
+- LDHAS Lancaster Homeless Action (osm-way-567941601): held this run: read failed, not published before
+- The Limes (osm-way-569033362): held this run: read failed, not published before
+- Town View Fields Hostel (osm-way-585259224): held this run: read failed, not published before
+- St Mungo's (osm-way-639048084): held this run: read failed, not published before
+- Abbott Lodge (osm-way-642121557): held this run: read failed, not published before
+- Tresillian House (osm-way-673331522): held this run: read failed, not published before
+- Manna House (osm-way-679300044): held this run: read failed, not published before
+- Refugee Reception Centre - Former Defence Fire Fighting Training Establishment (osm-way-699201604): held this run: read failed, not published before
+- Anchor House (osm-way-699839857): held this run: read failed, not published before
+- Norfolk Hotel (osm-way-774694067): held this run: read failed, not published before
+- Hafan Wrexham (osm-way-931997512): held this run: read failed, not published before
+- Wrexham Foyer (osm-way-931997513): held this run: read failed, not published before
+- Wayside Hostel (osm-way-936508369): held this run: read failed, not published before
+- Cotswold House (osm-way-1104948217): held this run: read failed, not published before
+- East Clayton Farm (osm-way-1110034236): held this run: read failed, not published before
+- Mary and Joseph House (osm-way-1126940021): held this run: read failed, not published before
+- The Haven (osm-way-1224548824): held this run: read failed, not published before
+- Ty Parc (osm-way-1262733230): held this run: read failed, not published before
+- Trevanion Lodge (osm-way-1268379059): held this run: read failed, not published before
+- Sussex Edwardian Hotel (osm-way-1279024352): held this run: read failed, not published before
+- Womens Center M.W.Y.S. & E.F. (osm-way-1311059304): held this run: read failed, not published before
+- Dunedin Harbour (osm-way-1383660740): held this run: read failed, not published before
+- Bethany House (osm-way-1499433619): held this run: read failed, not published before
+- Wilson Carlile House (osm-relation-2707322): held this run: read failed, not published before
+- Glanrafon (osm-relation-3996349): held this run: read failed, not published before
+- YMCA Lincolnshire – Nomad Centre (hl-ymca-lincs-nomad-centre): held this run: read failed, not published before
+- Vaughan House (man-vaughan-house): held this run: read failed, not published before
+- New Start Harm Reduction (women) (ss-63bf328f843d85a21d7bbdce): held this run: read failed, not published before
+- SHARE Homeless Action Centre (SHAC) (man-google-share-homeless-action-centre-shac): held this run: read failed, not published before
+- Maggs Day Centre (man-google-maggs-day-centre-worcester): held this run: read failed, not published before
+- Homeless Accommodation – Tai Gogledd Cymru (man-google-homeless-accommodation-tai-gogledd-cymru): held this run: read failed, not published before
