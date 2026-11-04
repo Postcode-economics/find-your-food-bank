@@ -160,8 +160,13 @@ try:
     _IR.finish_times(".", "shelters", tlog)
 except Exception as ex:
     print("intelligent mode summary skipped: %s" % ex)
-if os.environ.get("DRY_RUN"): print("DRY RUN:", len(items), "shelters", json.dumps(sources)[:1500]); sys.exit(0)
 fill_referral_routes(items)
+# FINAL lock (Dean 4 Nov 2026): after every other step, nothing may change address/postcode/pin/phone/council
+# lines except to the hand-checked value. no_pin cards carry no pin fields.
+_final_blocked = place_lock.final_lock(items, published_items, place_lock.hands(phone_lock.ROOT, "shelters"), "shelters", baseline=(phone_lock.load(phone_lock.ROOT) or {}).get("listings"))
+sources["Final lock"] = {"status": "ok", "blocked": len(_final_blocked), "fields": [list(b[:2]) for b in _final_blocked][:200]}
+print("final lock:", len(_final_blocked), "field changes blocked or set to the hand value")
+if os.environ.get("DRY_RUN"): print("DRY RUN:", len(items), "shelters", json.dumps(sources)[:1500]); sys.exit(0)
 write_js(OUT, "SHELTERS", {"updated": RUN, "items": items, "recently_closed": closed, "sources": sources})
 append_log(LOG, {"run": RUN, "result": "ok", "items": len(items), "stale": sum(x["stale"] for x in items), "recently_closed": len(closed), "sources": sources})
 print(len(items), "shelters")
