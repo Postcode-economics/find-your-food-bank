@@ -60,6 +60,21 @@ def split_js(path):
     a, b = t.index("{"), t.rindex("}") + 1
     return t[:a], json.loads(t[a:b]), t[b:]
 LAYER_OF = {"shelters.js": "shelters", "warmspaces.js": "warmspaces", "data.full.js": "foodbanks"}
+def hand_for(OUT, state):
+    """Hand-checked values (overrides/*_manual.json + *_verified.json) for this layer, loaded once."""
+    if state.get("hand") is None:
+        layer = LAYER_OF.get(os.path.basename(OUT))
+        try:
+            import place_lock
+            state["hand"] = place_lock.hands(os.path.join(os.path.dirname(__file__), ".."), layer) if layer in ("shelters", "warmspaces") else {}
+        except Exception:
+            state["hand"] = {}
+    return state["hand"]
+def hand_matches(x, k, hand):
+    """True when the built value IS the hand-checked value (hours compared after the build's normaliser)."""
+    import place_lock
+    hv = place_lock.hand_value(x, k, hand)
+    return hv is not None and x.get(k) == hv
 def place_problem(x, r, OUT, state):
     """A reason this one place cannot stay in the file, or None. A live listing stays unless its source says closed."""
     if state["prev"] is None: state["prev"] = published(OUT)
@@ -68,7 +83,10 @@ def place_problem(x, r, OUT, state):
         return f"{OUT}: {x['id']} source says closed"
     if prev and x["id"] in prev:
         old = prev[x["id"]]
+        hand = hand_for(OUT, state).get(x["id"]) or {}
         for k in KEEP_SAME:  # a failed read must not replace the last good phone, address, hours or checked time
+            if k in ("address", "hours", "postcode") and hand_matches(x, k, hand):
+                continue  # Dean 4 Nov 2026: the hand-checked manual value wins over the published copy (place_lock rule)
             if x.get(k) != old.get(k):
                 x[k] = old.get(k); state["rewritten"] = True
         return None
@@ -100,7 +118,7 @@ for OUT, VAR, LOG in [ALL[a] for a in (sys.argv[1:] or ALL)]:
     if not os.path.exists(OUT): bad.append(f"{OUT}: missing"); continue
     try: pre, data, post = split_js(OUT); items = data["items"]
     except Exception as e: bad.append(f"{OUT}: will not parse ({e.__class__.__name__})"); continue
-    state = {"prev": None, "lg": None, "rewritten": False}
+    state = {"prev": None, "lg": None, "rewritten": False, "hand": None}
     problems = []
     for x in items:
         msg = place_problem(x, rc.get(x["id"]), OUT, state)
