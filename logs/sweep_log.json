@@ -1,31 +1,51 @@
 {
  "run": "2026-11-04",
- "pages": 1680,
- "failed": 6,
+ "pages": 1599,
+ "failed": 11,
  "errors": [
   [
-   "https://eastsuffolk-app.codeenigma.net/benefits-grants-and-support/community-grants-and-funding/warm-welcomes",
-   "error"
+   "https://www.wyre.gov.uk/cost-living-support-3/warm-spaces",
+   404
   ],
   [
-   "https://eastsuffolk-app.codeenigma.net/housing/housing/homelessness-advice-and-prevention/rough-sleeping",
-   "error"
+   "https://www.wyre.gov.uk/directory/31/warm-spaces",
+   404
   ],
   [
-   "https://go.walsall.gov.uk/newsroom/amber-cold-weather-alert-issued-west-midlands",
+   "https://www.rutland.gov.uk/council-news/2024/11/have-your-say-draft-housing-homelessness-rough-sleeping-strategy",
    403
   ],
   [
-   "https://haringey.gov.uk/care-support-adults/adult-social-care-directory/coffee-mornings-warm-welcome-afternoons-hosted-by-sweet-mind",
+   "https://www.rutland.gov.uk/future-library-services-ryhall-area/Thoughts%20and%20feelings%20about%20key%20issues/warm-space",
+   403
+  ],
+  [
+   "https://www.rutland.gov.uk/housing/homelessness/rough-sleepers",
+   403
+  ],
+  [
+   "https://www.rutland.gov.uk/housing/housing-strategies-plans-reports/housing-homelessness-rough-sleeping-policy",
+   403
+  ],
+  [
+   "https://www.wakefield.gov.uk/your-district/warm-welcome-spaces-open-for-residents-this-winter",
+   404
+  ],
+  [
+   "http://www.suffolk.gov.uk/about/severe-weather-information-and-services",
    503
   ],
   [
-   "http://go.walsall.gov.uk/newsroom/amber-cold-weather-alert-issued-west-midlands",
+   "https://www.n-kesteven.gov.uk/homes-property/im-homeless-or-facing-homelessness",
    403
   ],
   [
-   "http://go.walsall.gov.uk/newsroom/walsall-residents-reminded-keep-warm-and-well-cold-weather-alert-issued",
+   "https://www.west-lindsey.gov.uk/sites/default/files/2026-08/Lincolnshire%20SWEP%20Protocol%20July%202026%20-%20Approved%20Version.pdf",
    403
+  ],
+  [
+   "https://www.suffolk.gov.uk/about/severe-weather-information-and-services",
+   503
   ]
  ],
  "added": [],
