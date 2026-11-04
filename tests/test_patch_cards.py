@@ -40,7 +40,7 @@ class Patch(unittest.TestCase):
         data, changed, _ = patch_cards.patch(["n"], self.root)
         n = [x for x in data["items"] if x["id"] == "n"][0]
         for f in ("postcode", "lat", "lng"):
-            self.assertNotIn(f, n)
+            self.assertIn(f, n); self.assertIn(n[f], ("", None), f)  # empty, never a value, never missing
         self.assertEqual(n["address"], "Leeds")
 
     def test_main_writes_file_and_dry_run_does_not(self):

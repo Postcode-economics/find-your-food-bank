@@ -73,7 +73,7 @@ class FinalLock(unittest.TestCase):
         item = dict(pub, postcode="LS1 1AA", lat=53.8, lng=-1.5)
         run(item, {"s1": {"address": "1 Office Rd, Leeds", "postcode": "LS1 1AA", "lat": 53.8, "lng": -1.5}}, pub=pub)
         for f in ("postcode", "lat", "lng"):
-            self.assertNotIn(f, item)
+            self.assertIn(f, item); self.assertIn(item[f], ("", None), f)  # empty, never a value, never missing
         self.assertEqual(item["address"], "Leeds")
 
     def test_blank_hand_value_keeps_published(self):
