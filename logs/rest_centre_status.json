@@ -1,6 +1,6 @@
 {
- "run": "2026-11-03",
- "seconds": 53.0,
+ "run": "2026-11-04",
+ "seconds": 61.7,
  "pages": [
   {
    "council": "Armagh City, Banbridge and Craigavon Borough Council",
@@ -978,8 +978,8 @@
    "council": "Forest of Dean District Council",
    "url": "https://news.fdean.gov.uk",
    "kind": "news",
-   "http": 200,
-   "status": "checked",
+   "http": 403,
+   "status": "unreachable",
    "quote": "",
    "rest_centre": null
   },
@@ -1653,8 +1653,8 @@
    "council": "Mid Suffolk District Council",
    "url": "https://www.midsuffolk.gov.uk/news",
    "kind": "news",
-   "http": null,
-   "status": "unreachable",
+   "http": 200,
+   "status": "checked",
    "quote": "",
    "rest_centre": null
   },
