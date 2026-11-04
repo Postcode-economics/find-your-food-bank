@@ -19,7 +19,7 @@
    "url": "https://www.thegap.wales/",
    "final_url": "https://thegap.wales/",
    "http": 200,
-   "sha256": "c58a928d5a772836082f4cbb6a39e0547ee28a98fd84849792c25252d090a616",
+   "sha256": "d11862bf8d9c1bb233e8a0f5d4729527199c1e2538c81d35bafc862694262dae",
    "etag": "",
    "last_modified": ""
   },
@@ -92,7 +92,7 @@
    "url": "https://housethehomeless.com",
    "final_url": "https://housethehomeless.com",
    "http": 200,
-   "sha256": "a24ff2d74c43cda1174153a9aea37102dfc2bcb196577360c4da4d9fd5236e9c",
+   "sha256": "4bc7a7e8a32b27b3023a9a53abf123e5dbb51e8ea021361637b91d33e20f5c8d",
    "etag": "",
    "last_modified": ""
   },
@@ -146,7 +146,7 @@
    "url": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-intensive-housing-management",
    "final_url": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-supported-accommodation",
    "http": 200,
-   "sha256": "d9cf31e243b29e7dd7c881aef1194eb3bfb8e846b4f9d7d6ece47d58c35080e8",
+   "sha256": "062c0cf5b785598cd59e2d87b4a35ea7b498850bb24a99ed8731074909b12b16",
    "etag": "",
    "last_modified": ""
   },
@@ -361,15 +361,14 @@
    "directory": null,
    "directory_url": null,
    "reasons": [
-    "OpenStreetMap-only: needs verification on the place's own site before it can be added",
-    "own site unreachable (HTTP error)"
+    "OpenStreetMap-only: needs verification on the place's own site before it can be added"
    ],
    "url": "https://www.manna-house.org.uk/",
    "final_url": "https://www.manna-house.org.uk/",
-   "http": "error",
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
+   "http": 200,
+   "sha256": "b8627be54ac926d8d262c2a7ff4c3cb2065b9c2fd20ed77e6c9daa6a0a074011",
+   "etag": "",
+   "last_modified": ""
   },
   {
    "id": "osm-way-699201604",
@@ -519,6 +518,8 @@
   }
  ],
  "rejected": [],
- "follow_skipped": [],
+ "follow_skipped": [
+  "osm-node-1243077938"
+ ],
  "verified_proposals": []
 }

@@ -1,6 +1,6 @@
 {
  "run": "2026-11-04",
- "seconds": 70.8,
+ "seconds": 64.5,
  "pages": [
   {
    "council": "Armagh City, Banbridge and Craigavon Borough Council",
@@ -645,8 +645,8 @@
    "council": "Darlington Borough Council",
    "url": "https://www.darlington.gov.uk/news/",
    "kind": "news",
-   "http": 200,
-   "status": "checked",
+   "http": null,
+   "status": "unreachable",
    "quote": "",
    "rest_centre": null
   },
@@ -654,8 +654,8 @@
    "council": "Darlington Borough Council",
    "url": "https://www.darlington.gov.uk/environment/rain-and-flooding/",
    "kind": "emergencies",
-   "http": 200,
-   "status": "checked",
+   "http": null,
+   "status": "unreachable",
    "quote": "",
    "rest_centre": null
   },
@@ -717,8 +717,8 @@
    "council": "Dundee City Council",
    "url": "https://www.dundeecity.gov.uk/news",
    "kind": "news",
-   "http": 200,
-   "status": "checked",
+   "http": null,
+   "status": "unreachable",
    "quote": "",
    "rest_centre": null
   },
@@ -1455,8 +1455,8 @@
    "council": "City of Lincoln Council",
    "url": "https://www.lincoln.gov.uk/news",
    "kind": "news",
-   "http": null,
-   "status": "unreachable",
+   "http": 200,
+   "status": "checked",
    "quote": "",
    "rest_centre": null
   },
@@ -2607,8 +2607,8 @@
    "council": "Tameside Metropolitan Borough Council",
    "url": "https://www.tameside.gov.uk/newsroom",
    "kind": "news",
-   "http": null,
-   "status": "unreachable",
+   "http": 200,
+   "status": "checked",
    "quote": "",
    "rest_centre": null
   },
@@ -2760,8 +2760,8 @@
    "council": "Warwick District Council",
    "url": "https://www.warwickdc.gov.uk/news",
    "kind": "news",
-   "http": null,
-   "status": "unreachable",
+   "http": 200,
+   "status": "checked",
    "quote": "",
    "rest_centre": null
   },
