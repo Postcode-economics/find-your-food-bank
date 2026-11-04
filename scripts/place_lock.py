@@ -122,6 +122,57 @@ def hands(root, layer):
                     _add_hand(out, k, v)
     return out
 
+HAND_WIN_FIELDS = ("address", "postcode", "hours")
+PIN_FIELDS = ("address", "postcode", "lat", "lng")
+
+def _stated(v):
+    """A hand value counts only when it says something. Blank and 'Not stated' keep the published value (#428)."""
+    if _blank(v) or v in ([], {}):
+        return False
+    return not (isinstance(v, str) and v.strip().lower() == "not stated")
+
+def hand_record(*recs):
+    """Merge hand records the way hands() does (later wins, blanks skipped). Shared by the kept-copy path."""
+    box = {}
+    for r in recs:
+        _add_hand(box, "x", r)
+    return box.get("x", {})
+
+def hand_value(item, field, rec, normalise=True):
+    """The hand-set value for this field, or None. Never a place field for a no_pin card (rule 55/94)."""
+    if not isinstance(rec, dict) or field not in rec or not _stated(rec[field]):
+        return None
+    if field in PIN_FIELDS and isinstance(item, dict) and item.get("no_pin"):
+        return None
+    v = rec[field]
+    if field == "hours" and normalise:
+        import hours_norm
+        v = hours_norm.normalise_hours(v)
+    return v
+
+def apply_hand(item, rec, fields=HAND_WIN_FIELDS, skip=(), normalise=True):
+    """Hand-checked values from shelters_manual.json / shelters_verified.json win for address, postcode and hours
+    (Dean 4 Nov 2026: the manual file is the checked source). Not a freeze: hours confirmed by the times gate this run
+    (rule 48/50) are passed in skip and left alone. no_pin cards never get a place field. Phones are never touched.
+    Returns the fields it set."""
+    done = []
+    for f in fields:
+        if f in skip or f == "phone":
+            continue
+        v = hand_value(item, f, rec, normalise)
+        if v is None:
+            continue
+        if f == "hours" and _without_check_date(item.get(f)) == _without_check_date(v):
+            continue
+        if f != "hours" and item.get(f) == v:
+            continue
+        item[f] = v
+        done.append(f)
+    if item.get("no_pin"):
+        for f in ("postcode", "lat", "lng"):  # the town-level address line stays; it is never set from a hand value
+            item[f] = "" if f == "postcode" else None  # keep the keys empty: the build and the map read them (undefined lat broke nearest-first sorting)
+    return done
+
 def _restore(item, field, was):
     if _blank(was):
         item.pop(field, None)
@@ -151,7 +202,10 @@ def protect(items, previous, hand, root=None, source="refresh", keep_times=()):
         if not old:
             continue
         allowed = hand.get(iid) or {}
+        won = apply_hand(item, allowed, ("address", "postcode"))
         for field in FIELDS:
+            if field in ("address", "postcode") and hand_value(item, field, allowed) is not None:
+                continue  # hand-checked value set above; the published copy never comes back over it
             new, was = item.get(field), old.get(field)
             if same(field, was, new):
                 if field in ("lat", "lng") and was not in (None, "") and new != was:
@@ -172,9 +226,13 @@ def protect(items, previous, hand, root=None, source="refresh", keep_times=()):
                 lines.append(line)
             n += 1
         if iid in keep_times:
-            continue
+            continue  # rule 50: hours the times gate confirmed this run apply
         allowed = hand.get(iid) or {}
+        if time_fields:
+            apply_hand(item, allowed, time_fields)
         for field in time_fields:
+            if hand_value(item, field, allowed) is not None:
+                continue
             new, was = item.get(field), old.get(field)
             if _without_check_date(new) == _without_check_date(was):
                 continue
@@ -218,3 +276,45 @@ def changes(old_items, new_items):
             elif a != b:
                 out[field] += 1
     return out
+
+
+def snapshot(items):
+    """The pin fields of every card as protect() left them. final_lock() compares against this, so it only
+    puts back what a later step (kept copy, normaliser, route filler) overwrote, never a value protect() let through."""
+    return {i["id"]: {f: i.get(f) for f in PIN_FIELDS}
+            for i in (items or []) if isinstance(i, dict) and i.get("id")}
+
+def final_lock(items, previous, hand, layer="shelters", guarded=None):
+    """The LAST step before a layer file is written (Dean, 4 Nov 2026).
+    - address / postcode / lat / lng: a stated hand value wins. Otherwise a field is put back ONLY if a step
+      after protect() overwrote it: it is compared with `guarded` (snapshot() taken right after protect()),
+      not with the published file, so a value protect() let through is never frozen (rule 50). Without a
+      snapshot the published copy is the reference (protect() would have restored to it anyway).
+    - phone, phone label and council lines are NOT handled here: phone_lock alone owns them (rule 45).
+    - no_pin cards never carry postcode / lat / lng, and never a hand street address.
+    - opening hours are not touched here (rules 48/50 apply them).
+    Returns a list of (id, field, blocked_value, kept_value)."""
+    if guarded is None:
+        guarded = snapshot(previous)
+    hand = hand or {}
+    blocked = []
+    for item in items or []:
+        iid = item.get("id"); rec = hand.get(iid) or {}; ref = guarded.get(iid)
+        if item.get("no_pin"):
+            for f in ("postcode", "lat", "lng"):
+                if not _blank(item.get(f)):
+                    blocked.append((iid, f, item.get(f), None))
+                item[f] = "" if f == "postcode" else None  # empty, never missing (map sorts by distance on every card)
+        for f in PIN_FIELDS:
+            if item.get("no_pin") and f != "address":
+                continue
+            hv = hand_value(item, f, rec, normalise=False)
+            if hv is not None:
+                if item.get(f) != hv and not (f in ("lat", "lng") and same(f, item.get(f), hv)):
+                    blocked.append((iid, f, item.get(f), hv)); item[f] = hv
+                continue
+            if ref is None:
+                continue  # a brand-new place: the publish gate decides
+            if not same(f, ref.get(f), item.get(f)):
+                blocked.append((iid, f, item.get(f), ref.get(f))); _restore(item, f, ref.get(f))
+    return blocked

@@ -1,4 +1,5 @@
 import json, os, re, time, urllib.request, datetime
+import place_lock  # hand-wins for the kept copy in verification_gate (one copy of the rule)
 UA = {"User-Agent": "postcode-economics-map/1.0 (+https://postcode-economics.github.io/find-your-food-bank/)"}
 PC_RE = re.compile(r"\b([A-Z]{1,2}[0-9][0-9A-Z]?)\s*([0-9][A-Z]{2})\b", re.I)
 def today(): return datetime.date.today().isoformat()
@@ -247,9 +248,11 @@ def verification_gate(fresh, prev, verified, run_day, pending_path, autocheck=No
                     # published copy has who-it's-for inferred from its evidence) must not wipe it (YMCA Watford, 4 Nov 2026).
                     if k in x and x[k] not in (None, "", [], {}): old[k] = x[k]
                 if v:
-                    for k in ("phone", "address", "postcode", "lat", "lng", "hours", "phone_label"):
-                        if v.get(k): old[k] = v[k]
+                    for k in ("phone", "lat", "lng", "phone_label"):
+                        if v.get(k) and not (k in ("lat", "lng") and old.get("no_pin")): old[k] = v[k]
                     if v.get("access"): old["referral"] = v["access"][0].upper() + v["access"][1:]
+                # Address, postcode and hours: the same hand-wins function place_lock.protect() uses (one copy).
+                place_lock.apply_hand(old, place_lock.hand_record(x, v), normalise=False)  # hours_norm runs later in the build
             if old.get("fetched_at"): LC.setdefault(x["id"], old["fetched_at"])
             graced.append({"id": x["id"], "name": old.get("name") or x.get("name"), "reason": "kept, fetch blocked (%s)" % ((rc or {}).get("reason") or (rc or {}).get("http")),
                            "http": (rc or {}).get("http"), "last_confirmed": str(old.get("fetched_at") or old.get("checked_on") or "")[:10],

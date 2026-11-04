@@ -56,7 +56,7 @@ for k, why in {"nightshelter.org.uk": "domain is parked (redirects to a lander p
                "LHF Atlas": "map is an interactive app with no public data export; London-only",
                "Crisis / Shelter / St Mungo's / Thames Reach": "no public shelter directory; services are via referral (council/outreach)"}.items():
     sources[k] = {"status": "not scraped: " + why}
-need = [(x["id"], x["lat"], x["lng"]) for x in fresh if not x["postcode"]]
+need = [(x["id"], x["lat"], x["lng"]) for x in fresh if not x.get("postcode") and not x.get("no_pin") and x.get("lat") is not None and x.get("lng") is not None]  # no_pin cards: no pin, no postcode lookup
 for k, pc in reverse_postcodes(need).items():
     for x in fresh:
         if x["id"] == k: x["postcode"] = pc; x["postcode_note"] = "nearest postcode (postcodes.io)"
@@ -146,6 +146,7 @@ phone_lock.guard(items, phone_lock.ROOT, via="refresh", source="feed refresh", l
 import place_lock
 _applied_times = [i for i, rec in tlog.items() if isinstance(rec, dict) and rec.get("auto_applied")]
 restored = place_lock.protect(items, published_items, place_lock.hands(phone_lock.ROOT, "shelters"), phone_lock.ROOT, "shelters", keep_times=_applied_times)
+_guarded = place_lock.snapshot(items)  # rule 50: final_lock only undoes what later steps overwrite
 print("place lock:", restored, "address/pin fields kept;", json.dumps(place_lock.changes(published_items, items)))
 import google_handcheck  # man-google-* stays off the map unless it is on the hand-check list
 items, held_google = google_handcheck.keep(items, ".")
@@ -160,8 +161,13 @@ try:
     _IR.finish_times(".", "shelters", tlog)
 except Exception as ex:
     print("intelligent mode summary skipped: %s" % ex)
-if os.environ.get("DRY_RUN"): print("DRY RUN:", len(items), "shelters", json.dumps(sources)[:1500]); sys.exit(0)
 fill_referral_routes(items)
+# FINAL lock (Dean 4 Nov 2026): after every other step, nothing may overwrite address/postcode/pin except to the
+# hand-checked value. no_pin cards carry no pin fields. Phones and council lines stay with phone_lock (rule 45).
+_final_blocked = place_lock.final_lock(items, published_items, place_lock.hands(phone_lock.ROOT, "shelters"), "shelters", guarded=_guarded)
+sources["Final lock"] = {"status": "ok", "blocked": len(_final_blocked), "fields": [list(b[:2]) for b in _final_blocked][:200]}
+print("final lock:", len(_final_blocked), "field changes blocked or set to the hand value")
+if os.environ.get("DRY_RUN"): print("DRY RUN:", len(items), "shelters", json.dumps(sources)[:1500]); sys.exit(0)
 write_js(OUT, "SHELTERS", {"updated": RUN, "items": items, "recently_closed": closed, "sources": sources})
 append_log(LOG, {"run": RUN, "result": "ok", "items": len(items), "stale": sum(x["stale"] for x in items), "recently_closed": len(closed), "sources": sources})
 print(len(items), "shelters")
