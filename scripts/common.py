@@ -189,6 +189,11 @@ def _approved_ids(layer):
     except Exception:
         return set()
 
+HAND_FIELDS_ON_KEEP = ("name", "phone", "phone_label", "address", "postcode", "lat", "lng", "groups", "who_for", "referral",
+                      "facilities", "beds", "hours", "age_range", "wheelchair", "source", "source_url", "website",
+                      "discovery_url", "discovery_label", "no_pin", "card_type")
+
+
 def verification_gate(fresh, prev, verified, run_day, pending_path, autocheck=None, valid_until=None, unverified=None, recheck=True, now=None):
     """Returns (published_fresh, filtered_prev). Writes pending list.
     recheck=True: every run re-fetches each entry's source page.
@@ -234,6 +239,15 @@ def verification_gate(fresh, prev, verified, run_day, pending_path, autocheck=No
             # Live listing: keep the last published copy. No 48-hour or 14-day expiry.
             old = dict(prev_by_id.get(x["id"]) or x)
             old["grace"] = True; old["kept_fetch_blocked"] = True
+            if str(x["id"]).startswith("man-"):
+                # Hand-verified manual row: a blocked re-read keeps the listing, but this run's manual and
+                # verified hand fields still apply (a blocked site must not freeze an old copy; Dean, 4 Nov 2026).
+                for k in HAND_FIELDS_ON_KEEP:
+                    if k in x: old[k] = x[k]
+                if v:
+                    for k in ("phone", "address", "postcode", "lat", "lng", "hours", "phone_label"):
+                        if v.get(k): old[k] = v[k]
+                    if v.get("access"): old["referral"] = v["access"][0].upper() + v["access"][1:]
             if old.get("fetched_at"): LC.setdefault(x["id"], old["fetched_at"])
             graced.append({"id": x["id"], "name": old.get("name") or x.get("name"), "reason": "kept, fetch blocked (%s)" % ((rc or {}).get("reason") or (rc or {}).get("http")),
                            "http": (rc or {}).get("http"), "last_confirmed": str(old.get("fetched_at") or old.get("checked_on") or "")[:10],
