@@ -293,10 +293,26 @@
  "warmspaces.js": {
   "added": [],
   "removed": [],
-  "changed": [],
+  "changed": [
+   {
+    "id": "ww-68980095",
+    "name": "Cornerstone United Reformed Church @ Parrs Wood Road",
+    "fields": [
+     "scheme_dates",
+     "upcoming"
+    ],
+    "before": {
+     "scheme_dates": "Opens 4 Nov 2026",
+     "upcoming": true
+    },
+    "after": {
+     "scheme_dates": "Not stated by source",
+     "upcoming": null
+    }
+   }
+  ],
   "tier_flips": [],
   "upcoming": [
-   "Cornerstone United Reformed Church @ Parrs Wood Road – Opens 4 Nov 2026",
    "Greenmount Old School – Opens 5 Jan 2027",
    "NAN activity space/meeting room – Opens 5 Nov 2026",
    "wee blether with soup and sandwich at Seescape – Opens 5 Nov 2026"
@@ -310,6 +326,10 @@
    {
     "id": "ww-57952860",
     "reason": "source no longer names this place"
+   },
+   {
+    "id": "ww-57979418",
+    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
    },
    {
     "id": "ww-69189484",
@@ -340,6 +360,10 @@
     "reason": "source unreachable this run (HTTP 403)"
    },
    {
+    "id": "ww-59130027",
+    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
+   },
+   {
     "id": "ww-68642792",
     "reason": "published days not found on source this run"
    },
@@ -356,12 +380,28 @@
     "reason": "source unreachable this run (HTTP 403)"
    },
    {
+    "id": "ww-67979812",
+    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
+   },
+   {
     "id": "ww-65438945",
     "reason": "schema: hours value invalid: Thu=10:00 - 12:30, 14:00 - 16:30"
    },
    {
+    "id": "ww-65437506",
+    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
+   },
+   {
+    "id": "ww-58358850",
+    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
+   },
+   {
     "id": "ww-55592264",
     "reason": "source unreachable this run (HTTP error)"
+   },
+   {
+    "id": "ww-57952705",
+    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
    },
    {
     "id": "ww-68762729",
@@ -384,12 +424,24 @@
     "reason": "source unreachable this run (HTTP 404)"
    },
    {
+    "id": "ww-65437496",
+    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
+   },
+   {
     "id": "ww-65441920",
     "reason": "source URL now redirects to a different site (cornerstonechurchhalifax.co.uk)"
    },
    {
     "id": "ww-68769406",
     "reason": "published times not found on source this run"
+   },
+   {
+    "id": "ww-69080400",
+    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
+   },
+   {
+    "id": "ww-68672320",
+    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
    },
    {
     "id": "ww-65441921",
