@@ -83,8 +83,12 @@ def place_problem(x, r, OUT, state):
         return f"{OUT}: {x['id']} source says closed"
     if prev and x["id"] in prev:
         old = prev[x["id"]]
+        if r and r.get("ok"):
+            return None  # read OK this run: the build's own locks (place_lock / phone_lock / times gate) decided; nothing frozen here (rule 50)
         hand = hand_for(OUT, state).get(x["id"]) or {}
         for k in KEEP_SAME:  # a failed read must not replace the last good phone, address, hours or checked time
+            if k == "hours" and r and r.get("auto_applied"):
+                continue  # rules 33/48: hours the times gate confirmed and applied are never reverted
             if k in ("address", "hours", "postcode") and hand_matches(x, k, hand):
                 continue  # Dean 4 Nov 2026: the hand-checked manual value wins over the published copy (place_lock rule)
             if x.get(k) != old.get(k):

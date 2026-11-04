@@ -56,7 +56,7 @@ for k, why in {"nightshelter.org.uk": "domain is parked (redirects to a lander p
                "LHF Atlas": "map is an interactive app with no public data export; London-only",
                "Crisis / Shelter / St Mungo's / Thames Reach": "no public shelter directory; services are via referral (council/outreach)"}.items():
     sources[k] = {"status": "not scraped: " + why}
-need = [(x["id"], x["lat"], x["lng"]) for x in fresh if not x["postcode"]]
+need = [(x["id"], x["lat"], x["lng"]) for x in fresh if not x.get("postcode") and not x.get("no_pin") and x.get("lat") is not None and x.get("lng") is not None]  # no_pin cards: no pin, no postcode lookup
 for k, pc in reverse_postcodes(need).items():
     for x in fresh:
         if x["id"] == k: x["postcode"] = pc; x["postcode_note"] = "nearest postcode (postcodes.io)"
