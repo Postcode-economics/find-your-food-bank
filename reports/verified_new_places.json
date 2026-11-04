@@ -8675,7 +8675,7 @@
    "referral_postcode": "",
    "category": "publishable",
    "status": "held",
-   "reason": "no building postcode on the operator page (directory postcode is a referral address only)"
+   "reason": "operator site unreachable (HTTP error)"
   },
   {
    "id": "hl-solo-housing-suffolk-visiting-support",
@@ -8699,7 +8699,7 @@
    "referral_postcode": "",
    "category": "publishable",
    "status": "held",
-   "reason": "no building postcode on the operator page (directory postcode is a referral address only)"
+   "reason": "operator site unreachable (HTTP error)"
   },
   {
    "id": "hl-southern-housing-group-atkinson-house",
@@ -8735,7 +8735,7 @@
    "referral_postcode": "",
    "category": "publishable",
    "status": "held",
-   "reason": "operator site unreachable (HTTP error)"
+   "reason": "no building postcode on the operator page (directory postcode is a referral address only)"
   },
   {
    "id": "hl-spitalfields-crypt-trust-acorn-house",
@@ -10285,7 +10285,7 @@
    "referral_postcode": "",
    "category": "publishable",
    "status": "held",
-   "reason": "operator site unreachable (HTTP 404)"
+   "reason": "operator site unreachable (HTTP error)"
   },
   {
    "id": "hl-trident-reach-washington-court-hub",
