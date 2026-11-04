@@ -26,9 +26,10 @@ class VerifyFreshHandWins(unittest.TestCase):
         now = datetime.datetime.now(datetime.timezone.utc).isoformat()
         log = {"_run": {"fetched_at": now}}
         for b in built: log[b["id"]] = {"ok": True, "fetched_at": b.get("fetched_at")}
-        json.dump(log, open(os.path.join(d, "logs", "shelters_log.json"), "w"))
+        json.dump(log, open(os.path.join(d, "logs", "shelters_recheck.json"), "w"))
         vf = subprocess.run([sys.executable, "scripts/verify_fresh.py", "shelters"], cwd=d, capture_output=True, text=True, env=env)
         self.vf_out = vf.stdout + vf.stderr
+        self.assertEqual(vf.returncode, 0, self.vf_out)  # verify_fresh must actually run, not stop early
         t = open(os.path.join(d, "shelters.js")).read()
         return {i["id"]: i for i in json.loads(t[t.index("{"):t.rindex("}") + 1])["items"]}
 
