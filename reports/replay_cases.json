@@ -270,7 +270,7 @@
 {
 "access": "unclear",
 "hours_hash": "",
-"http": null,
+"http": 200,
 "phones": [
 "01259218766"
 ],
@@ -305,8 +305,8 @@
 "url": "http://wycombefoodhub.org"
 },
 {
-"access": "walkin",
-"hours_hash": "95147c158388",
+"access": "unclear",
+"hours_hash": "dfbc973fc316",
 "http": 200,
 "phones": [
 "07973166940"
@@ -910,10 +910,12 @@
 "url": "https://bildestoncsg.org/what-we-do/"
 },
 {
-"access": "unclear",
+"access": "walkin",
 "hours_hash": "",
 "http": 200,
-"phones": [],
+"phones": [
+"07707466262"
+],
 "url": "https://billericayfoodbank.org.uk"
 },
 {
@@ -3061,7 +3063,7 @@
 {
 "access": "unclear",
 "hours_hash": "",
-"http": 429,
+"http": 200,
 "phones": [
 "07463942463",
 "07859905903"
@@ -4325,7 +4327,7 @@
 {
 "access": "unclear",
 "hours_hash": "",
-"http": 200,
+"http": null,
 "phones": [],
 "url": "https://patchcharity.org.uk"
 },
