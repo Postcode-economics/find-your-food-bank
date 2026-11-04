@@ -1,36 +1,8 @@
 {
- "day": "2026-11-03",
+ "day": "2026-11-04",
  "runs": [
   {
-   "at": "04:57Z",
-   "source": "shelters_discovery.json",
-   "added": 0,
-   "queued": 28,
-   "rejected": 0
-  },
-  {
-   "at": "06:33Z",
-   "source": "shelters_discovery.json",
-   "added": 0,
-   "queued": 28,
-   "rejected": 0
-  },
-  {
-   "at": "08:00Z",
-   "source": "shelters_discovery.json",
-   "added": 0,
-   "queued": 28,
-   "rejected": 0
-  },
-  {
-   "at": "14:54Z",
-   "source": "shelters_discovery.json",
-   "added": 0,
-   "queued": 28,
-   "rejected": 0
-  },
-  {
-   "at": "21:51Z",
+   "at": "11:11Z",
    "source": "shelters_discovery.json",
    "added": 0,
    "queued": 28,
@@ -53,7 +25,7 @@
    "url": "https://www.thegap.wales/",
    "final_url": "https://thegap.wales/",
    "http": 200,
-   "sha256": "6dee59a937626a8f8a95b534600f34e6a60a76f39573d8e5ab08fef9876e500a",
+   "sha256": "5b7debd73b911d8e3954d7dea2fbf567b4c5d53ce69c2cfe63f948940c575916",
    "etag": "",
    "last_modified": ""
   },
@@ -126,7 +98,7 @@
    "url": "https://housethehomeless.com",
    "final_url": "https://housethehomeless.com",
    "http": 200,
-   "sha256": "5e0b62b8aba2c5976f9cf2e8256a5686379a5a5fb72e37cd2fce61dc77cc3ce4",
+   "sha256": "8ab8bcd24f02df9280cb7abab191dec70148b59a0f93573e7648e388d04a7fa0",
    "etag": "",
    "last_modified": ""
   },
@@ -180,7 +152,7 @@
    "url": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-intensive-housing-management",
    "final_url": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-supported-accommodation",
    "http": 200,
-   "sha256": "5ffe0317f724190717cbf3c258fbf889a9089c70fbac4a78452b7033749cd8c5",
+   "sha256": "d595cad064049b23411176677bd49888354008e3faeabe25de87897b590f35b2",
    "etag": "",
    "last_modified": ""
   },
@@ -395,14 +367,15 @@
    "directory": null,
    "directory_url": null,
    "reasons": [
-    "OpenStreetMap-only: needs verification on the place's own site before it can be added"
+    "OpenStreetMap-only: needs verification on the place's own site before it can be added",
+    "own site unreachable (HTTP error)"
    ],
    "url": "https://www.manna-house.org.uk/",
    "final_url": "https://www.manna-house.org.uk/",
-   "http": 200,
-   "sha256": "131a0709aa8202fead931b5c1b6e1c2d1942e4f7ae8ad4beebd6304920325bfc",
-   "etag": "",
-   "last_modified": ""
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
   },
   "osm-way-699201604": {
    "id": "osm-way-699201604",
@@ -453,8 +426,8 @@
    "url": "https://www.eastclaytonfarm.org.uk/",
    "final_url": "https://www.eastclaytonfarm.org.uk/",
    "http": 200,
-   "sha256": "3bd05b0848da82cdb6a8a28592dc78969d56b441d48c7e1f667c594a231e3695",
-   "etag": "W/\"5689358a0ef7d59266dccb6e1daae348\"",
+   "sha256": "ad0cd0cfe5a7d4708dabca36edf2c43087871067ef5a9b2eb334eb2aaaf87ade",
+   "etag": "W/\"9fa0bd909a78feece16ebdbffd32dd5f\"",
    "last_modified": ""
   },
   "osm-way-1126940021": {

@@ -218,6 +218,17 @@ New food banks and shelters wait here for your OK (add the id to overrides/foodb
 - St Mungo's (SE1 0ES) - no sourced 'who it's for' - https://www.openstreetmap.org/way/753792449
 
 
+<!-- times review -->
+## Opening-times review list (times_finder)
+
+Run 2026-11-04. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs; each has its undo command). Every other row is not on the map and needs a hand check before it is added.
+
+- **Holy Trinity Church, Wester Hailes** (`ifan-5b9fd1318a04132921a389-0`, EH14 2SL): Mondays 9.15am – 11.00am | Mondays 9.30am – 11.00am  
+  source: https://www.holytrinitywesterhailes.org.uk  
+  why: hand-checked times are protected; finder only flags differences; not one clear weekly client-hours block (kept as text for review); times not read identically on 2 separate runs yet; jumble: Mon given different times in separate blocks on one page; review only
+<!-- /times review -->
+
+
 <!-- times crosscheck fb -->
 ## Opening-times changes from the refresh (fb): 7 auto-applied, 52 held
 
@@ -388,7 +399,7 @@ New food banks and shelters wait here for your OK (add the id to overrides/foodb
 
 
 <!-- times crosscheck sh -->
-## Opening-times changes from the refresh (sh): 6 auto-applied, 30 held
+## Opening-times changes from the refresh (sh): 6 auto-applied, 29 held
 
 - AUTO-APPLIED `man-doorway-young-people-16-25` Doorway (young people 16-25) (strict, 2 identical runs). Undo: `python scripts/times_revert.py sh:man-doorway-young-people-16-25`
 - AUTO-APPLIED `man-gloucester-city-mission-homeless-day-provision` Gloucester City Mission Homeless Day Provision (strict, 2 identical runs). Undo: `python scripts/times_revert.py sh:man-gloucester-city-mission-homeless-day-provision`
@@ -404,7 +415,7 @@ New food banks and shelters wait here for your OK (add the id to overrides/foodb
   why held: new own-site times look like office/centre hours; new own-site times look like general venue opening hours, not a warm-space session
 - **Urban Outreach - Street Life drop-in (Amber Centre)** (`man-urban-outreach-street-life-drop-in-amber-centre`, BL1 2PU): own site now Wednesday 1 - 3pm  
   source: https://www.urbanoutreach.co.uk/street-life/  
-  why held: day not on the same line as its times on the own-site page; times not read identically on 2 separate runs yet
+  why held: day not on the same line as its times on the own-site page
 - **Petrus Hub** (`man-petrus-hub`, OL16 1QG): own site now Mon, Tue, Thu, Fri 9am – 4pm | Wed 9am – 1pm  
   source: https://www.oldham.gov.uk/info/200257/homelessness/796/drop_in_centres_shelters_and_food_providers  
   why held: own site lists several centres (21 postcodes); cannot tie one table to this listing; new own-site times look like office/centre hours; would cut known hours to fewer days (drops Sat, Sun) and the source does not say that session ended; review
@@ -483,9 +494,6 @@ New food banks and shelters wait here for your OK (add the id to overrides/foodb
 - **P3 Cheltenham Accommodation Based Support** (`man-p3-cheltenham-accommodation`, ): own site now Mon–Fri 9am–5pm | Monday–Friday 9am–5pm  
   source: https://p3charity.org/services/cheltenham-accommodation-based-support  
   why held: postcode not matched exactly on the own-site page; own site lists several centres (2 postcodes); cannot tie one table to this listing; new own-site times look like office/centre hours; new own-site times look like general venue opening hours (identical weekday block, not warm-space session wording); new own-site times look like general venue opening hours, not a warm-space session
-- **Morning Star Hostel (Caritas Salford)** (`man-ss-caritas-morning-star-hostel`, M15 6JS): own site now Monday to Friday 9.30am to 1pm  
-  source: https://www.caritassalford.org.uk/service/morning-star/  
-  why held: day not on the same line as its times on the own-site page
 <!-- /times crosscheck sh -->
 
 
@@ -603,6 +611,15 @@ New food banks and shelters wait here for your OK (add the id to overrides/foodb
 <!-- /times crosscheck ws -->
 
 
+<!-- sweep shelters -->
+## Shelter candidates from the sweep (review only)
+
+Run 2026-11-04. Nothing here is on the map. Each needs a hand check before it is added.
+
+- none this run
+<!-- /sweep shelters -->
+
+
 <!-- closures -->
 ## Possible closures - still on the map with "May have closed" note (0)
 
@@ -666,6 +683,10 @@ To remove one, add its id to overrides/foodbank_closed.json; to clear the note, 
 - blocked, held for Dean | ww-67526400 | council_phone | via publish | source publish gate | stored (none) | proposed 01305 221000 | unchanged (byte-identical) | The Vale Family Hub
 - blocked, held for Dean | ww-55474116 | council_phone | via publish | source publish gate | stored (none) | proposed 01702 215000 | unchanged (byte-identical) | Wesley Warm Welcome
 - blocked, held for Dean | ww-59974983 | council_phone | via publish | source publish gate | stored (none) | proposed 020 8379 1000 | unchanged (byte-identical) | Windmill Warmbank
+- blocked, held for Dean | man-ss-bradford-nightstop | phone | via publish | source publish gate | stored 0330 053 7664 | proposed 01274 776888 | unchanged (byte-identical) | Bradford Nightstop (18-25)
+- blocked, held for Dean | man-ss-local-solutions-homeground | phone | via publish | source publish gate | stored 0151 286 6010 | proposed 0151 709 0990 | unchanged (byte-identical) | Homeground (Local Solutions, 16-21)
+- blocked, held for Dean | man-ss-signposts-start-over-shelter | phone | via publish | source publish gate | stored 01582 825303 | proposed 01582 722629 | unchanged (byte-identical) | Start Over Shelter (Signposts)
+- blocked, held for Dean | man-ss-riverside-wilson-carlile-house | phone | via publish | source publish gate | stored 0345 111 0000 | proposed 0161 273 3574 | unchanged (byte-identical) | Wilson Carlile House (Riverside, men 18+)
 <!-- /phone lock -->
 
 
@@ -691,8 +712,6 @@ The 29 Oct 05:44 warm spaces refresh (477f83f73) gave these 16 warm spaces a cou
 - Wesley Warm Welcome (SS9 1SJ) | ww-55474116 | council_phone 01702 215000 removed
 - Windmill Warmbank (N18 1PL) | ww-59974983 | council_phone 020 8379 1000 removed
 <!-- /council line undo -->
-
-
 <!-- held near cities -->
 ## Held near cities
 
@@ -757,30 +776,3 @@ Hand check 31 Oct 2026. A directory listing alone is not enough. Nothing here is
 - **Adullam Homes HA - Bury ABEN (Phase 3)** (`hl-adullam-homes-ha-bury-aben-phase-3`): directory record only; an operator or council page has not confirmed it is running now and the phone
 - **Our Way Leeds Emergency Accommodation** (`hl-turning-lives-around-seacole-scheme`): id/name mismatch (the id is Turning Lives Around Seacole; the name is Our Way Leeds)
 <!-- /referral hostel holds -->
-<!-- sweep shelters -->
-## Shelter candidates from the sweep (review only)
-
-Run 2026-11-04. Nothing here is on the map. Each needs a hand check before it is added.
-
-- none this run
-<!-- /sweep shelters -->
-
-
-<!-- times review -->
-## Opening-times review list (times_finder)
-
-Run 2026-11-04. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs; each has its undo command). Every other row is not on the map and needs a hand check before it is added.
-
-- **Holy Trinity Church, Wester Hailes** (`ifan-5b9fd1318a04132921a389-0`, EH14 2SL): Mondays 9.15am – 11.00am | Mondays 9.30am – 11.00am  
-  source: https://www.holytrinitywesterhailes.org.uk  
-  why: hand-checked times are protected; finder only flags differences; not one clear weekly client-hours block (kept as text for review); times not read identically on 2 separate runs yet; jumble: Mon given different times in separate blocks on one page; review only
-<!-- /times review -->
-
-
-<!-- rest centre switch-on -->
-## Rest centre and SWEP switch-ons (waiting for Dean)
-
-Council pages say these are ON. Incident rest centres go live when overrides/incident_rest_centre_mode.json has public true. A GitHub issue was also opened for each switch-on.
-
-- **North Tyneside Council** — [Severe weather shelter (SWEP)] SWEP — https://www.northtyneside.gov.uk/housing/homelessness/if-you-are-homeless-or-sleeping-rough — “seasonal (council page): SWEP is active between 1 November and 31 March”
-<!-- /rest centre switch-on -->

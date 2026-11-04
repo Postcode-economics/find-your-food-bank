@@ -2,7 +2,179 @@
  "shelters.js": {
   "added": [],
   "removed": [],
-  "changed": [],
+  "changed": [
+   {
+    "id": "man-ss-bradford-nightstop",
+    "name": "Bradford Nightstop (18-25)",
+    "fields": [
+     "name",
+     "phone",
+     "referral"
+    ],
+    "before": {
+     "name": "Bradford Nightstop (16-25)",
+     "phone": "01274 776888",
+     "referral": "Emergency stays with trained volunteer hosts for 16-25s. Referral from agencies such as Housing Options: 01274 776888."
+    },
+    "after": {
+     "name": "Bradford Nightstop (18-25)",
+     "phone": "0330 053 7664",
+     "referral": "Emergency stays with trained volunteer hosts for 18-25s. Call 0330 053 7664 to refer a young person."
+    }
+   },
+   {
+    "id": "man-ss-homeless-action-elm-house",
+    "name": "Elm House (Homeless Action)",
+    "fields": [
+     "referral"
+    ],
+    "before": {
+     "referral": "All referrals come through Blackpool Council Housing Options: 01253 477760 (Mon-Fri)."
+    },
+    "after": {
+     "referral": "Referral via Blackpool's Housing Options team (a referral MUST be submitted by them): 01253 477760, housing.options@blackpool.gov.uk."
+    }
+   },
+   {
+    "id": "man-ss-high-peak-homeless-help",
+    "name": "High Peak Homeless Help emergency accommodation",
+    "fields": [
+     "referral"
+    ],
+    "before": {
+     "referral": "Emergency accommodation (hosts or B&B): call the referral number 07973 670595."
+    },
+    "after": {
+     "referral": "Referrals from agencies (e.g. Citizens Advice, schools, churches, local voluntary groups) by phone on 07973 670595; the referrer must be with the person for a short risk assessment. Self-referrals only in exceptional circumstances."
+    }
+   },
+   {
+    "id": "man-ss-homeless-action-holly-house",
+    "name": "Holly House (Homeless Action)",
+    "fields": [
+     "referral"
+    ],
+    "before": {
+     "referral": "Referral through Blackpool Council Housing Options: 01253 477760 (Mon-Fri)."
+    },
+    "after": {
+     "referral": "Referral via Blackpool's Housing Options team (a referral MUST be submitted by them): 01253 477760, housing.options@blackpool.gov.uk."
+    }
+   },
+   {
+    "id": "man-ss-local-solutions-homeground",
+    "name": "Homeground (Local Solutions, 16-21)",
+    "fields": [
+     "phone",
+     "referral"
+    ],
+    "before": {
+     "phone": "0151 709 0990",
+     "referral": "Young people 16-21. Referral via a Liverpool MainStay assessment."
+    },
+    "after": {
+     "phone": "0151 286 6010",
+     "referral": "Contact your local Housing Options team (Liverpool: 0151 233 3061) – they’ll assess your situation and help you access support, including referrals to services like Homeground. You can also complete a Mainstay assessment, which is the referral route for supported accommodation across the Liverpool City Region. You cannot refer yourself directly to Homeground – all referrals must come through Housing Options or Social Services."
+    }
+   },
+   {
+    "id": "man-ss-jimmys-cambridge-east-road",
+    "name": "Jimmy's Cambridge emergency accommodation",
+    "fields": [
+     "referral"
+    ],
+    "before": {
+     "referral": "Call 01223 576085 to ask how to get a place."
+    },
+    "after": {
+     "referral": "Call 01223 576085 or email info@jimmyscambridge.org.uk. Referrals also accepted from local partner organisations; if sleeping rough, contact the Street Outreach Team on 01223 366 292 (weekdays 08:00–16:00). For immediate support, come to 1 East Road."
+    }
+   },
+   {
+    "id": "man-ss-michael-house-boscombe",
+    "name": "Michael House (dry house)",
+    "fields": [
+     "referral"
+    ],
+    "before": {
+     "referral": "Drug and alcohol-free supported hostel. Call 01202 393178 to ask about a referral."
+    },
+    "after": {
+     "referral": "Referrals accepted from statutory and voluntary agencies, community and church groups. Rough sleepers can book an admission assessment with the staff team directly by phoning 01202 393178 or emailing info@michaelhouse.co.uk."
+    }
+   },
+   {
+    "id": "man-ss-signposts-start-over-shelter",
+    "name": "Start Over Shelter (Signposts)",
+    "fields": [
+     "phone"
+    ],
+    "before": {
+     "phone": "01582 722629"
+    },
+    "after": {
+     "phone": "01582 825303"
+    }
+   },
+   {
+    "id": "man-ss-langley-tekoa-house",
+    "name": "Tekoa House (Langley House Trust)",
+    "fields": [
+     "lat",
+     "lng"
+    ],
+    "before": {
+     "lat": 53.614671,
+     "lng": -2.147129
+    },
+    "after": {
+     "lat": 53.614352,
+     "lng": -2.147447
+    }
+   },
+   {
+    "id": "man-ss-salvation-army-pleasance-lifehouse",
+    "name": "The Pleasance Lifehouse (Salvation Army)",
+    "fields": [
+     "referral"
+    ],
+    "before": {
+     "referral": "All referrals come from Streetwork: 0808 178 2323. Couples and individuals."
+    },
+    "after": {
+     "referral": "All referrals come from Streetwork: 18 South Bridge, Edinburgh, EH1 1LL, 0808 178 2323."
+    }
+   },
+   {
+    "id": "man-ss-riverside-wilson-carlile-house",
+    "name": "Wilson Carlile House (Riverside, men 18+)",
+    "fields": [
+     "phone"
+    ],
+    "before": {
+     "phone": "0161 273 3574"
+    },
+    "after": {
+     "phone": "0345 111 0000"
+    }
+   },
+   {
+    "id": "man-ss-ymca-derbyshire-london-road",
+    "name": "YMCA Derbyshire hostel",
+    "fields": [
+     "lat",
+     "lng"
+    ],
+    "before": {
+     "lat": 52.905804,
+     "lng": -1.451574
+    },
+    "after": {
+     "lat": 52.90554,
+     "lng": -1.450834
+    }
+   }
+  ],
   "tier_flips": [],
   "upcoming": [
    "Barnet Winter Night Shelter (Homeless Action in Barnet) – Opens 8 Nov 2026",
@@ -105,10 +277,6 @@
     "reason": "source unreachable this run (HTTP 404)"
    },
    {
-    "id": "osm-way-753792449",
-    "reason": "source unreachable this run (HTTP 403)"
-   },
-   {
     "id": "osm-way-931997512",
     "reason": "OpenStreetMap-only: own-site page does not show this place's postcode or street address this run"
    },
@@ -119,10 +287,6 @@
    {
     "id": "osm-way-936508369",
     "reason": "OpenStreetMap-only: own-site page does not show this place's postcode or street address this run"
-   },
-   {
-    "id": "osm-way-979361293",
-    "reason": "source unreachable this run (HTTP 403)"
    },
    {
     "id": "osm-way-1104948217",
@@ -146,10 +310,6 @@
    },
    {
     "id": "osm-relation-2707322",
-    "reason": "source unreachable this run (HTTP 403)"
-   },
-   {
-    "id": "hl-st-annes-hostel-birmingham",
     "reason": "source unreachable this run (HTTP 403)"
    },
    {
@@ -202,19 +362,7 @@
    },
    {
     "id": "hl-dawn-centre-temporary-accommodation-project",
-    "reason": "source unreachable this run (HTTP 403)"
-   },
-   {
-    "id": "hl-paradigm-housing-group-lea-bridge-house-hostel",
-    "reason": "source unreachable this run (HTTP 403)"
-   },
-   {
-    "id": "hl-st-mungos-longhills",
-    "reason": "source unreachable this run (HTTP 403)"
-   },
-   {
-    "id": "hl-stonepillow-bognor-hostel",
-    "reason": "source unreachable this run (HTTP 403)"
+    "reason": "schema: referral requirement not stated"
    },
    {
     "id": "man-google-lancaster-district-homeless-action-service",
@@ -223,6 +371,10 @@
    {
     "id": "man-google-day-centre",
     "reason": "source unreachable this run (HTTP 403)"
+   },
+   {
+    "id": "man-google-iou-hostel-hebden-bridge",
+    "reason": "source unreachable this run (HTTP 502)"
    },
    {
     "id": "man-kip-telford",
@@ -265,24 +417,8 @@
     "reason": "schema: referral requirement not stated"
    },
    {
-    "id": "man-ss-ssj-10-southampton-street",
-    "reason": "source unreachable this run (HTTP 403)"
-   },
-   {
     "id": "man-ss-pcha-somers-road",
     "reason": "schema: referral requirement not stated"
-   },
-   {
-    "id": "man-ss-jimmys-cambridge-east-road",
-    "reason": "schema: referral requirement not stated"
-   },
-   {
-    "id": "man-ss-st-basils-milner-court",
-    "reason": "source unreachable this run (HTTP 403)"
-   },
-   {
-    "id": "man-ss-st-basils-yardley-house",
-    "reason": "source unreachable this run (HTTP 403)"
    },
    {
     "id": "man-ss-saviour-trust-pontefract",
@@ -293,24 +429,7 @@
  "warmspaces.js": {
   "added": [],
   "removed": [],
-  "changed": [
-   {
-    "id": "ww-68980095",
-    "name": "Cornerstone United Reformed Church @ Parrs Wood Road",
-    "fields": [
-     "scheme_dates",
-     "upcoming"
-    ],
-    "before": {
-     "scheme_dates": "Opens 4 Nov 2026",
-     "upcoming": true
-    },
-    "after": {
-     "scheme_dates": "Not stated by source",
-     "upcoming": null
-    }
-   }
-  ],
+  "changed": [],
   "tier_flips": [],
   "upcoming": [
    "Greenmount Old School – Opens 5 Jan 2027",
