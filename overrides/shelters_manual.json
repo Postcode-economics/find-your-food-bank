@@ -8557,7 +8557,9 @@
     "hours": "Staffed 24/7",
     "referral": "Referral needed (Brighter Futures does not take emergency walk-ins): call 01782 406000.",
     "beds": "",
-    "groups": [],
+    "groups": [
+      "Customers who are experiencing homelessness"
+    ],
     "season": "Year-round",
     "operator": "",
     "flag_closed": false,
@@ -8571,7 +8573,9 @@
     ],
     "checked_on": "2026-11-04",
     "last_checked": "2026-11-04",
-    "who_for": "Not stated",
+    "who_for": [
+      "Customers who are experiencing homelessness"
+    ],
     "kind": "hostel",
     "address": "90 Hope Street, Stoke-on-Trent",
     "postcode": "ST1 5BY",
@@ -9031,7 +9035,9 @@
     "hours": "Staff available 24 hours a day, seven days a week",
     "referral": "Call 0151 600 3530 to ask how to get a place.",
     "beds": "",
-    "groups": [],
+    "groups": [
+      "Adults experiencing homelessness with multiple and complex needs"
+    ],
     "season": "Year-round",
     "operator": "",
     "flag_closed": false,
@@ -9045,7 +9051,9 @@
     ],
     "checked_on": "2026-11-04",
     "last_checked": "2026-11-04",
-    "who_for": "Not stated",
+    "who_for": [
+      "Adults experiencing homelessness with multiple and complex needs"
+    ],
     "kind": "hostel",
     "address": "15 Leeds St, Liverpool",
     "postcode": "L3 6HU",
