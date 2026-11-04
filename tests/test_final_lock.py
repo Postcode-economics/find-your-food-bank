@@ -8,15 +8,25 @@ import place_lock
 PUB = {"id": "s1", "name": "S", "address": "1 High St, Town", "postcode": "AB1 2CD", "lat": 51.5, "lng": -0.1,
        "phone": "01234 567890", "phone_label": "", "hours": ""}
 
-def run(item, hand=None, baseline=None, pub=PUB):
-    return place_lock.final_lock([item], [copy.deepcopy(pub)], hand or {}, "shelters", baseline=baseline)
+def run(item, hand=None, pub=PUB, guarded=None):
+    return place_lock.final_lock([item], [copy.deepcopy(pub)], hand or {}, "shelters", guarded=guarded)
 
 class FinalLock(unittest.TestCase):
     def test_feed_change_blocked_for_every_locked_field(self):
-        item = dict(PUB, address="9 Feed Rd", postcode="ZZ9 9ZZ", lat=53.0, lng=-2.0, phone="0800 000 000")
+        item = dict(PUB, address="9 Feed Rd", postcode="ZZ9 9ZZ", lat=53.0, lng=-2.0)
         b = run(item)
-        self.assertEqual({f for _, f, _, _ in b}, {"address", "postcode", "lat", "lng", "phone"})
-        for f in ("address", "postcode", "lat", "lng", "phone"):
+        self.assertEqual({f for _, f, _, _ in b}, {"address", "postcode", "lat", "lng"})
+        for f in ("address", "postcode", "lat", "lng"):
+            self.assertEqual(item[f], PUB[f], f)
+
+    def test_later_overwrite_after_protect_is_restored_to_guarded(self):
+        # protect() left the card as published; a later step (kept copy / normaliser) overwrote it
+        item = copy.deepcopy(PUB)
+        guarded = place_lock.snapshot([item])
+        item.update(address="9 Feed Rd", postcode="ZZ9 9ZZ", lat=53.0, lng=-2.0)
+        b = run(item, guarded=guarded)
+        self.assertEqual({f for _, f, _, _ in b}, {"address", "postcode", "lat", "lng"})
+        for f in ("address", "postcode", "lat", "lng"):
             self.assertEqual(item[f], PUB[f], f)
 
     def test_kept_copy_with_stale_values_gets_hand_values(self):
@@ -31,16 +41,32 @@ class FinalLock(unittest.TestCase):
         run(item, {"s1": {"address": "2 New Rd, Town"}})
         self.assertEqual(item["address"], "2 New Rd, Town")
 
-    def test_phone_change_only_to_hand_or_baseline(self):
-        item = dict(PUB, phone="01999 111111")
-        run(item, {"s1": {"phone": "01999 111111"}})
-        self.assertEqual(item["phone"], "01999 111111")
-        item = dict(PUB, phone="01999 222222")
-        run(item, baseline={"s1": {"phone": "01999 222222"}})
-        self.assertEqual(item["phone"], "01999 222222")
-        item = dict(PUB, phone="01999 333333")
-        run(item, {"s1": {"phone": "01999 111111"}})
-        self.assertEqual(item["phone"], PUB["phone"])
+    def test_rule50_value_protect_let_through_is_not_frozen(self):
+        # rule 50: a pin/address value that protect() accepted is never put back to the published one
+        item = dict(PUB, address="5 Moved St, Town", postcode="AB1 9XY", lat=51.7, lng=-0.3)
+        guarded = place_lock.snapshot([item])
+        b = run(item, guarded=guarded)
+        self.assertEqual(b, [])
+        self.assertEqual((item["address"], item["postcode"], item["lat"], item["lng"]), ("5 Moved St, Town", "AB1 9XY", 51.7, -0.3))
+
+    def test_rule45_final_lock_never_touches_phone_or_council_lines(self):
+        # rule 45: phones and council lines belong to phone_lock alone; final_lock neither freezes nor undoes them
+        self.assertFalse(hasattr(place_lock, "LOCKED_CONTACT"))
+        pub = dict(PUB, phone_label="Office", tel="01234567890", council_phone="0300 000 0000", council_ooh="0300 111 1111",
+                   council_label="Council out of hours", council_label_cy="Cyngor")
+        item = dict(pub, phone="01999 333333", phone_label="Main", tel="01999333333", council_phone="0300 222 2222",
+                    council_ooh="0300 333 3333", council_label="X", council_label_cy="Y")
+        want = copy.deepcopy(item)
+        b = run(item, {"s1": {"phone": "01999 111111"}}, pub=pub)
+        self.assertEqual(b, [])
+        for f in ("phone", "phone_label", "tel", "council_phone", "council_ooh", "council_label", "council_label_cy"):
+            self.assertEqual(item[f], want[f], f)
+
+    def test_build_still_runs_phone_lock_before_final_lock(self):
+        src = open(os.path.join(ROOT, "scripts", "build_shelters.py"), encoding="utf-8").read()
+        self.assertLess(src.index("phone_lock.guard("), src.index("place_lock.final_lock("))
+        self.assertIn("guarded=_guarded", src)
+        self.assertLess(src.index("place_lock.protect("), src.index("place_lock.snapshot(items)"))
 
     def test_no_pin_never_carries_pin_fields(self):
         pub = {"id": "s1", "name": "S", "no_pin": True, "card_type": "referral_hostel", "address": "Leeds", "phone": "0113 000 0000"}

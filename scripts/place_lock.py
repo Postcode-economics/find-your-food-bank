@@ -278,23 +278,28 @@ def changes(old_items, new_items):
     return out
 
 
-LOCKED_CONTACT = ("phone", "phone_label", "tel", "council_phone", "council_ooh", "council_label", "council_label_cy")
+def snapshot(items):
+    """The pin fields of every card as protect() left them. final_lock() compares against this, so it only
+    puts back what a later step (kept copy, normaliser, route filler) overwrote, never a value protect() let through."""
+    return {i["id"]: {f: i.get(f) for f in PIN_FIELDS}
+            for i in (items or []) if isinstance(i, dict) and i.get("id")}
 
-def final_lock(items, previous, hand, layer="shelters", baseline=None):
-    """The LAST step before a layer file is written (Dean, 4 Nov 2026). Nothing a refresh, sweep, feed,
-    kept copy or normaliser did may change a card's address, postcode, lat/lng, phone, phone label or
-    council line unless the new value is the hand-checked one (shelters_manual.json / shelters_verified.json).
-    - address / postcode / lat / lng: a stated hand value wins; otherwise the published value is put back.
-    - phone fields: a change is allowed only to the hand value; otherwise the published value is put back
-      (the phone lock's own rules are unchanged; this only stops anything after it undoing them).
+def final_lock(items, previous, hand, layer="shelters", guarded=None):
+    """The LAST step before a layer file is written (Dean, 4 Nov 2026).
+    - address / postcode / lat / lng: a stated hand value wins. Otherwise a field is put back ONLY if a step
+      after protect() overwrote it: it is compared with `guarded` (snapshot() taken right after protect()),
+      not with the published file, so a value protect() let through is never frozen (rule 50). Without a
+      snapshot the published copy is the reference (protect() would have restored to it anyway).
+    - phone, phone label and council lines are NOT handled here: phone_lock alone owns them (rule 45).
     - no_pin cards never carry postcode / lat / lng, and never a hand street address.
     - opening hours are not touched here (rules 48/50 apply them).
     Returns a list of (id, field, blocked_value, kept_value)."""
-    prev = {o["id"]: o for o in (previous or []) if isinstance(o, dict) and o.get("id")}
+    if guarded is None:
+        guarded = snapshot(previous)
     hand = hand or {}
     blocked = []
     for item in items or []:
-        iid = item.get("id"); rec = hand.get(iid) or {}; old = prev.get(iid)
+        iid = item.get("id"); rec = hand.get(iid) or {}; ref = guarded.get(iid)
         if item.get("no_pin"):
             for f in ("postcode", "lat", "lng"):
                 if f in item:
@@ -307,20 +312,8 @@ def final_lock(items, previous, hand, layer="shelters", baseline=None):
                 if item.get(f) != hv and not (f in ("lat", "lng") and same(f, item.get(f), hv)):
                     blocked.append((iid, f, item.get(f), hv)); item[f] = hv
                 continue
-            if old is None:
+            if ref is None:
                 continue  # a brand-new place: the publish gate decides
-            if not same(f, old.get(f), item.get(f)):
-                blocked.append((iid, f, item.get(f), old.get(f))); _restore(item, f, old.get(f))
-        for f in LOCKED_CONTACT:
-            if old is None:
-                continue
-            new, was = item.get(f), old.get(f)
-            if new == was:
-                continue
-            if f in rec and _stated(rec[f]) and new == rec[f]:
-                continue
-            base = (baseline or {}).get(iid) or {}
-            if f in base and not _blank(base[f]) and new == base[f]:
-                continue  # the reviewed phone baseline (overrides/phone_baseline.json) is a hand file too
-            blocked.append((iid, f, new, was)); _restore(item, f, was)
+            if not same(f, ref.get(f), item.get(f)):
+                blocked.append((iid, f, item.get(f), ref.get(f))); _restore(item, f, ref.get(f))
     return blocked
