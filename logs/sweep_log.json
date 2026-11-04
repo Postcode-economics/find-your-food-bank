@@ -1,8 +1,33 @@
 {
- "run": "2026-11-03",
- "pages": 1605,
- "failed": 0,
- "errors": [],
+ "run": "2026-11-04",
+ "pages": 1680,
+ "failed": 6,
+ "errors": [
+  [
+   "https://eastsuffolk-app.codeenigma.net/benefits-grants-and-support/community-grants-and-funding/warm-welcomes",
+   "error"
+  ],
+  [
+   "https://eastsuffolk-app.codeenigma.net/housing/housing/homelessness-advice-and-prevention/rough-sleeping",
+   "error"
+  ],
+  [
+   "https://go.walsall.gov.uk/newsroom/amber-cold-weather-alert-issued-west-midlands",
+   403
+  ],
+  [
+   "https://haringey.gov.uk/care-support-adults/adult-social-care-directory/coffee-mornings-warm-welcome-afternoons-hosted-by-sweet-mind",
+   503
+  ],
+  [
+   "http://go.walsall.gov.uk/newsroom/amber-cold-weather-alert-issued-west-midlands",
+   403
+  ],
+  [
+   "http://go.walsall.gov.uk/newsroom/walsall-residents-reminded-keep-warm-and-well-cold-weather-alert-issued",
+   403
+  ]
+ ],
  "added": [],
  "status": "ok"
 }
