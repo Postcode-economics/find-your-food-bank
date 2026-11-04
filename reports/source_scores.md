@@ -21,6 +21,7 @@ Score = average of opening-times and phone fill rates (0-100). Flagged if it dro
 - own site northamptonhopecentre.org.uk: 50
 - own site widnesfoodbank.org.uk: 50
 - own site canterburyfoodbank.org: 50
+- shelters: Own website: 50
 - warmspaces: Southwark Council warm spaces page: 50
 - warmspaces: Northumberland County Council warm spaces: 50
 - warmspaces: Voluntary Action Islington warm spaces list: 50
@@ -52,7 +53,6 @@ Score = average of opening-times and phone fill rates (0-100). Flagged if it dro
 - shelters: Homeless Link Find help + 2026 corroboration: 81.2
 - own site horshamdistrict.foodbank.org.uk: 83.3
 - own site lincolnlarder.co.uk: 83.3
-- shelters: Manual (verified from source pages): 84.9
 - own site westlothian.foodbank.org.uk: 85
 - own site andover.foodbank.org.uk: 85.7
 - own site newcastlestaffs.foodbank.org.uk: 85.7
@@ -70,6 +70,7 @@ Score = average of opening-times and phone fill rates (0-100). Flagged if it dro
 - own site southport.foodbank.org.uk: 90
 - own site traffordsouth.foodbank.org.uk: 90
 - own site midcheshire.foodbank.org.uk: 90.9
+- shelters: Manual (verified from source pages): 91.5
 - own site southgwynedd.foodbank.org.uk: 91.7
 - own site peterborough.foodbank.org.uk: 91.7
 - own site restorenorthampton.org.uk: 91.7

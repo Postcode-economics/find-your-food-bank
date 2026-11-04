@@ -5636,8 +5636,8 @@ Left out of this run because this place was not already on the map and its page 
 - QUEUED Wells Vineyard Foodbank / The Wells Storehouse · BA5 1DA · https://www.wellsvineyard.com — own site unreachable (HTTP 404)
 - QUEUED Rokzkool Academy (SCIO) · IV4 7EH · https://www.rokzkoolacademy.org — own site unreachable (HTTP 403)
 - QUEUED Rokzkool Academy (SCIO) · IV3 8HE · https://www.rokzkoolacademy.org — own site unreachable (HTTP 403)
-- QUEUED Friends of Isaacs Food Bank · B97 6HX · https://www.teamisaac.co.uk — own site does not name it; own site does not show food aid; directory listing only, with no 2026-27 season dates (latest stated start: none)
-- QUEUED Friends of Isaacs Food Bank · B98 9HL · https://www.teamisaac.co.uk — own site does not name it; own site does not show food aid; directory listing only, with no 2026-27 season dates (latest stated start: none)
+- QUEUED Friends of Isaacs Food Bank · B97 6HX · https://www.teamisaac.co.uk — own site redirects to a different site (halstock-village.co.uk)
+- QUEUED Friends of Isaacs Food Bank · B98 9HL · https://www.teamisaac.co.uk — own site redirects to a different site (halstock-village.co.uk)
 - QUEUED Food4All · E7 9LW · https://www.food4alluk.org/ — own site unreachable (HTTP error)
 - QUEUED Saint Vincent de Paul Society (St Mary's Cathedral) · AB10 1SH · https://www.stmaryscathedralaberdeen.org/groups/groups-2/non-liturgical/st-vincent/ — own site does not show food aid
 - QUEUED Social Echo North Huntingdonshire · PE7 3AT · https://www.socialecho.uk — own site unreachable (HTTP 403)
@@ -5696,7 +5696,7 @@ Left out of this run because this place was not already on the map and its page 
 - QUEUED Machars Churches Basics Food Bank · DG8 6EL · https://www.angycarehealth.co.uk — own site does not name it; directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED The5es Development · E16 3PJ · https://www.the5es.org — own site unreachable (HTTP error)
 - QUEUED The Bus Shelter Ipswich CIC · IP2 8LR — directory listing only, with no 2026-27 season dates (latest stated start: none)
-- QUEUED PATCH - Pembrokeshire Action to Combat Hardship · SA68 0YH · https://www.patchcharity.org.uk — own site has no readable text
+- QUEUED PATCH - Pembrokeshire Action to Combat Hardship · SA68 0YH · https://www.patchcharity.org.uk — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED PATCH - Pembrokeshire Action to Combat Hardship · SA61 1QE · https://www.patchcharity.org.uk — own site has no readable text
 - QUEUED Homeschool Social Enterprise/ Active Christians · WS10 0GB · https://www.activechristians.org.uk — own site unreachable (HTTP error)
 - QUEUED Neema Women Community · B12 8LF · https://www.neemawomen.com — own site does not show food aid; directory listing only, with no 2026-27 season dates (latest stated start: none)
