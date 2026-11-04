@@ -170,7 +170,7 @@ def apply_hand(item, rec, fields=HAND_WIN_FIELDS, skip=(), normalise=True):
         done.append(f)
     if item.get("no_pin"):
         for f in ("postcode", "lat", "lng"):  # the town-level address line stays; it is never set from a hand value
-            item.pop(f, None)
+            item[f] = "" if f == "postcode" else None  # keep the keys empty: the build and the map read them (undefined lat broke nearest-first sorting)
     return done
 
 def _restore(item, field, was):
@@ -302,8 +302,9 @@ def final_lock(items, previous, hand, layer="shelters", guarded=None):
         iid = item.get("id"); rec = hand.get(iid) or {}; ref = guarded.get(iid)
         if item.get("no_pin"):
             for f in ("postcode", "lat", "lng"):
-                if f in item:
-                    blocked.append((iid, f, item.pop(f), None))
+                if not _blank(item.get(f)):
+                    blocked.append((iid, f, item.get(f), None))
+                item[f] = "" if f == "postcode" else None  # empty, never missing (map sorts by distance on every card)
         for f in PIN_FIELDS:
             if item.get("no_pin") and f != "address":
                 continue

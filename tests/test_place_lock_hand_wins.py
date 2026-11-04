@@ -64,11 +64,11 @@ class HandWins(unittest.TestCase):
         place_lock.protect([item], [dict(item)], {"man-ss-x": {"address": "1 Secret Road", "postcode": "M1 1AA",
                                                                "lat": 53.0, "lng": -2.0}}, self.root, "shelters")
         for f in ("address", "postcode", "lat", "lng"):
-            self.assertNotIn(f, item) if f != "address" else self.assertNotEqual(item.get(f), "1 Secret Road")
+            self.assertIn(item.get(f, "MISSING"), ("", None)) if f != "address" else self.assertNotEqual(item.get(f), "1 Secret Road")
         kept = dict(item)
         place_lock.apply_hand(kept, place_lock.hand_record({"address": "1 Secret Road"}, {"postcode": "M1 1AA"}))
         for f in ("address", "postcode", "lat", "lng"):
-            self.assertNotIn(f, kept) if f != "address" else self.assertNotEqual(kept.get(f), "1 Secret Road")
+            self.assertIn(kept.get(f, "MISSING"), ("", None)) if f != "address" else self.assertNotEqual(kept.get(f), "1 Secret Road")
 
     def test_kept_copy_path_uses_the_same_function(self):
         src = open(os.path.join(ROOT, "scripts", "common.py"), encoding="utf-8").read()
