@@ -138,19 +138,19 @@ def hand_record(*recs):
         _add_hand(box, "x", r)
     return box.get("x", {})
 
-def hand_value(item, field, rec):
+def hand_value(item, field, rec, normalise=True):
     """The hand-set value for this field, or None. Never a place field for a no_pin card (rule 55/94)."""
     if not isinstance(rec, dict) or field not in rec or not _stated(rec[field]):
         return None
     if field in PIN_FIELDS and isinstance(item, dict) and item.get("no_pin"):
         return None
     v = rec[field]
-    if field == "hours":
+    if field == "hours" and normalise:
         import hours_norm
         v = hours_norm.normalise_hours(v)
     return v
 
-def apply_hand(item, rec, fields=HAND_WIN_FIELDS, skip=()):
+def apply_hand(item, rec, fields=HAND_WIN_FIELDS, skip=(), normalise=True):
     """Hand-checked values from shelters_manual.json / shelters_verified.json win for address, postcode and hours
     (Dean 4 Nov 2026: the manual file is the checked source). Not a freeze: hours confirmed by the times gate this run
     (rule 48/50) are passed in skip and left alone. no_pin cards never get a place field. Phones are never touched.
@@ -159,7 +159,7 @@ def apply_hand(item, rec, fields=HAND_WIN_FIELDS, skip=()):
     for f in fields:
         if f in skip or f == "phone":
             continue
-        v = hand_value(item, f, rec)
+        v = hand_value(item, f, rec, normalise)
         if v is None:
             continue
         if f == "hours" and _without_check_date(item.get(f)) == _without_check_date(v):
