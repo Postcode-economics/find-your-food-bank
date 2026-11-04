@@ -21,7 +21,7 @@ class VerifyFreshHandWins(unittest.TestCase):
         subprocess.run(["git", "init", "-q"], **e); subprocess.run(["git", "add", "-A"], **e)
         subprocess.run(["git", "-c", "user.email=t@t", "-c", "user.name=t", "-c", "commit.gpgsign=false", "commit", "-qm", "pub"], **e)
         # the published copy must be readable at HEAD, or verify_fresh has nothing to protect and this test proves nothing
-        self.assertIn('"id":"b"', subprocess.run(["git", "show", "HEAD:shelters.js"], **e).stdout)
+        self.assertIn('"id":"%s"' % published[0]["id"], subprocess.run(["git", "show", "HEAD:shelters.js"], **e).stdout)
         open(os.path.join(d, "shelters.js"), "w").write(js(built))
         now = datetime.datetime.now(datetime.timezone.utc).isoformat()
         log = {"_run": {"fetched_at": now}}
