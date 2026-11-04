@@ -223,7 +223,7 @@
 {
 "access": "unclear",
 "hours_hash": "",
-"http": null,
+"http": 200,
 "phones": [],
 "url": "http://www.raftfoundation.org"
 },
@@ -396,7 +396,7 @@
 {
 "access": "voucher",
 "hours_hash": "",
-"http": null,
+"http": 200,
 "phones": [],
 "url": "https://abergeledistrict.foodbank.org.uk"
 },
@@ -448,7 +448,7 @@
 {
 "access": "unclear",
 "hours_hash": "",
-"http": null,
+"http": 200,
 "phones": [
 "02088255588",
 "02088257819",
@@ -1436,8 +1436,8 @@
 },
 {
 "access": "walkin",
-"hours_hash": "",
-"http": null,
+"hours_hash": "041f88c6f503",
+"http": 200,
 "phones": [
 "01554227540",
 "01554556996"
@@ -1627,7 +1627,7 @@
 "url": "https://cobhamarea.foodbank.org.uk"
 },
 {
-"access": "unclear",
+"access": "voucher",
 "hours_hash": "",
 "http": 200,
 "phones": [
@@ -2515,7 +2515,7 @@
 "url": "https://fosse.foodbank.org.uk"
 },
 {
-"access": "unclear",
+"access": "voucher",
 "hours_hash": "5c402cdc2b05",
 "http": 200,
 "phones": [],
@@ -3063,7 +3063,7 @@
 {
 "access": "unclear",
 "hours_hash": "",
-"http": 200,
+"http": 429,
 "phones": [
 "07463942463",
 "07859905903"
@@ -3375,7 +3375,7 @@
 "url": "https://landportra.wordpress.com/2016/05/31/landport-foodbank/"
 },
 {
-"access": "unclear",
+"access": "voucher",
 "hours_hash": "",
 "http": 200,
 "phones": [],
@@ -3543,7 +3543,7 @@
 "url": "https://liphookfoodbank.com"
 },
 {
-"access": "unclear",
+"access": "voucher",
 "hours_hash": "",
 "http": 200,
 "phones": [],
@@ -3838,8 +3838,8 @@
 },
 {
 "access": "unclear",
-"hours_hash": "",
-"http": null,
+"hours_hash": "220a4636eee6",
+"http": 200,
 "phones": [
 "01908322800",
 "07874964505"
@@ -4186,8 +4186,8 @@
 },
 {
 "access": "walkin",
-"hours_hash": "",
-"http": 429,
+"hours_hash": "7774a5b35425",
+"http": 200,
 "phones": [
 "07723121794"
 ],
@@ -4326,8 +4326,8 @@
 },
 {
 "access": "mixed",
-"hours_hash": "6bc0057e3221",
-"http": 200,
+"hours_hash": "",
+"http": null,
 "phones": [
 "01646699275"
 ],
