@@ -243,7 +243,9 @@ def verification_gate(fresh, prev, verified, run_day, pending_path, autocheck=No
                 # Hand-verified manual row: a blocked re-read keeps the listing, but this run's manual and
                 # verified hand fields still apply (a blocked site must not freeze an old copy; Dean, 4 Nov 2026).
                 for k in HAND_FIELDS_ON_KEEP:
-                    if k in x: old[k] = x[k]
+                    # Only a stated hand value replaces the kept one: a blank manual field (e.g. groups [] where the
+                    # published copy has who-it's-for inferred from its evidence) must not wipe it (YMCA Watford, 4 Nov 2026).
+                    if k in x and x[k] not in (None, "", [], {}): old[k] = x[k]
                 if v:
                     for k in ("phone", "address", "postcode", "lat", "lng", "hours", "phone_label"):
                         if v.get(k): old[k] = v[k]

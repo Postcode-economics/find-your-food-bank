@@ -32,5 +32,23 @@ class KeptCopyGetsManualFields(unittest.TestCase):
         self.assertEqual(x["referral"], "New route")
 
 
+class KeptCopyKeepsInferredWhenManualBlank(unittest.TestCase):
+    def test_blank_manual_groups_do_not_wipe_published(self):
+        old = {"id": "man-x", "name": "X", "phone": "01923 000000", "groups": ["Adults 18+"], "fetched_at": "2026-11-01T00:00:00+00:00"}
+        new = {"id": "man-x", "name": "X", "phone": "01923 000000", "groups": [], "facilities": "", "referral": "Call"}
+        cwd = os.getcwd()
+        with tempfile.TemporaryDirectory() as d, mock.patch("recheck.recheck_all", return_value={"man-x": {"ok": False, "http": 200, "reason": "published times not found on source this run"}}), \
+                mock.patch.object(common, "record_layer_holds", lambda *a, **k: None):
+            os.makedirs(os.path.join(d, "reports")); os.makedirs(os.path.join(d, "logs")); os.chdir(d)
+            try:
+                res = common.verification_gate([new], {"items": [old]}, {}, "2026-11-04", os.path.join(d, "shelters_pending.json"),
+                                               now=datetime.datetime(2026, 11, 4, tzinfo=datetime.timezone.utc))
+            finally:
+                os.chdir(cwd)
+        x = res[0][0]
+        self.assertEqual(x["groups"], ["Adults 18+"])
+        self.assertEqual(x["referral"], "Call")
+
+
 if __name__ == "__main__":
     unittest.main()
