@@ -8337,120 +8337,146 @@
     "name": "Morning Star Hostel (Caritas Salford)",
     "phone": "0161 868 0606",
     "website": "https://www.caritassalford.org.uk/service/morning-star/",
-    "hours": "",
+    "hours": "24 hours a day, 7 days a week (manager and support staff enquiries: Monday to Friday, 9am to 5pm)",
     "referral": "Single men with a homelessness duty, by referral: call 0161 868 0606.",
-    "beds": "",
+    "beds": "20",
     "groups": [
-      "Men"
+      "Single homeless men"
     ],
     "season": "Year-round",
     "operator": "",
     "flag_closed": false,
-    "source": "Manual (verified from source pages)",
+    "source": "Own website",
     "source_url": "https://www.caritassalford.org.uk/service/morning-star/",
     "last_verified": "2026-11-02",
     "stale": false,
     "access_type": "referral_only",
-    "facilities": "Not stated",
+    "facilities": [
+      "Own bedroom",
+      "Shared kitchen and living room",
+      "Support worker"
+    ],
     "checked_on": "2026-11-02",
     "last_checked": "2026-11-02",
     "who_for": [
-      "Men"
+      "Single homeless men"
     ],
     "kind": "hostel",
-    "address": "104 Denmark Road, Manchester",
+    "address": "104 Denmark Road, Hulme",
     "postcode": "M15 6JS",
     "lat": 53.461133,
-    "lng": -2.240655
+    "lng": -2.240655,
+    "discovery_url": "https://www.streetsupport.net/find-help/organisation/caritas-diocese-of-salford",
+    "discovery_label": "Street Support"
   },
   {
     "id": "man-ss-st-georges-crypt-leeds",
     "name": "St George's Crypt emergency accommodation",
     "phone": "0113 245 9061",
     "website": "https://www.stgeorgescrypt.org.uk/how-we-help/the-crypt",
-    "hours": "",
+    "hours": "24/7 emergency accommodation",
     "referral": "By referral through Leeds Housing Options (0113 222 4412, 9am-5pm Mon-Fri).",
     "beds": "",
-    "groups": [],
+    "groups": [
+      "Men and women who are homeless or rough-sleeping"
+    ],
     "season": "Year-round",
     "operator": "",
     "flag_closed": false,
-    "source": "Manual (verified from source pages)",
+    "source": "Own website",
     "source_url": "https://www.stgeorgescrypt.org.uk/how-we-help/the-crypt",
     "last_verified": "2026-11-02",
     "stale": false,
     "access_type": "referral_only",
-    "facilities": "Not stated",
+    "facilities": [
+      "Food",
+      "Showers"
+    ],
     "checked_on": "2026-11-02",
     "last_checked": "2026-11-02",
-    "who_for": "Not stated",
+    "who_for": [
+      "Men and women who are homeless or rough-sleeping"
+    ],
     "kind": "hostel",
-    "address": "Great George Street, Leeds",
+    "address": "St George's Crypt, Great George Street, Leeds",
     "postcode": "LS1 3BR",
     "lat": 53.801045,
-    "lng": -1.553483
+    "lng": -1.553483,
+    "discovery_url": "https://www.streetsupport.net/find-help/organisation/st-georges-crypt",
+    "discovery_label": "Street Support"
   },
   {
     "id": "man-ss-belvidere-family-centre",
     "name": "Belvidere Family Centre (families)",
     "phone": "0151 329 0307",
     "website": "https://www.shap.org.uk/housing-support-and-wellbeing/belvidere-family-centre/",
-    "hours": "",
+    "hours": "Staffed 24 hours a day, 7 days a week",
     "referral": "Homeless families assessed by Liverpool City Council's Housing Options service.",
-    "beds": "",
+    "beds": "16 self-contained family flats",
     "groups": [
-      "Families"
+      "Homeless families"
     ],
     "season": "Year-round",
     "operator": "",
     "flag_closed": false,
-    "source": "Manual (verified from source pages)",
+    "source": "Own website",
     "source_url": "https://www.shap.org.uk/housing-support-and-wellbeing/belvidere-family-centre/",
     "last_verified": "2026-11-02",
     "stale": false,
     "access_type": "referral_only",
-    "facilities": "Not stated",
+    "facilities": [
+      "Self-contained flat with a kitchen and bathroom",
+      "Laundry",
+      "Communal meeting rooms",
+      "Large garden and a play area for young children"
+    ],
     "checked_on": "2026-11-02",
     "last_checked": "2026-11-02",
     "who_for": [
-      "Families"
+      "Homeless families"
     ],
     "kind": "hostel",
-    "address": "7-9 Belvidere Road, Princes Park, Liverpool",
+    "address": "7-9 Belvidere Rd, Liverpool",
     "postcode": "L8 3TF",
     "lat": 53.384874,
-    "lng": -2.957125
+    "lng": -2.957125,
+    "discovery_url": "https://www.streetsupport.net/find-help/organisation/shap",
+    "discovery_label": "Street Support"
   },
   {
     "id": "man-ss-signposts-start-over-shelter",
     "name": "Start Over Shelter (Signposts)",
-    "phone": "01582 722629",
+    "phone": "01582 825303",
     "website": "https://www.signpostsso.org/contact-us",
-    "hours": "",
+    "hours": "Staffed both day and night",
     "referral": "Single people aged 21+: call 01582 722629 and press 1 for advice and admissions.",
     "beds": "",
     "groups": [
-      "Single adults 21+"
+      "Single homeless people, of any gender, aged 21 and over"
     ],
     "season": "Year-round",
     "operator": "",
     "flag_closed": false,
-    "source": "Manual (verified from source pages)",
+    "source": "Own website",
     "source_url": "https://www.signpostsso.org/contact-us",
     "last_verified": "2026-11-02",
     "stale": false,
     "access_type": "self_referral",
-    "facilities": "Not stated",
+    "facilities": [
+      "Cooking and laundry facilities"
+    ],
     "checked_on": "2026-11-02",
     "last_checked": "2026-11-02",
     "who_for": [
-      "Single adults 21+"
+      "Single homeless people, of any gender, aged 21 and over"
     ],
     "kind": "hostel",
-    "address": "80-94 Guildford Hall, Guildford Street, Luton",
+    "address": "Start Over Shelter, 80-94 Guildford Hall, Guildford Street, Luton",
     "postcode": "LU1 2PA",
     "lat": 51.881646,
-    "lng": -0.415986
+    "lng": -0.415986,
+    "discovery_url": "https://www.streetsupport.net/find-help/organisation/signpost",
+    "discovery_label": "Street Support"
   },
   {
     "id": "man-ss-riverside-project-394",
@@ -8459,14 +8485,14 @@
     "website": "https://www.manchesterservicedirectory.co.uk/kb5/manchester/directory/service.page?id=TtFEY2JXDos",
     "hours": "",
     "referral": "Women only. No self-referrals: referral through Manchester City Council homeless services or a partner agency.",
-    "beds": "",
+    "beds": "14",
     "groups": [
-      "Women"
+      "Women who are new to rough sleeping with medium to high support needs"
     ],
     "season": "Year-round",
     "operator": "",
     "flag_closed": false,
-    "source": "Manual (verified from source pages)",
+    "source": "Own website",
     "source_url": "https://www.manchesterservicedirectory.co.uk/kb5/manchester/directory/service.page?id=TtFEY2JXDos",
     "last_verified": "2026-11-02",
     "stale": false,
@@ -8475,70 +8501,80 @@
     "checked_on": "2026-11-02",
     "last_checked": "2026-11-02",
     "who_for": [
-      "Women"
+      "Women who are new to rough sleeping with medium to high support needs"
     ],
     "kind": "hostel",
     "address": "394 Wilmslow Road, Withington, Manchester",
     "postcode": "M20 3NA",
     "lat": 53.437057,
-    "lng": -2.224202
+    "lng": -2.224202,
+    "discovery_url": "https://www.streetsupport.net/find-help/organisation/riverside",
+    "discovery_label": "Street Support"
   },
   {
     "id": "man-ss-brighter-futures-90-hope-street",
     "name": "90 Hope Street hostel (Brighter Futures)",
     "phone": "01782 406000",
     "website": "https://brighter-futures.org.uk/the-housing-pathway/homelessness-accommodation/",
-    "hours": "Staffed 24 hours a day, 7 days a week",
+    "hours": "Staffed 24/7",
     "referral": "Referral needed (Brighter Futures does not take emergency walk-ins): call 01782 406000.",
     "beds": "",
     "groups": [],
     "season": "Year-round",
     "operator": "",
     "flag_closed": false,
-    "source": "Manual (verified from source pages)",
+    "source": "Own website",
     "source_url": "https://brighter-futures.org.uk/the-housing-pathway/homelessness-accommodation/",
     "last_verified": "2026-11-02",
     "stale": false,
     "access_type": "referral_only",
-    "facilities": "Not stated",
+    "facilities": [
+      "Breakfast and an evening meal"
+    ],
     "checked_on": "2026-11-02",
     "last_checked": "2026-11-02",
     "who_for": "Not stated",
     "kind": "hostel",
-    "address": "90 Hope Street, Hanley, Stoke-on-Trent",
+    "address": "90 Hope Street, Stoke-on-Trent",
     "postcode": "ST1 5BY",
     "lat": 53.029142,
     "lng": -2.178571,
     "hours_quote": "The hostel is staffed by a friendly, experienced team available 24/7",
     "hours_source": "https://brighter-futures.org.uk/the-housing-pathway/homelessness-accommodation/",
-    "hours_checked": "2026-11-03"
+    "hours_checked": "2026-11-03",
+    "discovery_url": "https://www.streetsupport.net/find-help/organisation/brighter-futures---derbyshire",
+    "discovery_label": "Street Support"
   },
   {
     "id": "man-ss-ymca-derbyshire-london-road",
     "name": "YMCA Derbyshire hostel",
     "phone": "01332 579550",
     "website": "https://ymcaderbyshire.org.uk/our-services/housing/",
-    "hours": "",
+    "hours": "Open 24/7, 365 days a year",
     "referral": "Referral through Derby City Council: Homeless Tonight 01332 888777 option 4 (after 5pm and weekends Careline 01332 956606).",
     "beds": "",
     "groups": [],
     "season": "Year-round",
     "operator": "",
     "flag_closed": false,
-    "source": "Manual (verified from source pages)",
+    "source": "Own website",
     "source_url": "https://ymcaderbyshire.org.uk/our-services/housing/",
     "last_verified": "2026-11-02",
     "stale": false,
     "access_type": "referral_only",
-    "facilities": "Not stated",
+    "facilities": [
+      "Some are self-contained and some have communal cooking or laundry facilities"
+    ],
     "checked_on": "2026-11-02",
     "last_checked": "2026-11-02",
     "who_for": "Not stated",
     "kind": "hostel",
     "address": "770 London Road, Wilmorton, Derby",
     "postcode": "DE24 8UT",
-    "lat": 52.905804,
-    "lng": -1.451574
+    "lat": 52.90554,
+    "lng": -1.450834,
+    "discovery_url": "https://www.streetsupport.net/find-help/organisation/ymca-derbyshire",
+    "discovery_label": "Street Support"
   },
   {
     "id": "man-ss-bethany-house-edinburgh",
@@ -8547,30 +8583,41 @@
     "website": "https://www.bethanychristiantrust.com/service/bethany-house/",
     "hours": "",
     "referral": "Referral through the City of Edinburgh Council.",
-    "beds": "",
-    "groups": [],
+    "beds": "Up to 28",
+    "groups": [
+      "Men and women aged 18+ eligible for temporary accommodation with the City of Edinburgh Council"
+    ],
     "season": "Year-round",
     "operator": "",
     "flag_closed": false,
-    "source": "Manual (verified from source pages)",
+    "source": "Own website",
     "source_url": "https://www.bethanychristiantrust.com/service/bethany-house/",
     "last_verified": "2026-11-02",
     "stale": false,
     "access_type": "referral_only",
-    "facilities": "Not stated",
+    "facilities": [
+      "Accommodation with food",
+      "Individual key work meetings",
+      "An in house addiction worker",
+      "Activities"
+    ],
     "checked_on": "2026-11-02",
     "last_checked": "2026-11-02",
-    "who_for": "Not stated",
+    "who_for": [
+      "Men and women aged 18+ eligible for temporary accommodation with the City of Edinburgh Council"
+    ],
     "kind": "hostel",
-    "address": "Edinburgh",
-    "postcode": "",
+    "address": "Bethany House, Edinburgh",
+    "postcode": "EH6 5JQ",
     "town": "Edinburgh",
     "area": "Edinburgh",
     "card_type": "referral_hostel",
     "no_pin": true,
-    "lat": null,
-    "lng": null,
-    "referral_route": "Referral through the City of Edinburgh Council."
+    "lat": 55.971477,
+    "lng": -3.17694,
+    "referral_route": "Referral through the City of Edinburgh Council.",
+    "discovery_url": "https://www.streetsupport.net/find-help/organisation/bethany-christian-trust",
+    "discovery_label": "Street Support"
   },
   {
     "id": "man-ss-salvation-army-pleasance-lifehouse",
@@ -8578,48 +8625,68 @@
     "phone": "0808 178 2323",
     "website": "https://www.salvationarmy.org.uk/pleasance",
     "hours": "",
-    "referral": "All referrals come from Streetwork: 0808 178 2323. Couples and individuals.",
+    "referral": "All referrals come from Streetwork: 18 South Bridge, Edinburgh, EH1 1LL, 0808 178 2323.",
     "beds": "",
-    "groups": [],
+    "groups": [
+      "Couples and individuals",
+      "Must be able to access Housing benefit, and have a right to support from the City of Edinburgh Council"
+    ],
     "season": "Year-round",
     "operator": "",
     "flag_closed": false,
-    "source": "Manual (verified from source pages)",
+    "source": "Own website",
     "source_url": "https://www.salvationarmy.org.uk/pleasance",
     "last_verified": "2026-11-02",
     "stale": false,
     "access_type": "referral_only",
-    "facilities": "Not stated",
+    "facilities": [
+      "Breakfast included",
+      "Kitchens",
+      "Gym",
+      "Laundry",
+      "Pets are generally welcome"
+    ],
     "checked_on": "2026-11-02",
     "last_checked": "2026-11-02",
-    "who_for": "Not stated",
+    "who_for": [
+      "Couples and individuals",
+      "Must be able to access Housing benefit, and have a right to support from the City of Edinburgh Council"
+    ],
     "kind": "hostel",
     "phone_label": "Streetwork (referral line)",
     "address": "1 Pleasance, Edinburgh",
     "postcode": "EH8 9UE",
     "lat": 55.949109,
-    "lng": -3.183341
+    "lng": -3.183341,
+    "discovery_url": "https://www.streetsupport.net/find-help/organisation/the-salvation-army---edinburgh",
+    "discovery_label": "Street Support"
   },
   {
     "id": "man-ss-st-annes-hostel-birmingham",
     "name": "St Anne's Hostel (men 25+, dogs welcome)",
     "phone": "0121 772 4406",
     "website": "https://stannesbirmingham.org.uk/contact/",
-    "hours": "",
+    "hours": "Referrals taken 24 hours a day, 365 days a year",
     "referral": "Men aged 25+ (and their dogs). Referrals taken 24 hours a day: 0121 772 4406.",
-    "beds": "",
+    "beds": "Space for 33 residents",
     "groups": [
       "Men 25+"
     ],
     "season": "Year-round",
     "operator": "",
     "flag_closed": false,
-    "source": "Manual (verified from source pages)",
+    "source": "Own website",
     "source_url": "https://stannesbirmingham.org.uk/contact/",
     "last_verified": "2026-11-02",
     "stale": false,
     "access_type": "referral_only",
-    "facilities": "Not stated",
+    "facilities": [
+      "Breakfast and dinner (half board)",
+      "Support worker",
+      "8 ensuite rooms; the rest have shared toilet and shower facilities",
+      "Learning, TV and dining rooms",
+      "Dogs are allowed to stay in their owners’ rooms"
+    ],
     "checked_on": "2026-11-02",
     "last_checked": "2026-11-02",
     "who_for": [
@@ -8629,61 +8696,97 @@
     "address": "112 Moseley Street, Highgate, Birmingham",
     "postcode": "B12 0RY",
     "lat": 52.470157,
-    "lng": -1.883745
+    "lng": -1.883745,
+    "discovery_url": "https://www.streetsupport.net/find-help/organisation/st-anne39s-hostel",
+    "discovery_label": "Street Support"
   },
   {
     "id": "man-ss-homeless-action-elm-house",
     "name": "Elm House (Homeless Action)",
     "phone": "01253 625520",
     "website": "https://homelessaction.org/contact/",
-    "hours": "",
-    "referral": "All referrals come through Blackpool Council Housing Options: 01253 477760 (Mon-Fri).",
+    "hours": "Open 365 days per year | Staffed 24/7",
+    "referral": "Referral via Blackpool's Housing Options team (a referral MUST be submitted by them): 01253 477760, housing.options@blackpool.gov.uk.",
     "beds": "",
-    "groups": [],
+    "groups": [
+      "Clients aged 18 and over",
+      "High support needs, such as drug/alcohol dependence, mental health issues, learning difficulties, ex-offenders and entrenched rough sleepers"
+    ],
     "season": "Year-round",
     "operator": "",
     "flag_closed": false,
-    "source": "Manual (verified from source pages)",
+    "source": "Own website",
     "source_url": "https://homelessaction.org/contact/",
     "last_verified": "2026-11-02",
     "stale": false,
     "access_type": "referral_only",
-    "facilities": "Not stated",
+    "facilities": [
+      "Fob entry, monitored by CCTV",
+      "Own key to own bedroom, with a personal safe",
+      "4 meals a day – breakfast, lunch, dinner and supper",
+      "Ensuite and shared bathroom facilities",
+      "WiFi",
+      "Free washing facilities on site; dryers available",
+      "Free bed linen, towel and toiletry pack",
+      "Communal lounge area, with a TV and tea / coffee facilities"
+    ],
     "checked_on": "2026-11-02",
     "last_checked": "2026-11-02",
-    "who_for": "Not stated",
+    "who_for": [
+      "Clients aged 18 and over",
+      "High support needs, such as drug/alcohol dependence, mental health issues, learning difficulties, ex-offenders and entrenched rough sleepers"
+    ],
     "kind": "hostel",
-    "address": "22-24 Derby Road, Blackpool",
+    "address": "Elm House, 22-24 Derby Road, Blackpool",
     "postcode": "FY1 2JF",
     "lat": 53.828571,
-    "lng": -3.054268
+    "lng": -3.054268,
+    "discovery_url": "https://www.streetsupport.net/find-help/organisation/the-ashley-foundation---blackpool",
+    "discovery_label": "Street Support"
   },
   {
     "id": "man-ss-homeless-action-holly-house",
     "name": "Holly House (Homeless Action)",
     "phone": "01253 291975",
     "website": "https://homelessaction.org/contact/",
-    "hours": "",
-    "referral": "Referral through Blackpool Council Housing Options: 01253 477760 (Mon-Fri).",
+    "hours": "Open 365 days per year | Staffed 24/7",
+    "referral": "Referral via Blackpool's Housing Options team (a referral MUST be submitted by them): 01253 477760, housing.options@blackpool.gov.uk.",
     "beds": "",
-    "groups": [],
+    "groups": [
+      "Clients aged 18 and over",
+      "High support needs, such as drug/alcohol dependence, mental health issues, learning difficulties, ex-offenders and entrenched rough sleepers"
+    ],
     "season": "Year-round",
     "operator": "",
     "flag_closed": false,
-    "source": "Manual (verified from source pages)",
+    "source": "Own website",
     "source_url": "https://homelessaction.org/contact/",
     "last_verified": "2026-11-02",
     "stale": false,
     "access_type": "referral_only",
-    "facilities": "Not stated",
+    "facilities": [
+      "Fob entry, monitored by CCTV",
+      "Own key to own bedroom, with a personal safe",
+      "4 meals a day – breakfast, lunch, dinner and supper",
+      "Ensuite and shared bathroom facilities",
+      "WiFi",
+      "Free washing facilities on site; dryers available",
+      "Free bed linen, towel and toiletry pack",
+      "Communal lounge area, with a TV and tea / coffee facilities"
+    ],
     "checked_on": "2026-11-02",
     "last_checked": "2026-11-02",
-    "who_for": "Not stated",
+    "who_for": [
+      "Clients aged 18 and over",
+      "High support needs, such as drug/alcohol dependence, mental health issues, learning difficulties, ex-offenders and entrenched rough sleepers"
+    ],
     "kind": "hostel",
-    "address": "20 Pleasant Street, Blackpool",
+    "address": "Holly House, 20 Pleasant Street, Blackpool",
     "postcode": "FY1 2HU",
     "lat": 53.825181,
-    "lng": -3.052345
+    "lng": -3.052345,
+    "discovery_url": "https://www.streetsupport.net/find-help/organisation/the-ashley-foundation---blackpool",
+    "discovery_label": "Street Support"
   },
   {
     "id": "man-ss-bradford-cyrenians-hostel",
@@ -8692,32 +8795,39 @@
     "website": "https://www.bradfordcyrenians.org.uk/hostel-provision/",
     "hours": "Staffed 24 hours a day",
     "referral": "Men 18+. Referral via Bradford Council Housing Options: 01274 435999 (out of hours 01274 381999).",
-    "beds": "",
+    "beds": "15",
     "groups": [
-      "Men"
+      "Homeless men aged 18+ with high support needs"
     ],
     "season": "Year-round",
     "operator": "",
     "flag_closed": false,
-    "source": "Manual (verified from source pages)",
+    "source": "Own website",
     "source_url": "https://www.bradfordcyrenians.org.uk/hostel-provision/",
     "last_verified": "2026-11-02",
     "stale": false,
     "access_type": "referral_only",
-    "facilities": "Not stated",
+    "facilities": [
+      "Breakfast and a 2-course evening meal",
+      "Laundry",
+      "Kitchen area",
+      "Communal lounge"
+    ],
     "checked_on": "2026-11-02",
     "last_checked": "2026-11-02",
     "who_for": [
-      "Men"
+      "Homeless men aged 18+ with high support needs"
     ],
     "kind": "hostel",
-    "address": "255-257 Manningham Lane, Bradford",
+    "address": "Bradford Cyrenians, 255 - 257 Manningham Lane, Bradford",
     "postcode": "BD8 7EP",
     "lat": 53.806409,
     "lng": -1.765346,
     "hours_quote": "The scheme is staffed 24 hours a day with security guard cover at night.",
     "hours_source": "https://www.bradfordcyrenians.org.uk/hostel-provision/",
-    "hours_checked": "2026-11-03"
+    "hours_checked": "2026-11-03",
+    "discovery_url": "https://www.streetsupport.net/find-help",
+    "discovery_label": "Street Support"
   },
   {
     "id": "man-ss-michael-house-boscombe",
@@ -8725,26 +8835,38 @@
     "phone": "01202 393178",
     "website": "https://michaelhouse.co.uk/contact/",
     "hours": "",
-    "referral": "Drug and alcohol-free supported hostel. Call 01202 393178 to ask about a referral.",
-    "beds": "",
-    "groups": [],
+    "referral": "Referrals accepted from statutory and voluntary agencies, community and church groups. Rough sleepers can book an admission assessment with the staff team directly by phoning 01202 393178 or emailing info@michaelhouse.co.uk.",
+    "beds": "25 bed spaces, with an additional 8 bedrooms within our 'Move-On' accommodation 'Drummond Wolff House'",
+    "groups": [
+      "We are a pet-friendly dry house (drug and alcohol-free environment) offering supported accommodation to all genders"
+    ],
     "season": "Year-round",
     "operator": "",
     "flag_closed": false,
-    "source": "Manual (verified from source pages)",
+    "source": "Own website",
     "source_url": "https://michaelhouse.co.uk/contact/",
     "last_verified": "2026-11-02",
     "stale": false,
     "access_type": "referral_only",
-    "facilities": "Not stated",
+    "facilities": [
+      "Dog Friendly",
+      "Each resident is assigned a Support Worker (keyworker)",
+      "Activities: baking, creative writing, sewing, arts, crafts, conservation projects and minibus outings",
+      "Award-winning garden",
+      "On The Move (Community Bike Project)"
+    ],
     "checked_on": "2026-11-02",
     "last_checked": "2026-11-02",
-    "who_for": "Not stated",
+    "who_for": [
+      "We are a pet-friendly dry house (drug and alcohol-free environment) offering supported accommodation to all genders"
+    ],
     "kind": "hostel",
-    "address": "46 Grosvenor Gardens, Boscombe, Bournemouth",
+    "address": "Michael House, 46 Grosvenor Gardens, Boscombe, Bournemouth",
     "postcode": "BH1 4HH",
     "lat": 50.726892,
-    "lng": -1.843414
+    "lng": -1.843414,
+    "discovery_url": "https://www.streetsupport.net/find-help",
+    "discovery_label": "Street Support"
   },
   {
     "id": "man-ss-wheatley-dunedin-harbour",
@@ -8754,24 +8876,34 @@
     "hours": "",
     "referral": "Call 0131 624 5800 to ask how to get a place.",
     "beds": "",
-    "groups": [],
+    "groups": [
+      "Single people or couples"
+    ],
     "season": "Year-round",
     "operator": "",
     "flag_closed": false,
-    "source": "Manual (verified from source pages)",
+    "source": "Own website",
     "source_url": "https://www.wheatleyhomes-east.com/find-a-home/homelessness-advice/dunedin-harbour-hostel",
     "last_verified": "2026-11-02",
     "stale": false,
     "access_type": "referral_only",
-    "facilities": "Not stated",
+    "facilities": [
+      "Six self-contained supported flats",
+      "Key worker",
+      "Gym groups, football sessions, cooking classes and alternative therapy sessions"
+    ],
     "checked_on": "2026-11-02",
     "last_checked": "2026-11-02",
-    "who_for": "Not stated",
+    "who_for": [
+      "Single people or couples"
+    ],
     "kind": "hostel",
     "address": "4 Parliament Street, Leith, Edinburgh",
     "postcode": "EH6 6EB",
     "lat": 55.974458,
-    "lng": -3.17277
+    "lng": -3.17277,
+    "discovery_url": "https://www.streetsupport.net/find-help/organisation/dunedin-canmore",
+    "discovery_label": "Street Support"
   },
   {
     "id": "man-ss-new-start-belmont-drive",
@@ -8780,47 +8912,62 @@
     "website": "https://www.newstarthomes.org.uk/copy-of-leyland-road",
     "hours": "",
     "referral": "Referral via a Liverpool MainStay assessment (Liverpool Housing Options). Info: 0151 708 7103.",
-    "beds": "",
-    "groups": [],
+    "beds": "11 flats",
+    "groups": [
+      "Single homeless people who are identified as being high risk/high need"
+    ],
     "season": "Year-round",
     "operator": "",
     "flag_closed": false,
-    "source": "Manual (verified from source pages)",
+    "source": "Own website",
     "source_url": "https://www.newstarthomes.org.uk/copy-of-leyland-road",
     "last_verified": "2026-11-02",
     "stale": false,
     "access_type": "referral_only",
-    "facilities": "Not stated",
+    "facilities": [
+      "11 self-contained, 1-bedroom starter flats, fully furnished and equipped",
+      "Designated Support Worker"
+    ],
     "checked_on": "2026-11-02",
     "last_checked": "2026-11-02",
-    "who_for": "Not stated",
+    "who_for": [
+      "Single homeless people who are identified as being high risk/high need"
+    ],
     "kind": "hostel",
     "address": "81-83 Belmont Drive, Liverpool",
     "postcode": "L6 7UP",
     "lat": 53.421977,
-    "lng": -2.941751
+    "lng": -2.941751,
+    "discovery_url": "https://www.streetsupport.net/find-help/organisation/new-start",
+    "discovery_label": "Street Support"
   },
   {
     "id": "man-ss-new-start-prospect-lodge",
     "name": "Prospect Lodge (New Start)",
     "phone": "0151 708 7103",
     "website": "https://www.newstarthomes.org.uk/copy-of-community-housing",
-    "hours": "Staffed 24 hours a day",
+    "hours": "Staffed 24 hours per day",
     "referral": "Referral via a Liverpool MainStay assessment. Info: 0151 708 7103.",
-    "beds": "",
-    "groups": [],
+    "beds": "16 en-suite units",
+    "groups": [
+      "Individuals who are homeless or at risk of becoming homeless"
+    ],
     "season": "Year-round",
     "operator": "",
     "flag_closed": false,
-    "source": "Manual (verified from source pages)",
+    "source": "Own website",
     "source_url": "https://www.newstarthomes.org.uk/copy-of-community-housing",
     "last_verified": "2026-11-02",
     "stale": false,
     "access_type": "referral_only",
-    "facilities": "Not stated",
+    "facilities": [
+      "En-suite rooms"
+    ],
     "checked_on": "2026-11-02",
     "last_checked": "2026-11-02",
-    "who_for": "Not stated",
+    "who_for": [
+      "Individuals who are homeless or at risk of becoming homeless"
+    ],
     "kind": "hostel",
     "address": "51 Prospect Vale, Liverpool",
     "postcode": "L6 8PF",
@@ -8828,102 +8975,123 @@
     "lng": -2.938195,
     "hours_quote": "The service is staffed 24 hours per day by a team of dedicated Project Workers",
     "hours_source": "https://www.newstarthomes.org.uk/copy-of-community-housing",
-    "hours_checked": "2026-11-03"
+    "hours_checked": "2026-11-03",
+    "discovery_url": "https://www.streetsupport.net/find-help/organisation/new-start",
+    "discovery_label": "Street Support"
   },
   {
     "id": "man-ss-ymca-together-leeds-street",
     "name": "Leeds Street (You Matter, formerly YMCA Together)",
     "phone": "0151 600 3530",
     "website": "https://you-matter.org.uk/what-we-do/homelessness-support/",
-    "hours": "Staffed 24 hours a day, 7 days a week",
+    "hours": "Staff available 24 hours a day, seven days a week",
     "referral": "Call 0151 600 3530 to ask how to get a place.",
     "beds": "",
     "groups": [],
     "season": "Year-round",
     "operator": "",
     "flag_closed": false,
-    "source": "Manual (verified from source pages)",
+    "source": "Own website",
     "source_url": "https://you-matter.org.uk/what-we-do/homelessness-support/",
     "last_verified": "2026-11-02",
     "stale": false,
     "access_type": "referral_only",
-    "facilities": "Not stated",
+    "facilities": [
+      "Self-contained and en-suite accommodation"
+    ],
     "checked_on": "2026-11-02",
     "last_checked": "2026-11-02",
     "who_for": "Not stated",
     "kind": "hostel",
-    "address": "15 Leeds Street, Liverpool",
+    "address": "15 Leeds St, Liverpool",
     "postcode": "L3 6HU",
     "lat": 53.412853,
     "lng": -2.991694,
     "hours_quote": "with staff available 24 hours a day, seven days a week",
     "hours_source": "https://you-matter.org.uk/what-we-do/homelessness-support/",
-    "hours_checked": "2026-11-03"
+    "hours_checked": "2026-11-03",
+    "discovery_url": "https://www.streetsupport.net/find-help/organisation/ymca-liverpool",
+    "discovery_label": "Street Support"
   },
   {
     "id": "man-ss-riverside-wilson-carlile-house",
     "name": "Wilson Carlile House (Riverside, men 18+)",
-    "phone": "0161 273 3574",
+    "phone": "0345 111 0000",
     "website": "https://www.riverside.org.uk/care-and-support-services/supported-housing/wilson-carlile-house-manchester",
     "hours": "",
     "referral": "Men 18+. Call 0161 273 3574 to ask about a referral.",
     "beds": "",
     "groups": [
-      "Men"
+      "Men aged 18 and over"
     ],
     "season": "Year-round",
     "operator": "",
     "flag_closed": false,
-    "source": "Manual (verified from source pages)",
+    "source": "Own website",
     "source_url": "https://www.riverside.org.uk/care-and-support-services/supported-housing/wilson-carlile-house-manchester",
     "last_verified": "2026-11-02",
     "stale": false,
     "access_type": "referral_only",
-    "facilities": "Not stated",
+    "facilities": [
+      "38 single bedrooms",
+      "Shared bathrooms",
+      "A spacious shared kitchen",
+      "Laundry facilities",
+      "A large communal lounge",
+      "Training room and computer room",
+      "A large, well‑established garden"
+    ],
     "checked_on": "2026-11-02",
     "last_checked": "2026-11-02",
     "who_for": [
-      "Men"
+      "Men aged 18 and over"
     ],
     "kind": "hostel",
-    "address": "172 Plymouth Grove, Longsight, Manchester",
+    "address": "172 - 174, Plymouth Grove, Longsight, Manchester",
     "postcode": "M13 0AF",
     "lat": 53.462615,
-    "lng": -2.217378
+    "lng": -2.217378,
+    "discovery_url": "https://www.streetsupport.net/find-help/organisation/riverside",
+    "discovery_label": "Street Support",
+    "phone_label": "Riverside 24/7 line"
   },
   {
     "id": "man-ss-spin-supporting-people-in-need",
     "name": "SPIN hostel (Supporting People in Need)",
     "phone": "0161 272 9515",
     "website": "https://supportingpeopleinneed.org/contact-us",
-    "hours": "Open 24 hours, 365 days a year",
+    "hours": "Open 24 hours per day, 365 days per year",
     "referral": "Hostel for homeless men. Call 0161 272 9515 to ask about a bed.",
-    "beds": "",
+    "beds": "20",
     "groups": [
-      "Men"
+      "Homeless men"
     ],
     "season": "Year-round",
     "operator": "",
     "flag_closed": false,
-    "source": "Manual (verified from source pages)",
+    "source": "Own website",
     "source_url": "https://supportingpeopleinneed.org/contact-us",
     "last_verified": "2026-11-02",
     "stale": false,
     "access_type": "referral_only",
-    "facilities": "Not stated",
+    "facilities": [
+      "20 single occupancy bedrooms"
+    ],
     "checked_on": "2026-11-02",
     "last_checked": "2026-11-02",
     "who_for": [
-      "Men"
+      "Homeless men"
     ],
     "kind": "hostel",
-    "address": "Coverdale Baptist Church, Coverdale Crescent, Ardwick, Manchester",
+    "address": "The Well, Coverdale Christian Church, Coverdale Crescent, Ardwick, Manchester",
     "postcode": "M12 4FG",
     "lat": 53.46743,
     "lng": -2.214164,
     "hours_quote": "Hours We are open 24 hours per day, 365 days per year.",
     "hours_source": "https://supportingpeopleinneed.org/contact-us",
-    "hours_checked": "2026-11-03"
+    "hours_checked": "2026-11-03",
+    "discovery_url": "https://www.streetsupport.net/find-help/organisation/spin-supporting-people-in-need",
+    "discovery_label": "Street Support"
   },
   {
     "id": "man-ss-langley-tekoa-house",
@@ -8932,15 +9100,51 @@
     "website": "https://www.langleytrust.org/services/tekoa-house/",
     "hours": "",
     "referral": "Homeless men who have offended. Agency referrals: 01706 713337.",
-    "beds": "",
+    "beds": "27 beds in the main house",
     "groups": [
-      "Men"
+      "Homeless men who have offended"
     ],
     "season": "Year-round",
     "operator": "",
     "flag_closed": false,
-    "source": "Manual (verified from source pages)",
+    "source": "Own website",
     "source_url": "https://www.langleytrust.org/services/tekoa-house/",
+    "last_verified": "2026-11-02",
+    "stale": false,
+    "access_type": "referral_only",
+    "facilities": [
+      "Single bedrooms with shared communal spaces",
+      "No pets (not able to accommodate pets)"
+    ],
+    "checked_on": "2026-11-02",
+    "last_checked": "2026-11-02",
+    "who_for": [
+      "Homeless men who have offended"
+    ],
+    "kind": "hostel",
+    "address": "Langley House Trust, Tekoa House, Walker St, Rochdale",
+    "postcode": "OL16 2AB",
+    "lat": 53.614352,
+    "lng": -2.147447,
+    "discovery_url": "https://www.streetsupport.net/find-help/organisation/langley-house-trust---manchester",
+    "discovery_label": "Street Support"
+  },
+  {
+    "id": "man-ss-ssj-10-southampton-street",
+    "name": "10 Southampton Street hostel (Society of St James)",
+    "phone": "023 8083 2343",
+    "website": "https://homeless.org.uk/homeless-england/service/society-of-st-james-10-southampton-street/",
+    "hours": "24/7 service",
+    "referral": "Referral from Southampton's Street Homeless Prevention Team (023 8083 2343) or a local agency.",
+    "beds": "",
+    "groups": [
+      "Single vulnerable adults"
+    ],
+    "season": "Year-round",
+    "operator": "",
+    "flag_closed": false,
+    "source": "Own website",
+    "source_url": "https://ssj.org.uk/tackling-homelessness-in-southampton/",
     "last_verified": "2026-11-02",
     "stale": false,
     "access_type": "referral_only",
@@ -8948,35 +9152,8 @@
     "checked_on": "2026-11-02",
     "last_checked": "2026-11-02",
     "who_for": [
-      "Men"
+      "Single vulnerable adults"
     ],
-    "kind": "hostel",
-    "address": "Walker Street, Rochdale",
-    "postcode": "OL16 2AB",
-    "lat": 53.614671,
-    "lng": -2.147129
-  },
-  {
-    "id": "man-ss-ssj-10-southampton-street",
-    "name": "10 Southampton Street hostel (Society of St James)",
-    "phone": "023 8083 2343",
-    "website": "https://homeless.org.uk/homeless-england/service/society-of-st-james-10-southampton-street/",
-    "hours": "Staffed 24 hours a day, 7 days a week",
-    "referral": "Referral from Southampton's Street Homeless Prevention Team (023 8083 2343) or a local agency.",
-    "beds": "",
-    "groups": [],
-    "season": "Year-round",
-    "operator": "",
-    "flag_closed": false,
-    "source": "Manual (verified from source pages)",
-    "source_url": "https://homeless.org.uk/homeless-england/service/society-of-st-james-10-southampton-street/",
-    "last_verified": "2026-11-02",
-    "stale": false,
-    "access_type": "referral_only",
-    "facilities": "Not stated",
-    "checked_on": "2026-11-02",
-    "last_checked": "2026-11-02",
-    "who_for": "Not stated",
     "kind": "hostel",
     "phone_label": "Street Homeless Prevention Team (referral line)",
     "address": "10 Southampton Street, Southampton",
@@ -8985,7 +9162,9 @@
     "lng": -1.405262,
     "hours_quote": "Staffed 24/7, fully catered provision.",
     "hours_source": "https://homeless.org.uk/homeless-england/service/society-of-st-james-10-southampton-street",
-    "hours_checked": "2026-11-03"
+    "hours_checked": "2026-11-03",
+    "discovery_url": "https://www.streetsupport.net/find-help/organisation/the-society-of-st-james",
+    "discovery_label": "Street Support"
   },
   {
     "id": "man-ss-pcha-somers-road",
@@ -8994,29 +9173,33 @@
     "website": "https://www.pc-ha.co.uk/",
     "hours": "",
     "referral": "Women only. Call 023 9229 7877 to ask about a place.",
-    "beds": "",
+    "beds": "7",
     "groups": [
-      "Women"
+      "Women from the age of 18"
     ],
     "season": "Year-round",
     "operator": "",
     "flag_closed": false,
-    "source": "Manual (verified from source pages)",
+    "source": "Own website",
     "source_url": "https://www.pc-ha.co.uk/",
     "last_verified": "2026-11-02",
     "stale": false,
     "access_type": "referral_only",
-    "facilities": "Not stated",
+    "facilities": [
+      "Dry house"
+    ],
     "checked_on": "2026-11-02",
     "last_checked": "2026-11-02",
     "who_for": [
-      "Women"
+      "Women from the age of 18"
     ],
     "kind": "hostel",
     "address": "99 Somers Road, Southsea, Portsmouth",
     "postcode": "PO5 4PS",
     "lat": 50.793902,
-    "lng": -1.084715
+    "lng": -1.084715,
+    "discovery_url": "https://www.streetsupport.net/find-help",
+    "discovery_label": "Street Support"
   },
   {
     "id": "man-ss-jimmys-cambridge-east-road",
@@ -9024,60 +9207,75 @@
     "phone": "01223 576085",
     "website": "https://www.jimmyscambridge.org.uk/",
     "hours": "",
-    "referral": "Call 01223 576085 to ask how to get a place.",
-    "beds": "",
-    "groups": [],
+    "referral": "Call 01223 576085 or email info@jimmyscambridge.org.uk. Referrals also accepted from local partner organisations; if sleeping rough, contact the Street Outreach Team on 01223 366 292 (weekdays 08:00–16:00). For immediate support, come to 1 East Road.",
+    "beds": "25 single person en-suite bedrooms",
+    "groups": [
+      "People who are rough sleeping"
+    ],
     "season": "Year-round",
     "operator": "",
     "flag_closed": false,
-    "source": "Manual (verified from source pages)",
+    "source": "Own website",
     "source_url": "https://www.jimmyscambridge.org.uk/",
     "last_verified": "2026-11-02",
     "stale": false,
     "access_type": "referral_only",
-    "facilities": "Not stated",
+    "facilities": [
+      "Single person en-suite bedroom",
+      "A room, clothes, food, toiletries"
+    ],
     "checked_on": "2026-11-02",
     "last_checked": "2026-11-02",
-    "who_for": "Not stated",
+    "who_for": [
+      "People who are rough sleeping"
+    ],
     "kind": "hostel",
     "address": "1 East Road, Cambridge",
     "postcode": "CB1 1BD",
     "lat": 52.203555,
-    "lng": 0.132583
+    "lng": 0.132583,
+    "discovery_url": "https://www.streetsupport.net/find-help/organisation/jimmy39s-cambridge",
+    "discovery_label": "Street Support"
   },
   {
     "id": "man-ss-local-solutions-homeground",
     "name": "Homeground (Local Solutions, 16-21)",
-    "phone": "0151 709 0990",
+    "phone": "0151 286 6010",
     "website": "https://localsolutions.org.uk/liverpool-city-region-services/support-accommodation/homeground/",
     "hours": "Staffed 24 hours a day, 7 days a week",
-    "referral": "Young people 16-21. Referral via a Liverpool MainStay assessment.",
-    "beds": "",
+    "referral": "Contact your local Housing Options team (Liverpool: 0151 233 3061) – they’ll assess your situation and help you access support, including referrals to services like Homeground. You can also complete a Mainstay assessment, which is the referral route for supported accommodation across the Liverpool City Region. You cannot refer yourself directly to Homeground – all referrals must come through Housing Options or Social Services.",
+    "beds": "29 rooms",
     "groups": [
-      "Young people 16-25"
+      "Young people aged 16–21 (up to 24 in some cases)"
     ],
     "season": "Year-round",
     "operator": "",
     "flag_closed": false,
-    "source": "Manual (verified from source pages)",
+    "source": "Own website",
     "source_url": "https://localsolutions.org.uk/liverpool-city-region-services/support-accommodation/homeground/",
     "last_verified": "2026-11-02",
     "stale": false,
     "access_type": "referral_only",
-    "facilities": "Not stated",
+    "facilities": [
+      "29 fully furnished rooms with shared kitchens and bathrooms",
+      "24/7 on-site staff"
+    ],
     "checked_on": "2026-11-02",
     "last_checked": "2026-11-02",
     "who_for": [
-      "Young people 16-25"
+      "Young people aged 16–21 (up to 24 in some cases)"
     ],
     "kind": "young_people",
-    "address": "286-316 Scotland Road, Liverpool",
+    "address": "Homeground Hostel, 286-316 Scotland Rd, Liverpool",
     "postcode": "L5 5AE",
     "lat": 53.420883,
     "lng": -2.981543,
     "hours_quote": "24/7 on-site staff to provide support and reassurance",
     "hours_source": "https://localsolutions.org.uk/liverpool-city-region-services/support-accommodation/homeground/",
-    "hours_checked": "2026-11-03"
+    "hours_checked": "2026-11-03",
+    "discovery_url": "https://www.streetsupport.net/find-help/organisation/local-solutions",
+    "discovery_label": "Street Support",
+    "age_range": "16–21 (up to 24 in some cases)"
   },
   {
     "id": "man-ss-st-basils-milner-court",
@@ -9086,15 +9284,15 @@
     "website": "https://homeless.org.uk/homeless-england/service/st-basils-milner-court-transition-hub/",
     "hours": "",
     "referral": "Young people 18-25, referral through St Basils Youth Hub: Youthline 0300 303 0099.",
-    "beds": "",
+    "beds": "24",
     "groups": [
-      "Young people 16-25"
+      "Young single people aged 18-25 with support needs"
     ],
     "season": "Year-round",
     "operator": "",
     "flag_closed": false,
-    "source": "Manual (verified from source pages)",
-    "source_url": "https://homeless.org.uk/homeless-england/service/st-basils-milner-court-transition-hub/",
+    "source": "Own website",
+    "source_url": "https://stbasils.org.uk/services/accommodation/",
     "last_verified": "2026-11-02",
     "stale": false,
     "access_type": "referral_only",
@@ -9102,13 +9300,17 @@
     "checked_on": "2026-11-02",
     "last_checked": "2026-11-02",
     "who_for": [
-      "Young people 16-25"
+      "Young single people aged 18-25 with support needs"
     ],
     "kind": "young_people",
-    "address": "Milner Court, 110 St Andrews Road, Birmingham",
+    "address": "110 St Andrew's Road, Birmingham",
     "postcode": "B9 4NA",
     "lat": 52.477039,
-    "lng": -1.871198
+    "lng": -1.871198,
+    "discovery_url": "https://www.streetsupport.net/find-help",
+    "discovery_label": "Street Support",
+    "evidence_url": "https://homeless.org.uk/homeless-england/service/st-basils-milner-court-transition-hub/",
+    "age_range": "18–25"
   },
   {
     "id": "man-ss-st-basils-yardley-house",
@@ -9119,13 +9321,13 @@
     "referral": "Young people 16-24: call Youthline 0300 303 0099.",
     "beds": "",
     "groups": [
-      "Young people 16-25"
+      "Young people aged 16-25"
     ],
     "season": "Year-round",
     "operator": "",
     "flag_closed": false,
-    "source": "Manual (verified from source pages)",
-    "source_url": "https://homeless.org.uk/homeless-england/service/st-basils-yardley-house/",
+    "source": "Own website",
+    "source_url": "https://stbasils.org.uk/services/accommodation/",
     "last_verified": "2026-11-02",
     "stale": false,
     "access_type": "self_referral",
@@ -9133,46 +9335,56 @@
     "checked_on": "2026-11-02",
     "last_checked": "2026-11-02",
     "who_for": [
-      "Young people 16-25"
+      "Young people aged 16-25"
     ],
     "kind": "young_people",
-    "address": "Birmingham",
-    "postcode": "",
+    "address": "104 Blakesley Road, Birmingham",
+    "postcode": "B25 8RN",
     "town": "Birmingham",
     "area": "Birmingham",
     "card_type": "referral_hostel",
     "no_pin": true,
-    "lat": null,
-    "lng": null,
-    "referral_route": "Young people 16-24: call Youthline 0300 303 0099."
+    "lat": 52.473489,
+    "lng": -1.80941,
+    "referral_route": "Young people 16-24: call Youthline 0300 303 0099.",
+    "discovery_url": "https://www.streetsupport.net/find-help",
+    "discovery_label": "Street Support",
+    "evidence_url": "https://homeless.org.uk/homeless-england/service/st-basils-yardley-house/",
+    "age_range": "16–25"
   },
   {
     "id": "man-ss-bradford-nightstop",
-    "name": "Bradford Nightstop (16-25)",
-    "phone": "01274 776888",
+    "name": "Bradford Nightstop (18-25)",
+    "phone": "0330 053 7664",
     "website": "https://bradfordnightstop.org.uk/",
-    "hours": "",
-    "referral": "Emergency stays with trained volunteer hosts for 16-25s. Referral from agencies such as Housing Options: 01274 776888.",
+    "hours": "Referral hours Mon-Fri: 11.30am - 4.30pm",
+    "referral": "Emergency stays with trained volunteer hosts for 18-25s. Call 0330 053 7664 to refer a young person. Referral/phone only, office address.",
     "beds": "",
     "groups": [
-      "Young people 16-25"
+      "Young people aged 18–25"
     ],
     "season": "Year-round",
     "operator": "",
     "flag_closed": false,
-    "source": "Manual (verified from source pages)",
+    "source": "Own website",
     "source_url": "https://bradfordnightstop.org.uk/",
     "last_verified": "2026-11-02",
     "stale": false,
     "access_type": "referral_only",
-    "facilities": "Not stated",
+    "facilities": [
+      "A room of their own",
+      "Transport",
+      "Meals",
+      "Basic essential supplies",
+      "Washing facilities"
+    ],
     "checked_on": "2026-11-02",
     "last_checked": "2026-11-02",
     "who_for": [
-      "Young people 16-25"
+      "Young people aged 18–25"
     ],
     "kind": "young_people",
-    "address": "Bradford",
+    "address": "Bradford Nightstop, Carlisle Business Centre, 60 Carlisle Road, Bradford",
     "postcode": "",
     "town": "Bradford",
     "area": "Bradford",
@@ -9180,7 +9392,10 @@
     "no_pin": true,
     "lat": null,
     "lng": null,
-    "referral_route": "Emergency stays with trained volunteer hosts for 16-25s. Referral from agencies such as Housing Options: 01274 776888."
+    "referral_route": "Emergency stays with trained volunteer hosts for 16-25s. Referral from agencies such as Housing Options: 01274 776888.",
+    "discovery_url": "https://www.streetsupport.net/find-help",
+    "discovery_label": "Street Support",
+    "age_range": "18–25"
   },
   {
     "id": "man-ss-barnardos-nightstop-leeds",
@@ -9188,27 +9403,29 @@
     "phone": "07825 377405",
     "website": "https://www.barnardos.org.uk/get-support/services/futures-nightstop",
     "hours": "",
-    "referral": "Young people 16-21 in Leeds, by referral: 07825 377405.",
+    "referral": "Young people 16-21 in Leeds, by referral: 07825 377405. Referral/phone only, office address.",
     "beds": "",
     "groups": [
-      "Young people 16-25"
+      "Young people aged 16-21"
     ],
     "season": "Year-round",
     "operator": "",
     "flag_closed": false,
-    "source": "Manual (verified from source pages)",
+    "source": "Own website",
     "source_url": "https://www.barnardos.org.uk/get-support/services/futures-nightstop",
     "last_verified": "2026-11-02",
     "stale": false,
     "access_type": "referral_only",
-    "facilities": "Not stated",
+    "facilities": [
+      "A spare room in a Nightstop host’s home, for 1-3 nights"
+    ],
     "checked_on": "2026-11-02",
     "last_checked": "2026-11-02",
     "who_for": [
-      "Young people 16-25"
+      "Young people aged 16-21"
     ],
     "kind": "young_people",
-    "address": "Leeds",
+    "address": "Rockford House, Low Lane, Horsforth, Leeds",
     "postcode": "",
     "town": "Leeds",
     "area": "Leeds",
@@ -9216,7 +9433,10 @@
     "no_pin": true,
     "lat": null,
     "lng": null,
-    "referral_route": "Young people 16-21 in Leeds, by referral: 07825 377405."
+    "referral_route": "Young people 16-21 in Leeds, by referral: 07825 377405.",
+    "discovery_url": "https://www.streetsupport.net/find-help/organisation/barnardo39s-futures",
+    "discovery_label": "Street Support",
+    "age_range": "16–21"
   },
   {
     "id": "man-ss-depaul-nightstop-greater-manchester",
@@ -9224,27 +9444,32 @@
     "phone": "0161 507 3414",
     "website": "https://www.depaul.org.uk/nightstop/nightstop-greater-manchester/",
     "hours": "",
-    "referral": "Young people 16-25, by referral: 0161 507 3414 (9am-5pm Mon-Fri).",
+    "referral": "Young people 16-25, by referral: 0161 507 3414 (9am-5pm Mon-Fri). Referral/phone only, office address.",
     "beds": "",
     "groups": [
-      "Young people 16-25"
+      "Young people aged 16-25"
     ],
     "season": "Year-round",
     "operator": "",
     "flag_closed": false,
-    "source": "Manual (verified from source pages)",
+    "source": "Own website",
     "source_url": "https://www.depaul.org.uk/nightstop/nightstop-greater-manchester/",
     "last_verified": "2026-11-02",
     "stale": false,
     "access_type": "referral_only",
-    "facilities": "Not stated",
+    "facilities": [
+      "A meal",
+      "Washing facilities",
+      "24/7 support line",
+      "Breakfast and a packed lunch"
+    ],
     "checked_on": "2026-11-02",
     "last_checked": "2026-11-02",
     "who_for": [
-      "Young people 16-25"
+      "Young people aged 16-25"
     ],
     "kind": "young_people",
-    "address": "Manchester",
+    "address": "St. Peter's House, Oxford Road, Manchester",
     "postcode": "",
     "town": "Manchester",
     "area": "Manchester",
@@ -9252,7 +9477,10 @@
     "no_pin": true,
     "lat": null,
     "lng": null,
-    "referral_route": "Young people 16-25, by referral: 0161 507 3414 (9am-5pm Mon-Fri)."
+    "referral_route": "Young people 16-25, by referral: 0161 507 3414 (9am-5pm Mon-Fri).",
+    "discovery_url": "https://www.streetsupport.net/find-help/organisation/depaul-uk---manchester",
+    "discovery_label": "Street Support",
+    "age_range": "16–25"
   },
   {
     "id": "man-ss-open-homes-nottingham-nightstop",
@@ -9260,27 +9488,31 @@
     "phone": "0333 323 2265",
     "website": "https://www.openhomes.org.uk/nottingham-nightstop",
     "hours": "",
-    "referral": "Young people 16-25, by referral: 0333 323 2265 (Mon-Fri 10am-5pm).",
+    "referral": "Young people 16-25, by referral: 0333 323 2265 (Mon-Fri 10am-5pm). Referral/phone only, office address.",
     "beds": "",
     "groups": [
-      "Young people 16-25"
+      "Young people aged 16-25"
     ],
     "season": "Year-round",
     "operator": "",
     "flag_closed": false,
-    "source": "Manual (verified from source pages)",
+    "source": "Own website",
     "source_url": "https://www.openhomes.org.uk/nottingham-nightstop",
     "last_verified": "2026-11-02",
     "stale": false,
     "access_type": "referral_only",
-    "facilities": "Not stated",
+    "facilities": [
+      "A meal",
+      "A spare room",
+      "24/7 helpline"
+    ],
     "checked_on": "2026-11-02",
     "last_checked": "2026-11-02",
     "who_for": [
-      "Young people 16-25"
+      "Young people aged 16-25"
     ],
     "kind": "young_people",
-    "address": "Nottingham",
+    "address": "Unity House, 35 Church Street, Nottingham",
     "postcode": "",
     "town": "Nottingham",
     "area": "Nottingham",
@@ -9288,39 +9520,58 @@
     "no_pin": true,
     "lat": null,
     "lng": null,
-    "referral_route": "Young people 16-25, by referral: 0333 323 2265 (Mon-Fri 10am-5pm)."
+    "referral_route": "Young people 16-25, by referral: 0333 323 2265 (Mon-Fri 10am-5pm).",
+    "discovery_url": "https://www.streetsupport.net/find-help/organisation/open-homes-nottingham",
+    "discovery_label": "Street Support",
+    "age_range": "16–25"
   },
   {
     "id": "man-ss-whitechapel-aigburth-drive",
     "name": "Aigburth Drive harm reduction hostel (Whitechapel Centre, men 35+)",
     "phone": "0151 347 7847",
     "website": "https://www.whitechapelcentre.co.uk/harm-reduction-service.html",
-    "hours": "",
+    "hours": "Operating 7 days a week",
     "referral": "Men 35+ who are Liverpool residents: referral form or call 0151 347 7847.",
     "beds": "",
-    "groups": [],
+    "groups": [
+      "Men aged over 35 who need support to manage their alcohol use",
+      "Liverpool residents"
+    ],
     "season": "Year-round",
     "operator": "",
     "flag_closed": false,
-    "source": "Manual (verified from source pages)",
+    "source": "Own website",
     "source_url": "https://www.whitechapelcentre.co.uk/harm-reduction-service.html",
     "last_verified": "2026-11-02",
     "stale": false,
     "access_type": "referral_only",
-    "facilities": "Not stated",
+    "facilities": [
+      "Each resident has a key-worker",
+      "Weekly visits from a neuropsychologist and a nurse",
+      "Activities programme",
+      "Optional evening meals service",
+      "Regular visits by opticians and barbers",
+      "Residents need to be mobile enough to climb stairs unaided"
+    ],
     "checked_on": "2026-11-02",
     "last_checked": "2026-11-02",
-    "who_for": "Not stated",
+    "who_for": [
+      "Men aged over 35 who need support to manage their alcohol use",
+      "Liverpool residents"
+    ],
     "kind": "hostel",
-    "address": "Liverpool",
-    "postcode": "",
+    "address": "2 Aigburth Drive, Liverpool",
+    "postcode": "L17 3AA",
     "town": "Liverpool",
     "area": "Liverpool",
     "card_type": "referral_hostel",
     "no_pin": true,
-    "lat": null,
-    "lng": null,
-    "referral_route": "Men 35+ who are Liverpool residents: referral form or call 0151 347 7847."
+    "lat": 53.384309,
+    "lng": -2.945896,
+    "referral_route": "Men 35+ who are Liverpool residents: referral form or call 0151 347 7847.",
+    "discovery_url": "https://www.streetsupport.net/find-help/organisation/the-whitechapel-centre",
+    "discovery_label": "Street Support",
+    "wheelchair": "no"
   },
   {
     "id": "man-ss-new-start-harm-reduction-women",
@@ -9328,21 +9579,29 @@
     "phone": "0151 708 7103",
     "website": "https://www.newstarthomes.org.uk/newpage",
     "hours": "",
-    "referral": "Women 18+ who are Liverpool residents: referral form or call 0151 708 7103.",
+    "referral": "Women 18+ who are Liverpool residents: referral form or call 0151 708 7103. Referral/phone only, office address.",
     "beds": "",
-    "groups": [],
+    "groups": [
+      "Females aged 18+ who are Liverpool residents",
+      "Single women without dependent children, or whose children do not reside with her"
+    ],
     "season": "Year-round",
     "operator": "",
     "flag_closed": false,
-    "source": "Manual (verified from source pages)",
+    "source": "Own website",
     "source_url": "https://www.newstarthomes.org.uk/newpage",
     "last_verified": "2026-11-02",
     "stale": false,
     "access_type": "referral_only",
-    "facilities": "Not stated",
+    "facilities": [
+      "On-site in-reach services: complimentary therapy, pre-abstinence support, primary health care"
+    ],
     "checked_on": "2026-11-02",
     "last_checked": "2026-11-02",
-    "who_for": "Not stated",
+    "who_for": [
+      "Females aged 18+ who are Liverpool residents",
+      "Single women without dependent children, or whose children do not reside with her"
+    ],
     "kind": "hostel",
     "address": "Liverpool",
     "postcode": "",
@@ -9352,32 +9611,44 @@
     "no_pin": true,
     "lat": null,
     "lng": null,
-    "referral_route": "Women 18+ who are Liverpool residents: referral form or call 0151 708 7103."
+    "referral_route": "Women 18+ who are Liverpool residents: referral form or call 0151 708 7103.",
+    "discovery_url": "https://www.streetsupport.net/find-help/organisation/new-start",
+    "discovery_label": "Street Support"
   },
   {
     "id": "man-ss-sanctuary-trust-step-rochdale",
     "name": "STEP emergency night accommodation (Sanctuary Trust)",
     "phone": "0300 303 8548",
     "website": "https://sanctuarytrust.org.uk/projects/step/",
-    "hours": "Open 7pm to 9am, every night",
-    "referral": "Referral through Rochdale Borough Housing homelessness team: 0300 303 8548. Open 7pm-9am.",
-    "beds": "",
-    "groups": [],
+    "hours": "Open 7pm – overnight – 9am",
+    "referral": "Referral through Rochdale Borough Housing homelessness team: 0300 303 8548. Open 7pm-9am. Referral/phone only, office address.",
+    "beds": "6 beds",
+    "groups": [
+      "Homeless individuals aged 18 years and over"
+    ],
     "season": "Year-round",
     "operator": "",
     "flag_closed": false,
-    "source": "Manual (verified from source pages)",
+    "source": "Own website",
     "source_url": "https://sanctuarytrust.org.uk/projects/step/",
     "last_verified": "2026-11-02",
     "stale": false,
     "access_type": "referral_only",
-    "facilities": "Not stated",
+    "facilities": [
+      "Light supper",
+      "Breakfast",
+      "Shower/bathroom facilities",
+      "Communal lounge area",
+      "Kitchen"
+    ],
     "checked_on": "2026-11-02",
     "last_checked": "2026-11-02",
-    "who_for": "Not stated",
+    "who_for": [
+      "Homeless individuals aged 18 years and over"
+    ],
     "kind": "hostel",
     "phone_label": "Rochdale Borough Housing homelessness team (referral line)",
-    "address": "Rochdale",
+    "address": "Office 9 Champness Hall, Drake Street, Rochdale, Greater Manchester",
     "postcode": "",
     "town": "Rochdale",
     "area": "Rochdale",
@@ -9388,7 +9659,9 @@
     "referral_route": "Referral through Rochdale Borough Housing homelessness team: 0300 303 8548. Open 7pm-9am.",
     "hours_quote": "Open 7pm – Overnight – 9am 24/7/ 365",
     "hours_source": "https://sanctuarytrust.org.uk/projects/step/",
-    "hours_checked": "2026-11-03"
+    "hours_checked": "2026-11-03",
+    "discovery_url": "https://www.streetsupport.net/find-help/organisation/sanctuary-trust",
+    "discovery_label": "Street Support"
   },
   {
     "id": "man-ss-high-peak-homeless-help",
@@ -9396,31 +9669,41 @@
     "phone": "07973 670595",
     "website": "http://www.hphh.co.uk/",
     "hours": "",
-    "referral": "Emergency accommodation (hosts or B&B): call the referral number 07973 670595.",
+    "referral": "Referrals from agencies (e.g. Citizens Advice, schools, churches, local voluntary groups) by phone on 07973 670595; the referrer must be with the person for a short risk assessment. Self-referrals only in exceptional circumstances.",
     "beds": "",
-    "groups": [],
+    "groups": [
+      "Homeless people in Buxton, the High Peak and the surrounding area"
+    ],
     "season": "Year-round",
     "operator": "",
     "flag_closed": false,
-    "source": "Manual (verified from source pages)",
-    "source_url": "http://www.hphh.co.uk/",
+    "source": "Own website",
+    "source_url": "https://www.hphh.co.uk/",
     "last_verified": "2026-11-02",
     "stale": false,
     "access_type": "referral_only",
-    "facilities": "Not stated",
+    "facilities": [
+      "Emergency overnight accommodation",
+      "Loan-a-tent scheme",
+      "Harsh-weather provision"
+    ],
     "checked_on": "2026-11-02",
     "last_checked": "2026-11-02",
-    "who_for": "Not stated",
+    "who_for": [
+      "Homeless people in Buxton, the High Peak and the surrounding area"
+    ],
     "kind": "hostel",
-    "address": "Buxton",
-    "postcode": "",
+    "address": "United Reformed Church, Hardwick Square East, Buxton",
+    "postcode": "SK17 6PT",
     "town": "Buxton",
     "area": "Buxton",
     "card_type": "referral_hostel",
     "no_pin": true,
-    "lat": null,
-    "lng": null,
-    "referral_route": "Emergency accommodation (hosts or B&B): call the referral number 07973 670595."
+    "lat": 53.257428,
+    "lng": -1.910217,
+    "referral_route": "Emergency accommodation (hosts or B&B): call the referral number 07973 670595.",
+    "discovery_url": "https://www.streetsupport.net/find-help/organisation/high-peak-homeless-help",
+    "discovery_label": "Street Support"
   },
   {
     "id": "man-ss-saviour-trust-pontefract",
@@ -9434,7 +9717,7 @@
     "season": "Year-round",
     "operator": "",
     "flag_closed": false,
-    "source": "Manual (verified from source pages)",
+    "source": "Own website",
     "source_url": "https://www.thesaviourtrust.co.uk/",
     "last_verified": "2026-11-02",
     "stale": false,
@@ -9444,14 +9727,16 @@
     "last_checked": "2026-11-02",
     "who_for": "Not stated",
     "kind": "hostel",
-    "address": "Pontefract",
-    "postcode": "",
+    "address": "All Saints Church Hall, Baghill Lane, Pontefract",
+    "postcode": "WF8 2HA",
     "town": "Pontefract",
     "area": "Pontefract",
     "card_type": "referral_hostel",
     "no_pin": true,
-    "lat": null,
-    "lng": null,
-    "referral_route": "Call 01977 600335 to ask about a place."
+    "lat": 53.693563,
+    "lng": -1.299087,
+    "referral_route": "Call 01977 600335 to ask about a place.",
+    "discovery_url": "https://www.streetsupport.net/find-help/organisation/the-saviour-trust",
+    "discovery_label": "Street Support"
   }
 ]

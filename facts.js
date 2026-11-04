@@ -163,7 +163,18 @@
     }
     if (at === 'referral_only' || /\breferral\b/i.test(ref)) {
       const via = stripHow(ref);
-      if (via) return ['Referral via ' + via, 'Atgyfeiriad drwy ' + via];
+      // Never glue 'Referral via' onto a sentence (it read 'Referral via Young people 16-21…'; Dean, 3 Nov).
+      // Text that already starts with 'Referral…' is shown as written; 'via X' becomes 'Referral via X'; anything else follows 'Referral · '.
+      if (/^referrals?\b/i.test(ref) && !/^(referral only|referral needed)\b/i.test(ref)) {
+        const r0 = ref.charAt(0).toUpperCase() + ref.slice(1);
+        const rv = ref.match(/^referrals?\s+(?:via|through)\s+(.+)$/i);
+        return [r0, rv ? 'Atgyfeiriad drwy ' + rv[1] : 'Atgyfeiriad · ' + r0];
+      }
+      const raw = ref.replace(/^(referral only|referral needed|by referral)\s*[:.–-]?\s*/i, '');
+      if (via && /^via\s/i.test(raw)) return ['Referral via ' + via, 'Atgyfeiriad drwy ' + via];
+      const vt = via.match(/^(?:via|through|from)\s+(.+)$/i);
+      if (vt) return ['Referral ' + via, 'Atgyfeiriad drwy ' + vt[1]];
+      if (via) return ['Referral · ' + via, 'Atgyfeiriad · ' + via];
       if (i.council) return ['Referral via ' + i.council, 'Atgyfeiriad drwy ' + i.council];
       return ['Referral', 'Atgyfeiriad'];
     }
