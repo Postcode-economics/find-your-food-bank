@@ -81,6 +81,7 @@ jobs:
         run: python scripts/city_watch.py || true
       - name: Commit if changed
         id: commit
+        if: false  # PRACTICE BRANCH ONLY: no commit, no push, no publish
         run: |
           bash scripts/git_add_existing.sh stamp.js index.html version.json faq.html terms.html privacy.html accessibility.html food-banks warm-spaces shelters sitemap.xml robots.txt 404.html overrides/page_dates.json logs/discovery_today_shelters.json reports/new_today.md reports/manual_review.md shelters.js logs/shelters_discovery.json logs/shelters_times_check.json logs/times_crosscheck_seen.json reports/times_auto_applied.json logs/shelters_log.json logs/shelters_pending.json logs/shelters_held.json logs/shelters_recheck.json logs/shelters_last_confirmed.json reports/shelters_grace.md logs/swep_status.json logs/swep_live_held.json logs/rest_centre_status.json logs/incident_rest_centre_pages.json logs/incident_rest_centre_switch_state.json logs/incident_rest_centre_live_state.json incident_rest_centre_live.json incident_rest_centre_live.js overrides/incident_rest_centre_mode.json reports/layers_review.md reports/layers_review.json overrides/district_cache.json logs/refresh_guard.json reports/refresh_guard_shelters.md logs/pending_dean.json reports/pending_dean.md logs/sense_check.json reports/sense_check.md reports/verified_new_places.json reports/city_coverage.md
           # district_cache.json is rewritten by build_seo.py; left unstaged it made 'git pull --rebase' refuse (07:41 + 19:44 23 Oct)
@@ -124,6 +125,7 @@ jobs:
           done
           exit 1
       - name: IndexNow - tell search engines which pages really changed (fail-safe)
+        if: false  # PRACTICE BRANCH ONLY
         continue-on-error: true
         run: python scripts/indexnow.py "$GITHUB_SHA"
       - name: Findings report email (fail-safe)
@@ -139,24 +141,24 @@ jobs:
           BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
         run: python scripts/new_live_email.py --layers shelters,emergency --baseline "$LIVE_BASELINE" --send || true
       - name: Alert - run failed (nothing new published)
-        if: failure()
+        if: false  # PRACTICE BRANCH ONLY: no alert issues opened/closed
         env:
           GH_TOKEN: ${{ github.token }}
         run: python scripts/alert.py open shelters "Shelters refresh run failed" "A step failed, so this run did not publish. Earlier data stays live. Open the run log to see which step."
       - name: Clear the run alert after a good run
-        if: success()
+        if: false  # PRACTICE BRANCH ONLY: no alert issues opened/closed
         env:
           GH_TOKEN: ${{ github.token }}
         run: python scripts/alert.py resolve shelters
       - name: Alert - SWEP watch or review list failed (data still published)
-        if: always() && (steps.swep.outcome == 'failure' || steps.review.outcome == 'failure')
+        if: false  # PRACTICE BRANCH ONLY: no alert issues opened/closed
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           echo "::error::SWEP watch, rest centre switch-on alert, or issue open/close failed. Shelters data was still published."
           python scripts/alert.py open swep "SWEP watch / review list failed" "swep.py, the rest centre (council-run) page check, or a switch-on alert / issue open or close failed this run. Shelters data was still checked and published as normal."
       - name: Clear the SWEP alert after a good run
-        if: success() && steps.swep.outcome == 'success' && steps.review.outcome == 'success'
+        if: false  # PRACTICE BRANCH ONLY: no alert issues opened/closed
         env:
           GH_TOKEN: ${{ github.token }}
         run: python scripts/alert.py resolve swep
