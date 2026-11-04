@@ -14,10 +14,17 @@ class KeptCopyGetsManualFields(unittest.TestCase):
                "facilities": ["Laundry"], "groups": ["Men aged 18 and over"], "beds": "38", "hours": "24/7",
                "discovery_label": "Street Support", "source_url": "https://own.example/"}
         ver = {"man-ss-x": {"evidence_url": "https://own.example/", "quote": "q", "verified_on": "2026-11-03", "access": "new route"}}
+        # verification_gate writes reports/<layer>_grace.md relative to the working directory: run it in a temp dir
+        # so the real reports/ file is never touched.
+        cwd = os.getcwd()
         with tempfile.TemporaryDirectory() as d, mock.patch("recheck.recheck_all", return_value={"man-ss-x": {"ok": False, "http": 403, "reason": "HTTP 403"}}), \
                 mock.patch.object(common, "record_layer_holds", lambda *a, **k: None):
-            res = common.verification_gate([new], {"items": [old]}, ver, "2026-11-04", os.path.join(d, "shelters_pending.json"),
-                                              now=datetime.datetime(2026, 11, 4, tzinfo=datetime.timezone.utc))
+            os.makedirs(os.path.join(d, "reports")); os.makedirs(os.path.join(d, "logs")); os.chdir(d)
+            try:
+                res = common.verification_gate([new], {"items": [old]}, ver, "2026-11-04", os.path.join(d, "shelters_pending.json"),
+                                                  now=datetime.datetime(2026, 11, 4, tzinfo=datetime.timezone.utc))
+            finally:
+                os.chdir(cwd)
         x = res[0][0]
         self.assertTrue(x.get("kept_fetch_blocked"))
         for k in ("name", "phone", "phone_label", "facilities", "groups", "beds", "hours", "discovery_label", "source_url"):
