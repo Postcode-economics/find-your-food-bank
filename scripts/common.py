@@ -247,8 +247,11 @@ def verification_gate(fresh, prev, verified, run_day, pending_path, autocheck=No
                     # published copy has who-it's-for inferred from its evidence) must not wipe it (YMCA Watford, 4 Nov 2026).
                     if k in x and x[k] not in (None, "", [], {}): old[k] = x[k]
                 if v:
-                    for k in ("phone", "address", "postcode", "lat", "lng", "hours", "phone_label"):
-                        if v.get(k): old[k] = v[k]
+                    for k in ("phone", "lat", "lng", "phone_label"):
+                        if v.get(k) and not (k in ("lat", "lng") and old.get("no_pin")): old[k] = v[k]
+                # Address, postcode and hours: the same hand-wins function place_lock.protect() uses (one copy).
+                import place_lock
+                place_lock.apply_hand(old, place_lock.hand_record(x, v))
                     if v.get("access"): old["referral"] = v["access"][0].upper() + v["access"][1:]
             if old.get("fetched_at"): LC.setdefault(x["id"], old["fetched_at"])
             graced.append({"id": x["id"], "name": old.get("name") or x.get("name"), "reason": "kept, fetch blocked (%s)" % ((rc or {}).get("reason") or (rc or {}).get("http")),
