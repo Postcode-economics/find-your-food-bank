@@ -142,9 +142,12 @@ def card_sh(i):
     day = i.get('kind') == 'day_centre'
     youth = i.get('kind') == 'young_people'
     swep = i.get('kind') == 'severe_weather'
+    advice = i.get('kind') == 'advice_service'
     kind_name = i.get('name') or ''
     if swep:
         type_en = 'Severe weather shelter (SWEP)'
+    elif advice:
+        type_en = 'Advice service'
     elif day:
         type_en = 'Day centre'
     elif youth:
@@ -163,6 +166,7 @@ def card_sh(i):
     if re.search(r'winter|swep|cold weather', str(i.get('season') or ''), re.I):
         tag += ' <span class="useason">Winter-only</span>'
 
+    if advice: tag += '<div class="sub">Advice and housing help. No beds, food or drop-in.</div>'
     if day: tag += '<div class="sub">Daytime only. No overnight bed.</div>'
     if youth: tag += '<div class="sub">For ages 16–25. Referral needed. Not an emergency bed.</div>'
     if i.get('tier') == 'unverified': tag += ' <div class="tag v">Unverified – call before you go</div>'
