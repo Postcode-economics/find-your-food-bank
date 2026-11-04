@@ -1,1 +1,1 @@
-window.incidentRestCentreLive={"public": true, "generated": "2026-11-04T05:56:50+00:00", "category": "incident_rest_centre", "cards": [], "councils": {}};
+window.incidentRestCentreLive={"public": true, "generated": "2026-11-04T11:23:53+00:00", "category": "incident_rest_centre", "cards": [], "councils": {}};
