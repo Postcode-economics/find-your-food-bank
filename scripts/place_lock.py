@@ -169,7 +169,7 @@ def apply_hand(item, rec, fields=HAND_WIN_FIELDS, skip=()):
         item[f] = v
         done.append(f)
     if item.get("no_pin"):
-        for f in PIN_FIELDS:
+        for f in ("postcode", "lat", "lng"):  # the town-level address line stays; it is never set from a hand value
             item.pop(f, None)
     return done
 
