@@ -8388,7 +8388,7 @@
       "Single homeless men"
     ],
     "kind": "hostel",
-    "address": "104 Denmark Road, Manchester",
+    "address": "104 Denmark Road, Hulme",
     "postcode": "M15 6JS",
     "lat": 53.461133,
     "lng": -2.240655,
@@ -8431,7 +8431,7 @@
       "Men and women who are homeless or rough-sleeping"
     ],
     "kind": "hostel",
-    "address": "Great George St, Leeds",
+    "address": "St George's Crypt, Great George Street, Leeds",
     "postcode": "LS1 3BR",
     "lat": 53.801045,
     "lng": -1.553483,
@@ -8509,7 +8509,7 @@
       "Single homeless people, of any gender, aged 21 and over"
     ],
     "kind": "hostel",
-    "address": "80-94 Guildford Hall, Guildford Street, Luton",
+    "address": "Start Over Shelter, 80-94 Guildford Hall, Guildford Street, Luton",
     "postcode": "LU1 2PA",
     "lat": 51.881646,
     "lng": -0.415986,
@@ -8557,7 +8557,9 @@
     "hours": "Staffed 24/7",
     "referral": "Referral needed (Brighter Futures does not take emergency walk-ins): call 01782 406000.",
     "beds": "",
-    "groups": [],
+    "groups": [
+      "Customers who are experiencing homelessness"
+    ],
     "season": "Year-round",
     "operator": "",
     "flag_closed": false,
@@ -8571,7 +8573,9 @@
     ],
     "checked_on": "2026-11-04",
     "last_checked": "2026-11-04",
-    "who_for": "Not stated",
+    "who_for": [
+      "Customers who are experiencing homelessness"
+    ],
     "kind": "hostel",
     "address": "90 Hope Street, Stoke-on-Trent",
     "postcode": "ST1 5BY",
@@ -9031,7 +9035,9 @@
     "hours": "Staff available 24 hours a day, seven days a week",
     "referral": "Call 0151 600 3530 to ask how to get a place.",
     "beds": "",
-    "groups": [],
+    "groups": [
+      "Adults experiencing homelessness with multiple and complex needs"
+    ],
     "season": "Year-round",
     "operator": "",
     "flag_closed": false,
@@ -9045,7 +9051,9 @@
     ],
     "checked_on": "2026-11-04",
     "last_checked": "2026-11-04",
-    "who_for": "Not stated",
+    "who_for": [
+      "Adults experiencing homelessness with multiple and complex needs"
+    ],
     "kind": "hostel",
     "address": "15 Leeds St, Liverpool",
     "postcode": "L3 6HU",
@@ -9091,7 +9099,7 @@
       "Men aged 18 and over"
     ],
     "kind": "hostel",
-    "address": "172–174 Plymouth Grove, Longsight, Manchester",
+    "address": "172 - 174, Plymouth Grove, Longsight, Manchester",
     "postcode": "M13 0AF",
     "lat": 53.462615,
     "lng": -2.217378,
@@ -9127,7 +9135,7 @@
       "Homeless men"
     ],
     "kind": "hostel",
-    "address": "Coverdale Baptist Church, Coverdale Crescent, Manchester",
+    "address": "The Well, Coverdale Christian Church, Coverdale Crescent, Ardwick, Manchester",
     "postcode": "M12 4FG",
     "lat": 53.46743,
     "lng": -2.214164,

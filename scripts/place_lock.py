@@ -276,3 +276,51 @@ def changes(old_items, new_items):
             elif a != b:
                 out[field] += 1
     return out
+
+
+LOCKED_CONTACT = ("phone", "phone_label", "tel", "council_phone", "council_ooh", "council_label", "council_label_cy")
+
+def final_lock(items, previous, hand, layer="shelters", baseline=None):
+    """The LAST step before a layer file is written (Dean, 4 Nov 2026). Nothing a refresh, sweep, feed,
+    kept copy or normaliser did may change a card's address, postcode, lat/lng, phone, phone label or
+    council line unless the new value is the hand-checked one (shelters_manual.json / shelters_verified.json).
+    - address / postcode / lat / lng: a stated hand value wins; otherwise the published value is put back.
+    - phone fields: a change is allowed only to the hand value; otherwise the published value is put back
+      (the phone lock's own rules are unchanged; this only stops anything after it undoing them).
+    - no_pin cards never carry postcode / lat / lng, and never a hand street address.
+    - opening hours are not touched here (rules 48/50 apply them).
+    Returns a list of (id, field, blocked_value, kept_value)."""
+    prev = {o["id"]: o for o in (previous or []) if isinstance(o, dict) and o.get("id")}
+    hand = hand or {}
+    blocked = []
+    for item in items or []:
+        iid = item.get("id"); rec = hand.get(iid) or {}; old = prev.get(iid)
+        if item.get("no_pin"):
+            for f in ("postcode", "lat", "lng"):
+                if f in item:
+                    blocked.append((iid, f, item.pop(f), None))
+        for f in PIN_FIELDS:
+            if item.get("no_pin") and f != "address":
+                continue
+            hv = hand_value(item, f, rec, normalise=False)
+            if hv is not None:
+                if item.get(f) != hv and not (f in ("lat", "lng") and same(f, item.get(f), hv)):
+                    blocked.append((iid, f, item.get(f), hv)); item[f] = hv
+                continue
+            if old is None:
+                continue  # a brand-new place: the publish gate decides
+            if not same(f, old.get(f), item.get(f)):
+                blocked.append((iid, f, item.get(f), old.get(f))); _restore(item, f, old.get(f))
+        for f in LOCKED_CONTACT:
+            if old is None:
+                continue
+            new, was = item.get(f), old.get(f)
+            if new == was:
+                continue
+            if f in rec and _stated(rec[f]) and new == rec[f]:
+                continue
+            base = (baseline or {}).get(iid) or {}
+            if f in base and not _blank(base[f]) and new == base[f]:
+                continue  # the reviewed phone baseline (overrides/phone_baseline.json) is a hand file too
+            blocked.append((iid, f, new, was)); _restore(item, f, was)
+    return blocked
