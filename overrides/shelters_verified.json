@@ -6246,7 +6246,10 @@
   "postcode": "M20 3NA",
   "lat": 53.437057,
   "lng": -2.224202,
-  "beds": "14"
+  "beds": "14",
+  "ignore_phrases": [
+   "or a service is no longer running, please let us know"
+  ]
  },
  "man-ss-brighter-futures-90-hope-street": {
   "access": "Referral needed (Brighter Futures does not take emergency walk-ins): call 01782 406000.",
@@ -6323,7 +6326,7 @@
   "beds": "Up to 28"
  },
  "man-ss-salvation-army-pleasance-lifehouse": {
-  "access": "All referrals come from Streetwork: 0808 178 2323. Couples and individuals.",
+  "access": "All referrals come from Streetwork: 18 South Bridge, Edinburgh, EH1 1LL, 0808 178 2323.",
   "access_type": "referral_only",
   "evidence_name": "salvationarmy.org.uk",
   "evidence_url": "https://www.salvationarmy.org.uk/pleasance",
@@ -6388,7 +6391,7 @@
   "lng": -1.883745
  },
  "man-ss-homeless-action-elm-house": {
-  "access": "All referrals come through Blackpool Council Housing Options: 01253 477760 (Mon-Fri).",
+  "access": "Referral via Blackpool's Housing Options team (a referral MUST be submitted by them): 01253 477760, housing.options@blackpool.gov.uk.",
   "access_type": "referral_only",
   "evidence_name": "homelessaction.org",
   "evidence_url": "https://homelessaction.org/contact/",
@@ -6425,7 +6428,7 @@
   "lng": -3.054268
  },
  "man-ss-homeless-action-holly-house": {
-  "access": "Referral through Blackpool Council Housing Options: 01253 477760 (Mon-Fri).",
+  "access": "Referral via Blackpool's Housing Options team (a referral MUST be submitted by them): 01253 477760, housing.options@blackpool.gov.uk.",
   "access_type": "referral_only",
   "evidence_name": "homelessaction.org",
   "evidence_url": "https://homelessaction.org/contact/",
@@ -6493,7 +6496,7 @@
   "beds": "15"
  },
  "man-ss-michael-house-boscombe": {
-  "access": "Drug and alcohol-free supported hostel. Call 01202 393178 to ask about a referral.",
+  "access": "Referrals accepted from statutory and voluntary agencies, community and church groups. Rough sleepers can book an admission assessment with the staff team directly by phoning 01202 393178 or emailing info@michaelhouse.co.uk.",
   "access_type": "referral_only",
   "evidence_name": "michaelhouse.co.uk",
   "evidence_url": "https://michaelhouse.co.uk/contact/",
@@ -6782,7 +6785,7 @@
   "beds": "7"
  },
  "man-ss-jimmys-cambridge-east-road": {
-  "access": "Call 01223 576085 to ask how to get a place.",
+  "access": "Call 01223 576085 or email info@jimmyscambridge.org.uk. Referrals also accepted from local partner organisations; if sleeping rough, contact the Street Outreach Team on 01223 366 292 (weekdays 08:00–16:00). For immediate support, come to 1 East Road.",
   "access_type": "referral_only",
   "evidence_name": "jimmyscambridge.org.uk",
   "evidence_url": "https://www.jimmyscambridge.org.uk/",
@@ -6811,7 +6814,7 @@
   "lng": 0.132583
  },
  "man-ss-local-solutions-homeground": {
-  "access": "Young people 16-21. Referral via a Liverpool MainStay assessment.",
+  "access": "Contact your local Housing Options team (Liverpool: 0151 233 3061) – they’ll assess your situation and help you access support, including referrals to services like Homeground. You can also complete a Mainstay assessment, which is the referral route for supported accommodation across the Liverpool City Region. You cannot refer yourself directly to Homeground – all referrals must come through Housing Options or Social Services.",
   "access_type": "referral_only",
   "evidence_name": "localsolutions.org.uk",
   "evidence_url": "https://localsolutions.org.uk/liverpool-city-region-services/support-accommodation/homeground/",
@@ -6892,13 +6895,13 @@
   "age_range": "16–25"
  },
  "man-ss-bradford-nightstop": {
-  "access": "Emergency stays with trained volunteer hosts for 16-25s. Referral from agencies such as Housing Options: 01274 776888.",
+  "access": "Emergency stays with trained volunteer hosts for 18-25s. Call 0330 053 7664 to refer a young person.",
   "access_type": "referral_only",
   "evidence_name": "bradfordnightstop.org.uk",
   "evidence_url": "https://bradfordnightstop.org.uk/",
   "name": "Bradford Nightstop (18-25)",
   "quote": "free emergency accomodation to homeless young people aged 16 to 25. Call us on: 01274 776888",
-  "referral": "Emergency stays with trained volunteer hosts for 18-25s. Call 0330 053 7664 to refer a young person. Referral/phone only, office address.",
+  "referral": "Emergency stays with trained volunteer hosts for 18-25s. Call 0330 053 7664 to refer a young person.",
   "verified_on": "2026-11-02",
   "phone": "0330 053 7664",
   "note": "Street Support find, hand check 2 Nov 2026: bradfordnightstop.org.uk confirms it is running, the phone and the access route. Referral hostel, list only, no pin.",
@@ -6927,7 +6930,7 @@
   "evidence_url": "https://www.barnardos.org.uk/get-support/services/futures-nightstop",
   "name": "Nightstop Leeds (Barnardo's Futures, 16-21)",
   "quote": "Nightstop hosts who offer their spare room to homeless young people for 1- 3 nights ... Contact details 07825377405",
-  "referral": "Young people 16-21 in Leeds, by referral: 07825 377405. Referral/phone only, office address.",
+  "referral": "Young people 16-21 in Leeds, by referral: 07825 377405.",
   "verified_on": "2026-11-02",
   "phone": "07825 377405",
   "note": "Street Support find, hand check 2 Nov 2026: barnardos.org.uk confirms it is running, the phone and the access route. Referral hostel, list only, no pin.",
@@ -6952,7 +6955,7 @@
   "evidence_url": "https://www.depaul.org.uk/nightstop/nightstop-greater-manchester/",
   "name": "Nightstop Greater Manchester (Depaul, 16-25)",
   "quote": "Phone number: 01615073414 (9am-5pm, Monday to Friday) Email: Nightstop.Referrals@depaulcharity.org.uk",
-  "referral": "Young people 16-25, by referral: 0161 507 3414 (9am-5pm Mon-Fri). Referral/phone only, office address.",
+  "referral": "Young people 16-25, by referral: 0161 507 3414 (9am-5pm Mon-Fri).",
   "verified_on": "2026-11-02",
   "phone": "0161 507 3414",
   "note": "Street Support find, hand check 2 Nov 2026: depaul.org.uk confirms it is running, the phone and the access route. Referral hostel, list only, no pin.",
@@ -6980,7 +6983,7 @@
   "evidence_url": "https://www.openhomes.org.uk/nottingham-nightstop",
   "name": "Nottingham Nightstop (Open Homes, 16-25)",
   "quote": "Nightstop hosts open their homes to young homeless people ... +44 333 323 2265",
-  "referral": "Young people 16-25, by referral: 0333 323 2265 (Mon-Fri 10am-5pm). Referral/phone only, office address.",
+  "referral": "Young people 16-25, by referral: 0333 323 2265 (Mon-Fri 10am-5pm).",
   "verified_on": "2026-11-02",
   "phone": "0333 323 2265",
   "note": "Street Support find, hand check 2 Nov 2026: openhomes.org.uk confirms it is running, the phone and the access route. Referral hostel, list only, no pin.",
@@ -7037,7 +7040,7 @@
   "evidence_url": "https://www.newstarthomes.org.uk/newpage",
   "name": "New Start harm reduction service (women 18+)",
   "quote": "This service is available to females aged 18+ who are Liverpool residents. Contact 0151 708 7103",
-  "referral": "Women 18+ who are Liverpool residents: referral form or call 0151 708 7103. Referral/phone only, office address.",
+  "referral": "Women 18+ who are Liverpool residents: referral form or call 0151 708 7103.",
   "verified_on": "2026-11-02",
   "phone": "0151 708 7103",
   "note": "Street Support find, hand check 2 Nov 2026: newstarthomes.org.uk confirms it is running, the phone and the access route. Referral hostel, list only, no pin.",
@@ -7063,7 +7066,7 @@
   "evidence_url": "https://sanctuarytrust.org.uk/projects/step/",
   "name": "STEP emergency night accommodation (Sanctuary Trust)",
   "quote": "to make referral telephone Rochdale Borough Housing Homelessness Team on 0300 303 8548 6 beds ... Open 7pm - Overnight - 9am",
-  "referral": "Referral through Rochdale Borough Housing homelessness team: 0300 303 8548. Open 7pm-9am. Referral/phone only, office address.",
+  "referral": "Referral through Rochdale Borough Housing homelessness team: 0300 303 8548. Open 7pm-9am.",
   "verified_on": "2026-11-02",
   "phone": "0300 303 8548",
   "note": "Street Support find, hand check 2 Nov 2026: sanctuarytrust.org.uk confirms it is running, the phone and the access route. Referral hostel, list only, no pin.",
@@ -7085,7 +7088,7 @@
   "beds": "6 beds"
  },
  "man-ss-high-peak-homeless-help": {
-  "access": "Emergency accommodation (hosts or B&B): call the referral number 07973 670595.",
+  "access": "Referrals from agencies (e.g. Citizens Advice, schools, churches, local voluntary groups) by phone on 07973 670595; the referrer must be with the person for a short risk assessment. Self-referrals only in exceptional circumstances.",
   "access_type": "referral_only",
   "evidence_name": "hphh.co.uk",
   "evidence_url": "http://www.hphh.co.uk/",
