@@ -6246,7 +6246,10 @@
   "postcode": "M20 3NA",
   "lat": 53.437057,
   "lng": -2.224202,
-  "beds": "14"
+  "beds": "14",
+  "ignore_phrases": [
+   "or a service is no longer running, please let us know"
+  ]
  },
  "man-ss-brighter-futures-90-hope-street": {
   "access": "Referral needed (Brighter Futures does not take emergency walk-ins): call 01782 406000.",
