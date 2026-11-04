@@ -58,7 +58,7 @@
   }
   function isYouth(i) {
     i = i || {};
-    if (i.kind === 'severe_weather') return false;
+    if (i.kind === 'severe_weather' || i.kind === 'advice_service') return false;
     if (i.kind === 'young_people') return true;
     const name = String(i.name || '');
     const blob = youthBlob(i);
@@ -74,7 +74,7 @@
   }
   function isDayCentre(i) {
     i = i || {};
-    if (i.kind === 'severe_weather') return false;
+    if (i.kind === 'severe_weather' || i.kind === 'advice_service') return false;
     if (isYouth(i)) return false;
     const kind = String(i.kind || i.service || '').toLowerCase().replace(/-/g, ' ').replace(/_/g, ' ');
     return i.label === 'Day centre' || kind === 'day centre';
@@ -89,6 +89,7 @@
       }
       return ['Food bank', 'Banc bwyd'];
     }
+    if (i.kind === 'advice_service') return ['Advice service', 'Gwasanaeth cyngor'];
     if (i.kind === 'severe_weather')
       return ['Severe weather shelter (SWEP)', 'Lloches tywydd garw (SWEP)'];
     if (isYouth(i))
