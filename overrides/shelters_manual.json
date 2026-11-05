@@ -2356,23 +2356,40 @@
     "lng": -1.603723,
     "phone": "0191 222 0622",
     "website": "https://www.crisis.org.uk/get-help/newcastle/",
-    "hours": "Not stated",
-    "referral": "",
+    "hours": {
+      "Mon": "09:30 - 16:30",
+      "Tue": "12:00 - 16:30",
+      "Wed": "09:30 - 16:30",
+      "Thu": "09:30 - 16:30",
+      "Fri": "09:30 - 16:30",
+      "Sat": "Closed",
+      "Sun": "Closed"
+    },
+    "referral": "Reception during opening times — come through the door or ring the doorbell",
     "beds": "",
-    "groups": [],
+    "groups": [
+      "people who are experiencing homelessness or are at risk of homelessness"
+    ],
     "season": "Daytime only",
     "operator": "",
     "flag_closed": false,
-    "source": "Manual (verified from source pages)",
+    "source": "Manual (verified from Crisis email + own page)",
     "source_url": "https://www.crisis.org.uk/get-help/newcastle/",
-    "last_verified": "2026-10-31",
+    "last_verified": "2026-11-05",
     "stale": false,
     "access_type": "open_access",
-    "facilities": "Not stated",
-    "checked_on": "2026-10-31",
+    "facilities": [
+      "Advice and support to end homelessness sustainably"
+    ],
+    "checked_on": "2026-11-05",
     "kind": "day_centre",
-    "who_for": "Not stated",
-    "last_checked": "2026-10-31"
+    "who_for": [
+      "people who are experiencing homelessness or are at risk of homelessness"
+    ],
+    "last_checked": "2026-11-05",
+    "access": "Reception during opening times — come through the door or ring the doorbell",
+    "wheelchair": "yes",
+    "wheelchair_quote": "Wheelchair access: Yes (Crisis email, Herbie Cooper, 5 Nov 2026)"
   },
   {
     "id": "man-first-stop-darlington",
