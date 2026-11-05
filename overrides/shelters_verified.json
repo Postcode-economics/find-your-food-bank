@@ -6653,7 +6653,7 @@
   "referral": "Call 0151 600 3530 to ask how to get a place.",
   "verified_on": "2026-11-04",
   "phone": "0151 600 3530",
-  "note": "Street Support find, hand check 2 Nov 2026: you-matter.org.uk confirms it is running, the phone and the access route. Pin is the postcodes.io centroid.",
+  "note": "Street Support find, hand check 2 Nov 2026; re-checked 5 Nov 2026: you-matter.org.uk (homelessness support page) confirms Leeds Street is running, who it is for and 24-hour staffing. Its own site publishes no phone number: contact is through the 'Get in touch' form at https://you-matter.org.uk/contact-us/. Phone 0151 600 3530 and the address 15 Leeds Street, Liverpool L3 6HU are stated by Homeless Link (https://homeless.org.uk/homeless-england/service/ymca-liverpool/) and Mersey Care NHS (https://www.merseycare.nhs.uk/our-services/our-sites/liverpool/ymca); both agree. Phone kept on Dean's approval, 5 Nov 2026 02:20 GMT. Pin is the postcodes.io centroid.",
   "facilities": [
    "Self-contained and en-suite accommodation"
   ],
@@ -6664,7 +6664,9 @@
   "address": "15 Leeds St, Liverpool",
   "postcode": "L3 6HU",
   "lat": 53.412853,
-  "lng": -2.991694
+  "lng": -2.991694,
+  "phone_source": "https://homeless.org.uk/homeless-england/service/ymca-liverpool/",
+  "phone_note": "Not on the own site (you-matter.org.uk has a contact form only: https://you-matter.org.uk/contact-us/). Stated by Homeless Link (https://homeless.org.uk/homeless-england/service/ymca-liverpool/) and Mersey Care NHS (https://www.merseycare.nhs.uk/our-services/our-sites/liverpool/ymca); kept on Dean's approval 5 Nov 2026."
  },
  "man-ss-riverside-wilson-carlile-house": {
   "access": "Men 18+. Call 0161 273 3574 to ask about a referral.",
@@ -6737,9 +6739,9 @@
   "name": "Tekoa House (Langley House Trust)",
   "quote": "Tekoa House is a 27-bed property providing accommodation and housing-related support for homeless men who have offended ... Phone: 01706 713 337",
   "referral": "Homeless men who have offended. Agency referrals: 01706 713337.",
-  "verified_on": "2026-11-04",
+  "verified_on": "2026-11-05",
   "phone": "01706 713337",
-  "note": "Street Support find, hand check 2 Nov 2026: langleytrust.org confirms it is running, the phone and the access route. Pin is the postcodes.io centroid.",
+  "note": "Own-site re-check 5 Nov 2026 (rule 89): langleytrust.org gives only 'Tekoa House – Rochdale' (map 'approximate'); 'Walker St' and OL16 2AB were not on the own site, so town-level card, no pin.",
   "facilities": [
    "Single bedrooms with shared communal spaces",
    "No pets (not able to accommodate pets)"
@@ -6753,23 +6755,19 @@
   "hours": "",
   "season": "Year-round",
   "kind": "hostel",
-  "address": "Langley House Trust, Tekoa House, Walker St, Rochdale",
-  "postcode": "OL16 2AB",
-  "lat": 53.614352,
-  "lng": -2.147447,
   "beds": "27 beds in the main house"
  },
  "man-ss-ssj-10-southampton-street": {
-  "access": "Referral from Southampton's Street Homeless Prevention Team (023 8083 2343) or a local agency.",
+  "access": "Access through Southampton City Council's Street Homeless Prevention Team.",
   "access_type": "referral_only",
-  "evidence_name": "Homeless Link",
-  "evidence_url": "https://homeless.org.uk/homeless-england/service/society-of-st-james-10-southampton-street/",
+  "evidence_name": "ssj.org.uk",
+  "evidence_url": "https://ssj.org.uk/tackling-homelessness-in-southampton/",
   "name": "10 Southampton Street hostel (Society of St James)",
-  "quote": "Accepts referrals from the Street Homeless Prevention Team and local agencies ... Total spaces 32",
-  "referral": "Referral from Southampton's Street Homeless Prevention Team (023 8083 2343) or a local agency.",
-  "verified_on": "2026-11-04",
-  "phone": "023 8083 2343",
-  "note": "Street Support find, hand check 2 Nov 2026: Homeless Link confirms it is running, the phone and the access route. Pin is the postcodes.io centroid.",
+  "quote": "Southampton Street & Patrick House provide a 24/7 service for single vulnerable adults ... Access to all of these services is through Southampton City Council's Street Homeless Prevention Team ... Contact Details Tackling Homelessness in Southampton 023 8063 4596",
+  "referral": "Access through Southampton City Council's Street Homeless Prevention Team.",
+  "verified_on": "2026-11-05",
+  "phone": "023 8063 4596",
+  "note": "Own-site re-check 5 Nov 2026 (rule 89): phone and hours from ssj.org.uk; the earlier 023 8083 2343 was Homeless Link only. Street number '10' is not on the own site.",
   "facilities": "Not stated",
   "who_for": [
    "Single vulnerable adults"
@@ -6875,14 +6873,14 @@
  "man-ss-st-basils-milner-court": {
   "access": "Young people 18-25, referral through St Basils Youth Hub: Youthline 0300 303 0099.",
   "access_type": "referral_only",
-  "evidence_name": "Homeless Link",
-  "evidence_url": "https://homeless.org.uk/homeless-england/service/st-basils-milner-court-transition-hub/",
+  "evidence_name": "stbasils.org.uk",
+  "evidence_url": "https://stbasils.org.uk/get-help/",
   "name": "St Basils Milner Court (18-25)",
-  "quote": "Only accept referrals from St Basils Youth Hub ... Youthline 0300 303 0099",
+  "quote": "(get-help) If you have access to a phone please contact us on: Phone: 0300 303 0099 Email: youthline@stbasils.org.uk ... (our-wishlist) Addresses: Milner Court, 110 St Andrew's Road, Birmingham, B9 4NA",
   "referral": "Young people 18-25, referral through St Basils Youth Hub: Youthline 0300 303 0099.",
-  "verified_on": "2026-11-04",
+  "verified_on": "2026-11-05",
   "phone": "0300 303 0099",
-  "note": "Street Support find, hand check 2 Nov 2026: Homeless Link confirms it is running, the phone and the access route. Pin is the postcodes.io centroid.",
+  "note": "Own-site re-check 5 Nov 2026 (rule 89): Youthline 0300 303 0099 on stbasils.org.uk/get-help/ (St Basils' referral route via the Youth Hub); address on stbasils.org.uk/our-wishlist/.",
   "facilities": "Not stated",
   "who_for": [
    "Young single people aged 18-25 with support needs"
