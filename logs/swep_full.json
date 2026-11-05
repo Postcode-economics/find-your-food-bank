@@ -1,5 +1,5 @@
 {
- "run": "2026-11-04",
+ "run": "2026-11-05",
  "coverage": {
   "councils": 382,
   "with_swep_page": 224,
@@ -7,7 +7,7 @@
   "active": [
    "North Tyneside Council"
   ],
-  "flagged": 47,
+  "flagged": 45,
   "live": [],
   "held": 0
  },
@@ -920,9 +920,7 @@
     }
    ],
    "status": "unknown",
-   "flags": [
-    "status unreachable -> unknown"
-   ]
+   "flags": []
   },
   {
    "code": "BUR",
@@ -1839,9 +1837,7 @@
     }
    ],
    "status": "no SWEP wording",
-   "flags": [
-    "status unknown -> no SWEP wording"
-   ]
+   "flags": []
   },
   {
    "code": "EAS",
@@ -2224,9 +2220,7 @@
     }
    ],
    "status": "unknown",
-   "flags": [
-    "status unreachable -> unknown"
-   ]
+   "flags": []
   },
   {
    "code": "ESK",
@@ -5046,8 +5040,8 @@
    "pages": [
     {
      "url": "https://www.rugby.gov.uk/w/severe-weather-emergency-protocol",
-     "http": 200,
-     "status": "unknown",
+     "http": "error",
+     "status": "unreachable",
      "quote": "",
      "rest_centre": null,
      "council": "Rugby Borough Council",
@@ -5055,8 +5049,11 @@
      "site": "https://www.rugby.gov.uk"
     }
    ],
-   "status": "unknown",
-   "flags": []
+   "status": "unreachable",
+   "flags": [
+    "status unknown -> unreachable",
+    "dead page https://www.rugby.gov.uk/w/severe-weather-emergency-protocol (HTTP error)"
+   ]
   },
   {
    "code": "RUH",
@@ -6062,9 +6059,7 @@
     }
    ],
    "status": "unknown",
-   "flags": [
-    "status unreachable -> unknown"
-   ]
+   "flags": []
   },
   {
    "code": "TAN",
@@ -6739,10 +6734,22 @@
      "council": "Wakefield Metropolitan District Council",
      "code": "WKF",
      "site": "https://www.wakefield.gov.uk/"
+    },
+    {
+     "url": "https://www.wakefield.gov.uk/your-district/wakefield-council-steps-up-autumn-clean-up-to-prepare-for-severe-weather",
+     "http": 200,
+     "status": "no SWEP wording",
+     "quote": "",
+     "rest_centre": null,
+     "council": "Wakefield Metropolitan District Council",
+     "code": "WKF",
+     "site": "https://www.wakefield.gov.uk/"
     }
    ],
    "status": "unknown",
-   "flags": []
+   "flags": [
+    "new page https://www.wakefield.gov.uk/your-district/wakefield-council-steps-up-autumn-clean-up-to-prepare-for-severe-weather"
+   ]
   },
   {
    "code": "WLA",

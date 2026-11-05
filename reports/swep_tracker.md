@@ -1,4 +1,4 @@
-# SWEP tracker - 2026-11-04
+# SWEP tracker - 2026-11-05
 
 Councils still to check (status unknown or unreachable): **20 of 382**.
 
@@ -16,6 +16,7 @@ Councils still to check (status unknown or unreachable): **20 of 382**.
 | 2026-11-02 | 29 |
 | 2026-11-03 | 20 |
 | 2026-11-04 | 20 |
+| 2026-11-05 | 20 |
 
 ## Still to check
 
@@ -116,7 +117,6 @@ Councils still to check (status unknown or unreachable): **20 of 382**.
 - Rochdale Metropolitan Borough Council - SWEP described on council page; no current activation notice, checked 2026-10-24
 - Rossendale Borough Council - SWEP described on council page; no current activation notice, checked 2026-10-24
 - Rother District Council - SWEP described on council page; no current activation notice, checked 2026-10-24
-- Rugby Borough Council - Only a dated past activation/news notice; not active now., checked 2026-10-24
 - Runnymede Borough Council - Only a dated past activation/news notice; not active now., checked 2026-10-24
 - Rushmoor Borough Council - Only a dated past activation/news notice; not active now., checked 2026-10-24
 - Sandwell Metropolitan Borough Council - SWEP described on council page; no current activation notice, checked 2026-10-24
@@ -161,6 +161,7 @@ Councils still to check (status unknown or unreachable): **20 of 382**.
 - Plymouth City Council - SWEP described on council page; no current activation notice, checked 2026-10-24
 - Redcar and Cleveland Borough Council - SWEP described on council page; no current activation notice, checked 2026-10-24
 - Royal Borough of Windsor and Maidenhead - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Rugby Borough Council - Only a dated past activation/news notice; not active now., checked 2026-10-24
 - South Gloucestershire Council - SWEP described on council page; no current activation notice, checked 2026-10-24
 - South Hams District Council - Only a dated past activation/news notice; not active now., checked 2026-10-24
 - South Holland District Council - SWEP described on council page; no current activation notice, checked 2026-10-24

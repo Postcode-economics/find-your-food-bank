@@ -1,6 +1,6 @@
 {
- "run": "2026-11-04",
- "seconds": 63.7,
+ "run": "2026-11-05",
+ "seconds": 49.5,
  "pages": [
   {
    "council": "Armagh City, Banbridge and Craigavon Borough Council",
@@ -492,8 +492,8 @@
    "council": "Charnwood Borough Council",
    "url": "https://www.charnwood.gov.uk/pages/news",
    "kind": "news",
-   "http": 429,
-   "status": "unreachable",
+   "http": 200,
+   "status": "checked",
    "quote": "",
    "rest_centre": null
   },
@@ -501,8 +501,8 @@
    "council": "Charnwood Borough Council",
    "url": "https://www.charnwood.gov.uk/pages/flooding",
    "kind": "emergencies",
-   "http": 429,
-   "status": "unreachable",
+   "http": 200,
+   "status": "checked",
    "quote": "",
    "rest_centre": null
   },
@@ -1788,8 +1788,8 @@
    "council": "North Norfolk District Council",
    "url": "https://www.north-norfolk.gov.uk/news/",
    "kind": "news",
-   "http": null,
-   "status": "unreachable",
+   "http": 200,
+   "status": "checked",
    "quote": "",
    "rest_centre": null
   },
@@ -1797,8 +1797,8 @@
    "council": "North Norfolk District Council",
    "url": "https://www.north-norfolk.gov.uk/section/environment-emergencies/",
    "kind": "emergencies",
-   "http": null,
-   "status": "unreachable",
+   "http": 200,
+   "status": "checked",
    "quote": "",
    "rest_centre": null
   },
@@ -1887,8 +1887,8 @@
    "council": "North West Leicestershire District Council",
    "url": "https://www.nwleics.gov.uk/pages/news",
    "kind": "news",
-   "http": 429,
-   "status": "unreachable",
+   "http": 200,
+   "status": "checked",
    "quote": "",
    "rest_centre": null
   },
@@ -1914,8 +1914,8 @@
    "council": "Oadby and Wigston Borough Council",
    "url": "https://www.oadby-wigston.gov.uk/news",
    "kind": "news",
-   "http": 429,
-   "status": "unreachable",
+   "http": 200,
+   "status": "checked",
    "quote": "",
    "rest_centre": null
   },
@@ -2607,8 +2607,8 @@
    "council": "Tameside Metropolitan Borough Council",
    "url": "https://www.tameside.gov.uk/newsroom",
    "kind": "news",
-   "http": null,
-   "status": "unreachable",
+   "http": 200,
+   "status": "checked",
    "quote": "",
    "rest_centre": null
   },

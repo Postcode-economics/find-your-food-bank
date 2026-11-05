@@ -771,3 +771,11 @@ Run 2026-11-05. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
   source: https://www.holytrinitywesterhailes.org.uk  
   why: hand-checked times are protected; finder only flags differences; not one clear weekly client-hours block (kept as text for review); times not read identically on 2 separate runs yet; jumble: Mon given different times in separate blocks on one page; review only
 <!-- /times review -->
+
+<!-- rest centre switch-on -->
+## Rest centre and SWEP switch-ons (waiting for Dean)
+
+Council pages say these are ON. Incident rest centres go live when overrides/incident_rest_centre_mode.json has public true. A GitHub issue was also opened for each switch-on.
+
+- **North Tyneside Council** — [Severe weather shelter (SWEP)] SWEP — https://www.northtyneside.gov.uk/housing/homelessness/if-you-are-homeless-or-sleeping-rough — “seasonal (council page): SWEP is active between 1 November and 31 March”
+<!-- /rest centre switch-on -->
