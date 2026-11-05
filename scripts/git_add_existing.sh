@@ -5,11 +5,23 @@
 # anything else is skipped with a warning.
 set -u
 keep=()
-for p in "$@" logs/fetch_timing_shelters.json; do
+for p in "$@"; do
   if [ -e "$p" ] || git ls-files --error-unmatch -- "$p" >/dev/null 2>&1; then
     keep+=("$p")
   else
     echo "::warning::not on disk and not tracked, so not staged: $p"
   fi
 done
+
+# Speed item 4: if fetch_timing_shelters.json exists in logs/, stage it
+if [ -e "logs/fetch_timing_shelters.json" ] || git ls-files --error-unmatch -- "logs/fetch_timing_shelters.json" >/dev/null 2>&1; then
+  # Only add if not already in keep
+  already=0
+  for k in "${keep[@]}"; do
+    if [ "$k" = "logs/fetch_timing_shelters.json" ]; then already=1; break; fi
+  done
+  if [ "$already" -eq 0 ]; then
+    keep+=("logs/fetch_timing_shelters.json")
+  fi
+fi
 [ ${#keep[@]} -eq 0 ] || git add -- "${keep[@]}"
