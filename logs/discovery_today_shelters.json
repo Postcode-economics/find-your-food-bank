@@ -14,6 +14,13 @@
    "added": 0,
    "queued": 29,
    "rejected": 0
+  },
+  {
+   "at": "15:10Z",
+   "source": "shelters_discovery.json",
+   "added": 0,
+   "queued": 29,
+   "rejected": 0
   }
  ],
  "added": [],
@@ -27,12 +34,12 @@
    "directory_url": null,
    "reasons": [
     "OpenStreetMap-only: needs verification on the place's own site before it can be added",
-    "own site did not return the page (HTTP 202; usually a bot check)"
+    "own site does not show it is a shelter/emergency accommodation"
    ],
    "url": "https://www.thegap.wales/",
-   "final_url": "https://www.thegap.wales/",
-   "http": 202,
-   "sha256": "60eb6431021f04ba8e6e85bbbf506f5e7ee92b4435b5661e427e2c6897b9cc9f",
+   "final_url": "https://thegap.wales/",
+   "http": 200,
+   "sha256": "a6b0de1f167efe8159b4245c3e2c9383fcec160e8fb8a0d36ca6fd25a0d9cee4",
    "etag": "",
    "last_modified": ""
   },
@@ -98,13 +105,12 @@
    "directory": null,
    "directory_url": null,
    "reasons": [
-    "OpenStreetMap-only: needs verification on the place's own site before it can be added",
-    "own site did not return the page (HTTP 202; usually a bot check)"
+    "OpenStreetMap-only: needs verification on the place's own site before it can be added"
    ],
    "url": "https://housethehomeless.com",
    "final_url": "https://housethehomeless.com",
-   "http": 202,
-   "sha256": "9574a47a526ce6a59c63a39aafe3fdefca519d94183cdd23b3d7a55000b0d189",
+   "http": 200,
+   "sha256": "85cd17e35af19cff071f934b9e6f92474b0ed23f634f34a8bd80a13a8d755f8b",
    "etag": "",
    "last_modified": ""
   },
@@ -139,8 +145,8 @@
    "url": "https://www.shrewsburyark.co.uk/",
    "final_url": "https://www.shrewsburyark.co.uk/",
    "http": 200,
-   "sha256": "14922538a0e86be1a20a96b7157b7ab65a6b108ad440138801f32493fada7f30",
-   "etag": "W/\"55c2a038d36d1d74f12ab62656e9df88\"",
+   "sha256": "ed1b73d35f4e319f78062104d77130a2e176b604d2b3784826181acdd2d6fffd",
+   "etag": "W/\"f5d4f43702f5dbb5cd1094a5221de468\"",
    "last_modified": ""
   },
   "osm-node-12804949354": {
@@ -157,7 +163,7 @@
    "url": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-intensive-housing-management",
    "final_url": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-supported-accommodation",
    "http": 200,
-   "sha256": "13ab33e2b486f306668fe14adcb9280cfce8a2ca649b17e19453da5b5ddb6168",
+   "sha256": "6d1f3d8fc5c9623ed532de8925fc28a6498112825601436def96d1efc15d2c1a",
    "etag": "",
    "last_modified": ""
   },
@@ -267,8 +273,8 @@
    "final_url": "https://centrepoint.org.uk/",
    "http": 200,
    "sha256": "f33b7e960cacf2acb850d574209a20a8220749569a021677abf911440f3f2aa7",
-   "etag": "\"1793862306\"",
-   "last_modified": "Thu, 05 Nov 2026 07:05:06 GMT"
+   "etag": "\"1793885050\"",
+   "last_modified": "Thu, 05 Nov 2026 13:24:10 GMT"
   },
   "osm-way-172932545": {
    "id": "osm-way-172932545",
@@ -427,8 +433,8 @@
    "url": "https://www.eastclaytonfarm.org.uk/",
    "final_url": "https://www.eastclaytonfarm.org.uk/",
    "http": 200,
-   "sha256": "3bd05b0848da82cdb6a8a28592dc78969d56b441d48c7e1f667c594a231e3695",
-   "etag": "W/\"5689358a0ef7d59266dccb6e1daae348\"",
+   "sha256": "ad0cd0cfe5a7d4708dabca36edf2c43087871067ef5a9b2eb334eb2aaaf87ade",
+   "etag": "W/\"9fa0bd909a78feece16ebdbffd32dd5f\"",
    "last_modified": ""
   },
   "osm-way-1126940021": {

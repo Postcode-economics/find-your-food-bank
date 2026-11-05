@@ -732,8 +732,6 @@ Council pages say these are ON. Incident rest centres go live when overrides/inc
 
 - **West Northamptonshire Council** — [Severe weather shelter (SWEP)] SWEP — https://www.westnorthants.gov.uk/homelessness/support-people-sleeping-rough/help-people-sleeping-rough-very-cold-or-extreme-weather — “ross the whole of West Northamptonshire. How we tell people SWEP has been activated Our Outreach team notifies: relevant council services police services faith…”
 <!-- /rest centre switch-on -->
-
-
 <!-- held near cities -->
 ## Held near cities
 

@@ -1,6 +1,6 @@
 {
  "run": "2026-11-05",
- "seconds": 56.1,
+ "seconds": 70.5,
  "pages": [
   {
    "council": "Armagh City, Banbridge and Craigavon Borough Council",
@@ -492,8 +492,8 @@
    "council": "Charnwood Borough Council",
    "url": "https://www.charnwood.gov.uk/pages/news",
    "kind": "news",
-   "http": 429,
-   "status": "unreachable",
+   "http": 200,
+   "status": "checked",
    "quote": "",
    "rest_centre": null
   },
@@ -501,8 +501,8 @@
    "council": "Charnwood Borough Council",
    "url": "https://www.charnwood.gov.uk/pages/flooding",
    "kind": "emergencies",
-   "http": 429,
-   "status": "unreachable",
+   "http": 200,
+   "status": "checked",
    "quote": "",
    "rest_centre": null
   },
@@ -645,8 +645,8 @@
    "council": "Darlington Borough Council",
    "url": "https://www.darlington.gov.uk/news/",
    "kind": "news",
-   "http": 200,
-   "status": "checked",
+   "http": null,
+   "status": "unreachable",
    "quote": "",
    "rest_centre": null
   },
@@ -654,8 +654,8 @@
    "council": "Darlington Borough Council",
    "url": "https://www.darlington.gov.uk/environment/rain-and-flooding/",
    "kind": "emergencies",
-   "http": 200,
-   "status": "checked",
+   "http": null,
+   "status": "unreachable",
    "quote": "",
    "rest_centre": null
   },
@@ -1455,8 +1455,8 @@
    "council": "City of Lincoln Council",
    "url": "https://www.lincoln.gov.uk/news",
    "kind": "news",
-   "http": 200,
-   "status": "checked",
+   "http": null,
+   "status": "unreachable",
    "quote": "",
    "rest_centre": null
   },
@@ -1644,8 +1644,8 @@
    "council": "Mid Sussex District Council",
    "url": "https://www.midsussex.gov.uk/about-us/latest-news/",
    "kind": "news",
-   "http": 200,
-   "status": "checked",
+   "http": null,
+   "status": "unreachable",
    "quote": "",
    "rest_centre": null
   },
@@ -1752,8 +1752,8 @@
    "council": "North Kesteven District Council",
    "url": "https://www.n-kesteven.gov.uk/council-news",
    "kind": "news",
-   "http": 200,
-   "status": "checked",
+   "http": 202,
+   "status": "unreachable",
    "quote": "",
    "rest_centre": null
   },
@@ -1887,8 +1887,8 @@
    "council": "North West Leicestershire District Council",
    "url": "https://www.nwleics.gov.uk/pages/news",
    "kind": "news",
-   "http": 429,
-   "status": "unreachable",
+   "http": 200,
+   "status": "checked",
    "quote": "",
    "rest_centre": null
   },
@@ -1914,8 +1914,8 @@
    "council": "Oadby and Wigston Borough Council",
    "url": "https://www.oadby-wigston.gov.uk/news",
    "kind": "news",
-   "http": 429,
-   "status": "unreachable",
+   "http": 200,
+   "status": "checked",
    "quote": "",
    "rest_centre": null
   },
@@ -2220,8 +2220,8 @@
    "council": "Rutland County Council",
    "url": "https://www.rutland.gov.uk/council-news",
    "kind": "news",
-   "http": 200,
-   "status": "checked",
+   "http": 202,
+   "status": "unreachable",
    "quote": "",
    "rest_centre": null
   },
@@ -2760,8 +2760,8 @@
    "council": "Warwick District Council",
    "url": "https://www.warwickdc.gov.uk/news",
    "kind": "news",
-   "http": null,
-   "status": "unreachable",
+   "http": 200,
+   "status": "checked",
    "quote": "",
    "rest_centre": null
   },
@@ -2850,8 +2850,8 @@
    "council": "West Lindsey District Council",
    "url": "https://www.west-lindsey.gov.uk/council-news",
    "kind": "news",
-   "http": 200,
-   "status": "checked",
+   "http": 202,
+   "status": "unreachable",
    "quote": "",
    "rest_centre": null
   },
