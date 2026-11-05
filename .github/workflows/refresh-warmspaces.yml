@@ -7,7 +7,7 @@ permissions:
   contents: write
   issues: write   # failed or partial runs open a 'refresh-alert' issue (scripts/alert.py)
 concurrency:
-  group: refresh-warmspaces
+  group: ${{ github.ref == 'refs/heads/main' && 'refresh-warmspaces' || format('refresh-warmspaces-pr-{0}', github.ref_name) }}
   cancel-in-progress: false
 jobs:
   refresh:
@@ -41,7 +41,7 @@ jobs:
         run: python scripts/publish_gate.py check
       - name: Refresh guard - keep any place, phone or opening times this run would drop (report + alert, scripts/refresh_guard.py)
         env:
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ github.ref == 'refs/heads/main' && github.token || '' }}
         run: python scripts/refresh_guard.py warmspaces
       - name: Does the result make sense? (real searches on all three types; failure stops publishing, scripts/sense_check.py)
         run: pip install -q playwright==1.47.0 && python -m playwright install --with-deps chromium >/dev/null && python scripts/sense_check.py
@@ -64,12 +64,17 @@ jobs:
           PRIVATE_BLOCKLIST: ${{ secrets.PRIVATE_BLOCKLIST }}
         run: python scripts/validate.py gate
       - name: City coverage report and alert (does not fail the run)
+        if: github.ref == 'refs/heads/main'
         continue-on-error: true
         env:
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ github.ref == 'refs/heads/main' && github.token || '' }}
         run: python scripts/city_watch.py || true
+      - name: City coverage practice echo
+        if: github.ref != 'refs/heads/main'
+        run: "echo 'PRACTICE: issues skipped'"
       - name: Commit if changed
         id: commit
+        if: github.ref == 'refs/heads/main'
         run: |
           bash scripts/git_add_existing.sh stamp.js index.html version.json faq.html terms.html privacy.html accessibility.html food-banks warm-spaces shelters sitemap.xml robots.txt 404.html overrides/page_dates.json logs/discovery_today_warmspaces.json reports/new_today.md reports/manual_review.md warmspaces.js logs/warmspaces_discovery.json logs/warmspaces_times_check.json logs/times_crosscheck_seen.json reports/times_auto_applied.json logs/warmspaces_log.json logs/warmspaces_pending.json logs/warmspaces_held.json logs/warmspaces_recheck.json logs/warmspaces_last_confirmed.json reports/warmspaces_grace.md logs/warmspaces_ww_discovery.json logs/warmspaces_ww_discovery_run.json reports/layers_review.md reports/layers_review.json food-banks warm-spaces sitemap.xml robots.txt 404.html overrides/district_cache.json logs/refresh_guard.json reports/refresh_guard_warmspaces.md logs/warmspaces_carry_forward.json reports/warmspaces_carry_forward.md logs/warmspaces_area_carry_forward.json logs/pending_dean.json reports/pending_dean.md logs/sense_check.json reports/sense_check.md reports/verified_new_places.json reports/city_coverage.md
           if git diff --cached --quiet; then echo "No change"; exit 0; fi
@@ -112,37 +117,73 @@ jobs:
           done
           exit 1
       - name: IndexNow - tell search engines which pages really changed (fail-safe)
+        if: github.ref == 'refs/heads/main'
         continue-on-error: true
         run: python scripts/indexnow.py "$GITHUB_SHA"
+      - name: IndexNow practice echo
+        if: github.ref != 'refs/heads/main'
+        run: "echo 'PRACTICE: IndexNow skipped'"
       - name: Findings report email (fail-safe)
-        if: always() && steps.commit.outcome == 'success'
+        if: always() && steps.commit.outcome == 'success' && github.ref == 'refs/heads/main'
         continue-on-error: true
         env:
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ github.ref == 'refs/heads/main' && github.token || '' }}
         run: python scripts/findings_report.py warmspaces || true
+      - name: Findings report email practice echo
+        if: always() && github.ref != 'refs/heads/main'
+        run: "echo 'PRACTICE: Brevo skipped'"
       - name: New place email (fail-safe)
-        if: always() && steps.commit.outcome == 'success'
+        if: always() && steps.commit.outcome == 'success' && github.ref == 'refs/heads/main'
         continue-on-error: true
         env:
           BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
         run: python scripts/new_live_email.py --layers warmspaces --baseline "$LIVE_BASELINE" --send || true
+      - name: New place email practice echo
+        if: always() && github.ref != 'refs/heads/main'
+        run: "echo 'PRACTICE: Brevo skipped'"
       - name: Alert - run failed (nothing new published)
-        if: failure()
+        if: failure() && github.ref == 'refs/heads/main'
         env:
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ github.ref == 'refs/heads/main' && github.token || '' }}
         run: python scripts/alert.py open warmspaces "Warm spaces refresh run failed" "A step failed, so this run did not publish. Earlier data stays live. Open the run log to see which step."
+      - name: Alert - run failed practice echo
+        if: failure() && github.ref != 'refs/heads/main'
+        run: "echo 'PRACTICE: issues skipped'"
       - name: Clear the run alert after a good run
-        if: success()
+        if: success() && github.ref == 'refs/heads/main'
         env:
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ github.ref == 'refs/heads/main' && github.token || '' }}
         run: python scripts/alert.py resolve warmspaces
+      - name: Clear the run alert practice echo
+        if: success() && github.ref != 'refs/heads/main'
+        run: "echo 'PRACTICE: issues skipped'"
       - name: Alert - area pages / sitemap build failed (data still published)
-        if: always() && steps.seo.outcome == 'failure'
+        if: always() && steps.seo.outcome == 'failure' && github.ref == 'refs/heads/main'
         env:
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ github.ref == 'refs/heads/main' && github.token || '' }}
         run: python scripts/alert.py open seo-warmspaces "Area pages build failed (warm spaces refresh)" "build_seo.py failed, so the /food-banks/ and /warm-spaces/ pages and sitemap.xml were not refreshed this run. The map itself is unaffected."
+      - name: Alert - area pages / sitemap build failed practice echo
+        if: always() && (steps.seo.outcome == 'failure') && github.ref != 'refs/heads/main'
+        run: "echo 'PRACTICE: issues skipped'"
       - name: Clear the area pages alert after a good build
-        if: success() && steps.seo.outcome == 'success'
+        if: success() && steps.seo.outcome == 'success' && github.ref == 'refs/heads/main'
         env:
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ github.ref == 'refs/heads/main' && github.token || '' }}
         run: python scripts/alert.py resolve seo-warmspaces
+      - name: Clear the area pages alert practice echo
+        if: success() && (steps.seo.outcome == 'success') && github.ref != 'refs/heads/main'
+        run: "echo 'PRACTICE: issues skipped'"
+      - name: Practice-run guard
+        if: always() && github.ref != 'refs/heads/main'
+        run: |
+          if ! git diff --cached --quiet; then
+            echo "::error::Practice run failed: staged changes detected."
+            git diff --cached --stat
+            exit 1
+          fi
+          current_sha=$(git rev-parse HEAD)
+          if [ "$current_sha" != "$LIVE_BASELINE" ]; then
+            echo "::error::Practice run failed: HEAD ($current_sha) differs from LIVE_BASELINE ($LIVE_BASELINE)."
+            exit 1
+          fi
+          echo "Practice run guard passed: nothing staged and HEAD matches baseline."
