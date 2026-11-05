@@ -234,8 +234,6 @@ Run 2026-11-05. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
   source: https://www.holytrinitywesterhailes.org.uk  
   why: hand-checked times are protected; finder only flags differences; not one clear weekly client-hours block (kept as text for review); times not read identically on 2 separate runs yet; jumble: Mon given different times in separate blocks on one page; review only
 <!-- /times review -->
-
-
 <!-- times crosscheck fb -->
 ## Opening-times changes from the refresh (fb): 7 auto-applied, 53 held
 
@@ -629,7 +627,6 @@ Run 2026-11-05. Nothing here is on the map. Each needs a hand check before it is
 - none this run
 <!-- /sweep shelters -->
 
-
 <!-- closures -->
 ## Possible closures - still on the map with "May have closed" note (0)
 
@@ -793,3 +790,4 @@ Council pages say these are ON. Incident rest centres go live when overrides/inc
 
 - **West Northamptonshire Council** — [Severe weather shelter (SWEP)] SWEP — https://www.westnorthants.gov.uk/homelessness/support-people-sleeping-rough/help-people-sleeping-rough-very-cold-or-extreme-weather — “ross the whole of West Northamptonshire. How we tell people SWEP has been activated Our Outreach team notifies: relevant council services police services faith…”
 <!-- /rest centre switch-on -->
+
