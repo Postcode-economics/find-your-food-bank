@@ -5,7 +5,7 @@
 # anything else is skipped with a warning.
 set -u
 keep=()
-for p in "$@"; do
+for p in "$@" logs/fetch_timing_shelters.json; do
   if [ -e "$p" ] || git ls-files --error-unmatch -- "$p" >/dev/null 2>&1; then
     keep+=("$p")
   else

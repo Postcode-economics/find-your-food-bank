@@ -135,9 +135,57 @@ jobs:
           cat quick_files.txt
           test -s quick_files.txt
           python scripts/quick_check.py $(cat quick_files.txt)
+  precheck:
+    # Quick pre-check on every PR before heavy jobs run (Dean 5 Nov 2026).
+    # py_compile on changed .py, JSON/JS syntax, quick_check.py on changed files, and pytest -x on fast_tests.txt.
+    # Writes in $RUNNER_TEMP only. Skipped only in the content-only quick lane.
+    needs: changes
+    if: ${{ !cancelled() && needs.changes.outputs.quick != '1' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12", cache: pip, cache-dependency-path: .github/workflows/tests.yml}
+      - uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: ms-playwright-${{ runner.os }}-1.47.0-chromium
+      - run: pip install -q pytest==9.1.1 playwright==1.47.0 && python -m playwright install --with-deps chromium >/dev/null
+      - name: Precheck syntax, quick check, and fast tests
+        env:
+          FILES: ${{ needs.changes.outputs.files }}
+        run: |
+          target_dir="${RUNNER_TEMP:-/tmp}/precheck"
+          mkdir -p "$target_dir"
+          printf '%s' "$FILES" | jq -r '.[]' > "$target_dir/changed_files.txt"
+          echo "Changed files in PR/run:"
+          cat "$target_dir/changed_files.txt"
+          while IFS= read -r f || [ -n "$f" ]; do
+            [ -n "$f" ] || continue
+            [ -f "$f" ] || continue
+            case "$f" in
+              *.py)
+                python -m py_compile "$f"
+                ;;
+              *.js)
+                node --check "$f"
+                ;;
+              *.json)
+                node -e 'JSON.parse(require("fs").readFileSync(process.argv[1]))' "$f"
+                ;;
+            esac
+          done < "$target_dir/changed_files.txt"
+          if [ -s "$target_dir/changed_files.txt" ]; then
+            python scripts/quick_check.py $(cat "$target_dir/changed_files.txt")
+          else
+            python scripts/quick_check.py README.md
+          fi
+          python -m pytest -q -x $(cat tests/fast_tests.txt)
   test:
     # Skipped only for the quick lane. It still runs if the changes job itself failed.
-    needs: changes
+    needs: [changes, precheck]
     if: ${{ !cancelled() && needs.changes.outputs.quick != '1' }}
     runs-on: ubuntu-latest
     # The suite is about 15 minutes of pytest (1 Nov 2026: 1558 passed in 14:45, then the
@@ -180,7 +228,7 @@ jobs:
         continue-on-error: true
         run: python scripts/date_check.py
   old-links:
-    needs: changes
+    needs: [changes, precheck]
     if: needs.changes.outputs.oldlinks == '1'
     # Dean 25 Oct 2026 (permanent): every link ever sent out, plus app-added forms (?igsh/?utm/?fbclid, hashes, old paths),
     # opened with an OLD service worker installed and the Instagram in-app UA, must show the map and listings.
@@ -249,7 +297,7 @@ jobs:
         run: |
           test "${{ needs.old-links.result }}" = success || { echo "::error::old-links shards: ${{ needs.old-links.result }}"; exit 1; }
   journeys:
-    needs: changes
+    needs: [changes, precheck]
     if: needs.changes.outputs.journeys == '1'
     # Dean 25 Oct 2026 (permanent rule): the real-click user-journey suite must pass before any site change merges
     # (all three types, 390/1366 px, light/dark). Runs on every push / PR that touches site html/css/js.
@@ -277,7 +325,7 @@ jobs:
       - if: steps.site.outputs.run == '1'
         run: pip install -q playwright==1.47.0 && python -m playwright install --with-deps chromium >/dev/null && python scripts/journeys.py
   browser-tests:
-    needs: changes
+    needs: [changes, precheck]
     if: needs.changes.outputs.browser == '1'
     # Dean 25 Oct 2026: browser tests (status line never cut off, list panel alignment, open-today, two-finger note, ...)
     # really run here; the plain test job has no Playwright so it skips them.
@@ -317,7 +365,7 @@ jobs:
   browser-tests-all:
     # Passes only if every shard passed and the shards' JUnit reports hold each collected test exactly once.
     name: browser-tests
-    needs: [changes, browser-tests]
+    needs: [changes, precheck, browser-tests]
     if: ${{ !cancelled() && needs.changes.outputs.browser == '1' }}
     runs-on: ubuntu-latest
     timeout-minutes: 10
@@ -355,12 +403,22 @@ jobs:
               for k, n in sorted(items.items())[:50]: print('::error::%s: %s::%s (x%d)' % (name, k[0], k[1], n))
           sys.exit(1 if len(files) != 6 or missing or extra else 0)
           EOF
-      - name: All shards passed
+      - name: All shards and needed jobs passed
         if: always()
+        env:
+          R: ${{ toJSON(needs) }}
         run: |
+          echo "$R" | jq -r 'to_entries[] | "\(.key): \(.value.result)"'
+          for job in changes precheck "browser-tests"; do
+            res=$(echo "$R" | jq -r --arg j "$job" '.[$j].result // "missing"')
+            if [ "$res" != "success" ]; then
+              echo "::error::required dependency $job failed, skipped or cancelled: $res"
+              exit 1
+            fi
+          done
           test "${{ needs.browser-tests.result }}" = success || { echo "::error::browser-tests shards: ${{ needs.browser-tests.result }}"; exit 1; }
   design-lock:
-    needs: changes
+    needs: [changes, precheck]
     if: needs.changes.outputs.design == '1'
     # Dean 25 Oct 2026 (permanent): card design lock - call/directions/share/FB/links/report/dots/badges/tap targets,
     # list cards and pin pop-ups, all 3 types, 390/1366, light/dark.
@@ -429,10 +487,11 @@ jobs:
       - run: python -m pytest -q -rs tests/test_iphone_journeys.py
   tests-passed:
     # The check to require (2 Nov 2026). Always runs. Passes only if the changes job passed and either
-    # the full suite passed (test success, every other job success or skipped) or the quick lane was
-    # chosen and quick-check passed.
+    # the full suite passed (precheck and test success, every other needed job success or legitimately skipped)
+    # or the quick lane was chosen and quick-check passed.
+    # Guard: fails when any needed job is skipped or cancelled (Dean 5 Nov 2026).
     name: tests-passed
-    needs: [changes, quick-check, test, old-links-all, journeys, browser-tests-all, design-lock, iphone-webkit, iphone-journeys]
+    needs: [changes, quick-check, precheck, test, old-links-all, journeys, browser-tests-all, design-lock, iphone-webkit, iphone-journeys]
     if: always()
     runs-on: ubuntu-latest
     timeout-minutes: 5
@@ -446,8 +505,36 @@ jobs:
           if [ "$quick" = 1 ]; then
             [ "$(echo "$R" | jq -r '."quick-check".result')" = success ] || { echo "::error::quick-check did not pass"; exit 1; }
           else
+            # Precheck and test are mandatory when not in quick lane
+            [ "$(echo "$R" | jq -r '.precheck.result')" = success ] || { echo "::error::precheck did not pass"; exit 1; }
             [ "$(echo "$R" | jq -r '.test.result')" = success ] || { echo "::error::test did not pass"; exit 1; }
+            # Any needed heavy job that ran must be success. If it was skipped due to failure/cancellation of dependency, fail.
             bad=$(echo "$R" | jq -r 'to_entries[] | select(.key != "quick-check" and .value.result != "success" and .value.result != "skipped") | .key')
             [ -z "$bad" ] || { echo "::error::failed: $bad"; exit 1; }
+            # Check needed heavy jobs based on changes outputs; if an active check was skipped or cancelled, fail
+            browser_needed=$(echo "$R" | jq -r '.changes.outputs.browser // "1"')
+            oldlinks_needed=$(echo "$R" | jq -r '.changes.outputs.oldlinks // "1"')
+            design_needed=$(echo "$R" | jq -r '.changes.outputs.design // "1"')
+            journeys_needed=$(echo "$R" | jq -r '.changes.outputs.journeys // "1"')
+            if [ "$browser_needed" = "1" ]; then
+              b_res=$(echo "$R" | jq -r '."browser-tests-all".result')
+              w_res=$(echo "$R" | jq -r '."iphone-webkit".result')
+              j_res=$(echo "$R" | jq -r '."iphone-journeys".result')
+              [ "$b_res" = "success" ] || { echo "::error::browser-tests-all was needed but result was: $b_res"; exit 1; }
+              [ "$w_res" = "success" ] || { echo "::error::iphone-webkit was needed but result was: $w_res"; exit 1; }
+              [ "$j_res" = "success" ] || { echo "::error::iphone-journeys was needed but result was: $j_res"; exit 1; }
+            fi
+            if [ "$oldlinks_needed" = "1" ]; then
+              o_res=$(echo "$R" | jq -r '."old-links-all".result')
+              [ "$o_res" = "success" ] || { echo "::error::old-links-all was needed but result was: $o_res"; exit 1; }
+            fi
+            if [ "$design_needed" = "1" ]; then
+              d_res=$(echo "$R" | jq -r '."design-lock".result')
+              [ "$d_res" = "success" ] || { echo "::error::design-lock was needed but result was: $d_res"; exit 1; }
+            fi
+            if [ "$journeys_needed" = "1" ]; then
+              jn_res=$(echo "$R" | jq -r '.journeys.result')
+              [ "$jn_res" = "success" ] || { echo "::error::journeys was needed but result was: $jn_res"; exit 1; }
+            fi
           fi
           echo "tests passed (quick lane: $quick)"
