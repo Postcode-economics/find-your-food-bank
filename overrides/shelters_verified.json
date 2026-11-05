@@ -6653,7 +6653,7 @@
   "referral": "Call 0151 600 3530 to ask how to get a place.",
   "verified_on": "2026-11-04",
   "phone": "0151 600 3530",
-  "note": "Street Support find, hand check 2 Nov 2026: you-matter.org.uk confirms it is running, the phone and the access route. Pin is the postcodes.io centroid.",
+  "note": "Street Support find, hand check 2 Nov 2026; re-checked 5 Nov 2026: you-matter.org.uk (homelessness support page) confirms Leeds Street is running, who it is for and 24-hour staffing. Its own site publishes no phone number: contact is through the 'Get in touch' form at https://you-matter.org.uk/contact-us/. Phone 0151 600 3530 and the address 15 Leeds Street, Liverpool L3 6HU are stated by Homeless Link (https://homeless.org.uk/homeless-england/service/ymca-liverpool/) and Mersey Care NHS (https://www.merseycare.nhs.uk/our-services/our-sites/liverpool/ymca); both agree. Phone kept on Dean's approval, 5 Nov 2026 02:20 GMT. Pin is the postcodes.io centroid.",
   "facilities": [
    "Self-contained and en-suite accommodation"
   ],
@@ -6664,7 +6664,9 @@
   "address": "15 Leeds St, Liverpool",
   "postcode": "L3 6HU",
   "lat": 53.412853,
-  "lng": -2.991694
+  "lng": -2.991694,
+  "phone_source": "https://homeless.org.uk/homeless-england/service/ymca-liverpool/",
+  "phone_note": "Not on the own site (you-matter.org.uk has a contact form only: https://you-matter.org.uk/contact-us/). Stated by Homeless Link (https://homeless.org.uk/homeless-england/service/ymca-liverpool/) and Mersey Care NHS (https://www.merseycare.nhs.uk/our-services/our-sites/liverpool/ymca); kept on Dean's approval 5 Nov 2026."
  },
  "man-ss-riverside-wilson-carlile-house": {
   "access": "Men 18+. Call 0161 273 3574 to ask about a referral.",
