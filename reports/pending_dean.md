@@ -720,8 +720,6 @@ The 29 Oct 05:44 warm spaces refresh (477f83f73) gave these 16 warm spaces a cou
 - Wesley Warm Welcome (SS9 1SJ) | ww-55474116 | council_phone 01702 215000 removed
 - Windmill Warmbank (N18 1PL) | ww-59974983 | council_phone 020 8379 1000 removed
 <!-- /council line undo -->
-
-
 <!-- rest centre switch-on -->
 ## Rest centre and SWEP switch-ons (waiting for Dean)
 
@@ -729,8 +727,6 @@ Council pages say these are ON. Incident rest centres go live when overrides/inc
 
 - **West Northamptonshire Council** — [Severe weather shelter (SWEP)] SWEP — https://www.westnorthants.gov.uk/homelessness/support-people-sleeping-rough/help-people-sleeping-rough-very-cold-or-extreme-weather — “ross the whole of West Northamptonshire. How we tell people SWEP has been activated Our Outreach team notifies: relevant council services police services faith…”
 <!-- /rest centre switch-on -->
-
-
 <!-- held near cities -->
 ## Held near cities
 
