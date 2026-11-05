@@ -223,19 +223,6 @@ New food banks and shelters wait here for your OK (add the id to overrides/foodb
 
 - Salford Foyer (M6 5WX) - no sourced 'who it's for' - https://www.openstreetmap.org/way/979361293
 - St Mungo's (SE1 0ES) - no sourced 'who it's for' - https://www.openstreetmap.org/way/753792449
-
-
-<!-- times review -->
-## Opening-times review list (times_finder)
-
-Run 2026-11-04. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs; each has its undo command). Every other row is not on the map and needs a hand check before it is added.
-
-- **Holy Trinity Church, Wester Hailes** (`ifan-5b9fd1318a04132921a389-0`, EH14 2SL): Mondays 9.15am – 11.00am | Mondays 9.30am – 11.00am  
-  source: https://www.holytrinitywesterhailes.org.uk  
-  why: hand-checked times are protected; finder only flags differences; not one clear weekly client-hours block (kept as text for review); times not read identically on 2 separate runs yet; jumble: Mon given different times in separate blocks on one page; review only
-<!-- /times review -->
-
-
 <!-- times crosscheck fb -->
 ## Opening-times changes from the refresh (fb): 7 auto-applied, 51 held
 
@@ -610,17 +597,6 @@ Run 2026-11-04. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
   source: https://www.westminster.gov.uk/leisure-libraries-and-community/library-opening-times-and-contact-details/west-end-arts-library  
   why held: new own-site times look like office/centre hours; new own-site times look like general venue opening hours (identical weekday block, not warm-space session wording); new own-site times look like general venue opening hours, not a warm-space session
 <!-- /times crosscheck ws -->
-
-
-<!-- sweep shelters -->
-## Shelter candidates from the sweep (review only)
-
-Run 2026-11-04. Nothing here is on the map. Each needs a hand check before it is added.
-
-- none this run
-<!-- /sweep shelters -->
-
-
 <!-- closures -->
 ## Possible closures - still on the map with "May have closed" note (0)
 
@@ -751,13 +727,11 @@ Counts of held warm spaces, shelters and day-centre candidates within 10km of ea
 Council day-centre / rough-sleeping pages and Homeless Link's day-centre category. Not on the map.
 Publish only via the Day centre label once that label exists. Until then these stay held.
 
-- Binfield Football Club (RG42 5NR) — https://www.bracknell-forest.gov.uk/health-and-social-care/dementia/support-groups-and-events/day-centres
-- Binfield Football Club (RG42 7NJ) — Monday to Friday 9am to 4pm — https://www.bracknell-forest.gov.uk/health-and-social-care/dementia/support-groups-and-events/day-centres
+- Contact us Ambervale Day Centre / Florence Shipley Community Care Centre Market  (DE75 7AA) — Monday to Friday 10am to 3pm — https://www.derbyshire.gov.uk/social-health/adult-care-and-wellbeing/getting-out-and-about/day-services/ambervale-day-centre/ambervale-day-centre.aspx
 - Beacon House Day Centre () — https://homeless.org.uk/homeless-england/service/beacon-house-day-centre/
 - Chester Aid To The Homeless Harold Tomlins Day Cen () — https://homeless.org.uk/homeless-england/service/chester-aid-to-the-homeless-harold-tomlins-day-cen/
 - Coastline Housing Day Centre () — Monday 9am to 5pm | Tuesday 9am to 5pm | Wednesday 9am to 5pm | Thursday 9am to  — https://homeless.org.uk/homeless-england/service/coastline-housing-day-centre/
 - First Base Day Centre () — https://homeless.org.uk/homeless-england/service/first-base-day-centre/
-- Meeting location address Saxon Centre (BR6 0TJ) — https://www.bromley.gov.uk/directory-record/6073/age-concern-orpington---saxon-day-centre
 <!-- /day centre candidates -->
 
 
@@ -779,3 +753,21 @@ Hand check 31 Oct 2026. A directory listing alone is not enough. Nothing here is
 - **Adullam Homes HA - Bury ABEN (Phase 3)** (`hl-adullam-homes-ha-bury-aben-phase-3`): directory record only; an operator or council page has not confirmed it is running now and the phone
 - **Our Way Leeds Emergency Accommodation** (`hl-turning-lives-around-seacole-scheme`): id/name mismatch (the id is Turning Lives Around Seacole; the name is Our Way Leeds)
 <!-- /referral hostel holds -->
+
+<!-- sweep shelters -->
+## Shelter candidates from the sweep (review only)
+
+Run 2026-11-05. Nothing here is on the map. Each needs a hand check before it is added.
+
+- none this run
+<!-- /sweep shelters -->
+
+<!-- times review -->
+## Opening-times review list (times_finder)
+
+Run 2026-11-05. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs; each has its undo command). Every other row is not on the map and needs a hand check before it is added.
+
+- **Holy Trinity Church, Wester Hailes** (`ifan-5b9fd1318a04132921a389-0`, EH14 2SL): Mondays 9.15am – 11.00am | Mondays 9.30am – 11.00am  
+  source: https://www.holytrinitywesterhailes.org.uk  
+  why: hand-checked times are protected; finder only flags differences; not one clear weekly client-hours block (kept as text for review); times not read identically on 2 separate runs yet; jumble: Mon given different times in separate blocks on one page; review only
+<!-- /times review -->
