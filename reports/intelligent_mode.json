@@ -1,12 +1,12 @@
 {
- "run": "2026-11-04",
+ "run": "2026-11-05",
  "layers": {
   "foodbanks": {
    "steps": {
     "times": {
      "applied": 0,
      "applied_this_run": 0,
-     "held": 51,
+     "held": 53,
      "stale_cleared": 0,
      "rejected": [
       {
@@ -16,6 +16,29 @@
         "own site lists several centres (10 postcodes); cannot tie one table to this listing",
         "new own-site times look like office/centre hours",
         "not one clear weekly client-hours block (kept as text for review)"
+       ]
+      },
+      {
+       "id": "pbp",
+       "reasons": [
+        "new own-site times look like office/centre hours",
+        "own site lists several centres (3 postcodes); cannot tie one table to this listing",
+        "new own-site times look like office/centre hours",
+        "new own-site times look like office/shop hours (identical Mon-Fri block, no distribution wording)",
+        "not one clear weekly client-hours block (kept as text for review)",
+        "jumble: 5 separate time blocks read from one page; review only",
+        "times not read identically on 2 separate runs yet"
+       ]
+      },
+      {
+       "id": "pbp/cetma-swansea",
+       "reasons": [
+        "new own-site times look like office/centre hours",
+        "own site lists several centres (3 postcodes); cannot tie one table to this listing",
+        "new own-site times look like office/centre hours",
+        "not one clear weekly client-hours block (kept as text for review)",
+        "jumble: 5 separate time blocks read from one page; review only",
+        "times not read identically on 2 separate runs yet"
        ]
       },
       {
@@ -191,8 +214,7 @@
         "new own-site times look like office/centre hours",
         "new own-site times look like office/centre hours",
         "not one clear weekly client-hours block (kept as text for review)",
-        "would cut known hours to fewer days (drops Wed) and the source does not say that session ended; review",
-        "times not read identically on 2 separate runs yet"
+        "would cut known hours to fewer days (drops Wed) and the source does not say that session ended; review"
        ]
       },
       {
@@ -286,8 +308,7 @@
         "own site lists several centres (4 postcodes); cannot tie one table to this listing",
         "new own-site times look like office/centre hours",
         "not one clear weekly client-hours block (kept as text for review)",
-        "would cut known hours to fewer days (drops Sat) and the source does not say that session ended; review",
-        "times not read identically on 2 separate runs yet"
+        "would cut known hours to fewer days (drops Sat) and the source does not say that session ended; review"
        ]
       },
       {
@@ -358,7 +379,8 @@
        "id": "west-end-impact",
        "reasons": [
         "day not on the same line as its times on the own-site page",
-        "jumble: Tue given different times in separate blocks on one page; review only"
+        "jumble: Tue given different times in separate blocks on one page; review only",
+        "transient failure; stored times left unchanged"
        ]
       },
       {
@@ -407,13 +429,10 @@
      "coverage": {
       "sites": 16,
       "sites_opened": 14,
-      "render_attempts": 561,
-      "render_errors": 4,
+      "render_attempts": 566,
+      "render_errors": 2,
       "source_pages": 19,
-      "source_opened": 16,
-      "budget_skipped": 0,
-      "hours_review_due": 1738,
-      "hours_review_opened": 1110
+      "source_opened": 16
      },
      "enabled": true
     },
@@ -426,11 +445,11 @@
      "errors": [],
      "alerts": [],
      "coverage": {
-      "render_attempts": 1036,
+      "render_attempts": 1086,
       "render_errors": 5,
       "budget_skipped": 0,
       "hours_review_due": 1738,
-      "hours_review_opened": 1079,
+      "hours_review_opened": 1127,
       "sites": 16,
       "sites_opened": 14,
       "source_pages": 19,
@@ -441,7 +460,7 @@
    },
    "applied": 0,
    "applied_this_run": 0,
-   "held": 51,
+   "held": 53,
    "stale_cleared": 0,
    "rejected": [
     {
@@ -451,6 +470,29 @@
       "own site lists several centres (10 postcodes); cannot tie one table to this listing",
       "new own-site times look like office/centre hours",
       "not one clear weekly client-hours block (kept as text for review)"
+     ]
+    },
+    {
+     "id": "pbp",
+     "reasons": [
+      "new own-site times look like office/centre hours",
+      "own site lists several centres (3 postcodes); cannot tie one table to this listing",
+      "new own-site times look like office/centre hours",
+      "new own-site times look like office/shop hours (identical Mon-Fri block, no distribution wording)",
+      "not one clear weekly client-hours block (kept as text for review)",
+      "jumble: 5 separate time blocks read from one page; review only",
+      "times not read identically on 2 separate runs yet"
+     ]
+    },
+    {
+     "id": "pbp/cetma-swansea",
+     "reasons": [
+      "new own-site times look like office/centre hours",
+      "own site lists several centres (3 postcodes); cannot tie one table to this listing",
+      "new own-site times look like office/centre hours",
+      "not one clear weekly client-hours block (kept as text for review)",
+      "jumble: 5 separate time blocks read from one page; review only",
+      "times not read identically on 2 separate runs yet"
      ]
     },
     {
@@ -626,8 +668,7 @@
       "new own-site times look like office/centre hours",
       "new own-site times look like office/centre hours",
       "not one clear weekly client-hours block (kept as text for review)",
-      "would cut known hours to fewer days (drops Wed) and the source does not say that session ended; review",
-      "times not read identically on 2 separate runs yet"
+      "would cut known hours to fewer days (drops Wed) and the source does not say that session ended; review"
      ]
     },
     {
@@ -721,8 +762,7 @@
       "own site lists several centres (4 postcodes); cannot tie one table to this listing",
       "new own-site times look like office/centre hours",
       "not one clear weekly client-hours block (kept as text for review)",
-      "would cut known hours to fewer days (drops Sat) and the source does not say that session ended; review",
-      "times not read identically on 2 separate runs yet"
+      "would cut known hours to fewer days (drops Sat) and the source does not say that session ended; review"
      ]
     },
     {
@@ -793,7 +833,8 @@
      "id": "west-end-impact",
      "reasons": [
       "day not on the same line as its times on the own-site page",
-      "jumble: Tue given different times in separate blocks on one page; review only"
+      "jumble: Tue given different times in separate blocks on one page; review only",
+      "transient failure; stored times left unchanged"
      ]
     },
     {
@@ -842,18 +883,18 @@
    "coverage": {
     "sites": 16,
     "sites_opened": 14,
-    "render_attempts": 1036,
+    "render_attempts": 1086,
     "render_errors": 5,
     "source_pages": 19,
     "source_opened": 16,
     "budget_skipped": 0,
     "hours_review_due": 1738,
-    "hours_review_opened": 1079
+    "hours_review_opened": 1127
    }
   }
  },
  "alerts": [],
  "would_block": [],
  "enabled": true,
- "generated_at": "2026-11-04T23:00:31+00:00"
+ "generated_at": "2026-11-05T07:03:53+00:00"
 }

@@ -1016,8 +1016,8 @@
 },
 {
 "access": "voucher",
-"hours_hash": "cd2a67bdb8d9",
-"http": 200,
+"hours_hash": "",
+"http": null,
 "phones": [
 "01670354904",
 "01670620015"
@@ -1436,8 +1436,8 @@
 },
 {
 "access": "walkin",
-"hours_hash": "",
-"http": null,
+"hours_hash": "041f88c6f503",
+"http": 200,
 "phones": [
 "01554227540",
 "01554556996"
@@ -4203,7 +4203,7 @@
 {
 "access": "unclear",
 "hours_hash": "",
-"http": 401,
+"http": 200,
 "phones": [
 "07585300537"
 ],
@@ -4325,10 +4325,12 @@
 "url": "https://parishofcorfemullen.church/foodbank/foodbank.html"
 },
 {
-"access": "unclear",
-"hours_hash": "",
-"http": null,
-"phones": [],
+"access": "mixed",
+"hours_hash": "6bc0057e3221",
+"http": 200,
+"phones": [
+"01646699275"
+],
 "url": "https://patchcharity.org.uk"
 },
 {
