@@ -219,7 +219,8 @@
   function facHtml(i) {
     const p = [].concat(i.provided || [], i.facilities || []);
     const seen = {};
-    const out = [];
+    const chips = [];
+    const plain = [];
     p.forEach(raw => {
       if (raw == null || raw === 'Dog Friendly') return;
       const hit = FAC.find(x => x[0] === raw);
@@ -228,9 +229,17 @@
       const k = en.toLowerCase();
       if (seen[k]) return;
       seen[k] = 1;
-      out.push(`<span class="chip">${phrase(en, cy)}</span>`);
+      // Short known labels stay pills; sentence-length free text must not use .chip
+      // (border-radius:999px cuts multi-line glyphs on phone, e.g. Newcastle Facilities).
+      const words = en.trim().split(/\s+/).filter(Boolean);
+      const long = !hit && (en.length > 40 || words.length > 6);
+      if (long) plain.push(phrase(en, cy));
+      else chips.push(`<span class="chip">${phrase(en, cy)}</span>`);
     });
-    return out.length ? `<span class="chips">${out.join('')}</span>` : '';
+    const bits = [];
+    if (chips.length) bits.push(`<span class="chips">${chips.join('')}</span>`);
+    if (plain.length) bits.push(plain.join(' · '));
+    return bits.join(' ') || '';
   }
   function nextNote(line) {
     const m = String(line).match(/(\d{2}):(\d{2})[–-](\d{2}):(\d{2})\s*$/);
