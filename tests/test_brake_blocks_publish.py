@@ -99,7 +99,10 @@ class WorkflowBlocks(unittest.TestCase):
         commit = w.index("id: commit")
         self.assertLess(full, stop); self.assertLess(stop, commit)
         cstep = w[w.rindex("- name:", 0, commit):w.index("run: |", commit)]
-        self.assertNotIn("if:", cstep)   # a failed step before it skips the commit
+        # Practice-run guard (#434 pattern / draft #440): Commit runs only on main.
+        # A prior failed brake stop still skips later steps; the main-only if also
+        # blocks Commit on practice branches. Do not require a bare Commit step.
+        self.assertIn("if: github.ref == 'refs/heads/main'", cstep)
         self.assertIn("if: (failure() || cancelled()) && steps.commit.outcome != 'success'", w)   # and the 'nothing published' alert opens
 
 
