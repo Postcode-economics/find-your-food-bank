@@ -2,7 +2,498 @@
  "shelters.js": {
   "added": [],
   "removed": [],
-  "changed": [],
+  "changed": [
+   {
+    "id": "man-ss-ssj-10-southampton-street",
+    "name": "10 Southampton Street hostel (Society of St James)",
+    "fields": [
+     "hours"
+    ],
+    "before": {
+     "hours": ""
+    },
+    "after": {
+     "hours": "24/7 service"
+    }
+   },
+   {
+    "id": "man-ss-brighter-futures-90-hope-street",
+    "name": "90 Hope Street hostel (Brighter Futures)",
+    "fields": [
+     "address",
+     "hours"
+    ],
+    "before": {
+     "address": "90 Hope Street, Hanley, Stoke-on-Trent",
+     "hours": ""
+    },
+    "after": {
+     "address": "90 Hope Street, Stoke-on-Trent",
+     "hours": "Staffed 24/7"
+    }
+   },
+   {
+    "id": "man-ss-whitechapel-aigburth-drive",
+    "name": "Aigburth Drive harm reduction hostel (Whitechapel Centre, men 35+)",
+    "fields": [
+     "hours"
+    ],
+    "before": {
+     "hours": ""
+    },
+    "after": {
+     "hours": "This is a supported accommodation project operating 7 days a week"
+    }
+   },
+   {
+    "id": "man-ss-belvidere-family-centre",
+    "name": "Belvidere Family Centre (families)",
+    "fields": [
+     "address",
+     "hours",
+     "referral"
+    ],
+    "before": {
+     "address": "7-9 Belvidere Road, Princes Park, Liverpool",
+     "hours": "",
+     "referral": "Homeless families assessed by Liverpool City Council's Housing Options service."
+    },
+    "after": {
+     "address": "7-9 Belvidere Rd, Liverpool",
+     "hours": "Support 24 hours a day, 7 days a week",
+     "referral": "You must be homeless and owed a Statutory Duty by Liverpool City Council. Referrals can only be made by Liverpool Housing Options Service, or out of hours by the Emergency Duty Social Care Team. You do not need to be on benefits."
+    }
+   },
+   {
+    "id": "man-ss-bradford-cyrenians-hostel",
+    "name": "Bradford Cyrenians hostel (men 18+)",
+    "fields": [
+     "address",
+     "hours"
+    ],
+    "before": {
+     "address": "255-257 Manningham Lane, Bradford",
+     "hours": ""
+    },
+    "after": {
+     "address": "Bradford Cyrenians, 255 - 257 Manningham Lane, Bradford",
+     "hours": "Staffed 24 hours a day"
+    }
+   },
+   {
+    "id": "man-ss-bradford-nightstop",
+    "name": "Bradford Nightstop (18-25)",
+    "fields": [
+     "hours",
+     "referral"
+    ],
+    "before": {
+     "hours": "",
+     "referral": "Emergency stays with trained volunteer hosts for 18-25s. Call 0330 053 7664 to refer a young person."
+    },
+    "after": {
+     "hours": "Not stated",
+     "referral": "Emergency stays for young people aged 18-25 at the homes of volunteers and at the Nightstop shelter. Call 0330 053 7664 to refer a young person; face-to-face referrals accepted (e.g. Police, Salvation Army, Housing)."
+    }
+   },
+   {
+    "id": "man-brighton-hove-foyer",
+    "name": "Brighton and Hove Foyer",
+    "fields": [
+     "lat",
+     "lng"
+    ],
+    "before": {
+     "lat": 50.842656,
+     "lng": -0.139364
+    },
+    "after": {
+     "lat": null,
+     "lng": null
+    }
+   },
+   {
+    "id": "man-crisis-skylight-oxford",
+    "name": "Crisis Skylight Oxford",
+    "fields": [
+     "address",
+     "hours",
+     "referral",
+     "season"
+    ],
+    "before": {
+     "address": "Old Fire Station, 40 George Street",
+     "hours": "Not stated",
+     "referral": "Self-referral by phone/email",
+     "season": "Daytime only"
+    },
+    "after": {
+     "address": "Old Fire Station, 40 George Street, Oxford",
+     "hours": {
+      "Mon": "09:00 - 17:00",
+      "Tue": "09:00 - 17:00",
+      "Wed": "09:00 - 17:00",
+      "Thu": "09:00 - 17:00",
+      "Fri": "09:00 - 17:00"
+     },
+     "referral": "Self-referral in person during opening hours (Mon-Fri 9am-5pm), or call 01865 263900 or email reception.oxford@crisis.org.uk. A triage team then gives information and advice, signposting, or membership for further support. The own page also lists Engagement and Assessment drop-ins Monday-Friday 10am-4pm.",
+     "season": "Year-round"
+    }
+   },
+   {
+    "id": "man-doorway-young-people-16-25",
+    "name": "Doorway (young people 16-25)",
+    "fields": [
+     "hours"
+    ],
+    "before": {
+     "hours": "Not stated"
+    },
+    "after": {
+     "hours": {
+      "Fri": "09:00 - 16:30"
+     }
+    }
+   },
+   {
+    "id": "man-ss-wheatley-dunedin-harbour",
+    "name": "Dunedin Harbour hostel (Wheatley Homes East)",
+    "fields": [
+     "referral"
+    ],
+    "before": {
+     "referral": "Call 0131 624 5800 to ask how to get a place."
+    },
+    "after": {
+     "referral": "Referrals are made through the homeless team at City of Edinburgh Council. You can ask to be moved to Dunedin Harbour, but it depends on availability."
+    }
+   },
+   {
+    "id": "man-ss-homeless-action-elm-house",
+    "name": "Elm House (Homeless Action)",
+    "fields": [
+     "address",
+     "hours"
+    ],
+    "before": {
+     "address": "22-24 Derby Road, Blackpool",
+     "hours": ""
+    },
+    "after": {
+     "address": "Elm House, 22-24 Derby Road, Blackpool",
+     "hours": "Open 365 days per year; Staffed 24/7"
+    }
+   },
+   {
+    "id": "man-ss-homeless-action-holly-house",
+    "name": "Holly House (Homeless Action)",
+    "fields": [
+     "address",
+     "hours"
+    ],
+    "before": {
+     "address": "20 Pleasant Street, Blackpool",
+     "hours": ""
+    },
+    "after": {
+     "address": "Holly House, 20 Pleasant Street, Blackpool",
+     "hours": "Open 365 days per year; Staffed 24/7"
+    }
+   },
+   {
+    "id": "man-ss-local-solutions-homeground",
+    "name": "Homeground (Local Solutions, 16-21)",
+    "fields": [
+     "address",
+     "hours"
+    ],
+    "before": {
+     "address": "286-316 Scotland Road, Liverpool",
+     "hours": ""
+    },
+    "after": {
+     "address": "Homeground Hostel, 286-316 Scotland Rd, Liverpool",
+     "hours": "24/7 on-site staff"
+    }
+   },
+   {
+    "id": "man-ss-ymca-together-leeds-street",
+    "name": "Leeds Street (You Matter, formerly YMCA Together)",
+    "fields": [
+     "address",
+     "hours"
+    ],
+    "before": {
+     "address": "15 Leeds Street, Liverpool",
+     "hours": ""
+    },
+    "after": {
+     "address": "15 Leeds St, Liverpool",
+     "hours": "Staff available 24 hours a day, seven days a week"
+    }
+   },
+   {
+    "id": "man-ss-michael-house-boscombe",
+    "name": "Michael House (dry house)",
+    "fields": [
+     "address"
+    ],
+    "before": {
+     "address": "46 Grosvenor Gardens, Boscombe, Bournemouth"
+    },
+    "after": {
+     "address": "Michael House, 46 Grosvenor Gardens, Boscombe, Bournemouth"
+    }
+   },
+   {
+    "id": "man-ss-caritas-morning-star-hostel",
+    "name": "Morning Star Hostel (Caritas Salford)",
+    "fields": [
+     "address",
+     "hours",
+     "referral"
+    ],
+    "before": {
+     "address": "104 Denmark Road, Manchester",
+     "hours": "",
+     "referral": "Single men with a homelessness duty, by referral: call 0161 868 0606."
+    },
+    "after": {
+     "address": "104 Denmark Road, Hulme",
+     "hours": "24 hours a day, 7 days a week",
+     "referral": "By referral only: we are unable to take self-referrals for accommodation. If you are in need of accommodation, contact the council in the first instance."
+    }
+   },
+   {
+    "id": "man-ymca-watford-charter",
+    "name": "One YMCA Watford Hostel (Charter House)",
+    "fields": [
+     "hours"
+    ],
+    "before": {
+     "hours": ""
+    },
+    "after": {
+     "hours": "Open 24 hours"
+    }
+   },
+   {
+    "id": "man-p3-cheltenham-accommodation",
+    "name": "P3 Cheltenham Accommodation Based Support",
+    "fields": [
+     "lat",
+     "lng"
+    ],
+    "before": {
+     "lat": 51.900644,
+     "lng": -2.081837
+    },
+    "after": {
+     "lat": null,
+     "lng": null
+    }
+   },
+   {
+    "id": "man-ss-new-start-prospect-lodge",
+    "name": "Prospect Lodge (New Start)",
+    "fields": [
+     "hours"
+    ],
+    "before": {
+     "hours": ""
+    },
+    "after": {
+     "hours": "Staffed 24 hours per day"
+    }
+   },
+   {
+    "id": "man-ss-spin-supporting-people-in-need",
+    "name": "SPIN hostel (Supporting People in Need)",
+    "fields": [
+     "address",
+     "hours"
+    ],
+    "before": {
+     "address": "Coverdale Baptist Church, Coverdale Crescent, Ardwick, Manchester",
+     "hours": ""
+    },
+    "after": {
+     "address": "The Well, Coverdale Christian Church, Coverdale Crescent, Ardwick, Manchester",
+     "hours": "Open 24 hours per day, 365 days per year"
+    }
+   },
+   {
+    "id": "hl-st-annes-hostel-birmingham",
+    "name": "St Anne's Hostel",
+    "fields": [
+     "hours"
+    ],
+    "before": {
+     "hours": ""
+    },
+    "after": {
+     "hours": "Open 24 hours a day, 7 days a week"
+    }
+   },
+   {
+    "id": "man-ss-st-annes-hostel-birmingham",
+    "name": "St Anne's Hostel (men 25+, dogs welcome)",
+    "fields": [
+     "hours"
+    ],
+    "before": {
+     "hours": ""
+    },
+    "after": {
+     "hours": "Not stated"
+    }
+   },
+   {
+    "id": "man-ss-st-basils-milner-court",
+    "name": "St Basils Milner Court (18-25)",
+    "fields": [
+     "address"
+    ],
+    "before": {
+     "address": "Milner Court, 110 St Andrews Road, Birmingham"
+    },
+    "after": {
+     "address": "110 St Andrew's Road, Birmingham"
+    }
+   },
+   {
+    "id": "man-ss-st-basils-yardley-house",
+    "name": "St Basils Yardley House (16-24)",
+    "fields": [
+     "referral"
+    ],
+    "before": {
+     "referral": "Young people 16-24: call Youthline 0300 303 0099."
+    },
+    "after": {
+     "referral": "Young people aged 16-25: call Youthline 0300 303 0099."
+    }
+   },
+   {
+    "id": "man-ss-st-georges-crypt-leeds",
+    "name": "St George's Crypt emergency accommodation",
+    "fields": [
+     "address",
+     "hours",
+     "referral"
+    ],
+    "before": {
+     "address": "Great George Street, Leeds",
+     "hours": "",
+     "referral": "By referral through Leeds Housing Options (0113 222 4412, 9am-5pm Mon-Fri)."
+    },
+    "after": {
+     "address": "St George's Crypt, Great George Street, Leeds",
+     "hours": "24/7 emergency accommodation",
+     "referral": "Not stated"
+    }
+   },
+   {
+    "id": "hl-st-mungos-longhills",
+    "name": "St Mungo's - Longhills",
+    "fields": [
+     "hours"
+    ],
+    "before": {
+     "hours": ""
+    },
+    "after": {
+     "hours": "Staffed 24 hours a day, 7 days a week"
+    }
+   },
+   {
+    "id": "man-ss-signposts-start-over-shelter",
+    "name": "Start Over Shelter (Signposts)",
+    "fields": [
+     "address",
+     "hours"
+    ],
+    "before": {
+     "address": "80-94 Guildford Hall, Guildford Street, Luton",
+     "hours": ""
+    },
+    "after": {
+     "address": "Start Over Shelter, 80-94 Guildford Hall, Guildford Street, Luton",
+     "hours": "Staffed both day and night"
+    }
+   },
+   {
+    "id": "man-ss-sanctuary-trust-step-rochdale",
+    "name": "STEP emergency night accommodation (Sanctuary Trust)",
+    "fields": [
+     "hours"
+    ],
+    "before": {
+     "hours": ""
+    },
+    "after": {
+     "hours": "Open 7pm – overnight – 9am"
+    }
+   },
+   {
+    "id": "man-ss-langley-tekoa-house",
+    "name": "Tekoa House (Langley House Trust)",
+    "fields": [
+     "address",
+     "hours"
+    ],
+    "before": {
+     "address": "Walker Street, Rochdale",
+     "hours": ""
+    },
+    "after": {
+     "address": "Langley House Trust, Tekoa House, Walker St, Rochdale",
+     "hours": "24-hour staffing"
+    }
+   },
+   {
+    "id": "man-ss-riverside-wilson-carlile-house",
+    "name": "Wilson Carlile House (Riverside, men 18+)",
+    "fields": [
+     "address"
+    ],
+    "before": {
+     "address": "172 Plymouth Grove, Longsight, Manchester"
+    },
+    "after": {
+     "address": "172 - 174, Plymouth Grove, Longsight, Manchester"
+    }
+   },
+   {
+    "id": "man-ss-ymca-derbyshire-london-road",
+    "name": "YMCA Derbyshire hostel",
+    "fields": [
+     "hours"
+    ],
+    "before": {
+     "hours": ""
+    },
+    "after": {
+     "hours": "Open 24/7, 365 days a year"
+    }
+   },
+   {
+    "id": "man-ymca-wellington-supported-housing",
+    "name": "YMCA Wellington supported housing (16-25)",
+    "fields": [
+     "lat",
+     "lng"
+    ],
+    "before": {
+     "lat": 52.703362,
+     "lng": -2.503281
+    },
+    "after": {
+     "lat": null,
+     "lng": null
+    }
+   }
+  ],
   "tier_flips": [],
   "upcoming": [
    "Barnet Winter Night Shelter (Homeless Action in Barnet) – Opens 8 Nov 2026",
@@ -121,10 +612,6 @@
     "reason": "source unreachable this run (HTTP 403)"
    },
    {
-    "id": "osm-way-1158181491",
-    "reason": "OpenStreetMap-only: own-site page does not show this place's postcode or street address this run"
-   },
-   {
     "id": "osm-way-1262733230",
     "reason": "OpenStreetMap-only: own-site page does not show this place's postcode or street address this run"
    },
@@ -209,7 +696,7 @@
     "reason": "source unreachable this run (HTTP 403)"
    },
    {
-    "id": "man-ss-belvidere-family-centre",
+    "id": "man-ss-st-georges-crypt-leeds",
     "reason": "schema: referral requirement not stated"
    },
    {

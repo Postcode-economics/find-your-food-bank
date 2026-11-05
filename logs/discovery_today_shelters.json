@@ -1,29 +1,8 @@
 {
- "day": "2026-11-04",
+ "day": "2026-11-05",
  "runs": [
   {
-   "at": "11:11Z",
-   "source": "shelters_discovery.json",
-   "added": 0,
-   "queued": 28,
-   "rejected": 0
-  },
-  {
-   "at": "12:34Z",
-   "source": "shelters_discovery.json",
-   "added": 0,
-   "queued": 28,
-   "rejected": 0
-  },
-  {
-   "at": "14:52Z",
-   "source": "shelters_discovery.json",
-   "added": 0,
-   "queued": 28,
-   "rejected": 0
-  },
-  {
-   "at": "22:31Z",
+   "at": "06:39Z",
    "source": "shelters_discovery.json",
    "added": 0,
    "queued": 28,
@@ -46,21 +25,20 @@
    "url": "https://www.thegap.wales/",
    "final_url": "https://thegap.wales/",
    "http": 200,
-   "sha256": "d11862bf8d9c1bb233e8a0f5d4729527199c1e2538c81d35bafc862694262dae",
+   "sha256": "1a17271de3f46cb72dfc9d8318d8adbbd4063c18cbd35873b4b2d75e96d83404",
    "etag": "",
    "last_modified": ""
   },
   "osm-node-3126125844": {
    "id": "osm-node-3126125844",
    "name": "HARP",
-   "postcode": "",
+   "postcode": "SS0 8AE",
    "website": "",
    "directory": null,
    "directory_url": null,
    "reasons": [
     "OpenStreetMap-only: needs verification on the place's own site before it can be added",
-    "no own website in directory",
-    "no postcode"
+    "no own website in directory"
    ],
    "url": "",
    "final_url": null,
@@ -90,14 +68,13 @@
   "osm-node-5048168684": {
    "id": "osm-node-5048168684",
    "name": "Alms Houses",
-   "postcode": "",
+   "postcode": "B48 7SE",
    "website": "",
    "directory": null,
    "directory_url": null,
    "reasons": [
     "OpenStreetMap-only: needs verification on the place's own site before it can be added",
-    "no own website in directory",
-    "no postcode"
+    "no own website in directory"
    ],
    "url": "",
    "final_url": null,
@@ -119,7 +96,7 @@
    "url": "https://housethehomeless.com",
    "final_url": "https://housethehomeless.com",
    "http": 200,
-   "sha256": "544e162921dbcdab937d8b07c01d19889bf4d9468a7c6ba6a5b359466bad5ebc",
+   "sha256": "9f0d7774e28195e180a0bd63e6f424b1bf46ca6ce00a5990ce42f51e491ad0d6",
    "etag": "",
    "last_modified": ""
   },
@@ -161,33 +138,31 @@
   "osm-node-12804949354": {
    "id": "osm-node-12804949354",
    "name": "Sandwood House",
-   "postcode": "",
+   "postcode": "B17 8DR",
    "website": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-intensive-housing-management",
    "directory": null,
    "directory_url": null,
    "reasons": [
     "OpenStreetMap-only: needs verification on the place's own site before it can be added",
-    "no postcode in directory",
-    "no postcode"
+    "postcode not on own site"
    ],
    "url": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-intensive-housing-management",
    "final_url": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-supported-accommodation",
    "http": 200,
-   "sha256": "952b4b0e9488c8bc3dbfc1130394bca8b2e04d7d4f8587c0ae2cebe76a6811df",
+   "sha256": "d33496181193efa870650a01f2d44c71b36e4d754697f1def756e5313e1ada51",
    "etag": "",
    "last_modified": ""
   },
   "osm-node-13661455428": {
    "id": "osm-node-13661455428",
    "name": "Help The Homeless Leicester",
-   "postcode": "",
+   "postcode": "LE1 3QN",
    "website": "",
    "directory": null,
    "directory_url": null,
    "reasons": [
     "OpenStreetMap-only: needs verification on the place's own site before it can be added",
-    "no own website in directory",
-    "no postcode"
+    "no own website in directory"
    ],
    "url": "",
    "final_url": null,
@@ -217,14 +192,13 @@
   "osm-way-97799459": {
    "id": "osm-way-97799459",
    "name": "The Queens Arms",
-   "postcode": "",
+   "postcode": "RG1 7HN",
    "website": "",
    "directory": null,
    "directory_url": null,
    "reasons": [
     "OpenStreetMap-only: needs verification on the place's own site before it can be added",
-    "no own website in directory",
-    "no postcode"
+    "no own website in directory"
    ],
    "url": "",
    "final_url": null,
@@ -364,14 +338,13 @@
   "osm-way-639048084": {
    "id": "osm-way-639048084",
    "name": "St Mungo's",
-   "postcode": "",
+   "postcode": "W2 5XQ",
    "website": "",
    "directory": null,
    "directory_url": null,
    "reasons": [
     "OpenStreetMap-only: needs verification on the place's own site before it can be added",
-    "no own website in directory",
-    "no postcode"
+    "no own website in directory"
    ],
    "url": "",
    "final_url": null,
@@ -393,7 +366,7 @@
    "url": "https://www.manna-house.org.uk/",
    "final_url": "https://www.manna-house.org.uk/",
    "http": 200,
-   "sha256": "b8627be54ac926d8d262c2a7ff4c3cb2065b9c2fd20ed77e6c9daa6a0a074011",
+   "sha256": "59352bf28ea282dc1972c288038823451de5fc396d2ae715ce83a717c4b3beb1",
    "etag": "",
    "last_modified": ""
   },
@@ -471,14 +444,13 @@
   "osm-way-1268379059": {
    "id": "osm-way-1268379059",
    "name": "Trevanion Lodge",
-   "postcode": "",
+   "postcode": "PL25 4SA",
    "website": "",
    "directory": null,
    "directory_url": null,
    "reasons": [
     "OpenStreetMap-only: needs verification on the place's own site before it can be added",
-    "no own website in directory",
-    "no postcode"
+    "no own website in directory"
    ],
    "url": "",
    "final_url": null,
@@ -508,14 +480,13 @@
   "osm-way-1311059304": {
    "id": "osm-way-1311059304",
    "name": "Womens Center M.W.Y.S. & E.F.",
-   "postcode": "",
+   "postcode": "L8 2TU",
    "website": "",
    "directory": null,
    "directory_url": null,
    "reasons": [
     "OpenStreetMap-only: needs verification on the place's own site before it can be added",
-    "no own website in directory",
-    "no postcode"
+    "no own website in directory"
    ],
    "url": "",
    "final_url": null,
@@ -527,14 +498,13 @@
   "osm-relation-3996349": {
    "id": "osm-relation-3996349",
    "name": "Glanrafon",
-   "postcode": "",
+   "postcode": "CH5 1SA",
    "website": "",
    "directory": null,
    "directory_url": null,
    "reasons": [
     "OpenStreetMap-only: needs verification on the place's own site before it can be added",
-    "no own website in directory",
-    "no postcode"
+    "no own website in directory"
    ],
    "url": "",
    "final_url": null,
