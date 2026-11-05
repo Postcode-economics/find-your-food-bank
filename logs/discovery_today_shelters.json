@@ -7,6 +7,13 @@
    "added": 0,
    "queued": 28,
    "rejected": 0
+  },
+  {
+   "at": "12:28Z",
+   "source": "shelters_discovery.json",
+   "added": 0,
+   "queued": 29,
+   "rejected": 0
   }
  ],
  "added": [],
@@ -20,12 +27,12 @@
    "directory_url": null,
    "reasons": [
     "OpenStreetMap-only: needs verification on the place's own site before it can be added",
-    "own site does not show it is a shelter/emergency accommodation"
+    "own site did not return the page (HTTP 202; usually a bot check)"
    ],
    "url": "https://www.thegap.wales/",
-   "final_url": "https://thegap.wales/",
-   "http": 200,
-   "sha256": "1a17271de3f46cb72dfc9d8318d8adbbd4063c18cbd35873b4b2d75e96d83404",
+   "final_url": "https://www.thegap.wales/",
+   "http": 202,
+   "sha256": "60eb6431021f04ba8e6e85bbbf506f5e7ee92b4435b5661e427e2c6897b9cc9f",
    "etag": "",
    "last_modified": ""
   },
@@ -91,12 +98,13 @@
    "directory": null,
    "directory_url": null,
    "reasons": [
-    "OpenStreetMap-only: needs verification on the place's own site before it can be added"
+    "OpenStreetMap-only: needs verification on the place's own site before it can be added",
+    "own site did not return the page (HTTP 202; usually a bot check)"
    ],
    "url": "https://housethehomeless.com",
    "final_url": "https://housethehomeless.com",
-   "http": 200,
-   "sha256": "9f0d7774e28195e180a0bd63e6f424b1bf46ca6ce00a5990ce42f51e491ad0d6",
+   "http": 202,
+   "sha256": "9574a47a526ce6a59c63a39aafe3fdefca519d94183cdd23b3d7a55000b0d189",
    "etag": "",
    "last_modified": ""
   },
@@ -149,7 +157,7 @@
    "url": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-intensive-housing-management",
    "final_url": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-supported-accommodation",
    "http": 200,
-   "sha256": "d33496181193efa870650a01f2d44c71b36e4d754697f1def756e5313e1ada51",
+   "sha256": "13ab33e2b486f306668fe14adcb9280cfce8a2ca649b17e19453da5b5ddb6168",
    "etag": "",
    "last_modified": ""
   },
@@ -259,8 +267,8 @@
    "final_url": "https://centrepoint.org.uk/",
    "http": 200,
    "sha256": "f33b7e960cacf2acb850d574209a20a8220749569a021677abf911440f3f2aa7",
-   "etag": "\"1793791447\"",
-   "last_modified": "Wed, 04 Nov 2026 11:24:07 GMT"
+   "etag": "\"1793862306\"",
+   "last_modified": "Thu, 05 Nov 2026 07:05:06 GMT"
   },
   "osm-way-172932545": {
    "id": "osm-way-172932545",
@@ -366,7 +374,7 @@
    "url": "https://www.manna-house.org.uk/",
    "final_url": "https://www.manna-house.org.uk/",
    "http": 200,
-   "sha256": "59352bf28ea282dc1972c288038823451de5fc396d2ae715ce83a717c4b3beb1",
+   "sha256": "b171aca13bba938457e94511bef8dfb1471ca56c53909ba6f23a86a3dd80226a",
    "etag": "",
    "last_modified": ""
   },
@@ -512,6 +520,24 @@
    "sha256": null,
    "etag": null,
    "last_modified": null
+  },
+  "osm-way-81404216": {
+   "id": "osm-way-81404216",
+   "name": "The Spires",
+   "postcode": "PR1 2YJ",
+   "website": "https://www.communitygateway.co.uk/the-spires",
+   "directory": null,
+   "directory_url": null,
+   "reasons": [
+    "OpenStreetMap-only: needs verification on the place's own site before it can be added",
+    "postcode not on own site"
+   ],
+   "url": "https://www.communitygateway.co.uk/the-spires",
+   "final_url": "https://www.communitygateway.co.uk/the-spires",
+   "http": 200,
+   "sha256": "a250f6e745ac30ebc817c857257530532de7bcc2502d3cb6a39091161702ec53",
+   "etag": "",
+   "last_modified": "Wed, 04 Nov 2026 15:07:39 GMT"
   }
  },
  "rejected": {}

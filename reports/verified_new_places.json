@@ -7,10 +7,10 @@
   "by_source": {
    "homeless_link": {
     "found": 1036,
-    "verified": 3,
-    "held": 998,
+    "verified": 2,
+    "held": 1001,
     "excluded": 3,
-    "already_listed": 14,
+    "already_listed": 12,
     "day_centre_candidates": 18,
     "reader": {
      "status": "ok",
@@ -68,11 +68,11 @@
     }
    }
   },
-  "verified": 4,
-  "held": 1286,
+  "verified": 3,
+  "held": 1289,
   "day_centre_candidates": 254,
   "excluded": 9,
-  "already_listed": 63
+  "already_listed": 61
  },
  "proposals": [
   {
@@ -116,29 +116,6 @@
    "access": "Residents can also walk into the large town and further out to enjoy rural areas",
    "access_type": "open_access",
    "operator_page": "https://oneymca.org/what-we-do/accommodation/hostels/welwyn-garden-city-hostel/",
-   "evidence": "official directory entry + operator page names the place and shows the building postcode",
-   "postcode_note": "building postcode is from the operator page; the directory listing had no postcode"
-  },
-  {
-   "id": "hl-tyne-ha-clifford-street",
-   "name": "Tyne HA - Clifford street",
-   "directory": "Homeless Link",
-   "directory_url": "https://homeless.org.uk/homeless-england/service/tyne-ha-clifford-street/",
-   "website": "http://www.tynehousing.org.uk",
-   "referral_address": "",
-   "referral_postcode": "",
-   "category": "emergency",
-   "status": "verified",
-   "layer": "shelters",
-   "address": "elephone: (0191) 265 8621 Freephone: 08000 489 469 Email: info@tynegroup.org.uk Address Tyne Housing Association St Silas Church Building Clifford Street Byker Newcastle Upon Tyne ",
-   "postcode": "NE6 1PG",
-   "lat": null,
-   "lng": null,
-   "phone": "08000 489 469",
-   "phone_source": "https://www.tynehousing.org.uk/",
-   "access": "Mixed 17 99 Accept self referrals and referrals from any agency",
-   "access_type": "self_referral",
-   "operator_page": "https://www.tynehousing.org.uk/",
    "evidence": "official directory entry + operator page names the place and shows the building postcode",
    "postcode_note": "building postcode is from the operator page; the directory listing had no postcode"
   },
@@ -3069,7 +3046,7 @@
    "referral_postcode": "",
    "category": "publishable",
    "status": "held",
-   "reason": "no building postcode on the operator page (directory postcode is a referral address only)"
+   "reason": "operator site unreachable (HTTP 202)"
   },
   {
    "id": "hl-evolve-housing-support-mental-health-step-down",
@@ -3549,7 +3526,7 @@
    "referral_postcode": "",
    "category": "publishable",
    "status": "held",
-   "reason": "operator site unreachable (HTTP 302)"
+   "reason": "no building postcode on the operator page (directory postcode is a referral address only)"
   },
   {
    "id": "hl-great-places-housing-group-the-croft",
@@ -3885,7 +3862,7 @@
    "referral_postcode": "",
    "category": "publishable",
    "status": "held",
-   "reason": "no building postcode on the operator page (directory postcode is a referral address only)"
+   "reason": "operator site unreachable (HTTP 202)"
   },
   {
    "id": "hl-hightown-ha-young-peoples-housing-service-watford",
@@ -3897,7 +3874,7 @@
    "referral_postcode": "",
    "category": "publishable",
    "status": "held",
-   "reason": "no building postcode on the operator page (directory postcode is a referral address only)"
+   "reason": "operator site unreachable (HTTP 403)"
   },
   {
    "id": "hl-hinckley-homeless-group",
@@ -3921,8 +3898,7 @@
    "referral_postcode": "",
    "category": "publishable",
    "status": "held",
-   "reason": "operator page describes longer-term supported housing",
-   "operator_page": "https://hitshomestrust.co.uk/"
+   "reason": "operator site unreachable (HTTP 202)"
   },
   {
    "id": "hl-home-group-31-west-street-dorking",
@@ -4415,6 +4391,18 @@
    "category": "supported",
    "status": "held",
    "reason": "longer-term supported housing or Emmaus — not published"
+  },
+  {
+   "id": "hl-jimmys-cambridge",
+   "name": "Jimmy's Cambridge",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/jimmys-cambridge/",
+   "website": "http://www.jimmyscambridge.org.uk",
+   "referral_address": "",
+   "referral_postcode": "",
+   "category": "publishable",
+   "status": "held",
+   "reason": "operator site unreachable (HTTP 202)"
   },
   {
    "id": "hl-jimmys-cambridge-451-controlled-drinkers-project",
@@ -5243,7 +5231,7 @@
    "referral_postcode": "",
    "category": "publishable",
    "status": "held",
-   "reason": "no building postcode on the operator page (directory postcode is a referral address only)"
+   "reason": "operator site unreachable (HTTP 202)"
   },
   {
    "id": "hl-making-space-blackburn-supported-housing",
@@ -8435,7 +8423,7 @@
    "referral_postcode": "",
    "category": "publishable",
    "status": "held",
-   "reason": "no building postcode on the operator page (directory postcode is a referral address only)"
+   "reason": "operator site unreachable (HTTP 202)"
   },
   {
    "id": "hl-shp-arlington-road",
@@ -8447,7 +8435,7 @@
    "referral_postcode": "",
    "category": "publishable",
    "status": "held",
-   "reason": "no building postcode on the operator page (directory postcode is a referral address only)"
+   "reason": "operator site unreachable (HTTP 202)"
   },
   {
    "id": "hl-shp-arundel-project",
@@ -8471,7 +8459,7 @@
    "referral_postcode": "",
    "category": "publishable",
    "status": "held",
-   "reason": "no building postcode on the operator page (directory postcode is a referral address only)"
+   "reason": "operator site unreachable (HTTP 202)"
   },
   {
    "id": "hl-shp-barnsbury-park",
@@ -8519,7 +8507,7 @@
    "referral_postcode": "",
    "category": "publishable",
    "status": "held",
-   "reason": "no building postcode on the operator page (directory postcode is a referral address only)"
+   "reason": "operator site unreachable (HTTP 202)"
   },
   {
    "id": "hl-shp-central-mental-health-recovery-services",
@@ -8555,7 +8543,7 @@
    "referral_postcode": "",
    "category": "publishable",
    "status": "held",
-   "reason": "no building postcode on the operator page (directory postcode is a referral address only)"
+   "reason": "operator site unreachable (HTTP 202)"
   },
   {
    "id": "hl-shp-finsbury-project",
@@ -8663,7 +8651,7 @@
    "referral_postcode": "",
    "category": "publishable",
    "status": "held",
-   "reason": "no building postcode on the operator page (directory postcode is a referral address only)"
+   "reason": "operator site unreachable (HTTP 202)"
   },
   {
    "id": "hl-shp-lewisham-assessment-centre",
@@ -8711,7 +8699,7 @@
    "referral_postcode": "",
    "category": "publishable",
    "status": "held",
-   "reason": "no building postcode on the operator page (directory postcode is a referral address only)"
+   "reason": "operator site unreachable (HTTP 202)"
   },
   {
    "id": "hl-shp-southampton-row",
@@ -8759,7 +8747,7 @@
    "referral_postcode": "",
    "category": "publishable",
    "status": "held",
-   "reason": "no building postcode on the operator page (directory postcode is a referral address only)"
+   "reason": "operator site unreachable (HTTP 202)"
   },
   {
    "id": "hl-shp-womens-recovery-service",
@@ -9048,6 +9036,18 @@
    "category": "unclassified",
    "status": "held",
    "reason": "not clearly an emergency, direct-access, night shelter or hostel"
+  },
+  {
+   "id": "hl-st-annes-hostel",
+   "name": "St. Anne's Hostel",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/st-annes-hostel/",
+   "website": "http://www.stannesbirmingham.org.uk",
+   "referral_address": "",
+   "referral_postcode": "",
+   "category": "publishable",
+   "status": "held",
+   "reason": "operator site unreachable (HTTP 202)"
   },
   {
    "id": "hl-st-basils-albert-road",
@@ -10237,7 +10237,7 @@
    "referral_postcode": "",
    "category": "publishable",
    "status": "held",
-   "reason": "no building postcode on the operator page (directory postcode is a referral address only)"
+   "reason": "operator site unreachable (HTTP 202)"
   },
   {
    "id": "hl-the-passage-passage-house-assessment-centre",
@@ -10742,6 +10742,18 @@
    "category": "publishable",
    "status": "held",
    "reason": "no building postcode on the operator page (directory postcode is a referral address only)"
+  },
+  {
+   "id": "hl-tyne-ha-clifford-street",
+   "name": "Tyne HA - Clifford street",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/tyne-ha-clifford-street/",
+   "website": "http://www.tynehousing.org.uk",
+   "referral_address": "",
+   "referral_postcode": "",
+   "category": "publishable",
+   "status": "held",
+   "reason": "operator site unreachable (HTTP 202)"
   },
   {
    "id": "hl-u-turn-recovery-project",
@@ -14246,7 +14258,7 @@
    "referral_postcode": "BN3 1DE",
    "category": "publishable",
    "status": "held",
-   "reason": "operator site unreachable (HTTP 302)"
+   "reason": "operator site unreachable (HTTP 404)"
   },
   {
    "id": "ss-59133776254ac57630922442",

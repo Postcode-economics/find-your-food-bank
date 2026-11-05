@@ -111,6 +111,7 @@ Left out of this run because this place was not already on the map and its page 
 - Anchor House (osm-way-699839857): held this run: read failed, not published before
 - Norfolk Hotel (osm-way-774694067): held this run: read failed, not published before
 - YMCA London City and North (osm-way-81353303): held this run: read failed, not published before
+- The Spires (osm-way-81404216): held this run: read failed, not published before
 - Guildry House (osm-way-86915090): held this run: read failed, not published before
 - Hafan Wrexham (osm-way-931997512): held this run: read failed, not published before
 - Wrexham Foyer (osm-way-931997513): held this run: read failed, not published before
@@ -5886,12 +5887,12 @@ Left out of this run because this place was not already on the map and its page 
 - QUEUED Community Food Bank Skye & Lochalsh · IV51 9EH — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED The People's Pantry · G42 7BX · https://www.govanhillbaths.com/pantry/ — own site does not show food aid
 
-### Shelters: 28 queued, 0 rejected
-- QUEUED The Gap Centre · NP20 1JG · https://www.thegap.wales/ — OpenStreetMap-only: needs verification on the place's own site before it can be added; own site does not show it is a shelter/emergency accommodation
+### Shelters: 29 queued, 0 rejected
+- QUEUED The Gap Centre · NP20 1JG · https://www.thegap.wales/ — OpenStreetMap-only: needs verification on the place's own site before it can be added; own site did not return the page (HTTP 202; usually a bot check)
 - QUEUED HARP · SS0 8AE — OpenStreetMap-only: needs verification on the place's own site before it can be added; no own website in directory
 - QUEUED Willow Lodge · FY2 9NT — OpenStreetMap-only: needs verification on the place's own site before it can be added; no own website in directory
 - QUEUED Alms Houses · B48 7SE — OpenStreetMap-only: needs verification on the place's own site before it can be added; no own website in directory
-- QUEUED House The Homeless · SE27 0QT · https://housethehomeless.com — OpenStreetMap-only: needs verification on the place's own site before it can be added
+- QUEUED House The Homeless · SE27 0QT · https://housethehomeless.com — OpenStreetMap-only: needs verification on the place's own site before it can be added; own site did not return the page (HTTP 202; usually a bot check)
 - QUEUED The Wallich · NP4 6JQ · https://thewallich.com/services/torfaen-tenancy-support/ — OpenStreetMap-only: needs verification on the place's own site before it can be added; postcode not on own site
 - QUEUED The Shrewsbury Ark · SY1 2EH · https://www.shrewsburyark.co.uk/ — OpenStreetMap-only: needs verification on the place's own site before it can be added
 - QUEUED Sandwood House · B17 8DR · https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-intensive-housing-management — OpenStreetMap-only: needs verification on the place's own site before it can be added; postcode not on own site
@@ -5915,6 +5916,7 @@ Left out of this run because this place was not already on the map and its page 
 - QUEUED Sussex Edwardian Hotel · TN37 7BS — OpenStreetMap-only: needs verification on the place's own site before it can be added; no own website in directory
 - QUEUED Womens Center M.W.Y.S. & E.F. · L8 2TU — OpenStreetMap-only: needs verification on the place's own site before it can be added; no own website in directory
 - QUEUED Glanrafon · CH5 1SA — OpenStreetMap-only: needs verification on the place's own site before it can be added; no own website in directory
+- QUEUED The Spires · PR1 2YJ · https://www.communitygateway.co.uk/the-spires — OpenStreetMap-only: needs verification on the place's own site before it can be added; postcode not on own site
 
 ### Deep sweep (council pages): 0 queued, 0 rejected
 

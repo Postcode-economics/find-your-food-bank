@@ -225,6 +225,17 @@ New food banks and shelters wait here for your OK (add the id to overrides/foodb
 - St Mungo's (SE1 0ES) - no sourced 'who it's for' - https://www.openstreetmap.org/way/753792449
 
 
+<!-- times review -->
+## Opening-times review list (times_finder)
+
+Run 2026-11-05. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs; each has its undo command). Every other row is not on the map and needs a hand check before it is added.
+
+- **Holy Trinity Church, Wester Hailes** (`ifan-5b9fd1318a04132921a389-0`, EH14 2SL): Mondays 9.15am – 11.00am | Mondays 9.30am – 11.00am  
+  source: https://www.holytrinitywesterhailes.org.uk  
+  why: hand-checked times are protected; finder only flags differences; not one clear weekly client-hours block (kept as text for review); times not read identically on 2 separate runs yet; jumble: Mon given different times in separate blocks on one page; review only
+<!-- /times review -->
+
+
 <!-- times crosscheck fb -->
 ## Opening-times changes from the refresh (fb): 7 auto-applied, 53 held
 
@@ -610,6 +621,15 @@ New food banks and shelters wait here for your OK (add the id to overrides/foodb
 <!-- /times crosscheck ws -->
 
 
+<!-- sweep shelters -->
+## Shelter candidates from the sweep (review only)
+
+Run 2026-11-05. Nothing here is on the map. Each needs a hand check before it is added.
+
+- none this run
+<!-- /sweep shelters -->
+
+
 <!-- closures -->
 ## Possible closures - still on the map with "May have closed" note (0)
 
@@ -677,6 +697,7 @@ To remove one, add its id to overrides/foodbank_closed.json; to clear the note, 
 - blocked, held for Dean | man-ss-local-solutions-homeground | phone | via publish | source publish gate | stored 0151 286 6010 | proposed 0151 709 0990 | unchanged (byte-identical) | Homeground (Local Solutions, 16-21)
 - blocked, held for Dean | man-ss-signposts-start-over-shelter | phone | via publish | source publish gate | stored 01582 825303 | proposed 01582 722629 | unchanged (byte-identical) | Start Over Shelter (Signposts)
 - blocked, held for Dean | man-ss-riverside-wilson-carlile-house | phone | via publish | source publish gate | stored 0345 111 0000 | proposed 0161 273 3574 | unchanged (byte-identical) | Wilson Carlile House (Riverside, men 18+)
+- blocked, held for Dean | man-ss-ssj-10-southampton-street | phone | via publish | source publish gate | stored 023 8063 4596 | proposed 023 8083 2343 | unchanged (byte-identical) | 10 Southampton Street hostel (Society of St James)
 <!-- /phone lock -->
 
 
@@ -702,8 +723,6 @@ The 29 Oct 05:44 warm spaces refresh (477f83f73) gave these 16 warm spaces a cou
 - Wesley Warm Welcome (SS9 1SJ) | ww-55474116 | council_phone 01702 215000 removed
 - Windmill Warmbank (N18 1PL) | ww-59974983 | council_phone 020 8379 1000 removed
 <!-- /council line undo -->
-
-
 <!-- held near cities -->
 ## Held near cities
 
@@ -730,7 +749,7 @@ Counts of held warm spaces, shelters and day-centre candidates within 10km of ea
 - Southampton: 0 warm spaces, 0 shelters, 0 day centres — main reason: none held
 - Brighton and Hove: 0 warm spaces, 0 shelters, 0 day centres — main reason: none held
 
-5525 held places had no outcode centroid, so they are not counted under a city.
+5526 held places had no outcode centroid, so they are not counted under a city.
 <!-- /held near cities -->
 
 
@@ -766,30 +785,11 @@ Hand check 31 Oct 2026. A directory listing alone is not enough. Nothing here is
 - **Adullam Homes HA - Bury ABEN (Phase 3)** (`hl-adullam-homes-ha-bury-aben-phase-3`): directory record only; an operator or council page has not confirmed it is running now and the phone
 - **Our Way Leeds Emergency Accommodation** (`hl-turning-lives-around-seacole-scheme`): id/name mismatch (the id is Turning Lives Around Seacole; the name is Our Way Leeds)
 <!-- /referral hostel holds -->
-<!-- sweep shelters -->
-## Shelter candidates from the sweep (review only)
-
-Run 2026-11-05. Nothing here is on the map. Each needs a hand check before it is added.
-
-- none this run
-<!-- /sweep shelters -->
-
-
-<!-- times review -->
-## Opening-times review list (times_finder)
-
-Run 2026-11-05. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs; each has its undo command). Every other row is not on the map and needs a hand check before it is added.
-
-- **Holy Trinity Church, Wester Hailes** (`ifan-5b9fd1318a04132921a389-0`, EH14 2SL): Mondays 9.15am – 11.00am | Mondays 9.30am – 11.00am  
-  source: https://www.holytrinitywesterhailes.org.uk  
-  why: hand-checked times are protected; finder only flags differences; not one clear weekly client-hours block (kept as text for review); times not read identically on 2 separate runs yet; jumble: Mon given different times in separate blocks on one page; review only
-<!-- /times review -->
-
 
 <!-- rest centre switch-on -->
 ## Rest centre and SWEP switch-ons (waiting for Dean)
 
 Council pages say these are ON. Incident rest centres go live when overrides/incident_rest_centre_mode.json has public true. A GitHub issue was also opened for each switch-on.
 
-- **North Tyneside Council** — [Severe weather shelter (SWEP)] SWEP — https://www.northtyneside.gov.uk/housing/homelessness/if-you-are-homeless-or-sleeping-rough — “seasonal (council page): SWEP is active between 1 November and 31 March”
+- **West Northamptonshire Council** — [Severe weather shelter (SWEP)] SWEP — https://www.westnorthants.gov.uk/homelessness/support-people-sleeping-rough/help-people-sleeping-rough-very-cold-or-extreme-weather — “ross the whole of West Northamptonshire. How we tell people SWEP has been activated Our Outreach team notifies: relevant council services police services faith…”
 <!-- /rest centre switch-on -->

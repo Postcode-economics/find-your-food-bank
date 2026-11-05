@@ -1,7 +1,7 @@
 # Shelters & warm spaces – review list
 
 ## shelters.js
-added 0 · removed 0 · changed 32 · tier flips 0 · opens later 4 · season ended 0 · recheck failed 58
+added 0 · removed 0 · changed 3 · tier flips 0 · opens later 4 · season ended 0 · recheck failed 72
 
 - OPENS LATER Barnet Winter Night Shelter (Homeless Action in Barnet) – Opens 8 Nov 2026
 - OPENS LATER Glasgow City Mission Overnight Welcome Centre – Opens 1 Dec 2026 until 31 Mar 2027
@@ -9,9 +9,10 @@ added 0 · removed 0 · changed 32 · tier flips 0 · opens later 4 · season en
 - OPENS LATER St Peter's Parish Night Shelter (Roath) – Opens 4 Dec 2026 until 31 Mar 2027
 
 ## warmspaces.js
-added 0 · removed 0 · changed 2 · tier flips 0 · opens later 1 · season ended 0 · recheck failed 30
+added 0 · removed 0 · changed 0 · tier flips 0 · opens later 1 · season ended 0 · recheck failed 30
 
 - OPENS LATER Greenmount Old School – Opens 5 Jan 2027
 
 ## SWEP
-Active: none found
+Active: West Northamptonshire Council
+- West Northamptonshire Council: unknown → active (https://www.westnorthants.gov.uk/homelessness/support-people-sleeping-rough/help-people-sleeping-rough-very-cold-or-extreme-weather) “ross the whole of West Northamptonshire. How we tell people SWEP has been activated Our Outreach team notifies: relevant council services police services faith ”
