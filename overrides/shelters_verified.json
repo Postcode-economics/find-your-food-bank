@@ -1131,25 +1131,41 @@
   "who_for": "Not stated"
  },
  "man-crisis-skylight-newcastle": {
-  "access": "",
+  "access": "Reception during opening times — come through the door or ring the doorbell",
   "access_type": "open_access",
   "address": "City House, 1-3 City Road",
   "evidence_name": "www.crisis.org.uk",
   "evidence_url": "https://www.crisis.org.uk/get-help/newcastle/",
-  "facilities": "Not stated",
-  "groups": [],
-  "hours": "Not stated",
+  "facilities": [
+   "Advice and support to end homelessness sustainably"
+  ],
+  "groups": [
+   "people who are experiencing homelessness or are at risk of homelessness"
+  ],
+  "hours": {
+   "Mon": "09:30 - 16:30",
+   "Tue": "12:00 - 16:30",
+   "Wed": "09:30 - 16:30",
+   "Thu": "09:30 - 16:30",
+   "Fri": "09:30 - 16:30",
+   "Sat": "Closed",
+   "Sun": "Closed"
+  },
   "lat": 54.971203,
   "lng": -1.603723,
   "name": "Crisis Skylight Newcastle",
-  "note": "Dean blanket approval for verified items, national web sweep 31 Oct 2026. Phone found verbatim on the page above; pin is the postcodes.io centroid.",
+  "note": "Own-source card update from Crisis email, Herbie Cooper (herbie.cooper@crisis.org.uk) 5 Nov 2026 10:10 GMT. Phone kept as venue number 0191 222 0622 from Crisis Newcastle page; Herbie direct mobile not used on the card.",
   "phone": "0191 222 0622",
   "postcode": "NE1 2AF",
-  "quote": "pon Tyne NE1 2AF Visiting us (please read before travelling) Areas covered: North East England Contact us Phone number: 0191 222 0622 Email address: enquiries.newcastle@cris",
-  "referral": "",
+  "quote": "Who it's for: Crisis Skylight Newcastle supports people who are experiencing homelessness or are at risk of homelessness. How to get in: our reception team are available during the below opening times - just come through the door or ring the doorbell. Opening times: Mon, Wed, Thu, Fri: 9:30am-4.30pm; Tue: 12:00pm-4:30pm. Wheelchair access: Yes. Facilities: Advice and support (Herbie Cooper email 5 Nov 2026). Venue phone kept: 0191 222 0622.",
+  "referral": "Reception during opening times — come through the door or ring the doorbell",
   "season": "Daytime only",
-  "verified_on": "2026-10-31",
-  "who_for": "Not stated"
+  "verified_on": "2026-11-05",
+  "who_for": [
+   "people who are experiencing homelessness or are at risk of homelessness"
+  ],
+  "wheelchair": "yes",
+  "wheelchair_quote": "Wheelchair access: Yes (Crisis email, Herbie Cooper, 5 Nov 2026)"
  },
  "man-crisis-skylight-oxford": {
   "access": "Self-referral in person during opening hours (Mon-Fri 9am-5pm), or call 01865 263900 or email reception.oxford@crisis.org.uk. A triage team then gives information and advice, signposting, or membership for further support. The own page also lists Engagement and Assessment drop-ins Monday-Friday 10am-4pm.",
