@@ -5920,7 +5920,7 @@ Left out of this run because this place was not already on the map and its page 
 
 ### Deep sweep (council pages): 0 queued, 0 rejected
 
-### Warm spaces: 2146 queued, 2 rejected
+### Warm spaces: 2147 queued, 2 rejected
 - QUEUED Eastbrook Manor Community Centre, Fishersgate · https://www.adur-worthing.gov.uk/warm-spaces/ — directory listing only, with no 2026-27 season dates (latest stated start: none); no postcode
 - QUEUED East Worthing Baptist Church · https://www.adur-worthing.gov.uk/warm-spaces/ — directory listing only, with no 2026-27 season dates (latest stated start: none); no postcode
 - QUEUED East Worthing Community Centre · https://www.adur-worthing.gov.uk/warm-spaces/ — directory listing only, with no 2026-27 season dates (latest stated start: none); no postcode
@@ -6016,7 +6016,7 @@ Left out of this run because this place was not already on the map and its page 
 - QUEUED Age Connects West Midlands - Boldmere · B73 5TJ · https://www.birmingham.gov.uk/directory_record/430256/age_connects_west_midlands_-_boldmere — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Age Connects West Midlands - Hawkesley Community Centre · B38 9RN · https://www.birmingham.gov.uk/directory_record/430263/age_connects_west_midlands_-_hawkesley_community_centre — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Age Connects West Midlands - Moorfield · B34 6QX · https://www.birmingham.gov.uk/directory_record/430262/age_connects_west_midlands_-_moorfield — directory listing only, with no 2026-27 season dates (latest stated start: none)
-- QUEUED Al Mahdi Institute · B29 6RB · https://almahdi.edu/ — own site does not mention a warm space
+- QUEUED Al Mahdi Institute · B29 6RB · https://almahdi.edu/ — own site did not return the page (HTTP 202; usually a bot check)
 - QUEUED All Saint's Church and Centre · B74 4TR · https://www.birmingham.gov.uk/directory_record/580351/all_saints_church_and_centre — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED All Saints Parish Church Gravelly Hill · B23 7QB · https://www.birmingham.gov.uk/directory_record/494179/all_saints_parish_church_gravelly_hill — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Allies Network C.I.C. · B12 9LX · https://www.birmingham.gov.uk/directory_record/424484/allies_network_cic — directory listing only, with no 2026-27 season dates (latest stated start: none)
@@ -6064,7 +6064,7 @@ Left out of this run because this place was not already on the map and its page 
 - QUEUED Chats and Crafts CIC · B31 3BS · https://www.birmingham.gov.uk/directory_record/904979/chats_and_crafts_cic — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Christ Calling Ministries - Project Breaking Bread Warm Welcome · B7 5SN · https://www.birmingham.gov.uk/directory_record/521975/christ_calling_ministries_-_project_breaking_bread_warm_welcome — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Christ Church Summerfield · B16 0EZ · https://www.birmingham.gov.uk/directory_record/494174/christ_church_summerfield — directory listing only, with no 2026-27 season dates (latest stated start: none)
-- QUEUED Church of God of Prophecy · B18 7DL · https://aberdeenstcogop.org.uk/ — own site does not mention a warm space
+- QUEUED Church of God of Prophecy · B18 7DL · https://aberdeenstcogop.org.uk/ — own site did not return the page (HTTP 202; usually a bot check)
 - QUEUED Church of the Ascension Hall Green · B28 8JQ · http://www.ascensionhallgreen.uk/ — own site does not mention a warm space
 - QUEUED Church Road Surgery (Saathi House) · B6 5UP · https://www.birmingham.gov.uk/directory_record/858815/church_road_surgery_saathi_house — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Churchcentral · B12 0HD · https://www.birmingham.gov.uk/directory_record/435119/churchcentral — directory listing only, with no 2026-27 season dates (latest stated start: none)
@@ -6125,7 +6125,7 @@ Left out of this run because this place was not already on the map and its page 
 - QUEUED Lions Clubs International · B14 6DT · https://www.birmingham.gov.uk/directory_record/494172/lions_clubs_international — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Little Stars Stay and Play Group at St Anne's Church · B31 3JT · https://www.birmingham.gov.uk/directory_record/581404/little_stars_stay_and_play_group_at_st_annes_church — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Little Sunshines Stay and Play · B31 1RH · https://www.birmingham.gov.uk/directory_record/580157/little_sunshines_stay_and_play — directory listing only, with no 2026-27 season dates (latest stated start: none)
-- QUEUED Living Stones of Birmingham · B42 2TX · https://living-stones.co.uk/ — own site has no readable text
+- QUEUED Living Stones of Birmingham · B42 2TX · https://living-stones.co.uk/ — own site does not mention a warm space
 - QUEUED Lozells Methodist Community Centre · B19 2AH · https://www.birmingham.gov.uk/directory_record/852137/lozells_methodist_community_centre — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Made In Brum Studios · B3 1UF · https://www.birmingham.gov.uk/directory_record/891288/made_in_brum_studios — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Manningford Hall Association · B14 5TJ · https://www.birmingham.gov.uk/directory_record/471346/manningford_hall_association — directory listing only, with no 2026-27 season dates (latest stated start: none)

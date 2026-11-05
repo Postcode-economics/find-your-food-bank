@@ -499,11 +499,14 @@ Run 2026-11-05. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
 
 
 <!-- times crosscheck ws -->
-## Opening-times changes from the refresh (ws): 0 auto-applied, 36 held
+## Opening-times changes from the refresh (ws): 0 auto-applied, 38 held
 
 - **Bishops Stortford Methodist Church** (`ww-64379621`, CM23 3AZ): own site now Tues - Thurs 10am - 4pm | Mondays and Saturdays 10am - 12pm  
   source: https://www.bsm-church.org.uk  
   why held: would cut known hours to fewer days (drops Fri) and the source does not say that session ended; review
+- **Cafe Oasis** (`ww-64378921`, BL1 6RN): own site now Friday 10:30am - 12:45pm  
+  source: https://www.achurchnearyou.com/church/33204/  
+  why held: source page is not the warm space's own session page (general venue or directory page); day not on the same line as its times on the own-site page; times not read identically on 2 separate runs yet
 - **Canford Heath Library** (`ww-65437341`, BH17 8UE): own site now Monday 10am to 1pm | Thursday 10am to 1pm | Friday 10am to 1pm | Saturday 10am to 1pm  
   source: https://www.bcpcouncil.gov.uk/libraries/find-a-library/canford-heath-library  
   why held: would cut known hours to fewer days (drops Tue, Wed) and the source does not say that session ended; review
@@ -516,6 +519,9 @@ Run 2026-11-05. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
 - **Community hub** (`ww-57951602`, ME20 7QR): own site now Mon, Wed and Fri 9am-2pm  
   source: https://www.aylesford-church.org.uk  
   why held: this change was undone by Dean; not re-applied
+- **Deptford Lounge** (`ww-57952616`, SE8 4RJ): own site now Monday 9am – 7pm | Tuesday 9am – 7pm | Wednesday 9am – 7pm | Thursday 9am – 7pm | Friday 9am – 7pm | Saturday 9am – 5pm | Sunday 10am – 4pm  
+  source: https://deptfordlounge.org.uk/  
+  why held: new own-site times look like office/centre hours; new own-site times look like general venue opening hours, not a warm-space session; jumble: 7 separate time blocks read from one page; review only; times not read identically on 2 separate runs yet
 - **Gateway** (`ww-58567193`, OL16 1SN): own site now Monday to Friday 9:30am – 3:30pm  
   source: https://gatewayleisure.co.uk/  
   why held: new own-site times look like office/centre hours
@@ -525,9 +531,6 @@ Run 2026-11-05. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
 - **Inham Nook Library** (`ww-65438945`, NG9 4HU): own site now Thu 10AM - 12:30PM | Sat 10AM - 1PM  
   source: https://www.inspireculture.org.uk/reading-information/find-a-library/inham-nook-library/visiting-us/  
   why held: own site lists several centres (2 postcodes); cannot tie one table to this listing; source page is not the warm space's own session page (general venue or directory page)
-- **Jubilee Church, Wirral** (`ww-65437506`, CH45 0LA): own site now Thursdays 1pm-3pm  
-  source: https://jubileechurchwirral.org.uk/  
-  why held: day not on the same line as its times on the own-site page; would cut known hours to fewer days (drops Fri, Sun) and the source does not say that session ended; review
 - **Kirkliston Parish Church** (`ww-55473134`, EH29 9AX): own site now Fridays 6:00pm - 8:00pm  
   source: https://www.kirklistonparish.org  
   why held: day not on the same line as its times on the own-site page
@@ -537,6 +540,9 @@ Run 2026-11-05. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
 - **Life Community Lunch Cafe** (`ww-57953101`, CH63 7LA): own site now Tues-Fri 9:00AM - 5:00PM  
   source: https://www.mylifechurch.co.uk  
   why held: new own-site times look like office/centre hours; this change was undone by Dean; not re-applied
+- **Martyrs Church** (`ww-57953292`, LE3 0QT): own site now Thursdays 10am-11:30am  
+  source: https://martyrs.org.uk/  
+  why held: times not read identically on 2 separate runs yet; this change was undone by Dean; not re-applied
 - **Museum of the Home** (`ww-55473898`, E2 8EA): own site now Monday to Sunday 10am–4.30pm  
   source: https://www.museumofthehome.org.uk/  
   why held: new own-site times look like office/centre hours; new own-site times look like general venue opening hours, not a warm-space session
