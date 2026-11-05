@@ -237,7 +237,7 @@ Run 2026-11-05. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
 
 
 <!-- times crosscheck fb -->
-## Opening-times changes from the refresh (fb): 7 auto-applied, 53 held
+## Opening-times changes from the refresh (fb): 7 auto-applied, 50 held
 
 - AUTO-APPLIED `pantry` PANTRY Foodbank (strict, 2 identical runs). Undo: `python scripts/times_revert.py fb:pantry`
 - AUTO-APPLIED `enniskillen` Enniskillen Foodbank (strict, 2 identical runs). Undo: `python scripts/times_revert.py fb:enniskillen`
@@ -249,12 +249,9 @@ Run 2026-11-05. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
 - **Colchester Foodbank** (`colchester`, CO3 8RG): own site now Monday-Saturday 10:00 am to 2:00 pm  
   source: https://colchester.foodbank.org.uk  
   why held: new own-site times look like office/centre hours; own site lists several centres (10 postcodes); cannot tie one table to this listing; new own-site times look like office/centre hours; not one clear weekly client-hours block (kept as text for review)
-- **PBP Foodbank** (`pbp`, SA17 4TA): own site now Monday 10AM - 4PM | Tuesday 10AM - 4PM | Wednesday 10AM - 4PM | Thursday 10AM - 4PM | Friday 10AM - 4PM  
-  source: https://cetma.org.uk/projects/pbp-food-bank/  
-  why held: new own-site times look like office/centre hours; own site lists several centres (3 postcodes); cannot tie one table to this listing; new own-site times look like office/centre hours; new own-site times look like office/shop hours (identical Mon-Fri block, no distribution wording); not one clear weekly client-hours block (kept as text for review); jumble: 5 separate time blocks read from one page; review only; times not read identically on 2 separate runs yet
 - **CETMA Swansea** (`pbp/cetma-swansea`, SA1 5DF): own site now Monday 10AM - 4PM | Friday 12PM - 4PM | Tuesday 10AM - 4PM | Wednesday 10AM - 4PM | Thursday 10AM - 4PM  
   source: https://cetma.org.uk/projects/pbp-food-bank/  
-  why held: new own-site times look like office/centre hours; own site lists several centres (3 postcodes); cannot tie one table to this listing; new own-site times look like office/centre hours; not one clear weekly client-hours block (kept as text for review); jumble: 5 separate time blocks read from one page; review only; times not read identically on 2 separate runs yet
+  why held: new own-site times look like office/centre hours; own site lists several centres (3 postcodes); cannot tie one table to this listing; new own-site times look like office/centre hours; not one clear weekly client-hours block (kept as text for review); jumble: 5 separate time blocks read from one page; review only; transient failure; stored times left unchanged
 - **North Oxfordshire Foodbank** (`north-oxfordshire`, OX5 2DS): own site now Friday 11.00am – 1.00pm  
   source: https://northoxfordshirecommunityfoodbank.org.uk/  
   why held: own site lists several centres (3 postcodes); cannot tie one table to this listing; would cut known hours to fewer days (drops Mon) and the source does not say that session ended; review
@@ -273,9 +270,6 @@ Run 2026-11-05. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
 - **Storehouse Melton Foodbank** (`storehouse-melton`, LE13 1NW): own site now Monday 11:00am - 1:00pm | Wednesday 11:00am - 1:00pm | Friday 11:00am - 1:00pm  
   source: https://www.storehousemelton.org.uk  
   why held: source page never mentions a food bank or this listing's name (rule 21: a host church page counts only when it names the food bank)
-- **The Salvation Army & ARK Community Centre** (`wrexham/the-salvation-army-ark-community-centre`, LL11 2NU): own site now Mon Closed; Tue Closed; Wed 14:00 - 15:30; Thu Closed; Fri Closed; Sat Closed; Sun Closed  
-  source: https://wrexham.foodbank.org.uk  
-  why held: own site lists several centres (9 postcodes); cannot tie one table to this listing; would cut known hours to fewer days (drops Mon, Tue, Thu, Fri) and the source does not say that session ended; review
 - **Sunderland Foodbank** (`sunderland`, SR2 8AH): own site now Thursday 09:00-10:30  
   source: https://sunderlandfoodbank.org.uk/  
   why held: known skip: times tables and addresses alternate so a table can't be tied to a centre by text order; hand check only; own site lists several centres (14 postcodes); cannot tie one table to this listing; would cut known hours to fewer sessions (6 to 1) and the source does not say that session ended; review; would cut known hours to fewer days (drops Mon, Tue, Wed, Fri) and the source does not say that session ended; review; this change was undone by Dean; not re-applied
@@ -354,9 +348,6 @@ Run 2026-11-05. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
 - **Bridgwater Foodbank** (`bridgwater`, TA6 3ER): own site now Mon 10:30 - 13:30; Tue Closed; Wed 10:30 - 13:30; Thu Closed; Fri 10:30 - 13:30; Sat Closed; Sun Closed  
   source: https://bridgwater.foodbank.org.uk  
   why held: known skip: Dean 29 Oct 2026 (#224): leave published times as-is until reviewed; this change was undone by Dean; not re-applied
-- **PATCH Foodbank** (`patch`, SA73 2HA): own site now Monday – Friday 10am-2pm  
-  source: https://patchcharity.org.uk  
-  why held: new own-site times look like office/centre hours; own site lists several centres (4 postcodes); cannot tie one table to this listing; new own-site times look like office/centre hours; not one clear weekly client-hours block (kept as text for review); would cut known hours to fewer days (drops Sat) and the source does not say that session ended; review
 - **Tottenham SDA** (`3food4u/tottenham-sda`, N15 5EG): own site now Wednesday 4:45pm to 6:00pm  
   source: https://3food4u.org  
   why held: known skip: times listed above each address; finder read them onto the next centre (Budworth Hall got Epping's Friday); own site lists several centres (10 postcodes); cannot tie one table to this listing; would cut known hours to fewer days (drops Tue, Sat) and the source does not say that session ended; review; would cut known hours to fewer days (drops Mon, Tue, Thu, Fri, Sat, Sun) and the source does not say that session ended; review
@@ -732,6 +723,8 @@ Council pages say these are ON. Incident rest centres go live when overrides/inc
 
 - **West Northamptonshire Council** — [Severe weather shelter (SWEP)] SWEP — https://www.westnorthants.gov.uk/homelessness/support-people-sleeping-rough/help-people-sleeping-rough-very-cold-or-extreme-weather — “ross the whole of West Northamptonshire. How we tell people SWEP has been activated Our Outreach team notifies: relevant council services police services faith…”
 <!-- /rest centre switch-on -->
+
+
 <!-- held near cities -->
 ## Held near cities
 

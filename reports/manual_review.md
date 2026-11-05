@@ -5810,7 +5810,7 @@ Left out of this run because this place was not already on the map and its page 
 - QUEUED Reverse The Trend Foundation · E16 3ET · https://www.reversethetrend.org.uk — own site does not show food aid; directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Reverse The Trend Foundation · E3 2AB · https://www.reversethetrend.org.uk — own site does not show food aid; directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Edinburgh City Mission - Moredun Foodbank+ · EH17 7NX · https://www.edinburghcitymission.org.uk — directory listing only, with no 2026-27 season dates (latest stated start: none)
-- QUEUED Maundy Relief · BB5 1EN · https://www.maundyrelief.org.uk — directory listing only, with no 2026-27 season dates (latest stated start: none)
+- QUEUED Maundy Relief · BB5 1EN · https://www.maundyrelief.org.uk — own site unreachable (HTTP error)
 - QUEUED The Power Movement Organisation · E1 5DD · https://www.poweruk.org — own site unreachable (HTTP error)
 - QUEUED Bryncynon Strategy · CF45 4XZ · https://www.bryncynonstrategy.co.uk — own site redirects to a different site (bryncynonstrategy.com)
 - QUEUED EBI Unites · PA8 6HA · https://www.ebi.scot — own site has no readable text
@@ -5863,7 +5863,7 @@ Left out of this run because this place was not already on the map and its page 
 - QUEUED Calvary Mansfield  -  Gap Cafe · NG18 3FS — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Hackney Church (Homerton Food Bank) · E9 6RT · https://www.saint.church/lighthouse/ — own site redirects to a different site (saintlighthouse.org)
 - QUEUED Edinburgh City Mission - Leith Foodbank+ · EH6 5JX · https://www.edinburghcitymission.org.uk — directory listing only, with no 2026-27 season dates (latest stated start: none)
-- QUEUED PAL Multicultural Centre · L8 2TF · https://www.palcentre.org — own site unreachable (HTTP 429)
+- QUEUED PAL Multicultural Centre · L8 2TF · https://www.palcentre.org — own site does not show food aid; directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Foothold Cymru · SA14 9RA · https://www.footholdcymru.org.uk — own site does not show food aid
 - QUEUED Your Money Your Way CIC · B18 7LG · https://yourmoneyyourwaycic.co.uk — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Hackney Church (Shoreditch Food Bank) · E1 6JN · https://www.saint.church/lighthouse/ — own site redirects to a different site (saintlighthouse.org)

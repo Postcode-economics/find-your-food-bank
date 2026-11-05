@@ -6,7 +6,7 @@
     "times": {
      "applied": 0,
      "applied_this_run": 0,
-     "held": 53,
+     "held": 50,
      "stale_cleared": 0,
      "rejected": [
       {
@@ -19,18 +19,6 @@
        ]
       },
       {
-       "id": "pbp",
-       "reasons": [
-        "new own-site times look like office/centre hours",
-        "own site lists several centres (3 postcodes); cannot tie one table to this listing",
-        "new own-site times look like office/centre hours",
-        "new own-site times look like office/shop hours (identical Mon-Fri block, no distribution wording)",
-        "not one clear weekly client-hours block (kept as text for review)",
-        "jumble: 5 separate time blocks read from one page; review only",
-        "times not read identically on 2 separate runs yet"
-       ]
-      },
-      {
        "id": "pbp/cetma-swansea",
        "reasons": [
         "new own-site times look like office/centre hours",
@@ -38,7 +26,7 @@
         "new own-site times look like office/centre hours",
         "not one clear weekly client-hours block (kept as text for review)",
         "jumble: 5 separate time blocks read from one page; review only",
-        "times not read identically on 2 separate runs yet"
+        "transient failure; stored times left unchanged"
        ]
       },
       {
@@ -81,13 +69,6 @@
        "id": "storehouse-melton",
        "reasons": [
         "source page never mentions a food bank or this listing's name (rule 21: a host church page counts only when it names the food bank)"
-       ]
-      },
-      {
-       "id": "wrexham/the-salvation-army-ark-community-centre",
-       "reasons": [
-        "own site lists several centres (9 postcodes); cannot tie one table to this listing",
-        "would cut known hours to fewer days (drops Mon, Tue, Thu, Fri) and the source does not say that session ended; review"
        ]
       },
       {
@@ -302,16 +283,6 @@
        ]
       },
       {
-       "id": "patch",
-       "reasons": [
-        "new own-site times look like office/centre hours",
-        "own site lists several centres (4 postcodes); cannot tie one table to this listing",
-        "new own-site times look like office/centre hours",
-        "not one clear weekly client-hours block (kept as text for review)",
-        "would cut known hours to fewer days (drops Sat) and the source does not say that session ended; review"
-       ]
-      },
-      {
        "id": "3food4u/tottenham-sda",
        "reasons": [
         "known skip: times listed above each address; finder read them onto the next centre (Budworth Hall got Epping's Friday)",
@@ -429,10 +400,13 @@
      "coverage": {
       "sites": 16,
       "sites_opened": 14,
-      "render_attempts": 566,
-      "render_errors": 2,
+      "render_attempts": 565,
+      "render_errors": 5,
       "source_pages": 19,
-      "source_opened": 16
+      "source_opened": 16,
+      "budget_skipped": 0,
+      "hours_review_due": 1738,
+      "hours_review_opened": 1127
      },
      "enabled": true
     },
@@ -445,11 +419,11 @@
      "errors": [],
      "alerts": [],
      "coverage": {
-      "render_attempts": 1086,
+      "render_attempts": 968,
       "render_errors": 5,
       "budget_skipped": 0,
       "hours_review_due": 1738,
-      "hours_review_opened": 1127,
+      "hours_review_opened": 1008,
       "sites": 16,
       "sites_opened": 14,
       "source_pages": 19,
@@ -460,7 +434,7 @@
    },
    "applied": 0,
    "applied_this_run": 0,
-   "held": 53,
+   "held": 50,
    "stale_cleared": 0,
    "rejected": [
     {
@@ -473,18 +447,6 @@
      ]
     },
     {
-     "id": "pbp",
-     "reasons": [
-      "new own-site times look like office/centre hours",
-      "own site lists several centres (3 postcodes); cannot tie one table to this listing",
-      "new own-site times look like office/centre hours",
-      "new own-site times look like office/shop hours (identical Mon-Fri block, no distribution wording)",
-      "not one clear weekly client-hours block (kept as text for review)",
-      "jumble: 5 separate time blocks read from one page; review only",
-      "times not read identically on 2 separate runs yet"
-     ]
-    },
-    {
      "id": "pbp/cetma-swansea",
      "reasons": [
       "new own-site times look like office/centre hours",
@@ -492,7 +454,7 @@
       "new own-site times look like office/centre hours",
       "not one clear weekly client-hours block (kept as text for review)",
       "jumble: 5 separate time blocks read from one page; review only",
-      "times not read identically on 2 separate runs yet"
+      "transient failure; stored times left unchanged"
      ]
     },
     {
@@ -535,13 +497,6 @@
      "id": "storehouse-melton",
      "reasons": [
       "source page never mentions a food bank or this listing's name (rule 21: a host church page counts only when it names the food bank)"
-     ]
-    },
-    {
-     "id": "wrexham/the-salvation-army-ark-community-centre",
-     "reasons": [
-      "own site lists several centres (9 postcodes); cannot tie one table to this listing",
-      "would cut known hours to fewer days (drops Mon, Tue, Thu, Fri) and the source does not say that session ended; review"
      ]
     },
     {
@@ -756,16 +711,6 @@
      ]
     },
     {
-     "id": "patch",
-     "reasons": [
-      "new own-site times look like office/centre hours",
-      "own site lists several centres (4 postcodes); cannot tie one table to this listing",
-      "new own-site times look like office/centre hours",
-      "not one clear weekly client-hours block (kept as text for review)",
-      "would cut known hours to fewer days (drops Sat) and the source does not say that session ended; review"
-     ]
-    },
-    {
      "id": "3food4u/tottenham-sda",
      "reasons": [
       "known skip: times listed above each address; finder read them onto the next centre (Budworth Hall got Epping's Friday)",
@@ -883,18 +828,18 @@
    "coverage": {
     "sites": 16,
     "sites_opened": 14,
-    "render_attempts": 1086,
+    "render_attempts": 968,
     "render_errors": 5,
     "source_pages": 19,
     "source_opened": 16,
     "budget_skipped": 0,
     "hours_review_due": 1738,
-    "hours_review_opened": 1127
+    "hours_review_opened": 1008
    }
   }
  },
  "alerts": [],
  "would_block": [],
  "enabled": true,
- "generated_at": "2026-11-05T07:03:53+00:00"
+ "generated_at": "2026-11-05T15:30:22+00:00"
 }
