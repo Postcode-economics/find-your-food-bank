@@ -2,73 +2,7 @@
  "shelters.js": {
   "added": [],
   "removed": [],
-  "changed": [
-   {
-    "id": "man-ss-ssj-10-southampton-street",
-    "name": "10 Southampton Street hostel (Society of St James)",
-    "fields": [
-     "phone",
-     "referral"
-    ],
-    "before": {
-     "phone": "023 8083 2343",
-     "referral": "Referral from Southampton's Street Homeless Prevention Team (023 8083 2343) or a local agency."
-    },
-    "after": {
-     "phone": "023 8063 4596",
-     "referral": "Access through Southampton City Council's Street Homeless Prevention Team."
-    }
-   },
-   {
-    "id": "man-crisis-skylight-newcastle",
-    "name": "Crisis Skylight Newcastle",
-    "fields": [
-     "address",
-     "hours",
-     "referral"
-    ],
-    "before": {
-     "address": "City House, 1-3 City Road",
-     "hours": "Not stated",
-     "referral": ""
-    },
-    "after": {
-     "address": "City House, 1 City Road",
-     "hours": {
-      "Mon": "09:30 - 16:30",
-      "Tue": "12:00 - 16:30",
-      "Wed": "09:30 - 16:30",
-      "Thu": "09:30 - 16:30",
-      "Fri": "09:30 - 16:30",
-      "Sat": "Closed",
-      "Sun": "Closed"
-     },
-     "referral": "Reception team available during opening times — come through the door or ring the doorbell"
-    }
-   },
-   {
-    "id": "man-ss-langley-tekoa-house",
-    "name": "Tekoa House (Langley House Trust)",
-    "fields": [
-     "address",
-     "postcode",
-     "lat",
-     "lng"
-    ],
-    "before": {
-     "address": "Langley House Trust, Tekoa House, Walker St, Rochdale",
-     "postcode": "OL16 2AB",
-     "lat": 53.614352,
-     "lng": -2.147447
-    },
-    "after": {
-     "address": "Rochdale",
-     "postcode": "",
-     "lat": null,
-     "lng": null
-    }
-   }
-  ],
+  "changed": [],
   "tier_flips": [],
   "upcoming": [
    "Barnet Winter Night Shelter (Homeless Action in Barnet) – Opens 8 Nov 2026",
