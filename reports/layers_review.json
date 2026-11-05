@@ -253,12 +253,43 @@
  "warmspaces.js": {
   "added": [],
   "removed": [],
-  "changed": [],
+  "changed": [
+   {
+    "id": "ww-69038953",
+    "name": "NAN activity space/meeting room",
+    "fields": [
+     "scheme_dates",
+     "upcoming"
+    ],
+    "before": {
+     "scheme_dates": "Opens 5 Nov 2026",
+     "upcoming": true
+    },
+    "after": {
+     "scheme_dates": "Not stated by source",
+     "upcoming": null
+    }
+   },
+   {
+    "id": "ww-68256592",
+    "name": "wee blether with soup and sandwich at Seescape",
+    "fields": [
+     "scheme_dates",
+     "upcoming"
+    ],
+    "before": {
+     "scheme_dates": "Opens 5 Nov 2026",
+     "upcoming": true
+    },
+    "after": {
+     "scheme_dates": "Not stated by source",
+     "upcoming": null
+    }
+   }
+  ],
   "tier_flips": [],
   "upcoming": [
-   "Greenmount Old School – Opens 5 Jan 2027",
-   "NAN activity space/meeting room – Opens 5 Nov 2026",
-   "wee blether with soup and sandwich at Seescape – Opens 5 Nov 2026"
+   "Greenmount Old School – Opens 5 Jan 2027"
   ],
   "ended": [],
   "recheck_failed": [
