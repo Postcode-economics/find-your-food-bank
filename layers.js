@@ -10,7 +10,7 @@ const T={en:{fb:'Food banks',before:'Before you go',beforeSum:'Always call befor
  groups:'Who for',beds:'Beds',season:'Season',ref:'Referral',hours:'Hours',prov:'Provided',book:'Booking',dates:'Scheme dates',
  src:'Source',ver:'verified',chk:'Checked',lst:'Original listing',unv:'Unverified – call before you go',tchk:'Times checked {d} – call before you go',seen:'Seen open',refOnly:'Referral only',refNeed:'Referral needed / check before you go',refHostel:'Referral hostel',refTurn:'Referral needed, don\'t turn up without one',selfRef:'Self-referral',openAcc:'Open access',verOnly:'Verified only',stale:'Not verified for over 7 days, call before you go',ended:'This season’s scheme has ended',
  nSh:'Nearest shelters',nWs:'Nearest warm spaces',loading:'Loading…',offline:'You’re offline. Showing places saved on ',offEnd:'. Call before you go.',offBare:'You’re offline. Call before you go.',chkL:'Listings last checked ',none:'None listed',
- dayCentre:'Day centre',pillHostel:'Hostel',pillNight:'Night shelter',pillYouth:'Young people (16–25)',youth:'Young people’s housing (16–25), referral needed',youthOnly:'For ages 16–25. Referral needed. Not an emergency bed.',dayOnly:'Daytime only. No overnight bed.',dayFilt:'Day centres',offer:'Offers',
+ dayCentre:'Day centre',adviceService:'Advice service',adviceOnly:'Advice and housing help. No beds, food or drop-in.',pillHostel:'Hostel',pillNight:'Night shelter',pillYouth:'Young people (16–25)',youth:'Young people’s housing (16–25), referral needed',youthOnly:'For ages 16–25. Referral needed. Not an emergency bed.',dayOnly:'Daytime only. No overnight bed.',dayFilt:'Day centres',offer:'Offers',
  h1:'Find help near you',search:'Search',ph:'Postcode or town',lang:'Cymraeg',noClosed:'Nothing closed in the last 30 days.',on:'✓ ON',mi:'miles',srcNote:'Details are shown in the language the source published them in.'},
 cy:{fb:'Banciau bwyd',before:'Cyn i chi fynd',beforeSum:'Ffoniwch bob amser cyn mynd',legend:'Allwedd',sh:'Llochesi',ws:'Mannau cynnes',near:'Dod o hyd i’r agosaf ataf',upd:'diweddarwyd',notLoaded:'tapiwch i ddangos',
  disc:'<b>Gall rhestrau newid heb rybudd.</b> Ffoniwch bob amser cyn teithio. Rydym yn rhestru gwasanaethau o wybodaeth gyhoeddus ac nid ydym yn ymweld â nhw nac yn eu harolygu. Mewn argyfwng ffoniwch 999. Os ydych chi’n cysgu ar y stryd, cysylltwch â’ch cyngor lleol.',
@@ -18,7 +18,7 @@ cy:{fb:'Banciau bwyd',before:'Cyn i chi fynd',beforeSum:'Ffoniwch bob amser cyn 
  groups:'I bwy',beds:'Gwelyau',season:'Tymor',ref:'Atgyfeirio',hours:'Oriau',prov:'Ar gael',book:'Archebu',dates:'Dyddiadau’r cynllun',
  src:'Ffynhonnell',ver:'gwiriwyd',chk:'Gwiriwyd',lst:'Rhestr wreiddiol',unv:'Heb ei wirio – ffoniwch cyn mynd',tchk:'Amseroedd wedi’u gwirio {d} – ffoniwch cyn mynd',seen:'Gwelwyd ar agor',refOnly:'Atgyfeirio yn unig',refNeed:'Angen atgyfeiriad / gwiriwch cyn mynd',refHostel:'Hostel atgyfeirio',refTurn:'Angen atgyfeiriad, peidiwch â throi i fyny heb un',selfRef:'Hunangyfeirio',openAcc:'Mynediad agored',verOnly:'Wedi’u gwirio yn unig',stale:'Heb ei wirio ers dros 7 diwrnod, ffoniwch cyn mynd',ended:'Mae cynllun y tymor hwn wedi dod i ben',
  nSh:'Llochesi agosaf',nWs:'Mannau cynnes agosaf',loading:'Wrthi’n llwytho…',offline:'Rydych chi all-lein. Yn dangos lleoedd a gadwyd ar ',offEnd:'. Ffoniwch cyn mynd.',offBare:'Rydych chi all-lein. Ffoniwch cyn mynd.',chkL:'Gwiriwyd y rhestrau ddiwethaf ',none:'Dim wedi’u rhestru',
- dayCentre:'Canolfan ddydd',pillHostel:'Hostel',pillNight:'Lloches nos',pillYouth:'Pobl ifanc (16–25)',youth:'Tai i bobl ifanc (16–25), angen atgyfeiriad',youthOnly:'Ar gyfer oed 16–25. Angen atgyfeiriad. Nid gwely brys.',dayOnly:'Yn ystod y dydd yn unig. Dim gwely dros nos.',dayFilt:'Canolfannau dydd',offer:'Yn cynnig',
+ dayCentre:'Canolfan ddydd',adviceService:'Gwasanaeth cyngor',adviceOnly:'Cyngor a help gyda thai. Dim gwelyau, bwyd na galw heibio.',pillHostel:'Hostel',pillNight:'Lloches nos',pillYouth:'Pobl ifanc (16–25)',youth:'Tai i bobl ifanc (16–25), angen atgyfeiriad',youthOnly:'Ar gyfer oed 16–25. Angen atgyfeiriad. Nid gwely brys.',dayOnly:'Yn ystod y dydd yn unig. Dim gwely dros nos.',dayFilt:'Canolfannau dydd',offer:'Yn cynnig',
  h1:'Dod o hyd i help yn agos atoch',search:'Chwilio',ph:'Cod post neu dref',lang:'EN',noClosed:'Dim wedi cau yn y 30 diwrnod diwethaf.',on:'✓ YMLAEN',mi:'milltir',srcNote:'Dangosir y manylion yn yr iaith a ddefnyddiodd y ffynhonnell.'}};
 let lang=(()=>{try{return localStorage.getItem('lang')||'en'}catch(e){return 'en'}})();const t=k=>T[lang][k];
 const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -45,13 +45,15 @@ const SYM={
  house:'<g class="xmk"><path d="M8 15.5l8-7.5 8 7.5V24H8z" fill="#0A1628"/></g>',
  sun:'<g class="xmk"><circle cx="16" cy="16" r="3.8" fill="#0A1628"/><g stroke="#0A1628" stroke-width="2.4" stroke-linecap="butt"><path d="M16 8v2.8M16 21.2V24M8 16h2.8M21.2 16H24M10.3 10.3l2 2M19.7 19.7l2 2M10.3 21.7l2-2M19.7 12.3l2-2"/></g></g>',
  youth:'<g class="xmk"><text x="15.7" y="15.3" text-anchor="middle" font-family="system-ui,Segoe UI,Arial" font-weight="900" font-size="10" textLength="15.6" lengthAdjust="spacingAndGlyphs" fill="#0A1628">16</text><text x="15.7" y="24" text-anchor="middle" font-family="system-ui,Segoe UI,Arial" font-weight="900" font-size="10" textLength="15.6" lengthAdjust="spacingAndGlyphs" fill="#0A1628">25</text></g>',
+ info:'<g class="xmk"><circle cx="16" cy="10.2" r="2.1" fill="#0A1628"/><path d="M14.2 14h3.6v10h-3.6z" fill="#0A1628"/></g>',
  food:'<g class="xmk"><path d="M9 13.5h14l-1.3 10.5H10.3z" fill="#F5C518" stroke="#0A1628" stroke-width="1"/><path d="M12 13.5V12a4 4 0 0 1 8 0v1.5" fill="#F5C518" stroke="#0A1628" stroke-width="2"/></g>',
  flame:'<g class="xmk"><path d="M16.2 7.2c.4 3.2-2.4 4.6-2.2 8 .2 2.2 2.2 3.2 4.2 2.4 1.2-2.4-.4-4 1.4-6.2 1.8 2.4 2.6 4.8 1.2 7.6a5.2 5.2 0 1 1-9.4-2.8c.8-2.6 2.8-4 4.8-9z" fill="#0A1628"/></g>'};
+const shAdvice=i=>!!(i&&i.kind==='advice_service');  /* Dean 4 Nov 2026: advice and housing help, no beds, food or drop-in */
 const shYouthBlob=i=>{if(!i)return'';const wf=Array.isArray(i.who_for)?i.who_for.join(' '):String(i.who_for||'');return(String(i.name||'')+' '+(i.groups||[]).join(' ')+' '+wf).replace(/\s+/g,' ')};
-const shYouth=i=>{if(i&&i.kind==='severe_weather')return false;const U=window.UFacts;if(U&&U.isYouth)return U.isYouth(i);if(!i||i.kind==='young_people')return!!(i&&i.kind==='young_people');const name=String(i.name||''),blob=shYouthBlob(i);return/\bfoyers?\b/i.test(blob)||/\byoung people\b/i.test(blob)||/\byouth\b/i.test(blob)||/Age\s*16\s*[-–]\s*25/i.test(blob)||/16\s*[-–to]{1,3}\s*25/i.test(blob)||/1[678]\s*[-–to]{1,3}\s*2[0-9]/i.test(blob)||(/\bhousing\b/i.test(name)&&/16\s*[-–to]{1,3}\s*25/i.test(blob))||/young people'?s housing/i.test(blob)};
-const shDay=i=>{if(i&&i.kind==='severe_weather')return false;const U=window.UFacts;if(U&&U.isDayCentre)return U.isDayCentre(i);if(shYouth(i))return false;const k=String((i&&i.kind)||(i&&i.service)||'').toLowerCase().replace(/-/g,' ').replace(/_/g,' ');return i&&i.label==='Day centre'||k==='day centre'};
-const shHostel=i=>i&&!shDay(i)&&!shYouth(i);
-const symKey=i=>!i?'house':shYouth(i)?'youth':shDay(i)?'sun':'house';
+const shYouth=i=>{if(i&&i.kind==='severe_weather')return false;if(shAdvice(i))return false;const U=window.UFacts;if(U&&U.isYouth)return U.isYouth(i);if(!i||i.kind==='young_people')return!!(i&&i.kind==='young_people');const name=String(i.name||''),blob=shYouthBlob(i);return/\bfoyers?\b/i.test(blob)||/\byoung people\b/i.test(blob)||/\byouth\b/i.test(blob)||/Age\s*16\s*[-–]\s*25/i.test(blob)||/16\s*[-–to]{1,3}\s*25/i.test(blob)||/1[678]\s*[-–to]{1,3}\s*2[0-9]/i.test(blob)||(/\bhousing\b/i.test(name)&&/16\s*[-–to]{1,3}\s*25/i.test(blob))||/young people'?s housing/i.test(blob)};
+const shDay=i=>{if(i&&i.kind==='severe_weather')return false;if(shAdvice(i))return false;const U=window.UFacts;if(U&&U.isDayCentre)return U.isDayCentre(i);if(shYouth(i))return false;const k=String((i&&i.kind)||(i&&i.service)||'').toLowerCase().replace(/-/g,' ').replace(/_/g,' ');return i&&i.label==='Day centre'||k==='day centre'};
+const shHostel=i=>i&&!shDay(i)&&!shYouth(i)&&!shAdvice(i);
+const symKey=i=>!i?'house':shAdvice(i)?'info':shYouth(i)?'youth':shDay(i)?'sun':'house';
 /* Card/list type icons (Dean 1 Nov): shell colour and shape match map pins and footer key —
    food bank yellow teardrop, warm space orange diamond, shelter blue square (house / sun / youth inside). */
 const SYM_SHELL={
@@ -59,7 +61,8 @@ const SYM_SHELL={
  flame:{fill:'#D55E00',d:'M16 4.2L26.8 16 16 27.8 5.2 16z'},
  house:{fill:'#56B4E9',d:'M3 3h26v26H3z'},
  sun:{fill:'#56B4E9',d:'M3 3h26v26H3z'},
- youth:{fill:'#56B4E9',d:'M3 3h26v26H3z'}};
+ youth:{fill:'#56B4E9',d:'M3 3h26v26H3z'},
+ info:{fill:'#56B4E9',d:'M3 3h26v26H3z'}};
 const symSvg=(key,px,grey)=>{
  const sh=SYM_SHELL[key]||SYM_SHELL.house;const inner=SYM[key]||'';
  const fill=grey?'#7a8496':sh.fill;
@@ -84,13 +87,14 @@ const bar=document.createElement('div');bar.id='xbar';bar.setAttribute('role','t
 const seg=(k,col,shape,on)=>`<button type="button" class="xt" data-l="${k}" aria-pressed="${on}"><i class="sw ${shape}" style="background:${col}"></i><span data-t="${k}"></span></button>`;
 bar.innerHTML=seg('fb','#F5C518','tear',true)+seg('sh',LAYERS.sh.col,'sq',false)+seg('ws',LAYERS.ws.col,'dia',false);
 const hdr=document.querySelector('header');hdr.insertBefore(bar,hdr.querySelector('h1').nextSibling);
-const keyRow=(ico,bKey,small)=>{const sym={fb:'food',ws:'flame',sh:'house',dayCentre:'sun',youth:'youth'}[bKey]||'';return `<div class="xkey-row" data-sym="${sym}"><span class="xkey-ico" aria-hidden="true">${ico}</span><span class="xkey-txt"><b data-t="${bKey}"></b> ${small}</span></div>`};
+const keyRow=(ico,bKey,small)=>{const sym={fb:'food',ws:'flame',sh:'house',dayCentre:'sun',youth:'youth',adviceService:'info'}[bKey]||'';return `<div class="xkey-row" data-sym="${sym}"><span class="xkey-ico" aria-hidden="true">${ico}</span><span class="xkey-txt"><b data-t="${bKey}"></b> ${small}</span></div>`};
 const lg=document.createElement('div');lg.id='xleg';lg.innerHTML=
  keyRow(symSvg('food',28),'fb','<small id="u_fb"></small>')+
  keyRow(symSvg('flame',34),'ws','<small id="u_ws"></small>')+
  keyRow(symSvg('house',28),'sh','<small id="u_sh"></small>')+
  keyRow(symSvg('sun',28),'dayCentre','<small data-t="dayOnly"></small>')+
- keyRow(symSvg('youth',28),'youth','<small data-t="youthOnly"></small>');
+ keyRow(symSvg('youth',28),'youth','<small data-t="youthOnly"></small>')+
+ keyRow(symSvg('info',28),'adviceService','<small data-t="adviceOnly"></small>');
 const ft=document.querySelector('footer');const fu=document.createElement('div');fu.id='xupd';ft.prepend(fu);fu.append(...lg.children);
 const lb=document.createElement('button');lb.type='button';lb.id='xlang';hdr.style.position='relative';hdr.prepend(lb);
 document.getElementById('f').after(document.getElementById('msg'));  // search errors show inline under the search box
@@ -167,7 +171,7 @@ function cardTop(layer,i){const sk=layer==='fb'?'food':layer==='ws'?'flame':symK
  const px=sk==='flame'?34:28;const sym=`<span class="xmkbox" data-sym="${sk}">${symSvg(sk,px)}</span>`;
  let en,cy;
  if(layer==='sh'&&i&&i.kind==='severe_weather'){en='Severe weather shelter (SWEP)';cy='Lloches tywydd garw (SWEP)'}
- else if(layer==='sh'){const pillKey=sk==='sun'?'dayCentre':sk==='youth'?'pillYouth':(i.kind==='hostel'||/\bhostel\b/i.test(i.name||''))?'pillHostel':'pillNight';en=T.en[pillKey];cy=T.cy[pillKey]}
+ else if(layer==='sh'){const pillKey=sk==='info'?'adviceService':sk==='sun'?'dayCentre':sk==='youth'?'pillYouth':(i.kind==='hostel'||/\bhostel\b/i.test(i.name||''))?'pillHostel':'pillNight';en=T.en[pillKey];cy=T.cy[pillKey]}
  else if(window.UFacts){const p=UFacts.typeOf(layer,i);en=p[0];cy=p[1]}
  else if(i&&i.kind==='day_centre'){en=T.en.dayCentre;cy=T.cy.dayCentre}
  else {en=layer;cy=layer}
@@ -190,7 +194,8 @@ function shSource(i){const host=u=>esc(String(u||'').replace(/^https?:\/\/(www\.
 function detail(k,i,dist){const tel0=(i.phone||'').replace(/[^\d+]/g,''),tel=i.tel!==undefined?(/^0\d{9,10}$/.test(i.tel)?i.tel:''):(/^(0\d{9,10}|\+44\d{9,10})$/.test(tel0)?tel0:''),row=(l,v)=>v&&v.length?`<p class="xrow"><b>${t(l)}:</b> ${v}</p>`:'';
  const day=k==='sh'&&shDay(i);
  const youth=k==='sh'&&shYouth(i);
- const dayHtml=day?`<p class="xday">${t('dayOnly')}</p>`:youth?`<p class="xday">${i.age_range?(lang==='cy'?`Ar gyfer oed ${esc(i.age_range)}. Angen atgyfeiriad. Nid gwely brys.`:`For ages ${esc(i.age_range)}. Referral needed. Not an emergency bed.`):t('youthOnly')}</p>`:'';
+ const advice=k==='sh'&&shAdvice(i);
+ const dayHtml=advice?`<p class="xday">${t('adviceOnly')}</p>`:day?`<p class="xday">${t('dayOnly')}</p>`:youth?`<p class="xday">${i.age_range?(lang==='cy'?`Ar gyfer oed ${esc(i.age_range)}. Angen atgyfeiriad. Nid gwely brys.`:`For ages ${esc(i.age_range)}. Referral needed. Not an emergency bed.`):t('youthOnly')}</p>`:'';
  const fmtNum=s=>window.ukfmt?ukfmt(String(s||'').trim()):String(s||'').trim();
  const phoneHtml=[i.phone_label?window.phLab(i):'',i.phone_unconfirmed?`<span class="psrc">${lang==='cy'?'Rhif heb ei gadarnhau ar wefan swyddogol':'Number not yet confirmed on an official site'}</span>`:'',String(i.phone||'').includes(' or ')?`<span class="xalt">${lang==='cy'?'Neu':'Or'}: ${String(i.phone).split(' or ').slice(1).map(x=>esc(fmtNum(x))).join(', ')}</span>`:''].filter(Boolean).join(' · ');
  const phoneNumber=tel?`<span class="xph">${esc(fmtNum(String(i.phone||'').split(' or ')[0]))}</span>`:'';
@@ -230,7 +235,7 @@ function shelterTypeOk(i){const day=dayOnly.sh,youth=youthOnly.sh,hostel=typeOn.
  if(day&&shDay(i))return true;if(youth&&shYouth(i))return true;
  return !!(hostel&&shHostel(i))}
 function shChipOn(){return !!(typeOn.shost||youthOnly.sh||dayOnly.sh)}
-window.shDay=shDay;window.shYouth=shYouth;window.shHostel=shHostel;window.shelterTypeOk=shelterTypeOk;window.shChipOn=shChipOn;
+window.shDay=shDay;window.shAdvice=shAdvice;window.shYouth=shYouth;window.shHostel=shHostel;window.shelterTypeOk=shelterTypeOk;window.shChipOn=shChipOn;
 function shFitBounds(lat,lng,all){const n=XLIM().first,pin=all.filter(x=>!x.i.no_pin);const pick=(pin.length?pin:all).slice(0,n);if(!pick.length)return null;return L.latLngBounds([[lat,lng],...pick.map(x=>[x.i.lat,x.i.lng])]).pad(0.2)}
 function refitShMap(){if(!map||!lastPos||window.v3focus!=='sh')return;const B=window._fitX&&window._fitX.sh;if(!B)return;map.invalidateSize();map.fitBounds(B,{animate:false});if(innerWidth<1024&&map.getZoom()<12)map.setView([lastPos[0],lastPos[1]],13,{animate:false})}
 window.refitShMap=refitShMap;
