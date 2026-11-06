@@ -1,6 +1,6 @@
 {
  "run": "2026-11-06",
- "seconds": 57.8,
+ "seconds": 81.2,
  "pages": [
   {
    "council": "Armagh City, Banbridge and Craigavon Borough Council",
@@ -492,8 +492,8 @@
    "council": "Charnwood Borough Council",
    "url": "https://www.charnwood.gov.uk/pages/news",
    "kind": "news",
-   "http": 429,
-   "status": "unreachable",
+   "http": 200,
+   "status": "checked",
    "quote": "",
    "rest_centre": null
   },
@@ -501,8 +501,8 @@
    "council": "Charnwood Borough Council",
    "url": "https://www.charnwood.gov.uk/pages/flooding",
    "kind": "emergencies",
-   "http": 429,
-   "status": "unreachable",
+   "http": 200,
+   "status": "checked",
    "quote": "",
    "rest_centre": null
   },
@@ -1455,8 +1455,8 @@
    "council": "City of Lincoln Council",
    "url": "https://www.lincoln.gov.uk/news",
    "kind": "news",
-   "http": 200,
-   "status": "checked",
+   "http": null,
+   "status": "unreachable",
    "quote": "",
    "rest_centre": null
   },
@@ -1491,8 +1491,8 @@
    "council": "Liverpool City Council",
    "url": "https://liverpool.gov.uk/communities-and-safety/emergency-planning/",
    "kind": "emergencies",
-   "http": null,
-   "status": "unreachable",
+   "http": 200,
+   "status": "checked",
    "quote": "",
    "rest_centre": null
   },
@@ -1887,8 +1887,8 @@
    "council": "North West Leicestershire District Council",
    "url": "https://www.nwleics.gov.uk/pages/news",
    "kind": "news",
-   "http": 429,
-   "status": "unreachable",
+   "http": 200,
+   "status": "checked",
    "quote": "",
    "rest_centre": null
   },
@@ -1914,8 +1914,8 @@
    "council": "Oadby and Wigston Borough Council",
    "url": "https://www.oadby-wigston.gov.uk/news",
    "kind": "news",
-   "http": 429,
-   "status": "unreachable",
+   "http": 200,
+   "status": "checked",
    "quote": "",
    "rest_centre": null
   },
@@ -2166,8 +2166,8 @@
    "council": "Rugby Borough Council",
    "url": "https://www.rugby.gov.uk/w/disruption-and-emergencies",
    "kind": "emergencies",
-   "http": 200,
-   "status": "checked",
+   "http": null,
+   "status": "unreachable",
    "quote": "",
    "rest_centre": null
   },
@@ -2274,8 +2274,8 @@
    "council": "South Derbyshire District Council",
    "url": "https://www.southderbyshire.gov.uk/news",
    "kind": "news",
-   "http": 200,
-   "status": "checked",
+   "http": null,
+   "status": "unreachable",
    "quote": "",
    "rest_centre": null
   },
@@ -2607,8 +2607,8 @@
    "council": "Tameside Metropolitan Borough Council",
    "url": "https://www.tameside.gov.uk/newsroom",
    "kind": "news",
-   "http": 200,
-   "status": "checked",
+   "http": null,
+   "status": "unreachable",
    "quote": "",
    "rest_centre": null
   },
@@ -2643,8 +2643,8 @@
    "council": "Test Valley Borough Council",
    "url": "https://www.testvalley.gov.uk/news",
    "kind": "news",
-   "http": 200,
-   "status": "checked",
+   "http": null,
+   "status": "unreachable",
    "quote": "",
    "rest_centre": null
   },
@@ -2877,8 +2877,8 @@
    "council": "City of Wolverhampton Council",
    "url": "https://www.wolverhampton.gov.uk/news",
    "kind": "news",
-   "http": null,
-   "status": "unreachable",
+   "http": 200,
+   "status": "checked",
    "quote": "",
    "rest_centre": null
   },
