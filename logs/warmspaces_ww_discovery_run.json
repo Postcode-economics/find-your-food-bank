@@ -1,8 +1,8 @@
 {
  "run": "2026-11-06",
- "candidates": 25,
- "already_on_map": 3,
- "new": 22,
+ "candidates": 13,
+ "already_on_map": 0,
+ "new": 13,
  "added": [],
  "flagged": [
   {
@@ -16,75 +16,6 @@
     "directory listing only, with no 2026-27 season dates (latest stated start: none)"
    ],
    "url": "newlifetonyrefail.co.uk",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "ww-69428701",
-   "name": "Warm Spaces at Red Roof Centre",
-   "postcode": "WF9 5BP",
-   "website": "",
-   "directory": "Warm Welcome",
-   "directory_url": "https://www.warmwelcome.uk/space?l=24798",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "ww-69433148",
-   "name": "St Peter's Church Community Cafe",
-   "postcode": "HU7 5XH",
-   "website": "https://spwkchurch.co.uk",
-   "directory": "Warm Welcome",
-   "directory_url": "https://www.warmwelcome.uk/space?l=28661",
-   "reasons": [
-    "own site does not mention a warm space"
-   ],
-   "url": "https://spwkchurch.co.uk",
-   "final_url": "https://spwkchurch.co.uk",
-   "http": 200,
-   "sha256": "329280969b868ea98ed8e98c6c407f33c55df180884d171d8bf3d9dac1909cf3",
-   "etag": "",
-   "last_modified": ""
-  },
-  {
-   "id": "ww-69433149",
-   "name": "Runcorn Library",
-   "postcode": "WA7 1LT",
-   "website": "www.halton.gov.uk/libraries",
-   "directory": "Warm Welcome",
-   "directory_url": "https://www.warmwelcome.uk/space?l=28662",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "www.halton.gov.uk/libraries",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "ww-69434448",
-   "name": "Community Café Warm Welcome",
-   "postcode": "NW10 4LL",
-   "website": "www.transitionhomelessproject.org.uk",
-   "directory": "Warm Welcome",
-   "directory_url": "https://www.warmwelcome.uk/space?l=27110",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)",
-    "postcode NW10 4LL not recognised by postcodes.io"
-   ],
-   "url": "www.transitionhomelessproject.org.uk",
    "final_url": null,
    "http": null,
    "sha256": null,
@@ -122,63 +53,9 @@
    "url": "https://www.librariesunlimited.org.uk",
    "final_url": "https://www.librariesunlimited.org.uk",
    "http": 200,
-   "sha256": "95af5afd3400773b486f265782f6caaa33f98dae3954efe2f8b70869e4b9bd65",
+   "sha256": "544a94653bc837d7c2668e92d54db1b2d8df0b234e3aadb89825ab6a6477c075",
    "etag": "",
    "last_modified": ""
-  },
-  {
-   "id": "ww-69434457",
-   "name": "BGfm Community Radio",
-   "postcode": "NP23 4NN",
-   "website": "http://www.bgfm.wales",
-   "directory": "Warm Welcome",
-   "directory_url": "https://www.warmwelcome.uk/space?l=20566",
-   "reasons": [
-    "own site does not mention a warm space"
-   ],
-   "url": "http://www.bgfm.wales",
-   "final_url": "https://www.bgfm.wales/",
-   "http": 200,
-   "sha256": "3cbf8453a22b7f5306268ea604962b21a690ae69fb8ada73a97e92ddfa543dc2",
-   "etag": "",
-   "last_modified": ""
-  },
-  {
-   "id": "ww-69441225",
-   "name": "Princes Risborough Library",
-   "postcode": "",
-   "website": "https://www.buckinghamshire.gov.uk/libraries/information-about-local-library/princes-risborough-library/",
-   "directory": "Warm Welcome",
-   "directory_url": "https://www.warmwelcome.uk/space?l=17918",
-   "reasons": [
-    "own site does not mention a warm space",
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)",
-    "no postcode"
-   ],
-   "url": "https://www.buckinghamshire.gov.uk/libraries/information-about-local-library/princes-risborough-library/",
-   "final_url": "https://www.buckinghamshire.gov.uk/schools-libraries-and-parks/libraries/information-about-local-library/princes-risborough-library/",
-   "http": 200,
-   "sha256": "b0ce3da8b6d5d1224e0c168bc05bf010decdc1a665948be67df39b792e35e61f",
-   "etag": "",
-   "last_modified": ""
-  },
-  {
-   "id": "ww-69441228",
-   "name": "The George Community Hub & Cafe",
-   "postcode": "GL14 1BS",
-   "website": "www.thegeorgeatnewnham.co.uk",
-   "directory": "Warm Welcome",
-   "directory_url": "https://www.warmwelcome.uk/space?l=28271",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)",
-    "source pin 309.4 km from its postcode"
-   ],
-   "url": "www.thegeorgeatnewnham.co.uk",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
   },
   {
    "id": "ww-69441264",
@@ -227,9 +104,9 @@
    "url": "https://www.newcastle.gov.uk/services/libraries-culture/libraries-newcastle/outer-west-library",
    "final_url": "https://new.newcastle.gov.uk/libraries/find-library",
    "http": 200,
-   "sha256": "14b499f0717e2464ed7230134a79fe7646fbd6abc43bf8944f75810f81842a59",
-   "etag": "\"1793926369\"",
-   "last_modified": "Fri, 06 Nov 2026 00:52:49 GMT"
+   "sha256": "dd41c1c517ed1530928954fc96f5761f97512d3f8c92a158df405eb8a8331264",
+   "etag": "\"1793970472\"",
+   "last_modified": "Fri, 06 Nov 2026 13:07:52 GMT"
   },
   {
    "id": "ww-69441267",
@@ -244,9 +121,9 @@
    "url": "https://www.newcastle.gov.uk/services/libraries-culture/libraries-newcastle/newburn-library",
    "final_url": "https://new.newcastle.gov.uk/libraries/find-library",
    "http": 200,
-   "sha256": "14b499f0717e2464ed7230134a79fe7646fbd6abc43bf8944f75810f81842a59",
-   "etag": "\"1793926369\"",
-   "last_modified": "Fri, 06 Nov 2026 00:52:49 GMT"
+   "sha256": "dd41c1c517ed1530928954fc96f5761f97512d3f8c92a158df405eb8a8331264",
+   "etag": "\"1793970472\"",
+   "last_modified": "Fri, 06 Nov 2026 13:07:52 GMT"
   },
   {
    "id": "ww-69441268",
@@ -261,9 +138,9 @@
    "url": "https://www.newcastle.gov.uk/services/libraries-and-culture",
    "final_url": "https://new.newcastle.gov.uk/libraries",
    "http": 200,
-   "sha256": "85a212fef0d12e3c33ca04388b1e7105d9732c02b3819326d09898d0a1ce79ca",
-   "etag": "\"1793924896\"",
-   "last_modified": "Fri, 06 Nov 2026 00:28:16 GMT"
+   "sha256": "38f99857896f03ed44049ee4fc80238eb32987edbfd2c935aed9b860a8c47490",
+   "etag": "\"1793969794\"",
+   "last_modified": "Fri, 06 Nov 2026 12:56:34 GMT"
   },
   {
    "id": "ww-69441289",
@@ -278,9 +155,9 @@
    "url": "https://www.newcastle.gov.uk/services/libraries-and-culture",
    "final_url": "https://new.newcastle.gov.uk/libraries",
    "http": 200,
-   "sha256": "85a212fef0d12e3c33ca04388b1e7105d9732c02b3819326d09898d0a1ce79ca",
-   "etag": "\"1793924896\"",
-   "last_modified": "Fri, 06 Nov 2026 00:28:16 GMT"
+   "sha256": "38f99857896f03ed44049ee4fc80238eb32987edbfd2c935aed9b860a8c47490",
+   "etag": "\"1793969794\"",
+   "last_modified": "Fri, 06 Nov 2026 12:56:34 GMT"
   },
   {
    "id": "ww-69441290",
@@ -312,9 +189,9 @@
    "url": "https://www.newcastle.gov.uk/services/libraries-and-culture",
    "final_url": "https://new.newcastle.gov.uk/libraries",
    "http": 200,
-   "sha256": "85a212fef0d12e3c33ca04388b1e7105d9732c02b3819326d09898d0a1ce79ca",
-   "etag": "\"1793924896\"",
-   "last_modified": "Fri, 06 Nov 2026 00:28:16 GMT"
+   "sha256": "38f99857896f03ed44049ee4fc80238eb32987edbfd2c935aed9b860a8c47490",
+   "etag": "\"1793969794\"",
+   "last_modified": "Fri, 06 Nov 2026 12:56:34 GMT"
   },
   {
    "id": "ww-69441293",
@@ -346,43 +223,9 @@
    "url": "https://www.citizensadvicerotherham.org.uk/",
    "final_url": "https://www.citizensadvicerotherham.org.uk/",
    "http": 200,
-   "sha256": "1df212b4bd20acf551a5180e829a4c0a6d21fa210c3bcc65adba4d09cb19e8e6",
+   "sha256": "a40563879d294edd8b60eea5deded98833d65c3e64c397f4efaf171c6a61c1e6",
    "etag": "",
-   "last_modified": "Fri, 06 Nov 2026 01:15:07 GMT"
-  },
-  {
-   "id": "ww-69449537",
-   "name": "St Catherine's Church Centre",
-   "postcode": "WF1 5HL",
-   "website": "",
-   "directory": "Warm Welcome",
-   "directory_url": "https://www.warmwelcome.uk/space?l=28540",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "ww-69450479",
-   "name": "Warm Up Warm Space",
-   "postcode": "WF10 3LQ",
-   "website": "",
-   "directory": "Warm Welcome",
-   "directory_url": "https://www.warmwelcome.uk/space?l=28668",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
+   "last_modified": "Fri, 06 Nov 2026 13:40:47 GMT"
   }
  ],
  "rejected": [],
@@ -401,7 +244,5 @@
   "ww-69441293",
   "ww-69441295"
  ],
- "verified_proposals": [
-  "ww-69441225"
- ]
+ "verified_proposals": []
 }
