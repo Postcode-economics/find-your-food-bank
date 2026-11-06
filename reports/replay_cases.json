@@ -223,7 +223,7 @@
 {
 "access": "unclear",
 "hours_hash": "",
-"http": null,
+"http": 200,
 "phones": [],
 "url": "http://www.raftfoundation.org"
 },
@@ -289,7 +289,7 @@
 {
 "access": "unclear",
 "hours_hash": "",
-"http": 200,
+"http": null,
 "phones": [
 "01773864510"
 ],
@@ -671,7 +671,7 @@
 {
 "access": "unclear",
 "hours_hash": "",
-"http": 200,
+"http": 500,
 "phones": [
 "02895933232"
 ],
@@ -1426,7 +1426,7 @@
 {
 "access": "unclear",
 "hours_hash": "",
-"http": 404,
+"http": 200,
 "phones": [
 "07493056985"
 ],
@@ -3240,8 +3240,8 @@
 },
 {
 "access": "mixed",
-"hours_hash": "",
-"http": 504,
+"hours_hash": "aaf26f075329",
+"http": 200,
 "phones": [
 "01239621974",
 "01970612817"
@@ -4219,8 +4219,8 @@
 },
 {
 "access": "unclear",
-"hours_hash": "6772ed003fcb",
-"http": 200,
+"hours_hash": "",
+"http": null,
 "phones": [
 "01389717792",
 "07368496836",
@@ -4325,8 +4325,8 @@
 },
 {
 "access": "mixed",
-"hours_hash": "6bc0057e3221",
-"http": 200,
+"hours_hash": "",
+"http": null,
 "phones": [
 "01646699275"
 ],

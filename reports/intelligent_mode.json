@@ -6,9 +6,19 @@
     "times": {
      "applied": 0,
      "applied_this_run": 0,
-     "held": 50,
+     "held": 52,
      "stale_cleared": 0,
      "rejected": [
+      {
+       "id": "colchester",
+       "reasons": [
+        "new own-site times look like office/centre hours",
+        "own site lists several centres (10 postcodes); cannot tie one table to this listing",
+        "new own-site times look like office/centre hours",
+        "not one clear weekly client-hours block (kept as text for review)",
+        "times not read identically on 2 separate runs yet"
+       ]
+      },
       {
        "id": "pbp",
        "reasons": [
@@ -43,8 +53,7 @@
         "new own-site times look like office/centre hours",
         "new own-site times look like office/centre hours",
         "new own-site times look like office/shop hours (identical Mon-Fri block, no distribution wording)",
-        "not one clear weekly client-hours block (kept as text for review)",
-        "times not read identically on 2 separate runs yet"
+        "not one clear weekly client-hours block (kept as text for review)"
        ]
       },
       {
@@ -152,6 +161,12 @@
        ]
       },
       {
+       "id": "collier-row-romford",
+       "reasons": [
+        "times not read identically on 2 separate runs yet"
+       ]
+      },
+      {
        "id": "crowthorne/owlsmoor-community-centre",
        "reasons": [
         "not one clear weekly client-hours block (kept as text for review)",
@@ -183,12 +198,6 @@
         "not one clear weekly client-hours block (kept as text for review)",
         "jumble: 6 separate time blocks read from one page; review only",
         "would cut known hours to fewer sessions (7 to 6) and the source does not say that session ended; review"
-       ]
-      },
-      {
-       "id": "new-wortley-community-centre",
-       "reasons": [
-        "day not on the same line as its times on the own-site page"
        ]
       },
       {
@@ -291,8 +300,7 @@
         "own site lists several centres (4 postcodes); cannot tie one table to this listing",
         "new own-site times look like office/centre hours",
         "not one clear weekly client-hours block (kept as text for review)",
-        "would cut known hours to fewer days (drops Sat) and the source does not say that session ended; review",
-        "times not read identically on 2 separate runs yet"
+        "would cut known hours to fewer days (drops Sat) and the source does not say that session ended; review"
        ]
       },
       {
@@ -328,6 +336,14 @@
        ]
       },
       {
+       "id": "coventry/st-laurences-church",
+       "reasons": [
+        "own site lists several centres (16 postcodes); cannot tie one table to this listing",
+        "would cut known hours to fewer days (drops Mon, Wed, Thu, Fri) and the source does not say that session ended; review",
+        "times not read identically on 2 separate runs yet"
+       ]
+      },
+      {
        "id": "whitby",
        "reasons": [
         "day not on the same line as its times on the own-site page"
@@ -349,8 +365,7 @@
       {
        "id": "cann-hall",
        "reasons": [
-        "day not on the same line as its times on the own-site page",
-        "times not read identically on 2 separate runs yet"
+        "day not on the same line as its times on the own-site page"
        ]
       },
       {
@@ -406,14 +421,14 @@
      "alerts": [],
      "coverage": {
       "sites": 16,
-      "sites_opened": 13,
-      "render_attempts": 563,
-      "render_errors": 12,
+      "sites_opened": 14,
+      "render_attempts": 567,
+      "render_errors": 4,
       "source_pages": 19,
       "source_opened": 16,
       "budget_skipped": 0,
       "hours_review_due": 1738,
-      "hours_review_opened": 895
+      "hours_review_opened": 1239
      },
      "enabled": true
     },
@@ -426,11 +441,11 @@
      "errors": [],
      "alerts": [],
      "coverage": {
-      "render_attempts": 1180,
+      "render_attempts": 1040,
       "render_errors": 5,
       "budget_skipped": 0,
-      "hours_review_due": 1738,
-      "hours_review_opened": 1239,
+      "hours_review_due": 1737,
+      "hours_review_opened": 1080,
       "sites": 16,
       "sites_opened": 13,
       "source_pages": 19,
@@ -441,9 +456,19 @@
    },
    "applied": 0,
    "applied_this_run": 0,
-   "held": 50,
+   "held": 52,
    "stale_cleared": 0,
    "rejected": [
+    {
+     "id": "colchester",
+     "reasons": [
+      "new own-site times look like office/centre hours",
+      "own site lists several centres (10 postcodes); cannot tie one table to this listing",
+      "new own-site times look like office/centre hours",
+      "not one clear weekly client-hours block (kept as text for review)",
+      "times not read identically on 2 separate runs yet"
+     ]
+    },
     {
      "id": "pbp",
      "reasons": [
@@ -478,8 +503,7 @@
       "new own-site times look like office/centre hours",
       "new own-site times look like office/centre hours",
       "new own-site times look like office/shop hours (identical Mon-Fri block, no distribution wording)",
-      "not one clear weekly client-hours block (kept as text for review)",
-      "times not read identically on 2 separate runs yet"
+      "not one clear weekly client-hours block (kept as text for review)"
      ]
     },
     {
@@ -587,6 +611,12 @@
      ]
     },
     {
+     "id": "collier-row-romford",
+     "reasons": [
+      "times not read identically on 2 separate runs yet"
+     ]
+    },
+    {
      "id": "crowthorne/owlsmoor-community-centre",
      "reasons": [
       "not one clear weekly client-hours block (kept as text for review)",
@@ -618,12 +648,6 @@
       "not one clear weekly client-hours block (kept as text for review)",
       "jumble: 6 separate time blocks read from one page; review only",
       "would cut known hours to fewer sessions (7 to 6) and the source does not say that session ended; review"
-     ]
-    },
-    {
-     "id": "new-wortley-community-centre",
-     "reasons": [
-      "day not on the same line as its times on the own-site page"
      ]
     },
     {
@@ -726,8 +750,7 @@
       "own site lists several centres (4 postcodes); cannot tie one table to this listing",
       "new own-site times look like office/centre hours",
       "not one clear weekly client-hours block (kept as text for review)",
-      "would cut known hours to fewer days (drops Sat) and the source does not say that session ended; review",
-      "times not read identically on 2 separate runs yet"
+      "would cut known hours to fewer days (drops Sat) and the source does not say that session ended; review"
      ]
     },
     {
@@ -763,6 +786,14 @@
      ]
     },
     {
+     "id": "coventry/st-laurences-church",
+     "reasons": [
+      "own site lists several centres (16 postcodes); cannot tie one table to this listing",
+      "would cut known hours to fewer days (drops Mon, Wed, Thu, Fri) and the source does not say that session ended; review",
+      "times not read identically on 2 separate runs yet"
+     ]
+    },
+    {
      "id": "whitby",
      "reasons": [
       "day not on the same line as its times on the own-site page"
@@ -784,8 +815,7 @@
     {
      "id": "cann-hall",
      "reasons": [
-      "day not on the same line as its times on the own-site page",
-      "times not read identically on 2 separate runs yet"
+      "day not on the same line as its times on the own-site page"
      ]
     },
     {
@@ -842,13 +872,13 @@
    "coverage": {
     "sites": 16,
     "sites_opened": 13,
-    "render_attempts": 1180,
+    "render_attempts": 1040,
     "render_errors": 5,
     "source_pages": 19,
     "source_opened": 15,
     "budget_skipped": 0,
-    "hours_review_due": 1738,
-    "hours_review_opened": 1239
+    "hours_review_due": 1737,
+    "hours_review_opened": 1080
    }
   }
  },
@@ -857,5 +887,5 @@
   "coverage gate: opened 15 of 19 source pages (79% < 80%)"
  ],
  "enabled": true,
- "generated_at": "2026-11-06T15:16:12+00:00"
+ "generated_at": "2026-11-06T22:49:48+00:00"
 }

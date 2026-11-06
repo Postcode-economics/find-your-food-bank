@@ -100,6 +100,7 @@ Score = average of opening-times and phone fill rates (0-100). Flagged if it dro
 - own site leicestersouth.foodbank.org.uk: 96.7
 - own site barnsley.foodbank.org.uk: 96.7
 - own site westcheshire.foodbank.org.uk: 96.9
+- own site coventry.foodbank.org.uk: 96.9
 - own site stokeontrent.foodbank.org.uk: 97
 - own site lambethcroydon.foodbank.org.uk: 100
 - own site colchester.foodbank.org.uk: 100
@@ -162,7 +163,6 @@ Score = average of opening-times and phone fill rates (0-100). Flagged if it dro
 - own site strouddistrict.foodbank.org.uk: 100
 - own site eppingforest.foodbank.org.uk: 100
 - own site northcotswold.foodbank.org.uk: 100
-- own site coventry.foodbank.org.uk: 100
 - own site epsomewell.foodbank.org.uk: 100
 - own site stockport.foodbank.org.uk: 100
 - own site lewisham.foodbank.org.uk: 100
