@@ -223,6 +223,8 @@ New food banks and shelters wait here for your OK (add the id to overrides/foodb
 
 - Salford Foyer (M6 5WX) - no sourced 'who it's for' - https://www.openstreetmap.org/way/979361293
 - St Mungo's (SE1 0ES) - no sourced 'who it's for' - https://www.openstreetmap.org/way/753792449
+
+
 <!-- times crosscheck fb -->
 ## Opening-times changes from the refresh (fb): 7 auto-applied, 48 held
 
@@ -480,14 +482,14 @@ New food banks and shelters wait here for your OK (add the id to overrides/foodb
 
 
 <!-- times crosscheck ws -->
-## Opening-times changes from the refresh (ws): 0 auto-applied, 38 held
+## Opening-times changes from the refresh (ws): 0 auto-applied, 39 held
 
 - **Bishops Stortford Methodist Church** (`ww-64379621`, CM23 3AZ): own site now Tues - Thurs 10am - 4pm | Mondays and Saturdays 10am - 12pm  
   source: https://www.bsm-church.org.uk  
   why held: would cut known hours to fewer days (drops Fri) and the source does not say that session ended; review
 - **Cafe Oasis** (`ww-64378921`, BL1 6RN): own site now Friday 10:30am - 12:45pm  
   source: https://www.achurchnearyou.com/church/33204/  
-  why held: source page is not the warm space's own session page (general venue or directory page); day not on the same line as its times on the own-site page; times not read identically on 2 separate runs yet
+  why held: source page is not the warm space's own session page (general venue or directory page); day not on the same line as its times on the own-site page
 - **Canford Heath Library** (`ww-65437341`, BH17 8UE): own site now Monday 10am to 1pm | Thursday 10am to 1pm | Friday 10am to 1pm | Saturday 10am to 1pm  
   source: https://www.bcpcouncil.gov.uk/libraries/find-a-library/canford-heath-library  
   why held: would cut known hours to fewer days (drops Tue, Wed) and the source does not say that session ended; review
@@ -502,7 +504,7 @@ New food banks and shelters wait here for your OK (add the id to overrides/foodb
   why held: this change was undone by Dean; not re-applied
 - **Deptford Lounge** (`ww-57952616`, SE8 4RJ): own site now Monday 9am – 7pm | Tuesday 9am – 7pm | Wednesday 9am – 7pm | Thursday 9am – 7pm | Friday 9am – 7pm | Saturday 9am – 5pm | Sunday 10am – 4pm  
   source: https://deptfordlounge.org.uk/  
-  why held: new own-site times look like office/centre hours; new own-site times look like general venue opening hours, not a warm-space session; jumble: 7 separate time blocks read from one page; review only; times not read identically on 2 separate runs yet
+  why held: new own-site times look like office/centre hours; new own-site times look like general venue opening hours, not a warm-space session; jumble: 7 separate time blocks read from one page; review only
 - **Gateway** (`ww-58567193`, OL16 1SN): own site now Monday to Friday 9:30am – 3:30pm  
   source: https://gatewayleisure.co.uk/  
   why held: new own-site times look like office/centre hours
@@ -512,6 +514,9 @@ New food banks and shelters wait here for your OK (add the id to overrides/foodb
 - **Inham Nook Library** (`ww-65438945`, NG9 4HU): own site now Thu 10AM - 12:30PM | Sat 10AM - 1PM  
   source: https://www.inspireculture.org.uk/reading-information/find-a-library/inham-nook-library/visiting-us/  
   why held: own site lists several centres (2 postcodes); cannot tie one table to this listing; source page is not the warm space's own session page (general venue or directory page)
+- **Jubilee Church, Wirral** (`ww-65437506`, CH45 0LA): own site now Thursdays 1pm-3pm  
+  source: https://jubileechurchwirral.org.uk/  
+  why held: day not on the same line as its times on the own-site page; would cut known hours to fewer days (drops Fri, Sun) and the source does not say that session ended; review; times not read identically on 2 separate runs yet
 - **Kirkliston Parish Church** (`ww-55473134`, EH29 9AX): own site now Fridays 6:00pm - 8:00pm  
   source: https://www.kirklistonparish.org  
   why held: day not on the same line as its times on the own-site page
@@ -523,7 +528,7 @@ New food banks and shelters wait here for your OK (add the id to overrides/foodb
   why held: new own-site times look like office/centre hours; this change was undone by Dean; not re-applied
 - **Martyrs Church** (`ww-57953292`, LE3 0QT): own site now Thursdays 10am-11:30am  
   source: https://martyrs.org.uk/  
-  why held: times not read identically on 2 separate runs yet; this change was undone by Dean; not re-applied
+  why held: this change was undone by Dean; not re-applied
 - **Museum of the Home** (`ww-55473898`, E2 8EA): own site now Monday to Sunday 10am–4.30pm  
   source: https://www.museumofthehome.org.uk/  
   why held: new own-site times look like office/centre hours; new own-site times look like general venue opening hours, not a warm-space session
@@ -597,6 +602,8 @@ New food banks and shelters wait here for your OK (add the id to overrides/foodb
   source: https://www.westminster.gov.uk/leisure-libraries-and-community/library-opening-times-and-contact-details/west-end-arts-library  
   why held: new own-site times look like office/centre hours; new own-site times look like general venue opening hours (identical weekday block, not warm-space session wording); new own-site times look like general venue opening hours, not a warm-space session
 <!-- /times crosscheck ws -->
+
+
 <!-- closures -->
 ## Possible closures - still on the map with "May have closed" note (0)
 
@@ -690,6 +697,8 @@ The 29 Oct 05:44 warm spaces refresh (477f83f73) gave these 16 warm spaces a cou
 - Wesley Warm Welcome (SS9 1SJ) | ww-55474116 | council_phone 01702 215000 removed
 - Windmill Warmbank (N18 1PL) | ww-59974983 | council_phone 020 8379 1000 removed
 <!-- /council line undo -->
+
+
 <!-- held near cities -->
 ## Held near cities
 
@@ -751,7 +760,6 @@ Hand check 31 Oct 2026. A directory listing alone is not enough. Nothing here is
 - **Adullam Homes HA - Bury ABEN (Phase 3)** (`hl-adullam-homes-ha-bury-aben-phase-3`): directory record only; an operator or council page has not confirmed it is running now and the phone
 - **Our Way Leeds Emergency Accommodation** (`hl-turning-lives-around-seacole-scheme`): id/name mismatch (the id is Turning Lives Around Seacole; the name is Our Way Leeds)
 <!-- /referral hostel holds -->
-
 <!-- sweep shelters -->
 ## Shelter candidates from the sweep (review only)
 
@@ -759,6 +767,7 @@ Run 2026-11-06. Nothing here is on the map. Each needs a hand check before it is
 
 - none this run
 <!-- /sweep shelters -->
+
 
 <!-- times review -->
 ## Opening-times review list (times_finder)
@@ -770,6 +779,7 @@ Run 2026-11-06. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
   why: hand-checked times are protected; finder only flags differences; not one clear weekly client-hours block (kept as text for review); times not read identically on 2 separate runs yet; jumble: Mon given different times in separate blocks on one page; review only
 <!-- /times review -->
 
+
 <!-- rest centre switch-on -->
 ## Rest centre and SWEP switch-ons (waiting for Dean)
 
@@ -778,3 +788,5 @@ Council pages say these are ON. Incident rest centres go live when overrides/inc
 - **North Tyneside Council** — [Severe weather shelter (SWEP)] SWEP — https://www.northtyneside.gov.uk/housing/homelessness/if-you-are-homeless-or-sleeping-rough — “seasonal (council page): SWEP is active between 1 November and 31 March”
 - **West Northamptonshire Council** — [Severe weather shelter (SWEP)] SWEP — https://www.westnorthants.gov.uk/homelessness/support-people-sleeping-rough/help-people-sleeping-rough-very-cold-or-extreme-weather — “ross the whole of West Northamptonshire. How we tell people SWEP has been activated Our Outreach team notifies: relevant council services police services faith…”
 <!-- /rest centre switch-on -->
+
+
