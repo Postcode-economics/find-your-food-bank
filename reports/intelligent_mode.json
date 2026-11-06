@@ -1,12 +1,12 @@
 {
- "run": "2026-11-05",
+ "run": "2026-11-06",
  "layers": {
   "foodbanks": {
    "steps": {
     "times": {
      "applied": 0,
      "applied_this_run": 0,
-     "held": 48,
+     "held": 46,
      "stale_cleared": 0,
      "rejected": [
       {
@@ -19,19 +19,33 @@
        ]
       },
       {
+       "id": "pbp",
+       "reasons": [
+        "new own-site times look like office/centre hours",
+        "own site lists several centres (3 postcodes); cannot tie one table to this listing",
+        "new own-site times look like office/centre hours",
+        "new own-site times look like office/shop hours (identical Mon-Fri block, no distribution wording)",
+        "not one clear weekly client-hours block (kept as text for review)",
+        "jumble: 5 separate time blocks read from one page; review only",
+        "times not read identically on 2 separate runs yet"
+       ]
+      },
+      {
+       "id": "pbp/cetma-swansea",
+       "reasons": [
+        "new own-site times look like office/centre hours",
+        "own site lists several centres (3 postcodes); cannot tie one table to this listing",
+        "new own-site times look like office/centre hours",
+        "not one clear weekly client-hours block (kept as text for review)",
+        "jumble: 5 separate time blocks read from one page; review only",
+        "times not read identically on 2 separate runs yet"
+       ]
+      },
+      {
        "id": "north-oxfordshire",
        "reasons": [
         "own site lists several centres (3 postcodes); cannot tie one table to this listing",
         "would cut known hours to fewer days (drops Mon) and the source does not say that session ended; review"
-       ]
-      },
-      {
-       "id": "inspero",
-       "reasons": [
-        "new own-site times look like office/centre hours",
-        "new own-site times look like office/centre hours",
-        "new own-site times look like office/shop hours (identical Mon-Fri block, no distribution wording)",
-        "not one clear weekly client-hours block (kept as text for review)"
        ]
       },
       {
@@ -170,6 +184,13 @@
         "not one clear weekly client-hours block (kept as text for review)",
         "jumble: 6 separate time blocks read from one page; review only",
         "would cut known hours to fewer sessions (7 to 6) and the source does not say that session ended; review"
+       ]
+      },
+      {
+       "id": "new-wortley-community-centre",
+       "reasons": [
+        "day not on the same line as its times on the own-site page",
+        "times not read identically on 2 separate runs yet"
        ]
       },
       {
@@ -317,12 +338,6 @@
        ]
       },
       {
-       "id": "cann-hall",
-       "reasons": [
-        "day not on the same line as its times on the own-site page"
-       ]
-      },
-      {
        "id": "ty-hapus",
        "reasons": [
         "source page never mentions a food bank or this listing's name (rule 21: a host church page counts only when it names the food bank)",
@@ -343,21 +358,7 @@
        ]
       },
       {
-       "id": "ifan-4a6217d6ae69c4977d7d70-0",
-       "reasons": [
-        "new own-site times look like office/centre hours",
-        "new own-site times look like office/centre hours",
-        "not one clear weekly client-hours block (kept as text for review)"
-       ]
-      },
-      {
        "id": "ifan-53c68645aa831ab649ac43-0",
-       "reasons": [
-        "day not on the same line as its times on the own-site page"
-       ]
-      },
-      {
-       "id": "ifan-5b9fd1318a04132921a389-0",
        "reasons": [
         "day not on the same line as its times on the own-site page"
        ]
@@ -367,28 +368,17 @@
        "reasons": [
         "this change was undone by Dean; not re-applied"
        ]
-      },
-      {
-       "id": "ifan-9d9a5ae13b3923c3fd7d0b-0",
-       "reasons": [
-        "new own-site times look like office/centre hours",
-        "new own-site times look like office/centre hours",
-        "not one clear weekly client-hours block (kept as text for review)"
-       ]
       }
      ],
      "errors": [],
      "alerts": [],
      "coverage": {
       "sites": 16,
-      "sites_opened": 14,
-      "render_attempts": 565,
-      "render_errors": 4,
+      "sites_opened": 13,
+      "render_attempts": 557,
+      "render_errors": 2,
       "source_pages": 19,
-      "source_opened": 16,
-      "budget_skipped": 0,
-      "hours_review_due": 1738,
-      "hours_review_opened": 1008
+      "source_opened": 15
      },
      "enabled": true
     },
@@ -401,22 +391,22 @@
      "errors": [],
      "alerts": [],
      "coverage": {
-      "render_attempts": 1100,
-      "render_errors": 5,
+      "render_attempts": 862,
+      "render_errors": 12,
       "budget_skipped": 0,
       "hours_review_due": 1738,
-      "hours_review_opened": 1149,
+      "hours_review_opened": 895,
       "sites": 16,
-      "sites_opened": 14,
+      "sites_opened": 13,
       "source_pages": 19,
-      "source_opened": 16
+      "source_opened": 15
      },
      "enabled": true
     }
    },
    "applied": 0,
    "applied_this_run": 0,
-   "held": 48,
+   "held": 46,
    "stale_cleared": 0,
    "rejected": [
     {
@@ -429,19 +419,33 @@
      ]
     },
     {
+     "id": "pbp",
+     "reasons": [
+      "new own-site times look like office/centre hours",
+      "own site lists several centres (3 postcodes); cannot tie one table to this listing",
+      "new own-site times look like office/centre hours",
+      "new own-site times look like office/shop hours (identical Mon-Fri block, no distribution wording)",
+      "not one clear weekly client-hours block (kept as text for review)",
+      "jumble: 5 separate time blocks read from one page; review only",
+      "times not read identically on 2 separate runs yet"
+     ]
+    },
+    {
+     "id": "pbp/cetma-swansea",
+     "reasons": [
+      "new own-site times look like office/centre hours",
+      "own site lists several centres (3 postcodes); cannot tie one table to this listing",
+      "new own-site times look like office/centre hours",
+      "not one clear weekly client-hours block (kept as text for review)",
+      "jumble: 5 separate time blocks read from one page; review only",
+      "times not read identically on 2 separate runs yet"
+     ]
+    },
+    {
      "id": "north-oxfordshire",
      "reasons": [
       "own site lists several centres (3 postcodes); cannot tie one table to this listing",
       "would cut known hours to fewer days (drops Mon) and the source does not say that session ended; review"
-     ]
-    },
-    {
-     "id": "inspero",
-     "reasons": [
-      "new own-site times look like office/centre hours",
-      "new own-site times look like office/centre hours",
-      "new own-site times look like office/shop hours (identical Mon-Fri block, no distribution wording)",
-      "not one clear weekly client-hours block (kept as text for review)"
      ]
     },
     {
@@ -580,6 +584,13 @@
       "not one clear weekly client-hours block (kept as text for review)",
       "jumble: 6 separate time blocks read from one page; review only",
       "would cut known hours to fewer sessions (7 to 6) and the source does not say that session ended; review"
+     ]
+    },
+    {
+     "id": "new-wortley-community-centre",
+     "reasons": [
+      "day not on the same line as its times on the own-site page",
+      "times not read identically on 2 separate runs yet"
      ]
     },
     {
@@ -727,12 +738,6 @@
      ]
     },
     {
-     "id": "cann-hall",
-     "reasons": [
-      "day not on the same line as its times on the own-site page"
-     ]
-    },
-    {
      "id": "ty-hapus",
      "reasons": [
       "source page never mentions a food bank or this listing's name (rule 21: a host church page counts only when it names the food bank)",
@@ -753,21 +758,7 @@
      ]
     },
     {
-     "id": "ifan-4a6217d6ae69c4977d7d70-0",
-     "reasons": [
-      "new own-site times look like office/centre hours",
-      "new own-site times look like office/centre hours",
-      "not one clear weekly client-hours block (kept as text for review)"
-     ]
-    },
-    {
      "id": "ifan-53c68645aa831ab649ac43-0",
-     "reasons": [
-      "day not on the same line as its times on the own-site page"
-     ]
-    },
-    {
-     "id": "ifan-5b9fd1318a04132921a389-0",
      "reasons": [
       "day not on the same line as its times on the own-site page"
      ]
@@ -777,33 +768,27 @@
      "reasons": [
       "this change was undone by Dean; not re-applied"
      ]
-    },
-    {
-     "id": "ifan-9d9a5ae13b3923c3fd7d0b-0",
-     "reasons": [
-      "new own-site times look like office/centre hours",
-      "new own-site times look like office/centre hours",
-      "not one clear weekly client-hours block (kept as text for review)"
-     ]
     }
    ],
    "errors": [],
    "alerts": [],
    "coverage": {
     "sites": 16,
-    "sites_opened": 14,
-    "render_attempts": 1100,
-    "render_errors": 5,
+    "sites_opened": 13,
+    "render_attempts": 862,
+    "render_errors": 12,
     "source_pages": 19,
-    "source_opened": 16,
+    "source_opened": 15,
     "budget_skipped": 0,
     "hours_review_due": 1738,
-    "hours_review_opened": 1149
+    "hours_review_opened": 895
    }
   }
  },
  "alerts": [],
- "would_block": [],
+ "would_block": [
+  "coverage gate: opened 15 of 19 source pages (79% < 80%)"
+ ],
  "enabled": true,
- "generated_at": "2026-11-05T22:53:22+00:00"
+ "generated_at": "2026-11-06T07:10:56+00:00"
 }
