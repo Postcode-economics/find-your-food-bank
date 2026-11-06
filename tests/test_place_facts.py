@@ -93,6 +93,26 @@ class Data(unittest.TestCase):
         self.assertEqual(items[1]['wheelchair'], 'no')
         self.assertEqual(items[1]['wheelchair_source'], 'https://example.org/s')
 
+    def test_stamp_copies_stated_facilities_list_only(self):
+        items = [
+            {'id': 'empty'},
+            {'id': 'kept', 'facilities': ['Existing hall']},
+            {'id': 'bare'},
+        ]
+        place_facts.stamp(items, {
+            'empty': {'facilities': ["Hands on cooking workshops, community shop, community gardening, community cafe, and food hygiene training"]},
+            'kept': {'facilities': ['Should not replace']},
+            'bare': {'facilities': 'A bare string must not become character chips'},
+        }, fill_missing=True)
+        self.assertEqual(items[0]['facilities'], ["Hands on cooking workshops, community shop, community gardening, community cafe, and food hygiene training"])
+        self.assertEqual(items[1]['facilities'], ['Existing hall'])
+        self.assertNotIn('facilities', items[2])
+        place_facts.stamp([{'id': 'off'}], {'off': {'facilities': ['No']}}, fill_missing=False)
+        # without fill_missing the helper is not used; default item stays empty
+        off = [{'id': 'off'}]
+        place_facts.stamp(off, {'off': {'facilities': ['No']}}, fill_missing=False)
+        self.assertNotIn('facilities', off[0])
+
     def test_refresh_keeps_a_stated_wheelchair(self):
         old = [{'id': 's', 'name': 'S', 'lat': 1, 'lng': 1, 'wheelchair': 'yes', 'wheelchair_quote': 'Level entrance', 'wheelchair_source': 'https://example.org/q'}]
         new = [{'id': 's', 'name': 'S', 'lat': 1, 'lng': 1}]
