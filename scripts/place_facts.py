@@ -25,7 +25,7 @@ def copy_wheelchair(dest, src):
 
 
 def _copy_list_or_text(dest, src, key):
-    """Copy a stated facilities/provided value. A list is copied as a list. A string is stored as a one-item list so facHtml does not split it into characters. Never wipes a value already on the item."""
+    """Copy a stated facilities/provided list. Never wipes a value already on the item. A bare string is not wrapped."""
     if dest.get(key):
         return
     raw = src.get(key)
@@ -33,8 +33,6 @@ def _copy_list_or_text(dest, src, key):
         stated = [item for item in raw if str(item or "").strip()]
         if stated:
             dest[key] = stated
-    elif isinstance(raw, str) and raw.strip():
-        dest[key] = [raw.strip()]
 
 
 def stamp(items, overlays, fill_missing=False):
