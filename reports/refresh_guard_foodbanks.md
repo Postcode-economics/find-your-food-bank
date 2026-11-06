@@ -1,6 +1,6 @@
-# Refresh guard: foodbanks (2026-11-06T15:16:13+00:00)
+# Refresh guard: foodbanks (2026-11-06T22:49:49+00:00)
 
-foodbanks: kept 4 places, 0 phones, 31 opening times that this run would have dropped. Previous values were kept and published; please check why the source lost them.
+foodbanks: kept 4 places, 0 phones, 32 opening times that this run would have dropped. Previous values were kept and published; please check why the source lost them.
 
 ## places kept (4)
 
@@ -9,7 +9,7 @@ foodbanks: kept 4 places, 0 phones, 31 opening times that this run would have dr
 - ifan-e0054aa041ea174c4f6921-0
 - ifan-efde0ad76e7a121fb1cf96-0
 
-## times kept (31)
+## times kept (32)
 
 - godalming
 - kintyre
@@ -33,6 +33,7 @@ foodbanks: kept 4 places, 0 phones, 31 opening times that this run would have dr
 - wokingham/waterford-house
 - swindon/st-aldhelms-centre
 - aylesbury/tabitha-foodbank
+- coventry/st-laurences-church
 - sunderland/roker-methodist-church
 - sunderland/downhill-centre-community-hub
 - blyth/7-seaforth-street
