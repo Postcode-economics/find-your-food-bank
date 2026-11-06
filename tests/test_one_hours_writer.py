@@ -106,18 +106,45 @@ class HoursAudit(unittest.TestCase):
 
 
 class OneWriter(unittest.TestCase):
-    """Every script that assigns opening times on an existing listing is on the #205 path or applies its output."""
-    ALLOWED = {"discover.py", "times_finder.py", "times_revert.py", "build.py", "classify.py"}
+    """Every script that assigns opening times on an existing listing is on the #205 path or applies its output.
+
+    publish_one.py is an overlay output-applier, like build.py: it copies already-decided
+    overrides/opening_times.json with item["opening_times"] = normalise(...) and drops warehouse
+    times with item["opening_times"] = None. It does not scrape sites or call times_finder.
+    """
+    ALLOWED = {"discover.py", "times_finder.py", "times_revert.py", "build.py", "classify.py", "publish_one.py"}
+    # Subscript assignment, plus .update({...}) so a hidden write cannot skip this guard.
+    PAT = re.compile(
+        r"""(\[['"]opening_times['"]\]\s*=[^=]"""
+        r"""|\bopening_times\s*=\s*(?!None\b)[a-z_(\[{]"""
+        r"""|\.update\(\s*\{\s*['"]opening_times['"]"""
+        r"""|\.update\(\s*\[\s*\(\s*['"]opening_times['"])"""
+    )
     def test_no_other_script_assigns_opening_times(self):
-        pat = re.compile(r"""(\[['"]opening_times['"]\]\s*=[^=]|\bopening_times\s*=\s*(?!None\b)[a-z_(\[{])""")
         bad = []
         sd = os.path.join(ROOT, "scripts")
         for f in sorted(os.listdir(sd)):
             if not f.endswith(".py") or f in self.ALLOWED: continue
             for n, line in enumerate(open(os.path.join(sd, f), encoding="utf-8"), 1):
                 code = line.split("#", 1)[0]
-                if pat.search(code) and "def " not in code: bad.append("%s:%d %s" % (f, n, line.strip()[:120]))
+                if self.PAT.search(code) and "def " not in code: bad.append("%s:%d %s" % (f, n, line.strip()[:120]))
         self.assertEqual(bad, [])
+
+    def test_update_cannot_hide_an_opening_times_write(self):
+        self.assertIn("publish_one.py", self.ALLOWED)
+        self.assertIsNotNone(self.PAT.search('item.update({"opening_times": None})'))
+        self.assertIsNotNone(self.PAT.search("item.update({'opening_times': x})"))
+        self.assertIsNotNone(self.PAT.search('item["opening_times"] = normalise(times[item_id])'))
+        self.assertIsNotNone(self.PAT.search('item["opening_times"] = None'))
+        src = open(os.path.join(ROOT, "scripts", "publish_one.py"), encoding="utf-8").read()
+        hits = []
+        for line in src.splitlines():
+            code = line.split("#", 1)[0]
+            if self.PAT.search(code) and "def " not in code:
+                hits.append(code.strip())
+        self.assertTrue(any('["opening_times"] = normalise(' in line for line in hits))
+        self.assertTrue(any('["opening_times"] = None' in line for line in hits))
+        self.assertFalse(any(".update(" in line and "opening_times" in line for line in hits))
 
 
 if __name__ == "__main__":
