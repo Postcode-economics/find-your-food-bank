@@ -1,8 +1,37 @@
 {
- "run": "2026-11-05",
- "pages": 1602,
- "failed": 0,
- "errors": [],
+ "run": "2026-11-06",
+ "pages": 1597,
+ "failed": 7,
+ "errors": [
+  [
+   "https://www.ipswich.gov.uk/housing/homelessness/support-rough-sleepers",
+   502
+  ],
+  [
+   "https://www.angus.gov.uk/council_and_democracy/emergency_planning_and_information/severe_weather_weather_watch",
+   403
+  ],
+  [
+   "https://www.angus.gov.uk/council_committees_and_elections/emergency_and_events_planning/severe_weather_news_and_guidance",
+   403
+  ],
+  [
+   "https://www.ipswich.gov.uk/ipswich-newsroom/2026/ipswich-borough-council-strengthens-action-prevent-homelessness-and-tackle",
+   502
+  ],
+  [
+   "https://www.rugby.gov.uk/warmhubs",
+   "error"
+  ],
+  [
+   "https://www.wakefield.gov.uk/your-district/warm-welcome-spaces-open-for-residents-this-winter",
+   404
+  ],
+  [
+   "https://www.eastriding.gov.uk/cost-of-living-help-for-households/urgent-help-when-in-need/",
+   202
+  ]
+ ],
  "added": [],
  "status": "ok"
 }
