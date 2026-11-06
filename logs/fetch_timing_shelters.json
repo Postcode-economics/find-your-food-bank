@@ -1,0 +1,24 @@
+{
+ "run": "2026-11-06",
+ "overpass": {
+  "mirror_attempts": [
+   {
+    "mirror": "https://overpass-api.de/api/interpreter",
+    "duration": 51.167,
+    "status": "ok"
+   }
+  ],
+  "answered_mirror": "https://overpass-api.de/api/interpreter"
+ },
+ "fetches": [
+  {
+   "url": "https://overpass-api.de/api/interpreter",
+   "attempt": 1,
+   "duration": 51.167,
+   "status": "ok",
+   "bytes": 59028,
+   "error": null,
+   "timestamp": "2026-11-06T05:56:47.265084+00:00"
+  }
+ ]
+}
