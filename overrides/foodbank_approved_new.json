@@ -1,41 +1,53 @@
 {
- "_about": "Food bank ids Dean has OKd to go on the map (Dean 25 Oct 08:20: no new food bank is auto-added; see reports/pending_dean.md). Object values are full records inserted by scripts/classify.py add_approved_foodbanks (verified fields only).",
- "st-peter-st-pauls-pantry": {
-  "name": "St Peter & St Paul's Pantry",
-  "address": "Rustington Church Hall, BN16 3NR",
-  "postcode": "BN16 3NR",
-  "lat": 50.810862,
-  "lng": -0.51025,
-  "network": "Independent",
-  "source_label": "Arun District Council cost of living page",
-  "opening_times": {
-   "checked_date": "2026-10-26",
-   "raw": "Wednesdays, times vary",
-   "status": "TIMES_TEXT_ONLY"
+  "_about": "Food bank ids Dean has OKd to go on the map (Dean 25 Oct 08:20: no new food bank is auto-added; see reports/pending_dean.md). Object values are full records inserted by scripts/classify.py add_approved_foodbanks (verified fields only).",
+  "st-peter-st-pauls-pantry": {
+    "name": "St Peter & St Paul's Pantry",
+    "address": "Rustington Church Hall, BN16 3NR",
+    "postcode": "BN16 3NR",
+    "lat": 50.810862,
+    "lng": -0.51025,
+    "network": "Independent",
+    "source_label": "Arun District Council cost of living page",
+    "opening_times": {
+      "checked_date": "2026-10-26",
+      "raw": "Wednesdays, times vary",
+      "status": "TIMES_TEXT_ONLY"
+    },
+    "evidence": "Dean approved 26 Oct 2026 10:19 GMT. Arun District Council cost of living page: Rustington Church Hall, BN16 3NR, Wednesdays, times vary, no referral. No phone was stated. Pin is the postcodes.io centroid for BN16 3NR."
   },
-  "evidence": "Dean approved 26 Oct 2026 10:19 GMT. Arun District Council cost of living page: Rustington Church Hall, BN16 3NR, Wednesdays, times vary, no referral. No phone was stated. Pin is the postcodes.io centroid for BN16 3NR."
- },
- "littlehampton-community-fridge": {
-  "name": "Littlehampton Community Fridge",
-  "address": "Venues vary",
-  "phone": "0300 030 9376",
-  "tel": "03000309376",
-  "phone_label": "Fare Divide number",
-  "venues_vary": true,
-  "service_lat": 50.8151,
-  "service_lng": -0.54,
-  "service_km": 8,
-  "network": "Independent",
-  "source_label": "Arun District Council cost of living page",
-  "evidence": "Dean approved 26 Oct 2026 10:19 GMT. Arun District Council cost of living page: Littlehampton Community Fridge, Fare Divide, phone 0300 030 9376, venues vary. No single address or opening times were stated, so this is not pinned. Updated 3 Nov 2026 (Dean blanket approval for verified details): Fare Divide's own locations page lists weekly sessions at 8 venues (Tue printed '12.30am', read as 12:30pm), phone 0300 030 9376 is Fare Divide's own number; still not pinned.",
-  "website": "https://faredivide.org.uk/littlehampton-community-fridge-locations/",
-  "evidence_url": "https://faredivide.org.uk/littlehampton-community-fridge-locations/",
-  "notice": "Run by Fare Divide CIC. Free surplus food for anyone, no referral needed. Times can vary slightly, check Fare Divide's Facebook before going.",
-  "opening_times": {
-   "checked_date": "2026-11-03",
-   "raw": "Mon 11:30am-12:30pm Gordon Hall, Lineside Way, Wick BN17 7EH | Tue 12:30pm-1:30pm and Thu 11:00am-12:00pm Littlehampton Baptist Church, 29 Fitzalan Rd BN17 5NY | Wed 12:00pm-1:00pm Parkside Evangelical Church, St Floras Rd BN17 6BD | Wed from 1:45pm Angmering Baptist Church, Station Rd BN16 4HY | Wed from 2:00pm East Preston & Kingston Village Hall, 52 Sea Road BN16 1LP | Wed from 2:15pm and Sat from 10:30am Rustington Methodist Church, Claigmar Rd BN16 2NL | Fri 3:00pm-4:00pm Chilgrove House Community Hub, Kimberry, Wick BN17 7JD | Sat 12:00pm-1:00pm Turning Tides, by St Martins Car Park South, 2 Arundel Rd BN17 7DB",
-   "source_url": "https://faredivide.org.uk/littlehampton-community-fridge-locations/",
-   "status": "TIMES_TEXT_ONLY"
+  "littlehampton-community-fridge": {
+    "name": "Littlehampton Community Fridge",
+    "address": "Venues vary",
+    "phone": "0300 030 9376",
+    "tel": "03000309376",
+    "phone_label": "Fare Divide number",
+    "venues_vary": true,
+    "service_lat": 50.8151,
+    "service_lng": -0.54,
+    "service_km": 8,
+    "network": "Independent",
+    "source_label": "Arun District Council cost of living page",
+    "evidence": "Dean approved 26 Oct 2026 10:19 GMT. Arun District Council cost of living page: Littlehampton Community Fridge, Fare Divide, phone 0300 030 9376, venues vary. No single address or opening times were stated, so this is not pinned. Updated 3 Nov 2026 (Dean blanket approval for verified details): Fare Divide's own locations page lists weekly sessions at 8 venues (Tue printed '12.30am', read as 12:30pm), phone 0300 030 9376 is Fare Divide's own number; still not pinned.",
+    "website": "https://faredivide.org.uk/littlehampton-community-fridge-locations/",
+    "evidence_url": "https://faredivide.org.uk/littlehampton-community-fridge-locations/",
+    "notice": "Run by Fare Divide CIC. Free surplus food for anyone, no referral needed. Times can vary slightly, check Fare Divide's Facebook before going.",
+    "opening_times": {
+      "checked_date": "2026-11-03",
+      "raw": "Mon 11:30am-12:30pm Gordon Hall, Lineside Way, Wick BN17 7EH | Tue 12:30pm-1:30pm and Thu 11:00am-12:00pm Littlehampton Baptist Church, 29 Fitzalan Rd BN17 5NY | Wed 12:00pm-1:00pm Parkside Evangelical Church, St Floras Rd BN17 6BD | Wed from 1:45pm Angmering Baptist Church, Station Rd BN16 4HY | Wed from 2:00pm East Preston & Kingston Village Hall, 52 Sea Road BN16 1LP | Wed from 2:15pm and Sat from 10:30am Rustington Methodist Church, Claigmar Rd BN16 2NL | Fri 3:00pm-4:00pm Chilgrove House Community Hub, Kimberry, Wick BN17 7JD | Sat 12:00pm-1:00pm Turning Tides, by St Martins Car Park South, 2 Arundel Rd BN17 7DB",
+      "source_url": "https://faredivide.org.uk/littlehampton-community-fridge-locations/",
+      "status": "TIMES_TEXT_ONLY"
+    }
+  },
+  "sprouts-community": {
+    "name": "Sprouts Community Foodbank",
+    "address": "The Community Shop, Victoria Park, Thornaby, Stockton-on-Tees",
+    "postcode": "TS17 6HL",
+    "lat": 54.5537648,
+    "lng": -1.3007174,
+    "network": "Independent",
+    "website": "https://www.facebook.com/SproutsCommunityFoodCharity/",
+    "evidence_url": "https://www.givefood.org.uk/needs/at/sprouts-community/",
+    "source_label": "Give Food",
+    "evidence": "Give Food id sprouts-community (name, address, postcode TS17 6HL, coordinates 54.5537648,-1.3007174, homepage Facebook) read 6 Nov 2026. Dean asked the same day (voice, chat, and screenshot) to add it. Own site timed out, so opening times were not set."
   }
- }
 }
