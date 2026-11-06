@@ -1,0 +1,142 @@
+name: publish_one — one-card add/edit path
+"on":
+  push:
+    branches: [main]
+    paths:
+      - 'overrides/**'
+  workflow_dispatch:
+    inputs:
+      layer:
+        description: 'Layer (foodbanks | shelters | warmspaces)'
+        required: true
+        type: choice
+        options:
+          - foodbanks
+          - shelters
+          - warmspaces
+      id:
+        description: 'Listing id to add or edit'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  resolve_target:
+    runs-on: ubuntu-latest
+    outputs:
+      layer: ${{ steps.detect.outputs.layer }}
+      concurrency_group: ${{ steps.detect.outputs.concurrency_group }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - name: Detect layer and concurrency group
+        id: detect
+        run: |
+          input_layer="${{ inputs.layer }}"
+          if [ -n "$input_layer" ]; then
+            layer="$input_layer"
+          else
+            changed=$(git diff-tree --no-commit-id --name-only -r HEAD || true)
+            if echo "$changed" | grep -q "shelter"; then
+              layer="shelters"
+            elif echo "$changed" | grep -q "warmspace"; then
+              layer="warmspaces"
+            else
+              layer="foodbanks"
+            fi
+          fi
+
+          echo "layer=$layer" >> "$GITHUB_OUTPUT"
+
+          if [ "${{ github.ref }}" = "refs/heads/main" ]; then
+            if [ "$layer" = "shelters" ]; then
+              grp="refresh-shelters"
+            elif [ "$layer" = "warmspaces" ]; then
+              grp="refresh-warmspaces"
+            else
+              grp="refresh"
+            fi
+          else
+            ref_name="${{ github.ref_name }}"
+            if [ "$layer" = "shelters" ]; then
+              grp="refresh-shelters-pr-$ref_name"
+            elif [ "$layer" = "warmspaces" ]; then
+              grp="refresh-warmspaces-pr-$ref_name"
+            else
+              grp="refresh-pr-$ref_name"
+            fi
+          fi
+
+          echo "concurrency_group=$grp" >> "$GITHUB_OUTPUT"
+
+  publish_one:
+    needs: resolve_target
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    concurrency:
+      group: ${{ needs.resolve_target.outputs.concurrency_group }}
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Remember the published map
+        run: echo "LIVE_BASELINE=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run publish_one
+        id: run_publish
+        env:
+          GH_TOKEN: ${{ github.ref == 'refs/heads/main' && github.token || '' }}
+          DRY_RUN: ${{ github.ref != 'refs/heads/main' && '1' || '' }}
+        run: |
+          if [ -n "${{ inputs.layer }}" ] && [ -n "${{ inputs.id }}" ]; then
+            python scripts/publish_one.py --layer "${{ inputs.layer }}" --id "${{ inputs.id }}" ${{ github.ref != 'refs/heads/main' && '--dry-run' || '' }}
+          else
+            python scripts/publish_one.py --commit "$GITHUB_SHA" ${{ github.ref != 'refs/heads/main' && '--dry-run' || '' }}
+          fi
+      - name: Commit if changed
+        id: commit
+        if: github.ref == 'refs/heads/main'
+        run: |
+          git add data.full.js data.js shelters.js warmspaces.js stamp.js
+          if git diff --cached --quiet; then echo "No change"; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "publish_one: update listing [skip ci]"
+          for n in 1 2 3; do
+            if git pull --rebase --autostash && git push; then exit 0; fi
+            git rebase --abort 2>/dev/null || true
+            sleep $((n * 10))
+          done
+          exit 1
+      - name: Commit practice echo
+        if: github.ref != 'refs/heads/main'
+        run: "echo 'PRACTICE: commit skipped'"
+      - name: New place email (fail-safe)
+        if: always() && steps.commit.outcome == 'success' && github.ref == 'refs/heads/main'
+        continue-on-error: true
+        env:
+          BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
+        run: python scripts/new_live_email.py --layers foodbanks,shelters,warmspaces --baseline "$LIVE_BASELINE" --send || true
+      - name: New place email practice echo
+        if: always() && github.ref != 'refs/heads/main'
+        run: "echo 'PRACTICE: Brevo skipped'"
+      - name: Practice-run guard
+        if: always() && github.ref != 'refs/heads/main'
+        run: |
+          if ! git diff --cached --quiet; then
+            echo "::error::Practice run failed: staged changes detected."
+            git diff --cached --stat
+            exit 1
+          fi
+          current_sha=$(git rev-parse HEAD)
+          if [ "$current_sha" != "$LIVE_BASELINE" ]; then
+            echo "::error::Practice run failed: HEAD ($current_sha) differs from LIVE_BASELINE ($LIVE_BASELINE)."
+            exit 1
+          fi
+          echo "Practice run guard passed: nothing staged and HEAD matches baseline."
