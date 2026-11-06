@@ -1,0 +1,344 @@
+name: publish_one — one-card add/edit path
+"on":
+  push:
+    branches: [main]
+    paths:
+      - 'overrides/**'
+  workflow_dispatch:
+    inputs:
+      layer:
+        description: 'Layer (foodbanks | shelters | warmspaces)'
+        required: true
+        type: choice
+        options:
+          - foodbanks
+          - shelters
+          - warmspaces
+      id:
+        description: 'Listing id to add or edit'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+# Layer and id come from overlay keys (scripts/publish_one.py --list), not from
+# filenames. Each layer then publishes on its own section-16 queue.
+jobs:
+  detect:
+    runs-on: ubuntu-latest
+    outputs:
+      foodbank_ids: ${{ steps.detect.outputs.foodbank_ids }}
+      shelter_ids: ${{ steps.detect.outputs.shelter_ids }}
+      warmspace_ids: ${{ steps.detect.outputs.warmspace_ids }}
+      run_foodbanks: ${{ steps.detect.outputs.run_foodbanks }}
+      run_shelters: ${{ steps.detect.outputs.run_shelters }}
+      run_warmspaces: ${{ steps.detect.outputs.run_warmspaces }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Resolve listing ids
+        id: detect
+        env:
+          INPUT_LAYER: ${{ inputs.layer }}
+          INPUT_ID: ${{ inputs.id }}
+        run: |
+          set -euo pipefail
+          if [ -n "$INPUT_LAYER" ] || [ -n "$INPUT_ID" ]; then
+            if [ -z "$INPUT_LAYER" ] || [ -z "$INPUT_ID" ]; then
+              echo "::error::layer and id are both required"
+              exit 1
+            fi
+            python scripts/publish_one.py --layer "$INPUT_LAYER" --id "$INPUT_ID" --list --github-output
+          else
+            python scripts/publish_one.py --commit "$GITHUB_SHA" --list --github-output
+          fi
+
+  publish_foodbanks:
+    needs: detect
+    if: needs.detect.outputs.run_foodbanks == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    concurrency:
+      group: ${{ github.ref == 'refs/heads/main' && 'refresh' || format('refresh-pr-{0}', github.ref_name) }}
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Remember the published map
+        run: echo "LIVE_BASELINE=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Publish one food bank at a time
+        env:
+          IDS: ${{ needs.detect.outputs.foodbank_ids }}
+          LAYER: foodbanks
+          DRY_RUN: ${{ github.ref != 'refs/heads/main' && '1' || '' }}
+        run: |
+          set -euo pipefail
+          python - << 'PY'
+          import json, os, subprocess, sys
+          ids = json.loads(os.environ["IDS"])
+          cmd = [sys.executable, "scripts/publish_one.py", "--layer", os.environ["LAYER"]]
+          if os.environ.get("DRY_RUN") == "1":
+              cmd.append("--dry-run")
+          for iid in ids:
+              rc = subprocess.call(cmd + ["--id", iid])
+              if rc != 0:
+                  sys.exit(rc)
+          PY
+      - name: Commit if changed
+        id: commit
+        if: github.ref == 'refs/heads/main'
+        run: |
+          set -euo pipefail
+          git add data.full.js data.js stamp.js
+          if git diff --cached --quiet; then echo "No change"; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "publish_one: update foodbanks listing [skip ci]"
+          for n in 1 2 3; do
+            if git pull --rebase --autostash && git push; then exit 0; fi
+            if git diff --name-only --diff-filter=U | grep -qx 'stamp.js'; then
+              python scripts/stamp.py combine-index
+              git add stamp.js
+              GIT_EDITOR=true git rebase --continue
+              if git push; then exit 0; fi
+            fi
+            git rebase --abort 2>/dev/null || true
+            sleep $((n * 10))
+          done
+          exit 1
+      - name: Commit practice echo
+        if: github.ref != 'refs/heads/main'
+        run: "echo 'PRACTICE: commit skipped'"
+      - name: New place email (fail-safe)
+        if: always() && steps.commit.outcome == 'success' && github.ref == 'refs/heads/main'
+        continue-on-error: true
+        env:
+          BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
+        run: python scripts/new_live_email.py --layers foodbanks --baseline "$LIVE_BASELINE" --send || true
+      - name: New place email practice echo
+        if: always() && github.ref != 'refs/heads/main'
+        run: "echo 'PRACTICE: Brevo skipped'"
+      - name: Practice-run guard
+        if: always() && github.ref != 'refs/heads/main'
+        run: |
+          set -euo pipefail
+          if ! git diff --quiet; then
+            echo "::error::Practice run failed: unstaged changes in the worktree."
+            git diff --stat
+            exit 1
+          fi
+          if ! git diff --cached --quiet; then
+            echo "::error::Practice run failed: staged changes detected."
+            git diff --cached --stat
+            exit 1
+          fi
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "::error::Practice run failed: dirty worktree."
+            git status --porcelain
+            exit 1
+          fi
+          current_sha=$(git rev-parse HEAD)
+          if [ "$current_sha" != "$LIVE_BASELINE" ]; then
+            echo "::error::Practice run failed: HEAD ($current_sha) differs from LIVE_BASELINE ($LIVE_BASELINE)."
+            exit 1
+          fi
+          echo "Practice run guard passed: nothing staged, worktree clean, and HEAD matches baseline."
+
+  publish_shelters:
+    needs: detect
+    if: needs.detect.outputs.run_shelters == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    concurrency:
+      group: ${{ github.ref == 'refs/heads/main' && 'refresh-shelters' || format('refresh-shelters-pr-{0}', github.ref_name) }}
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Remember the published map
+        run: echo "LIVE_BASELINE=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Publish one shelter at a time
+        env:
+          IDS: ${{ needs.detect.outputs.shelter_ids }}
+          LAYER: shelters
+          DRY_RUN: ${{ github.ref != 'refs/heads/main' && '1' || '' }}
+        run: |
+          set -euo pipefail
+          python - << 'PY'
+          import json, os, subprocess, sys
+          ids = json.loads(os.environ["IDS"])
+          cmd = [sys.executable, "scripts/publish_one.py", "--layer", os.environ["LAYER"]]
+          if os.environ.get("DRY_RUN") == "1":
+              cmd.append("--dry-run")
+          for iid in ids:
+              rc = subprocess.call(cmd + ["--id", iid])
+              if rc != 0:
+                  sys.exit(rc)
+          PY
+      - name: Commit if changed
+        id: commit
+        if: github.ref == 'refs/heads/main'
+        run: |
+          set -euo pipefail
+          git add shelters.js stamp.js
+          if git diff --cached --quiet; then echo "No change"; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "publish_one: update shelters listing [skip ci]"
+          for n in 1 2 3; do
+            if git pull --rebase --autostash && git push; then exit 0; fi
+            if git diff --name-only --diff-filter=U | grep -qx 'stamp.js'; then
+              python scripts/stamp.py combine-index
+              git add stamp.js
+              GIT_EDITOR=true git rebase --continue
+              if git push; then exit 0; fi
+            fi
+            git rebase --abort 2>/dev/null || true
+            sleep $((n * 10))
+          done
+          exit 1
+      - name: Commit practice echo
+        if: github.ref != 'refs/heads/main'
+        run: "echo 'PRACTICE: commit skipped'"
+      - name: New place email (fail-safe)
+        if: always() && steps.commit.outcome == 'success' && github.ref == 'refs/heads/main'
+        continue-on-error: true
+        env:
+          BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
+        run: python scripts/new_live_email.py --layers shelters --baseline "$LIVE_BASELINE" --send || true
+      - name: New place email practice echo
+        if: always() && github.ref != 'refs/heads/main'
+        run: "echo 'PRACTICE: Brevo skipped'"
+      - name: Practice-run guard
+        if: always() && github.ref != 'refs/heads/main'
+        run: |
+          set -euo pipefail
+          if ! git diff --quiet; then
+            echo "::error::Practice run failed: unstaged changes in the worktree."
+            git diff --stat
+            exit 1
+          fi
+          if ! git diff --cached --quiet; then
+            echo "::error::Practice run failed: staged changes detected."
+            git diff --cached --stat
+            exit 1
+          fi
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "::error::Practice run failed: dirty worktree."
+            git status --porcelain
+            exit 1
+          fi
+          current_sha=$(git rev-parse HEAD)
+          if [ "$current_sha" != "$LIVE_BASELINE" ]; then
+            echo "::error::Practice run failed: HEAD ($current_sha) differs from LIVE_BASELINE ($LIVE_BASELINE)."
+            exit 1
+          fi
+          echo "Practice run guard passed: nothing staged, worktree clean, and HEAD matches baseline."
+
+  publish_warmspaces:
+    needs: detect
+    if: needs.detect.outputs.run_warmspaces == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    concurrency:
+      group: ${{ github.ref == 'refs/heads/main' && 'refresh-warmspaces' || format('refresh-warmspaces-pr-{0}', github.ref_name) }}
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Remember the published map
+        run: echo "LIVE_BASELINE=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Publish one warm space at a time
+        env:
+          IDS: ${{ needs.detect.outputs.warmspace_ids }}
+          LAYER: warmspaces
+          DRY_RUN: ${{ github.ref != 'refs/heads/main' && '1' || '' }}
+        run: |
+          set -euo pipefail
+          python - << 'PY'
+          import json, os, subprocess, sys
+          ids = json.loads(os.environ["IDS"])
+          cmd = [sys.executable, "scripts/publish_one.py", "--layer", os.environ["LAYER"]]
+          if os.environ.get("DRY_RUN") == "1":
+              cmd.append("--dry-run")
+          for iid in ids:
+              rc = subprocess.call(cmd + ["--id", iid])
+              if rc != 0:
+                  sys.exit(rc)
+          PY
+      - name: Commit if changed
+        id: commit
+        if: github.ref == 'refs/heads/main'
+        run: |
+          set -euo pipefail
+          git add warmspaces.js stamp.js
+          if git diff --cached --quiet; then echo "No change"; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "publish_one: update warmspaces listing [skip ci]"
+          for n in 1 2 3; do
+            if git pull --rebase --autostash && git push; then exit 0; fi
+            if git diff --name-only --diff-filter=U | grep -qx 'stamp.js'; then
+              python scripts/stamp.py combine-index
+              git add stamp.js
+              GIT_EDITOR=true git rebase --continue
+              if git push; then exit 0; fi
+            fi
+            git rebase --abort 2>/dev/null || true
+            sleep $((n * 10))
+          done
+          exit 1
+      - name: Commit practice echo
+        if: github.ref != 'refs/heads/main'
+        run: "echo 'PRACTICE: commit skipped'"
+      - name: New place email (fail-safe)
+        if: always() && steps.commit.outcome == 'success' && github.ref == 'refs/heads/main'
+        continue-on-error: true
+        env:
+          BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
+        run: python scripts/new_live_email.py --layers warmspaces --baseline "$LIVE_BASELINE" --send || true
+      - name: New place email practice echo
+        if: always() && github.ref != 'refs/heads/main'
+        run: "echo 'PRACTICE: Brevo skipped'"
+      - name: Practice-run guard
+        if: always() && github.ref != 'refs/heads/main'
+        run: |
+          set -euo pipefail
+          if ! git diff --quiet; then
+            echo "::error::Practice run failed: unstaged changes in the worktree."
+            git diff --stat
+            exit 1
+          fi
+          if ! git diff --cached --quiet; then
+            echo "::error::Practice run failed: staged changes detected."
+            git diff --cached --stat
+            exit 1
+          fi
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "::error::Practice run failed: dirty worktree."
+            git status --porcelain
+            exit 1
+          fi
+          current_sha=$(git rev-parse HEAD)
+          if [ "$current_sha" != "$LIVE_BASELINE" ]; then
+            echo "::error::Practice run failed: HEAD ($current_sha) differs from LIVE_BASELINE ($LIVE_BASELINE)."
+            exit 1
+          fi
+          echo "Practice run guard passed: nothing staged, worktree clean, and HEAD matches baseline."
