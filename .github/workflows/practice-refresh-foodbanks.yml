@@ -1,0 +1,73 @@
+name: Practice refresh Food banks layer (early signal)
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'overrides/foodbank_*'
+      - 'data.js'
+      - 'data.full.js'
+      - 'scripts/build.py'
+      - 'scripts/common.py'
+      - 'scripts/verify_fresh.py'
+      - 'scripts/publish_gate.py'
+      - 'scripts/refresh_guard.py'
+      - 'scripts/sense_check.py'
+      - 'scripts/validate.py'
+      - '.github/workflows/refresh.yml'
+      - '.github/workflows/practice-refresh-foodbanks.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: practice-refresh-foodbanks-pr-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  practice-refresh:
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Remember the published map
+        run: echo "LIVE_BASELINE=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install Playwright and Chromium for headless renders
+        run: pip install -q playwright==1.47.0 && python -m playwright install --with-deps chromium
+      - name: Rebuild data.js (discovery + own-site checks)
+        timeout-minutes: 40
+        env:
+          PYTHONUNBUFFERED: "1"
+        run: python scripts/build.py
+      - name: Refuse to publish without fresh verification
+        run: python scripts/verify_fresh.py foodbanks
+      - name: Publish gate - new places need a verified phone (shelters also who it's for); held ones go to reports/pending_dean.md
+        run: python scripts/publish_gate.py foodbanks
+      - name: CI check - published shelters have phone + who it's for, warm spaces a phone (known gaps listed); food banks report-only
+        run: python scripts/publish_gate.py check
+      - name: Refresh guard - keep any place, phone or opening times this run would drop (report + alert, scripts/refresh_guard.py)
+        run: python scripts/refresh_guard.py foodbanks
+      - name: Does the result make sense? (real searches on all three types; failure stops publishing, scripts/sense_check.py)
+        run: python scripts/sense_check.py
+      - name: Severe-failure gate (point 33) - stop publishing if a data file won't parse or a count fell >10% vs last published
+        run: python scripts/validate.py gate
+      - name: Practice-run guard
+        if: always()
+        run: |
+          if ! git diff --cached --quiet; then
+            echo "::error::Practice run failed: staged changes detected."
+            git diff --cached --stat
+            exit 1
+          fi
+          current_sha=$(git rev-parse HEAD)
+          if [ "$current_sha" != "$LIVE_BASELINE" ]; then
+            echo "::error::Practice run failed: HEAD ($current_sha) differs from LIVE_BASELINE ($LIVE_BASELINE)."
+            exit 1
+          fi
+          echo "Practice run guard passed: nothing staged and HEAD matches baseline."
