@@ -26,11 +26,22 @@ def season(t):
     if t.get("seasonal") == "no" or t.get("opening_hours", "").startswith("24/7"): return "Year-round"
     return "Not stated"
 fresh = []
+overpass_timing = {"mirror_attempts": [], "answered_mirror": None}
 try:
     els = None
     for ep in ["https://overpass-api.de/api/interpreter", "https://overpass.private.coffee/api/interpreter", "https://maps.mail.ru/osm/tools/overpass/api/interpreter"]:
-        try: els = json.loads(get(ep, ("data=" + urllib.parse.quote(Q)).encode(), timeout=240))["elements"]; break
-        except Exception as e2: last = e2
+        t0 = time.time()
+        try:
+            res_bytes = get(ep, ("data=" + urllib.parse.quote(Q)).encode(), timeout=240)
+            elapsed = round(time.time() - t0, 3)
+            els = json.loads(res_bytes)["elements"]
+            overpass_timing["mirror_attempts"].append({"mirror": ep, "duration": elapsed, "status": "ok"})
+            overpass_timing["answered_mirror"] = ep
+            break
+        except Exception as e2:
+            elapsed = round(time.time() - t0, 3)
+            overpass_timing["mirror_attempts"].append({"mirror": ep, "duration": elapsed, "status": "error", "error": str(e2)})
+            last = e2
     if els is None: raise last
     for e in els:
         t = e.get("tags", {}); lat = e.get("lat") or e.get("center", {}).get("lat"); lng = e.get("lon") or e.get("center", {}).get("lon")
@@ -170,4 +181,39 @@ print("final lock:", len(_final_blocked), "field changes blocked or set to the h
 if os.environ.get("DRY_RUN"): print("DRY RUN:", len(items), "shelters", json.dumps(sources)[:1500]); sys.exit(0)
 write_js(OUT, "SHELTERS", {"updated": RUN, "items": items, "recently_closed": closed, "sources": sources})
 append_log(LOG, {"run": RUN, "result": "ok", "items": len(items), "stale": sum(x["stale"] for x in items), "recently_closed": len(closed), "sources": sources})
+
+# Item 4: slow download logging output
+timing_data = {
+    "run": RUN,
+    "overpass": overpass_timing,
+    "fetches": FETCH_LOGS
+}
+is_main = os.environ.get("GITHUB_REF") == "refs/heads/main"
+timing_path = "logs/fetch_timing_shelters.json" if is_main else os.path.join(os.environ.get("RUNNER_TEMP", "/tmp"), "fetch_timing_shelters.json")
+try:
+    os.makedirs(os.path.dirname(timing_path), exist_ok=True)
+    with open(timing_path, "w", encoding="utf-8") as f:
+        json.dump(timing_data, f, indent=1)
+except Exception as e_write:
+    print(f"Warning: could not write {timing_path}: {e_write}")
+
+if not is_main:
+    slowest_20 = sorted(FETCH_LOGS, key=lambda x: x.get("duration", 0), reverse=True)[:20]
+    summary_path = os.environ.get("GITHUB_STEP_SUMMARY")
+    summary_lines = [
+        "### Slowest 20 fetches (Shelters build)",
+        f"- Overpass answered mirror: {overpass_timing.get('answered_mirror')}",
+        "| URL | Attempt | Duration (s) | Status | Bytes |",
+        "| --- | --- | --- | --- | --- |"
+    ]
+    for fetch in slowest_20:
+        summary_lines.append(f"| {fetch.get('url')} | {fetch.get('attempt')} | {fetch.get('duration')} | {fetch.get('status')} | {fetch.get('bytes')} |")
+    if summary_path and os.path.exists(os.path.dirname(summary_path)):
+        try:
+            with open(summary_path, "a", encoding="utf-8") as sf:
+                sf.write("\n".join(summary_lines) + "\n")
+        except Exception:
+            pass
+    print("\n".join(summary_lines))
+
 print(len(items), "shelters")
