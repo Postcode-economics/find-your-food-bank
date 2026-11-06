@@ -1,4 +1,4 @@
-# New today (2026-11-05)
+# New today (2026-11-06)
 
 Places added automatically by discovery today. Each passed: valid postcode in its area, not a duplicate (name+postcode or 150 m), working source page, current or future dates.
 

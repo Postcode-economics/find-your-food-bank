@@ -1,6 +1,6 @@
 {
- "run": "2026-11-05",
- "seconds": 69.3,
+ "run": "2026-11-06",
+ "seconds": 57.8,
  "pages": [
   {
    "council": "Armagh City, Banbridge and Craigavon Borough Council",
@@ -303,8 +303,8 @@
    "council": "City of Bradford Metropolitan District Council",
    "url": "https://news.bradford.gov.uk/",
    "kind": "news",
-   "http": null,
-   "status": "unreachable",
+   "http": 200,
+   "status": "checked",
    "quote": "",
    "rest_centre": null
   },
@@ -384,8 +384,8 @@
    "council": "Bristol City Council",
    "url": "https://news.bristol.gov.uk/",
    "kind": "news",
-   "http": null,
-   "status": "unreachable",
+   "http": 200,
+   "status": "checked",
    "quote": "",
    "rest_centre": null
   },
@@ -492,8 +492,8 @@
    "council": "Charnwood Borough Council",
    "url": "https://www.charnwood.gov.uk/pages/news",
    "kind": "news",
-   "http": 200,
-   "status": "checked",
+   "http": 429,
+   "status": "unreachable",
    "quote": "",
    "rest_centre": null
   },
@@ -501,8 +501,8 @@
    "council": "Charnwood Borough Council",
    "url": "https://www.charnwood.gov.uk/pages/flooding",
    "kind": "emergencies",
-   "http": 200,
-   "status": "checked",
+   "http": 429,
+   "status": "unreachable",
    "quote": "",
    "rest_centre": null
   },
@@ -1491,8 +1491,8 @@
    "council": "Liverpool City Council",
    "url": "https://liverpool.gov.uk/communities-and-safety/emergency-planning/",
    "kind": "emergencies",
-   "http": 200,
-   "status": "checked",
+   "http": null,
+   "status": "unreachable",
    "quote": "",
    "rest_centre": null
   },
@@ -1887,8 +1887,8 @@
    "council": "North West Leicestershire District Council",
    "url": "https://www.nwleics.gov.uk/pages/news",
    "kind": "news",
-   "http": 200,
-   "status": "checked",
+   "http": 429,
+   "status": "unreachable",
    "quote": "",
    "rest_centre": null
   },
@@ -1914,8 +1914,8 @@
    "council": "Oadby and Wigston Borough Council",
    "url": "https://www.oadby-wigston.gov.uk/news",
    "kind": "news",
-   "http": 200,
-   "status": "checked",
+   "http": 429,
+   "status": "unreachable",
    "quote": "",
    "rest_centre": null
   },
@@ -2877,8 +2877,8 @@
    "council": "City of Wolverhampton Council",
    "url": "https://www.wolverhampton.gov.uk/news",
    "kind": "news",
-   "http": 200,
-   "status": "checked",
+   "http": null,
+   "status": "unreachable",
    "quote": "",
    "rest_centre": null
   },

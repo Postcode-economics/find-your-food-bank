@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-05",
+ "generated": "2026-11-06",
  "layer": "shelters",
  "about": "Verified new shelters for review. Not published. A directory postcode is a referral address, never the pin. A proposal is only listed when an operator or official page names the place and shows a building postcode, with opening times or an access route. Phones are present only when that confirming page showed them; applying a proposal means adding the phone to overrides/phone_baseline.json in a reviewed change. Council-line fields are not set. Women's refuges are excluded and not mapped. Day centres are held candidates (no Day centre map label until that change is on main).",
  "day_centre_label": "held candidates only",
@@ -3549,7 +3549,7 @@
    "referral_postcode": "",
    "category": "publishable",
    "status": "held",
-   "reason": "operator site unreachable (HTTP 302)"
+   "reason": "no building postcode on the operator page (directory postcode is a referral address only)"
   },
   {
    "id": "hl-great-places-housing-group-the-croft",
@@ -14258,7 +14258,7 @@
    "referral_postcode": "BN3 1DE",
    "category": "publishable",
    "status": "held",
-   "reason": "operator site unreachable (HTTP 302)"
+   "reason": "operator site unreachable (HTTP 404)"
   },
   {
    "id": "ss-59133776254ac57630922442",
@@ -15326,7 +15326,7 @@
    "referral_postcode": "L7 0HF",
    "category": "publishable",
    "status": "held",
-   "reason": "no building postcode on the operator page (directory postcode is a referral address only)"
+   "reason": "operator site unreachable (HTTP error)"
   },
   {
    "id": "ss-59133760254ac55e48349eb7",
@@ -15338,7 +15338,7 @@
    "referral_postcode": "L17 2AA",
    "category": "publishable",
    "status": "held",
-   "reason": "no building postcode on the operator page (directory postcode is a referral address only)"
+   "reason": "operator site unreachable (HTTP error)"
   },
   {
    "id": "ss-5cfa746fce0af61708fa2347",
