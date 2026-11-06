@@ -1,8 +1,8 @@
 {
- "day": "2026-11-05",
+ "day": "2026-11-06",
  "runs": [
   {
-   "at": "06:07Z",
+   "at": "06:05Z",
    "source": "warmspaces_discovery.json",
    "added": 0,
    "queued": 2145,
@@ -12,35 +12,7 @@
    "at": "06:07Z",
    "source": "warmspaces_ww_discovery_run.json",
    "added": 0,
-   "queued": 1,
-   "rejected": 0
-  },
-  {
-   "at": "14:20Z",
-   "source": "warmspaces_discovery.json",
-   "added": 0,
-   "queued": 2145,
-   "rejected": 2
-  },
-  {
-   "at": "14:20Z",
-   "source": "warmspaces_ww_discovery_run.json",
-   "added": 0,
-   "queued": 1,
-   "rejected": 0
-  },
-  {
-   "at": "21:51Z",
-   "source": "warmspaces_discovery.json",
-   "added": 0,
-   "queued": 2146,
-   "rejected": 2
-  },
-  {
-   "at": "21:51Z",
-   "source": "warmspaces_ww_discovery_run.json",
-   "added": 0,
-   "queued": 1,
+   "queued": 22,
    "rejected": 0
   }
  ],
@@ -1584,7 +1556,7 @@
    "url": "https://www.afcscic.org",
    "final_url": "https://www.afcscic.org",
    "http": 200,
-   "sha256": "0f419edc9ec055ee45e3605fe0790f2c59b99a56d58abf5527f64b5842b40ce9",
+   "sha256": "f9a7d0ea2980b24c474b4932bcd0408d6475293055af7d008b89db8a02ec0e74",
    "etag": "",
    "last_modified": ""
   },
@@ -1683,14 +1655,14 @@
    "directory": "Open Innovations: Birmingham Council",
    "directory_url": "https://www.birmingham.gov.uk/directory_record/876246/al_mahdi_institute",
    "reasons": [
-    "own site did not return the page (HTTP 202; usually a bot check)"
+    "own site does not mention a warm space"
    ],
    "url": "https://almahdi.edu/",
    "final_url": "https://almahdi.edu/",
-   "http": 202,
-   "sha256": "c60af4d79f160319e4819c6418b9e34075578c56a4c72d8c31b0a6502c3389e2",
+   "http": 200,
+   "sha256": "22593db94f39b0e34e96475a43e0b20a58ba8f7d19e5e11507f468cae9db72fd",
    "etag": "",
-   "last_modified": ""
+   "last_modified": "Fri, 06 Nov 2026 01:40:24 GMT"
   },
   "oi-birmingham-council-all-saint-s-church-and-centre-b74-4tr": {
    "id": "oi-birmingham-council-all-saint-s-church-and-centre-b74-4tr",
@@ -1994,7 +1966,7 @@
    "url": "https://www.birminghamleisure.com/beeches-pool-fitness-centre/",
    "final_url": "https://www.moreleisure.com/beeches-pool-fitness-centre/",
    "http": 200,
-   "sha256": "98f7ac68954278245e89062b74c110e1b6450631aca4e7d59e3cb2e5594594c7",
+   "sha256": "1f6d84900abcf0040a2c40e9c9d6284c081ff09ebca868f4d575e46981077b8a",
    "etag": "",
    "last_modified": ""
   },
@@ -2113,7 +2085,7 @@
    "url": "https://www.birminghamleisure.com/billesley-tennis-fitness-centre/",
    "final_url": "https://www.moreleisure.com/billesley-tennis-fitness-centre/",
    "http": 200,
-   "sha256": "cd672617039421e9ac9b21b16d4fa8692f8c1722f33eef5cca35050a157a922b",
+   "sha256": "b980781ca1ee587f5a6b748263d00c2255a7560ad24058bcadfa81feef86e1d8",
    "etag": "",
    "last_modified": ""
   },
@@ -2285,8 +2257,8 @@
    "url": "https://www.blesstcic.com/",
    "final_url": "https://www.blesstcic.com/",
    "http": 200,
-   "sha256": "41389e59c6bbff1e4ac7da0d9a1490d5a16e6e586b74a4d7cacc9c924a96f429",
-   "etag": "W/\"19cee61129da6aafd16768163d22f616\"",
+   "sha256": "eb8c6167c2fa9dfdeea1124b358f503aa858b3f6add61c26e22393ec7f81d491",
+   "etag": "W/\"5b09e9d7ae9f1d9db70a5f8b2bb21bff\"",
    "last_modified": ""
   },
   "oi-birmingham-council-bosnia-and-herzegovina-uk-network-b11-4dy": {
@@ -2501,12 +2473,12 @@
    "directory": "Open Innovations: Birmingham Council",
    "directory_url": "https://www.birmingham.gov.uk/directory_record/666738/church_of_god_of_prophecy",
    "reasons": [
-    "own site did not return the page (HTTP 202; usually a bot check)"
+    "own site does not mention a warm space"
    ],
    "url": "https://aberdeenstcogop.org.uk/",
    "final_url": "https://aberdeenstcogop.org.uk/",
-   "http": 202,
-   "sha256": "cce6df97a0b9df4263b3fa237c041669fe384b38bc729a633fdd2ecf466fbca1",
+   "http": 200,
+   "sha256": "c670b2711ef3d55a078bca33c59076dc2821f3a3ce0dfa8ac00e167397117908",
    "etag": "",
    "last_modified": ""
   },
@@ -2916,7 +2888,7 @@
    "url": "https://www.birminghamleisure.com/fox-hollies-leisure-centre/",
    "final_url": "https://www.moreleisure.com/fox-hollies-leisure-centre/",
    "http": 200,
-   "sha256": "29b439e45b9d47707b168d1afd672ce81272224cd00e6588cbfc8c1deade7ecb",
+   "sha256": "e849928e046aa277c8683ecbd6748f7deb281d86d93d80bdb1bf5f210d570b22",
    "etag": "",
    "last_modified": ""
   },
@@ -3240,7 +3212,7 @@
    "url": "https://saheli.co.uk",
    "final_url": "https://saheli.co.uk",
    "http": 200,
-   "sha256": "7e2c8b8a4ac3b04c335d67a83bb80743615ba2ac4636500e5bc719ded8aea22f",
+   "sha256": "7ab0d8d31e2a8421f9730d05b29212c4aa1707e964552024f680561a5daeb158",
    "etag": "",
    "last_modified": ""
   },
@@ -3689,8 +3661,8 @@
    "final_url": "https://www.aston.ac.uk/current-students/health-and-wellbeing/chaplaincy",
    "http": 200,
    "sha256": "34f5bbabaaf90a986a73b66b34b515eab7ab67c7650575aa471c7f3f9f26ee77",
-   "etag": "\"1793910017\"",
-   "last_modified": "Thu, 05 Nov 2026 20:20:17 GMT"
+   "etag": "\"1793942935\"",
+   "last_modified": "Fri, 06 Nov 2026 05:28:55 GMT"
   },
   "oi-birmingham-council-moseley-community-development-trust-b13-8dd": {
    "id": "oi-birmingham-council-moseley-community-development-trust-b13-8dd",
@@ -3858,7 +3830,7 @@
    "url": "https://newbigintrust.uk/",
    "final_url": "https://www.newbigintrust.uk/",
    "http": 200,
-   "sha256": "7619c3e449cfec6d7c861e44c3770bc3d87e1c2629973a57a16fe27195f430f2",
+   "sha256": "392f24a0fe79537ed841c49ccec64d485e785829d4f396fe428b8ebaca70d612",
    "etag": "W/\"5e9f8c38c41bebcab620449b2f0c9db2\"",
    "last_modified": ""
   },
@@ -3875,7 +3847,7 @@
    "url": "https://www.birminghamleisure.com/northfield-leisure-centre/",
    "final_url": "https://www.moreleisure.com/northfield-leisure-centre/",
    "http": 200,
-   "sha256": "2ab8762407b90f3351c5141f8ed846336b7305b40c49dbb8ace9d3a4c350719f",
+   "sha256": "b27b76545bc3ef4a0fec366a0898c2317dd5bea7f247bbc095c76a4916fd5d4c",
    "etag": "",
    "last_modified": ""
   },
@@ -4471,7 +4443,7 @@
    "url": "https://www.placesleisure.org/centres/sparkhill-pool-and-fitness-centre/",
    "final_url": "https://www.placesleisure.org/centres/sparkhill-pool-and-fitness-centre/",
    "http": 200,
-   "sha256": "df8e8195136777f32a125e277cadad91c4db067b786bf70cc1cb5291d387044e",
+   "sha256": "375a9eed41bb4aa2a7bd5e2e11dc545e7f17b634e2d393f6d69ffd8f31959a83",
    "etag": "",
    "last_modified": ""
   },
@@ -4931,7 +4903,7 @@
    "url": "https://stpetersmaney.org.uk",
    "final_url": "https://stpetersmaney.org.uk",
    "http": 200,
-   "sha256": "4f8037bc39e45cc0186f0179a379c4314f1a5b4c35e2d315c64862e66c5efb59",
+   "sha256": "ac7b15cc091486f21b860d82376560603c761a02e61dc27508aafbd6d2a03f52",
    "etag": "",
    "last_modified": ""
   },
@@ -4982,7 +4954,7 @@
    "url": "https://www.birminghamleisure.com/stechford-leisure-centre/",
    "final_url": "https://www.moreleisure.com/stechford-leisure-centre/",
    "http": 200,
-   "sha256": "3001c245bb853e5910ffec2f46a795e94074202a3389806289da6fc6547915f6",
+   "sha256": "d901efc4d0f06ce4233739e1181f4ff130f42034a3c8a2d3af9da8500f545c52",
    "etag": "",
    "last_modified": ""
   },
@@ -5359,7 +5331,7 @@
    "http": 200,
    "sha256": "59465afb2e464924370557ed649052bf46823e75279825f2923cc164df57697d",
    "etag": "\"2ac589d873cae936d58cff55b44b31e4\"",
-   "last_modified": "Thu, 05 Nov 2026 13:08:56 GMT"
+   "last_modified": "Thu, 05 Nov 2026 02:37:07 GMT"
   },
   "oi-birmingham-council-walmley-library-b76-1np": {
    "id": "oi-birmingham-council-walmley-library-b76-1np",
@@ -5510,7 +5482,7 @@
    "url": "https://www.birminghamleisure.com/wyndley-leisure-centre/",
    "final_url": "https://www.moreleisure.com/wyndley-leisure-centre/",
    "http": 200,
-   "sha256": "02e0c23c0089624a23fa0da37615563c3eaa1bdf40ce2b087b4ed30bfa1a3c78",
+   "sha256": "0081bd231c6a8fd861d24c22fe6d0bdc37b770ace9832562606c616f3bed394b",
    "etag": "",
    "last_modified": ""
   },
@@ -5528,7 +5500,7 @@
    "url": "https://yourmoneyyourwaycic.co.uk/",
    "final_url": "https://yourmoneyyourwaycic.co.uk/",
    "http": 200,
-   "sha256": "89554b634c62d6168a370e0638ff3451603df42dfac0b212b6d06ab0011d48a4",
+   "sha256": "e2b90f746dfcd49c59f73c70d504ff4732dd8aa061836ecba4e39eb91089b450",
    "etag": "",
    "last_modified": ""
   },
@@ -5698,7 +5670,7 @@
    "url": "https://poolecommunitiestrust.org.uk/home/branksome-centre/",
    "final_url": "https://poolecommunitiestrust.org.uk/poole-communities-trust/branksome-centre/",
    "http": 200,
-   "sha256": "c98703ae300065c32e0aefe9f9ca84a22607bfe37ca23a074145309473fab9c8",
+   "sha256": "c930970043b6655e1b04b0e535a31d213b226ad642353bc24dbb8500d7313a82",
    "etag": "",
    "last_modified": ""
   },
@@ -12245,7 +12217,7 @@
    "url": "https://park-play.com/register",
    "final_url": "https://park-play.com/register/",
    "http": 200,
-   "sha256": "5df460b2292f338000afa23071a2a9b3db7924e8c48733cf8d355bb036315401",
+   "sha256": "d98613714a34a30af13c3d8bf313920a1d82e28644cf9518988a8eadda0a92fb",
    "etag": "",
    "last_modified": ""
   },
@@ -36884,22 +36856,367 @@
    "etag": null,
    "last_modified": null
   },
-  "oi-birmingham-council-saifee-mosque-b18-6pu": {
-   "id": "oi-birmingham-council-saifee-mosque-b18-6pu",
-   "name": "Saifee Mosque",
-   "postcode": "B18 6PU",
-   "website": "https://uk.thedawoodibohras.com/birmingham/",
-   "directory": "Open Innovations: Birmingham Council",
-   "directory_url": "https://www.birmingham.gov.uk/directory_record/626580/saifee_mosque",
+  "ww-69428701": {
+   "id": "ww-69428701",
+   "name": "Warm Spaces at Red Roof Centre",
+   "postcode": "WF9 5BP",
+   "website": "",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=24798",
    "reasons": [
-    "own site did not return the page (HTTP 202; usually a bot check)"
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
    ],
-   "url": "https://uk.thedawoodibohras.com/birmingham/",
-   "final_url": "https://uk.thedawoodibohras.com/birmingham/",
-   "http": 202,
-   "sha256": "e5169002f2132ad1a61a7ef7c2faf2e7fb42d0ba64fd09216569a75aa653e745",
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ww-69433148": {
+   "id": "ww-69433148",
+   "name": "St Peter's Church Community Cafe",
+   "postcode": "HU7 5XH",
+   "website": "https://spwkchurch.co.uk",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=28661",
+   "reasons": [
+    "own site does not mention a warm space"
+   ],
+   "url": "https://spwkchurch.co.uk",
+   "final_url": "https://spwkchurch.co.uk",
+   "http": 200,
+   "sha256": "329280969b868ea98ed8e98c6c407f33c55df180884d171d8bf3d9dac1909cf3",
    "etag": "",
    "last_modified": ""
+  },
+  "ww-69433149": {
+   "id": "ww-69433149",
+   "name": "Runcorn Library",
+   "postcode": "WA7 1LT",
+   "website": "www.halton.gov.uk/libraries",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=28662",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "www.halton.gov.uk/libraries",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ww-69434448": {
+   "id": "ww-69434448",
+   "name": "Community Café Warm Welcome",
+   "postcode": "NW10 4LL",
+   "website": "www.transitionhomelessproject.org.uk",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=27110",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)",
+    "postcode NW10 4LL not recognised by postcodes.io"
+   ],
+   "url": "www.transitionhomelessproject.org.uk",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ww-69434450": {
+   "id": "ww-69434450",
+   "name": "Torquay Library",
+   "postcode": "TQ1 3DT",
+   "website": "www.librariesunlimited.org.uk",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=16669",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "www.librariesunlimited.org.uk",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ww-69434451": {
+   "id": "ww-69434451",
+   "name": "Churston Library",
+   "postcode": "TQ4 6LL",
+   "website": "https://www.librariesunlimited.org.uk",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=26192",
+   "reasons": [
+    "own site does not mention a warm space",
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.librariesunlimited.org.uk",
+   "final_url": "https://www.librariesunlimited.org.uk",
+   "http": 200,
+   "sha256": "95af5afd3400773b486f265782f6caaa33f98dae3954efe2f8b70869e4b9bd65",
+   "etag": "",
+   "last_modified": ""
+  },
+  "ww-69434457": {
+   "id": "ww-69434457",
+   "name": "BGfm Community Radio",
+   "postcode": "NP23 4NN",
+   "website": "http://www.bgfm.wales",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=20566",
+   "reasons": [
+    "own site does not mention a warm space"
+   ],
+   "url": "http://www.bgfm.wales",
+   "final_url": "https://www.bgfm.wales/",
+   "http": 200,
+   "sha256": "3cbf8453a22b7f5306268ea604962b21a690ae69fb8ada73a97e92ddfa543dc2",
+   "etag": "",
+   "last_modified": ""
+  },
+  "ww-69441225": {
+   "id": "ww-69441225",
+   "name": "Princes Risborough Library",
+   "postcode": "",
+   "website": "https://www.buckinghamshire.gov.uk/libraries/information-about-local-library/princes-risborough-library/",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=17918",
+   "reasons": [
+    "own site does not mention a warm space",
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)",
+    "no postcode"
+   ],
+   "url": "https://www.buckinghamshire.gov.uk/libraries/information-about-local-library/princes-risborough-library/",
+   "final_url": "https://www.buckinghamshire.gov.uk/schools-libraries-and-parks/libraries/information-about-local-library/princes-risborough-library/",
+   "http": 200,
+   "sha256": "b0ce3da8b6d5d1224e0c168bc05bf010decdc1a665948be67df39b792e35e61f",
+   "etag": "",
+   "last_modified": ""
+  },
+  "ww-69441228": {
+   "id": "ww-69441228",
+   "name": "The George Community Hub & Cafe",
+   "postcode": "GL14 1BS",
+   "website": "www.thegeorgeatnewnham.co.uk",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=28271",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)",
+    "source pin 309.4 km from its postcode"
+   ],
+   "url": "www.thegeorgeatnewnham.co.uk",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ww-69441264": {
+   "id": "ww-69441264",
+   "name": "Cruddas Park Library",
+   "postcode": "NE4 7QY",
+   "website": "www.newcastle.gov.uk/services/libraries-and-culture",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=26084",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "www.newcastle.gov.uk/services/libraries-and-culture",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ww-69441265": {
+   "id": "ww-69441265",
+   "name": "Walker Library (at Walker Tree Top Village)",
+   "postcode": "NE6 3JW",
+   "website": "www.newcastle.gov.uk/services/libraries-and-culture",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=26086",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "www.newcastle.gov.uk/services/libraries-and-culture",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ww-69441266": {
+   "id": "ww-69441266",
+   "name": "Outer West Library",
+   "postcode": "NE5 2QZ",
+   "website": "https://www.newcastle.gov.uk/services/libraries-culture/libraries-newcastle/outer-west-library",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=26177",
+   "reasons": [
+    "directory link is a council page, not the place's own site"
+   ],
+   "url": "https://www.newcastle.gov.uk/services/libraries-culture/libraries-newcastle/outer-west-library",
+   "final_url": "https://new.newcastle.gov.uk/libraries/find-library",
+   "http": 200,
+   "sha256": "14b499f0717e2464ed7230134a79fe7646fbd6abc43bf8944f75810f81842a59",
+   "etag": "\"1793926369\"",
+   "last_modified": "Fri, 06 Nov 2026 00:52:49 GMT"
+  },
+  "ww-69441267": {
+   "id": "ww-69441267",
+   "name": "Newburn Library",
+   "postcode": "NE15 8LN",
+   "website": "https://www.newcastle.gov.uk/services/libraries-culture/libraries-newcastle/newburn-library",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=26178",
+   "reasons": [
+    "directory link is a council page, not the place's own site"
+   ],
+   "url": "https://www.newcastle.gov.uk/services/libraries-culture/libraries-newcastle/newburn-library",
+   "final_url": "https://new.newcastle.gov.uk/libraries/find-library",
+   "http": 200,
+   "sha256": "14b499f0717e2464ed7230134a79fe7646fbd6abc43bf8944f75810f81842a59",
+   "etag": "\"1793926369\"",
+   "last_modified": "Fri, 06 Nov 2026 00:52:49 GMT"
+  },
+  "ww-69441268": {
+   "id": "ww-69441268",
+   "name": "Kenton Library",
+   "postcode": "NE3 3QJ",
+   "website": "https://www.newcastle.gov.uk/services/libraries-and-culture",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=26316",
+   "reasons": [
+    "directory link is a council page, not the place's own site"
+   ],
+   "url": "https://www.newcastle.gov.uk/services/libraries-and-culture",
+   "final_url": "https://new.newcastle.gov.uk/libraries",
+   "http": 200,
+   "sha256": "85a212fef0d12e3c33ca04388b1e7105d9732c02b3819326d09898d0a1ce79ca",
+   "etag": "\"1793924896\"",
+   "last_modified": "Fri, 06 Nov 2026 00:28:16 GMT"
+  },
+  "ww-69441289": {
+   "id": "ww-69441289",
+   "name": "City Library",
+   "postcode": "NE1 8AX",
+   "website": "https://www.newcastle.gov.uk/services/libraries-and-culture",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=20089",
+   "reasons": [
+    "directory link is a council page, not the place's own site"
+   ],
+   "url": "https://www.newcastle.gov.uk/services/libraries-and-culture",
+   "final_url": "https://new.newcastle.gov.uk/libraries",
+   "http": 200,
+   "sha256": "85a212fef0d12e3c33ca04388b1e7105d9732c02b3819326d09898d0a1ce79ca",
+   "etag": "\"1793924896\"",
+   "last_modified": "Fri, 06 Nov 2026 00:28:16 GMT"
+  },
+  "ww-69441290": {
+   "id": "ww-69441290",
+   "name": "West End Community Hub and Library",
+   "postcode": "NE4 9JH",
+   "website": "www.newcastle.gov.uk/services/libraries-and-culture",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=26083",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "www.newcastle.gov.uk/services/libraries-and-culture",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ww-69441291": {
+   "id": "ww-69441291",
+   "name": "Fenham Library",
+   "postcode": "NE4 9XD",
+   "website": "https://www.newcastle.gov.uk/services/libraries-and-culture",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=26122",
+   "reasons": [
+    "directory link is a council page, not the place's own site"
+   ],
+   "url": "https://www.newcastle.gov.uk/services/libraries-and-culture",
+   "final_url": "https://new.newcastle.gov.uk/libraries",
+   "http": 200,
+   "sha256": "85a212fef0d12e3c33ca04388b1e7105d9732c02b3819326d09898d0a1ce79ca",
+   "etag": "\"1793924896\"",
+   "last_modified": "Fri, 06 Nov 2026 00:28:16 GMT"
+  },
+  "ww-69441293": {
+   "id": "ww-69441293",
+   "name": "Gosforth Library",
+   "postcode": "NE3 3HD",
+   "website": "newcastle.gov.uk/services/libraries-and-culture",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=26161",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "newcastle.gov.uk/services/libraries-and-culture",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ww-69441295": {
+   "id": "ww-69441295",
+   "name": "Cuppa with CARD",
+   "postcode": "S60 1PF",
+   "website": "https://www.citizensadvicerotherham.org.uk/",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=28669",
+   "reasons": [
+    "own site does not mention a warm space"
+   ],
+   "url": "https://www.citizensadvicerotherham.org.uk/",
+   "final_url": "https://www.citizensadvicerotherham.org.uk/",
+   "http": 200,
+   "sha256": "1df212b4bd20acf551a5180e829a4c0a6d21fa210c3bcc65adba4d09cb19e8e6",
+   "etag": "",
+   "last_modified": "Fri, 06 Nov 2026 01:15:07 GMT"
+  },
+  "ww-69449537": {
+   "id": "ww-69449537",
+   "name": "St Catherine's Church Centre",
+   "postcode": "WF1 5HL",
+   "website": "",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=28540",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ww-69450479": {
+   "id": "ww-69450479",
+   "name": "Warm Up Warm Space",
+   "postcode": "WF10 3LQ",
+   "website": "",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=28668",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
   }
  },
  "rejected": {

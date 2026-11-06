@@ -1,13 +1,14 @@
 {
- "run": "2026-11-05",
+ "run": "2026-11-06",
  "coverage": {
   "councils": 382,
   "with_swep_page": 224,
   "with_line": 134,
   "active": [
-   "North Tyneside Council"
+   "North Tyneside Council",
+   "West Northamptonshire Council"
   ],
-  "flagged": 45,
+  "flagged": 48,
   "live": [],
   "held": 0
  },
@@ -2210,8 +2211,8 @@
    "pages": [
     {
      "url": "https://www.eastriding.gov.uk/cost-of-living-help-for-households/urgent-help-when-in-need/",
-     "http": 200,
-     "status": "unknown",
+     "http": "error",
+     "status": "unreachable",
      "quote": "",
      "rest_centre": null,
      "council": "East Riding of Yorkshire Council",
@@ -2219,8 +2220,11 @@
      "site": "http://www.eastriding.gov.uk/"
     }
    ],
-   "status": "unknown",
-   "flags": []
+   "status": "unreachable",
+   "flags": [
+    "status unknown -> unreachable",
+    "dead page https://www.eastriding.gov.uk/cost-of-living-help-for-households/urgent-help-when-in-need/ (HTTP error)"
+   ]
   },
   {
    "code": "ESK",
@@ -3503,8 +3507,8 @@
    "pages": [
     {
      "url": "https://liverpool.gov.uk/housing/homeless-or-at-risk/help-for-rough-sleepers/",
-     "http": 200,
-     "status": "no SWEP wording",
+     "http": "error",
+     "status": "unreachable",
      "quote": "",
      "rest_centre": null,
      "council": "Liverpool City Council",
@@ -3512,8 +3516,11 @@
      "site": "https://liverpool.gov.uk/"
     }
    ],
-   "status": "no SWEP wording",
-   "flags": []
+   "status": "unreachable",
+   "flags": [
+    "status no SWEP wording -> unreachable",
+    "dead page https://liverpool.gov.uk/housing/homeless-or-at-risk/help-for-rough-sleepers/ (HTTP error)"
+   ]
   },
   {
    "code": "LND",
@@ -5040,8 +5047,8 @@
    "pages": [
     {
      "url": "https://www.rugby.gov.uk/w/severe-weather-emergency-protocol",
-     "http": "error",
-     "status": "unreachable",
+     "http": 200,
+     "status": "unknown",
      "quote": "",
      "rest_centre": null,
      "council": "Rugby Borough Council",
@@ -5049,10 +5056,9 @@
      "site": "https://www.rugby.gov.uk"
     }
    ],
-   "status": "unreachable",
+   "status": "unknown",
    "flags": [
-    "status unknown -> unreachable",
-    "dead page https://www.rugby.gov.uk/w/severe-weather-emergency-protocol (HTTP error)"
+    "status unreachable -> unknown"
    ]
   },
   {
@@ -5454,8 +5460,8 @@
    "pages": [
     {
      "url": "https://www.southkesteven.gov.uk/sites/default/files/2024-12/Lincolnshire%20SWEP%20Protocol%20updated%20August%202024%20final.pdf",
-     "http": 200,
-     "status": "no SWEP wording",
+     "http": 403,
+     "status": "unreachable",
      "quote": "",
      "rest_centre": null,
      "council": "South Kesteven District Council",
@@ -5463,8 +5469,11 @@
      "site": "https://www.southkesteven.gov.uk"
     }
    ],
-   "status": "no SWEP wording",
-   "flags": []
+   "status": "unreachable",
+   "flags": [
+    "status no SWEP wording -> unreachable",
+    "dead page https://www.southkesteven.gov.uk/sites/default/files/2024-12/Lincolnshire%20SWEP%20Protocol%20updated%20August%202024%20final.pdf (HTTP 403)"
+   ]
   },
   {
    "code": "SKP",
@@ -6747,9 +6756,7 @@
     }
    ],
    "status": "unknown",
-   "flags": [
-    "new page https://www.wakefield.gov.uk/your-district/wakefield-council-steps-up-autumn-clean-up-to-prepare-for-severe-weather"
-   ]
+   "flags": []
   },
   {
    "code": "WLA",
@@ -6940,8 +6947,8 @@
     {
      "url": "https://www.westnorthants.gov.uk/homelessness/support-people-sleeping-rough/help-people-sleeping-rough-very-cold-or-extreme-weather",
      "http": 200,
-     "status": "unknown",
-     "quote": "",
+     "status": "active",
+     "quote": "ross the whole of West Northamptonshire. How we tell people SWEP has been activated Our Outreach team notifies: relevant council services police services faith gro",
      "rest_centre": null,
      "council": "West Northamptonshire Council",
      "code": "WNT",
@@ -6958,8 +6965,10 @@
      "site": "https://www.westnorthants.gov.uk"
     }
    ],
-   "status": "unknown",
-   "flags": []
+   "status": "active",
+   "flags": [
+    "status unknown -> active"
+   ]
   },
   {
    "code": "WOC",
