@@ -28,6 +28,20 @@
    "added": 0,
    "queued": 13,
    "rejected": 0
+  },
+  {
+   "at": "21:43Z",
+   "source": "warmspaces_discovery.json",
+   "added": 0,
+   "queued": 2145,
+   "rejected": 2
+  },
+  {
+   "at": "21:44Z",
+   "source": "warmspaces_ww_discovery_run.json",
+   "added": 0,
+   "queued": 13,
+   "rejected": 0
   }
  ],
  "added": [],
@@ -1570,7 +1584,7 @@
    "url": "https://www.afcscic.org",
    "final_url": "https://www.afcscic.org",
    "http": 200,
-   "sha256": "2a37fae003dca545df75c0dbe8fcde0dd7411141b56deb5785fcc59643f02d90",
+   "sha256": "a691da29f8c81946ec6ba28a5063e5fb69878e431f650dfa1ec6b060128ce33e",
    "etag": "",
    "last_modified": ""
   },
@@ -1674,9 +1688,9 @@
    "url": "https://almahdi.edu/",
    "final_url": "https://almahdi.edu/",
    "http": 200,
-   "sha256": "7e8b149f6dfad8f1bff4eb7c4bbd4bc51a5323a3d8ac43b71544f5b59f98a34f",
+   "sha256": "6f1104acc20023117c7e28141cf3ec6505563cd53ccd1d6faba0b5ae9dcf0e17",
    "etag": "",
-   "last_modified": "Fri, 06 Nov 2026 12:38:27 GMT"
+   "last_modified": "Fri, 06 Nov 2026 15:10:49 GMT"
   },
   "oi-birmingham-council-all-saint-s-church-and-centre-b74-4tr": {
    "id": "oi-birmingham-council-all-saint-s-church-and-centre-b74-4tr",
@@ -1980,7 +1994,7 @@
    "url": "https://www.birminghamleisure.com/beeches-pool-fitness-centre/",
    "final_url": "https://www.moreleisure.com/beeches-pool-fitness-centre/",
    "http": 200,
-   "sha256": "f917ffca8e9ff29baf13239706f6f5a11d3fa1419ab246559bec232c54faeea8",
+   "sha256": "3c9475bbb7235470f804c0c3bca15f233d30749501b6368e3913ccc03c40d587",
    "etag": "",
    "last_modified": ""
   },
@@ -2099,7 +2113,7 @@
    "url": "https://www.birminghamleisure.com/billesley-tennis-fitness-centre/",
    "final_url": "https://www.moreleisure.com/billesley-tennis-fitness-centre/",
    "http": 200,
-   "sha256": "63628ff73a5b29458f61cc119021501dd3deef7a863b6a0bb0212ca9a81fc9cd",
+   "sha256": "779a8c6906b927877ec998c3b1ee6accd7c694b9f2cb6cd0f3feafb2065075f1",
    "etag": "",
    "last_modified": ""
   },
@@ -2271,8 +2285,8 @@
    "url": "https://www.blesstcic.com/",
    "final_url": "https://www.blesstcic.com/",
    "http": 200,
-   "sha256": "41389e59c6bbff1e4ac7da0d9a1490d5a16e6e586b74a4d7cacc9c924a96f429",
-   "etag": "W/\"19cee61129da6aafd16768163d22f616\"",
+   "sha256": "eb8c6167c2fa9dfdeea1124b358f503aa858b3f6add61c26e22393ec7f81d491",
+   "etag": "W/\"5b09e9d7ae9f1d9db70a5f8b2bb21bff\"",
    "last_modified": ""
   },
   "oi-birmingham-council-bosnia-and-herzegovina-uk-network-b11-4dy": {
@@ -2487,8 +2501,7 @@
    "directory": "Open Innovations: Birmingham Council",
    "directory_url": "https://www.birmingham.gov.uk/directory_record/666738/church_of_god_of_prophecy",
    "reasons": [
-    "own site does not mention a warm space",
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+    "own site does not mention a warm space"
    ],
    "url": "https://aberdeenstcogop.org.uk/",
    "final_url": "https://aberdeenstcogop.org.uk/",
@@ -2510,8 +2523,8 @@
    "url": "http://www.ascensionhallgreen.uk/",
    "final_url": "https://ascensionhallgreen.uk/",
    "http": 200,
-   "sha256": "5b54a9d377712f1a67047c51b91c29706fa79538283df74d3c2384b931c5200a",
-   "etag": "W/\"67-1793350054;gz\"",
+   "sha256": "b395937b1ed750b86860c2364b83ffe694e0d51cb3b294038b97ecc4c3a5b591",
+   "etag": "W/\"2-1793356835;gz\"",
    "last_modified": ""
   },
   "oi-birmingham-council-church-road-surgery-saathi-house-b6-5up": {
@@ -2903,7 +2916,7 @@
    "url": "https://www.birminghamleisure.com/fox-hollies-leisure-centre/",
    "final_url": "https://www.moreleisure.com/fox-hollies-leisure-centre/",
    "http": 200,
-   "sha256": "995e078761880a2c82d02b3cb4a0c7f5b3b24599d36bd78bae1e5b1aad58620b",
+   "sha256": "9aa710d1c24865bae80115c07aac4f7454c0079f47648c461a098794863ade54",
    "etag": "",
    "last_modified": ""
   },
@@ -3537,9 +3550,9 @@
    "url": "https://living-stones.co.uk/",
    "final_url": "https://living-stones.co.uk/",
    "http": 200,
-   "sha256": "e4de2a1fad1e3d118ada4b45d5611eb22409d3ad410d10b0413d8315a8fedc21",
+   "sha256": "816680fad8304e9420b337463f82a71555f43e46117fb91ea69a0baa1b03220c",
    "etag": "",
-   "last_modified": "Thu, 05 Nov 2026 15:36:50 GMT"
+   "last_modified": "Fri, 06 Nov 2026 15:53:06 GMT"
   },
   "oi-birmingham-council-lozells-methodist-community-centre-b19-2ah": {
    "id": "oi-birmingham-council-lozells-methodist-community-centre-b19-2ah",
@@ -3668,16 +3681,15 @@
    "directory": "Open Innovations: Birmingham Council",
    "directory_url": "https://www.birmingham.gov.uk/directory_record/821997/mlk_multi-faith_centre_at_aston_university",
    "reasons": [
-    "own site does not mention a warm space",
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)",
+    "own site unreachable (HTTP 403)",
     "postcode B4 7EQ not recognised by postcodes.io"
    ],
    "url": "https://www.aston.ac.uk/current-students/health-and-wellbeing/chaplaincy",
    "final_url": "https://www.aston.ac.uk/current-students/health-and-wellbeing/chaplaincy",
-   "http": 200,
-   "sha256": "34f5bbabaaf90a986a73b66b34b515eab7ab67c7650575aa471c7f3f9f26ee77",
-   "etag": "\"1793972387\"",
-   "last_modified": "Fri, 06 Nov 2026 13:39:47 GMT"
+   "http": 403,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
   },
   "oi-birmingham-council-moseley-community-development-trust-b13-8dd": {
    "id": "oi-birmingham-council-moseley-community-development-trust-b13-8dd",
@@ -3845,8 +3857,8 @@
    "url": "https://newbigintrust.uk/",
    "final_url": "https://www.newbigintrust.uk/",
    "http": 200,
-   "sha256": "7f12e9a5614001bbd0049978e66767d7cacbc0d53c22ad9746fc6d975e58567a",
-   "etag": "W/\"5e9f8c38c41bebcab620449b2f0c9db2--gzip\"",
+   "sha256": "a01ab6667b837ece8e996d56d84c66ff0944ef27ebba68f778940003ef817a4d",
+   "etag": "W/\"5e9f8c38c41bebcab620449b2f0c9db2\"",
    "last_modified": ""
   },
   "oi-birmingham-council-northfield-leisure-centre-b31-2pd": {
@@ -3862,7 +3874,7 @@
    "url": "https://www.birminghamleisure.com/northfield-leisure-centre/",
    "final_url": "https://www.moreleisure.com/northfield-leisure-centre/",
    "http": 200,
-   "sha256": "b992f76f6ceecd56a920df01064071bc8213f6e8305de3f7fb9740be652373a2",
+   "sha256": "d8d08561c0cf2f3e9bd6e3dd6ba45b2d808165fb8abc869dbe67f123ec785505",
    "etag": "",
    "last_modified": ""
   },
@@ -4458,7 +4470,7 @@
    "url": "https://www.placesleisure.org/centres/sparkhill-pool-and-fitness-centre/",
    "final_url": "https://www.placesleisure.org/centres/sparkhill-pool-and-fitness-centre/",
    "http": 200,
-   "sha256": "f9bd2fbd34dabe854689706760b1afc130603bacf55ba326170c867319cb7dac",
+   "sha256": "bf14c00b3250f993d4dbf1aecf07c0e1ab8429072d966ba99d78b8b68aa41ff2",
    "etag": "",
    "last_modified": ""
   },
@@ -4918,7 +4930,7 @@
    "url": "https://stpetersmaney.org.uk",
    "final_url": "https://stpetersmaney.org.uk",
    "http": 200,
-   "sha256": "83e4a43a245c3646ac89e59d9ecb0b8e9956e0a5493a8038f5e33d205e4f060a",
+   "sha256": "55d13411c39bed24025dfe5764f3a5c4f61444cc18bd2668b130af47dae3db5a",
    "etag": "",
    "last_modified": ""
   },
@@ -4969,7 +4981,7 @@
    "url": "https://www.birminghamleisure.com/stechford-leisure-centre/",
    "final_url": "https://www.moreleisure.com/stechford-leisure-centre/",
    "http": 200,
-   "sha256": "6b334285daed65a8e6b2c82b5288ae2a47ee0baa8e93a3d0483e05bcd032df95",
+   "sha256": "426946950b79143e0194b36a94771e364f17d734b35dbf3dcb12dc650e22ef95",
    "etag": "",
    "last_modified": ""
   },
@@ -5004,7 +5016,7 @@
    "url": "https://stryx.co.uk/What-s-On",
    "final_url": "https://stryx.co.uk/What-s-On",
    "http": 200,
-   "sha256": "b0e4b14e224430b5862c3bbec1d8fa9e15cb654c72df65ba1674262080c94962",
+   "sha256": "4532a82203d67a2b4091dbd4f392a61334f052a6933aacaf08adb008c793ee30",
    "etag": "",
    "last_modified": ""
   },
@@ -5346,7 +5358,7 @@
    "http": 200,
    "sha256": "59465afb2e464924370557ed649052bf46823e75279825f2923cc164df57697d",
    "etag": "\"2ac589d873cae936d58cff55b44b31e4\"",
-   "last_modified": "Thu, 05 Nov 2026 13:08:56 GMT"
+   "last_modified": "Thu, 05 Nov 2026 06:29:55 GMT"
   },
   "oi-birmingham-council-walmley-library-b76-1np": {
    "id": "oi-birmingham-council-walmley-library-b76-1np",
@@ -5497,7 +5509,7 @@
    "url": "https://www.birminghamleisure.com/wyndley-leisure-centre/",
    "final_url": "https://www.moreleisure.com/wyndley-leisure-centre/",
    "http": 200,
-   "sha256": "8d18559a517beaadf2c71b01f0348b99acb13fc8aea88a4a6d69465b6e36b663",
+   "sha256": "436fc010c9187a234565dbf917fc81b3805f446043caafb153e14d9cb64c1f77",
    "etag": "",
    "last_modified": ""
   },
@@ -5685,7 +5697,7 @@
    "url": "https://poolecommunitiestrust.org.uk/home/branksome-centre/",
    "final_url": "https://poolecommunitiestrust.org.uk/poole-communities-trust/branksome-centre/",
    "http": 200,
-   "sha256": "06a80efd804808276ec98f560c18e05b135919417c91053b988cfd9025606dce",
+   "sha256": "0674a7c091844a28a3d4e09c5eb8fecb2bd4d82a22cfc94cbc297e192352c74c",
    "etag": "",
    "last_modified": ""
   },
@@ -12226,14 +12238,15 @@
    "directory": "Open Innovations: Colchester Council",
    "directory_url": "https://www.colchester.gov.uk/support-for-residents/?id=&page=warm--welcoming--spaces",
    "reasons": [
-    "own site unreachable (HTTP 504)"
+    "own site does not mention a warm space",
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
    ],
    "url": "https://park-play.com/register",
-   "final_url": "https://park-play.com/register",
-   "http": 504,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
+   "final_url": "https://park-play.com/register/",
+   "http": 200,
+   "sha256": "605e5661db3d89588c72b9983a094dfb3cbcbfb769c0f8125534409a8909a6c1",
+   "etag": "",
+   "last_modified": ""
   },
   "oi-colchester-council-park-run-highwoods-co4-9ry": {
    "id": "oi-colchester-council-park-run-highwoods-co4-9ry",
@@ -36970,7 +36983,7 @@
    "url": "https://www.librariesunlimited.org.uk",
    "final_url": "https://www.librariesunlimited.org.uk",
    "http": 200,
-   "sha256": "544a94653bc837d7c2668e92d54db1b2d8df0b234e3aadb89825ab6a6477c075",
+   "sha256": "69db0dfca2f087f1b335e0da51b51c60397e605edf93b0e86eda14c4f1cf6562",
    "etag": "",
    "last_modified": ""
   },
@@ -37075,9 +37088,9 @@
    "url": "https://www.newcastle.gov.uk/services/libraries-culture/libraries-newcastle/outer-west-library",
    "final_url": "https://new.newcastle.gov.uk/libraries/find-library",
    "http": 200,
-   "sha256": "dd41c1c517ed1530928954fc96f5761f97512d3f8c92a158df405eb8a8331264",
-   "etag": "\"1793970472\"",
-   "last_modified": "Fri, 06 Nov 2026 13:07:52 GMT"
+   "sha256": "963ba9232f6ebbdc6f4fe3771e24ad846f206d9f0ed21a530a5b3f6e4eccdfa0",
+   "etag": "\"1793985052\"",
+   "last_modified": "Fri, 06 Nov 2026 17:10:52 GMT"
   },
   "ww-69441267": {
    "id": "ww-69441267",
@@ -37092,9 +37105,9 @@
    "url": "https://www.newcastle.gov.uk/services/libraries-culture/libraries-newcastle/newburn-library",
    "final_url": "https://new.newcastle.gov.uk/libraries/find-library",
    "http": 200,
-   "sha256": "dd41c1c517ed1530928954fc96f5761f97512d3f8c92a158df405eb8a8331264",
-   "etag": "\"1793970472\"",
-   "last_modified": "Fri, 06 Nov 2026 13:07:52 GMT"
+   "sha256": "963ba9232f6ebbdc6f4fe3771e24ad846f206d9f0ed21a530a5b3f6e4eccdfa0",
+   "etag": "\"1793985052\"",
+   "last_modified": "Fri, 06 Nov 2026 17:10:52 GMT"
   },
   "ww-69441268": {
    "id": "ww-69441268",
@@ -37110,8 +37123,8 @@
    "final_url": "https://new.newcastle.gov.uk/libraries",
    "http": 200,
    "sha256": "38f99857896f03ed44049ee4fc80238eb32987edbfd2c935aed9b860a8c47490",
-   "etag": "\"1793969794\"",
-   "last_modified": "Fri, 06 Nov 2026 12:56:34 GMT"
+   "etag": "\"1793982878\"",
+   "last_modified": "Fri, 06 Nov 2026 16:34:38 GMT"
   },
   "ww-69441289": {
    "id": "ww-69441289",
@@ -37127,8 +37140,8 @@
    "final_url": "https://new.newcastle.gov.uk/libraries",
    "http": 200,
    "sha256": "38f99857896f03ed44049ee4fc80238eb32987edbfd2c935aed9b860a8c47490",
-   "etag": "\"1793969794\"",
-   "last_modified": "Fri, 06 Nov 2026 12:56:34 GMT"
+   "etag": "\"1793982878\"",
+   "last_modified": "Fri, 06 Nov 2026 16:34:38 GMT"
   },
   "ww-69441290": {
    "id": "ww-69441290",
@@ -37161,8 +37174,8 @@
    "final_url": "https://new.newcastle.gov.uk/libraries",
    "http": 200,
    "sha256": "38f99857896f03ed44049ee4fc80238eb32987edbfd2c935aed9b860a8c47490",
-   "etag": "\"1793969794\"",
-   "last_modified": "Fri, 06 Nov 2026 12:56:34 GMT"
+   "etag": "\"1793982878\"",
+   "last_modified": "Fri, 06 Nov 2026 16:34:38 GMT"
   },
   "ww-69441293": {
    "id": "ww-69441293",
@@ -37194,9 +37207,9 @@
    "url": "https://www.citizensadvicerotherham.org.uk/",
    "final_url": "https://www.citizensadvicerotherham.org.uk/",
    "http": 200,
-   "sha256": "a40563879d294edd8b60eea5deded98833d65c3e64c397f4efaf171c6a61c1e6",
+   "sha256": "68a42ee7a8c26258c8072b2cdf517dbcabb3a965a037687ed47e3c569728ce6d",
    "etag": "",
-   "last_modified": "Fri, 06 Nov 2026 13:40:47 GMT"
+   "last_modified": "Fri, 06 Nov 2026 16:44:08 GMT"
   },
   "ww-69449537": {
    "id": "ww-69449537",

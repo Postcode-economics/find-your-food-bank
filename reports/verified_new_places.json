@@ -76,27 +76,6 @@
  },
  "proposals": [
   {
-   "id": "hl-alabare-christian-care-supported-housing-south",
-   "name": "Alabaré - Supported Housing South",
-   "directory": "Homeless Link",
-   "directory_url": "https://homeless.org.uk/homeless-england/service/alabare-christian-care-supported-housing-south/",
-   "website": "http://www.alabare.co.uk",
-   "referral_address": "",
-   "referral_postcode": "",
-   "category": "emergency",
-   "status": "verified",
-   "layer": "shelters",
-   "address": "Our Impact Marketing Communications Privacy Notice Update Mailing Preferences Policies & Documents Sitemap GET IN TOUCH ALABARÉ Riverside House 2 Watt Road Churchfields Salisbury S",
-   "postcode": "SP2 7UD",
-   "lat": null,
-   "lng": null,
-   "access": "Main hostel is covered 24/7",
-   "access_type": "open_access",
-   "operator_page": "https://alabare.co.uk/",
-   "evidence": "official directory entry + operator page names the place and shows the building postcode",
-   "postcode_note": "building postcode is from the operator page; the directory listing had no postcode"
-  },
-  {
    "id": "hl-one-ymca-welwyn-garden-city-hostel",
    "name": "One YMCA - Welwyn Garden City Hostel",
    "directory": "Homeless Link",
@@ -116,6 +95,29 @@
    "access": "Residents can also walk into the large town and further out to enjoy rural areas",
    "access_type": "open_access",
    "operator_page": "https://oneymca.org/what-we-do/accommodation/hostels/welwyn-garden-city-hostel/",
+   "evidence": "official directory entry + operator page names the place and shows the building postcode",
+   "postcode_note": "building postcode is from the operator page; the directory listing had no postcode"
+  },
+  {
+   "id": "hl-tyne-ha-clifford-street",
+   "name": "Tyne HA - Clifford street",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/tyne-ha-clifford-street/",
+   "website": "http://www.tynehousing.org.uk",
+   "referral_address": "",
+   "referral_postcode": "",
+   "category": "emergency",
+   "status": "verified",
+   "layer": "shelters",
+   "address": "elephone: (0191) 265 8621 Freephone: 08000 489 469 Email: info@tynegroup.org.uk Address Tyne Housing Association St Silas Church Building Clifford Street Byker Newcastle Upon Tyne ",
+   "postcode": "NE6 1PG",
+   "lat": null,
+   "lng": null,
+   "phone": "08000 489 469",
+   "phone_source": "https://www.tynehousing.org.uk/",
+   "access": "Mixed 17 99 Accept self referrals and referrals from any agency",
+   "access_type": "self_referral",
+   "operator_page": "https://www.tynehousing.org.uk/",
    "evidence": "official directory entry + operator page names the place and shows the building postcode",
    "postcode_note": "building postcode is from the operator page; the directory listing had no postcode"
   },
@@ -455,6 +457,19 @@
    "category": "supported",
    "status": "held",
    "reason": "longer-term supported housing or Emmaus — not published"
+  },
+  {
+   "id": "hl-alabare-christian-care-supported-housing-south",
+   "name": "Alabaré - Supported Housing South",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/alabare-christian-care-supported-housing-south/",
+   "website": "http://www.alabare.co.uk",
+   "referral_address": "",
+   "referral_postcode": "",
+   "category": "publishable",
+   "status": "held",
+   "reason": "operator page describes longer-term supported housing",
+   "operator_page": "https://alabare.co.uk/"
   },
   {
    "id": "hl-alabare-the-andover-foyer-sarum-house",
@@ -10721,18 +10736,6 @@
    "reason": "no building postcode on the operator page (directory postcode is a referral address only)"
   },
   {
-   "id": "hl-tyne-ha-clifford-street",
-   "name": "Tyne HA - Clifford street",
-   "directory": "Homeless Link",
-   "directory_url": "https://homeless.org.uk/homeless-england/service/tyne-ha-clifford-street/",
-   "website": "http://www.tynehousing.org.uk",
-   "referral_address": "",
-   "referral_postcode": "",
-   "category": "publishable",
-   "status": "held",
-   "reason": "operator site unreachable (HTTP error)"
-  },
-  {
    "id": "hl-u-turn-recovery-project",
    "name": "U-Turn Recovery Project",
    "directory": "Homeless Link",
@@ -18011,7 +18014,7 @@
    "reason": "day centre / drop-in — held candidate, not a shelter"
   },
   {
-   "id": "ss-69580b4a395b5cf795e67c40",
+   "id": "ss-69580b4a395b5cf795e67c3e",
    "name": "Little Edi Foundation",
    "directory": "Street Support",
    "directory_url": "https://www.streetsupport.net/find-help",
@@ -18023,7 +18026,7 @@
    "reason": "day centre / drop-in — held candidate, not a shelter"
   },
   {
-   "id": "ss-69580b4a395b5cf795e67c3e",
+   "id": "ss-69580b4a395b5cf795e67c40",
    "name": "Little Edi Foundation",
    "directory": "Street Support",
    "directory_url": "https://www.streetsupport.net/find-help",
@@ -18059,7 +18062,7 @@
    "reason": "day centre / drop-in — held candidate, not a shelter"
   },
   {
-   "id": "ss-69580d21395b5cf795e67c6c",
+   "id": "ss-69580d21395b5cf795e67c6a",
    "name": "Little Waltham United Reformed Church",
    "directory": "Street Support",
    "directory_url": "https://www.streetsupport.net/find-help",
@@ -18071,7 +18074,7 @@
    "reason": "day centre / drop-in — held candidate, not a shelter"
   },
   {
-   "id": "ss-69580d21395b5cf795e67c6a",
+   "id": "ss-69580d21395b5cf795e67c6c",
    "name": "Little Waltham United Reformed Church",
    "directory": "Street Support",
    "directory_url": "https://www.streetsupport.net/find-help",
@@ -18191,7 +18194,7 @@
    "reason": "day centre / drop-in — held candidate, not a shelter"
   },
   {
-   "id": "ss-69654043222e054134732831",
+   "id": "ss-69654043222e05413473282f",
    "name": "St Andrew&39;s Church (Sandon)",
    "directory": "Street Support",
    "directory_url": "https://www.streetsupport.net/find-help",
@@ -18203,7 +18206,7 @@
    "reason": "day centre / drop-in — held candidate, not a shelter"
   },
   {
-   "id": "ss-69654043222e05413473282f",
+   "id": "ss-69654043222e054134732831",
    "name": "St Andrew&39;s Church (Sandon)",
    "directory": "Street Support",
    "directory_url": "https://www.streetsupport.net/find-help",

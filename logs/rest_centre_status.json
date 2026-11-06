@@ -1,6 +1,6 @@
 {
  "run": "2026-11-06",
- "seconds": 81.2,
+ "seconds": 47.1,
  "pages": [
   {
    "council": "Armagh City, Banbridge and Craigavon Borough Council",
@@ -717,8 +717,8 @@
    "council": "Dundee City Council",
    "url": "https://www.dundeecity.gov.uk/news",
    "kind": "news",
-   "http": 200,
-   "status": "checked",
+   "http": null,
+   "status": "unreachable",
    "quote": "",
    "rest_centre": null
   },
@@ -1455,8 +1455,8 @@
    "council": "City of Lincoln Council",
    "url": "https://www.lincoln.gov.uk/news",
    "kind": "news",
-   "http": null,
-   "status": "unreachable",
+   "http": 200,
+   "status": "checked",
    "quote": "",
    "rest_centre": null
   },
@@ -1518,8 +1518,8 @@
    "council": "Maldon District Council",
    "url": "https://www.maldon.gov.uk/news",
    "kind": "news",
-   "http": 200,
-   "status": "checked",
+   "http": 500,
+   "status": "unreachable",
    "quote": "",
    "rest_centre": null
   },
@@ -1653,8 +1653,8 @@
    "council": "Mid Suffolk District Council",
    "url": "https://www.midsuffolk.gov.uk/news",
    "kind": "news",
-   "http": 200,
-   "status": "checked",
+   "http": null,
+   "status": "unreachable",
    "quote": "",
    "rest_centre": null
   },
@@ -2166,8 +2166,8 @@
    "council": "Rugby Borough Council",
    "url": "https://www.rugby.gov.uk/w/disruption-and-emergencies",
    "kind": "emergencies",
-   "http": null,
-   "status": "unreachable",
+   "http": 200,
+   "status": "checked",
    "quote": "",
    "rest_centre": null
   },
@@ -2274,8 +2274,8 @@
    "council": "South Derbyshire District Council",
    "url": "https://www.southderbyshire.gov.uk/news",
    "kind": "news",
-   "http": null,
-   "status": "unreachable",
+   "http": 200,
+   "status": "checked",
    "quote": "",
    "rest_centre": null
   },
@@ -2607,8 +2607,8 @@
    "council": "Tameside Metropolitan Borough Council",
    "url": "https://www.tameside.gov.uk/newsroom",
    "kind": "news",
-   "http": null,
-   "status": "unreachable",
+   "http": 200,
+   "status": "checked",
    "quote": "",
    "rest_centre": null
   },
@@ -2643,8 +2643,8 @@
    "council": "Test Valley Borough Council",
    "url": "https://www.testvalley.gov.uk/news",
    "kind": "news",
-   "http": null,
-   "status": "unreachable",
+   "http": 200,
+   "status": "checked",
    "quote": "",
    "rest_centre": null
   },
