@@ -3,13 +3,39 @@ import place_lock  # hand-wins for the kept copy in verification_gate (one copy 
 UA = {"User-Agent": "postcode-economics-map/1.0 (+https://postcode-economics.github.io/find-your-food-bank/)"}
 PC_RE = re.compile(r"\b([A-Z]{1,2}[0-9][0-9A-Z]?)\s*([0-9][A-Z]{2})\b", re.I)
 def today(): return datetime.date.today().isoformat()
+FETCH_LOGS = []
 def get(url, data=None, tries=3, timeout=90):
+    global FETCH_LOGS
     for k in range(tries):
+        t0 = time.time()
         try:
             req = urllib.request.Request(url, data=data, headers=UA)
-            with urllib.request.urlopen(req, timeout=timeout) as r: return r.read()
+            with urllib.request.urlopen(req, timeout=timeout) as r:
+                res = r.read()
+            dt = time.time() - t0
+            FETCH_LOGS.append({
+                "url": url,
+                "attempt": k + 1,
+                "duration": round(dt, 3),
+                "status": "ok",
+                "bytes": len(res),
+                "error": None,
+                "timestamp": datetime.datetime.now(datetime.timezone.utc).isoformat()
+            })
+            return res
         except Exception as e:
-            err = e; time.sleep(5 * (k + 1))
+            dt = time.time() - t0
+            err = e
+            FETCH_LOGS.append({
+                "url": url,
+                "attempt": k + 1,
+                "duration": round(dt, 3),
+                "status": "error",
+                "bytes": 0,
+                "error": str(e),
+                "timestamp": datetime.datetime.now(datetime.timezone.utc).isoformat()
+            })
+            time.sleep(5 * (k + 1))
     raise err
 def postcode(s):
     m = PC_RE.search(s or "")
