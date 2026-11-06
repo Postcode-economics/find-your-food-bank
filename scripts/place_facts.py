@@ -24,11 +24,24 @@ def copy_wheelchair(dest, src):
     return True
 
 
+def _copy_list_or_text(dest, src, key):
+    """Copy a stated facilities/provided value. A list is copied as a list. Never wipes a value already on the item."""
+    if dest.get(key):
+        return
+    raw = src.get(key)
+    if isinstance(raw, list):
+        stated = [item for item in raw if str(item or "").strip()]
+        if stated:
+            dest[key] = stated
+    elif isinstance(raw, str) and raw.strip():
+        dest[key] = raw.strip()
+
+
 def stamp(items, overlays, fill_missing=False):
-    """Copy an explicit wheelchair (and, if fill_missing, groups and referral) from id-keyed overrides.
+    """Copy an explicit wheelchair (and, if fill_missing, groups, referral, facilities and provided) from id-keyed overrides.
 
     Never invents a value. An overlay without wheelchair leaves the item unchanged.
-    fill_missing only fills groups or referral when the item does not already have them
+    fill_missing only fills groups, referral, facilities or provided when the item does not already have them
     and the override states them.
     """
     if not isinstance(overlays, dict):
@@ -49,4 +62,6 @@ def stamp(items, overlays, fill_missing=False):
         ref = src.get("referral")
         if isinstance(ref, str) and ref.strip() and not str(x.get("referral") or "").strip():
             x["referral"] = ref.strip()
+        _copy_list_or_text(x, src, "facilities")
+        _copy_list_or_text(x, src, "provided")
     return n
