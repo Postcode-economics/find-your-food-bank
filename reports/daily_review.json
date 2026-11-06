@@ -103988,6 +103988,21 @@
     "phone_fixes": 0,
     "closures": 0,
     "robots": 100
+   },
+   {
+    "at": "2026-11-05T22:02:00+00:00",
+    "sites": 1068,
+    "ok": 922,
+    "failed": 46,
+    "skipped": 0,
+    "voucher": 131,
+    "walkin": 63,
+    "mixed": 28,
+    "unclear": 700,
+    "flips": 0,
+    "phone_fixes": 0,
+    "closures": 0,
+    "robots": 100
    }
   ],
   "items": {
@@ -104075,9 +104090,9 @@
     "name": "Crookston Community Group Foodbank",
     "website": "https://ccg.scot/projects/1073/",
     "error": "HTTP 404",
-    "failed_runs": 33,
+    "failed_runs": 34,
     "phone": "01418824333",
-    "note": "site failed 33 runs in a row - check contact details"
+    "note": "site failed 34 runs in a row - check contact details"
    },
    "opening times not read|https://dwellingplaceglasgow.org/storehouse/": {
     "category": "opening times not read",
@@ -104093,9 +104108,9 @@
     "name": "Glasgow Vineyard Storehouse Foodbank",
     "website": "https://dwellingplaceglasgow.org/storehouse/",
     "error": "HTTP 404",
-    "failed_runs": 33,
+    "failed_runs": 34,
     "phone": "0141 334 6746",
-    "note": "site failed 33 runs in a row - check contact details"
+    "note": "site failed 34 runs in a row - check contact details"
    },
    "opening times not read|https://www.vulcancentre.co.uk/food-distribution/": {
     "category": "opening times not read",
@@ -104111,9 +104126,9 @@
     "name": "The Vulcan Centre Foodbank",
     "website": "https://www.vulcancentre.co.uk/food-distribution/",
     "error": "HTTP 404",
-    "failed_runs": 33,
+    "failed_runs": 34,
     "phone": "01482 229230",
-    "note": "site failed 33 runs in a row - check contact details"
+    "note": "site failed 34 runs in a row - check contact details"
    },
    "not fetched, robots|https://www.facebook.com/WAMCCommunity": {
     "category": "not fetched, robots",
@@ -104213,9 +104228,9 @@
     "name": "BJO Amara Association Foodbank",
     "website": "https://www.bjoamaraassociation.org.uk/",
     "error": "URLError: <urlopen error [Errno 101] Network is unreachable>",
-    "failed_runs": 11,
+    "failed_runs": 12,
     "phone": "",
-    "note": "site failed 11 runs in a row - check contact details"
+    "note": "site failed 12 runs in a row - check contact details"
    },
    "opening times not read|https://www.northlochs.co.uk": {
     "category": "opening times not read",
@@ -104231,9 +104246,9 @@
     "name": "North Lochs Foodbank",
     "website": "https://www.northlochs.co.uk",
     "error": "HTTP 403",
-    "failed_runs": 33,
+    "failed_runs": 34,
     "phone": "",
-    "note": "site failed 33 runs in a row - check contact details"
+    "note": "site failed 34 runs in a row - check contact details"
    },
    "opening times not read|https://www.thorne-moorends.gov.uk/community/community-groups/": {
     "category": "opening times not read",
@@ -104249,9 +104264,9 @@
     "name": "Thorne and Moorends Community Foodbank",
     "website": "https://www.thorne-moorends.gov.uk/community/community-groups/",
     "error": "HTTP 403",
-    "failed_runs": 33,
+    "failed_runs": 34,
     "phone": "",
-    "note": "site failed 33 runs in a row - check contact details"
+    "note": "site failed 34 runs in a row - check contact details"
    },
    "not fetched, robots|https://www.facebook.com/AHHITH1/": {
     "category": "not fetched, robots",
@@ -104764,9 +104779,9 @@
     "name": "Caistor Foodbank",
     "website": "http://www.caistorfoodbank.org",
     "error": "HTTP 404",
-    "failed_runs": 33,
+    "failed_runs": 34,
     "phone": "07714624608",
-    "note": "site failed 33 runs in a row - check contact details"
+    "note": "site failed 34 runs in a row - check contact details"
    },
    "opening times not read|http://www.churchesfoodbank.org.uk": {
     "category": "opening times not read",
@@ -104782,9 +104797,9 @@
     "name": "Churches Foodbank",
     "website": "http://www.churchesfoodbank.org.uk",
     "error": "URLError: <urlopen error [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ss",
-    "failed_runs": 33,
+    "failed_runs": 34,
     "phone": "02085341164",
-    "note": "site failed 33 runs in a row - check contact details"
+    "note": "site failed 34 runs in a row - check contact details"
    },
    "opening times not read|http://www.onevisionproject.org": {
     "category": "opening times not read",
@@ -104800,9 +104815,9 @@
     "name": "One Vision Foodbank",
     "website": "http://www.onevisionproject.org",
     "error": "URLError: <urlopen error [Errno -2] Name or service not known>",
-    "failed_runs": 33,
+    "failed_runs": 34,
     "phone": "01923372699",
-    "note": "site failed 33 runs in a row - check contact details"
+    "note": "site failed 34 runs in a row - check contact details"
    },
    "opening times not read|https://alhudauk.com/index.php/services-islamic/social-welfare-services/food-bank.html": {
     "category": "opening times not read",
@@ -104818,9 +104833,9 @@
     "name": "Alhuda Welfare Foundation Foodbank",
     "website": "https://alhudauk.com/index.php/services-islamic/social-welfare-services/food-bank.html",
     "error": "HTTP 404",
-    "failed_runs": 33,
+    "failed_runs": 34,
     "phone": "07913121096",
-    "note": "site failed 33 runs in a row - check contact details"
+    "note": "site failed 34 runs in a row - check contact details"
    },
    "opening times not read|https://assyntdevelopmenttrust.org/assynt-food-bank/": {
     "category": "opening times not read",
@@ -104836,9 +104851,9 @@
     "name": "Assynt Foodbank",
     "website": "https://assyntdevelopmenttrust.org/assynt-food-bank/",
     "error": "HTTP 404",
-    "failed_runs": 33,
+    "failed_runs": 34,
     "phone": "01571844275",
-    "note": "site failed 33 runs in a row - check contact details"
+    "note": "site failed 34 runs in a row - check contact details"
    },
    "opening times not read|https://cdwfoodbank.co.uk": {
     "category": "opening times not read",
@@ -104854,9 +104869,9 @@
     "name": "CDW Foodbank",
     "website": "https://cdwfoodbank.co.uk",
     "error": "HTTP 404",
-    "failed_runs": 24,
+    "failed_runs": 25,
     "phone": "07493056985",
-    "note": "site failed 24 runs in a row - check contact details"
+    "note": "site failed 25 runs in a row - check contact details"
    },
    "opening times not read|https://communitykitchenhub.org.uk": {
     "category": "opening times not read",
@@ -104872,9 +104887,9 @@
     "name": "Dartmoor Community Kitchen Hub Foodbank",
     "website": "https://communitykitchenhub.org.uk",
     "error": "URLError: <urlopen error [Errno -2] Name or service not known>",
-    "failed_runs": 33,
+    "failed_runs": 34,
     "phone": "01626836899",
-    "note": "site failed 33 runs in a row - check contact details"
+    "note": "site failed 34 runs in a row - check contact details"
    },
    "opening times not read|https://durhamfoodbank.org.uk": {
     "category": "opening times not read",
@@ -104890,9 +104905,9 @@
     "name": "County Durham Foodbank",
     "website": "https://durhamfoodbank.org.uk",
     "error": "HTTP 403",
-    "failed_runs": 33,
+    "failed_runs": 34,
     "phone": "01913037559",
-    "note": "site failed 33 runs in a row - check contact details"
+    "note": "site failed 34 runs in a row - check contact details"
    },
    "opening times not read|https://kentonfoodbank.org.uk/": {
     "category": "opening times not read",
@@ -104908,9 +104923,9 @@
     "name": "Kenton Foodbank",
     "website": "https://kentonfoodbank.org.uk/",
     "error": "URLError: <urlopen error [Errno -3] Temporary failure in name resolution>",
-    "failed_runs": 33,
+    "failed_runs": 34,
     "phone": "01912864640",
-    "note": "site failed 33 runs in a row - check contact details"
+    "note": "site failed 34 runs in a row - check contact details"
    },
    "opening times not read|https://kingschurchleicester.org/foodbank": {
     "category": "opening times not read",
@@ -104926,9 +104941,9 @@
     "name": "Manor House Foodbank",
     "website": "https://kingschurchleicester.org/foodbank",
     "error": "HTTP 404",
-    "failed_runs": 33,
+    "failed_runs": 34,
     "phone": "07469759475",
-    "note": "site failed 33 runs in a row - check contact details"
+    "note": "site failed 34 runs in a row - check contact details"
    },
    "opening times not read|https://lesliecommunitypantry.co.uk": {
     "category": "opening times not read",
@@ -104944,9 +104959,9 @@
     "name": "Leslie Community Pantry Foodbank",
     "website": "https://lesliecommunitypantry.co.uk",
     "error": "URLError: <urlopen error [Errno -3] Temporary failure in name resolution>",
-    "failed_runs": 33,
+    "failed_runs": 34,
     "phone": "07730789255",
-    "note": "site failed 33 runs in a row - check contact details"
+    "note": "site failed 34 runs in a row - check contact details"
    },
    "opening times not read|https://newmarketopendoor.org.uk/foodbank": {
     "category": "opening times not read",
@@ -104962,9 +104977,9 @@
     "name": "Newmarket Open Door Foodbank",
     "website": "https://newmarketopendoor.org.uk/foodbank",
     "error": "URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unabl",
-    "failed_runs": 33,
+    "failed_runs": 34,
     "phone": "01638561711",
-    "note": "site failed 33 runs in a row - check contact details"
+    "note": "site failed 34 runs in a row - check contact details"
    },
    "opening times not read|https://okfp.org.uk": {
     "category": "opening times not read",
@@ -104998,9 +105013,9 @@
     "name": "Orchard Primary School Foodbank",
     "website": "https://orchardprimary.org/orchard-primary-school-food-bank",
     "error": "HTTP 404",
-    "failed_runs": 33,
+    "failed_runs": 34,
     "phone": "01332810078",
-    "note": "site failed 33 runs in a row - check contact details"
+    "note": "site failed 34 runs in a row - check contact details"
    },
    "opening times not read|https://sanctuarytrust.org.uk/projects/conwyfoodbank/": {
     "category": "opening times not read",
@@ -105016,9 +105031,9 @@
     "name": "Conwy Foodbank",
     "website": "https://sanctuarytrust.org.uk/projects/conwyfoodbank/",
     "error": "HTTP 404",
-    "failed_runs": 9,
+    "failed_runs": 10,
     "phone": "07484024671",
-    "note": "site failed 9 runs in a row - check contact details"
+    "note": "site failed 10 runs in a row - check contact details"
    },
    "opening times not read|https://southamptoncitymission.co.uk/basics-banks": {
     "category": "opening times not read",
@@ -105034,9 +105049,9 @@
     "name": "Southampton Basics Bank Foodbank",
     "website": "https://southamptoncitymission.co.uk/basics-banks",
     "error": "HTTP 404",
-    "failed_runs": 33,
+    "failed_runs": 34,
     "phone": "02380550435",
-    "note": "site failed 33 runs in a row - check contact details"
+    "note": "site failed 34 runs in a row - check contact details"
    },
    "opening times not read|https://stmary-sutton.org.uk/page/marys-food-bank": {
     "category": "opening times not read",
@@ -105052,9 +105067,9 @@
     "name": "Mary's (Sutton) Foodbank",
     "website": "https://stmary-sutton.org.uk/page/marys-food-bank",
     "error": "URLError: <urlopen error timed out>",
-    "failed_runs": 33,
+    "failed_runs": 34,
     "phone": "01623553579",
-    "note": "site failed 33 runs in a row - check contact details"
+    "note": "site failed 34 runs in a row - check contact details"
    },
    "opening times not read|https://wecockchurch.org.uk/waterlooville-foodbank/": {
     "category": "opening times not read",
@@ -105070,9 +105085,9 @@
     "name": "Waterlooville Foodbank",
     "website": "https://wecockchurch.org.uk/waterlooville-foodbank/",
     "error": "HTTP 404",
-    "failed_runs": 33,
+    "failed_runs": 34,
     "phone": "02392255288",
-    "note": "site failed 33 runs in a row - check contact details"
+    "note": "site failed 34 runs in a row - check contact details"
    },
    "opening times not read|https://www.betheltrustpt.co.uk/food-share": {
     "category": "opening times not read",
@@ -105088,9 +105103,9 @@
     "name": "Bethel Foodbank",
     "website": "https://www.betheltrustpt.co.uk/food-share",
     "error": "HTTP 404",
-    "failed_runs": 33,
+    "failed_runs": 34,
     "phone": "07971700105",
-    "note": "site failed 33 runs in a row - check contact details"
+    "note": "site failed 34 runs in a row - check contact details"
    },
    "opening times not read|https://www.dorchesterbc.org.uk/foodbank": {
     "category": "opening times not read",
@@ -105106,9 +105121,9 @@
     "name": "Dorchester Foodbank",
     "website": "https://www.dorchesterbc.org.uk/foodbank",
     "error": "HTTP 404",
-    "failed_runs": 33,
+    "failed_runs": 34,
     "phone": "07554983978",
-    "note": "site failed 33 runs in a row - check contact details"
+    "note": "site failed 34 runs in a row - check contact details"
    },
    "opening times not read|https://www.gatehousecommunitychurch.co.uk/index.php/about-us/food-bank": {
     "category": "opening times not read",
@@ -105124,16 +105139,16 @@
     "name": "Gatehouse Community Church Foodbank",
     "website": "https://www.gatehousecommunitychurch.co.uk/index.php/about-us/food-bank",
     "error": "HTTP 404",
-    "failed_runs": 33,
+    "failed_runs": 34,
     "phone": "07753370425",
-    "note": "site failed 33 runs in a row - check contact details"
+    "note": "site failed 34 runs in a row - check contact details"
    },
    "opening times not read|https://www.leightonlinsladehelpers.org.uk/": {
     "category": "opening times not read",
     "first_flagged": "2026-11-05T06:11:42+00:00",
     "name": "Leighton Linslade Helpers Foodbank",
     "website": "https://www.leightonlinsladehelpers.org.uk/",
-    "error": "HTTP 429",
+    "error": "paused this run after HTTP 429 - still due on a later scheduled run",
     "note": "live page did not open; no saved copy used. Opening times not listed. Call before you go."
    },
    "dead or unreachable website|https://www.leightonlinsladehelpers.org.uk/": {
@@ -105141,10 +105156,10 @@
     "first_flagged": "2026-11-05T06:11:42+00:00",
     "name": "Leighton Linslade Helpers Foodbank",
     "website": "https://www.leightonlinsladehelpers.org.uk/",
-    "error": "HTTP 429",
-    "failed_runs": 4,
+    "error": "paused this run after HTTP 429 - still due on a later scheduled run",
+    "failed_runs": 5,
     "phone": "01525837219",
-    "note": "site failed 4 runs in a row - check contact details"
+    "note": "site failed 5 runs in a row - check contact details"
    },
    "opening times not read|https://www.leominsterfoodbank.org": {
     "category": "opening times not read",
@@ -105160,9 +105175,9 @@
     "name": "Leominster Foodbank",
     "website": "https://www.leominsterfoodbank.org",
     "error": "URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unabl",
-    "failed_runs": 33,
+    "failed_runs": 34,
     "phone": "07715410575",
-    "note": "site failed 33 runs in a row - check contact details"
+    "note": "site failed 34 runs in a row - check contact details"
    },
    "opening times not read|https://www.thearchesrhayader.co.uk/foodbank": {
     "category": "opening times not read",
@@ -105178,9 +105193,9 @@
     "name": "Rhayader Foodbank",
     "website": "https://www.thearchesrhayader.co.uk/foodbank",
     "error": "HTTP 404",
-    "failed_runs": 33,
+    "failed_runs": 34,
     "phone": "01597810921",
-    "note": "site failed 33 runs in a row - check contact details"
+    "note": "site failed 34 runs in a row - check contact details"
    },
    "opening times not read|https://www.widdstobpc.org/foodbank": {
     "category": "opening times not read",
@@ -105196,9 +105211,9 @@
     "name": "Widdrington Station & Stobswood Foodbank",
     "website": "https://www.widdstobpc.org/foodbank",
     "error": "HTTP 404",
-    "failed_runs": 33,
+    "failed_runs": 34,
     "phone": "07391548264",
-    "note": "site failed 33 runs in a row - check contact details"
+    "note": "site failed 34 runs in a row - check contact details"
    },
    "opening times not read|https://www.newcastlefoodbank.org": {
     "category": "opening times not read",
@@ -105214,16 +105229,16 @@
     "name": "Newcastle Foodbank",
     "website": "https://www.newcastlefoodbank.org",
     "error": "HTTP 403",
-    "failed_runs": 11,
+    "failed_runs": 12,
     "phone": "01912753019",
-    "note": "site failed 11 runs in a row - check contact details"
+    "note": "site failed 12 runs in a row - check contact details"
    },
    "opening times not read|https://www.foodshare.charity": {
     "category": "opening times not read",
     "first_flagged": "2026-11-05T06:11:42+00:00",
     "name": "Maidenhead Foodbank",
     "website": "https://www.foodshare.charity",
-    "error": "HTTP 429",
+    "error": "paused this run after HTTP 429 - still due on a later scheduled run",
     "note": "live page did not open; no saved copy used. Opening times not listed. Call before you go."
    },
    "dead or unreachable website|https://www.foodshare.charity": {
@@ -105231,10 +105246,10 @@
     "first_flagged": "2026-11-05T06:11:42+00:00",
     "name": "Maidenhead Foodbank",
     "website": "https://www.foodshare.charity",
-    "error": "HTTP 429",
-    "failed_runs": 26,
+    "error": "paused this run after HTTP 429 - still due on a later scheduled run",
+    "failed_runs": 27,
     "phone": "01628262711",
-    "note": "site failed 26 runs in a row - check contact details"
+    "note": "site failed 27 runs in a row - check contact details"
    },
    "opening times not read|https://www.salma-foodbank.org": {
     "category": "opening times not read",
@@ -105250,9 +105265,9 @@
     "name": "Salma Foodbank",
     "website": "https://www.salma-foodbank.org",
     "error": "paused this run after HTTP 429 - still due on a later scheduled run",
-    "failed_runs": 22,
+    "failed_runs": 23,
     "phone": "07767164246",
-    "note": "site failed 22 runs in a row - check contact details"
+    "note": "site failed 23 runs in a row - check contact details"
    },
    "opening times not read|https://www.sdcvs.org.uk/food-hub": {
     "category": "opening times not read",
@@ -105268,9 +105283,9 @@
     "name": "South Derbyshire CVS Foodbank",
     "website": "https://www.sdcvs.org.uk/food-hub",
     "error": "paused this run after HTTP 429 - still due on a later scheduled run",
-    "failed_runs": 23,
+    "failed_runs": 24,
     "phone": "07458305314",
-    "note": "site failed 23 runs in a row - check contact details"
+    "note": "site failed 24 runs in a row - check contact details"
    },
    "opening times not read|https://www.thefoodbank.org.uk/": {
     "category": "opening times not read",
@@ -105286,9 +105301,9 @@
     "name": "North Lakes Foodbank",
     "website": "https://www.thefoodbank.org.uk/",
     "error": "paused this run after HTTP 429 - still due on a later scheduled run",
-    "failed_runs": 24,
+    "failed_runs": 25,
     "phone": "07502311452",
-    "note": "site failed 24 runs in a row - check contact details"
+    "note": "site failed 25 runs in a row - check contact details"
    },
    "opening times not read|https://www.thewelcomecentre.org": {
     "category": "opening times not read",
@@ -105304,9 +105319,9 @@
     "name": "The Welcome Centre",
     "website": "https://www.thewelcomecentre.org",
     "error": "HTTP 404",
-    "failed_runs": 33,
+    "failed_runs": 34,
     "phone": "01484515086",
-    "note": "site failed 33 runs in a row - check contact details"
+    "note": "site failed 34 runs in a row - check contact details"
    },
    "not fetched, robots|https://winchesterbasicsbank.co.uk": {
     "category": "not fetched, robots",
@@ -107469,7 +107484,7 @@
     "name": "Ryedale Community Foodbank",
     "website": "https://ryedalecommunityfoodbank.co.uk/contact/",
     "id": "ryedale-community",
-    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "note": "unclear: live source page could not be opened (TimeoutError: The read operation timed out). Opening times not listed. Call before you go.",
     "evidence": ""
    },
    "opening times unclear|deal-area": {
@@ -110988,7 +111003,7 @@
     "name": "CETMA Swansea",
     "website": "https://cetma.org.uk/contact-page/",
     "id": "pbp/cetma-swansea",
-    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "note": "unclear: live source page could not be opened (source paused for 10 min after 3 errors in a row). Opening times not listed. Call before you go.",
     "evidence": ""
    },
    "opening times unclear|watford/cpso-methodist-church": {
@@ -111195,7 +111210,7 @@
     "name": "CETMA Llanelli",
     "website": "https://cetma.org.uk/contact-page/",
     "id": "pbp/cetma-llanelli",
-    "note": "unclear: the listing has no day table that can be checked against the page. Opening times not listed. Call before you go.",
+    "note": "unclear: live source page could not be opened (source paused for 10 min after 3 errors in a row). Opening times not listed. Call before you go.",
     "evidence": ""
    },
    "opening times unclear|stroud-district/dursley": {
@@ -115434,7 +115449,7 @@
     "name": "Pickering",
     "website": "https://ryedalecommunityfoodbank.co.uk/contact/",
     "id": "ryedale-community/pickering",
-    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "note": "unclear: live source page could not be opened (TimeoutError: The read operation timed out). Opening times not listed. Call before you go.",
     "evidence": ""
    },
    "opening times unclear|ryedale-community/kirkbymoorside": {
@@ -115443,7 +115458,7 @@
     "name": "Kirkbymoorside",
     "website": "https://ryedalecommunityfoodbank.co.uk/contact/",
     "id": "ryedale-community/kirkbymoorside",
-    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "note": "unclear: live source page could not be opened (source paused for 10 min after 3 errors in a row). Opening times not listed. Call before you go.",
     "evidence": ""
    },
    "opening times unclear|craigavon-area/emmanuel-portadown": {
@@ -116676,9 +116691,9 @@
     "name": "Tay Bridgehead Foodbank",
     "website": "https://www.taybridgeheadfoodbank.org.uk",
     "error": "HTTP 403",
-    "failed_runs": 2,
+    "failed_runs": 3,
     "phone": "07840957039",
-    "note": "site failed 2 runs in a row - check contact details"
+    "note": "site failed 3 runs in a row - check contact details"
    },
    "seasonal/holiday hours notice|https://blythfoodbank.uk": {
     "category": "seasonal/holiday hours notice",
@@ -116754,6 +116769,284 @@
     "name": "Norwich Foodbank",
     "website": "https://norwich.foodbank.org.uk",
     "list": "Items we need | As of 05/11/2026 | Biscuits | Cereal | Instant mashed potato | Jam | Long-life juice | Peanut Butter | Rice sachets (microwavable) | Sponge puddings | Tinned custard | Tinned fruit | Tinned meat | Tinned rice pudding"
+   },
+   "dead or unreachable website|https://patchcharity.org.uk": {
+    "category": "dead or unreachable website",
+    "first_flagged": "2026-11-05T22:02:00+00:00",
+    "name": "PATCH Foodbank",
+    "website": "https://patchcharity.org.uk",
+    "error": "URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostn",
+    "failed_runs": 2,
+    "phone": "01646699275",
+    "note": "site failed 2 runs in a row - check contact details"
+   },
+   "items-needed list updated|https://chiltern.foodbank.org.uk": {
+    "category": "items-needed list updated",
+    "first_flagged": "2026-11-05T22:02:00+00:00",
+    "name": "Chiltern Foodbank",
+    "website": "https://chiltern.foodbank.org.uk",
+    "list": "Items we need | As of 05/11/2026 | Advent Calendars | Christmas cake | Christmas chocolates/biscuits | Deodorant | Household Cleaner | Instant mashed potato | Jam | Savoury snacks | Sponge puddings | Tea bags | Support us | Get involved"
+   },
+   "opening times not read|https://cetma.org.uk/projects/pbp-food-bank/": {
+    "category": "opening times not read",
+    "first_flagged": "2026-11-05T22:02:00+00:00",
+    "name": "PBP Foodbank",
+    "website": "https://cetma.org.uk/projects/pbp-food-bank/",
+    "error": "TimeoutError: The read operation timed out",
+    "note": "live page did not open; no saved copy used. Opening times not listed. Call before you go."
+   },
+   "opening times not read|https://aylesbury.foodbank.org.uk": {
+    "category": "opening times not read",
+    "first_flagged": "2026-11-05T22:02:00+00:00",
+    "name": "Aylesbury Foodbank",
+    "website": "https://aylesbury.foodbank.org.uk",
+    "error": "HTTP 521",
+    "note": "live page did not open; no saved copy used. Opening times not listed. Call before you go."
+   },
+   "opening times not read|https://redcararea.foodbank.org.uk": {
+    "category": "opening times not read",
+    "first_flagged": "2026-11-05T22:02:00+00:00",
+    "name": "Redcar Area Foodbank",
+    "website": "https://redcararea.foodbank.org.uk",
+    "error": "HTTP 521",
+    "note": "live page did not open; no saved copy used. Opening times not listed. Call before you go."
+   },
+   "opening times not read|https://glasgowsw.foodbank.org.uk": {
+    "category": "opening times not read",
+    "first_flagged": "2026-11-05T22:02:00+00:00",
+    "name": "Glasgow SW Foodbank",
+    "website": "https://glasgowsw.foodbank.org.uk",
+    "error": "HTTP 521",
+    "note": "live page did not open; no saved copy used. Opening times not listed. Call before you go."
+   },
+   "opening times not read|https://bhfood.org.uk/directory/bevendean-food-bank/": {
+    "category": "opening times not read",
+    "first_flagged": "2026-11-05T22:02:00+00:00",
+    "name": "Bevendean Food Bank",
+    "website": "https://bhfood.org.uk/directory/bevendean-food-bank/",
+    "error": "TimeoutError: The read operation timed out",
+    "note": "live page did not open; no saved copy used. Opening times not listed. Call before you go."
+   },
+   "opening times not read|https://www.lochaberfoodbank.org": {
+    "category": "opening times not read",
+    "first_flagged": "2026-11-05T22:02:00+00:00",
+    "name": "Lochaber Foodbank",
+    "website": "https://www.lochaberfoodbank.org",
+    "error": "TimeoutError: The read operation timed out",
+    "note": "live page did not open; no saved copy used. Opening times not listed. Call before you go."
+   },
+   "items-needed list updated|https://malmesburydistrict.foodbank.org.uk": {
+    "category": "items-needed list updated",
+    "first_flagged": "2026-11-05T22:02:00+00:00",
+    "name": "Malmesbury & District Foodbank",
+    "website": "https://malmesburydistrict.foodbank.org.uk",
+    "list": "Items we need - here's the list of our top needs. Thank you. | As of 02/11/2026 | Cleaning sponges | Cleaning spray | Long-life juice | Razors for shaving | Shower gel | Washing up liquid | Support us | Get involved | Get involved | Donate food | Donate money"
+   },
+   "opening times not read|https://afecc.co.uk/services/food-bank/": {
+    "category": "opening times not read",
+    "first_flagged": "2026-11-05T22:02:00+00:00",
+    "name": "AFECC Foodbank",
+    "website": "https://afecc.co.uk/services/food-bank/",
+    "error": "TimeoutError: The read operation timed out",
+    "note": "live page did not open; no saved copy used. Opening times not listed. Call before you go."
+   },
+   "opening times unclear|taunton": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-11-05T22:02:00+00:00",
+    "name": "Taunton Foodbank",
+    "website": "https://taunton.foodbank.org.uk/locations/",
+    "id": "taunton",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|billingham-stockton-borough": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-11-05T22:02:00+00:00",
+    "name": "Billingham & Stockton Borough Foodbank",
+    "website": "https://billinghamstocktonborough.foodbank.org.uk/locations/",
+    "id": "billingham-stockton-borough",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|airdrie": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-11-05T22:02:00+00:00",
+    "name": "Airdrie Foodbank",
+    "website": "https://airdrie.foodbank.org.uk/locations/",
+    "id": "airdrie",
+    "note": "unclear: the listing has no day table that can be checked against the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|washington-community": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-11-05T22:02:00+00:00",
+    "name": "Washington Community Foodbank",
+    "website": "https://wcfp.org.uk/find-us/",
+    "id": "washington-community",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|thetford": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-11-05T22:02:00+00:00",
+    "name": "Thetford Foodbank",
+    "website": "https://thetford.foodbank.org.uk/locations/",
+    "id": "thetford",
+    "note": "unclear: source url redirected to a different page (https://thetford.foodbank.org.uk/emergency-food/i-have-a-food-voucher). Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|shoreham": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-11-05T22:02:00+00:00",
+    "name": "Shoreham Foodbank",
+    "website": "https://shoreham.foodbank.org.uk/locations/",
+    "id": "shoreham",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|rutherglen-cambuslang": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-11-05T22:02:00+00:00",
+    "name": "Rutherglen & Cambuslang Foodbank",
+    "website": "https://rutherglencambuslang.foodbank.org.uk/locations/",
+    "id": "rutherglen-cambuslang",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|east-renfrewshire": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-11-05T22:02:00+00:00",
+    "name": "East Renfrewshire Foodbank",
+    "website": "https://eastrenfrewshire.foodbank.org.uk/contact-us",
+    "id": "east-renfrewshire",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|chiltern": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-11-05T22:02:00+00:00",
+    "name": "Chiltern Foodbank",
+    "website": "https://chiltern.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+    "id": "chiltern",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|weymouth/westham-methodist-church": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-11-05T22:02:00+00:00",
+    "name": "Westham Methodist Church",
+    "website": "https://www.weymouthfoodbank.co.uk/",
+    "id": "weymouth/westham-methodist-church",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|weymouth/littlemoor": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-11-05T22:02:00+00:00",
+    "name": "Littlemoor",
+    "website": "https://www.weymouthfoodbank.co.uk/",
+    "id": "weymouth/littlemoor",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|taunton/wellington-distribution-centre": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-11-05T22:02:00+00:00",
+    "name": "Wellington Distribution Centre",
+    "website": "https://taunton.foodbank.org.uk/locations/",
+    "id": "taunton/wellington-distribution-centre",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|caerphilly/bethel-baptist-church-penyrheol": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-11-05T22:02:00+00:00",
+    "name": "Bethel Baptist Church Penyrheol",
+    "website": "https://caerphilly.foodbank.org.uk/locations/",
+    "id": "caerphilly/bethel-baptist-church-penyrheol",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|oxford-community-emergency/the-baptist-church": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-11-05T22:02:00+00:00",
+    "name": "The Baptist Church",
+    "website": "https://www.cefoxford.co.uk/finding-us/",
+    "id": "oxford-community-emergency/the-baptist-church",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|thetford/attleborough": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-11-05T22:02:00+00:00",
+    "name": "Attleborough",
+    "website": "https://thetford.foodbank.org.uk/locations/",
+    "id": "thetford/attleborough",
+    "note": "unclear: source url redirected to a different page (https://thetford.foodbank.org.uk/emergency-food/i-have-a-food-voucher). Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|thetford/watton": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-11-05T22:02:00+00:00",
+    "name": "Watton",
+    "website": "https://thetford.foodbank.org.uk/locations/",
+    "id": "thetford/watton",
+    "note": "unclear: source url redirected to a different page (https://thetford.foodbank.org.uk/emergency-food/i-have-a-food-voucher). Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|long-eaton-sawley/sawley": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-11-05T22:02:00+00:00",
+    "name": "Sawley",
+    "website": "https://longeatonsawley.foodbank.org.uk/locations/",
+    "id": "long-eaton-sawley/sawley",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|chelwood-foodbank-plus/brinnington-community-church": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-11-05T22:02:00+00:00",
+    "name": "Brinnington Community Church",
+    "website": "https://chelwoodfoodbankplus.org/",
+    "id": "chelwood-foodbank-plus/brinnington-community-church",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|billingham-stockton-borough/hebron-church-stockton": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-11-05T22:02:00+00:00",
+    "name": "Hebron Church Stockton",
+    "website": "https://billinghamstocktonborough.foodbank.org.uk/locations/",
+    "id": "billingham-stockton-borough/hebron-church-stockton",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|washington-community/st-georges-church": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-11-05T22:02:00+00:00",
+    "name": "St George’s Church",
+    "website": "https://wcfp.org.uk/find-us/",
+    "id": "washington-community/st-georges-church",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|causeway/the-heights-coleraine": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-11-05T22:02:00+00:00",
+    "name": "The Heights Coleraine",
+    "website": "https://causeway.foodbank.org.uk/locations/",
+    "id": "causeway/the-heights-coleraine",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|airdrie/airdrie-st-edwards": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-11-05T22:02:00+00:00",
+    "name": "Airdrie St Edward's",
+    "website": "https://airdrie.foodbank.org.uk/locations/",
+    "id": "airdrie/airdrie-st-edwards",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
    }
   }
  }
