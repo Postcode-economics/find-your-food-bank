@@ -95,6 +95,9 @@ class PublishOneWorkflowTest(unittest.TestCase):
         self.assertIn("LIVE_BASELINE", self.content)
         self.assertGreaterEqual(len(re.findall(r"git diff --quiet", self.content)), 3)
 
+    def test_commit_stages_phone_baseline(self):
+        self.assertGreaterEqual(self.content.count("git add overrides/phone_baseline.json"), 3)
+
     def test_workflow_does_not_rebuild_a_layer(self):
         for banned in ("build.py", "build_shelters.py", "build_warmspaces.py", "full_check.py", "build_seo.py"):
             self.assertNotIn(banned, self.content)

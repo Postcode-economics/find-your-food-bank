@@ -505,6 +505,119 @@ class TestPublishOne(unittest.TestCase):
         self.assertEqual(stamp["layers"]["sh"], self.stamp["layers"]["sh"])
         self.assertEqual(stamp["kind"], "warmspaces")
 
+    def test_overlay_collection_hours_keep_a_parent_client_facing(self):
+        _, data, _ = publish_one.read_layer(self.temp_dir, "foodbanks")
+        data["items"].append({
+            "id": "existing-fb-1/centre",
+            "type": "location",
+            "name": "Existing Food Bank 1 Town Centre",
+            "foodbank": "Existing Food Bank 1",
+            "address": "9 Other Street, Town, AA1 1ZZ",
+            "postcode": "AA1 1ZZ",
+            "lat": 51.52,
+            "lng": -0.12,
+            "phone": "01234 111111",
+            "tel": "01234111111",
+            "website": "https://fb1.example.org",
+            "givefood": "",
+        })
+        publish_one._write_layer(self.temp_dir, "foodbanks", "window.FB_DATA=", data, ";")
+        alone = [copy.deepcopy(item) for item in data["items"]]
+        classify.classify(alone, self.temp_dir)
+        parent = next(item for item in alone if item["id"] == "existing-fb-1")
+        self.assertEqual(parent["kind"], "warehouse")
+        _dump(os.path.join(self.overrides, "opening_times.json"), {
+            "existing-fb-1": {
+                "status": "TIMES_FOUND",
+                "collection": True,
+                "structured": {"tue": [["10:00", "12:00"]]},
+            }
+        })
+        res = publish_one.publish_one(self.temp_dir, "foodbanks", "existing-fb-1")
+        self.assertNotEqual(res.get("kind"), "warehouse")
+        self.assertNotIn("Donations only", res.get("label_en") or "")
+        self.assertEqual(res["opening_times"]["structured"]["tue"], [["10:00", "12:00"]])
+        self.assertTrue(res["opening_times"].get("collection"))
+
+    def test_existing_card_keeps_published_phone_when_classify_copies_warehouse_number(self):
+        _dump(os.path.join(self.overrides, "foodbank_manual.json"), {
+            "existing-fb-1": {
+                "kind": "warehouse",
+                "evidence": "depot, donations only",
+                "phone": "01111 111111",
+            }
+        })
+        alone = [copy.deepcopy(self.fb["items"][0])]
+        classify.classify(alone, self.temp_dir)
+        self.assertEqual(alone[0]["phone"], "01111 111111")
+        res = publish_one.publish_one(self.temp_dir, "foodbanks", "existing-fb-1")
+        self.assertEqual(res["kind"], "warehouse")
+        self.assertEqual(res["phone"], "01234 567890")
+        self.assertEqual(res["tel"], "01234567890")
+        self.assertNotIn("01111", res.get("phone") or "")
+
+    def _new_ws_manual(self, item_id="new-ws-1"):
+        return {
+            "id": item_id,
+            "name": "New Verified Warm Space",
+            "phone": "01234 555555",
+            "address": "1 Park Road, Town",
+            "postcode": "CC1 1CD",
+            "lat": 51.5,
+            "lng": -0.1,
+        }
+
+    def test_new_warmspace_verified_without_evidence_is_rejected(self):
+        _dump(os.path.join(self.overrides, "warmspaces_manual.json"), [self._new_ws_manual()])
+        _dump(os.path.join(self.overrides, "warmspaces_verified.json"), {
+            "new-ws-1": {"verified_on": "2026-11-01"},
+        })
+        with self.assertRaises(ValueError) as ctx:
+            publish_one.publish_one(self.temp_dir, "warmspaces", "new-ws-1")
+        self.assertRegex(str(ctx.exception).lower(), r"evidence|quote")
+
+    def test_new_warmspace_verified_without_quote_is_rejected(self):
+        _dump(os.path.join(self.overrides, "warmspaces_manual.json"), [self._new_ws_manual()])
+        _dump(os.path.join(self.overrides, "warmspaces_verified.json"), {
+            "new-ws-1": {
+                "verified_on": "2026-11-01",
+                "evidence_url": "https://example.com/hours",
+            },
+        })
+        with self.assertRaises(ValueError) as ctx:
+            publish_one.publish_one(self.temp_dir, "warmspaces", "new-ws-1")
+        self.assertRegex(str(ctx.exception).lower(), r"evidence|quote")
+
+    def test_new_warmspace_verified_out_of_season_is_rejected(self):
+        _dump(os.path.join(self.overrides, "warmspaces_manual.json"), [self._new_ws_manual()])
+        _dump(os.path.join(self.overrides, "warmspaces_verified.json"), {
+            "new-ws-1": {
+                "verified_on": "2025-12-01",
+                "evidence_url": "https://example.com/hours",
+                "day_time_quote": "Open Monday 10am to noon",
+            },
+        })
+        when = datetime.datetime(2026, 11, 6, 12, 0, tzinfo=ZoneInfo("Europe/London"))
+        with self.assertRaises(ValueError) as ctx:
+            publish_one.publish_one(self.temp_dir, "warmspaces", "new-ws-1", now=when)
+        self.assertIn("season", str(ctx.exception).lower())
+
+    def test_new_warmspace_verified_with_evidence_this_season_is_allowed(self):
+        _dump(os.path.join(self.overrides, "warmspaces_manual.json"), [self._new_ws_manual()])
+        _dump(os.path.join(self.overrides, "warmspaces_verified.json"), {
+            "new-ws-1": {
+                "verified_on": "2026-11-01",
+                "evidence_url": "https://example.com/hours",
+                "day_time_quote": "Open Monday 10am to noon",
+            },
+        })
+        when = datetime.datetime(2026, 11, 6, 12, 0, tzinfo=ZoneInfo("Europe/London"))
+        res = publish_one.publish_one(self.temp_dir, "warmspaces", "new-ws-1", now=when)
+        self.assertTrue(res.get("verified"))
+        self.assertEqual(res["evidence_url"], "https://example.com/hours")
+        self.assertEqual(res["verified_on"], "2026-11-01")
+        self.assertEqual(res["name"], "New Verified Warm Space")
+
     def test_script_does_not_call_a_full_builder(self):
         src = open(os.path.join(SCRIPTS, "publish_one.py"), encoding="utf-8").read()
         for banned in ("build.py", "build_shelters", "build_warmspaces", "full_check", "times_finder", "urlopen"):
@@ -558,11 +671,51 @@ class TestDetect(unittest.TestCase):
         )
 
     def test_refresh_output_commit_does_nothing(self):
+        with open(os.path.join(self.temp_dir, "data.js"), "w", encoding="utf-8") as f:
+            f.write("window.FB_DATA={};\n")
+        os.makedirs(os.path.join(self.temp_dir, "reports"), exist_ok=True)
+        with open(os.path.join(self.temp_dir, "reports", "daily.md"), "w", encoding="utf-8") as f:
+            f.write("refresh\n")
+        self._commit("3x-daily food bank refresh")
+        self.assertEqual(publish_one.detect_from_commit(self.temp_dir, "HEAD"), [])
+
+    def test_overlay_alongside_refresh_output_is_still_detected(self):
         _dump(os.path.join(self.overrides, "foodbank_names.json"), {"fb-1": {"name": "New"}})
         with open(os.path.join(self.temp_dir, "data.js"), "w", encoding="utf-8") as f:
             f.write("window.FB_DATA={};\n")
-        self._commit("3x-daily food bank refresh")
-        self.assertEqual(publish_one.detect_from_commit(self.temp_dir, "HEAD"), [])
+        os.makedirs(os.path.join(self.temp_dir, "reports"), exist_ok=True)
+        with open(os.path.join(self.temp_dir, "reports", "daily.md"), "w", encoding="utf-8") as f:
+            f.write("note\n")
+        os.makedirs(os.path.join(self.temp_dir, "docs"), exist_ok=True)
+        with open(os.path.join(self.temp_dir, "docs", "note.md"), "w", encoding="utf-8") as f:
+            f.write("doc\n")
+        self._commit("overlay with report and doc")
+        self.assertEqual(
+            publish_one.detect_from_commit(self.temp_dir, "HEAD"),
+            [("foodbanks", "fb-1")],
+        )
+
+    def test_corrupt_overlay_alongside_a_report_still_fails(self):
+        with open(os.path.join(self.overrides, "foodbank_names.json"), "w", encoding="utf-8") as f:
+            f.write("{not-json")
+        os.makedirs(os.path.join(self.temp_dir, "reports"), exist_ok=True)
+        with open(os.path.join(self.temp_dir, "reports", "daily.md"), "w", encoding="utf-8") as f:
+            f.write("note\n")
+        self._commit("corrupt with report")
+        with self.assertRaises(RuntimeError) as ctx:
+            publish_one.detect_from_commit(self.temp_dir, "HEAD")
+        self.assertIn("cannot be determined", str(ctx.exception))
+
+    def test_duplicate_id_in_list_overlay_is_ambiguous(self):
+        _dump(os.path.join(self.overrides, "shelters_manual.json"), [
+            {"id": "sh-1", "name": "A"},
+            {"id": "sh-1", "name": "B"},
+        ])
+        self._commit("duplicate list id")
+        with self.assertRaises(RuntimeError) as ctx:
+            publish_one.detect_from_commit(self.temp_dir, "HEAD")
+        self.assertIn("duplicate", str(ctx.exception).lower())
+        self.assertIn("sh-1", str(ctx.exception))
 
     def test_corrupt_overlay_fails_visibly(self):
         with open(os.path.join(self.overrides, "foodbank_names.json"), "w", encoding="utf-8") as f:

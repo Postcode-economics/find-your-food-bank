@@ -95,6 +95,30 @@ VERIFIED_KEYS = (
     "phone", "address", "access", "postcode", "lat", "lng", "hours",
     "evidence_name", "scheme_start", "scheme_end", "scheme_dates",
 )
+
+
+def _warm_has_evidence(rec):
+    """Same evidence rule as verification_gate: a URL plus a quote."""
+    if not isinstance(rec, dict):
+        return False
+    return bool(rec.get("evidence_url") and (rec.get("day_time_quote") or rec.get("quote")))
+
+
+def _warm_season_end(verified_on):
+    """Winter verification is valid to 30 April of that season."""
+    try:
+        d = datetime.date.fromisoformat(str(verified_on or "2000-01-01"))
+    except ValueError:
+        d = datetime.date(2000, 1, 1)
+    return datetime.date(d.year + (1 if d.month >= 9 else 0), 4, 30)
+
+
+def _warm_in_current_season(rec, run_day):
+    rec = rec if isinstance(rec, dict) else {}
+    day = run_day.isoformat() if hasattr(run_day, "isoformat") else str(run_day or "")
+    return day <= _warm_season_end(rec.get("verified_on")).isoformat()
+
+
 _STREET = re.compile(
     r"\b(street|st|road|rd|avenue|ave|lane|ln|drive|dr|way|close|crescent|cres|"
     r"terrace|gardens|grove|row|square|parade|walk|yard|mews|rise|broadway|"
@@ -211,7 +235,10 @@ def _changed_list_ids(old, new, rel):
         for row in rows:
             if not isinstance(row, dict) or not row.get("id"):
                 raise RuntimeError("%s has an entry with no id; listing id cannot be determined" % rel)
-            out[row["id"]] = row
+            iid = row["id"]
+            if iid in out:
+                raise RuntimeError("%s has duplicate id %s; listing id is ambiguous" % (rel, iid))
+            out[iid] = row
         return out
 
     old_i, new_i = index(old), index(new)
@@ -317,19 +344,18 @@ def _pairs_for(base, old_text, new_text, rel):
     raise RuntimeError("unknown overlay file %s; cannot determine target layer and listing id" % rel)
 
 
-def _is_refresh_output(files):
-    for rel in files:
-        name = rel.strip()
-        if name in REFRESH_EXACT or name.startswith(REFRESH_PREFIXES):
-            return True
-    return False
+def _is_refresh_output_path(rel):
+    name = (rel or "").strip()
+    return name in REFRESH_EXACT or name.startswith(REFRESH_PREFIXES)
 
 
 def detect_from_commit(root, commit="HEAD"):
     """(layer, id) pairs whose overlay keys changed in this commit.
 
-    A refresh-output commit (published layer files, stamps, reports) returns
-    nothing. An overlay whose listing id cannot be read exactly raises.
+    Refresh-output files (published layer files, stamps, reports, docs) are
+    ignored. Overlay keys that can be read exactly are still published; a
+    corrupt or unknown overlay still raises. A commit that only touches
+    refresh output returns nothing.
     Layer comes from the file's known role or from keys inside the file
     (approved_new_places, phone baseline), never from the letters in the path.
     """
@@ -340,10 +366,10 @@ def detect_from_commit(root, commit="HEAD"):
     if diff.returncode != 0:
         raise RuntimeError("git diff failed for %s: %s" % (commit, diff.stderr.strip()))
     files = [line.strip() for line in diff.stdout.splitlines() if line.strip()]
-    if _is_refresh_output(files):
-        return []
     pairs = []
     for rel in files:
+        if _is_refresh_output_path(rel):
+            continue
         if not rel.startswith("overrides/") or not rel.endswith(".json"):
             continue
         base = os.path.basename(rel)
@@ -505,6 +531,11 @@ def rebuild_foodbank(root, item_id, base_item, published_items, is_new, persist_
     from times import normalise
 
     work = copy.deepcopy(published_items)
+    times = _load(os.path.join(root, "overrides", "opening_times.json"), {})
+    if isinstance(times, dict) and item_id in times and not str(item_id).startswith("_"):
+        for it in work:
+            if it.get("id") == item_id:
+                it["opening_times"] = normalise(times[item_id])
     classify.classify(work, root)
     matches = [item for item in work if item.get("id") == item_id]
     if not matches:
@@ -513,7 +544,6 @@ def rebuild_foodbank(root, item_id, base_item, published_items, is_new, persist_
         raise RuntimeError("classify produced more than one card for %s" % item_id)
     item = matches[0]
     _apply_names(item, root)
-    times = _load(os.path.join(root, "overrides", "opening_times.json"), {})
     if isinstance(times, dict) and item_id in times and not str(item_id).startswith("_"):
         item["opening_times"] = normalise(times[item_id])
     manual = _load(os.path.join(root, "overrides", "foodbank_manual.json"), {})
@@ -531,6 +561,14 @@ def rebuild_foodbank(root, item_id, base_item, published_items, is_new, persist_
         item["phone"] = ""
         item["tel"] = ""
         item.pop("phone_checked", None)
+    else:
+        # Keep the number already on the map. classify must not copy a
+        # warehouse or manual number onto an existing card.
+        published_phone = (base_item or {}).get("phone") or ""
+        item["phone"] = published_phone
+        if not published_phone:
+            item["tel"] = ""
+            item.pop("phone_checked", None)
     apply_phone(item)
     notices = _load(os.path.join(root, "overrides", "foodbank_notices.json"), {})
     notice = notices.get(item_id)
@@ -691,7 +729,7 @@ def rebuild_warmspace(root, item_id, base_item, published_items, persist_new):
         for key in VERIFIED_KEYS:
             if verified_rec.get(key):
                 item[key] = copy.deepcopy(verified_rec[key])
-        if verified_rec.get("verified_on"):
+        if _warm_has_evidence(verified_rec) and verified_rec.get("verified_on"):
             item["verified"] = True
             item["verified_on"] = verified_rec.get("verified_on", "")
             item["evidence_url"] = verified_rec.get("evidence_url", "")
@@ -758,7 +796,7 @@ def _refuge(item):
     return bool(re.search(r"domestic (?:abuse|violence)|\brefuge\b|women'?s\s+aid", item.get("name") or "", re.I))
 
 
-def validate_card_gates(root, layer, item, is_new):
+def validate_card_gates(root, layer, item, is_new, run_day=None):
     import publish_gate
     item_id = item.get("id")
     if _refuge(item):
@@ -786,8 +824,23 @@ def validate_card_gates(root, layer, item, is_new):
         return
     approved = auto_rules.approved(layer, root)
     if layer == "warmspaces":
-        if item.get("verified") or publish_gate.council_listed_warmspace(item, root=root) or item_id in approved:
+        if publish_gate.council_listed_warmspace(item, root=root) or item_id in approved:
             return
+        verified = _load(os.path.join(root, "overrides", "warmspaces_verified.json"), {})
+        rec = verified.get(item_id) if isinstance(verified.get(item_id), dict) else {}
+        if _warm_has_evidence(rec) and rec.get("verified_on"):
+            day = run_day or datetime.date.today().isoformat()
+            if _warm_in_current_season(rec, day):
+                return
+            raise ValueError(
+                "Rejecting new warmspaces listing %s: verification is not for the current season"
+                % item_id
+            )
+        if rec.get("verified_on") or rec.get("evidence_url") or rec.get("day_time_quote") or rec.get("quote"):
+            raise ValueError(
+                "Rejecting new warmspaces listing %s: verified record is missing evidence_url or quote"
+                % item_id
+            )
         raise ValueError("Rejecting unapproved new warm space listing %s" % item_id)
     if item_id not in approved:
         raise ValueError("Rejecting unapproved new %s listing %s (not in approved_new_places.json)" % (layer, item_id))
@@ -932,7 +985,8 @@ def _publish(root, layer, item_id, dry_run, now=None):
         raise ValueError("Rejecting %s: no Give Food/IFAN record or overlay to build this card" % item_id)
     if not card.get("name"):
         raise ValueError("Rejecting %s: rebuilt card has no name" % item_id)
-    validate_card_gates(root, layer, card, is_new)
+    run_day = now.date().isoformat() if now is not None else datetime.date.today().isoformat()
+    validate_card_gates(root, layer, card, is_new, run_day=run_day)
     updated = list(items)
     if is_new:
         updated.append(card)

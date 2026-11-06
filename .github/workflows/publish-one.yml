@@ -99,6 +99,7 @@ jobs:
         run: |
           set -euo pipefail
           git add data.full.js data.js stamp.js
+          if [ -f overrides/phone_baseline.json ]; then git add overrides/phone_baseline.json; fi
           if git diff --cached --quiet; then echo "No change"; exit 0; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -194,6 +195,7 @@ jobs:
         run: |
           set -euo pipefail
           git add shelters.js stamp.js
+          if [ -f overrides/phone_baseline.json ]; then git add overrides/phone_baseline.json; fi
           if git diff --cached --quiet; then echo "No change"; exit 0; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -289,6 +291,7 @@ jobs:
         run: |
           set -euo pipefail
           git add warmspaces.js stamp.js
+          if [ -f overrides/phone_baseline.json ]; then git add overrides/phone_baseline.json; fi
           if git diff --cached --quiet; then echo "No change"; exit 0; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
