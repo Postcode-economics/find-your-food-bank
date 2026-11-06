@@ -387,7 +387,7 @@ def rebuild_card(root, layer, item_id, base_item=None):
         times_ov = load_json_file(os.path.join(overrides_dir, "opening_times.json"))
         if item_id in times_ov:
             from times import normalise
-            item["opening_times"] = normalise(times_ov[item_id])
+            item.update({"opening_times": normalise(times_ov[item_id])})
 
         # Notices
         notices = load_json_file(os.path.join(overrides_dir, "foodbank_notices.json"))
@@ -417,7 +417,7 @@ def rebuild_card(root, layer, item_id, base_item=None):
                     item["phone"] = m["phone"]
                     apply_phone(item)
                 if m.get("drop_opening_times"):
-                    item["opening_times"] = None
+                    item.update({"opening_times": None})
 
         # Phone lock guard
         phone_lock.guard(
