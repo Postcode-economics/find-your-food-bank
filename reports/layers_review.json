@@ -321,6 +321,10 @@
     "reason": "schema: hours value invalid: Thu=10:00 - 12:30, 14:00 - 16:30"
    },
    {
+    "id": "ww-65437319",
+    "reason": "source unreachable this run (HTTP 504)"
+   },
+   {
     "id": "ww-69002757",
     "reason": "source unreachable this run (HTTP 404)"
    },
