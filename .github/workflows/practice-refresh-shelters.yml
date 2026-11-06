@@ -1,0 +1,79 @@
+name: Practice refresh Shelters layer (early signal)
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'overrides/shelters_*'
+      - 'shelters.js'
+      - 'layers.js'
+      - 'scripts/build_shelters.py'
+      - 'scripts/common.py'
+      - 'scripts/place_lock.py'
+      - 'scripts/phone_lock.py'
+      - 'scripts/verify_fresh.py'
+      - 'scripts/publish_gate.py'
+      - 'scripts/refresh_guard.py'
+      - 'scripts/sense_check.py'
+      - 'tests/test_final_lock.py'
+      - 'tests/test_verify_fresh_hand_wins.py'
+      - '.github/workflows/refresh-shelters.yml'
+      - '.github/workflows/practice-refresh-shelters.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: practice-refresh-shelters-pr-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  practice-refresh:
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Remember the published map
+        run: echo "LIVE_BASELINE=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Rebuild shelters.js (re-fetches and re-checks every source page)
+        run: python scripts/build_shelters.py
+      - name: Refuse to publish without fresh verification
+        run: python scripts/verify_fresh.py shelters
+      - name: Publish gate - new places need a verified phone (shelters also who it's for); held ones go to reports/pending_dean.md
+        run: python scripts/publish_gate.py shelters
+      # After the gate (28 Oct): a new discovery with no number is held for Dean there, not failed here.
+      - name: Every entry has a phone or a labelled council fallback (overrides/*_contacts.json)
+        run: python scripts/shelter_contacts.py check
+      - name: CI check - published shelters have phone + who it's for, warm spaces a phone (known gaps listed); food banks report-only
+        run: python scripts/publish_gate.py check
+      - name: Refresh guard - keep any place, phone or opening times this run would drop (report + alert, scripts/refresh_guard.py)
+        run: python scripts/refresh_guard.py shelters
+      - name: Does the result make sense? (real searches on all three types; failure stops publishing, scripts/sense_check.py)
+        run: pip install -q playwright==1.47.0 && python -m playwright install --with-deps chromium >/dev/null && python scripts/sense_check.py
+      - name: SWEP watch (a shelter confirmed open on the council or provider page goes on the map)
+        id: swep
+        continue-on-error: true
+        timeout-minutes: 20
+        run: python scripts/swep.py
+      - name: Severe-failure gate (point 33) - stop publishing if a data file won't parse or a count fell >10% vs last published
+        run: python scripts/validate.py gate
+      - name: Practice-run guard
+        if: always()
+        run: |
+          if ! git diff --cached --quiet; then
+            echo "::error::Practice run failed: staged changes detected."
+            git diff --cached --stat
+            exit 1
+          fi
+          current_sha=$(git rev-parse HEAD)
+          if [ "$current_sha" != "$LIVE_BASELINE" ]; then
+            echo "::error::Practice run failed: HEAD ($current_sha) differs from LIVE_BASELINE ($LIVE_BASELINE)."
+            exit 1
+          fi
+          echo "Practice run guard passed: nothing staged and HEAD matches baseline."
