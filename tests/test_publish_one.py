@@ -178,6 +178,44 @@ class TestPublishOne(unittest.TestCase):
         self.assertNotEqual(stamp["layers"]["fb"]["run"], self.stamp["layers"]["fb"]["run"])
         self.assertEqual(stamp["kind"], "refresh")
 
+    def _shelter_for_tag_test(self):
+        self._approve("shelters", "tag-sh")
+        _dump(os.path.join(self.overrides, "shelters_manual.json"), [{
+            "id": "tag-sh", "name": "Tag Test Shelter", "phone": "01234 777777", "address": "Somewhere",
+            "postcode": "BB1 2CC", "lat": 51.5, "lng": -0.1, "groups": [], "who_for": "Adults 18+",
+        }])
+
+    def test_publish_moves_index_cache_tags_with_the_files_it_writes(self):
+        """7 Nov 2026: #449 committed a new data.js and stamp.js but left index.html on the old ?v= tags, so visitors
+        could keep the old copies (rule 38) and test_index_stamps_match_file_hashes went red. Every publish must re-tag."""
+        import re as _re
+        import seo_meta
+        idx = os.path.join(self.temp_dir, "index.html")
+        stale = ('<head><script data-hm src="data.js?v=h000000000000" type="text/plain"></script>'
+                 '<script src="stamp.js?v=h111111111111"></script><script src="tiles.js?v=hkeepme"></script></head>')
+        with open(idx, "w", encoding="utf-8") as f:
+            f.write(stale)
+        publish_one.publish_one(self.temp_dir, "foodbanks", "existing-fb-1")
+        h = open(idx, encoding="utf-8").read()
+        for name in ("data", "stamp"):
+            want = seo_meta.content_stamp(self.temp_dir, name + ".js")
+            self.assertEqual(_re.findall(r'src="%s\.js\?v=([^"]*)"' % name, h), [want], name)
+        self.assertIn('data-hm src="data.js?v=', h)
+        self.assertIn("tiles.js?v=hkeepme", h)
+        before_sh = h
+        self._shelter_for_tag_test()
+        publish_one.publish_one(self.temp_dir, "shelters", "tag-sh")
+        h = open(idx, encoding="utf-8").read()
+        self.assertNotEqual(h, before_sh, "a shelters publish moves stamp.js, so its tag must move too")
+        self.assertIn('stamp.js?v=%s"' % seo_meta.content_stamp(self.temp_dir, "stamp.js"), h)
+
+    def test_dry_run_never_touches_index_html(self):
+        idx = os.path.join(self.temp_dir, "index.html")
+        with open(idx, "w", encoding="utf-8") as f:
+            f.write('<script src="data.js?v=h000000000000"></script>')
+        publish_one.publish_one(self.temp_dir, "foodbanks", "existing-fb-1", dry_run=True)
+        self.assertEqual(open(idx, encoding="utf-8").read(), '<script src="data.js?v=h000000000000"></script>')
+
     def test_names_file_overwrites_a_nonempty_published_name(self):
         _dump(os.path.join(self.overrides, "foodbank_names.json"), {
             "existing-fb-1": {"name": "Asked Name", "foodbank": "Asked Food Bank"},

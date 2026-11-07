@@ -98,17 +98,20 @@ jobs:
         if: github.ref == 'refs/heads/main'
         run: |
           set -euo pipefail
-          git add data.full.js data.js stamp.js
+          git add data.full.js data.js stamp.js index.html
           if [ -f overrides/phone_baseline.json ]; then git add overrides/phone_baseline.json; fi
           if git diff --cached --quiet; then echo "No change"; exit 0; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git commit -m "publish_one: update foodbanks listing [skip ci]"
           for n in 1 2 3; do
-            if git pull --rebase --autostash && git push; then exit 0; fi
+            # Re-tag after the rebase too: another job may have moved data.js / stamp.js under us (rule 38).
+            if git pull --rebase --autostash && python scripts/seo_meta.py --index-assets && { git diff --quiet -- index.html || git commit -q --amend --no-edit -- index.html; } && git push; then exit 0; fi
             if git diff --name-only --diff-filter=U | grep -qx 'stamp.js'; then
               python scripts/stamp.py combine-index
-              git add stamp.js
+              if git diff --name-only --diff-filter=U | grep -qx 'index.html'; then git checkout --ours -- index.html; fi
+              python scripts/seo_meta.py --index-assets
+              git add stamp.js index.html
               GIT_EDITOR=true git rebase --continue
               if git push; then exit 0; fi
             fi
@@ -194,17 +197,20 @@ jobs:
         if: github.ref == 'refs/heads/main'
         run: |
           set -euo pipefail
-          git add shelters.js stamp.js
+          git add shelters.js stamp.js index.html
           if [ -f overrides/phone_baseline.json ]; then git add overrides/phone_baseline.json; fi
           if git diff --cached --quiet; then echo "No change"; exit 0; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git commit -m "publish_one: update shelters listing [skip ci]"
           for n in 1 2 3; do
-            if git pull --rebase --autostash && git push; then exit 0; fi
+            # Re-tag after the rebase too: another job may have moved data.js / stamp.js under us (rule 38).
+            if git pull --rebase --autostash && python scripts/seo_meta.py --index-assets && { git diff --quiet -- index.html || git commit -q --amend --no-edit -- index.html; } && git push; then exit 0; fi
             if git diff --name-only --diff-filter=U | grep -qx 'stamp.js'; then
               python scripts/stamp.py combine-index
-              git add stamp.js
+              if git diff --name-only --diff-filter=U | grep -qx 'index.html'; then git checkout --ours -- index.html; fi
+              python scripts/seo_meta.py --index-assets
+              git add stamp.js index.html
               GIT_EDITOR=true git rebase --continue
               if git push; then exit 0; fi
             fi
@@ -290,17 +296,20 @@ jobs:
         if: github.ref == 'refs/heads/main'
         run: |
           set -euo pipefail
-          git add warmspaces.js stamp.js
+          git add warmspaces.js stamp.js index.html
           if [ -f overrides/phone_baseline.json ]; then git add overrides/phone_baseline.json; fi
           if git diff --cached --quiet; then echo "No change"; exit 0; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git commit -m "publish_one: update warmspaces listing [skip ci]"
           for n in 1 2 3; do
-            if git pull --rebase --autostash && git push; then exit 0; fi
+            # Re-tag after the rebase too: another job may have moved data.js / stamp.js under us (rule 38).
+            if git pull --rebase --autostash && python scripts/seo_meta.py --index-assets && { git diff --quiet -- index.html || git commit -q --amend --no-edit -- index.html; } && git push; then exit 0; fi
             if git diff --name-only --diff-filter=U | grep -qx 'stamp.js'; then
               python scripts/stamp.py combine-index
-              git add stamp.js
+              if git diff --name-only --diff-filter=U | grep -qx 'index.html'; then git checkout --ours -- index.html; fi
+              python scripts/seo_meta.py --index-assets
+              git add stamp.js index.html
               GIT_EDITOR=true git rebase --continue
               if git push; then exit 0; fi
             fi

@@ -33,6 +33,7 @@ import phone_rule
 import place_facts
 import place_lock
 import stamp
+import seo_meta
 
 ROOT_DEFAULT = os.path.dirname(SCRIPTS_DIR)
 LAYER_NAMES = ("foodbanks", "shelters", "warmspaces")
@@ -1013,6 +1014,9 @@ def _publish(root, layer, item_id, dry_run, now=None):
                 _write_text(path, text)
         raise
     bump_stamp(root, layer, now=now)
+    # data.js / stamp.js just changed: move their ?v= cache tags in index.html too, or visitors keep the old
+    # copy (rule 38) and test_index_stamps_match_file_hashes goes red (7 Nov 2026).
+    seo_meta.stamp_index_assets(root)
     print("publish_one: published %s:%s" % (layer, item_id), file=sys.stderr)
     return card
 
