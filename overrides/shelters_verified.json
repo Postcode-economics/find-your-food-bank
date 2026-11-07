@@ -1166,25 +1166,56 @@
     "facilities_source": "https://www.crisis.org.uk/get-help/edinburgh/"
   },
   "man-crisis-skylight-merseyside": {
-    "access": "Self-refer by phone/email or drop in; 16+",
-    "access_type": "open_access",
-    "address": "96 Kent Street",
-    "evidence_name": "www.crisis.org.uk",
+    "access": "Call 0151 218 7000 (lines are open Monday to Friday, 9:00 am to 4:30 pm) or email merseyside@crisis.org.uk. You can also drop in Monday, Wednesday and Friday 09:30–12:30. Before you visit, they recommend you find out what Crisis can offer you in Merseyside and contact them by phone or email to discuss the best options. Crisis is not an emergency service. For urgent out-of-hours support, contact Careline on 0151 233 3800. Contact them by phone or email to discuss any other requirements, such as needing an interpreter.",
+    "access_type": "self_referral",
+    "address": "96 Kent Street, Liverpool",
+    "evidence_name": "Crisis Skylight Merseyside",
     "evidence_url": "https://www.crisis.org.uk/get-help/merseyside/",
-    "facilities": "Not stated",
-    "groups": [],
-    "hours": "Not stated",
+    "facilities": [
+      "Skylights can help in finding a home and settling in, finding work and applying for jobs, and looking after your health and wellbeing.",
+      "How we can help depends on your situation and needs. If another service can provide the support you need, we will refer you to them.",
+      "Get in touch so we can assess your situation and discuss next steps – this could lead to you becoming a Crisis member, which involves you being assigned a lead worker who will work with you over a few weeks or longer to help end your homelessness.",
+      "Our Engagement and Assessment team will assess your initial support needs. We'll provide you with information, advice and guidance and create a plan with you around how we can support you to sustainably end your homelessness.",
+      "We can support you to access our Learning and Skills support that includes Tenancy skills, Budgeting, Property Pool, Job Club and digital literacy.",
+      "We also provide a Coaching service to offer longer term support to people to work towards achieving their goals and to address any areas that may be contributing to their homelessness.",
+      "Our work is supported by clinical psychologists, housing law specialists as well as Volunteering and Events teams.",
+      "Crisis does not offer emergency services.",
+      "Bathrooms at Crisis Skylight Merseyside are gender neutral."
+    ],
+    "groups": [
+      "People over the age of 16 who are experiencing homelessness, or immediately at risk of homelessness",
+      "Covers Merseyside"
+    ],
+    "hours": {
+      "Mon": "09:30 - 12:30",
+      "Wed": "09:30 - 12:30",
+      "Fri": "09:30 - 12:30"
+    },
     "lat": 53.400247,
     "lng": -2.979158,
     "name": "Crisis Skylight Merseyside",
-    "note": "Dean blanket approval for verified items, national web sweep 31 Oct 2026. Phone found verbatim on the page above; pin is the postcodes.io centroid.",
+    "note": "Dean blanket approval for verified items, national web sweep 31 Oct 2026. Phone found verbatim on the page above; pin is the postcodes.io centroid. Updated 7 Nov 2026 from the Crisis Merseyside page: labelled opening hours Monday, Wednesday and Friday 09:30-12:30; telephone-advice hours recorded in access only; services taken from How Crisis support people facing homelessness in Merseyside.",
     "phone": "0151 218 7000",
     "postcode": "L1 5BD",
-    "quote": "Street Liverpool L1 5BD Visiting us (please read before travelling) Areas covered: Merseyside Contact us Phone number: 0151 218 7000 Email address: merseyside@crisis.org.uk",
-    "referral": "Self-refer by phone/email or drop in; 16+",
+    "quote": "Address: 96 Kent Street Liverpool L1 5BD Phone number: 0151 218 7000 Email address: merseyside@crisis.org.uk Opening hours: Monday, Wednesday and Friday, 9:30 am – 12:30 pm (please contact us before visiting) The Crisis Skylight Merseyside building is not wheelchair accessible. Our bathrooms are gender neutral.",
+    "referral": "Call 0151 218 7000 (lines are open Monday to Friday, 9:00 am to 4:30 pm) or email merseyside@crisis.org.uk. You can also drop in Monday, Wednesday and Friday 09:30–12:30. Before you visit, they recommend you find out what Crisis can offer you in Merseyside and contact them by phone or email to discuss the best options. Crisis is not an emergency service. For urgent out-of-hours support, contact Careline on 0151 233 3800. Contact them by phone or email to discuss any other requirements, such as needing an interpreter.",
     "season": "Daytime only",
-    "verified_on": "2026-10-31",
-    "who_for": "Not stated"
+    "verified_on": "2026-11-07",
+    "who_for": [
+      "People over the age of 16 who are experiencing homelessness, or immediately at risk of homelessness",
+      "Covers Merseyside"
+    ],
+    "hours_quote": "Opening hours: Monday, Wednesday and Friday, 9:30 am – 12:30 pm (please contact us before visiting)",
+    "day_time_quote": "Opening hours: Monday, Wednesday and Friday, 9:30 am – 12:30 pm (please contact us before visiting)",
+    "hours_source": "https://www.crisis.org.uk/get-help/merseyside/",
+    "groups_quote": "Crisis Skylight Merseyside works with people over the age of 16 who are experiencing homelessness, or immediately at risk of homelessness. Areas covered: Merseyside",
+    "facilities_quote": "How Crisis support people facing homelessness in Merseyside. Skylights can help in: Finding a home and settling in; Finding work and applying for jobs; Looking after your health and wellbeing. How we can help depends on your situation and needs. If another service can provide the support you need, we will refer you to them. Our Engagement and Assessment team will assess your initial support needs. We can support you to access our Learning and Skills support that includes Tenancy skills, Budgeting, Property Pool, Job Club and digital literacy. We also provide a Coaching service. Our work is supported by clinical psychologists, housing law specialists as well as Volunteering and Events teams. Crisis does not offer emergency services. The Crisis Skylight Merseyside building is not wheelchair accessible. Our bathrooms are gender neutral.",
+    "wheelchair": "no",
+    "wheelchair_quote": "The Crisis Skylight Merseyside building is not wheelchair accessible.",
+    "wheelchair_source": "https://www.crisis.org.uk/get-help/merseyside/",
+    "source_label": "Crisis Skylight Merseyside",
+    "hours_checked": "2026-11-07",
+    "facilities_source": "https://www.crisis.org.uk/get-help/merseyside/"
   },
   "man-crisis-skylight-newcastle": {
     "access": "Reception team available during opening times — come through the door or ring the doorbell",
