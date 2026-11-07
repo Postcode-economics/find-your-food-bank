@@ -1298,25 +1298,55 @@
     "wheelchair_source": "https://www.crisis.org.uk/get-help/oxford"
   },
   "man-crisis-skylight-south-wales": {
-    "access": "Self-refer 01792 674931 or drop in",
-    "access_type": "open_access",
-    "address": "Swansea",
-    "evidence_name": "www.crisis.org.uk",
+    "access": "Call 01792 674931 (lines are open Monday to Friday, 9:00 am to 12:00 pm and 1:00 pm to 4:00 pm, excluding bank holidays) or email southwales@crisis.org.uk. You can also drop in Monday to Friday 09:00–12:00 and 13:00–16:00 (closed 12:00–13:00; excluding bank holidays). Before you visit, they recommend you find out what Crisis can offer you in South Wales and contact them by phone or email to discuss the best options. Please contact them before visiting. Crisis is not an emergency service. If you or someone else is in immediate danger, call 999 and ask for the police or an ambulance. Contact them by phone or email to discuss any other requirements, such as needing an interpreter.",
+    "access_type": "self_referral",
+    "address": "163 St Helen's Road, Swansea",
+    "evidence_name": "Crisis Skylight South Wales",
     "evidence_url": "https://www.crisis.org.uk/get-help/south-wales/",
-    "facilities": "Not stated",
-    "groups": [],
-    "hours": "Not stated",
+    "facilities": [
+      "Skylights can help in finding a home and settling in, finding work and applying for jobs, and looking after your health and wellbeing.",
+      "How we can help depends on your situation and needs. If another service can provide the support you need, we will refer you to them.",
+      "They offer engagement and assessment, learning and skills support, and coaching.",
+      "Our work is supported by clinical psychologists, as well as Volunteering and Events teams.",
+      "Crisis does not offer emergency services.",
+      "The building has accessible bathroom facilities and the bathrooms are gender neutral."
+    ],
+    "groups": [
+      "People over the age of 16 who are experiencing homelessness, or immediately at risk of homelessness",
+      "Covers Swansea"
+    ],
+    "hours": {
+      "Mon": "09:00 - 12:00 / 13:00 - 16:00",
+      "Tue": "09:00 - 12:00 / 13:00 - 16:00",
+      "Wed": "09:00 - 12:00 / 13:00 - 16:00",
+      "Thu": "09:00 - 12:00 / 13:00 - 16:00",
+      "Fri": "09:00 - 12:00 / 13:00 - 16:00"
+    },
     "lat": 51.618728,
     "lng": -3.952399,
     "name": "Crisis Skylight South Wales",
-    "note": "Dean blanket approval for verified items, national web sweep 31 Oct 2026. Phone found verbatim on the page above; pin is the postcodes.io centroid.",
-    "phone": "01792 674900",
+    "note": "Dean blanket approval for verified items, national web sweep 31 Oct 2026. Phone found verbatim on the page above; pin is the postcodes.io centroid. Updated 7 Nov 2026 from the Crisis South Wales page: labelled opening hours Monday to Friday 9am-4pm, closed 12pm-1pm daily; telephone-advice hours recorded in access only; Call button is the support and advice number 01792 674931, not general enquiries / landlord 01792 674900; services taken briefly from How Crisis support people facing homelessness in South Wales.",
+    "phone": "01792 674931",
     "postcode": "SA1 4DQ",
-    "quote": "a SA1 4DQ Visiting us (please read before travelling) Areas covered: Swansea Contact us Phone number: General enquiries 01792 674900 / Support and advice services - 01792 6",
-    "referral": "Self-refer 01792 674931 or drop in",
+    "quote": "Address: 163 St Helen's Road, Swansea, SA1 4DQ Phone number: General enquiries 01792 674900 / Support and advice services - 01792 674931 Email address: southwales@crisis.org.uk Opening hours: Monday – Friday 9am – 4pm (excluding bank holidays). We are closed between 12pm and 1pm daily. The Crisis Skylight South Wales building is wheelchair accessible and has accessible bathroom facilities. Our bathrooms are gender neutral.",
+    "referral": "Call 01792 674931 (lines are open Monday to Friday, 9:00 am to 12:00 pm and 1:00 pm to 4:00 pm, excluding bank holidays) or email southwales@crisis.org.uk. You can also drop in Monday to Friday 09:00–12:00 and 13:00–16:00 (closed 12:00–13:00; excluding bank holidays). Before you visit, they recommend you find out what Crisis can offer you in South Wales and contact them by phone or email to discuss the best options. Please contact them before visiting. Crisis is not an emergency service. If you or someone else is in immediate danger, call 999 and ask for the police or an ambulance. Contact them by phone or email to discuss any other requirements, such as needing an interpreter.",
     "season": "Daytime only",
-    "verified_on": "2026-10-31",
-    "who_for": "Not stated"
+    "verified_on": "2026-11-07",
+    "who_for": [
+      "People over the age of 16 who are experiencing homelessness, or immediately at risk of homelessness",
+      "Covers Swansea"
+    ],
+    "hours_quote": "Opening hours: Monday – Friday 9am – 4pm (excluding bank holidays). We are closed between 12pm and 1pm daily.",
+    "day_time_quote": "Opening hours: Monday – Friday 9am – 4pm (excluding bank holidays). We are closed between 12pm and 1pm daily.",
+    "hours_source": "https://www.crisis.org.uk/get-help/south-wales/",
+    "groups_quote": "Crisis Skylight South Wales works with people over the age of 16 who are experiencing homelessness, or immediately at risk of homelessness. Areas covered: Swansea. Crisis Skylight South Wales covers Swansea.",
+    "facilities_quote": "How Crisis support people facing homelessness in South Wales. Skylights can help in: Finding a home and settling in; Finding work and applying for jobs; Looking after your health and wellbeing. How we can help depends on your situation and needs. If another service can provide the support you need, we will refer you to them. Our Engagement and Assessment team will assess your initial support needs. We can support you to access our Learning and Skills support. We also provide a Coaching service. Our work is supported by clinical psychologists, as well as Volunteering and Events teams. Crisis does not offer emergency services. The Crisis Skylight South Wales building is wheelchair accessible and has accessible bathroom facilities. Our bathrooms are gender neutral.",
+    "wheelchair": "yes",
+    "wheelchair_quote": "The Crisis Skylight South Wales building is wheelchair accessible and has accessible bathroom facilities.",
+    "wheelchair_source": "https://www.crisis.org.uk/get-help/south-wales/",
+    "source_label": "Crisis Skylight South Wales",
+    "hours_checked": "2026-11-07",
+    "facilities_source": "https://www.crisis.org.uk/get-help/south-wales/"
   },
   "man-crossreach-cunningham-house": {
     "access": "Referral (City of Edinburgh Council); call to discuss",
