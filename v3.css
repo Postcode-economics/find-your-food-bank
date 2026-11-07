@@ -626,7 +626,7 @@ html body .leaflet-popup-content .plab{color:#0A1628!important;background:transp
 html[data-v3k=sh] #list,html[data-v3k=ws] #list,html[data-v3k=sh] #otshut,html[data-v3k=ws] #otshut{display:none!important}
 /* 28 Oct QA B6: 44px tap areas without changing the look. Invisible hit area around map pins; inline links get vertical padding cancelled by a negative margin, so text and layout stay put */
 .leaflet-marker-icon.pin::after,.leaflet-marker-icon.xpin::after,.leaflet-marker-icon.marker-cluster::after,.leaflet-marker-icon.xcl::after{content:'';position:absolute;left:50%;top:50%;width:44px;height:44px;transform:translate(-50%,-50%);background:transparent}
-:is(footer,.legal,.fresh,#xupd) a,:is(#list,#xextra,#sheet) .card a:not(.btn):not(.sosl):not(.v3share),a.v3pl{padding-top:14px!important;padding-bottom:14px!important;margin-top:-14px!important;margin-bottom:-14px!important;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+:is(footer,.legal,.fresh,#xupd) a,:is(#list,#xextra,#sheet) .card a:not(.btn):not(.sosl):not(.v3share):not([data-cid]),a.v3pl{padding-top:14px!important;padding-bottom:14px!important;margin-top:-14px!important;margin-bottom:-14px!important;-webkit-box-decoration-break:clone;box-decoration-break:clone}
 footer a[href^="tel:"],.legal a[href^="tel:"]{padding-left:10px!important;padding-right:10px!important;margin-left:-10px!important;margin-right:-10px!important}
 /* 28 Oct QA round 3 M2: the desktop map pop-up ✕ was Leaflet's 24x24px; now a 44x44px tap target (same glyph), and the pop-up text keeps clear of it. Leaflet pop-ups are used with both map engines. */
 .leaflet-container a.leaflet-popup-close-button{width:44px!important;height:44px!important;font:24px/44px Tahoma,Verdana,sans-serif!important;top:0!important;right:0!important;text-align:center!important}
@@ -721,3 +721,5 @@ html[data-v3k=sh] #v3filt #chips [data-f=walk],html[data-v3k=sh] #v3filt #chips 
 html body #v3filt .fchip[aria-pressed=true]{background:#F5C518!important;color:#0A1628!important;border-color:#F5C518!important}
 html body #v3filt .fchip[aria-pressed=true] .ck{border-color:#0A1628!important;background:#0A1628!important;color:#F5C518!important}
 html body :is(#list,#xextra,#sheet,#sheetBody,.leaflet-popup-content) .xtop :is(.utag,.xacc){font-size:14px!important;font-weight:700!important;line-height:1!important}
+
+/* 7 Nov 2026: "Get food at" centre rows are boxed buttons, not inline links, so the B6 tap-area padding/negative margin above is not applied to them (it pulled each box 14px up over the heading and its address, and the Directions button into the next row). */
