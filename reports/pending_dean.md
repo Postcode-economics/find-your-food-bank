@@ -429,7 +429,7 @@ Run 2026-11-07. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
   why held: new own-site times look like office/centre hours; new own-site times look like general venue opening hours, not a warm-space session
 - **Urban Outreach - Street Life drop-in (Amber Centre)** (`man-urban-outreach-street-life-drop-in-amber-centre`, BL1 2PU): own site now Wednesday 1 - 3pm  
   source: https://www.urbanoutreach.co.uk/street-life/  
-  why held: day not on the same line as its times on the own-site page; times not read identically on 2 separate runs yet
+  why held: day not on the same line as its times on the own-site page
 - **Petrus Hub** (`man-petrus-hub`, OL16 1QG): own site now Mon, Tue, Thu, Fri 9am – 4pm | Wed 9am – 1pm  
   source: https://www.oldham.gov.uk/info/200257/homelessness/796/drop_in_centres_shelters_and_food_providers  
   why held: own site lists several centres (21 postcodes); cannot tie one table to this listing; new own-site times look like office/centre hours; would cut known hours to fewer days (drops Sat, Sun) and the source does not say that session ended; review
@@ -742,8 +742,6 @@ The 29 Oct 05:44 warm spaces refresh (477f83f73) gave these 16 warm spaces a cou
 - Wesley Warm Welcome (SS9 1SJ) | ww-55474116 | council_phone 01702 215000 removed
 - Windmill Warmbank (N18 1PL) | ww-59974983 | council_phone 020 8379 1000 removed
 <!-- /council line undo -->
-
-
 <!-- rest centre switch-on -->
 ## Rest centre and SWEP switch-ons (waiting for Dean)
 
@@ -751,8 +749,6 @@ Council pages say these are ON. Incident rest centres go live when overrides/inc
 
 - **West Northamptonshire Council** — [Severe weather shelter (SWEP)] SWEP — https://www.westnorthants.gov.uk/homelessness/support-people-sleeping-rough/help-people-sleeping-rough-very-cold-or-extreme-weather — “ross the whole of West Northamptonshire. How we tell people SWEP has been activated Our Outreach team notifies: relevant council services police services faith…”
 <!-- /rest centre switch-on -->
-
-
 <!-- held near cities -->
 ## Held near cities
 
