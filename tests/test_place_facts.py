@@ -151,6 +151,18 @@ class Data(unittest.TestCase):
         self.assertNotIn('wheelchair', data2['k'])
         self.assertIn('name', data2['k'])
 
+    def test_compact_keeps_a_stated_verified_on(self):
+        raw = compact.encode({'fetched': '2026-11-06', 'source': 's', 'items': [
+            {'id': 'sprouts-community', 'name': 'Sprouts Community Foodbank', 'verified_on': '2026-11-06'},
+            {'id': 'b', 'name': 'B'}]})
+        data = json.JSONDecoder().raw_decode(raw[raw.rindex('})(') + 3:])[0]
+        self.assertIn('verified_on', data['k'])
+        i = data['c']['id'].index('sprouts-community')
+        self.assertEqual(data['c']['verified_on'][i], '2026-11-06')
+        bare = compact.encode({'fetched': '2026-11-06', 'source': 's', 'items': [{'id': 'a', 'name': 'A'}]})
+        data2 = json.JSONDecoder().raw_decode(bare[bare.rindex('})(') + 3:])[0]
+        self.assertNotIn('verified_on', data2['k'])
+
 
 class Cards(unittest.TestCase):
     @classmethod

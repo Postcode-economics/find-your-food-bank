@@ -57,7 +57,7 @@ def add_approved_foodbanks(items, root):
         rec = {"id": k, "type": "foodbank", "name": x["name"], "foodbank": x["name"], "network": x.get("network") or "Independent",
             "address": x.get("address") or "", "postcode": x.get("postcode") or "", "givefood": "", "manual": True, "approved_new": True}
         for fld in ("lat", "lng", "phone", "tel", "website", "opening_times", "phone_label", "source_label", "venues_vary",
-                    "service_lat", "service_lng", "service_km", "notice", "evidence_url"):
+                    "service_lat", "service_lng", "service_km", "notice", "evidence_url", "verified_on"):
             if fld in x and x[fld] not in (None, ""): rec[fld] = x[fld]
         if rec.get("phone") and "tel" not in rec:
             digits = re.sub(r"\D", "", rec["phone"])
