@@ -1266,7 +1266,8 @@ def cross_check_times(items, kind, field, fetcher=fetch_live, today=None, thread
     candidate here. It is not written on this pass. A missing, unreadable, empty or all-closed reading never
     replaces the stored week (times_gate_reasons)."""
     import closure
-    today = (today or datetime.date.today()).isoformat()
+    import check_dates
+    today = check_dates.uk_day(today)
     sites = {}
     for i in items:
         s = (i.get("website") or "").strip()
@@ -1384,6 +1385,9 @@ def cross_check_times(items, kind, field, fetcher=fetch_live, today=None, thread
     times_gate_apply(cands, kind, field, today, extra, state_root, rules, run_at, keep_ids=[i["id"] for i in items], pending_mode=pending_mode)
     for i in items: i.pop("_orig_times", None)
     enforce_protected_times(items, kind, field, log, state_root, today)
+    # Use the final verdict, after all existing review/auto-apply guards.
+    # confirmed_by_hand is a kept overlay, NOT a successful live re-check.
+    check_dates.apply_checks(items, log)
     return log
 BOILER = re.compile(r"phone lines?|telephone|lines (?:are )?monitored|office hours|office (?:is )?open", re.I)
 def _key(ot):
