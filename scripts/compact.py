@@ -9,7 +9,7 @@ FULL = os.path.join(ROOT, 'data.full.js'); OUT = os.path.join(ROOT, 'data.js')
 KEYS = ['id', 'type', 'name', 'foodbank', 'postcode', 'address', 'lat', 'lng', 'phone', 'tel', 'website', 'givefood', 'opening_times',
         'kind', 'label_en', 'label_cy', 'centres', 'moved_to_postcode', 'phone_checked', 'locked', 'manual', 'evidence_url', 'fb_page', 'phone_label', 'notice',
         'source_label', 'venues_vary', 'service_lat', 'service_lng', 'service_km',
-        'groups', 'referral', 'wheelchair', 'wheelchair_quote', 'wheelchair_source', 'provided', 'facilities']
+        'groups', 'referral', 'wheelchair', 'wheelchair_quote', 'wheelchair_source', 'provided', 'facilities', 'verified_on']
 OT = ['status', 'structured', 'all_closed', 'closed', 'notes', 'checked_date', 'source_url', 'raw', 'lines']
 GF = 'https://www.givefood.org.uk/needs/at/%s/'
 M = '~'  # "field absent" marker (never a real value: checked below)
@@ -57,7 +57,7 @@ def enc(i, k):
     return v
 
 # Present only when at least one place states them. An all-absent column is left out so data.js does not grow for a blank field.
-OPTIONAL = {'groups', 'referral', 'wheelchair', 'wheelchair_quote', 'wheelchair_source', 'provided', 'facilities'}
+OPTIONAL = {'groups', 'referral', 'wheelchair', 'wheelchair_quote', 'wheelchair_source', 'provided', 'facilities', 'verified_on'}
 
 def encode(meta):
     global ITEMS, IDX
