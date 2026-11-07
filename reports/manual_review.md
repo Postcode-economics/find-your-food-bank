@@ -1778,7 +1778,6 @@ Left out of this run because this place was not already on the map and its page 
 - The Salvation Army, Community Room (ww-55592287): held this run: read failed, not published before
 - Saxon Green Community Hub (ww-55592288): held this run: read failed, not published before
 - Light & Life Centre (ww-55592294): held this run: read failed, not published before
-- St. Matt's Community Hub (ww-55592295): held this run: read failed, not published before
 - Brazley Community Centre (ww-55592298): held this run: read failed, not published before
 - Haskayne Village Hall (ww-55592299): held this run: read failed, not published before
 - St Andrews Community Centre (ww-55592300): held this run: read failed, not published before

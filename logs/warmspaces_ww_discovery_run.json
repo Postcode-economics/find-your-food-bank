@@ -1,8 +1,8 @@
 {
  "run": "2026-11-07",
- "candidates": 14,
+ "candidates": 13,
  "already_on_map": 0,
- "new": 14,
+ "new": 13,
  "added": [],
  "flagged": [
   {
@@ -53,7 +53,7 @@
    "url": "https://www.librariesunlimited.org.uk",
    "final_url": "https://www.librariesunlimited.org.uk",
    "http": 200,
-   "sha256": "69db0dfca2f087f1b335e0da51b51c60397e605edf93b0e86eda14c4f1cf6562",
+   "sha256": "3836ff162d658f6a3d26c1341e22f329faee4720f8da50bfe5b3c113ac9f68ea",
    "etag": "",
    "last_modified": ""
   },
@@ -104,9 +104,9 @@
    "url": "https://www.newcastle.gov.uk/services/libraries-culture/libraries-newcastle/outer-west-library",
    "final_url": "https://new.newcastle.gov.uk/libraries/find-library",
    "http": 200,
-   "sha256": "ded5b0711d01774ad444490cae6481e37e627a7dde5d976f5a1010ab9f305a0b",
-   "etag": "\"1794011614\"",
-   "last_modified": "Sat, 07 Nov 2026 00:33:34 GMT"
+   "sha256": "75398d5d803f5a266b86d09f00b244bc56d4fe76206380c196bd1aa95aa2ada6",
+   "etag": "\"1794054138\"",
+   "last_modified": "Sat, 07 Nov 2026 12:22:18 GMT"
   },
   {
    "id": "ww-69441267",
@@ -121,9 +121,9 @@
    "url": "https://www.newcastle.gov.uk/services/libraries-culture/libraries-newcastle/newburn-library",
    "final_url": "https://new.newcastle.gov.uk/libraries/find-library",
    "http": 200,
-   "sha256": "ded5b0711d01774ad444490cae6481e37e627a7dde5d976f5a1010ab9f305a0b",
-   "etag": "\"1794011614\"",
-   "last_modified": "Sat, 07 Nov 2026 00:33:34 GMT"
+   "sha256": "75398d5d803f5a266b86d09f00b244bc56d4fe76206380c196bd1aa95aa2ada6",
+   "etag": "\"1794054138\"",
+   "last_modified": "Sat, 07 Nov 2026 12:22:18 GMT"
   },
   {
    "id": "ww-69441268",
@@ -139,8 +139,8 @@
    "final_url": "https://new.newcastle.gov.uk/libraries",
    "http": 200,
    "sha256": "38f99857896f03ed44049ee4fc80238eb32987edbfd2c935aed9b860a8c47490",
-   "etag": "\"1794011281\"",
-   "last_modified": "Sat, 07 Nov 2026 00:28:01 GMT"
+   "etag": "\"1794047350\"",
+   "last_modified": "Sat, 07 Nov 2026 10:29:10 GMT"
   },
   {
    "id": "ww-69441289",
@@ -156,8 +156,8 @@
    "final_url": "https://new.newcastle.gov.uk/libraries",
    "http": 200,
    "sha256": "38f99857896f03ed44049ee4fc80238eb32987edbfd2c935aed9b860a8c47490",
-   "etag": "\"1794011281\"",
-   "last_modified": "Sat, 07 Nov 2026 00:28:01 GMT"
+   "etag": "\"1794047350\"",
+   "last_modified": "Sat, 07 Nov 2026 10:29:10 GMT"
   },
   {
    "id": "ww-69441290",
@@ -190,8 +190,8 @@
    "final_url": "https://new.newcastle.gov.uk/libraries",
    "http": 200,
    "sha256": "38f99857896f03ed44049ee4fc80238eb32987edbfd2c935aed9b860a8c47490",
-   "etag": "\"1794011281\"",
-   "last_modified": "Sat, 07 Nov 2026 00:28:01 GMT"
+   "etag": "\"1794047350\"",
+   "last_modified": "Sat, 07 Nov 2026 10:29:10 GMT"
   },
   {
    "id": "ww-69441293",
@@ -223,26 +223,9 @@
    "url": "https://www.citizensadvicerotherham.org.uk/",
    "final_url": "https://www.citizensadvicerotherham.org.uk/",
    "http": 200,
-   "sha256": "68a42ee7a8c26258c8072b2cdf517dbcabb3a965a037687ed47e3c569728ce6d",
+   "sha256": "9945fc3e5dd621085e75a3de1328027d911a2e6a4a956e857877ece73ddff0c3",
    "etag": "",
-   "last_modified": "Fri, 06 Nov 2026 16:44:08 GMT"
-  },
-  {
-   "id": "ww-69465985",
-   "name": "Chit Chat Café",
-   "postcode": "WS6 6DP",
-   "website": "www.linktr.ee/gwchcommunity",
-   "directory": "Warm Welcome",
-   "directory_url": "https://www.warmwelcome.uk/space?l=28672",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "www.linktr.ee/gwchcommunity",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
+   "last_modified": "Sat, 07 Nov 2026 11:30:59 GMT"
   }
  ],
  "rejected": [],
