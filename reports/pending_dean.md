@@ -222,6 +222,19 @@ New food banks and shelters wait here for your OK (add the id to overrides/foodb
 
 - Salford Foyer (M6 5WX) - no sourced 'who it's for' - https://www.openstreetmap.org/way/979361293
 - St Mungo's (SE1 0ES) - no sourced 'who it's for' - https://www.openstreetmap.org/way/753792449
+
+
+<!-- times review -->
+## Opening-times review list (times_finder)
+
+Run 2026-11-07. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs; each has its undo command). Every other row is not on the map and needs a hand check before it is added.
+
+- **Holy Trinity Church, Wester Hailes** (`ifan-5b9fd1318a04132921a389-0`, EH14 2SL): Mondays 9.15am – 11.00am | Mondays 9.30am – 11.00am  
+  source: https://www.holytrinitywesterhailes.org.uk  
+  why: hand-checked times are protected; finder only flags differences; not one clear weekly client-hours block (kept as text for review); times not read identically on 2 separate runs yet; jumble: Mon given different times in separate blocks on one page; review only
+<!-- /times review -->
+
+
 <!-- times crosscheck fb -->
 ## Opening-times changes from the refresh (fb): 7 auto-applied, 55 held
 
@@ -502,14 +515,14 @@ New food banks and shelters wait here for your OK (add the id to overrides/foodb
 
 
 <!-- times crosscheck ws -->
-## Opening-times changes from the refresh (ws): 0 auto-applied, 39 held
+## Opening-times changes from the refresh (ws): 0 auto-applied, 40 held
 
 - **Bishops Stortford Methodist Church** (`ww-64379621`, CM23 3AZ): own site now Tues - Thurs 10am - 4pm | Mondays and Saturdays 10am - 12pm  
   source: https://www.bsm-church.org.uk  
   why held: would cut known hours to fewer days (drops Fri) and the source does not say that session ended; review
 - **Cafe in the Church** (`ww-69054594`, BS9 3EQ): own site now Monday to Saturday 9.00am to 5.30pm | Sunday 1.00pm to 6.00pm  
   source: https://www.westbury-parish-church.org.uk  
-  why held: new own-site times look like office/centre hours; new own-site times look like general venue opening hours, not a warm-space session; times not read identically on 2 separate runs yet
+  why held: new own-site times look like office/centre hours; new own-site times look like general venue opening hours, not a warm-space session
 - **Canford Heath Library** (`ww-65437341`, BH17 8UE): own site now Monday 10am to 1pm | Thursday 10am to 1pm | Friday 10am to 1pm | Saturday 10am to 1pm  
   source: https://www.bcpcouncil.gov.uk/libraries/find-a-library/canford-heath-library  
   why held: would cut known hours to fewer days (drops Tue, Wed) and the source does not say that session ended; review
@@ -582,6 +595,9 @@ New food banks and shelters wait here for your OK (add the id to overrides/foodb
 - **St Mary Magdalene Church** (`ww-55475671`, B71 3PJ): own site now Sunday 10am-12 | Tuesday 8.30am-10 | Wednesday 10am-12 | Friday 10am-12  
   source: https://www.achurchnearyou.com/church/4605/  
   why held: this change was undone by Dean; not re-applied
+- **St. Mary's, Broughty Ferry** (`ww-65441941`, DD5 1AJ): own site now Wednesdays 11am - 4pm  
+  source: https://www.smbfsec.com/  
+  why held: day not on the same line as its times on the own-site page; times not read identically on 2 separate runs yet
 - **Stafford Hall Community Living Room** (`ww-65419943`, E17 8JZ): own site now Thursdays 3 pm to 4:15 pm  
   source: https://www.saintbarnabaswalthamstow.com  
   why held: would cut known hours to fewer days (drops Wed, Sun) and the source does not say that session ended; review
@@ -622,6 +638,17 @@ New food banks and shelters wait here for your OK (add the id to overrides/foodb
   source: https://www.westminster.gov.uk/leisure-libraries-and-community/library-opening-times-and-contact-details/west-end-arts-library  
   why held: new own-site times look like office/centre hours; new own-site times look like general venue opening hours (identical weekday block, not warm-space session wording); new own-site times look like general venue opening hours, not a warm-space session
 <!-- /times crosscheck ws -->
+
+
+<!-- sweep shelters -->
+## Shelter candidates from the sweep (review only)
+
+Run 2026-11-07. Nothing here is on the map. Each needs a hand check before it is added.
+
+- none this run
+<!-- /sweep shelters -->
+
+
 <!-- closures -->
 ## Possible closures - still on the map with "May have closed" note (0)
 
@@ -787,21 +814,3 @@ Hand check 31 Oct 2026. A directory listing alone is not enough. Nothing here is
 - **Adullam Homes HA - Bury ABEN (Phase 3)** (`hl-adullam-homes-ha-bury-aben-phase-3`): directory record only; an operator or council page has not confirmed it is running now and the phone
 - **Our Way Leeds Emergency Accommodation** (`hl-turning-lives-around-seacole-scheme`): id/name mismatch (the id is Turning Lives Around Seacole; the name is Our Way Leeds)
 <!-- /referral hostel holds -->
-
-<!-- sweep shelters -->
-## Shelter candidates from the sweep (review only)
-
-Run 2026-11-07. Nothing here is on the map. Each needs a hand check before it is added.
-
-- none this run
-<!-- /sweep shelters -->
-
-<!-- times review -->
-## Opening-times review list (times_finder)
-
-Run 2026-11-07. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs; each has its undo command). Every other row is not on the map and needs a hand check before it is added.
-
-- **Holy Trinity Church, Wester Hailes** (`ifan-5b9fd1318a04132921a389-0`, EH14 2SL): Mondays 9.15am – 11.00am | Mondays 9.30am – 11.00am  
-  source: https://www.holytrinitywesterhailes.org.uk  
-  why: hand-checked times are protected; finder only flags differences; not one clear weekly client-hours block (kept as text for review); times not read identically on 2 separate runs yet; jumble: Mon given different times in separate blocks on one page; review only
-<!-- /times review -->
