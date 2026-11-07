@@ -1008,25 +1008,53 @@
     "who_for": "Not stated"
   },
   "man-crisis-skylight-birmingham": {
-    "access": "Self-referral by phone/email; drop in weekdays 9am-4pm",
-    "access_type": "open_access",
+    "access": "Call 0121 348 7950 (lines open weekdays 9am to 5pm) or email birmingham@crisis.org.uk. If you are unable to contact them by phone or email, drop in on weekdays between 9am and 4pm (they may not be able to offer an appointment that day). First visit: use the intercom on Heath Mill Lane. Please contact before visiting if you can. Crisis is not an emergency service. For urgent housing support at the weekend or after 5pm, Birmingham City Council’s out-of-hours housing team is 0121 303 2296. Contact them by phone or email about other requirements, such as needing an interpreter.",
+    "access_type": "self_referral",
     "address": "Suite 303, Rhubarb, 25 Heath Mill Lane, Digbeth",
-    "evidence_name": "www.crisis.org.uk",
+    "evidence_name": "Crisis Skylight Birmingham",
     "evidence_url": "https://www.crisis.org.uk/get-help/birmingham/",
-    "facilities": "Not stated",
-    "groups": [],
-    "hours": "Not stated",
+    "facilities": [
+      "Engagement and Assessment: immediate information, advice and guidance, then a plan to end homelessness",
+      "Coaching service: longer-term support to help people address what may be contributing to their homelessness and achieve their goals",
+      "Supported by clinical psychologists, housing law specialists, and volunteering and events teams",
+      "The building has accessible bathroom facilities and the bathrooms are gender neutral"
+    ],
+    "groups": [
+      "People over the age of 16 who are experiencing homelessness, or immediately at risk of homelessness",
+      "Covers Birmingham and Solihull"
+    ],
+    "hours": {
+      "Mon": "09:00 - 17:00",
+      "Tue": "09:00 - 17:00",
+      "Wed": "09:00 - 17:00",
+      "Thu": "09:00 - 17:00",
+      "Fri": "09:00 - 17:00"
+    },
     "lat": 52.475208,
     "lng": -1.883069,
     "name": "Crisis Skylight Birmingham",
-    "note": "Dean blanket approval for verified items, national web sweep 31 Oct 2026. Phone found verbatim on the page above; pin is the postcodes.io centroid.",
+    "note": "Dean blanket approval for verified items, national web sweep 31 Oct 2026. Updated 7 Nov 2026 from the venue's own Crisis page https://www.crisis.org.uk/get-help/birmingham/ (opening hours, who it is for, access, facilities, wheelchair). Phone found verbatim on that page; pin is the postcodes.io centroid.",
     "phone": "0121 348 7950",
     "postcode": "B9 4AE",
-    "quote": "Mill Lane Digbeth B9 4AE Visiting us (please read before travelling) Areas covered: Birmingham Contact us Phone number: 0121 348 7950 Email address: birmingham@crisis.org.uk",
-    "referral": "Self-referral by phone/email; drop in weekdays 9am-4pm",
+    "quote": "Address: Suite 303, Rhubarb, 25 Heath Mill Lane, Digbeth, B9 4AE. Phone number: 0121 348 7950. Email address: birmingham@crisis.org.uk. Opening hours: Monday-Friday between 9 am to 5 pm (please contact us before visiting if you can) Crisis Skylight Birmingham works with people over the age of 16 who are experiencing homelessness, or immediately at risk of homelessness. If you are unable to contact us by phone or email then please drop into Crisis Skylight Birmingham on weekdays between 9 am and 4 pm. Crisis Skylight Birmingham building is wheelchair accessible and has accessible bathroom facilities. Our bathrooms are gender neutral.",
+    "referral": "Call 0121 348 7950 (lines open weekdays 9am to 5pm) or email birmingham@crisis.org.uk. If you are unable to contact them by phone or email, drop in on weekdays between 9am and 4pm (they may not be able to offer an appointment that day). First visit: use the intercom on Heath Mill Lane. Please contact before visiting if you can. Crisis is not an emergency service. For urgent housing support at the weekend or after 5pm, Birmingham City Council’s out-of-hours housing team is 0121 303 2296. Contact them by phone or email about other requirements, such as needing an interpreter.",
     "season": "Daytime only",
-    "verified_on": "2026-10-31",
-    "who_for": "Not stated"
+    "verified_on": "2026-11-07",
+    "who_for": [
+      "People over the age of 16 who are experiencing homelessness, or immediately at risk of homelessness",
+      "Covers Birmingham and Solihull"
+    ],
+    "hours_quote": "Opening hours: Monday-Friday between 9 am to 5 pm (please contact us before visiting if you can)",
+    "hours_source": "https://www.crisis.org.uk/get-help/birmingham/",
+    "hours_checked": "2026-11-07",
+    "day_time_quote": "Opening hours: Monday-Friday between 9 am to 5 pm (please contact us before visiting if you can)",
+    "groups_quote": "Crisis Skylight Birmingham works with people over the age of 16 who are experiencing homelessness, or immediately at risk of homelessness.",
+    "facilities_quote": "Our Engagement and Assessment team will assess your initial support needs. We'll provide you with some immediate information, advice, and guidance. We will then work with you to create a plan to sustainably end your homelessness. We also offer a Coaching service. This involves longer term support to help you address any areas that may be contributing to your homelessness and help you to achieve your goals. Our work is supported by clinical psychologists, housing law specialists as well as Volunteering and Events teams. Crisis Skylight Birmingham building is wheelchair accessible and has accessible bathroom facilities. Our bathrooms are gender neutral.",
+    "facilities_source": "https://www.crisis.org.uk/get-help/birmingham/",
+    "wheelchair": "yes",
+    "wheelchair_quote": "Crisis Skylight Birmingham building is wheelchair accessible and has accessible bathroom facilities. Our bathrooms are gender neutral.",
+    "wheelchair_source": "https://www.crisis.org.uk/get-help/birmingham/",
+    "source_label": "Crisis Skylight Birmingham"
   },
   "man-crisis-skylight-brent": {
     "access": "Self-referral in person, drop-in Mon-Fri 10am-1pm; 16+",
