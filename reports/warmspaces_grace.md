@@ -1,48 +1,15 @@
-# warmspaces: kept on 48-hour grace (2026-11-06T21:45:03+00:00)
+# warmspaces: kept on 48-hour grace (2026-11-07T05:56:48+00:00)
 
 Source page briefly unreachable this run; kept because it was confirmed within the last 48 hours.
 
 - Canford Heath Library (ww-65437341): kept, fetch blocked (schema: hours value invalid: Mon=10:00 - 13:00, 14:00 - 17:00; hours value invalid: Thu=10:00 - 13:00, 14:00 - 17:00; hours value invalid: Fri=10:00 - 13:00, 14:00 - 17:00); last confirmed  (Noneh ago)
 - Churchdown Library (ww-62587523): kept, fetch blocked (schema: hours value invalid: Tue=10:00 - 13:00, 14:00 - 18:00; hours value invalid: Wed=10:00 - 13:00, 14:00 - 17:00; hours value invalid: Thu=10:00 - 13:00, 14:00 - 17:00); last confirmed  (Noneh ago)
 - Inham Nook Library (ww-65438945): kept, fetch blocked (schema: hours value invalid: Thu=10:00 - 12:30, 14:00 - 16:30); last confirmed  (Noneh ago)
-- Over Wyre URC (ww-69002757): kept, fetch blocked (source unreachable this run (HTTP 404)); last confirmed 2026-11-02 (63.8h ago)
-- The King's Church Halifax (ww-65441920): kept, fetch blocked (source URL now redirects to a different site (cornerstonechurchhalifax.co.uk)); last confirmed 2026-10-26 (270.6h ago)
-- West End Arts Library (ww-55473008): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-11-06 (7.4h ago)
-- Fa’side Community Kitchen (eln-faside-community-kitchen): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-11-06 (7.4h ago)
-- New Winton Community Association (eln-new-winton-hall): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-11-06 (7.4h ago)
-- Macmerry Miners (eln-macmerry-miners): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-11-06 (7.4h ago)
-- Pencaitland Lunch Club (eln-pencaitland-lunch-club): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-11-06 (7.4h ago)
-- Connections Café (eln-connections-cafe): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-11-06 (7.4h ago)
-- Roots and Fruits (eln-roots-and-fruits): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-11-06 (7.4h ago)
-- Blackfriars Settlement (swk-blackfriars-settlement): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-11-06 (7.4h ago)
-- London LGBTQ+ Community Centre (swk-london-lgbtq-community-centre): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-11-06 (7.4h ago)
-- Camberwell Leisure Centre (swk-camberwell-leisure-centre): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-11-06 (7.4h ago)
-- Southwark Pensioners' Centre (swk-southwark-pensioners-centre): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-11-06 (7.4h ago)
-- Southwark Carers (swk-southwark-carers): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-11-06 (7.4h ago)
-- Brandon 2 TRA Hall (swk-brandon-2-tra-hall): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-11-06 (7.4h ago)
-- Latin American Disabled People's Project (swk-latin-american-disabled-people-s-project): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-11-06 (7.4h ago)
-- Christ Church East Dulwich (swk-christ-church-east-dulwich): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-11-06 (7.4h ago)
-- Kingswood Arts (swk-kingswood-arts): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-11-06 (7.4h ago)
-- 1st Place Family Hub (swk-1st-place-family-hub): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-11-06 (7.4h ago)
-- Pembroke House Walworth Living Room (swk-pembroke-house-walworth-living-room): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-11-06 (7.4h ago)
-- Dulwich Leisure Centre (swk-dulwich-leisure-centre): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-11-06 (7.4h ago)
-- Link Age Southwark (swk-link-age-southwark): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-11-06 (7.4h ago)
-- South London Mission (swk-south-london-mission): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-11-06 (7.4h ago)
-- Southwark Day Centre for Asylum Seekers (swk-southwark-day-centre-for-asylum-seekers): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-11-06 (7.4h ago)
-- Victory Family Hub (swk-victory-family-hub): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-11-06 (7.4h ago)
-- Astley and Cooper (ASCO) TRA (swk-astley-and-cooper-asco-tra): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-11-06 (7.4h ago)
-- Golden Oldies (swk-golden-oldies): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-11-06 (7.4h ago)
-- Nunhead's Voice (swk-nunhead-s-voice): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-11-06 (7.4h ago)
-- Southwark Park Sports and Athletics Centre (swk-southwark-park-sports-and-athletics-cent): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-11-06 (7.4h ago)
-- Time & Talents (swk-time-talents): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-11-06 (7.4h ago)
-- Time & Talents 2 (swk-time-talents-2): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-11-06 (7.4h ago)
-- Age UK Lewisham & Southwark (swk-age-uk-lewisham-southwark): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-11-06 (7.4h ago)
-- Castle Leisure Centre (swk-castle-leisure-centre): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-11-06 (7.4h ago)
-- The Spring Community Hub (swk-the-spring-community-hub): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-11-06 (7.4h ago)
+- Over Wyre URC (ww-69002757): kept, fetch blocked (source unreachable this run (HTTP 404)); last confirmed 2026-11-02 (72.0h ago)
+- The King's Church Halifax (ww-65441920): kept, fetch blocked (source URL now redirects to a different site (cornerstonechurchhalifax.co.uk)); last confirmed 2026-10-26 (278.8h ago)
 - Canford Heath Library (ww-65437341): kept, fetch blocked (schema: hours value invalid: Mon=10:00 - 13:00, 14:00 - 17:00; hours value invalid: Thu=10:00 - 13:00, 14:00 - 17:00; hours value invalid: Fri=10:00 - 13:00, 14:00 - 17:00); last confirmed  (Noneh ago)
 - Churchdown Library (ww-62587523): kept, fetch blocked (schema: hours value invalid: Tue=10:00 - 13:00, 14:00 - 18:00; hours value invalid: Wed=10:00 - 13:00, 14:00 - 17:00; hours value invalid: Thu=10:00 - 13:00, 14:00 - 17:00); last confirmed  (Noneh ago)
 - Inham Nook Library (ww-65438945): kept, fetch blocked (schema: hours value invalid: Thu=10:00 - 12:30, 14:00 - 16:30); last confirmed  (Noneh ago)
-- West End Arts Library (ww-55473008): kept, fetch blocked (source unreachable this run (HTTP 403)); last confirmed 2026-11-06 (7.4h ago)
 
 ## Held this run (not published)
 
@@ -433,15 +400,15 @@ A place that was not on the map, whose page could not be read, is left out of th
 - Benchill Community Centre (ww-64379030): held this run: read failed, not published before
 - Bennachie Leisure Centre (ww-67999430): held this run: read failed, not published before
 - Bennachie Leisure Centre Charity (ww-65438851): held this run: read failed, not published before
-- Benson Library (ww-65441859): held this run: read failed, not published before
 - Benson Library (ww-64379013): held this run: read failed, not published before
+- Benson Library (ww-65441859): held this run: read failed, not published before
 - Benson Millstream Centre (ww-64379144): held this run: read failed, not published before
 - Bentham Community Library (ww-57953184): held this run: read failed, not published before
 - Bentley MyPlace (ww-55474257): held this run: read failed, not published before
 - Bentswood Hub (ww-57952328): held this run: read failed, not published before
 - Bere Grove (ww-68772703): held this run: read failed, not published before
-- Berinsfield Library (ww-65441860): held this run: read failed, not published before
 - Berinsfield Library (ww-65438680): held this run: read failed, not published before
+- Berinsfield Library (ww-65441860): held this run: read failed, not published before
 - Berwick Library (ww-65437547): held this run: read failed, not published before
 - BEST - Birmingham East - Supporting, Thriving (ww-62733213): held this run: read failed, not published before
 - Beswick Library (ww-55475047): held this run: read failed, not published before
@@ -1098,12 +1065,12 @@ A place that was not on the map, whose page could not be read, is left out of th
 - Community Cafe (ww-57952105): held this run: read failed, not published before
 - Community Cafe (ww-57952170): held this run: read failed, not published before
 - Community Cafe (ww-65413931): held this run: read failed, not published before
-- Community Cafe (ww-65438798): held this run: read failed, not published before
 - Community Cafe (ww-65845293): held this run: read failed, not published before
 - Community Cafe (ww-65438697): held this run: read failed, not published before
+- Community Cafe (ww-69367093): held this run: read failed, not published before
 - COMMUNITY CAFE (ww-63139390): held this run: read failed, not published before
 - Community Cafe (ww-63313770): held this run: read failed, not published before
-- Community Cafe (ww-69367093): held this run: read failed, not published before
+- Community Cafe (ww-65438798): held this run: read failed, not published before
 - Community Cafe (ww-55476181): held this run: read failed, not published before
 - Community Cafe (ww-55476201): held this run: read failed, not published before
 - Community Cafe (ww-55592243): held this run: read failed, not published before
@@ -1158,9 +1125,9 @@ A place that was not on the map, whose page could not be read, is left out of th
 - Community Hub (ww-57952211): held this run: read failed, not published before
 - Community Hub (ww-62358276): held this run: read failed, not published before
 - community hub (ww-62707248): held this run: read failed, not published before
-- Community Hub (ww-64379604): held this run: read failed, not published before
 - Community Hub (ww-65438860): held this run: read failed, not published before
 - Community Hub (ww-65441825): held this run: read failed, not published before
+- Community Hub (ww-64379604): held this run: read failed, not published before
 - Community Hub (ww-55475079): held this run: read failed, not published before
 - Community Hub (ww-55475728): held this run: read failed, not published before
 - Community Hub (ww-55592286): held this run: read failed, not published before
@@ -2385,9 +2352,9 @@ A place that was not on the map, whose page could not be read, is left out of th
 - Knit and Crochet Group (ww-55475406): held this run: read failed, not published before
 - Knit and Crochet Group (ww-55474464): held this run: read failed, not published before
 - Knit and Natter (ww-55475379): held this run: read failed, not published before
-- Knit and Natter (ww-57952601): held this run: read failed, not published before
 - Knit and natter (ww-57953228): held this run: read failed, not published before
 - Knit and Natter (ww-58309615): held this run: read failed, not published before
+- Knit and Natter (ww-57952601): held this run: read failed, not published before
 - Knit and Natter (mainly natter!) (ww-57953010): held this run: read failed, not published before
 - Knott End Library (ww-55475059): held this run: read failed, not published before
 - Knowle Library (ww-63328553): held this run: read failed, not published before
@@ -2465,8 +2432,8 @@ A place that was not on the map, whose page could not be read, is left out of th
 - LHM360 (ww-57952081): held this run: read failed, not published before
 - Libanus Lifestyle (ww-57952585): held this run: read failed, not published before
 - Library (ww-62505881): held this run: read failed, not published before
-- Library (ww-55474270): held this run: read failed, not published before
 - Library (ww-69358869): held this run: read failed, not published before
+- Library (ww-55474270): held this run: read failed, not published before
 - Library @ the Life Centre (ww-63438583): held this run: read failed, not published before
 - Library @ The Lightbox - Barnsley Libraries (ww-55474160): held this run: read failed, not published before
 - Library @ the Phoenix Centre (ww-63438687): held this run: read failed, not published before
@@ -2561,8 +2528,8 @@ A place that was not on the map, whose page could not be read, is left out of th
 - Longniddry Library (ww-65438964): held this run: read failed, not published before
 - Longridge Library (ww-55476197): held this run: read failed, not published before
 - Longsight Library (MCC) (ww-55474620): held this run: read failed, not published before
-- Looe Library & Community Hub (ww-57951869): held this run: read failed, not published before
 - Looe Library & Community Hub (ww-65437288): held this run: read failed, not published before
+- Looe Library & Community Hub (ww-57951869): held this run: read failed, not published before
 - Lordshill Library (ww-55475655): held this run: read failed, not published before
 - Lostock Hall Library (ww-55473775): held this run: read failed, not published before
 - Lostwithiel Community Centre (ww-62867437): held this run: read failed, not published before
@@ -2573,9 +2540,9 @@ A place that was not on the map, whose page could not be read, is left out of th
 - Louth Library (ww-68672334): held this run: read failed, not published before
 - Love Driffield Hub (ww-65437542): held this run: read failed, not published before
 - Love Your Neighbour at Colmore Coffee, Birmingham (ww-55475611): held this run: read failed, not published before
-- Love Your Neighbour Cafe (ww-65413992): held this run: read failed, not published before
 - Love Your Neighbour Cafe (ww-67825409): held this run: read failed, not published before
 - Love Your Neighbour Cafe (ww-67825410): held this run: read failed, not published before
+- Love Your Neighbour Cafe (ww-65413992): held this run: read failed, not published before
 - Low Fell Library (ww-65437302): held this run: read failed, not published before
 - Lowdham Community Partnership Library (ww-65438885): held this run: read failed, not published before
 - Lower Deck Cafe (ww-57951968): held this run: read failed, not published before
@@ -2640,8 +2607,8 @@ A place that was not on the map, whose page could not be read, is left out of th
 - Manor House Library (ww-62705078): held this run: read failed, not published before
 - Manor Park Library (ww-55474382): held this run: read failed, not published before
 - Mansfield Woodhouse Library (ww-65438888): held this run: read failed, not published before
-- MAP (ww-57951712): held this run: read failed, not published before
 - MAP (ww-57952622): held this run: read failed, not published before
+- MAP (ww-57951712): held this run: read failed, not published before
 - MAP - Great Yarmouth Warm Space (ww-65437464): held this run: read failed, not published before
 - MAP - Kings Lynn (ww-65437463): held this run: read failed, not published before
 - MAP - Norwich Warm Space (ww-64379292): held this run: read failed, not published before
@@ -2699,8 +2666,8 @@ A place that was not on the map, whose page could not be read, is left out of th
 - Meet, Eat and Chat (ww-55592262): held this run: read failed, not published before
 - Meeting Place x Chapel Road (ww-55476087): held this run: read failed, not published before
 - Meeting Place x October Books (ww-55475422): held this run: read failed, not published before
-- Meeting Point (ww-57951840): held this run: read failed, not published before
 - Meeting Point (ww-63278096): held this run: read failed, not published before
+- Meeting Point (ww-57951840): held this run: read failed, not published before
 - Melanie Otto (ww-55473951): held this run: read failed, not published before
 - Melksham Library (ww-57952233): held this run: read failed, not published before
 - Mellor Library (ww-55475472): held this run: read failed, not published before
@@ -2788,8 +2755,8 @@ A place that was not on the map, whose page could not be read, is left out of th
 - Monkseaton Library (ww-55475708): held this run: read failed, not published before
 - Monmouth Baptist Church (ww-57952125): held this run: read failed, not published before
 - Montgomery Court Hub (ww-63424553): held this run: read failed, not published before
-- Monthly Coffee Morning (ww-57951599): held this run: read failed, not published before
 - Monthly Coffee Morning (ww-63056490): held this run: read failed, not published before
+- Monthly Coffee Morning (ww-57951599): held this run: read failed, not published before
 - Monthly Coffee Morning - 4th Saturday (ww-65940404): held this run: read failed, not published before
 - Monty's Community Hub (ww-55592235): held this run: read failed, not published before
 - Moor Imagination Centre (ww-65752547): held this run: read failed, not published before
@@ -2811,8 +2778,8 @@ A place that was not on the map, whose page could not be read, is left out of th
 - Mount Tabor (ww-55592249): held this run: read failed, not published before
 - Mountsorrel Baptist Church (ww-55475012): held this run: read failed, not published before
 - Mountsorrel Library (ww-65438859): held this run: read failed, not published before
-- Mowbray Gardens Library and Neighbourhood Hub (ww-57979422): held this run: read failed, not published before
 - Mowbray Gardens Library and Neighbourhood Hub (ww-55475778): held this run: read failed, not published before
+- Mowbray Gardens Library and Neighbourhood Hub (ww-57979422): held this run: read failed, not published before
 - Mrs. Helen Podmore (ww-55473890): held this run: read failed, not published before
 - Ms Earlyn’s in Borough Market (ww-65420075): held this run: read failed, not published before
 - Muamba House (ww-65344936): held this run: read failed, not published before
@@ -3014,17 +2981,17 @@ A place that was not on the map, whose page could not be read, is left out of th
 - Open Church Glencoe (ww-55473556): held this run: read failed, not published before
 - Open Church, Glencoe (ww-67505969): held this run: read failed, not published before
 - Open Door (ww-65441924): held this run: read failed, not published before
+- Open Door (ww-57990865): held this run: read failed, not published before
 - Open Door (ww-57952485): held this run: read failed, not published before
 - Open Door (ww-57952764): held this run: read failed, not published before
-- Open Door (ww-57990865): held this run: read failed, not published before
 - Open Door 'Coffee Stop' (ww-55473684): held this run: read failed, not published before
-- Open Doors (ww-55474902): held this run: read failed, not published before
 - Open Doors (ww-55474207): held this run: read failed, not published before
+- Open Doors (ww-55474902): held this run: read failed, not published before
 - Open Hands Café (ww-55473315): held this run: read failed, not published before
 - Open House (ww-55474147): held this run: read failed, not published before
-- Open House (ww-55475102): held this run: read failed, not published before
 - Open House (ww-55473087): held this run: read failed, not published before
 - Open House (ww-55473151): held this run: read failed, not published before
+- Open House (ww-55475102): held this run: read failed, not published before
 - Open House (ww-65437539): held this run: read failed, not published before
 - Open House (ww-65438695): held this run: read failed, not published before
 - Open House (ww-57952678): held this run: read failed, not published before
@@ -3152,8 +3119,8 @@ A place that was not on the map, whose page could not be read, is left out of th
 - Peters Place at Coalville CAN (ww-55474942): held this run: read failed, not published before
 - Petersfield Library- Hampshire Libraries (ww-55476047): held this run: read failed, not published before
 - Petersham Community Breakfast cafe (ww-55473116): held this run: read failed, not published before
-- Petworth library (ww-55476282): held this run: read failed, not published before
 - Petworth Library (ww-55473852): held this run: read failed, not published before
+- Petworth library (ww-55476282): held this run: read failed, not published before
 - Pewsey Library (ww-57952872): held this run: read failed, not published before
 - Phab’s warm space (ww-57953271): held this run: read failed, not published before
 - Phillimore Community Centre (ww-55474268): held this run: read failed, not published before
@@ -3411,8 +3378,8 @@ A place that was not on the map, whose page could not be read, is left out of th
 - Rose Ash Village Hall (ww-58988879): held this run: read failed, not published before
 - Rosemount Lifelong Learning (ww-62875715): held this run: read failed, not published before
 - Rossmore Library (ww-68672346): held this run: read failed, not published before
-- Rotary Community Library Brereton (ww-55474064): held this run: read failed, not published before
 - Rotary Community Library Brereton (ww-55474640): held this run: read failed, not published before
+- Rotary Community Library Brereton (ww-55474064): held this run: read failed, not published before
 - Rotherham Leisure Complex (ww-57952578): held this run: read failed, not published before
 - Rotherham Minster (ww-67893875): held this run: read failed, not published before
 - Rotherham United Community Trust (ww-65413995): held this run: read failed, not published before
@@ -3563,8 +3530,8 @@ A place that was not on the map, whose page could not be read, is left out of th
 - Shepton Mallet Library (ww-65441878): held this run: read failed, not published before
 - Shepway Library (ww-55473676): held this run: read failed, not published before
 - Sherborne House Care Home (ww-57953042): held this run: read failed, not published before
-- Sherborne Library (ww-58107153): held this run: read failed, not published before
 - Sherborne Library (ww-57952405): held this run: read failed, not published before
+- Sherborne Library (ww-58107153): held this run: read failed, not published before
 - Sherborne Warm Hub (ww-55474289): held this run: read failed, not published before
 - Sherfield Park Community Centre (ww-57952087): held this run: read failed, not published before
 - Sherford Food Hub (ww-65438711): held this run: read failed, not published before
@@ -3760,9 +3727,9 @@ A place that was not on the map, whose page could not be read, is left out of th
 - St Augustines's (ww-55475448): held this run: read failed, not published before
 - ST AUSTELL AREA METHODIST CHURCH - NANPEAN (ww-69425371): held this run: read failed, not published before
 - St Austell Leisure Centre (ww-56693285): held this run: read failed, not published before
+- St Barnabas Church (ww-55472895): held this run: read failed, not published before
 - St Barnabas Church (ww-65345072): held this run: read failed, not published before
 - St Barnabas Church (ww-65438864): held this run: read failed, not published before
-- St Barnabas Church (ww-55472895): held this run: read failed, not published before
 - St Barnabas Church & Community Hub (ww-62854842): held this run: read failed, not published before
 - St Barnabas Church, Inham Nook (ww-68672325): held this run: read failed, not published before
 - St Barnabas Community Cafe (ww-65438812): held this run: read failed, not published before
@@ -3849,8 +3816,8 @@ A place that was not on the map, whose page could not be read, is left out of th
 - St John's Burlington Methodist Church (ww-55474374): held this run: read failed, not published before
 - St John's Cafe (ww-57951600): held this run: read failed, not published before
 - St John's Centre, Meopham (ww-55476161): held this run: read failed, not published before
-- St John's Church (ww-57952192): held this run: read failed, not published before
 - St John's Church (ww-64815834): held this run: read failed, not published before
+- St John's Church (ww-57952192): held this run: read failed, not published before
 - St John's Church Community Hall (ww-55592177): held this run: read failed, not published before
 - St John's Church Hall Cymmer Porth (ww-65442013): held this run: read failed, not published before
 - St John's Church Halls, Churchdown and Innsworth (ww-55473211): held this run: read failed, not published before
@@ -3920,9 +3887,9 @@ A place that was not on the map, whose page could not be read, is left out of th
 - St Mary the Virgin church (ww-57952698): held this run: read failed, not published before
 - St Mary's Acton (ww-55473469): held this run: read failed, not published before
 - St Mary's Church (ww-55474862): held this run: read failed, not published before
+- St Mary's Church (ww-65437414): held this run: read failed, not published before
 - St Mary's East Molesey (ww-65748690): held this run: read failed, not published before
 - St Mary's Church (ww-63423763): held this run: read failed, not published before
-- St Mary's Church (ww-65437414): held this run: read failed, not published before
 - St Mary's Church (ww-62690563): held this run: read failed, not published before
 - St Mary's Church & The Branch Trust (ww-55476249): held this run: read failed, not published before
 - St Mary's Church Aylesbury (ww-55474833): held this run: read failed, not published before
@@ -4046,7 +4013,6 @@ A place that was not on the map, whose page could not be read, is left out of th
 - St. Mark's Church (ww-55473396): held this run: read failed, not published before
 - St. Mary Magdalene with Risen Christ (ww-55472851): held this run: read failed, not published before
 - St. Mary's Church Wooburn Green (ww-55474500): held this run: read failed, not published before
-- St. Matt's Community Hub (ww-55592295): held this run: read failed, not published before
 - St. Michael's Church (ww-55473715): held this run: read failed, not published before
 - St. Michael's Church Camberley (ww-63077617): held this run: read failed, not published before
 - St. Mildred's Church, Lee (ww-57952716): held this run: read failed, not published before
@@ -4415,10 +4381,10 @@ A place that was not on the map, whose page could not be read, is left out of th
 - The Hart of Martin (ww-63442256): held this run: read failed, not published before
 - The Harwellcome Community Cafe (ww-57951628): held this run: read failed, not published before
 - The Haven (ww-59014863): held this run: read failed, not published before
-- The Haven (ww-55473174): held this run: read failed, not published before
 - The Haven (ww-64379325): held this run: read failed, not published before
 - The Haven (ww-65438714): held this run: read failed, not published before
 - The Haven (ww-67979746): held this run: read failed, not published before
+- The Haven (ww-55473174): held this run: read failed, not published before
 - The Haven at Speedwell (ww-65191267): held this run: read failed, not published before
 - The Haven Community Hub (ww-67829881): held this run: read failed, not published before
 - The Haven Community Hub (ww-57952199): held this run: read failed, not published before
@@ -4429,8 +4395,8 @@ A place that was not on the map, whose page could not be read, is left out of th
 - The Hive (ww-64771156): held this run: read failed, not published before
 - The Hive (ww-64821439): held this run: read failed, not published before
 - The Hive (ww-67493036): held this run: read failed, not published before
-- The Hive (ww-65438800): held this run: read failed, not published before
 - The Hive (ww-69359029): held this run: read failed, not published before
+- The Hive (ww-65438800): held this run: read failed, not published before
 - The Hive Church (ww-57952420): held this run: read failed, not published before
 - The Hive Community Centre (ww-65438815): held this run: read failed, not published before
 - The Hive Leisure Centre (ww-65859243): held this run: read failed, not published before
@@ -4441,8 +4407,8 @@ A place that was not on the map, whose page could not be read, is left out of th
 - The Hope Hub (ww-55472975): held this run: read failed, not published before
 - The Hot Chocolate Lounge (ww-57951963): held this run: read failed, not published before
 - The House of Hope (ww-55474818): held this run: read failed, not published before
-- The Hub (ww-55476313): held this run: read failed, not published before
 - The Hub (ww-55475293): held this run: read failed, not published before
+- The Hub (ww-55476313): held this run: read failed, not published before
 - The Hub (ww-55475949): held this run: read failed, not published before
 - The Hub (ww-67055044): held this run: read failed, not published before
 - The Hub (ww-63544427): held this run: read failed, not published before
@@ -4467,8 +4433,8 @@ A place that was not on the map, whose page could not be read, is left out of th
 - The Junction (ww-65438816): held this run: read failed, not published before
 - The Jungle (ww-62673999): held this run: read failed, not published before
 - The Kettle’s On (ww-55592268): held this run: read failed, not published before
-- The Kings Arms Youth Project (ww-55473386): held this run: read failed, not published before
 - The Kings Arms Youth Project (ww-55475085): held this run: read failed, not published before
+- The Kings Arms Youth Project (ww-55473386): held this run: read failed, not published before
 - The Kingsmen (ww-57953298): held this run: read failed, not published before
 - The Kitchen Table (ww-65414010): held this run: read failed, not published before
 - The Lanes Cafe (ww-57952091): held this run: read failed, not published before
@@ -4677,9 +4643,9 @@ A place that was not on the map, whose page could not be read, is left out of th
 - The Welcome Table - Drop In (ww-64432712): held this run: read failed, not published before
 - The Well (ww-55475056): held this run: read failed, not published before
 - The Well (ww-55476044): held this run: read failed, not published before
+- The Well (ww-57952883): held this run: read failed, not published before
 - The Well (ww-58442437): held this run: read failed, not published before
 - The Well (ww-61397343): held this run: read failed, not published before
-- The Well (ww-57952883): held this run: read failed, not published before
 - The Well at Bailgate Methodist Church (ww-55473164): held this run: read failed, not published before
 - The Well Cafe (ww-55475691): held this run: read failed, not published before
 - The Well Cafe (ww-65438850): held this run: read failed, not published before
@@ -4703,6 +4669,8 @@ A place that was not on the map, whose page could not be read, is left out of th
 - The Wheelwrights Arms (ww-65438863): held this run: read failed, not published before
 - The Wild Hub Winter Lounge (ww-65420043): held this run: read failed, not published before
 - The Willows Community Centre (ww-65413971): held this run: read failed, not published before
+- The Winkfield Centre (ww-63382320): held this run: read failed, not published before
+- The Witham Hub (ww-65719364): held this run: read failed, not published before
 - Whole Again Communities CIC (ww-64379263): held this run: read failed, not published before
 - Wesley Rock Methodist Church (ww-55476150): held this run: read failed, not published before
 - Wall Methodist Church (ww-58603967): held this run: read failed, not published before
@@ -4994,7 +4962,6 @@ A place that was not on the map, whose page could not be read, is left out of th
 - Woking Library (ww-65438733): held this run: read failed, not published before
 - Thursday Community Cafe (ww-57951650): held this run: read failed, not published before
 - Woking United Reformed Church (ww-55476199): held this run: read failed, not published before
-- The Winkfield Centre (ww-63382320): held this run: read failed, not published before
 - Wallington Library (ww-63439903): held this run: read failed, not published before
 - Veolia Sutton Warm Welcome Space (ww-65438927): held this run: read failed, not published before
 - Veolia Southwark Warm Welcome Space (ww-65438926): held this run: read failed, not published before
@@ -5049,7 +5016,6 @@ A place that was not on the map, whose page could not be read, is left out of th
 - Women's Craft Fellowship (ww-65380749): held this run: read failed, not published before
 - Village warm space@StNics (ww-62760555): held this run: read failed, not published before
 - Tilbury Library (ww-57952188): held this run: read failed, not published before
-- The Witham Hub (ww-65719364): held this run: read failed, not published before
 - Warm Space (ww-65441889): held this run: read failed, not published before
 - Warm Welcome Space Kelvedon (ww-55474125): held this run: read failed, not published before
 - United Reform Church (ww-65441986): held this run: read failed, not published before
@@ -5283,8 +5249,8 @@ A place that was not on the map, whose page could not be read, is left out of th
 - Warm Hut @ Hope Hut (ww-57952494): held this run: read failed, not published before
 - Warm & Welcoming (ww-57952638): held this run: read failed, not published before
 - Victoria Hall (ww-55472774): held this run: read failed, not published before
-- Thope Hesley Library & Neighbourhood Hub (ww-57979414): held this run: read failed, not published before
 - Thorpe Hesley Library and Neighbourhood Hub (ww-63350591): held this run: read failed, not published before
+- Thope Hesley Library & Neighbourhood Hub (ww-57979414): held this run: read failed, not published before
 - Thurcroft Library and Neighbourhood Hub (ww-55475007): held this run: read failed, not published before
 - Warm Space (ww-55473485): held this run: read failed, not published before
 - Worksop Christian Centre (ww-55472707): held this run: read failed, not published before
