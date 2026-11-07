@@ -274,7 +274,7 @@ function card(i,dist){const tel=telOf(i);
  const facts=window.UFacts?UFacts.block('fb',i,{phoneHtml,phoneNumber}):'';
  const checked=window.UFacts?UFacts.checked(i):'';
  if(nc(i))return `<div class="ncb" role="note">${ncl(i)}</div>${top}<h3>${esc(i.name)}</h3>${dist!=null?`<div class="d">${miles(dist)}</div>`:''}<p>${where}</p>
- <div class="lh">Get food at:</div>${(i.centres||[]).length?'<ul class="cen">'+i.centres.map(c=>`<li><a href="#" data-cid="${esc(c.id)}">${esc(c.name)}</a><span>${esc(c.address)}</span>${c.lat!=null&&c.lng!=null?`<a class="btn cdir" href="${gmaps(c)}" target="_blank" rel="noopener">Directions</a>`:''}</li>`).join('')+'</ul>':'<p>Contact the food bank for where to get food.</p>'}
+ <div class="lh">Get food at:</div>${(i.centres||[]).length?'<ul class="cen">'+i.centres.map(c=>`<li><a href="#" data-cid="${esc(c.id)}">${esc(c.name)}</a></li>`).join('')+'</ul>':'<p>Contact the food bank for where to get food.</p>'}
  ${facts}${checked}
  ${tel?`<div class="xacts"><a class="btn call" href="tel:${esc(tel)}">${IC('phone')}<span class="xnum">${ph1(i)}</span><small>Phone (to donate or ask)</small></a>${webBtn(i)}</div>`:(webBtn(i)?`<div class="xacts">${webBtn(i)}</div>`:'')}${window.repB?repB('fb',i):''}${fbSource(i)}`;
  return `${i.notice?`<div class="ncb" role="note">${esc(i.notice)}</div>`:''}${top}${window.V3?V3.badge('fb',i):''}<h3>${esc(i.name)}</h3>${dist!=null?`<div class="d">${miles(dist)}</div>`:''}
