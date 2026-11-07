@@ -32,10 +32,10 @@ Score = average of opening-times and phone fill rates (0-100). Flagged if it dro
 - own site familyfoodbank.org: 57.1
 - own site purleyfoodhub.net: 57.1
 - own site meonvalleyfoodbank.co.uk: 57.1
-- IFAN: 58.3
 - own site calderwoodbaptist.co.uk: 58.4
 - own site lutonfoodbank.org.uk: 58.4
 - own site loveworks.org.uk: 58.4
+- IFAN: 58.8
 - own site winchesterbasicsbank.co.uk: 60
 - own site reachhaverhill.org.uk: 60
 - own site dens.org.uk: 60
@@ -70,12 +70,12 @@ Score = average of opening-times and phone fill rates (0-100). Flagged if it dro
 - own site southport.foodbank.org.uk: 90
 - own site traffordsouth.foodbank.org.uk: 90
 - own site midcheshire.foodbank.org.uk: 90.9
-- shelters: Manual (verified from source pages): 91.5
 - own site southgwynedd.foodbank.org.uk: 91.7
 - own site peterborough.foodbank.org.uk: 91.7
 - own site restorenorthampton.org.uk: 91.7
 - own site bournemouth.foodbank.org.uk: 91.7
 - own site wirral.foodbank.org.uk: 91.7
+- shelters: Manual (verified from source pages): 91.8
 - own site swansea.foodbank.org.uk: 92.8
 - own site eastbristol.foodbank.org.uk: 92.8
 - own site chesterfield.foodbank.org.uk: 92.8

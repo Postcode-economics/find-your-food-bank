@@ -1,15 +1,17 @@
-# Refresh guard: foodbanks (2026-11-06T22:49:49+00:00)
+# Refresh guard: foodbanks (2026-11-07T07:04:19+00:00)
 
-foodbanks: kept 4 places, 0 phones, 32 opening times that this run would have dropped. Previous values were kept and published; please check why the source lost them.
+foodbanks: kept 6 places, 0 phones, 33 opening times that this run would have dropped. Previous values were kept and published; please check why the source lost them.
 
-## places kept (4)
+## places kept (6)
 
+- ifan-01c4e7b3eb5fb6efb0189d-1
+- ifan-79789d4df6b2024369673c-0
 - ifan-bbedc864f82d0a852b5735-0
 - colchester/wivenhoe
 - ifan-e0054aa041ea174c4f6921-0
 - ifan-efde0ad76e7a121fb1cf96-0
 
-## times kept (32)
+## times kept (33)
 
 - godalming
 - kintyre
@@ -22,6 +24,7 @@ foodbanks: kept 4 places, 0 phones, 32 opening times that this run would have dr
 - community-works
 - alnwick-district
 - klsb
+- st-james-thornton
 - earlsfield
 - whitby
 - honiton
@@ -49,8 +52,10 @@ foodbanks: kept 4 places, 0 phones, 32 opening times that this run would have dr
 - ifan-84cd0bf40986bfc9a427c6-0
 - ifan-9fef48d4f0fd3a3f6896d2-0
 
-## access kept (4)
+## access kept (6)
 
+- ifan-01c4e7b3eb5fb6efb0189d-1
+- ifan-79789d4df6b2024369673c-0
 - ifan-bbedc864f82d0a852b5735-0
 - colchester/wivenhoe
 - ifan-e0054aa041ea174c4f6921-0

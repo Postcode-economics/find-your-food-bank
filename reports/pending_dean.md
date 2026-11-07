@@ -2,9 +2,8 @@
 
 New food banks and shelters wait here for your OK (add the id to overrides/foodbank_approved_new.json or overrides/approved_new_places.json). Warm spaces that pass their own-source verification need no OK (blanket approval, 30 Oct 2026) but still need a verified phone number (shelters also a sourced "who it's for") before it goes on the map.
 
-## foodbanks (1)
+## foodbanks (0)
 
-- Sprouts Community Foodbank (TS17 6HL) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.facebook.com/SproutsCommunityFoodCharity/
 
 ## warmspaces (210)
 
@@ -230,14 +229,14 @@ New food banks and shelters wait here for your OK (add the id to overrides/foodb
 
 - AUTO-APPLIED `pantry` PANTRY Foodbank (strict, 2 identical runs). Undo: `python scripts/times_revert.py fb:pantry`
 - AUTO-APPLIED `enniskillen` Enniskillen Foodbank (strict, 2 identical runs). Undo: `python scripts/times_revert.py fb:enniskillen`
+- AUTO-APPLIED `collier-row-romford` Collier Row & Romford Foodbank (strict, 2 identical runs). Undo: `python scripts/times_revert.py fb:collier-row-romford`
 - AUTO-APPLIED `lw-storehouse` LW Storehouse Foodbank (strict, 2 identical runs). Undo: `python scripts/times_revert.py fb:lw-storehouse`
 - AUTO-APPLIED `warminster-and-district` Warminster and District Foodbank (strict, 2 identical runs). Undo: `python scripts/times_revert.py fb:warminster-and-district`
 - AUTO-APPLIED `comfort-memorial-food-for-all` Comfort Memorial Food For All Foodbank (strict, 2 identical runs). Undo: `python scripts/times_revert.py fb:comfort-memorial-food-for-all`
-- AUTO-APPLIED `st-james-thornton` St James Thornton Foodbank (strict, 2 identical runs). Undo: `python scripts/times_revert.py fb:st-james-thornton`
 - AUTO-APPLIED `ifan-da5df633f7eabc8fbdb2a3-0` Castleman Community Larder CIC (strict, 2 identical runs). Undo: `python scripts/times_revert.py fb:ifan-da5df633f7eabc8fbdb2a3-0`
 - **Colchester Foodbank** (`colchester`, CO3 8RG): own site now Monday-Saturday 10:00 am to 2:00 pm  
   source: https://colchester.foodbank.org.uk  
-  why held: new own-site times look like office/centre hours; own site lists several centres (10 postcodes); cannot tie one table to this listing; new own-site times look like office/centre hours; not one clear weekly client-hours block (kept as text for review); times not read identically on 2 separate runs yet
+  why held: new own-site times look like office/centre hours; own site lists several centres (10 postcodes); cannot tie one table to this listing; new own-site times look like office/centre hours; not one clear weekly client-hours block (kept as text for review)
 - **PBP Foodbank** (`pbp`, SA17 4TA): own site now Monday 10AM - 4PM | Tuesday 10AM - 4PM | Wednesday 10AM - 4PM | Thursday 10AM - 4PM | Friday 10AM - 4PM  
   source: https://cetma.org.uk/projects/pbp-food-bank/  
   why held: new own-site times look like office/centre hours; own site lists several centres (3 postcodes); cannot tie one table to this listing; new own-site times look like office/centre hours; new own-site times look like office/shop hours (identical Mon-Fri block, no distribution wording); not one clear weekly client-hours block (kept as text for review); jumble: 5 separate time blocks read from one page; review only
@@ -280,18 +279,12 @@ New food banks and shelters wait here for your OK (add the id to overrides/foodb
 - **St Peter & St Paul Church** (`dens/st-peter-st-paul-church`, HP23 5AE): own site now Monday-Friday 9am-5pm | Saturday 9am-1pm  
   source: https://www.dens.org.uk/our-services/foodbank/  
   why held: new own-site times look like office/centre hours; known skip: finder copied Liberty Tea Rooms' times onto Way Inn; own site lists several centres (7 postcodes); cannot tie one table to this listing; new own-site times look like office/centre hours; not one clear weekly client-hours block (kept as text for review)
-- **St Annes Advice Nottingham Foodbank** (`st-annes-advice-nottingham`, NG3 4EZ): own site now Monday to Friday 9.00am to 3.30pm  
-  source: https://stannsadvice.org.uk/foodbank/  
-  why held: new own-site times look like office/centre hours; new own-site times look like office/centre hours; new own-site times look like office/shop hours (identical Mon-Fri block, no distribution wording); not one clear weekly client-hours block (kept as text for review)
 - **Kirkby Storehouse Foodbank** (`kirkby-storehouse`, NG17 7AB): own site now Tuesday 2– 3pm  
   source: https://www.ashwoodchurch.org.uk/community/  
   why held: day not on the same line as its times on the own-site page
 - **S20 Foodbank** (`s20`, S20 8NF): own site now Monday to Friday 10.00am - 4.00pm  
   source: http://www.sheffieldfoodbank.org.uk/s20  
   why held: new own-site times look like office/centre hours; new own-site times look like office/centre hours; not one clear weekly client-hours block (kept as text for review)
-- **Collier Row & Romford Foodbank** (`collier-row-romford`, RM1 3BL): own site now Mon 12:00 - 14:00; Tue Closed; Wed 12:00 - 14:00; Thu Closed; Fri 12:00 - 14:00; Sat Closed; Sun Closed  
-  source: https://collierrowromford.foodbank.org.uk  
-  why held: times not read identically on 2 separate runs yet
 - **Owlsmoor Community Centre** (`crowthorne/owlsmoor-community-centre`, GU47 0TF): own site now Monday 12:30 pm to 2:00 pm  
   source: https://crowthorne.foodbank.org.uk  
   why held: not one clear weekly client-hours block (kept as text for review); would change known times to closed/empty; times not read identically on 2 separate runs yet
@@ -304,6 +297,9 @@ New food banks and shelters wait here for your OK (add the id to overrides/foodb
 - **The Bus Shelter Shop Foodbank** (`the-bus-shelter-shop`, IP11 7AJ): own site now Monday 10 am - 4 pm | Tuesday 10 am–4 pm | Wednesday 10 am–4 pm | Thursday 10 am–4 pm | Friday 10 am–4 pm | Saturday 10 am–4 pm  
   source: https://www.thebusshelteripswich.co.uk/  
   why held: new own-site times look like office/centre hours; new own-site times look like office/centre hours; not one clear weekly client-hours block (kept as text for review); jumble: 6 separate time blocks read from one page; review only; would cut known hours to fewer sessions (7 to 6) and the source does not say that session ended; review
+- **New Wortley Community Centre Foodbank** (`new-wortley-community-centre`, LS12 1LZ): own site now SATURDAY PM 1:00pm - 3:00pm  
+  source: https://www.newwortleycc.org.uk  
+  why held: day not on the same line as its times on the own-site page; times not read identically on 2 separate runs yet
 - **Abergele District Foodbank** (`abergele-district`, LL22 7PQ): own site now Monday 10:00 am to 4:00 pm; Tuesday 10:00 am to 4:00 pm; Thursday 10:00 am to 4:00 pm; Friday 10:00 am to 3:00 pm  
   source: https://abergeledistrict.foodbank.org.uk  
   why held: new own-site times look like office/centre hours; new own-site times look like office/centre hours; not one clear weekly client-hours block (kept as text for review); would cut known hours to fewer days (drops Wed) and the source does not say that session ended; review
@@ -357,7 +353,7 @@ New food banks and shelters wait here for your OK (add the id to overrides/foodb
   why held: own site lists several centres (16 postcodes); cannot tie one table to this listing; would cut known hours to fewer days (drops Tue, Wed, Thu) and the source does not say that session ended; review
 - **St Laurences Church** (`coventry/st-laurences-church`, CV6 7ED): own site now Mon Closed; Tue 13:00 - 14:30; Wed Closed; Thu Closed; Fri Closed; Sat Closed; Sun Closed  
   source: https://coventry.foodbank.org.uk  
-  why held: own site lists several centres (16 postcodes); cannot tie one table to this listing; would cut known hours to fewer days (drops Mon, Wed, Thu, Fri) and the source does not say that session ended; review; times not read identically on 2 separate runs yet
+  why held: own site lists several centres (16 postcodes); cannot tie one table to this listing; would cut known hours to fewer days (drops Mon, Wed, Thu, Fri) and the source does not say that session ended; review
 - **Whitby Foodbank** (`whitby`, YO21 3AJ): own site now Mondays and Fridays 2.00-4.00pm  
   source: http://www.foodbank4whitby.org.uk  
   why held: day not on the same line as its times on the own-site page
@@ -385,6 +381,9 @@ New food banks and shelters wait here for your OK (add the id to overrides/foodb
 - **St Paul's Pantry (St Paul's Wimbledon Parkside)** (`ifan-53c68645aa831ab649ac43-0`, SW19 6EW): own site now Mondays 3.00 - 5.00 pm | Tuesdays 10.00am - 12pm | Wednesdays 3.30 to 5.30 pm | Thursday 6.30 - 7.30 pm  
   source: https://stpaulsparkside.org.uk/  
   why held: day not on the same line as its times on the own-site page
+- **Holy Trinity Church, Wester Hailes** (`ifan-5b9fd1318a04132921a389-0`, EH14 2SL): own site now Mondays 9.15am – 11.00am  
+  source: https://www.holytrinitywesterhailes.org.uk  
+  why held: day not on the same line as its times on the own-site page; times not read identically on 2 separate runs yet
 - **St Laurence's Larder & Open Kitchen** (`ifan-84cd0bf40986bfc9a427c6-0`, NW6 7BJ): own site now Wednesday 10.00am - 2.00pm | Thursday 11.00am - 2.00pm | Monday 12.00 - 2.00pm  
   source: https://www.laurenceslarder.org.uk  
   why held: this change was undone by Dean; not re-applied

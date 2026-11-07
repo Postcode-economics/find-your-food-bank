@@ -6539,5 +6539,85 @@
   "first_run_at": "2026-11-03T00:34:53+00:00",
   "second_run_at": "2026-11-03T05:03:20+00:00",
   "revert": "python scripts/times_revert.py sh:man-hug-safe-space-bexhill-rother-homelessness-unity-g"
+ },
+ {
+  "id": "collier-row-romford",
+  "kind": "fb",
+  "path": "cross_check",
+  "name": "Collier Row & Romford Foodbank",
+  "old": {
+   "checked_date": "2026-10-20",
+   "raw": "Opening times Mon 12:00 - 14:00 Tue Closed Wed 12:00 - 14:00 Thu Closed Fri Closed Sat Closed Sun Closed ",
+   "source_url": "https://collierrowromford.foodbank.org.uk/locations/",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "mon": [
+     [
+      "12:00",
+      "14:00"
+     ]
+    ],
+    "wed": [
+     [
+      "12:00",
+      "14:00"
+     ]
+    ]
+   }
+  },
+  "new": {
+   "raw": "Mon 12:00 - 14:00; Tue Closed; Wed 12:00 - 14:00; Thu Closed; Fri 12:00 - 14:00; Sat Closed; Sun Closed",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "mon": [
+     [
+      "12:00",
+      "14:00"
+     ]
+    ],
+    "wed": [
+     [
+      "12:00",
+      "14:00"
+     ]
+    ],
+    "fri": [
+     [
+      "12:00",
+      "14:00"
+     ]
+    ]
+   },
+   "layout": "trussell_old",
+   "quote": "Mon 12:00 - 14:00 Tue Closed Wed 12:00 - 14:00 Thu Closed Fri 12:00 - 14:00 Sat Closed Sun Closed",
+   "unclear_days": {},
+   "reader": "source_page",
+   "checked_date": "2026-11-07",
+   "source_url": "https://collierrowromford.foodbank.org.uk/locations/"
+  },
+  "new_structured": {
+   "mon": [
+    [
+     "12:00",
+     "14:00"
+    ]
+   ],
+   "wed": [
+    [
+     "12:00",
+     "14:00"
+    ]
+   ],
+   "fri": [
+    [
+     "12:00",
+     "14:00"
+    ]
+   ]
+  },
+  "source_url": "https://collierrowromford.foodbank.org.uk/locations/",
+  "first_run_at": "2026-11-06T21:57:26+00:00",
+  "second_run_at": "2026-11-07T06:11:59+00:00",
+  "revert": "python scripts/times_revert.py fb:collier-row-romford"
  }
 ]
