@@ -133,7 +133,7 @@ def gate(items, records, api_meta, log_path, pending_path, fetcher=None, per_run
         r["schema_errors"] = schema_errors(i)
         if i["id"] in seen: r["schema_errors"].append("duplicate id")
         seen.add(i["id"])
-        reason = None; flagged = []
+        reason = None; flagged = []; sample_read_failed = False
         if not (i.get("address") or i.get("postcode")): flagged.append("no address or postcode in source (Give Food area/ward location); pin kept, needs review")
         if rec is None: reason = "no source record this run"
         elif r["schema_errors"]: reason = "schema: " + "; ".join(r["schema_errors"][:3])
@@ -148,7 +148,9 @@ def gate(items, records, api_meta, log_path, pending_path, fetcher=None, per_run
                 words = [w for w in re.findall(r"[a-z]{4,}", i["foodbank"].lower()) if w not in ("food", "bank", "foodbank")]
                 low = L["text"].lower()
                 if words and not any(w in low for w in words): reason = "Give Food page no longer names this food bank"
-            else: flagged.append("Give Food page did not load this run (HTTP %s)" % L["http"])
+            else:
+                sample_read_failed = True
+                flagged.append("Give Food page did not load this run (HTTP %s)" % L["http"])
         r["ok"] = reason is None; r["reason"] = reason or "confirmed this run"; r["flags"] = flagged
         out[i["id"]] = r
         live_already = published_ids is not None and i["id"] in published_ids
@@ -164,7 +166,7 @@ def gate(items, records, api_meta, log_path, pending_path, fetcher=None, per_run
             # An API row is a fresh per-listing check, not a layer-wide date.
             # Manual records are saved human evidence, not a new fetch. A sampled
             # page that failed is kept by the existing gate, but is not re-dated.
-            if not i.get("manual") and not flagged:
+            if not i.get("manual") and not sample_read_failed:
                 check_dates.success(i, t)
             pub.append(i)
     out["_run"] = {"fetched_at": t, "entries": len(items), "published": len(pub), "omitted": len(omitted),
