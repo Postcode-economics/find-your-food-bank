@@ -62,11 +62,15 @@
    },
    {
     "id": "osm-way-147871099",
-    "reason": "source no longer names this place"
+    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
    },
    {
     "id": "osm-way-157731534",
     "reason": "source unreachable this run (HTTP 403)"
+   },
+   {
+    "id": "osm-way-180604493",
+    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
    },
    {
     "id": "osm-way-327576971",
@@ -91,6 +95,10 @@
    {
     "id": "osm-way-585259224",
     "reason": "OpenStreetMap-only: own-site page does not show this place's postcode or street address this run"
+   },
+   {
+    "id": "osm-way-608979359",
+    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
    },
    {
     "id": "osm-way-642121557",
@@ -137,6 +145,18 @@
     "reason": "source unreachable this run (HTTP 403)"
    },
    {
+    "id": "robes-winter-night-shelter",
+    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
+   },
+   {
+    "id": "hab-barnet-winter-night-shelter",
+    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
+   },
+   {
+    "id": "man-glasgow-city-mission-owc",
+    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
+   },
+   {
     "id": "man-ymca-watford-charter",
     "reason": "published times not found on source this run"
    },
@@ -157,10 +177,6 @@
     "reason": "source unreachable this run (HTTP 403)"
    },
    {
-    "id": "man-urban-outreach-street-life-drop-in-amber-centre",
-    "reason": "source unreachable this run (HTTP 503)"
-   },
-   {
     "id": "man-the-brick-queen-s-hall-action-on-poverty-day-centr",
     "reason": "source unreachable this run (HTTP 403)"
    },
@@ -175,6 +191,10 @@
    {
     "id": "man-trafalgar-house-sanctuary",
     "reason": "source unreachable this run (HTTP 403)"
+   },
+   {
+    "id": "man-open-door-homeless-hub-hightown",
+    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
    },
    {
     "id": "man-home4good-centre-dunfermline",
@@ -197,8 +217,20 @@
     "reason": "source unreachable this run (HTTP error)"
    },
    {
+    "id": "man-google-the-porch-oxford",
+    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
+   },
+   {
     "id": "man-google-day-centre",
     "reason": "source unreachable this run (HTTP 403)"
+   },
+   {
+    "id": "man-google-lichfield-district-council-joins-safeplaces-for-em",
+    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
+   },
+   {
+    "id": "man-maggs-day-centre-worcester",
+    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
    },
    {
     "id": "man-kip-telford",
@@ -215,6 +247,10 @@
    {
     "id": "man-ss-riverside-project-394",
     "reason": "source unreachable this run (HTTP 403)"
+   },
+   {
+    "id": "man-ss-st-annes-hostel-birmingham",
+    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
    },
    {
     "id": "man-ss-homeless-action-elm-house",
@@ -247,6 +283,14 @@
    {
     "id": "man-ss-pcha-somers-road",
     "reason": "schema: referral requirement not stated"
+   },
+   {
+    "id": "man-ss-jimmys-cambridge-east-road",
+    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
+   },
+   {
+    "id": "man-ss-sanctuary-trust-step-rochdale",
+    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
    },
    {
     "id": "man-ss-saviour-trust-pontefract",

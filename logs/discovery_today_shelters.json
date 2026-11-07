@@ -7,6 +7,13 @@
    "added": 0,
    "queued": 29,
    "rejected": 0
+  },
+  {
+   "at": "14:33Z",
+   "source": "shelters_discovery.json",
+   "added": 0,
+   "queued": 29,
+   "rejected": 0
   }
  ],
  "added": [],
@@ -20,12 +27,12 @@
    "directory_url": null,
    "reasons": [
     "OpenStreetMap-only: needs verification on the place's own site before it can be added",
-    "own site does not show it is a shelter/emergency accommodation"
+    "own site did not return the page (HTTP 202; usually a bot check)"
    ],
    "url": "https://www.thegap.wales/",
-   "final_url": "https://thegap.wales/",
-   "http": 200,
-   "sha256": "1b9f478931ce3467de35e5c5ee0e6aa6b23b6b5ac3b04ae5d3beb7ba6b8f4be1",
+   "final_url": "https://www.thegap.wales/",
+   "http": 202,
+   "sha256": "91f6afbc3230be71dc0dde98381e0c3d80349528b70aecf0b6b635e88b958033",
    "etag": "",
    "last_modified": ""
   },
@@ -91,12 +98,13 @@
    "directory": null,
    "directory_url": null,
    "reasons": [
-    "OpenStreetMap-only: needs verification on the place's own site before it can be added"
+    "OpenStreetMap-only: needs verification on the place's own site before it can be added",
+    "own site did not return the page (HTTP 202; usually a bot check)"
    ],
    "url": "https://housethehomeless.com",
    "final_url": "https://housethehomeless.com",
-   "http": 200,
-   "sha256": "ef04a6e28e9bc08f0c04a4ba35bdbb37e51062408073a142aaca6dad4c254106",
+   "http": 202,
+   "sha256": "155e4a85f643a393d1bcd818bfcfa7ab08bf068cf7e3293844382022700f4272",
    "etag": "",
    "last_modified": ""
   },
@@ -149,7 +157,7 @@
    "url": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-intensive-housing-management",
    "final_url": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-supported-accommodation",
    "http": 200,
-   "sha256": "0146f96b1632fc7efd5d29f53da06c80beecbb8ea3dbd3af3de9088293d40257",
+   "sha256": "d05f043579b7641eeec257aeb523befacc4e54df2c143f9a5bc55b7ca727046d",
    "etag": "",
    "last_modified": ""
   },
@@ -384,7 +392,7 @@
    "url": "https://www.manna-house.org.uk/",
    "final_url": "https://www.manna-house.org.uk/",
    "http": 200,
-   "sha256": "d1e51f0867cf3093eb2e27e3c9478f25b10aadbe3e1db0647668c9335b3d6ca0",
+   "sha256": "98f7e0ef4040da5b2cdda09bcb865423bc233ddb7a05dd7cc5467b793afb2fe6",
    "etag": "",
    "last_modified": ""
   },
@@ -437,8 +445,8 @@
    "url": "https://www.eastclaytonfarm.org.uk/",
    "final_url": "https://www.eastclaytonfarm.org.uk/",
    "http": 200,
-   "sha256": "3bd05b0848da82cdb6a8a28592dc78969d56b441d48c7e1f667c594a231e3695",
-   "etag": "W/\"5689358a0ef7d59266dccb6e1daae348\"",
+   "sha256": "ad0cd0cfe5a7d4708dabca36edf2c43087871067ef5a9b2eb334eb2aaaf87ade",
+   "etag": "W/\"9fa0bd909a78feece16ebdbffd32dd5f\"",
    "last_modified": ""
   },
   "osm-way-1126940021": {

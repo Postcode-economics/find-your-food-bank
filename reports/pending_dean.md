@@ -405,7 +405,7 @@ Run 2026-11-07. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
 
 
 <!-- times crosscheck sh -->
-## Opening-times changes from the refresh (sh): 5 auto-applied, 29 held
+## Opening-times changes from the refresh (sh): 5 auto-applied, 30 held
 
 - AUTO-APPLIED `man-gloucester-city-mission-homeless-day-provision` Gloucester City Mission Homeless Day Provision (strict, 2 identical runs). Undo: `python scripts/times_revert.py sh:man-gloucester-city-mission-homeless-day-provision`
 - AUTO-APPLIED `man-action-for-barnsley-homeless` Action for Barnsley Homeless (strict, 2 identical runs). Undo: `python scripts/times_revert.py sh:man-action-for-barnsley-homeless`
@@ -418,6 +418,9 @@ Run 2026-11-07. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
 - **Portsmouth Rough Sleeping Hub (Society of St James / PCC)** (`man-portsmouth-rough-sleeping-hub-society-of-st-james-`, PO1 3HL): own site now Monday to Thursday 8.30am to 5pm | Friday 8.30am to 4pm  
   source: https://www.portsmouth.gov.uk/services/housing/looking-for-a-home/if-you-are-at-risk-of-becoming-homeless/sleeping-rough  
   why held: new own-site times look like office/centre hours; new own-site times look like general venue opening hours, not a warm-space session
+- **Urban Outreach - Street Life drop-in (Amber Centre)** (`man-urban-outreach-street-life-drop-in-amber-centre`, BL1 2PU): own site now Wednesday 1 - 3pm  
+  source: https://www.urbanoutreach.co.uk/street-life/  
+  why held: day not on the same line as its times on the own-site page; times not read identically on 2 separate runs yet
 - **Petrus Hub** (`man-petrus-hub`, OL16 1QG): own site now Mon, Tue, Thu, Fri 9am – 4pm | Wed 9am – 1pm  
   source: https://www.oldham.gov.uk/info/200257/homelessness/796/drop_in_centres_shelters_and_food_providers  
   why held: own site lists several centres (21 postcodes); cannot tie one table to this listing; new own-site times look like office/centre hours; would cut known hours to fewer days (drops Sat, Sun) and the source does not say that session ended; review
@@ -734,11 +737,8 @@ The 29 Oct 05:44 warm spaces refresh (477f83f73) gave these 16 warm spaces a cou
 
 Council pages say these are ON. Incident rest centres go live when overrides/incident_rest_centre_mode.json has public true. A GitHub issue was also opened for each switch-on.
 
-- **North Tyneside Council** — [Severe weather shelter (SWEP)] SWEP — https://www.northtyneside.gov.uk/housing/homelessness/if-you-are-homeless-or-sleeping-rough — “seasonal (council page): SWEP is active between 1 November and 31 March”
 - **West Northamptonshire Council** — [Severe weather shelter (SWEP)] SWEP — https://www.westnorthants.gov.uk/homelessness/support-people-sleeping-rough/help-people-sleeping-rough-very-cold-or-extreme-weather — “ross the whole of West Northamptonshire. How we tell people SWEP has been activated Our Outreach team notifies: relevant council services police services faith…”
 <!-- /rest centre switch-on -->
-
-
 <!-- held near cities -->
 ## Held near cities
 
@@ -800,3 +800,4 @@ Hand check 31 Oct 2026. A directory listing alone is not enough. Nothing here is
 - **Adullam Homes HA - Bury ABEN (Phase 3)** (`hl-adullam-homes-ha-bury-aben-phase-3`): directory record only; an operator or council page has not confirmed it is running now and the phone
 - **Our Way Leeds Emergency Accommodation** (`hl-turning-lives-around-seacole-scheme`): id/name mismatch (the id is Turning Lives Around Seacole; the name is Our Way Leeds)
 <!-- /referral hostel holds -->
+
