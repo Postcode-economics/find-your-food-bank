@@ -395,9 +395,8 @@ New food banks and shelters wait here for your OK (add the id to overrides/foodb
 
 
 <!-- times crosscheck sh -->
-## Opening-times changes from the refresh (sh): 6 auto-applied, 29 held
+## Opening-times changes from the refresh (sh): 5 auto-applied, 29 held
 
-- AUTO-APPLIED `man-doorway-young-people-16-25` Doorway (young people 16-25) (strict, 2 identical runs). Undo: `python scripts/times_revert.py sh:man-doorway-young-people-16-25`
 - AUTO-APPLIED `man-gloucester-city-mission-homeless-day-provision` Gloucester City Mission Homeless Day Provision (strict, 2 identical runs). Undo: `python scripts/times_revert.py sh:man-gloucester-city-mission-homeless-day-provision`
 - AUTO-APPLIED `man-action-for-barnsley-homeless` Action for Barnsley Homeless (strict, 2 identical runs). Undo: `python scripts/times_revert.py sh:man-action-for-barnsley-homeless`
 - AUTO-APPLIED `man-hug-safe-space-bexhill-rother-homelessness-unity-g` HUG Safe Space (Bexhill & Rother Homelessness Unity Group) (strict, 2 identical runs). Undo: `python scripts/times_revert.py sh:man-hug-safe-space-bexhill-rother-homelessness-unity-g`
@@ -409,9 +408,6 @@ New food banks and shelters wait here for your OK (add the id to overrides/foodb
 - **Portsmouth Rough Sleeping Hub (Society of St James / PCC)** (`man-portsmouth-rough-sleeping-hub-society-of-st-james-`, PO1 3HL): own site now Monday to Thursday 8.30am to 5pm | Friday 8.30am to 4pm  
   source: https://www.portsmouth.gov.uk/services/housing/looking-for-a-home/if-you-are-at-risk-of-becoming-homeless/sleeping-rough  
   why held: new own-site times look like office/centre hours; new own-site times look like general venue opening hours, not a warm-space session
-- **Urban Outreach - Street Life drop-in (Amber Centre)** (`man-urban-outreach-street-life-drop-in-amber-centre`, BL1 2PU): own site now Wednesday 1 - 3pm  
-  source: https://www.urbanoutreach.co.uk/street-life/  
-  why held: day not on the same line as its times on the own-site page
 - **Petrus Hub** (`man-petrus-hub`, OL16 1QG): own site now Mon, Tue, Thu, Fri 9am – 4pm | Wed 9am – 1pm  
   source: https://www.oldham.gov.uk/info/200257/homelessness/796/drop_in_centres_shelters_and_food_providers  
   why held: own site lists several centres (21 postcodes); cannot tie one table to this listing; new own-site times look like office/centre hours; would cut known hours to fewer days (drops Sat, Sun) and the source does not say that session ended; review
@@ -427,6 +423,9 @@ New food banks and shelters wait here for your OK (add the id to overrides/foodb
 - **The Hope Centre Minehead** (`man-the-hope-centre-minehead`, TA24 8BS): own site now Tuesday & Friday 10.30am - 2pm  
   source: https://www.thehopecentreminehead.org.uk/  
   why held: day not on the same line as its times on the own-site page
+- **Doorway (young people 16-25)** (`man-doorway-young-people-16-25`, CV11 5QJ): own site now Friday 9:00am-4:30pm  
+  source: https://www.doorway.org.uk/contact  
+  why held: this change was undone by Dean; not re-applied
 - **999 Club – The Gateway** (`man-999-club-the-gateway`, SE8 4PA): own site now Monday to Friday 9am–3pm  
   source: https://999club.org/get-help-now/  
   why held: new own-site times look like office/centre hours; new own-site times look like general venue opening hours, not a warm-space session

@@ -1,6 +1,6 @@
 {
  "run": "2026-11-07",
- "seconds": 53.6,
+ "seconds": 50.0,
  "pages": [
   {
    "council": "Armagh City, Banbridge and Craigavon Borough Council",
@@ -384,8 +384,8 @@
    "council": "Bristol City Council",
    "url": "https://news.bristol.gov.uk/",
    "kind": "news",
-   "http": 200,
-   "status": "checked",
+   "http": null,
+   "status": "unreachable",
    "quote": "",
    "rest_centre": null
   },
@@ -906,8 +906,8 @@
    "council": "Erewash Borough Council",
    "url": "https://www.erewash.gov.uk/news",
    "kind": "news",
-   "http": 200,
-   "status": "checked",
+   "http": 403,
+   "status": "unreachable",
    "quote": "",
    "rest_centre": null
   },
@@ -915,8 +915,8 @@
    "council": "Erewash Borough Council",
    "url": "https://www.erewash.gov.uk/environmental-issues/flooding",
    "kind": "emergencies",
-   "http": 200,
-   "status": "checked",
+   "http": 403,
+   "status": "unreachable",
    "quote": "",
    "rest_centre": null
   },
@@ -2337,8 +2337,8 @@
    "council": "South Kesteven District Council",
    "url": "https://www.southkesteven.gov.uk/community-and-neighbourhood/emergency-planning-and-business-continuity",
    "kind": "emergencies",
-   "http": 200,
-   "status": "checked",
+   "http": 403,
+   "status": "unreachable",
    "quote": "",
    "rest_centre": null
   },

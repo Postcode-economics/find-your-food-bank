@@ -1,10 +1,10 @@
 {
- "run": "2026-11-06",
+ "run": "2026-11-07",
  "overpass": {
   "mirror_attempts": [
    {
     "mirror": "https://overpass-api.de/api/interpreter",
-    "duration": 37.837,
+    "duration": 42.303,
     "status": "ok"
    }
   ],
@@ -14,20 +14,11 @@
   {
    "url": "https://overpass-api.de/api/interpreter",
    "attempt": 1,
-   "duration": 0.614,
-   "status": "error",
-   "bytes": 0,
-   "error": "HTTP Error 502: Bad Gateway",
-   "timestamp": "2026-11-06T21:44:26.360853+00:00"
-  },
-  {
-   "url": "https://overpass-api.de/api/interpreter",
-   "attempt": 2,
-   "duration": 32.222,
+   "duration": 42.303,
    "status": "ok",
    "bytes": 59028,
    "error": null,
-   "timestamp": "2026-11-06T21:45:03.583447+00:00"
+   "timestamp": "2026-11-07T05:48:14.330682+00:00"
   }
  ]
 }
