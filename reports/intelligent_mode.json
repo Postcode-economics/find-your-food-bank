@@ -6,9 +6,15 @@
     "times": {
      "applied": 1,
      "applied_this_run": 1,
-     "held": 55,
+     "held": 51,
      "stale_cleared": 0,
      "rejected": [
+      {
+       "id": "brentwood",
+       "reasons": [
+        "would cut known hours to fewer days (drops Fri) and the source does not say that session ended; review"
+       ]
+      },
       {
        "id": "colchester",
        "reasons": [
@@ -137,16 +143,6 @@
        ]
       },
       {
-       "id": "st-annes-advice-nottingham",
-       "reasons": [
-        "new own-site times look like office/centre hours",
-        "new own-site times look like office/centre hours",
-        "new own-site times look like office/shop hours (identical Mon-Fri block, no distribution wording)",
-        "not one clear weekly client-hours block (kept as text for review)",
-        "times not read identically on 2 separate runs yet"
-       ]
-      },
-      {
        "id": "kirkby-storehouse",
        "reasons": [
         "day not on the same line as its times on the own-site page"
@@ -234,17 +230,10 @@
        ]
       },
       {
-       "id": "brentwood",
-       "reasons": [
-        "would cut known hours to fewer days (drops Fri) and the source does not say that session ended; review"
-       ]
-      },
-      {
        "id": "rickmansworth",
        "reasons": [
         "own site lists several centres (4 postcodes); cannot tie one table to this listing",
-        "would cut known hours to fewer days (drops Mon, Wed, Thu) and the source does not say that session ended; review",
-        "transient failure; stored times left unchanged"
+        "would cut known hours to fewer days (drops Mon, Wed, Thu) and the source does not say that session ended; review"
        ]
       },
       {
@@ -295,27 +284,6 @@
        ]
       },
       {
-       "id": "patch",
-       "reasons": [
-        "new own-site times look like office/centre hours",
-        "own site lists several centres (4 postcodes); cannot tie one table to this listing",
-        "new own-site times look like office/centre hours",
-        "not one clear weekly client-hours block (kept as text for review)",
-        "would cut known hours to fewer days (drops Sat) and the source does not say that session ended; review"
-       ]
-      },
-      {
-       "id": "patch/tenby",
-       "reasons": [
-        "new own-site times look like office/centre hours",
-        "own site lists several centres (4 postcodes); cannot tie one table to this listing",
-        "new own-site times look like office/centre hours",
-        "not one clear weekly client-hours block (kept as text for review)",
-        "would cut known hours to fewer days (drops Mon) and the source does not say that session ended; review",
-        "times not read identically on 2 separate runs yet"
-       ]
-      },
-      {
        "id": "3food4u/tottenham-sda",
        "reasons": [
         "known skip: times listed above each address; finder read them onto the next centre (Budworth Hall got Epping's Friday)",
@@ -338,12 +306,6 @@
         "known skip: times listed above each address; finder read them onto the next centre (Budworth Hall got Epping's Friday)",
         "own site lists several centres (10 postcodes); cannot tie one table to this listing",
         "would cut known hours to fewer days (drops Mon, Tue, Wed, Thu, Sat, Sun) and the source does not say that session ended; review"
-       ]
-      },
-      {
-       "id": "st-james-thornton",
-       "reasons": [
-        "times not read identically on 2 separate runs yet"
        ]
       },
       {
@@ -396,8 +358,7 @@
        "id": "west-end-impact",
        "reasons": [
         "day not on the same line as its times on the own-site page",
-        "jumble: Tue given different times in separate blocks on one page; review only",
-        "transient failure; stored times left unchanged"
+        "jumble: Tue given different times in separate blocks on one page; review only"
        ]
       },
       {
@@ -446,13 +407,13 @@
      "coverage": {
       "sites": 16,
       "sites_opened": 14,
-      "render_attempts": 567,
-      "render_errors": 4,
+      "render_attempts": 566,
+      "render_errors": 2,
       "source_pages": 19,
       "source_opened": 16,
       "budget_skipped": 0,
-      "hours_review_due": 1736,
-      "hours_review_opened": 990
+      "hours_review_due": 1735,
+      "hours_review_opened": 1110
      },
      "enabled": true
     },
@@ -465,11 +426,11 @@
      "errors": [],
      "alerts": [],
      "coverage": {
-      "render_attempts": 1070,
+      "render_attempts": 1020,
       "render_errors": 5,
       "budget_skipped": 0,
-      "hours_review_due": 1735,
-      "hours_review_opened": 1110,
+      "hours_review_due": 1736,
+      "hours_review_opened": 1060,
       "sites": 16,
       "sites_opened": 14,
       "source_pages": 19,
@@ -480,9 +441,15 @@
    },
    "applied": 1,
    "applied_this_run": 1,
-   "held": 55,
+   "held": 51,
    "stale_cleared": 0,
    "rejected": [
+    {
+     "id": "brentwood",
+     "reasons": [
+      "would cut known hours to fewer days (drops Fri) and the source does not say that session ended; review"
+     ]
+    },
     {
      "id": "colchester",
      "reasons": [
@@ -611,16 +578,6 @@
      ]
     },
     {
-     "id": "st-annes-advice-nottingham",
-     "reasons": [
-      "new own-site times look like office/centre hours",
-      "new own-site times look like office/centre hours",
-      "new own-site times look like office/shop hours (identical Mon-Fri block, no distribution wording)",
-      "not one clear weekly client-hours block (kept as text for review)",
-      "times not read identically on 2 separate runs yet"
-     ]
-    },
-    {
      "id": "kirkby-storehouse",
      "reasons": [
       "day not on the same line as its times on the own-site page"
@@ -708,17 +665,10 @@
      ]
     },
     {
-     "id": "brentwood",
-     "reasons": [
-      "would cut known hours to fewer days (drops Fri) and the source does not say that session ended; review"
-     ]
-    },
-    {
      "id": "rickmansworth",
      "reasons": [
       "own site lists several centres (4 postcodes); cannot tie one table to this listing",
-      "would cut known hours to fewer days (drops Mon, Wed, Thu) and the source does not say that session ended; review",
-      "transient failure; stored times left unchanged"
+      "would cut known hours to fewer days (drops Mon, Wed, Thu) and the source does not say that session ended; review"
      ]
     },
     {
@@ -769,27 +719,6 @@
      ]
     },
     {
-     "id": "patch",
-     "reasons": [
-      "new own-site times look like office/centre hours",
-      "own site lists several centres (4 postcodes); cannot tie one table to this listing",
-      "new own-site times look like office/centre hours",
-      "not one clear weekly client-hours block (kept as text for review)",
-      "would cut known hours to fewer days (drops Sat) and the source does not say that session ended; review"
-     ]
-    },
-    {
-     "id": "patch/tenby",
-     "reasons": [
-      "new own-site times look like office/centre hours",
-      "own site lists several centres (4 postcodes); cannot tie one table to this listing",
-      "new own-site times look like office/centre hours",
-      "not one clear weekly client-hours block (kept as text for review)",
-      "would cut known hours to fewer days (drops Mon) and the source does not say that session ended; review",
-      "times not read identically on 2 separate runs yet"
-     ]
-    },
-    {
      "id": "3food4u/tottenham-sda",
      "reasons": [
       "known skip: times listed above each address; finder read them onto the next centre (Budworth Hall got Epping's Friday)",
@@ -812,12 +741,6 @@
       "known skip: times listed above each address; finder read them onto the next centre (Budworth Hall got Epping's Friday)",
       "own site lists several centres (10 postcodes); cannot tie one table to this listing",
       "would cut known hours to fewer days (drops Mon, Tue, Wed, Thu, Sat, Sun) and the source does not say that session ended; review"
-     ]
-    },
-    {
-     "id": "st-james-thornton",
-     "reasons": [
-      "times not read identically on 2 separate runs yet"
      ]
     },
     {
@@ -870,8 +793,7 @@
      "id": "west-end-impact",
      "reasons": [
       "day not on the same line as its times on the own-site page",
-      "jumble: Tue given different times in separate blocks on one page; review only",
-      "transient failure; stored times left unchanged"
+      "jumble: Tue given different times in separate blocks on one page; review only"
      ]
     },
     {
@@ -920,18 +842,18 @@
    "coverage": {
     "sites": 16,
     "sites_opened": 14,
-    "render_attempts": 1070,
+    "render_attempts": 1020,
     "render_errors": 5,
     "source_pages": 19,
     "source_opened": 16,
     "budget_skipped": 0,
-    "hours_review_due": 1735,
-    "hours_review_opened": 1110
+    "hours_review_due": 1736,
+    "hours_review_opened": 1060
    }
   }
  },
  "alerts": [],
  "would_block": [],
  "enabled": true,
- "generated_at": "2026-11-07T15:02:07+00:00"
+ "generated_at": "2026-11-07T22:48:59+00:00"
 }
