@@ -98,6 +98,14 @@ class PublishOneWorkflowTest(unittest.TestCase):
     def test_commit_stages_phone_baseline(self):
         self.assertGreaterEqual(self.content.count("git add overrides/phone_baseline.json"), 3)
 
+    def test_every_publish_commit_retags_index_html(self):
+        """7 Nov 2026: publish commits changed data.js / stamp.js but not their ?v= tags in index.html (rule 38).
+        Each layer's commit must stage index.html and re-tag it after a rebase and on a stamp.js conflict."""
+        for f in ("data.full.js data.js", "shelters.js", "warmspaces.js"):
+            self.assertIn("git add %s stamp.js index.html" % f, self.content)
+        self.assertEqual(self.content.count("git pull --rebase --autostash && python scripts/seo_meta.py --index-assets"), 3)
+        self.assertEqual(self.content.count("git add stamp.js index.html"), 3)
+
     def test_workflow_does_not_rebuild_a_layer(self):
         for banned in ("build.py", "build_shelters.py", "build_warmspaces.py", "full_check.py", "build_seo.py"):
             self.assertNotIn(banned, self.content)

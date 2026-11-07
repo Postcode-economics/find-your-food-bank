@@ -124,6 +124,24 @@ def content_stamp(root, name):
     import hashlib
     return 'h' + hashlib.sha256(open(os.path.join(root, name), 'rb').read()).hexdigest()[:12]
 
+ASSET_TAGGED = ('data', 'stamp', 'access')
+
+def put_asset_tags(s, root=ROOT):
+    """?v=h<sha256[:12]> on index.html's data.js, stamp.js and access.js tags. Only the src value is rewritten;
+    every other attribute on the tag (e.g. data-hm type="text/plain") is kept."""
+    return re.sub(r'(<script\b[^>]*\bsrc=")(data|stamp|access)\.js(?:\?v=[^"]*)?("[^>]*>\s*</script>)',
+                  lambda m: '%s%s.js?v=%s%s' % (m.group(1), m.group(2), content_stamp(root, m.group(2) + '.js'), m.group(3)), s)
+
+def stamp_index_assets(root=ROOT):
+    """Re-tag only index.html's data/stamp/access script tags (nothing else on any page). Used by publish_one, which
+    rewrites data.js / stamp.js without the full seo_meta run (7 Nov 2026: #449's publishes left data.js?v= stale).
+    Returns True when index.html changed."""
+    p = os.path.join(root, 'index.html')
+    if not os.path.exists(p): return False
+    s = open(p, encoding='utf-8').read(); n = put_asset_tags(s, root)
+    if n == s: return False
+    open(p, 'w', encoding='utf-8').write(n); return True
+
 def put_chk(s, t, rel):
     """Baked 'Map data last checked' line(s) + a live updater from stamp.js (FAQ and town pages only)."""
     s = re.sub(r'<!--mapchk(?:-cy)?-->.*?<!--/mapchk-->', '', s, flags=re.S)
@@ -192,8 +210,7 @@ def run(root=ROOT):
             # Batch 4: content-hash stamp (h + 12 hex of sha256), so the stamp only changes when the file does and
             # sw.js can serve these cache-first: new content -> new stamp in the (network-first) HTML -> new URL -> fresh copy.
             # Only the src value is rewritten; every other attribute on the tag (e.g. data-hm type="text/plain") is kept.
-            s = re.sub(r'(<script\b[^>]*\bsrc=")(data|stamp|access)\.js(?:\?v=[^"]*)?("[^>]*>\s*</script>)',
-                       lambda m: '%s%s.js?v=%s%s' % (m.group(1), m.group(2), content_stamp(root, m.group(2) + '.js'), m.group(3)), s)
+            s = put_asset_tags(s, root)
             s = put(s, 'dataset', ld('dataset', dataset(iso)))
             s = re.sub(r'(<a id="freshtxt"[^>]*>)[^<]*(</a>)', lambda m: m.group(1) + 'Updated %s' % lab(t) + m.group(2), s)
         if rel == 'faq.html': s = put_counts(s, swep_counts(root))
@@ -213,6 +230,9 @@ def run(root=ROOT):
     return ps
 
 if __name__ == '__main__':
+    import sys
+    if sys.argv[1:] == ['--index-assets']:
+        print('index.html asset tags', 'updated' if stamp_index_assets(ROOT) else 'unchanged'); sys.exit(0)
     run()
     import sw_version; sw_version.sync()
     import beacon; print('beacon added to', beacon.inject_all(ROOT), 'pages')  # version.json + index build meta from sw.js (single source)
