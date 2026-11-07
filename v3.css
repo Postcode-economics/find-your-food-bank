@@ -723,3 +723,4 @@ html body #v3filt .fchip[aria-pressed=true] .ck{border-color:#0A1628!important;b
 html body :is(#list,#xextra,#sheet,#sheetBody,.leaflet-popup-content) .xtop :is(.utag,.xacc){font-size:14px!important;font-weight:700!important;line-height:1!important}
 
 /* 7 Nov 2026: "Get food at" centre rows are boxed buttons, not inline links, so the B6 tap-area padding/negative margin above is not applied to them (it pulled each box 14px up over the heading and its address, and the Directions button into the next row). */
+/* 7 Nov 2026: content change only, to retire the stale Cloudflare copy cached under v3.css?v=h4678710274be (rule 38). */
