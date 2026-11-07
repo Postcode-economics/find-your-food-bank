@@ -1,5 +1,5 @@
 {
- "run": "2026-11-06",
+ "run": "2026-11-07",
  "coverage": {
   "councils": 382,
   "with_swep_page": 224,
@@ -8,7 +8,7 @@
    "North Tyneside Council",
    "West Northamptonshire Council"
   ],
-  "flagged": 48,
+  "flagged": 46,
   "live": [],
   "held": 0
  },
@@ -2211,8 +2211,8 @@
    "pages": [
     {
      "url": "https://www.eastriding.gov.uk/cost-of-living-help-for-households/urgent-help-when-in-need/",
-     "http": "error",
-     "status": "unreachable",
+     "http": 200,
+     "status": "unknown",
      "quote": "",
      "rest_centre": null,
      "council": "East Riding of Yorkshire Council",
@@ -2220,10 +2220,9 @@
      "site": "http://www.eastriding.gov.uk/"
     }
    ],
-   "status": "unreachable",
+   "status": "unknown",
    "flags": [
-    "status unknown -> unreachable",
-    "dead page https://www.eastriding.gov.uk/cost-of-living-help-for-households/urgent-help-when-in-need/ (HTTP error)"
+    "status unreachable -> unknown"
    ]
   },
   {
@@ -3507,8 +3506,8 @@
    "pages": [
     {
      "url": "https://liverpool.gov.uk/housing/homeless-or-at-risk/help-for-rough-sleepers/",
-     "http": "error",
-     "status": "unreachable",
+     "http": 200,
+     "status": "no SWEP wording",
      "quote": "",
      "rest_centre": null,
      "council": "Liverpool City Council",
@@ -3516,10 +3515,9 @@
      "site": "https://liverpool.gov.uk/"
     }
    ],
-   "status": "unreachable",
+   "status": "no SWEP wording",
    "flags": [
-    "status no SWEP wording -> unreachable",
-    "dead page https://liverpool.gov.uk/housing/homeless-or-at-risk/help-for-rough-sleepers/ (HTTP error)"
+    "status unreachable -> no SWEP wording"
    ]
   },
   {
@@ -5057,9 +5055,7 @@
     }
    ],
    "status": "unknown",
-   "flags": [
-    "status unreachable -> unknown"
-   ]
+   "flags": []
   },
   {
    "code": "RUH",
@@ -5460,8 +5456,8 @@
    "pages": [
     {
      "url": "https://www.southkesteven.gov.uk/sites/default/files/2024-12/Lincolnshire%20SWEP%20Protocol%20updated%20August%202024%20final.pdf",
-     "http": 403,
-     "status": "unreachable",
+     "http": 200,
+     "status": "no SWEP wording",
      "quote": "",
      "rest_centre": null,
      "council": "South Kesteven District Council",
@@ -5469,10 +5465,9 @@
      "site": "https://www.southkesteven.gov.uk"
     }
    ],
-   "status": "unreachable",
+   "status": "no SWEP wording",
    "flags": [
-    "status no SWEP wording -> unreachable",
-    "dead page https://www.southkesteven.gov.uk/sites/default/files/2024-12/Lincolnshire%20SWEP%20Protocol%20updated%20August%202024%20final.pdf (HTTP 403)"
+    "status unreachable -> no SWEP wording"
    ]
   },
   {
@@ -6966,9 +6961,7 @@
     }
    ],
    "status": "active",
-   "flags": [
-    "status unknown -> active"
-   ]
+   "flags": []
   },
   {
    "code": "WOC",

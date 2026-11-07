@@ -1,6 +1,6 @@
 {
- "run": "2026-11-06",
- "seconds": 47.1,
+ "run": "2026-11-07",
+ "seconds": 53.6,
  "pages": [
   {
    "council": "Armagh City, Banbridge and Craigavon Borough Council",
@@ -717,8 +717,8 @@
    "council": "Dundee City Council",
    "url": "https://www.dundeecity.gov.uk/news",
    "kind": "news",
-   "http": null,
-   "status": "unreachable",
+   "http": 200,
+   "status": "checked",
    "quote": "",
    "rest_centre": null
   },
@@ -1518,8 +1518,8 @@
    "council": "Maldon District Council",
    "url": "https://www.maldon.gov.uk/news",
    "kind": "news",
-   "http": 500,
-   "status": "unreachable",
+   "http": 200,
+   "status": "checked",
    "quote": "",
    "rest_centre": null
   },
@@ -1653,8 +1653,8 @@
    "council": "Mid Suffolk District Council",
    "url": "https://www.midsuffolk.gov.uk/news",
    "kind": "news",
-   "http": null,
-   "status": "unreachable",
+   "http": 200,
+   "status": "checked",
    "quote": "",
    "rest_centre": null
   },

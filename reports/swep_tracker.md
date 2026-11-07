@@ -1,10 +1,9 @@
-# SWEP tracker - 2026-11-06
+# SWEP tracker - 2026-11-07
 
-Councils still to check (status unknown or unreachable): **21 of 382**.
+Councils still to check (status unknown or unreachable): **19 of 382**.
 
 | day | still to check |
 |---|---|
-| 2026-10-24 | 0 |
 | 2026-10-25 | 25 |
 | 2026-10-26 | 23 |
 | 2026-10-27 | 23 |
@@ -18,6 +17,7 @@ Councils still to check (status unknown or unreachable): **21 of 382**.
 | 2026-11-04 | 20 |
 | 2026-11-05 | 20 |
 | 2026-11-06 | 21 |
+| 2026-11-07 | 19 |
 
 ## Still to check
 
@@ -39,8 +39,6 @@ Councils still to check (status unknown or unreachable): **21 of 382**.
 - Southend-on-Sea Borough Council (England) - unknown
 - Stevenage Borough Council (England) - unknown
 - Angus Council (Scotland) - unreachable
-- Liverpool City Council (England) - unreachable
-- South Kesteven District Council (England) - unreachable
 - Walsall Metropolitan Borough Council (England) - unreachable
 
 ## Hand-checked - needs Dean or a better page (9)
@@ -86,6 +84,7 @@ Councils still to check (status unknown or unreachable): **21 of 382**.
 - Derby City Council - SWEP described on council page; no current activation notice, checked 2026-10-24
 - Dover District Council - SWEP described on council page; no current activation notice, checked 2026-10-24
 - East Cambridgeshire District Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- East Riding of Yorkshire Council - SWEP described on council page; no current activation notice, checked 2026-10-24
 - Forest of Dean District Council - SWEP described on council page; no current activation notice, checked 2026-10-24
 - Gravesham Borough Council - SWEP described on council page; no current activation notice, checked 2026-10-24
 - Gwynedd Council - SWEP described on council page; no current activation notice, checked 2026-10-24
@@ -146,7 +145,6 @@ Councils still to check (status unknown or unreachable): **21 of 382**.
 - Dorset Council - SWEP described on council page; no current activation notice, checked 2026-10-24
 - East Devon District Council - SWEP described on council page; no current activation notice, checked 2026-10-24
 - East Lindsey District Council - SWEP described on council page; no current activation notice, checked 2026-10-24
-- East Riding of Yorkshire Council - SWEP described on council page; no current activation notice, checked 2026-10-24
 - East Suffolk Council - SWEP described on council page; no current activation notice, checked 2026-10-24
 - Eastbourne Borough Council - SWEP described on council page; no current activation notice, checked 2026-10-24
 - Eastleigh Borough Council - Only a dated past activation/news notice; not active now., checked 2026-10-24
