@@ -1,23 +1,27 @@
 {
  "run": "2026-11-07",
- "pages": 1579,
- "failed": 4,
+ "pages": 1593,
+ "failed": 5,
  "errors": [
   [
-   "https://www.testvalley.gov.uk/severe-weather/severe-weather-emergency-protocol-swep",
+   "https://www.croydon.gov.uk/warm-spaces-directory/st-francis-selsdon",
+   403
+  ],
+  [
+   "https://www.croydon.gov.uk/warm-spaces-directory/st-edward-king-and-confessor-church",
+   403
+  ],
+  [
+   "https://www.croydon.gov.uk/warm-spaces-directory/st-mary-blessed-virgin",
    "error"
   ],
   [
-   "https://www.northumberland.gov.uk/education-skills/schools/school-transport/information-parents-during-periods-severe-weather",
-   404
+   "https://www.croydon.gov.uk/warm-spaces-directory/st-pauls-united-reformed-church",
+   "error"
   ],
   [
-   "https://www.northumberland.gov.uk/housing/homelessness-and-housing-options",
-   404
-  ],
-  [
-   "https://www.threerivers.gov.uk/services/housing/homelessness",
-   202
+   "https://www.croydon.gov.uk/warm-spaces-directory/waddon-leisure-centre",
+   403
   ]
  ],
  "added": [],
