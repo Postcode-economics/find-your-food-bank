@@ -3946,38 +3946,66 @@
   {
     "id": "man-crisis-skylight-croydon",
     "name": "Crisis Skylight Croydon",
-    "address": "12 Surrey Street, Croydon",
+    "address": "12 Surrey Street, Croydon, London",
     "postcode": "CR0 1RG",
     "lat": 51.372888,
     "lng": -0.101568,
     "phone": "0203 848 1700",
     "website": "https://www.crisis.org.uk/get-help/croydon/",
-    "hours": "Mon, Tue, Thu, Fri 10am-4pm; Wed 10am-2pm",
-    "referral": "Not emergency; self-referral",
+    "hours": {
+      "Mon": "10:00 - 16:00",
+      "Tue": "10:00 - 16:00",
+      "Wed": "10:00 - 14:00",
+      "Thu": "10:00 - 16:00",
+      "Fri": "10:00 - 16:00"
+    },
+    "referral": "Contact them before visiting. You can call 0203 848 1700 (lines are open Monday, Tuesday, Thursday and Friday, 10:00 am to 4:00 pm, and Wednesday, 10:00 am to 2:00 pm) or email croydon@crisis.org.uk. You can also drop in during opening hours. External agencies looking to refer someone should contact them for an assessment. Before you visit, they recommend you find out what Crisis can offer you in Croydon. If you are rough sleeping and need urgent out-of-hours support, contact StreetLink on 0300 500 0914. Crisis and StreetLink are not an emergency service. If you or someone else is in immediate danger, call 999 and ask for the police or an ambulance. Contact them if you need an interpreter or have other access requirements.",
     "beds": "",
     "groups": [
-      "Age 16+"
+      "People over the age of 16 who are experiencing homelessness, or immediately at risk of homelessness",
+      "Covers Croydon"
     ],
     "season": "Daytime only",
     "operator": "",
     "flag_closed": false,
-    "source": "Manual (verified from source pages)",
+    "source": "Manual (verified from Crisis Croydon page)",
     "source_url": "https://www.crisis.org.uk/get-help/croydon/",
-    "last_verified": "2026-10-31",
+    "last_verified": "2026-11-07",
     "stale": false,
     "access_type": "self_referral",
-    "facilities": "Not stated",
-    "checked_on": "2026-10-31",
+    "facilities": [
+      "Our Croydon Skylight centre can help with finding a home and settling in, finding work and applying for jobs, and looking after your health and wellbeing.",
+      "How we can help depends on your situation and needs. Our focus is on supporting people who face the most barriers and cannot, or find it difficult to, access other services. If another service can provide the support you need, we will refer you to them.",
+      "The Engagement and Assessment team assesses initial support needs, provides information, advice and guidance, and creates a plan to help end homelessness.",
+      "Support may involve becoming a Crisis member and being assigned a lead worker for a few weeks or longer.",
+      "Learning and Skills support includes classes and one-to-one sessions, from digital skills and ESOL to arts classes.",
+      "They also provide longer-term coaching to work towards goals and address factors that may be contributing to homelessness.",
+      "Support is backed by clinical psychologists, housing law specialists, benefits specialists and a volunteering team.",
+      "Crisis and StreetLink are not an emergency service.",
+      "The building has accessible bathroom facilities, and both gender-neutral and male and female toilets."
+    ],
+    "checked_on": "2026-11-07",
     "kind": "day_centre",
     "wheelchair": "yes",
     "wheelchair_quote": "The Crisis Skylight Croydon building is wheelchair accessible and does have accessible bathroom facilities.",
     "who_for": [
-      "Age 16+"
+      "People over the age of 16 who are experiencing homelessness, or immediately at risk of homelessness",
+      "Covers Croydon"
     ],
-    "last_checked": "2026-11-01",
-    "groups_quote": [
-      "Crisis Skylight Croydon works with people over the age of 16 who are experiencing homelessness, or immediately at risk of homelessness."
-    ]
+    "last_checked": "2026-11-07",
+    "groups_quote": "Crisis Skylight Croydon works with people over the age of 16 who are experiencing homelessness, or immediately at risk of homelessness. Crisis Skylight Croydon covers the following geographical areas: Croydon",
+    "access": "Contact them before visiting. You can call 0203 848 1700 (lines are open Monday, Tuesday, Thursday and Friday, 10:00 am to 4:00 pm, and Wednesday, 10:00 am to 2:00 pm) or email croydon@crisis.org.uk. You can also drop in during opening hours. External agencies looking to refer someone should contact them for an assessment. Before you visit, they recommend you find out what Crisis can offer you in Croydon. If you are rough sleeping and need urgent out-of-hours support, contact StreetLink on 0300 500 0914. Crisis and StreetLink are not an emergency service. If you or someone else is in immediate danger, call 999 and ask for the police or an ambulance. Contact them if you need an interpreter or have other access requirements.",
+    "hours_quote": "Opening hours: Monday, Tuesday, Thursday and Friday 10 am to 4 pm, Wednesday 10am to 2pm (please contact us before visiting)",
+    "day_time_quote": "Our doors are open for drop-ins Monday: 10 am to 4 pm Tuesday: 10 am to 4 pm Wednesday: 10am to 2pm Thursday: 10 am to 4 pm Friday: 10 am to 4 pm",
+    "hours_source": "https://www.crisis.org.uk/get-help/croydon/",
+    "facilities_quote": "How Crisis support people facing homelessness in Croydon. Skylights can help with: Finding a home and settling in; Finding work and applying for jobs; Looking after your health and wellbeing. How we can help depends on your situation and needs. If another service can provide the support you need, we will refer you to them. Crisis Skylight Croydon works with people over the age of 16 who are experiencing homelessness, or immediately at risk of homelessness. Our Engagement and Assessment team will assess your initial support needs. We'll provide you with information, advice and guidance and create a plan with you around how we can support you to sustainably end your homelessness. Get in touch so we can assess your situation and discuss next steps – this could lead to you becoming a Crisis member, which involves you being assigned a lead worker who will work with you over a few weeks or longer to help end your homelessness. Please note that while we welcome everyone who comes to us for help, our focus is on supporting people who face the most barriers and cannot, or find it difficult to, access other services. We can support you to access our Learning and Skills support that includes classes and one to one sessions from digital skills and ESOL to various arts classes. We also provide a coaching service to offer longer term support to people to work towards achieving their goals and to address any areas that may be contributing to their homelessness. Our work is supported by clinical psychologists, housing law specialists, benefits specialists and a volunteering team. Crisis and Streetlink are not an emergency service. The Crisis Skylight Croydon building is wheelchair accessible and does have accessible bathroom facilities. We have both gender neutral and male and female toilet facilities.",
+    "facilities_source": "https://www.crisis.org.uk/get-help/croydon/",
+    "wheelchair_source": "https://www.crisis.org.uk/get-help/croydon/",
+    "evidence_name": "Crisis Skylight Croydon",
+    "evidence_url": "https://www.crisis.org.uk/get-help/croydon/",
+    "source_label": "Crisis Skylight Croydon",
+    "verified_on": "2026-11-07",
+    "hours_checked": "2026-11-07"
   },
   {
     "id": "man-merton-faith-in-action-homeless-drop-in",
