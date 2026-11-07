@@ -431,6 +431,9 @@ def review_hours(items, state, flag, deadline, fetch=None, render=None):
         state['hours'][i['id']] = {'status': verdict['status'], 'evidence': verdict.get('evidence') or '', 'source_url': src,
                                    'final_url': verdict.get('final_url') or '', 'note': verdict.get('note') or '',
                                    'rendered': bool(verdict.get('rendered')), 'checked_at': NOW.isoformat()}
+        if verdict['status'] == 'verified':
+            import check_dates
+            check_dates.success(i, NOW)
         if verdict['status'] != 'verified':
             flag(i['id'], 'opening times unclear', name=i.get('name') or '', website=src, id=i['id'],
                  note=verdict.get('note') or '', evidence=verdict.get('evidence') or '')

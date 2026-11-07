@@ -1387,10 +1387,7 @@ def cross_check_times(items, kind, field, fetcher=fetch_live, today=None, thread
     enforce_protected_times(items, kind, field, log, state_root, today)
     # Use the final verdict, after all existing review/auto-apply guards.
     # confirmed_by_hand is a kept overlay, NOT a successful live re-check.
-    for i in items:
-        rec = log.get(i["id"], {})
-        if rec.get("status") == "confirmed" or (rec.get("status") == "changed" and rec.get("auto_applied")):
-            check_dates.success(i, today)
+    check_dates.apply_checks(items, log)
     return log
 BOILER = re.compile(r"phone lines?|telephone|lines (?:are )?monitored|office hours|office (?:is )?open", re.I)
 def _key(ot):

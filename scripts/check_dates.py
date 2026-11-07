@@ -59,3 +59,13 @@ def preserve_foodbanks(items, previous, fetched=""):
         preserve(item, old)
         if not latest(item) and old.get("givefood"):
             preserve(item, {"verified_on": fetched})
+
+
+def apply_checks(items, checks):
+    """Apply only final successful own-site verdicts, including rebuilt objects."""
+    for item in items:
+        rec = checks.get(item["id"], {})
+        if rec.get("status") == "confirmed" or (rec.get("status") == "changed" and rec.get("auto_applied")):
+            day = rec.get("checked")
+            if uk_day(day):
+                success(item, day)

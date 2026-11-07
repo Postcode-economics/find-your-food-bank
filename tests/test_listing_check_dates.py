@@ -19,6 +19,7 @@ import common
 import compact
 import discover
 import fb_recheck
+import full_check
 from tests.test_fb_recheck import item, META, page
 
 OLD = "2026-10-24"
@@ -56,6 +57,13 @@ class Dates(unittest.TestCase):
         self.assertNotIn("verified_on", items[1])
         self.assertEqual(items[1]["givefood"], "")
         self.assertIsNone(items[1]["opening_times"])
+
+    def test_recreated_manual_record_gets_final_check_by_id_only(self):
+        for status, applied in (("confirmed", False), ("changed", True), ("held_for_review", True), ("changed", False)):
+            x = {"id": "manual", "verified_on": OLD, "facilities": ["Staff wording"]}
+            check_dates.apply_checks([x], {"manual": {"status": status, "auto_applied": applied, "checked": "2026-11-07"}})
+            self.assertEqual(x["verified_on"], "2026-11-07" if status == "confirmed" or (status == "changed" and applied) else OLD)
+            self.assertEqual(x["facilities"], ["Staff wording"])
 
     def test_compact_and_card_single_date_all_layers(self):
         x = item(verified_on=OLD)
@@ -118,6 +126,17 @@ class LayerGates(unittest.TestCase):
             with patch.object(fb_recheck, "now", return_value=NOW):
                 pub, _ = fb_recheck.gate([x], {"acme": {}}, copy.deepcopy(META), td + "/r", td + "/p", per_run=0)
             self.assertEqual(pub[0]["verified_on"], OLD)
+
+
+class FullCheckDates(unittest.TestCase):
+    def test_verified_bumps_unclear_and_skipped_do_not(self):
+        for status, deadline in (("verified", float("inf")), ("unclear", float("inf")), ("verified", 0)):
+            x = item(verified_on=OLD, opening_times={"source_url": "https://example.org/venue"})
+            with patch.object(full_check, "read_source", return_value={}), \
+                 patch.object(full_check, "hours_verdict", return_value={"status": status}), \
+                 patch.object(full_check, "NOW", datetime.datetime.fromisoformat(NOW)):
+                full_check.review_hours([x], {}, lambda *a, **k: None, deadline, render=lambda u: {})
+            self.assertEqual(x["verified_on"], "2026-11-07" if status == "verified" and deadline else OLD)
 
 
 class OwnSiteChecks(unittest.TestCase):

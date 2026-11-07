@@ -309,6 +309,7 @@ def main():
             if str(k).startswith('_') or not isinstance(v, dict): continue
             fb_ov.setdefault(k, {}).update(v)
     print('place facts:', place_facts.stamp(items, fb_ov, fill_missing=True))
+    check_dates.apply_checks(items, tlog)  # classify may have rebuilt hand-added records after the check
     import schema_version
     meta = schema_version.stamp(dict(fetched=datetime.date.today().isoformat(), source='Give Food API v2 https://www.givefood.org.uk/api/ + IFAN https://www.foodaidnetwork.org.uk/ (own-site checked)', items=items))
     new = 'window.FB_DATA=' + json.dumps(meta) + ';'
