@@ -1,5 +1,4 @@
 import json, os, re, time, urllib.request, datetime
-import check_dates
 import place_lock  # hand-wins for the kept copy in verification_gate (one copy of the rule)
 UA = {"User-Agent": "postcode-economics-map/1.0 (+https://postcode-economics.github.io/find-your-food-bank/)"}
 PC_RE = re.compile(r"\b([A-Z]{1,2}[0-9][0-9A-Z]?)\s*([0-9][A-Z]{2})\b", re.I)
@@ -248,6 +247,7 @@ def verification_gate(fresh, prev, verified, run_day, pending_path, autocheck=No
         if x.get("fetched_at") and x["id"] not in LC and not x.get("grace"): LC[x["id"]] = x["fetched_at"]
     graced = []
     import place_facts
+    import check_dates
     for x in fresh:
         v = verified.get(x["id"])
         has_evidence = bool(v and v.get("evidence_url") and (v.get("day_time_quote") or v.get("quote")))
