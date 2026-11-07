@@ -1,4 +1,5 @@
 import json, os, re, time, urllib.request, datetime
+import check_dates
 import place_lock  # hand-wins for the kept copy in verification_gate (one copy of the rule)
 UA = {"User-Agent": "postcode-economics-map/1.0 (+https://postcode-economics.github.io/find-your-food-bank/)"}
 PC_RE = re.compile(r"\b([A-Z]{1,2}[0-9][0-9A-Z]?)\s*([0-9][A-Z]{2})\b", re.I)
@@ -283,6 +284,8 @@ def verification_gate(fresh, prev, verified, run_day, pending_path, autocheck=No
             graced.append({"id": x["id"], "name": old.get("name") or x.get("name"), "reason": "kept, fetch blocked (%s)" % ((rc or {}).get("reason") or (rc or {}).get("http")),
                            "http": (rc or {}).get("http"), "last_confirmed": str(old.get("fetched_at") or old.get("checked_on") or "")[:10],
                            "hours_since": round(age, 1) if age is not None else None, "kept_fetch_blocked": True})
+            check_dates.preserve(old, {"verified_on": x.get("verified_on", "")},
+                                 {"verified_on": (v or {}).get("verified_on", "")})
             pub.append(old)
             continue
         if failed and has_evidence and v.get("verified_on") and x["id"] in _approved_ids(layer_name):
@@ -303,7 +306,9 @@ def verification_gate(fresh, prev, verified, run_day, pending_path, autocheck=No
                 x["grace"] = True; x["fetched_at"] = LC[x["id"]]
                 if blocked: x["kept_fetch_blocked"] = True  # internal marker read by verify_fresh; no public label
             elif rc and rc.get("ok"):  # Dean: every successful re-check moves the shown checked date forward
-                x["first_verified_on"] = v.get("verified_on", ""); x["verified_on"] = x["last_verified"] = run_day
+                x["first_verified_on"] = v.get("verified_on", "")
+                check_dates.success(x, rc.get("fetched_at") or now)
+                x["last_verified"] = x["verified_on"]
             if not grace and rc: x["fetched_at"] = rc.get("fetched_at"); x["recheck"] = {k: rc.get(k) for k in ("times_found", "days_found", "postcode_found", "referral_found")}
             if v.get("access_type"): x["access_type"] = v["access_type"]
             if v.get("phone_source"): x["phone_source"] = v["phone_source"]
@@ -316,6 +321,7 @@ def verification_gate(fresh, prev, verified, run_day, pending_path, autocheck=No
             if v.get("access"): x["referral"] = v["access"][0].upper() + v["access"][1:]
             if v.get("access") and x.get("card_type") == "referral_hostel": x["referral_route"] = x["referral"]  # referral cards show this line
             place_facts.copy_wheelchair(x, v)  # explicit only; a missing wheelchair stays missing
+            check_dates.preserve(x, prev_by_id.get(x["id"]))
             pub.append(x)
         elif unverified and x["id"] in unverified and (x["id"] in published_ids or not valid_until or run_day <= valid_until(dict(verified_on=unverified[x["id"]].get("checked_on", "2000-01-01")))) \
                 and unverified[x["id"]].get("sign_url") and not x.get("ended") and not x.get("flag_closed"):
@@ -326,7 +332,10 @@ def verification_gate(fresh, prev, verified, run_day, pending_path, autocheck=No
                 x["grace"] = True; x["fetched_at"] = LC[x["id"]]; x["checked_on"] = LC[x["id"]][:10]
                 if blocked: x["kept_fetch_blocked"] = True
             elif rc: x["fetched_at"] = rc.get("fetched_at")
-            if rc and rc.get("ok") and not grace: x["last_verified"] = run_day
+            if rc and rc.get("ok") and not grace:
+                check_dates.success(x, rc.get("fetched_at") or now)
+                x["last_verified"] = x["verified_on"]
+            check_dates.preserve(x, prev_by_id.get(x["id"]))
             if u.get("access_type"): x["access_type"] = u["access_type"]
             place_facts.copy_wheelchair(x, u)
             for k in ("phone", "scheme_start", "scheme_end", "scheme_dates", "call_check"):  # hand-checked fixes on tier-2 entries persist every run

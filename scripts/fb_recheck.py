@@ -14,6 +14,7 @@ A place already on the map stays when its page or record cannot be read. A new p
 (logs/foodbank_pending.json) and tried again next run. The whole run still stops if a Give Food API endpoint fails.
 scripts/verify_fresh.py foodbanks does not fail the run for one place."""
 import re, json, os, hashlib, datetime, urllib.request, urllib.parse, ssl
+import check_dates
 CTX = ssl.create_default_context()
 UA = {"User-Agent": "foodbank-map-refresh (github actions; recheck)"}
 PC_RE = re.compile(r"^(GIR 0AA|[A-Z]{1,2}\d[A-Z\d]? ?\d[A-Z]{2})$")
@@ -159,7 +160,13 @@ def gate(items, records, api_meta, log_path, pending_path, fetcher=None, per_run
         elif reason: omitted.append({"id": i["id"], "name": i["name"], "postcode": i.get("postcode", ""), "reason": "omitted this run: " + reason,
                                    "recheck": {k: r.get(k) for k in ("source_url", "fetched_at", "record_sha256", "schema_errors")}})
         else:
-            i["fetched_at"] = t; pub.append(i)
+            i["fetched_at"] = t
+            # An API row is a fresh per-listing check, not a layer-wide date.
+            # Manual records are saved human evidence, not a new fetch. A sampled
+            # page that failed is kept by the existing gate, but is not re-dated.
+            if not i.get("manual") and not flagged:
+                check_dates.success(i, t)
+            pub.append(i)
     out["_run"] = {"fetched_at": t, "entries": len(items), "published": len(pub), "omitted": len(omitted),
                    "flagged": sum(1 for v in out.values() if isinstance(v, dict) and v.get("flags")),
                    "live_checked": len(live), "api": api_meta}

@@ -224,6 +224,13 @@ def main():
     for i in items:
         if i.get('manual') and i['id'] in extra: records[i['id']] = extra[i['id']]  # source = the human-checked own-site record
     allc = {i['id']: i.pop('_own_all_closed') for i in items if '_own_all_closed' in i}  # kept out of the recheck gate
+    # Rebuilt feed rows otherwise lose their last successful/human check every run.
+    # Preserve the date the old Give Food card actually displayed, not today's
+    # layer stamp, when migrating a legacy card with no date of its own.
+    import check_dates
+    with open(OUT, encoding='utf-8') as f:
+        old_meta = json.loads(f.read().split('=', 1)[1].rstrip().rstrip(';'))
+    check_dates.preserve_foodbanks(items, load_prev_items(), old_meta.get('fetched', ''))
     before = len(items)
     try:
         items, omitted = fb_recheck.gate(items, records, api_meta, os.path.join(ROOT, 'logs', 'foodbank_recheck.json'), os.path.join(ROOT, 'logs', 'foodbank_pending.json'), published_ids={x['id'] for x in load_prev_items()})
