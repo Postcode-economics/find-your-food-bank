@@ -1,6 +1,6 @@
 """Header status line (Dean 25 Oct 13:32): 'Food banks near you' / 'Food banks near <place>', never overflowing or clipped
 at 320, 360, 390 and 1366 px, light and dark, on all three types; Dean 13:35: fixed font, ONE line, header height identical to the short-text case, no overflow, no ellipsis; if it does not fit, just the place name."""
-import functools, http.server, importlib.util, os, sys, threading, unittest
+import functools, http.server, importlib.util, os, sys, tempfile, threading, unittest
 sys.path.insert(0, os.path.dirname(__file__))
 from site_ready import open_map
 R = os.path.join(os.path.dirname(__file__), '..'); CH = '/usr/bin/google-chrome'
@@ -47,8 +47,10 @@ class T(unittest.TestCase):
                         c.close()
                 b.close()
         finally: s.shutdown()
-        os.makedirs(os.path.join(R, 'logs'), exist_ok=True)
-        import json; json.dump(bad, open(os.path.join(R, 'logs', 'status_line_bad.json'), 'w'), indent=1)
+        with tempfile.TemporaryDirectory() as directory:
+            import json
+            with open(os.path.join(directory, 'status_line_bad.json'), 'w') as output:
+                json.dump(bad, output, indent=1)
         self.assertEqual(bad, [])
 if __name__ == '__main__': unittest.main()
 
