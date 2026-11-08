@@ -108,11 +108,20 @@ window.emPreview={hideExpired:function(){hideExpired(root)},emergencySearch:emer
 var liveData=null;
 function load(){var url=isLive?'incident_rest_centre_live.json':'reports/emergency_preview.json';
  var bust=location.search.indexOf('fresh=1')>=0?('?t='+Date.now()):'';
- fetch(url+bust,{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(data){if(!data||sample)return;if(isLive&&!data.public)return;if(isLive)liveData=data;applyData(data)}).catch(function(){});}
+ fetch(url+bust,{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(data){if(!data||sample)return;if(isLive&&!data.public)return;if(isLive)liveData=data;applyData(data);askVisitorLocation()}).catch(function(){});}
 if(!sample)load();
-function fillVisitorLad(done){if(visitorLad()){done();return}var loc=readSearched();if(!loc){done();return}
- fetch('https://api.postcodes.io/postcodes?lon='+encodeURIComponent(loc.lng)+'&lat='+encodeURIComponent(loc.lat)+'&limit=1').then(function(r){return r.json()}).then(function(j){
+function setVisitorLadFromPoint(lat,lng,done){
+ fetch('https://api.postcodes.io/postcodes?lon='+encodeURIComponent(lng)+'&lat='+encodeURIComponent(lat)+'&limit=1').then(function(r){return r.json()}).then(function(j){
   try{var c=j.result&&j.result[0]&&j.result[0].codes;if(c&&c.admin_district)window.__visitorLad=c.admin_district}catch(e){}
   done()}).catch(function(){done()})}
+function fillVisitorLad(done){if(visitorLad()){done();return}var loc=readSearched();if(!loc){done();return}
+ setVisitorLadFromPoint(loc.lat,loc.lng,done)}
+function askVisitorLocation(){
+ if(!isLive||visitorLad()||askVisitorLocation.asked)return;
+ if(!navigator.geolocation)return;
+ askVisitorLocation.asked=true;
+ navigator.geolocation.getCurrentPosition(function(pos){
+  setVisitorLadFromPoint(pos.coords.latitude,pos.coords.longitude,function(){if(liveData)applyData(liveData)});
+ },function(){},{enableHighAccuracy:true,timeout:10000,maximumAge:60000})}
 document.addEventListener('helpmap-search',function(){if(!isLive)return;fillVisitorLad(function(){if(liveData)applyData(liveData);else load()})});
 })();
