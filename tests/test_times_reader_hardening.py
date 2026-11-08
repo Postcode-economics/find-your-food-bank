@@ -69,6 +69,47 @@ class NonClientHours(unittest.TestCase):
             self.assertTrue(rej and rej[0]["reason"].startswith("non-client hours"), (text, rej))
 
 
+    def test_weekday_collection_hours_are_read_as_monday_to_friday(self):
+        text = (
+            "Beacon Food Bank, 69-73 Meridian Centre, HAVANT PO9 1UN. "
+            "Open for referrals: weekdays 10am – 12.30pm. "
+            "Please make referrals to 07718 424 618 before 12.30pm; after this you will have to leave a message for the following day. "
+            "Hampers can be collected from Beacon Lounge between 10.30am and 1pm on weekdays, even when Beacon Lounge is closed to customers. "
+            "Food hampers are only available for collection from the Meridian Centre by appointment. "
+            "Donation Points: The Beacon Lounge on weekdays between 10am and 2pm (top of the stairs in the Meridian Centre)."
+        )
+        rej = []
+        got = D.extract_times(text, "PO9 1UN", rejected=rej)
+        self.assertIsNotNone(got)
+        self.assertEqual(got["status"], "TIMES_FOUND")
+        self.assertEqual(got["structured"], {d: [["10:30", "13:00"]] for d in ("mon", "tue", "wed", "thu", "fri")})
+        self.assertTrue(any("open for referrals" in r["reason"] for r in rej), rej)
+        self.assertTrue(any("donat" in r["reason"] for r in rej), rej)
+
+    def test_times_next_to_by_appointment_stay_text_only(self):
+        got = D.extract_times("Collection Monday 10am - 12pm by appointment.", None)
+        self.assertIsNotNone(got)
+        self.assertEqual(got["status"], "TIMES_TEXT_ONLY")
+        self.assertFalse(got.get("structured"))
+
+class AppointmentSentenceBefore(unittest.TestCase):
+    """Appointment wording in the sentence just before the times keeps them text-only; a later,
+    separate appointment sentence does not discard hours already read."""
+    def test_previous_sentence_phone_in_advance_stays_text_only(self):
+        got = D.extract_times("St John's Hayocks Road Stevenston Please phone in advance to arrange a collection. "
+                              "Fri 12:30 - 14:00 KA20 4DE", "KA20 4DE")
+        self.assertTrue(got is None or got["status"] == "TIMES_TEXT_ONLY", got)
+        self.assertFalse(got and got.get("structured"), got)
+
+    def test_later_separate_appointment_sentence_keeps_hours(self):
+        got = D.extract_times("Community Pantry, 1 High Street, PO9 1UN. Food parcels can be collected on Tuesday 10am - 12pm. "
+                              "Our hall is next to the library and there is parking at the back. "
+                              "Extra support sessions with our adviser are by appointment.", "PO9 1UN")
+        self.assertIsNotNone(got)
+        self.assertEqual(got["status"], "TIMES_FOUND", got)
+        self.assertEqual(got["structured"], {"tue": [["10:00", "12:00"]]})
+
+
 class Jumble(unittest.TestCase):
     def test_purley_many_blocks_is_review_only(self):
         self.assertIn("7 separate time blocks", D.jumble_reason({"raw": PURLEY_RAW}))

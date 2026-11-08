@@ -34,6 +34,14 @@ def clean(text):
     t = re.sub(r"(?i)\b(" + DAYW + r")\s+through\s+to\s+(" + DAYW + r")\b", r"\1 to \2", t)
     t = re.sub(r"(?i)\b(" + DAYW + r")\s+through\s+(" + DAYW + r")\b", r"\1 to \2", t)
     t = re.sub(r"(?i)\b(\d{1,2}(?:[:.]\d{2})?\s*(?:am|pm))\s+(12(?:[:.]00)?\s*(?:noon|midday|pm))\b", r"\1 - \2", t)
+    # weekdays / weekday means Monday-Friday (not weekly / every week / this week)
+    t = re.sub(r"(?i)\bweekdays?\b", "Monday-Friday", t)
+    # "10.30am - 1pm on Monday-Friday" (after 'between X and Y' cleanup) -> days first
+    t = re.sub(
+        r"(?i)(" + T + r"\s*(?:-|–|—|to|until|till)\s*" + T + r")\s+on\s+(Monday-Friday)",
+        r"\2 \1",
+        t,
+    )
     return re.sub(r" +", " ", t).strip()
 
 def to24(s):

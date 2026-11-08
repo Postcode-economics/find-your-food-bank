@@ -281,7 +281,8 @@ NOT_CLIENT = re.compile(r"office|warehouse|donat|drop[- ]?off|admin|phone line|t
                         # preschool sessions, adviser drop-ins and café/coffee-shop times were read as food bank hours
                         r"|contact (?:hours|times)|\badvis[eo]rs?\b|\bgym\b|fitness|leisure cent|swimming|\bpool\b|sports? (?:hall|cent)"
                         r"|reception|centre opening (?:hours|times)|building (?:is )?open|pre-?school|nursery|playgroup|toddlers?|cr[eè]che"
-                        r"|caf[eé] (?:is )?open|caf[eé] (?:opening )?(?:hours|times)|coffee (?:shop|morning)|\bshop (?:is )?open|shop (?:opening )?(?:hours|times)", re.I)  # rule 27 (26 Oct): phone/office/donation/church-service hours
+                        r"|caf[eé] (?:is )?open|caf[eé] (?:opening )?(?:hours|times)|coffee (?:shop|morning)|\bshop (?:is )?open|shop (?:opening )?(?:hours|times)"
+                        r"|open for referrals", re.I)  # rule 27 (26 Oct): phone/office/donation/church-service hours. 'Open for referrals: weekdays ...' is a referral desk, not collection hours (Beacon Food Bank, 8 Nov 2026).
 # Trinity (29 Oct 2026): 'We accept phone calls Mon-Thurs 10am - 2pm only from Statuatory agencies'. A day and time
 # followed by an agency/professional-only line is a referral line, not a time a client can come.
 AGENCY_ONLY = re.compile(r"\bonly\s+(?:from|for|by)\s+(?:the\s+)?(?:statu\w*|referr\w*|professional\w*|partner\w*|support|external)\s+"
@@ -308,6 +309,19 @@ def not_client_context(t, at, prev_span_end=None):
     if k >= 0: lo = k + 2
     m = NOT_CLIENT.search(t[lo:at])
     return m.group(0).lower() if m else ""
+def appt_before(t, at, prev_span_end=None):
+    """The text before a time span that its appointment wording can come from: this sentence up to the
+    times, plus the one sentence immediately before it (at most 160 chars, never past the previous time span).
+    North Ayrshire St John's: 'Please phone in advance to arrange a collection. Fri 12:30 - 14:00'.
+    A later, separate 'by appointment' sentence is not in this window, so it cannot discard hours already read."""
+    lo = max(0, at - 160)
+    if prev_span_end is not None and prev_span_end > lo: lo = prev_span_end
+    cut = [i for i in (t.rfind(". ", lo, at), t.rfind("; ", lo, at)) if i >= 0]
+    if cut:
+        k = max(cut)
+        k2 = max(t.rfind(". ", lo, k), t.rfind("; ", lo, k))
+        if k2 >= 0: lo = k2 + 2
+    return t[lo:at]
 def postcode_block(text, postcode):
     """The slice of `text` that belongs to this postcode, or None when that slice cannot be fixed.
     Same window extract_times uses: one postcode keeps the page; several postcodes keep only the block that
@@ -427,6 +441,7 @@ def extract_times(text, postcode=None, rejected=None, name=None):
             why = ("non-client hours (%s)" % whyctx) if whyctx else ("agency/professional-only line" if agency_only_after(src, m.end()) else "")
             if not why and prev_skipped and follows: why = last_why + " (same list)"
             skip = bool(why)
+            prev_span = prev_end
             prev_end, prev_skipped = m.end(), skip
             tried.add(seg0)
             if skip:   # office / warehouse / donation / bin hours are not client times
@@ -435,7 +450,7 @@ def extract_times(text, postcode=None, rejected=None, name=None):
             if CAFE_LINE.search(line) and not FB_CLIENT_LINE.search(line): _reject(rejected, m, "café/coffee-shop hours, not food bank"); continue
             seg = (m.group(1).strip(" ,&-–") + " " + m.group(2)).strip()
             nxt = src[m.end():m.end() + 40]; nxt = nxt[:min([len(nxt)] + [x.start() - m.end() for x in spans if x.start() >= m.end()])]
-            if APPT.search(nxt) or APPT.search(src[max(0, m.start() - 30):m.start()]): seg += " (by appointment)"
+            if APPT.search(nxt) or APPT.search(appt_before(src, m.start(), prev_span)): seg += " (by appointment)"
             found.append((m.start(), seg))
     _take_spans(t, list(TIMESPAN.finditer(t)), check_ords=True)
     # Every opening-hours block on this place's page, including one whose days and clock times
@@ -454,8 +469,10 @@ def extract_times(text, postcode=None, rejected=None, name=None):
     if not segs: return None
     from times import normalise
     raw = " | ".join(segs)
-    ba = APPT.search(t)   # the centre's own block says appointment / phone first / on request (North Ayrshire St John's)
-    if ba and not APPT.search(raw): raw += " (" + ba.group(0).lower() + ")"; segs = segs + ["(" + ba.group(0).lower() + ")"]
+    # Appointment wording next to a time span is already copied onto that segment
+    # ('Monday 10am-12pm by appointment' stays text-only). A later sentence such as
+    # 'Food hampers are only available for collection ... by appointment' must not
+    # discard weekday collection hours that were already read (Beacon Food Bank, 8 Nov 2026).
     if APPT.search(raw) or ORDINAL.search(raw):   # monthly / appointment-only: keep as written, never as a weekly table
         return {"raw": raw, "status": "TIMES_TEXT_ONLY", "structured": None, "lines": segs}
     return normalise({"raw": raw, "status": "TIMES_TEXT_ONLY", "structured": None})
