@@ -1,4 +1,5 @@
 {
+ "st-peter-st-pauls-pantry": "St Peter & St Paul church office number",
  "_about": "Whose number a card's phone is, when it is not the food bank's own (church, parent charity). build.py copies a non-empty string onto 'phone_label' (blank ignored). The list card and the pin pop-up show it under the number, as written if it ends in 'number' or 'line' (e.g. 'St X church number', 'Referral line', 'Library service line', 'Central service line', 'Shared venue line'), otherwise as 'Number for <label>'. Shelters and warm spaces use the same wording from an optional phone_label on their contact override. Dean 24 Oct.",
  "littlehampton-community-fridge": "Fare Divide number",
  "west-ardsley": "West Ardsley Friday pantry",
