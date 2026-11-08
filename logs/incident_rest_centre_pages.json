@@ -6220,8 +6220,17 @@
    "rest_centre": null
   },
   {
-   "council": "Horsham District Council",
+   "council": "",
    "url": "https://example.invalid/helpmap-system-test-do-not-travel",
+   "kind": "watch",
+   "http": 200,
+   "status": "checked",
+   "quote": "",
+   "rest_centre": null
+  },
+  {
+   "council": "Arun District Council",
+   "url": "https://example.invalid/helpmap-system-test-arun-do-not-travel",
    "kind": "watch",
    "http": 200,
    "status": "checked",
@@ -6229,8 +6238,8 @@
    "rest_centre": {
     "active": true,
     "name": "TEST — do not travel",
-    "quote": "TEST — do not travel — not a real rest centre TEST — do not travel This is a helpmap.uk system test. This is not a real rest centre. Do not travel. Horsham District Council has opened a rest centre at TEST — do not travel. This is a system test only. Do not travel to this location. This page is a helpmap.uk system…",
-    "location": "[redacted]"
+    "quote": "TEST — do not travel TEST — do not travel — not a real rest centre TEST — do not travel This is a helpmap.uk system test. This is not a real rest centre. Do not travel. Arun District Council has opened a rest centre at TEST — do not travel. This is a system test only. Do not travel to this location. This page is a…",
+    "location": ""
    }
   }
  ]

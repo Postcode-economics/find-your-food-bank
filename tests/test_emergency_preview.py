@@ -453,6 +453,16 @@ class Plan(unittest.TestCase):
         self.assertIn('fill="#FF3B30"', js_raw)
         self.assertIn('stroke="#FFFFFF"', js_raw)
 
+    def test_39_live_town_search_looks_up_visitor_district(self):
+        """Town search leaves __visitorLad empty; live layer must reverse-geocode lastNear."""
+        js = rd("emergency.js")
+        self.assertIn("function fillVisitorLad", js)
+        self.assertIn("api.postcodes.io/postcodes?lon=", js)
+        self.assertIn("fillVisitorLad(function(){", js)
+        self.assertIn("helpmap-search", js)
+        idx = rd("index.html")
+        self.assertIn("emergency.js?v=erc-town-lad1", idx)
+
 
 def _centre(name, lat, lng, until="2099-01-01T12:00:00+00:00", **kw):
     row = {"id": name.lower().replace(" ", "-"), "name": name, "live": True, "lat": lat, "lng": lng,
