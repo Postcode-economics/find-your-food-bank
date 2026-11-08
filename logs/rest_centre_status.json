@@ -1,6 +1,6 @@
 {
  "run": "2026-11-08",
- "seconds": 49.4,
+ "seconds": 43.2,
  "pages": [
   {
    "council": "Armagh City, Banbridge and Craigavon Borough Council",
@@ -906,8 +906,8 @@
    "council": "Erewash Borough Council",
    "url": "https://www.erewash.gov.uk/news",
    "kind": "news",
-   "http": 200,
-   "status": "checked",
+   "http": 403,
+   "status": "unreachable",
    "quote": "",
    "rest_centre": null
   },
@@ -915,8 +915,8 @@
    "council": "Erewash Borough Council",
    "url": "https://www.erewash.gov.uk/environmental-issues/flooding",
    "kind": "emergencies",
-   "http": 200,
-   "status": "checked",
+   "http": 403,
+   "status": "unreachable",
    "quote": "",
    "rest_centre": null
   },
@@ -2157,8 +2157,8 @@
    "council": "Rugby Borough Council",
    "url": "https://www.rugby.gov.uk/news",
    "kind": "news",
-   "http": null,
-   "status": "unreachable",
+   "http": 200,
+   "status": "checked",
    "quote": "",
    "rest_centre": null
   },
@@ -2337,8 +2337,8 @@
    "council": "South Kesteven District Council",
    "url": "https://www.southkesteven.gov.uk/community-and-neighbourhood/emergency-planning-and-business-continuity",
    "kind": "emergencies",
-   "http": 200,
-   "status": "checked",
+   "http": 403,
+   "status": "unreachable",
    "quote": "",
    "rest_centre": null
   },

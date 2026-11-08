@@ -1,7 +1,7 @@
 # Shelters & warm spaces – review list
 
 ## shelters.js
-added 0 · removed 0 · changed 0 · tier flips 0 · opens later 3 · season ended 0 · recheck failed 59
+added 0 · removed 0 · changed 0 · tier flips 0 · opens later 3 · season ended 0 · recheck failed 60
 
 - OPENS LATER Glasgow City Mission Overnight Welcome Centre – Opens 1 Dec 2026 until 31 Mar 2027
 - OPENS LATER Glass Door Winter Night Shelters (3 circuits) – Opens 21 Nov 2026 until 22 Mar 2027
