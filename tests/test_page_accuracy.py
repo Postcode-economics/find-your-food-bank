@@ -31,7 +31,10 @@ class Faq(unittest.TestCase):
             self.assertNotIn(bad, self.s)
     def test_swep_counts_baked_from_data(self):
         sys.path.insert(0, os.path.join(ROOT, "scripts")); import seo_meta
-        n = seo_meta.swep_counts(ROOT); self.assertEqual(set(n), {"swep-councils", "swep-pages"})
+        n = seo_meta.swep_counts(ROOT)
+        if not n and not os.path.exists(os.path.join(ROOT, "logs", "swep_status.json")):
+            raise unittest.SkipTest("Private SWEP working status is not available in the public checkout")
+        self.assertEqual(set(n), {"swep-councils", "swep-pages"})
         for k, v in n.items():
             got = re.findall(r'<span data-n="%s">([^<]*)</span>' % k, self.s)
             self.assertEqual(len(got), 2, k); self.assertTrue(all(g == format(v, ",") for g in got), (k, got, v))

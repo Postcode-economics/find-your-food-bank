@@ -124,7 +124,7 @@ class Workflows(unittest.TestCase):
         self.assertIn("id: commit", step(y, "Commit if changed"))
         s = step(y, "Alerts + morning digest")
         self.assertIn("if: always() && steps.commit.outcome == 'success'", s)
-        self.assertIn("git add reports/morning_digest.md logs/digest_state.json", s)
+        self.assertIn("bash scripts/git_add_existing.sh reports/morning_digest.md logs/digest_state.json", s)
         self.assertIn("git pull --rebase --autostash", s)
         self.assertIn("exit $rc", s)
         self.assertIn("if: (failure() || cancelled()) && steps.commit.outcome != 'success'", step(y, "Alert - run failed (nothing new published)"))

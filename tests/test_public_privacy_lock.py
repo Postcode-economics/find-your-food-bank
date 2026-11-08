@@ -156,3 +156,40 @@ class PublicCheckoutCollection(unittest.TestCase):
             self.assertIn('Private replay report is not available', output)
             for name in ('reports', 'logs', 'docs', 'email'):
                 self.assertFalse((root / name).exists())
+
+
+class PrivateWorkingFileReplay(unittest.TestCase):
+    def replay_method(self, filename, method, root):
+        # Extract only the method: no module imports, live files or production side effects.
+        import ast
+        import json
+        tree = ast.parse((ROOT / 'tests' / filename).read_text())
+        node = next(n for n in ast.walk(tree) if isinstance(n, ast.FunctionDef) and n.name == method)
+        module = ast.Module(body=[node], type_ignores=[])
+        namespace = dict(ROOT=str(root), os=os, json=json, unittest=unittest)
+        exec(compile(ast.fix_missing_locations(module), filename, 'exec'), namespace)
+        return namespace[method]
+
+    def test_missing_private_guard_reports_skip_without_creating_files(self):
+        cases = (
+            ('test_council_line_lock_29oct.py', 'test_undo_is_logged'),
+            ('test_doorway_hours_lock.py', 'test_apply_log_marked_reverted'),
+            ('test_times_review_29oct.py', 'test_logged_with_old_value_and_undo'),
+        )
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            for filename, method in cases:
+                replay = self.replay_method(filename, method, root)
+                with self.subTest(filename=filename), self.assertRaisesRegex(unittest.SkipTest, 'Private working file'):
+                    replay(self) if 'self' in replay.__code__.co_varnames else replay()
+            self.assertEqual(list(root.iterdir()), [])
+
+    def test_present_but_invalid_guard_report_is_not_skipped(self):
+        import json
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / 'reports').mkdir()
+            (root / 'reports' / 'times_auto_applied.json').write_text('invalid json')
+            replay = self.replay_method('test_doorway_hours_lock.py', 'test_apply_log_marked_reverted', root)
+            with self.assertRaises(json.JSONDecodeError):
+                replay(self)

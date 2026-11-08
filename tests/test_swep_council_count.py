@@ -5,10 +5,16 @@ import seo_meta
 
 class T(unittest.TestCase):
     def test_count_matches_sweep_sources(self):
-        n = seo_meta.swep_counts(ROOT)['swep-councils']
+        counts = seo_meta.swep_counts(ROOT)
+        if not counts and not os.path.exists(os.path.join(ROOT, "logs", "swep_status.json")):
+            raise unittest.SkipTest("Private SWEP working status is not available in the public checkout")
+        n = counts["swep-councils"]
         self.assertEqual(n, len(json.load(open(os.path.join(ROOT, 'scripts', 'sweep_sources.json')))['councils']))
     def test_wording_matches_count(self):
-        n = seo_meta.swep_counts(ROOT)['swep-councils']
+        counts = seo_meta.swep_counts(ROOT)
+        if not counts and not os.path.exists(os.path.join(ROOT, "logs", "swep_status.json")):
+            raise unittest.SkipTest("Private SWEP working status is not available in the public checkout")
+        n = counts["swep-councils"]
         for f in ('index.html', os.path.join('scripts', 'seo_meta.py')):
             t = open(os.path.join(ROOT, f)).read()
             self.assertIn('all %d UK councils' % n, t, f)
