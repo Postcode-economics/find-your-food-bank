@@ -2,10 +2,29 @@
  "shelters.js": {
   "added": [],
   "removed": [],
-  "changed": [],
+  "changed": [
+   {
+    "id": "hab-barnet-winter-night-shelter",
+    "name": "Barnet Winter Night Shelter (Homeless Action in Barnet)",
+    "fields": [
+     "scheme_dates",
+     "season",
+     "upcoming"
+    ],
+    "before": {
+     "scheme_dates": "Opens 8 Nov 2026",
+     "season": "Winter-only (Opens 8 Nov 2026)",
+     "upcoming": true
+    },
+    "after": {
+     "scheme_dates": null,
+     "season": "Winter 2026-27 (cycle one 8 Nov – 21 Dec 2026; HAB runs the shelter October to May)",
+     "upcoming": null
+    }
+   }
+  ],
   "tier_flips": [],
   "upcoming": [
-   "Barnet Winter Night Shelter (Homeless Action in Barnet) – Opens 8 Nov 2026",
    "Glasgow City Mission Overnight Welcome Centre – Opens 1 Dec 2026 until 31 Mar 2027",
    "Glass Door Winter Night Shelters (3 circuits) – Opens 21 Nov 2026 until 22 Mar 2027",
    "St Peter's Parish Night Shelter (Roath) – Opens 4 Dec 2026 until 31 Mar 2027"
