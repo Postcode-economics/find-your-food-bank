@@ -2020,6 +2020,44 @@
    ]
   }
  },
+ "beacon": {
+  "checked_date": "2026-11-08",
+  "raw": "Hampers can be collected from Beacon Lounge between 10.30am and 1pm on weekdays, even when Beacon Lounge is closed to customers.",
+  "source_url": "https://beaconchurchhavant.org.uk/community/beacon-food-bank/",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "10:30",
+     "13:00"
+    ]
+   ],
+   "mon": [
+    [
+     "10:30",
+     "13:00"
+    ]
+   ],
+   "thu": [
+    [
+     "10:30",
+     "13:00"
+    ]
+   ],
+   "tue": [
+    [
+     "10:30",
+     "13:00"
+    ]
+   ],
+   "wed": [
+    [
+     "10:30",
+     "13:00"
+    ]
+   ]
+  }
+ },
  "beaminster": {
   "checked_date": "2026-10-20",
   "raw": "Mondays 10.00 – 12.00 | Fridays 10.00 – 12.00",
