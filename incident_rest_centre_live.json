@@ -1,7 +1,33 @@
 {
  "public": true,
- "generated": "2026-11-08T06:40:54+00:00",
+ "generated": "2026-11-08T10:48:25+00:00",
  "category": "incident_rest_centre",
- "cards": [],
- "councils": {}
+ "cards": [
+  {
+   "badge": "Rest centre (council-run)",
+   "name": "TEST — do not travel",
+   "open_until": "2026-11-09T10:48:22.885767+00:00",
+   "open_until_label": "10:48 Mon 9 Nov",
+   "address": "",
+   "emergency_number": "999",
+   "flood_label": "Floodline",
+   "flood_number": "0345 988 1188",
+   "official_council": true,
+   "live": true,
+   "opened_by": "Horsham District Council",
+   "source_url": "",
+   "lat": 51.063052,
+   "lng": -0.327159,
+   "opened_for": "a TEST — do not travel (not a real rest centre)",
+   "category": "incident_rest_centre",
+   "council": "Horsham District Council",
+   "lad": "E07000227",
+   "quote": "TEST — do not travel — not a real rest centre TEST — do not travel This is a helpmap.uk system test. This is not a real rest centre. Do not travel. Horsham District Council has opened a rest centre at TEST — do not travel. This is a system test only. Do not travel to this location. This page is a helpmap.uk system…",
+   "last_checked": "Checked 10:48am, Sun 8 Nov",
+   "checked_at": "Checked 10:48am, Sun 8 Nov"
+  }
+ ],
+ "councils": {
+  "E07000227": "Horsham District Council"
+ }
 }
