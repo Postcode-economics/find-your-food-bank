@@ -70,6 +70,28 @@ class LiveFile(unittest.TestCase):
         self.assertNotIn("warm space", raw)
         self.assertNotIn("warmspaces", raw)
 
+    def test_sync_keeps_previous_district_when_rebuild_has_none(self):
+        import incident_rest_centre_live as live
+
+        text = "The council has opened a rest centre at TEST — do not travel for people affected by a flood."
+        pages = [{
+            "council": "Arun District Council",
+            "url": "https://example.gov.uk/test-rest-centre",
+            "_text": text,
+            "rest_centre": {"active": True, "name": "TEST — do not travel", "quote": text, "location": ""},
+        }]
+        with mock.patch.object(live, "_geocode_postcode", return_value=(None, None)):
+            with mock.patch("council_lad.lad_for_council", return_value="E07000224"):
+                live.sync_from_pages(pages, root=self.d)
+            with mock.patch("council_lad.lad_for_council", return_value=None):
+                n = live.sync_from_pages(pages, root=self.d)
+        self.assertEqual(n, 1)
+        card = json.load(open(os.path.join(self.d, live.OUT_JSON)))["cards"][0]
+        self.assertEqual(card.get("lad"), "E07000224")
+        self.assertIsNone(card.get("lat"))
+        self.assertIsNone(card.get("lng"))
+
+
 
 class LiveCouncilGate(unittest.TestCase):
     """Browser: live mode with public:true still gates banner/pins by visitor LAD."""
