@@ -38,15 +38,20 @@ class R:
         return cond
 
 def at_top(pg, k):
-    """Chosen type's list heading near the top, and no map in view (on desktop the map may sit in its side column next to the list)."""
+    """Chosen type's list heading near the top, and no map in view (on desktop the map may sit in its side column next to the list).
+    When the rest-centre banner (#em-banner) is showing, add its rendered height (including margins) to the allowed top;
+    a map that remains visible only above the list heading is then not treated as covering the list. With no banner, the check is unchanged."""
     return pg.evaluate("""(k)=>{const vh=innerHeight;let h=null;
       if(k==='fb')h=document.querySelector('#list>.lh');
       else{const sos=document.getElementById('v3sos');const want=k==='sh'?/shelter|lloches/i:/warm|cynnes/i;
         h=(k==='sh'&&sos&&!sos.hidden&&sos.offsetParent)?sos:[...document.querySelectorAll('#xlist .lh')].find(e=>want.test(e.textContent))}
       if(!h)return {ok:false,why:'no list heading'};const t=h.getBoundingClientRect().top;
       const m=document.getElementById('map').getBoundingClientRect();const hr=h.getBoundingClientRect();const side=m.right<=hr.left+2||m.left>=hr.right-2;  // desktop: map in its own side column beside the list (existing layout) is allowed; never above/over the list
-      const mapIn=m.height>0&&m.bottom>4&&m.top<vh-4&&getComputedStyle(document.getElementById('map')).display!=='none'&&!side;
-      return {ok:t>=-2&&t<=vh*0.25&&!mapIn,why:'heading at '+Math.round(t)+'px of '+vh+(mapIn?', map in view':'')}}""", k)
+      const ban=document.getElementById('em-banner');let bh=0;
+      if(ban&&!ban.hidden){const br=ban.getBoundingClientRect();if(br.height>1){const cs=getComputedStyle(ban);bh=br.height+(parseFloat(cs.marginTop)||0)+(parseFloat(cs.marginBottom)||0)}}
+      const mapVis=m.height>0&&m.bottom>4&&m.top<vh-4&&getComputedStyle(document.getElementById('map')).display!=='none'&&!side;
+      const mapIn=mapVis&&(bh<1||m.bottom>hr.top+4);
+      return {ok:t>=-2&&t<=vh*0.25+bh&&!mapIn,why:'heading at '+Math.round(t)+'px of '+vh+(mapIn?', map in view':'')}}""", k)
 
 def order_ok(pg, k):
     return pg.evaluate("""(k)=>{if(!lastNear)return {ok:false,why:'no search centre'};const [a,b]=lastNear;let d=[];

@@ -11,6 +11,8 @@ class Static(unittest.TestCase):
         for _, a in S.SEARCHES: self.assertIn(a, names)
         for f in ('refresh.yml', 'refresh-shelters.yml', 'refresh-warmspaces.yml'):
             self.assertIn('scripts/sense_check.py', open(os.path.join(R, '.github', 'workflows', f)).read(), f)
+        for rel in ('scripts/journeys.py', 'tests/test_status_line.py'):
+            self.assertIn('em-banner', open(os.path.join(R, rel), encoding='utf-8').read(), rel)
 class Browser(unittest.TestCase):
     def test_sense(self):
         try: import playwright  # noqa

@@ -12,7 +12,7 @@ CHECK = r"""()=>{const a=document.querySelector('#v3pill .v3pl');if(!a||!a.offse
  const info=document.getElementById('h2info'),near=document.getElementById('xnear'),ir=info?info.getBoundingClientRect():box,nr=near?near.getBoundingClientRect():null;
  const ok=r.left>=box.left-1&&r.right<=box.right+1&&r.right<=innerWidth&&a.scrollWidth<=a.clientWidth+1&&!/…|\.\.\./.test(vis.textContent)
    &&getComputedStyle(place||a).textOverflow!=='ellipsis'&&r.bottom<=ir.bottom+1&&(!nr||nr.bottom<=ir.top+1)&&document.documentElement.scrollWidth<=innerWidth&&!a.style.fontSize;
- const hh=document.querySelector('header').getBoundingClientRect().height;return {ok,hh,why:vis.textContent+' | link '+Math.round(r.left)+'-'+Math.round(r.right)+' box '+Math.round(box.left)+'-'+Math.round(box.right)+' sw '+a.scrollWidth+' cw '+a.clientWidth,text:vis.textContent}}"""
+ const _hdr=document.querySelector('header').getBoundingClientRect();const _ban=document.getElementById('em-banner');let hh=_hdr.height;if(_ban&&!_ban.hidden){const br=_ban.getBoundingClientRect();if(br.height>1){const cs=getComputedStyle(_ban);hh-=br.height+(parseFloat(cs.marginTop)||0)+(parseFloat(cs.marginBottom)||0)}}return {ok,hh,why:vis.textContent+' | link '+Math.round(r.left)+'-'+Math.round(r.right)+' box '+Math.round(box.left)+'-'+Math.round(box.right)+' sw '+a.scrollWidth+' cw '+a.clientWidth,text:vis.textContent}}"""
 class T(unittest.TestCase):
     def test_static(self):
         s = open(os.path.join(R, 'v3.js'), encoding='utf-8').read()
