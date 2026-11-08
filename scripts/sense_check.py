@@ -88,9 +88,7 @@ def run(base=None, chrome=None):
                             s1 = pg.evaluate('scrollY'); pg.evaluate('()=>scrollTo(0,0)'); pg.evaluate("()=>v3scrollList(window.v3focus)"); settle(pg, 300)
                             s2 = pg.evaluate('scrollY'); foc = pg.evaluate('window.v3focus||"fb"')
                             if foc != k: bad.append('selected type lost (%s)' % foc)
-                            # Rest-centre banner (#em-banner) sits in the header and can change scrollY between the search landing and a fresh see-list scroll; allow its rendered height when it is showing.
-                            bh = pg.evaluate("""()=>{const b=document.getElementById('em-banner');if(!b||b.hidden)return 0;const r=b.getBoundingClientRect();if(r.height<=1)return 0;const cs=getComputedStyle(b);return r.height+(parseFloat(cs.marginTop)||0)+(parseFloat(cs.marginBottom)||0)}""")
-                            if abs(s1 - s2) > 6 + bh: bad.append('scroll %d vs see-list %d' % (s1, s2))
+                            if abs(s1 - s2) > 6: bad.append('scroll %d vs see-list %d' % (s1, s2))
                         rows.append(dict(search=tag, ok=not bad, problems=bad)); fails += [tag + ': ' + '; '.join(bad)] if bad else []
             c.close()
         b.close()
