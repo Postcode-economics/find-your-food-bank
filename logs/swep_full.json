@@ -1,5 +1,5 @@
 {
- "run": "2026-11-07",
+ "run": "2026-11-08",
  "coverage": {
   "councils": 382,
   "with_swep_page": 224,
@@ -8,7 +8,7 @@
    "North Tyneside Council",
    "West Northamptonshire Council"
   ],
-  "flagged": 46,
+  "flagged": 51,
   "live": [],
   "held": 0
  },
@@ -391,8 +391,8 @@
    "pages": [
     {
      "url": "https://www.brent.gov.uk/the-council-and-democracy/emergencies/severe-weather",
-     "http": 200,
-     "status": "unknown",
+     "http": 403,
+     "status": "unreachable",
      "quote": "",
      "rest_centre": null,
      "council": "London Borough of Brent",
@@ -400,8 +400,11 @@
      "site": "https://www.brent.gov.uk/"
     }
    ],
-   "status": "unknown",
-   "flags": []
+   "status": "unreachable",
+   "flags": [
+    "status unknown -> unreachable",
+    "dead page https://www.brent.gov.uk/the-council-and-democracy/emergencies/severe-weather (HTTP 403)"
+   ]
   },
   {
    "code": "BEX",
@@ -2221,9 +2224,7 @@
     }
    ],
    "status": "unknown",
-   "flags": [
-    "status unreachable -> unknown"
-   ]
+   "flags": []
   },
   {
    "code": "ESK",
@@ -3440,8 +3441,8 @@
    "pages": [
     {
      "url": "https://lewisham.gov.uk/myservices/education/schools/emergencies-at-school",
-     "http": 200,
-     "status": "no SWEP wording",
+     "http": 403,
+     "status": "unreachable",
      "quote": "",
      "rest_centre": null,
      "council": "London Borough of Lewisham",
@@ -3449,8 +3450,11 @@
      "site": "https://lewisham.gov.uk/"
     }
    ],
-   "status": "no SWEP wording",
-   "flags": []
+   "status": "unreachable",
+   "flags": [
+    "status no SWEP wording -> unreachable",
+    "dead page https://lewisham.gov.uk/myservices/education/schools/emergencies-at-school (HTTP 403)"
+   ]
   },
   {
    "code": "LIC",
@@ -3516,9 +3520,7 @@
     }
    ],
    "status": "no SWEP wording",
-   "flags": [
-    "status unreachable -> no SWEP wording"
-   ]
+   "flags": []
   },
   {
    "code": "LND",
@@ -3915,8 +3917,8 @@
    "pages": [
     {
      "url": "https://www.northumberland.gov.uk/education-skills/schools/school-transport/information-parents-during-periods-severe-weather",
-     "http": 200,
-     "status": "no SWEP wording",
+     "http": 404,
+     "status": "unreachable",
      "quote": "",
      "rest_centre": null,
      "council": "Northumberland County Council",
@@ -3935,8 +3937,8 @@
     },
     {
      "url": "https://www.northumberland.gov.uk/housing/homelessness-and-housing-options",
-     "http": 200,
-     "status": "unknown",
+     "http": 404,
+     "status": "unreachable",
      "quote": "",
      "rest_centre": null,
      "council": "Northumberland County Council",
@@ -3944,8 +3946,12 @@
      "site": "https://www.northumberland.gov.uk/"
     }
    ],
-   "status": "no SWEP wording",
-   "flags": []
+   "status": "unreachable",
+   "flags": [
+    "status no SWEP wording -> unreachable",
+    "dead page https://www.northumberland.gov.uk/education-skills/schools/school-transport/information-parents-during-periods-severe-weather (HTTP 404)",
+    "dead page https://www.northumberland.gov.uk/housing/homelessness-and-housing-options (HTTP 404)"
+   ]
   },
   {
    "code": "NDE",
@@ -4058,8 +4064,8 @@
    "pages": [
     {
      "url": "https://new.newcastle.gov.uk/housing/homelessness-and-rough-sleeping/severe-weather-emergency-help-newcastle",
-     "http": 200,
-     "status": "unknown",
+     "http": "error",
+     "status": "unreachable",
      "quote": "",
      "rest_centre": null,
      "council": "Newcastle City Council",
@@ -4067,8 +4073,11 @@
      "site": "https://www.newcastle.gov.uk/"
     }
    ],
-   "status": "unknown",
-   "flags": []
+   "status": "unreachable",
+   "flags": [
+    "status unknown -> unreachable",
+    "dead page https://new.newcastle.gov.uk/housing/homelessness-and-rough-sleeping/severe-weather-emergency-help-newcastle (HTTP error)"
+   ]
   },
   {
    "code": "NEW",
@@ -4969,8 +4978,8 @@
    "pages": [
     {
      "url": "https://www.rother.gov.uk/housing/housing-options-and-homelessness/rough-sleepers/",
-     "http": 200,
-     "status": "unknown",
+     "http": 403,
+     "status": "unreachable",
      "quote": "",
      "rest_centre": null,
      "council": "Rother District Council",
@@ -4978,8 +4987,11 @@
      "site": "https://www.rother.gov.uk"
     }
    ],
-   "status": "unknown",
-   "flags": []
+   "status": "unreachable",
+   "flags": [
+    "status unknown -> unreachable",
+    "dead page https://www.rother.gov.uk/housing/housing-options-and-homelessness/rough-sleepers/ (HTTP 403)"
+   ]
   },
   {
    "code": "ROS",
@@ -5466,9 +5478,7 @@
     }
    ],
    "status": "no SWEP wording",
-   "flags": [
-    "status unreachable -> no SWEP wording"
-   ]
+   "flags": []
   },
   {
    "code": "SKP",
@@ -6053,8 +6063,8 @@
    "pages": [
     {
      "url": "https://www.tameside.gov.uk/safetyandhygiene/rough-sleeping",
-     "http": 200,
-     "status": "unknown",
+     "http": 403,
+     "status": "unreachable",
      "quote": "",
      "rest_centre": null,
      "council": "Tameside Metropolitan Borough Council",
@@ -6062,8 +6072,11 @@
      "site": "https://www.tameside.gov.uk/"
     }
    ],
-   "status": "unknown",
-   "flags": []
+   "status": "unreachable",
+   "flags": [
+    "status unknown -> unreachable",
+    "dead page https://www.tameside.gov.uk/safetyandhygiene/rough-sleeping (HTTP 403)"
+   ]
   },
   {
    "code": "TAN",
@@ -6143,8 +6156,8 @@
    "pages": [
     {
      "url": "https://www.testvalley.gov.uk/severe-weather/severe-weather-emergency-protocol-swep",
-     "http": 200,
-     "status": "unknown",
+     "http": "error",
+     "status": "unreachable",
      "quote": "",
      "rest_centre": null,
      "council": "Test Valley Borough Council",
@@ -6152,8 +6165,11 @@
      "site": "https://www.testvalley.gov.uk"
     }
    ],
-   "status": "unknown",
-   "flags": []
+   "status": "unreachable",
+   "flags": [
+    "status unknown -> unreachable",
+    "dead page https://www.testvalley.gov.uk/severe-weather/severe-weather-emergency-protocol-swep (HTTP error)"
+   ]
   },
   {
    "code": "TEW",
@@ -6253,8 +6269,8 @@
    "pages": [
     {
      "url": "https://www.threerivers.gov.uk/services/housing/homelessness",
-     "http": 200,
-     "status": "no SWEP wording",
+     "http": 202,
+     "status": "unreachable",
      "quote": "",
      "rest_centre": null,
      "council": "Three Rivers District Council",
@@ -6262,8 +6278,11 @@
      "site": "https://www.threerivers.gov.uk"
     }
    ],
-   "status": "no SWEP wording",
-   "flags": []
+   "status": "unreachable",
+   "flags": [
+    "status no SWEP wording -> unreachable",
+    "dead page https://www.threerivers.gov.uk/services/housing/homelessness (HTTP 202)"
+   ]
   },
   {
    "code": "THR",
