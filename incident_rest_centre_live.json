@@ -1,6 +1,6 @@
 {
  "public": true,
- "generated": "2026-11-08T10:58:04+00:00",
+ "generated": "2026-11-08T11:04:05+00:00",
  "category": "incident_rest_centre",
  "cards": [
   {
@@ -15,19 +15,15 @@
    "official_council": true,
    "live": true,
    "opened_by": "Arun District Council",
-   "source_url": "",
-   "opened_for": "a TEST — do not travel (not a real rest centre)",
+   "source_url": "https://example.invalid/helpmap-system-test-arun-do-not-travel",
+   "opened_for": "an incident",
    "category": "incident_rest_centre",
    "council": "Arun District Council",
-   "lad": "E07000224",
+   "lad": null,
    "quote": "TEST — do not travel TEST — do not travel — not a real rest centre TEST — do not travel This is a helpmap.uk system test. This is not a real rest centre. Do not travel. Arun District Council has opened a rest centre at TEST — do not travel. This is a system test only. Do not travel to this location. This page is a…",
-   "last_checked": "Checked 10:57am, Sun 8 Nov",
-   "checked_at": "Checked 10:57am, Sun 8 Nov",
-   "lat": 50.808991,
-   "lng": -0.540882
+   "last_checked": "Checked 11:04am, Sun 8 Nov",
+   "checked_at": "Checked 11:04am, Sun 8 Nov"
   }
  ],
- "councils": {
-  "E07000224": "Arun District Council"
- }
+ "councils": {}
 }
