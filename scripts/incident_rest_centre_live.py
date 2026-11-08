@@ -109,6 +109,10 @@ def sync_from_pages(pages, root=None, now=None):
                 card["last_checked"] = rec.get("checked_label") or weather.fmt_checked(now)
                 card["checked_at"] = card["last_checked"]
                 prev = (inc.get(key) or {}).get("card") or {}
+                if not card.get("lad") and prev.get("lad"):
+                    card["lad"] = prev["lad"]
+                if (not card.get("opened_for") or card.get("opened_for") == "an incident") and prev.get("opened_for"):
+                    card["opened_for"] = prev["opened_for"]
                 if prev.get("open_until") and not weather.browser_hide(prev.get("open_until"), now):
                     card["open_until"] = prev["open_until"]
                     if prev.get("open_until_label"):
