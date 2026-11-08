@@ -1,21 +1,21 @@
 {
- "run": "2026-11-07",
- "candidates": 13,
- "already_on_map": 0,
- "new": 13,
+ "run": "2026-11-08",
+ "candidates": 150,
+ "already_on_map": 6,
+ "new": 144,
  "added": [],
  "flagged": [
   {
-   "id": "ww-69526044",
-   "name": "New Life Community Church Breakfast Hub",
-   "postcode": "CF39 8AB",
-   "website": "newlifetonyrefail.co.uk",
+   "id": "ww-55475183",
+   "name": "The Granary",
+   "postcode": "WR1 2DA",
+   "website": "www.hope-church.org.uk",
    "directory": "Warm Welcome",
-   "directory_url": "https://www.warmwelcome.uk/space?l=14951",
+   "directory_url": "https://www.warmwelcome.uk/space?l=18409",
    "reasons": [
     "directory listing only, with no 2026-27 season dates (latest stated start: none)"
    ],
-   "url": "newlifetonyrefail.co.uk",
+   "url": "www.hope-church.org.uk",
    "final_url": null,
    "http": null,
    "sha256": null,
@@ -23,51 +23,51 @@
    "last_modified": null
   },
   {
-   "id": "ww-69434450",
-   "name": "Torquay Library",
-   "postcode": "TQ1 3DT",
-   "website": "www.librariesunlimited.org.uk",
+   "id": "ww-55475184",
+   "name": "All Saints Church, Stretford",
+   "postcode": "M32 9RJ",
+   "website": "https://www.allsaintsstretford.org.uk/",
    "directory": "Warm Welcome",
-   "directory_url": "https://www.warmwelcome.uk/space?l=16669",
+   "directory_url": "https://www.warmwelcome.uk/space?l=15017",
    "reasons": [
     "directory listing only, with no 2026-27 season dates (latest stated start: none)"
    ],
-   "url": "www.librariesunlimited.org.uk",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "ww-69434451",
-   "name": "Churston Library",
-   "postcode": "TQ4 6LL",
-   "website": "https://www.librariesunlimited.org.uk",
-   "directory": "Warm Welcome",
-   "directory_url": "https://www.warmwelcome.uk/space?l=26192",
-   "reasons": [
-    "own site does not mention a warm space",
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "https://www.librariesunlimited.org.uk",
-   "final_url": "https://www.librariesunlimited.org.uk",
+   "url": "https://www.allsaintsstretford.org.uk/",
+   "final_url": "https://www.allsaintsstretford.org.uk/",
    "http": 200,
-   "sha256": "c9c134a179bd279b362531d953524d127bf3974ba1465e4a1ea1ff62a67d9bae",
+   "sha256": "6579b13954df17011df5d93d6e97633cbbbc041bbfaf6d9ddc855ce96d70095c",
    "etag": "",
    "last_modified": ""
   },
   {
-   "id": "ww-69441264",
-   "name": "Cruddas Park Library",
-   "postcode": "NE4 7QY",
-   "website": "www.newcastle.gov.uk/services/libraries-and-culture",
+   "id": "ww-55475185",
+   "name": "Christchurch Baptist Church",
+   "postcode": "BH23 1QD",
+   "website": "https://www.christchurchbaptist.org.uk/",
    "directory": "Warm Welcome",
-   "directory_url": "https://www.warmwelcome.uk/space?l=26084",
+   "directory_url": "https://www.warmwelcome.uk/space?l=15418",
+   "reasons": [
+    "own site does not mention a warm space",
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.christchurchbaptist.org.uk/",
+   "final_url": "https://www.christchurchbaptist.org.uk/",
+   "http": 200,
+   "sha256": "00749d9d3e4213b21e53c5f6db9a357d5a649745718b8150e843b8c1be1755b1",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "ww-55475188",
+   "name": "Warm Welcome",
+   "postcode": "PE11 1BT",
+   "website": "www.spaldingbaptistchurch.org.uk",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=22603",
    "reasons": [
     "directory listing only, with no 2026-27 season dates (latest stated start: none)"
    ],
-   "url": "www.newcastle.gov.uk/services/libraries-and-culture",
+   "url": "www.spaldingbaptistchurch.org.uk",
    "final_url": null,
    "http": null,
    "sha256": null,
@@ -75,16 +75,16 @@
    "last_modified": null
   },
   {
-   "id": "ww-69441265",
-   "name": "Walker Library (at Walker Tree Top Village)",
-   "postcode": "NE6 3JW",
-   "website": "www.newcastle.gov.uk/services/libraries-and-culture",
+   "id": "ww-55475189",
+   "name": "Forget Me Not",
+   "postcode": "WA3 2PW",
+   "website": "",
    "directory": "Warm Welcome",
-   "directory_url": "https://www.warmwelcome.uk/space?l=26086",
+   "directory_url": "https://www.warmwelcome.uk/space?l=22597",
    "reasons": [
     "directory listing only, with no 2026-27 season dates (latest stated start: none)"
    ],
-   "url": "www.newcastle.gov.uk/services/libraries-and-culture",
+   "url": "",
    "final_url": null,
    "http": null,
    "sha256": null,
@@ -92,84 +92,16 @@
    "last_modified": null
   },
   {
-   "id": "ww-69441266",
-   "name": "Outer West Library",
-   "postcode": "NE5 2QZ",
-   "website": "https://www.newcastle.gov.uk/services/libraries-culture/libraries-newcastle/outer-west-library",
+   "id": "ww-55475190",
+   "name": "Hyde Healthy Living Centre",
+   "postcode": "SK14 1BR",
+   "website": "",
    "directory": "Warm Welcome",
-   "directory_url": "https://www.warmwelcome.uk/space?l=26177",
-   "reasons": [
-    "directory link is a council page, not the place's own site"
-   ],
-   "url": "https://www.newcastle.gov.uk/services/libraries-culture/libraries-newcastle/outer-west-library",
-   "final_url": "https://new.newcastle.gov.uk/libraries/find-library",
-   "http": 200,
-   "sha256": "75398d5d803f5a266b86d09f00b244bc56d4fe76206380c196bd1aa95aa2ada6",
-   "etag": "\"1794054138\"",
-   "last_modified": "Sat, 07 Nov 2026 12:22:18 GMT"
-  },
-  {
-   "id": "ww-69441267",
-   "name": "Newburn Library",
-   "postcode": "NE15 8LN",
-   "website": "https://www.newcastle.gov.uk/services/libraries-culture/libraries-newcastle/newburn-library",
-   "directory": "Warm Welcome",
-   "directory_url": "https://www.warmwelcome.uk/space?l=26178",
-   "reasons": [
-    "directory link is a council page, not the place's own site"
-   ],
-   "url": "https://www.newcastle.gov.uk/services/libraries-culture/libraries-newcastle/newburn-library",
-   "final_url": "https://new.newcastle.gov.uk/libraries/find-library",
-   "http": 200,
-   "sha256": "75398d5d803f5a266b86d09f00b244bc56d4fe76206380c196bd1aa95aa2ada6",
-   "etag": "\"1794054138\"",
-   "last_modified": "Sat, 07 Nov 2026 12:22:18 GMT"
-  },
-  {
-   "id": "ww-69441268",
-   "name": "Kenton Library",
-   "postcode": "NE3 3QJ",
-   "website": "https://www.newcastle.gov.uk/services/libraries-and-culture",
-   "directory": "Warm Welcome",
-   "directory_url": "https://www.warmwelcome.uk/space?l=26316",
-   "reasons": [
-    "directory link is a council page, not the place's own site"
-   ],
-   "url": "https://www.newcastle.gov.uk/services/libraries-and-culture",
-   "final_url": "https://new.newcastle.gov.uk/libraries",
-   "http": 200,
-   "sha256": "38f99857896f03ed44049ee4fc80238eb32987edbfd2c935aed9b860a8c47490",
-   "etag": "\"1794047350\"",
-   "last_modified": "Sat, 07 Nov 2026 10:29:10 GMT"
-  },
-  {
-   "id": "ww-69441289",
-   "name": "City Library",
-   "postcode": "NE1 8AX",
-   "website": "https://www.newcastle.gov.uk/services/libraries-and-culture",
-   "directory": "Warm Welcome",
-   "directory_url": "https://www.warmwelcome.uk/space?l=20089",
-   "reasons": [
-    "directory link is a council page, not the place's own site"
-   ],
-   "url": "https://www.newcastle.gov.uk/services/libraries-and-culture",
-   "final_url": "https://new.newcastle.gov.uk/libraries",
-   "http": 200,
-   "sha256": "38f99857896f03ed44049ee4fc80238eb32987edbfd2c935aed9b860a8c47490",
-   "etag": "\"1794047350\"",
-   "last_modified": "Sat, 07 Nov 2026 10:29:10 GMT"
-  },
-  {
-   "id": "ww-69441290",
-   "name": "West End Community Hub and Library",
-   "postcode": "NE4 9JH",
-   "website": "www.newcastle.gov.uk/services/libraries-and-culture",
-   "directory": "Warm Welcome",
-   "directory_url": "https://www.warmwelcome.uk/space?l=26083",
+   "directory_url": "https://www.warmwelcome.uk/space?l=23825",
    "reasons": [
     "directory listing only, with no 2026-27 season dates (latest stated start: none)"
    ],
-   "url": "www.newcastle.gov.uk/services/libraries-and-culture",
+   "url": "",
    "final_url": null,
    "http": null,
    "sha256": null,
@@ -177,33 +109,16 @@
    "last_modified": null
   },
   {
-   "id": "ww-69441291",
-   "name": "Fenham Library",
-   "postcode": "NE4 9XD",
-   "website": "https://www.newcastle.gov.uk/services/libraries-and-culture",
+   "id": "ww-55475191",
+   "name": "St Peter's Church, Wyndham Square, Plymouth",
+   "postcode": "PL1 5EG",
+   "website": "www.plymouthstpeter.co.uk",
    "directory": "Warm Welcome",
-   "directory_url": "https://www.warmwelcome.uk/space?l=26122",
-   "reasons": [
-    "directory link is a council page, not the place's own site"
-   ],
-   "url": "https://www.newcastle.gov.uk/services/libraries-and-culture",
-   "final_url": "https://new.newcastle.gov.uk/libraries",
-   "http": 200,
-   "sha256": "38f99857896f03ed44049ee4fc80238eb32987edbfd2c935aed9b860a8c47490",
-   "etag": "\"1794047350\"",
-   "last_modified": "Sat, 07 Nov 2026 10:29:10 GMT"
-  },
-  {
-   "id": "ww-69441293",
-   "name": "Gosforth Library",
-   "postcode": "NE3 3HD",
-   "website": "newcastle.gov.uk/services/libraries-and-culture",
-   "directory": "Warm Welcome",
-   "directory_url": "https://www.warmwelcome.uk/space?l=26161",
+   "directory_url": "https://www.warmwelcome.uk/space?l=14783",
    "reasons": [
     "directory listing only, with no 2026-27 season dates (latest stated start: none)"
    ],
-   "url": "newcastle.gov.uk/services/libraries-and-culture",
+   "url": "www.plymouthstpeter.co.uk",
    "final_url": null,
    "http": null,
    "sha256": null,
@@ -211,38 +126,2392 @@
    "last_modified": null
   },
   {
-   "id": "ww-69441295",
-   "name": "Cuppa with CARD",
-   "postcode": "S60 1PF",
-   "website": "https://www.citizensadvicerotherham.org.uk/",
+   "id": "ww-55475197",
+   "name": "Community Space",
+   "postcode": "IP33 3JT",
+   "website": "https://stpetersbse.uk",
    "directory": "Warm Welcome",
-   "directory_url": "https://www.warmwelcome.uk/space?l=28669",
+   "directory_url": "https://www.warmwelcome.uk/space?l=20852",
    "reasons": [
     "own site does not mention a warm space"
    ],
-   "url": "https://www.citizensadvicerotherham.org.uk/",
-   "final_url": "https://www.citizensadvicerotherham.org.uk/",
+   "url": "https://stpetersbse.uk",
+   "final_url": "https://www.stpetersbse.uk/",
    "http": 200,
-   "sha256": "9945fc3e5dd621085e75a3de1328027d911a2e6a4a956e857877ece73ddff0c3",
+   "sha256": "2bb75a416fd789eac80479d82352f1db3f6f989d89aba658b007500b225ed45f",
    "etag": "",
-   "last_modified": "Sat, 07 Nov 2026 11:30:59 GMT"
+   "last_modified": ""
+  },
+  {
+   "id": "ww-55475198",
+   "name": "The Dolphin",
+   "postcode": "RH16 1LY",
+   "website": "https://www.placesleisure.org/centres/the-dolphin/",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=22257",
+   "reasons": [
+    "own site does not mention a warm space"
+   ],
+   "url": "https://www.placesleisure.org/centres/the-dolphin/",
+   "final_url": "https://www.placesleisure.org/centres/the-dolphin/",
+   "http": 200,
+   "sha256": "588788900e184a91f26447b1cde64c3458ecf3c4ec2c0490455f17d89bb5a4cf",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "ww-55475199",
+   "name": "United Church in Longwell Green",
+   "postcode": "BS30 9DF",
+   "website": "",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=23258",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475200",
+   "name": "Rivington Parish Church",
+   "postcode": "BL6 7SE",
+   "website": "www.achurchnearyou.com/16056",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=17220",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "www.achurchnearyou.com/16056",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475210",
+   "name": "Chats Palace Arts Centre: The Palace Club",
+   "postcode": "E9 6DF",
+   "website": "www.chatspalace.com",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=21080",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "www.chatspalace.com",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475215",
+   "name": "Community Coffee",
+   "postcode": "NE15 0DT",
+   "website": "",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=22845",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475221",
+   "name": "Soup",
+   "postcode": "TA1 3JT",
+   "website": "https://stgchurch.co.uk",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=17543",
+   "reasons": [
+    "own site does not mention a warm space"
+   ],
+   "url": "https://stgchurch.co.uk",
+   "final_url": "https://www.stgchurch.co.uk/",
+   "http": 200,
+   "sha256": "37f8a172c1b4584c308ca3bbdd9bebfa0b5e0e2fc057b5b816b95d011933ca8c",
+   "etag": "W/\"629bc20a5e89ba329193ae773ae59d1b\"",
+   "last_modified": ""
+  },
+  {
+   "id": "ww-55475224",
+   "name": "Renew Stoneygate",
+   "postcode": "LE2 3ND",
+   "website": "stoneygatebaptist.org.uk",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=16806",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "stoneygatebaptist.org.uk",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475229",
+   "name": "Wymondham Methodist Church",
+   "postcode": "NR18 0LB",
+   "website": "www.wymondhammethodistchurch.com",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=15066",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "www.wymondhammethodistchurch.com",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475230",
+   "name": "NHS Health Centre",
+   "postcode": "M6 6ES",
+   "website": "www.thebiglifegroup.com/service/energise-centre/",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=20469",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "www.thebiglifegroup.com/service/energise-centre/",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475232",
+   "name": "Lake Methodist Church",
+   "postcode": "PO36 9JT",
+   "website": "www.lakemethodist.org.uk",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=14922",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "www.lakemethodist.org.uk",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475234",
+   "name": "Victoria Library",
+   "postcode": "SW1W 9UD",
+   "website": "https://www.westminster.gov.uk/library-opening-times-and-contact-details/victoria-library",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=22665",
+   "reasons": [
+    "directory link is a council page, not the place's own site",
+    "own site does not mention a warm space"
+   ],
+   "url": "https://www.westminster.gov.uk/library-opening-times-and-contact-details/victoria-library",
+   "final_url": "https://www.westminster.gov.uk/leisure-libraries-and-community/library-opening-times-and-contact-details/victoria-library",
+   "http": 200,
+   "sha256": "26afe0c73545b1f800a75d44d80c11bbee1dd3cbb0e10f5290e5f74765aab4b3",
+   "etag": "\"1794118500\"",
+   "last_modified": "Sun, 08 Nov 2026 06:15:00 GMT"
+  },
+  {
+   "id": "ww-55475239",
+   "name": "Toll Gavel United Church",
+   "postcode": "HU17 9AA",
+   "website": "tollgavelchurch.org.uk",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=16448",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "tollgavelchurch.org.uk",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475243",
+   "name": "Whitworth Library",
+   "postcode": "OL12 8AA",
+   "website": "https://www.lancashire.gov.uk/libraries-and-archives/libraries/find-a-library/whitworth-library/",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=23277",
+   "reasons": [
+    "directory link is a council page, not the place's own site",
+    "own site unreachable (HTTP 404)"
+   ],
+   "url": "https://www.lancashire.gov.uk/libraries-and-archives/libraries/find-a-library/whitworth-library/",
+   "final_url": "https://www.lancashire.gov.uk/libraries-and-archives/libraries/find-a-library/whitworth-library/",
+   "http": 404,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475245",
+   "name": "Goffs Oak Methodist Church",
+   "postcode": "EN7 5SS",
+   "website": "",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=22406",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475247",
+   "name": "The Open Table",
+   "postcode": "SW20 9JZ",
+   "website": "www.martinway.org.uk",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=20950",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "www.martinway.org.uk",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475249",
+   "name": "Holsworthy Food Hub at Holsworthy Methodist Church",
+   "postcode": "EX22 6BB",
+   "website": "",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=22346",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475250",
+   "name": "Conisbrough Community Library",
+   "postcode": "DN12 1AB",
+   "website": "",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=23861",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475257",
+   "name": "Redcliffe Hub",
+   "postcode": "BS1 6TB",
+   "website": "www.stmaryredcliffe.co.uk",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=16088",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "www.stmaryredcliffe.co.uk",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475258",
+   "name": "Blackbird Leys Library",
+   "postcode": "",
+   "website": "https://www.oxfordshire.gov.uk/residents/leisure-and-culture/libraries/find-library/blackbird-leys-library",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=19204",
+   "reasons": [
+    "directory link is a council page, not the place's own site",
+    "own site does not mention a warm space",
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)",
+    "no postcode"
+   ],
+   "url": "https://www.oxfordshire.gov.uk/residents/leisure-and-culture/libraries/find-library/blackbird-leys-library",
+   "final_url": "https://www.oxfordshire.gov.uk/oxfordshire-libraries/find-library/blackbird-leys-library",
+   "http": 200,
+   "sha256": "33849862b9bd91607988c84ad4227ca0b0a2f1394c45141505341f8d394a8192",
+   "etag": "W/\"1794116648-gzip\"",
+   "last_modified": "Sun, 08 Nov 2026 05:44:08 GMT"
+  },
+  {
+   "id": "ww-55475259",
+   "name": "New Life Church Community Warm Space",
+   "postcode": "OL6 6SF",
+   "website": "www.newlifetameside.org.uk",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=16639",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "www.newlifetameside.org.uk",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475264",
+   "name": "Stratford Library",
+   "postcode": "E15 1EL",
+   "website": "https://www.newham.gov.uk/warmhavens",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=17782",
+   "reasons": [
+    "directory link is a council page, not the place's own site",
+    "own site unreachable (HTTP 404)"
+   ],
+   "url": "https://www.newham.gov.uk/warmhavens",
+   "final_url": "https://www.newham.gov.uk/warmhavens",
+   "http": 404,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475268",
+   "name": "St Edward’s Church Mottingham",
+   "postcode": "SE9 4AQ",
+   "website": "www.stedwardsmottingham.org.uk",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=14846",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "www.stedwardsmottingham.org.uk",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475272",
+   "name": "West Craven Baptist Church",
+   "postcode": "BB18 5NZ",
+   "website": "westcravenbaptistchurch.org.uk",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=16514",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "westcravenbaptistchurch.org.uk",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475274",
+   "name": "Quedgeley Library",
+   "postcode": "GL2 4PE",
+   "website": "www.gloucestershire.gov.uk/libraries",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=22804",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "www.gloucestershire.gov.uk/libraries",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475275",
+   "name": "St Philip & St James Church",
+   "postcode": "SK9 7UZ",
+   "website": "https://stphilipandstjames.co.uk/",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=23762",
+   "reasons": [
+    "own site does not mention a warm space"
+   ],
+   "url": "https://stphilipandstjames.co.uk/",
+   "final_url": "https://stphilipandstjames.co.uk/",
+   "http": 200,
+   "sha256": "ffe1da3cc6b17160a2b9bc1c52661730503b44fdb49dd9ee857d0999cfaed267",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "ww-55475277",
+   "name": "Barnton Library",
+   "postcode": "CW7 4LJ",
+   "website": "https://www.cheshirewestandchester.gov.uk/residents/libraries/find-a-library/barnton-library",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=16595",
+   "reasons": [
+    "directory link is a council page, not the place's own site",
+    "own site does not mention a warm space",
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)",
+    "postcode CW7 4LJ not recognised by postcodes.io"
+   ],
+   "url": "https://www.cheshirewestandchester.gov.uk/residents/libraries/find-a-library/barnton-library",
+   "final_url": "https://www.cheshirewestandchester.gov.uk/residents/libraries/find-a-library/barnton-library",
+   "http": 200,
+   "sha256": "9af78020cfdbd2b487d21a8e9970b272d087aa1746c779778dedd6c57d407b31",
+   "etag": "W/\"26e15-82K1yy4cVwveO7FxtP6ykz03vG0\"",
+   "last_modified": ""
+  },
+  {
+   "id": "ww-55475282",
+   "name": "St Johns Library",
+   "postcode": "WR2 5AX",
+   "website": "https://www.worcestershire.gov.uk/library/st-johns-library",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=15763",
+   "reasons": [
+    "directory link is a council page, not the place's own site"
+   ],
+   "url": "https://www.worcestershire.gov.uk/library/st-johns-library",
+   "final_url": "https://www.worcestershire.gov.uk/council-services/libraries/find-library/st-johns-library",
+   "http": 200,
+   "sha256": "aa490959f39fcc0bcac57a2442148463b6eae734b74e53d9d7b8dd434170fadd",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "ww-55475283",
+   "name": "St Christopher’s Church Warm Space",
+   "postcode": "",
+   "website": "",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=23493",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)",
+    "no postcode"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475285",
+   "name": "Heaton Park Food Pantry",
+   "postcode": "M25 1JA",
+   "website": "www.burycircuit.org.uk/HeatonPark",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=18229",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "www.burycircuit.org.uk/HeatonPark",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475287",
+   "name": "Weekly Wednesday",
+   "postcode": "DL5 4UE",
+   "website": "",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=24012",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475289",
+   "name": "Helen Robinson",
+   "postcode": "LL29 8DG",
+   "website": "Facebook",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=21214",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "Facebook",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475293",
+   "name": "The Hub",
+   "postcode": "LE7 7JA",
+   "website": "Wednesdayhub3@gmail.com",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=23687",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "Wednesdayhub3@gmail.com",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475295",
+   "name": "Copperhouse Community Cafe",
+   "postcode": "",
+   "website": "godrevytm.org.uk",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=15983",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)",
+    "no postcode"
+   ],
+   "url": "godrevytm.org.uk",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475304",
+   "name": "Putney Library",
+   "postcode": "SW15 2DR",
+   "website": "https://www.better.org.uk/library/london/wandsworth/putney-library",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=22658",
+   "reasons": [
+    "own site does not mention a warm space"
+   ],
+   "url": "https://www.better.org.uk/library/london/wandsworth/putney-library",
+   "final_url": "https://www.better.org.uk/library/london/wandsworth/putney-library",
+   "http": 200,
+   "sha256": "3e6c19da2324577935fe87a3c59446aa226330596d0bf9313928353d4eae80be",
+   "etag": "W/\"3e6c19da2324577935fe87a3c59446aa\"",
+   "last_modified": ""
+  },
+  {
+   "id": "ww-55475306",
+   "name": "Celebration Church UK",
+   "postcode": "ME15 9JW",
+   "website": "https://www.celebrationchurch.org.uk/",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=23514",
+   "reasons": [
+    "own site does not mention a warm space",
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.celebrationchurch.org.uk/",
+   "final_url": "https://www.celebrationchurch.org.uk/",
+   "http": 200,
+   "sha256": "6b9a3d70d7c0f9ad8613caa61eb9541c7db894e1cd80f1776f3cb0e65ac8b265",
+   "etag": "W/\"21b4b43b05c217beeffef60c696185f3\"",
+   "last_modified": ""
+  },
+  {
+   "id": "ww-55475311",
+   "name": "Sussex Street Christian centre",
+   "postcode": "LL18 1SE",
+   "website": "https://www.christiancentre.info",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=21756",
+   "reasons": [
+    "own site does not mention a warm space"
+   ],
+   "url": "https://www.christiancentre.info",
+   "final_url": "https://www.christiancentre.info",
+   "http": 200,
+   "sha256": "c64e83d46bb7a169f3bef6ae910c231ba1bf053b5502556d825acffac3bf0928",
+   "etag": "",
+   "last_modified": "Sun, 08 Nov 2026 06:15:00 GMT"
+  },
+  {
+   "id": "ww-55475314",
+   "name": "St John the Evangelist",
+   "postcode": "BN1 6RB",
+   "website": "https://www.brightonstjohn.org.uk",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=15618",
+   "reasons": [
+    "own site does not mention a warm space"
+   ],
+   "url": "https://www.brightonstjohn.org.uk",
+   "final_url": "https://www.brightonstjohn.org.uk",
+   "http": 200,
+   "sha256": "8e55aceffaa1bab3b7a948a9d380890f889f5578053d0ccb7a3f0c5b8abf2c6b",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "ww-55475318",
+   "name": "Great Houghton Methodist",
+   "postcode": "S72 0AA",
+   "website": "",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=23855",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475319",
+   "name": "Agnes Varga",
+   "postcode": "N13 4EY",
+   "website": "https://www.enfield.gov.uk/services/libraries",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=17058",
+   "reasons": [
+    "directory link is a council page, not the place's own site",
+    "own site unreachable (HTTP 403)"
+   ],
+   "url": "https://www.enfield.gov.uk/services/libraries",
+   "final_url": "https://www.enfield.gov.uk/services/libraries",
+   "http": 403,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475321",
+   "name": "Northam Community Warmspace",
+   "postcode": "SO14 5SP",
+   "website": "",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=19702",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475322",
+   "name": "Greenhithe Library",
+   "postcode": "DA9 9EJ",
+   "website": "https://local.kent.gov.uk/kb5/kent/directory/service.page?id=1jtDdUlzFvg&communitychannel=9",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=23163",
+   "reasons": [
+    "directory link is a council page, not the place's own site",
+    "own site unreachable (HTTP 403)"
+   ],
+   "url": "https://local.kent.gov.uk/kb5/kent/directory/service.page?id=1jtDdUlzFvg&communitychannel=9",
+   "final_url": "https://local.kent.gov.uk/kb5/kent/directory/service.page?id=1jtDdUlzFvg&communitychannel=9",
+   "http": 403,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475325",
+   "name": "Hartington St Methodist church",
+   "postcode": "LA14 5SR",
+   "website": "https://swcua.uk/",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=23357",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "https://swcua.uk/",
+   "final_url": "https://swcua.uk/",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475327",
+   "name": "The Listening Place",
+   "postcode": "N16 9BN",
+   "website": "",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=23157",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475329",
+   "name": "Bourne End Library",
+   "postcode": "SL8 5SX",
+   "website": "https://www.buckinghamshire.gov.uk/libraries/information-about-local-library/bourne-end-community-library/",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=17750",
+   "reasons": [
+    "directory link is a council page, not the place's own site",
+    "own site does not mention a warm space"
+   ],
+   "url": "https://www.buckinghamshire.gov.uk/libraries/information-about-local-library/bourne-end-community-library/",
+   "final_url": "https://www.buckinghamshire.gov.uk/schools-libraries-and-parks/libraries/information-about-local-library/bourne-end-community-library/",
+   "http": 200,
+   "sha256": "15adf43ced9022011a8e1cc37eabaf8e60e3a2f3aaace286dd5acced8832fa03",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "ww-55475331",
+   "name": "Christ Church Rooms",
+   "postcode": "GL6 0RN",
+   "website": "www.nailsworthchristchurch.org.uk",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=17385",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "www.nailsworthchristchurch.org.uk",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475332",
+   "name": "Sidmouth Library",
+   "postcode": "EX10 8LA",
+   "website": "https://www.devonlibraries.org.uk/web/arena/sidmouthlibrary",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=22179",
+   "reasons": [
+    "own site redirects to a different site (discover.librariesunlimited.org.uk)"
+   ],
+   "url": "https://www.devonlibraries.org.uk/web/arena/sidmouthlibrary",
+   "final_url": "https://discover.librariesunlimited.org.uk/-/sidmouth-library#/?location=Sidmouth%20Library",
+   "http": 200,
+   "sha256": "3c22adb2533cf07203bccbe557bad7a75bd29d8c383582e386c6d493e8052b7c",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "ww-55475336",
+   "name": "Stockton Village church",
+   "postcode": "CV47 8JG",
+   "website": "",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=23735",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475337",
+   "name": "Driffield Centre",
+   "postcode": "YO25 6RQ",
+   "website": "www.eastridinglibraries.co.uk",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=23153",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "www.eastridinglibraries.co.uk",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475338",
+   "name": "Friendship Cafe",
+   "postcode": "WF14 9HX",
+   "website": "",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=23354",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475340",
+   "name": "Holme Hall Unite",
+   "postcode": "",
+   "website": "www.holmehallunite.co.uk",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=16337",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)",
+    "no postcode"
+   ],
+   "url": "www.holmehallunite.co.uk",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475341",
+   "name": "Hagley Hub",
+   "postcode": "DY9 0NS",
+   "website": "",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=23727",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475343",
+   "name": "Selsey Library",
+   "postcode": "PO20 9EH",
+   "website": "https://www.westsussex.gov.uk/libraries/library-details/selsey-library/",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=17014",
+   "reasons": [
+    "directory link is a council page, not the place's own site",
+    "own site unreachable (HTTP 404)"
+   ],
+   "url": "https://www.westsussex.gov.uk/libraries/library-details/selsey-library/",
+   "final_url": "https://www.westsussex.gov.uk/libraries/library-details/selsey-library/",
+   "http": 404,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475347",
+   "name": "Welcome Space",
+   "postcode": "SK23 0HZ",
+   "website": "",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=19908",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475351",
+   "name": "The Oak Church - Connect Cafe",
+   "postcode": "",
+   "website": "www.theoakchurch.co.uk",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=18809",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)",
+    "no postcode"
+   ],
+   "url": "www.theoakchurch.co.uk",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475353",
+   "name": "Living Word Church",
+   "postcode": "YO31 9BP",
+   "website": "livingwordyork.co.uk",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=17221",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "livingwordyork.co.uk",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475355",
+   "name": "Thirsk Community Library",
+   "postcode": "YO7 1TH",
+   "website": "Thirsk Community Library",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=19197",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "Thirsk Community Library",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475361",
+   "name": "Pedal Power Cafe",
+   "postcode": "CF11 9LB",
+   "website": "www.cardiffpedalpower.org",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=17775",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "www.cardiffpedalpower.org",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475365",
+   "name": "Cafe Clare at Claremont Parish Church",
+   "postcode": "G74 2AU",
+   "website": "claremontparishchurch.co.uk",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=16348",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "claremontparishchurch.co.uk",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475373",
+   "name": "Norton St Marys Parish Centre",
+   "postcode": "TS20 1DT",
+   "website": "www.stmarysnorton.co.uk",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=21801",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "www.stmarysnorton.co.uk",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475379",
+   "name": "Knit and Natter",
+   "postcode": "BD24 9RH",
+   "website": "https://settlecommunityandbusinesshub.org.uk/",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=23986",
+   "reasons": [
+    "own site does not mention a warm space"
+   ],
+   "url": "https://settlecommunityandbusinesshub.org.uk/",
+   "final_url": "https://settlecommunityandbusinesshub.org.uk/",
+   "http": 200,
+   "sha256": "e7b827d7d1940d84553033f62a1f4411fffce2a27126d52508616ffa718d5505",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "ww-55475380",
+   "name": "Wimborne Minster",
+   "postcode": "BH21 1EB",
+   "website": "http://www.wimborneminster.org.uk/",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=18150",
+   "reasons": [
+    "own site does not mention a warm space",
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "http://www.wimborneminster.org.uk/",
+   "final_url": "https://www.wimborneminster.org.uk/",
+   "http": 200,
+   "sha256": "f0d236018f37c4436b4ae0658d632d402c52be0c3020cf16bdf780c16aad43a4",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "ww-55475400",
+   "name": "Whitby Library",
+   "postcode": "YO21 1EY",
+   "website": "www.northyorks.gov.uk/libraries",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=16107",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "www.northyorks.gov.uk/libraries",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475406",
+   "name": "Knit and Crochet Group",
+   "postcode": "EN8 7JU",
+   "website": "www.communityalliancebeh.org.uk",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=23377",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "www.communityalliancebeh.org.uk",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475408",
+   "name": "Trinity church. Skelmersdale",
+   "postcode": "",
+   "website": "",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=15974",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)",
+    "no postcode"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475410",
+   "name": "Cosy Corner, Islington",
+   "postcode": "N1 0ES",
+   "website": "https://churchonthecorner.org.uk/",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=23487",
+   "reasons": [
+    "own site unreachable (HTTP 403)"
+   ],
+   "url": "https://churchonthecorner.org.uk/",
+   "final_url": "https://churchonthecorner.org.uk/",
+   "http": 403,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475412",
+   "name": "Selkirk Public Library",
+   "postcode": "TD7 4LE",
+   "website": "www.liveborders.org.uk",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=22833",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "www.liveborders.org.uk",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475418",
+   "name": "Safer Communities Alliance, Unity Hub, Warm space",
+   "postcode": "DA1 1DZ",
+   "website": "www.safercommunitiesalliance.org",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=23067",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "www.safercommunitiesalliance.org",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475422",
+   "name": "Meeting Place x October Books",
+   "postcode": "SO17 2NF",
+   "website": "https://saintmarys.church/sitc#meetingplace",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=22290",
+   "reasons": [
+    "own site unreachable (HTTP 404)"
+   ],
+   "url": "https://saintmarys.church/sitc#meetingplace",
+   "final_url": "https://saintmarys.church/sitc#meetingplace",
+   "http": 404,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475424",
+   "name": "Soul Cafe",
+   "postcode": "SO45 4PG",
+   "website": "https://www.facebook.com/soulcafe.co.uk",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=21427",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.facebook.com/soulcafe.co.uk",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475436",
+   "name": "Bridge Coffee",
+   "postcode": "BL2 1JX",
+   "website": "",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=23134",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475440",
+   "name": "Kilcronaghan Parish Church",
+   "postcode": "BT45 5QJ",
+   "website": "",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=15975",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475442",
+   "name": "All Saints Church",
+   "postcode": "",
+   "website": "https://sites.google.com/view/allsaints-madeley/home",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=17930",
+   "reasons": [
+    "own site redirects to a different site (accounts.google.com)",
+    "no postcode"
+   ],
+   "url": "https://sites.google.com/view/allsaints-madeley/home",
+   "final_url": "https://accounts.google.com/v3/signin/identifier?continue=https://sites.google.com/view/allsaints-madeley/home&followup=https://sites.google.com/view/allsaints-madeley/home&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S1309387844:1794118504346975",
+   "http": 200,
+   "sha256": "d5a3b504b0ac46a9da0e0023cfd89cf2d7e2d4bea957fb4076a4e5b4769113b7",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "ww-55475446",
+   "name": "Stone Library",
+   "postcode": "ST15 8AT",
+   "website": "https://www.staffordshire.gov.uk",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=22727",
+   "reasons": [
+    "directory link is a council page, not the place's own site",
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.staffordshire.gov.uk",
+   "final_url": "https://www.staffordshire.gov.uk",
+   "http": 200,
+   "sha256": "0b3db6ba5d90749f2125760cc0f7ef0738d70c8bfe5242b60b08ae214ba3f2ad",
+   "etag": "\"1794115300\"",
+   "last_modified": "Sun, 08 Nov 2026 05:21:40 GMT"
+  },
+  {
+   "id": "ww-55475448",
+   "name": "St Augustines's",
+   "postcode": "DY1 2EL",
+   "website": "",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=23654",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475452",
+   "name": "The Well Methodist Church, Colchester",
+   "postcode": "CO4 5ET",
+   "website": "www.thewell-myland.org.uk",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=16289",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "www.thewell-myland.org.uk",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475460",
+   "name": "North Woolwich Library",
+   "postcode": "E16 2LJ",
+   "website": "",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=22951",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475464",
+   "name": "LaCuna",
+   "postcode": "DN35 8QU",
+   "website": "",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=22786",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475466",
+   "name": "St Edburgha's Place of Welcome",
+   "postcode": "B33 8PB",
+   "website": "https://stedburghasyardley.com/",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=22381",
+   "reasons": [
+    "own site does not mention a warm space"
+   ],
+   "url": "https://stedburghasyardley.com/",
+   "final_url": "https://stedburghasyardley.com/",
+   "http": 200,
+   "sha256": "c5fe0d19c6d83bc6e9f47464f8cfb1ba6cddd485a11d0e77e1827c6f2d751095",
+   "etag": "2a13e30a1f4083d02a683ab696729e2c",
+   "last_modified": ""
+  },
+  {
+   "id": "ww-55475470",
+   "name": "Penzance Salvation Army",
+   "postcode": "TR18 4BH",
+   "website": "www.salvationarmy.org.uk/penzance",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=23094",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "www.salvationarmy.org.uk/penzance",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475472",
+   "name": "Mellor Library",
+   "postcode": "BB2 7JW",
+   "website": "https://www.lancashire.gov.uk/libraries-and-archives/libraries/find-a-library/mellor-library/",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=23141",
+   "reasons": [
+    "directory link is a council page, not the place's own site",
+    "own site unreachable (HTTP 404)"
+   ],
+   "url": "https://www.lancashire.gov.uk/libraries-and-archives/libraries/find-a-library/mellor-library/",
+   "final_url": "https://www.lancashire.gov.uk/libraries-and-archives/libraries/find-a-library/mellor-library/",
+   "http": 404,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475476",
+   "name": "Rumi's Kitchen",
+   "postcode": "NW10 8QD",
+   "website": "https://www.rumis.org/kitchen",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=22574",
+   "reasons": [
+    "own site does not mention a warm space"
+   ],
+   "url": "https://www.rumis.org/kitchen",
+   "final_url": "https://www.rumis.org/kitchen",
+   "http": 200,
+   "sha256": "35f8d6b892871a955287be764820bdb4a13a2ac262c3981d1401f790e477c350",
+   "etag": "W/\"52301fae2b8b024364b233a3e9bbdd25\"",
+   "last_modified": ""
+  },
+  {
+   "id": "ww-55475482",
+   "name": "Hesketh Bank Community Centre",
+   "postcode": "PR4 6SR",
+   "website": "www.heskethbankcommunitycentre.org.uk",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=19171",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "www.heskethbankcommunitycentre.org.uk",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475484",
+   "name": "Orchardhill Parish Church",
+   "postcode": "G46 6JR",
+   "website": "www.orchardhill.org.uk",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=18109",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "www.orchardhill.org.uk",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475486",
+   "name": "Avonway Community Centre",
+   "postcode": "SP6 1JF",
+   "website": "Hall booking online.com/Avonway/",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=18091",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "Hall booking online.com/Avonway/",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475488",
+   "name": "Wednesday's Warm Welcome",
+   "postcode": "LE11 3BN",
+   "website": "https://loughboroughurc.co.uk",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=16588",
+   "reasons": [
+    "own site does not name it",
+    "own site does not mention a warm space",
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://loughboroughurc.co.uk",
+   "final_url": "https://loughboroughurc.co.uk",
+   "http": 200,
+   "sha256": "5b0fb881721bed599662774224cdc83b92e9e897eafa7c24c51035b8a9d7e158",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "ww-55475493",
+   "name": "[DELETED] Parkside Community Hub",
+   "postcode": "",
+   "website": "https://www.chp.org.uk/",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=17921",
+   "reasons": [
+    "own site does not mention a warm space",
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)",
+    "no postcode"
+   ],
+   "url": "https://www.chp.org.uk/",
+   "final_url": "https://www.chp.org.uk/",
+   "http": 200,
+   "sha256": "f4b9cff30b8af5ec5f01b50217e22bb368ab33779b206cbdb37363489f035f11",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "ww-55475495",
+   "name": "Mortimer Methodist Church",
+   "postcode": "RG7 3TB",
+   "website": "Don’t have Website",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=20784",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "Don’t have Website",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475497",
+   "name": "Ebbw FachCommunity Group",
+   "postcode": "NP13 2BP",
+   "website": "",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=16062",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475502",
+   "name": "Tarporley Library",
+   "postcode": "CW6 0BJ",
+   "website": "https://www.cheshirewestandchester.gov.uk/residents/libraries/find-a-library/tarporley-library",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=24076",
+   "reasons": [
+    "directory link is a council page, not the place's own site",
+    "own site does not mention a warm space"
+   ],
+   "url": "https://www.cheshirewestandchester.gov.uk/residents/libraries/find-a-library/tarporley-library",
+   "final_url": "https://www.cheshirewestandchester.gov.uk/residents/libraries/find-a-library/tarporley-library",
+   "http": 200,
+   "sha256": "8886597a064f9dbd5324e7b5ab7fd8053822cb9ed37d2e583e820aade2af5411",
+   "etag": "W/\"2535d-AtVYC4iO3vHvg/+j6Y08f30Mhp4\"",
+   "last_modified": ""
+  },
+  {
+   "id": "ww-55475507",
+   "name": "Cosy Corner",
+   "postcode": "BL8 3LJ",
+   "website": "",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=22358",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475510",
+   "name": "Gerrards Cross Community Library",
+   "postcode": "SL9 8EL",
+   "website": "",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=22900",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475511",
+   "name": "Northowram Library",
+   "postcode": "HX3 7EJ",
+   "website": "www.calderdale.gov.uk/libraries",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=15230",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "www.calderdale.gov.uk/libraries",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475514",
+   "name": "Alford Library and Focal Point",
+   "postcode": "LN13 9AF",
+   "website": "",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=23267",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475518",
+   "name": "St Luke's Knit and Natter Group",
+   "postcode": "WA3 2JA",
+   "website": "",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=23909",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475522",
+   "name": "Tadley Library",
+   "postcode": "RG26 3JE",
+   "website": "https://www.hants.gov.uk/librariesandarchives/library/libraryfinder/tadley-library",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=15290",
+   "reasons": [
+    "directory link is a council page, not the place's own site",
+    "own site unreachable (HTTP 403)"
+   ],
+   "url": "https://www.hants.gov.uk/librariesandarchives/library/libraryfinder/tadley-library",
+   "final_url": "https://www.hants.gov.uk/librariesandarchives/library/libraryfinder/tadley-library",
+   "http": 403,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475523",
+   "name": "The Life Rooms Bootle",
+   "postcode": "L20 7AP",
+   "website": "https://www.liferooms.org/",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=22750",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.liferooms.org/",
+   "final_url": "https://www.liferooms.org/",
+   "http": 200,
+   "sha256": "2c213d58f153291bffab8156bece3498778e808e691332577f982b7b1102e6ba",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "ww-55475529",
+   "name": "Wallsend Library",
+   "postcode": "NE28 8JR",
+   "website": "",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=23632",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475531",
+   "name": "Bexleyheath Salvation Army Church and Community Centre",
+   "postcode": "DA6 8NR",
+   "website": "www.salvationarmy.org.uk/bexleyheath",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=17656",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "www.salvationarmy.org.uk/bexleyheath",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475532",
+   "name": "Warm Welcome",
+   "postcode": "NE66 1UR",
+   "website": "",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=17132",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475536",
+   "name": "Iver Heath Community Library",
+   "postcode": "SL0 0DA",
+   "website": "",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=22901",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475537",
+   "name": "St Paul's United Reformed Church",
+   "postcode": "CR2 7HF",
+   "website": "www.stpaulsurc.org.uk",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=16318",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "www.stpaulsurc.org.uk",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475538",
+   "name": "The Salvation Army",
+   "postcode": "TN34 1SP",
+   "website": "https://www.salvationarmy.org.uk/",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=15007",
+   "reasons": [
+    "own site does not mention a warm space",
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.salvationarmy.org.uk/",
+   "final_url": "https://www.salvationarmy.org.uk/",
+   "http": 200,
+   "sha256": "c98bff713c7683e61b2b5de1e7eab011282eaa6d601f518ba002c0ed8a175b3e",
+   "etag": "\"1794085314-gzip\"",
+   "last_modified": "Sat, 07 Nov 2026 21:01:54 GMT"
+  },
+  {
+   "id": "ww-55475543",
+   "name": "Swiss Cottage Library",
+   "postcode": "NW3 3HA",
+   "website": "www.camden.gov.uk/libraries",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=22734",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "www.camden.gov.uk/libraries",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475547",
+   "name": "Charlie's",
+   "postcode": "GL1 5SJ",
+   "website": "charlies.org.uk",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=23789",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "charlies.org.uk",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475548",
+   "name": "Beech Hill Methodist Church",
+   "postcode": "LU4 8BY",
+   "website": "http://www.beechhillmethodist.co.uk/",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=20114",
+   "reasons": [
+    "own site does not mention a warm space"
+   ],
+   "url": "http://www.beechhillmethodist.co.uk/",
+   "final_url": "http://www.beechhillmethodist.co.uk/",
+   "http": 200,
+   "sha256": "740e0903bfd95d0d7c6c7ae4362dc1531b1e3089bee1750b3970742f7ac04db4",
+   "etag": "\"19d37-65f0060ba620f\"",
+   "last_modified": "Thu, 29 Oct 2026 20:18:07 GMT"
+  },
+  {
+   "id": "ww-55475550",
+   "name": "Renew @The Stream",
+   "postcode": "SA2 0HN",
+   "website": "www.pantygwydr.org.uk",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=23900",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "www.pantygwydr.org.uk",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475551",
+   "name": "Ramsgate Library",
+   "postcode": "CT11 9AY",
+   "website": "https://local.kent.gov.uk/kb5/kent/directory/service.page?id=3lzC0FSVWM0",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=22799",
+   "reasons": [
+    "directory link is a council page, not the place's own site",
+    "own site unreachable (HTTP 403)"
+   ],
+   "url": "https://local.kent.gov.uk/kb5/kent/directory/service.page?id=3lzC0FSVWM0",
+   "final_url": "https://local.kent.gov.uk/kb5/kent/directory/service.page?id=3lzC0FSVWM0",
+   "http": 403,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475554",
+   "name": "York Gardens Library",
+   "postcode": "SW11 2UG",
+   "website": "https://www.better.org.uk/library/london/wandsworth/york-gardens-library",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=22663",
+   "reasons": [
+    "own site does not mention a warm space"
+   ],
+   "url": "https://www.better.org.uk/library/london/wandsworth/york-gardens-library",
+   "final_url": "https://www.better.org.uk/library/london/wandsworth/york-gardens-library",
+   "http": 200,
+   "sha256": "675783696057036f87e86b45bee9a2783f10cd8de4f0fc33a9f07a6dcab651a7",
+   "etag": "W/\"675783696057036f87e86b45bee9a278\"",
+   "last_modified": ""
+  },
+  {
+   "id": "ww-55475555",
+   "name": "Havant Library",
+   "postcode": "PO9 1UN",
+   "website": "https://www.hants.gov.uk/library",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=15311",
+   "reasons": [
+    "directory link is a council page, not the place's own site",
+    "own site unreachable (HTTP 403)"
+   ],
+   "url": "https://www.hants.gov.uk/library",
+   "final_url": "https://www.hants.gov.uk/library",
+   "http": 403,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475557",
+   "name": "Romsey Library- Hampshire Libraries",
+   "postcode": "SO51 8DN",
+   "website": "https://www.hants.gov.uk/library",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=15316",
+   "reasons": [
+    "directory link is a council page, not the place's own site",
+    "own site unreachable (HTTP 403)"
+   ],
+   "url": "https://www.hants.gov.uk/library",
+   "final_url": "https://www.hants.gov.uk/library",
+   "http": 403,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475562",
+   "name": "Seachange",
+   "postcode": "EX9 6HF",
+   "website": "https://www.seachangedevon.org",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=15858",
+   "reasons": [
+    "own site does not mention a warm space"
+   ],
+   "url": "https://www.seachangedevon.org",
+   "final_url": "https://www.seachangedevon.org",
+   "http": 200,
+   "sha256": "025cfaaaaa67111236000475c6403ce12eb77d29e1e59f4cc2d2f730b0c812e8",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "ww-55475563",
+   "name": "Nick Vosper",
+   "postcode": "CO9 3PX",
+   "website": "hedinghambaptist.org",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=17040",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "hedinghambaptist.org",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475565",
+   "name": "Coffee & Chat",
+   "postcode": "CV10 7JB",
+   "website": "",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=22377",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475567",
+   "name": "The Good Heart Cafe",
+   "postcode": "BA11 1DS",
+   "website": "www.thegoodheart.uk",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=24060",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "www.thegoodheart.uk",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475568",
+   "name": "Holy Nativity Church",
+   "postcode": "HX2 8RX",
+   "website": "http://www.holynativity.co.uk",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=19217",
+   "reasons": [
+    "own site does not mention a warm space"
+   ],
+   "url": "http://www.holynativity.co.uk",
+   "final_url": "https://www.holynativity.co.uk/",
+   "http": 200,
+   "sha256": "d8cbcb7356a69b403208a02d503df4b3d195c5dd8d7fe205bfb8013d558d65e9",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "ww-55475569",
+   "name": "Open Lounge",
+   "postcode": "L35 2UA",
+   "website": "salvationarmy.org.uk/prescot",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=15094",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "salvationarmy.org.uk/prescot",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475574",
+   "name": "Café Connect",
+   "postcode": "CM23 5HE",
+   "website": "Bsca-biblechurch.org.uk",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=18201",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "Bsca-biblechurch.org.uk",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475577",
+   "name": "WARM WELCOME",
+   "postcode": "PR6 8HL",
+   "website": "",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=22922",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475578",
+   "name": "The Crescent & Co (Yorkshire) CIC",
+   "postcode": "",
+   "website": "www.the-crescent.co.uk",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=16119",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)",
+    "no postcode"
+   ],
+   "url": "www.the-crescent.co.uk",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475580",
+   "name": "heywood park young people centre",
+   "postcode": "BL3 6SR",
+   "website": "",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=24073",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475581",
+   "name": "Bolton-le-Sands Library",
+   "postcode": "LA5 8DN",
+   "website": "https://www.lancashire.gov.uk/libraries-and-archives/libraries/find-a-library/bolton-le-sands-library/",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=23006",
+   "reasons": [
+    "directory link is a council page, not the place's own site"
+   ],
+   "url": "https://www.lancashire.gov.uk/libraries-and-archives/libraries/find-a-library/bolton-le-sands-library/",
+   "final_url": "https://www.lancashire.gov.uk/libraries-and-archives/libraries/find-a-library/bolton-le-sands-library/",
+   "http": 200,
+   "sha256": "fed7a624ae55c147b0ad66a26ab9c87312124094803496a02538dafdcb9310a6",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "ww-55475582",
+   "name": "Wincanton Library",
+   "postcode": "BA9 9JS",
+   "website": "https://www.somerset.gov.uk/libraries/",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=23120",
+   "reasons": [
+    "directory link is a council page, not the place's own site",
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.somerset.gov.uk/libraries/",
+   "final_url": "https://www.somerset.gov.uk/libraries/",
+   "http": 200,
+   "sha256": "24396012f5c666a0e0f2693cadf40b9ca1814673ea94aae81e1fb1048444bee8",
+   "etag": "\"938853-1794105882;;;\"",
+   "last_modified": ""
+  },
+  {
+   "id": "ww-55475583",
+   "name": "Fullbridge Community Hub",
+   "postcode": "CM9 4LE",
+   "website": "www.fullbridgechurch.com",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=17393",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "www.fullbridgechurch.com",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475584",
+   "name": "BCMH The Hub",
+   "postcode": "DY1 2LZ",
+   "website": "www.blackcountrymentalhealth.org.uk",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=16899",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "www.blackcountrymentalhealth.org.uk",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475586",
+   "name": "Friday Winter Drop-In",
+   "postcode": "SE6 3HQ",
+   "website": "",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=23827",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475587",
+   "name": "Burscough Methodist Church",
+   "postcode": "L40 0SG",
+   "website": "",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=22305",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475589",
+   "name": "Ephrata Church Community",
+   "postcode": "BL1 2AS",
+   "website": "www.ephratabolton.org",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=20991",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "www.ephratabolton.org",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475594",
+   "name": "Mackworth Library",
+   "postcode": "DE22 4BG",
+   "website": "inderby.org/libraries",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=23925",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "inderby.org/libraries",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475595",
+   "name": "Lancing Library",
+   "postcode": "BN15 9DL",
+   "website": "https://arena.westsussex.gov.uk/",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=23484",
+   "reasons": [
+    "directory link is a council page, not the place's own site",
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "https://arena.westsussex.gov.uk/",
+   "final_url": "https://arena.westsussex.gov.uk/",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475600",
+   "name": "Haslingden Library",
+   "postcode": "BB4 5QL",
+   "website": "https://www.lancashire.gov.uk/libraries-and-archives/libraries/find-a-library/haslingden-library/",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=23050",
+   "reasons": [
+    "directory link is a council page, not the place's own site"
+   ],
+   "url": "https://www.lancashire.gov.uk/libraries-and-archives/libraries/find-a-library/haslingden-library/",
+   "final_url": "https://www.lancashire.gov.uk/libraries-and-archives/libraries/find-a-library/haslingden-library/",
+   "http": 200,
+   "sha256": "d2c947b1c4e5c23fe5940de0b8bf8a74002e8d4a0c88ecec0d349aee50bf913d",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "ww-55475601",
+   "name": "Witterings Library",
+   "postcode": "PO20 8TB",
+   "website": "https://www.westsussex.gov.uk/libraries/library-details/witterings-library/",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=17016",
+   "reasons": [
+    "directory link is a council page, not the place's own site",
+    "own site unreachable (HTTP 404)",
+    "postcode PO20 8TB not recognised by postcodes.io"
+   ],
+   "url": "https://www.westsussex.gov.uk/libraries/library-details/witterings-library/",
+   "final_url": "https://www.westsussex.gov.uk/libraries/library-details/witterings-library/",
+   "http": 404,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475603",
+   "name": "Amington Parish Church",
+   "postcode": "B77 4AD",
+   "website": "https://amington.church",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=16066",
+   "reasons": [
+    "own site redirects to a different site (achurchnearyou.com)"
+   ],
+   "url": "https://amington.church",
+   "final_url": "https://www.achurchnearyou.com/church/7264/",
+   "http": 200,
+   "sha256": "1e6ac7143824b7f45eff1bf95c0e7b0be780bfeb6be0f6771582094a2e3c0b5b",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "ww-55475606",
+   "name": "St. Philip, Margate",
+   "postcode": "CT9 3JJ",
+   "website": "www.achurchnearyou.com/church/12060",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=15182",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "www.achurchnearyou.com/church/12060",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475610",
+   "name": "Toc H High Brooms",
+   "postcode": "TN4 9HH",
+   "website": "",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=22840",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475611",
+   "name": "Love Your Neighbour at Colmore Coffee, Birmingham",
+   "postcode": "B15 2AT",
+   "website": "",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=15570",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-55475614",
+   "name": "Jigsaw Homes and Ashton Pioneer Homes Warm hub",
+   "postcode": "OL7 0SA",
+   "website": "https//:www.jigsawhomes.org.uk",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=23904",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "https//:www.jigsawhomes.org.uk",
+   "final_url": "https//:www.jigsawhomes.org.uk",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
   }
  ],
  "rejected": [],
  "follow_skipped": [
-  "ww-69526044",
-  "ww-69434450",
-  "ww-69434451",
-  "ww-69441264",
-  "ww-69441265",
-  "ww-69441266",
-  "ww-69441267",
-  "ww-69441268",
-  "ww-69441289",
-  "ww-69441290",
-  "ww-69441291",
-  "ww-69441293",
-  "ww-69441295"
+  "ww-55475277",
+  "ww-55475304",
+  "ww-55475412",
+  "ww-55475446",
+  "ww-55475452",
+  "ww-55475502",
+  "ww-55475537",
+  "ww-55475554",
+  "ww-55475581",
+  "ww-55475582"
  ],
- "verified_proposals": []
+ "verified_proposals": [
+  "ww-55475234",
+  "ww-55475282",
+  "ww-55475329",
+  "ww-55475400",
+  "ww-55475472",
+  "ww-55475600"
+ ]
 }

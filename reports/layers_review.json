@@ -345,6 +345,10 @@
     "reason": "published times not found on source this run"
    },
    {
+    "id": "ww-68652450",
+    "reason": "source page loaded (HTTP 200) but had no readable text this run (1 chars; likely a bot check or JavaScript-only page)"
+   },
+   {
     "id": "ww-65441921",
     "reason": "source no longer names this place"
    },

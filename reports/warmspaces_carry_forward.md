@@ -1,4 +1,4 @@
-# warmspaces: carried forward (2026-11-07)
+# warmspaces: carried forward (2026-11-08)
 
 Missing from this run, so kept from the previous file and labelled "Not re-confirmed since <date> – call before you go". Nothing is deleted.
 
