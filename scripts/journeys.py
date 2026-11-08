@@ -285,6 +285,7 @@ def report(res, base):
     L += ['| %s | %d | %d |' % (j, v['pass'], v['fail']) for j, v in sorted(res.items())]
     for j, v in sorted(res.items()):
         if v['failures']: L += ['', '## %s failures' % j, ''] + ['- ' + f for f in v['failures']]
+    os.makedirs(os.path.join(ROOT, 'reports'), exist_ok=True)
     open(os.path.join(ROOT, 'reports', 'journeys.md'), 'w', encoding='utf-8').write('\n'.join(L) + '\n')
     return sum(v['fail'] for v in res.values())
 

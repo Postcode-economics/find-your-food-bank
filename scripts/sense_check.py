@@ -98,6 +98,7 @@ def report(fails, rows, note=''):
     os.makedirs(os.path.join(ROOT, 'logs'), exist_ok=True)
     json.dump(dict(checks=len(rows), failed=len(fails), rows=rows, note=note), open(os.path.join(ROOT, 'logs', 'sense_check.json'), 'w'), indent=0)
     md = ['# Does the result make sense? (%d checks, %d failed)' % (len(rows), len(fails)), '', note] + ['- ' + f for f in fails] + ([] if fails else ['- all checks passed'])
+    os.makedirs(os.path.join(ROOT, 'reports'), exist_ok=True)
     open(os.path.join(ROOT, 'reports', 'sense_check.md'), 'w').write('\n'.join(md) + '\n')
 if __name__ == '__main__':
     if not reachable(): report([], [], 'SKIPPED: postcodes.io unreachable'); print('sense check SKIPPED: postcodes.io unreachable'); sys.exit(0)

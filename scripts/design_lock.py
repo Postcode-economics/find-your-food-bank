@@ -456,6 +456,7 @@ def run(base=None, measure=False):
         print(json.dumps({m: {k: sorted(v) for k, v in d.items()} for m, d in meas.items()}, indent=1)); print(counts); return [], counts, seen
     os.makedirs(os.path.join(ROOT, 'logs'), exist_ok=True)
     json.dump({'base': base, 'cards': seen, 'counts': counts, 'bad': bad, 'known': sorted(set(KNOWN)), 'tiles': TILES, 'real_tile': probe}, open(os.path.join(ROOT, 'logs', 'design_lock.json'), 'w'), indent=1)
+    os.makedirs(os.path.join(ROOT, 'reports'), exist_ok=True)
     open(os.path.join(ROOT, 'reports', 'design_lock.md'), 'w').write('# Card design lock (%s)\n\n%d cards checked, %d problems.\n\nData: %s\n\nTiles (w, mode, ok, failed): %s\n\nReal tile (one request, not a pan): %s %s%s\n\n%s\n\n## Known, not failing (%d)\n\n%s\n' % (
         base, seen, len(bad), json.dumps(counts), TILES, probe.get('status'), probe.get('url'), (' ' + probe['detail']) if probe.get('detail') else '', '\n'.join('- ' + x for x in bad[:300]), len(KNOWN), '\n'.join('- ' + x for x in sorted(set(KNOWN)))))
     base_c = LOCK.get('baseline_counts_v87', {})

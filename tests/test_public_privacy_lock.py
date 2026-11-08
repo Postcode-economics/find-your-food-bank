@@ -143,19 +143,86 @@ class PublicCheckoutCollection(unittest.TestCase):
             module = tests / 'test_times_crosscheck_oct29_eighteen.py'
             shutil.copyfile(ROOT / 'tests' / module.name, module)
             (root / 'scripts').symlink_to(ROOT / 'scripts', target_is_directory=True)
-            env = dict(os.environ, PYTEST_DISABLE_PLUGIN_AUTOLOAD='1', PYTEST_ADDOPTS='')
-            for options, expected in ((['--collect-only'], '7 tests collected'), ([], '7 skipped')):
-                result = subprocess.run(
-                    [sys.executable, '-m', 'pytest', '-q', '-rs', *options, str(module)],
-                    cwd=root, env=env, capture_output=True, text=True, timeout=60,
-                )
-                output = result.stdout + result.stderr
-                self.assertEqual(result.returncode, 0, output)
-                self.assertIn(expected, output)
-                self.assertNotIn('ERROR', output)
+            # -S proves this also works on refresh runners with no third-party test tools.
+            script = """
+import unittest
+suite = unittest.defaultTestLoader.discover('tests', pattern='test_times_crosscheck_oct29_eighteen.py')
+assert suite.countTestCases() == 7, suite.countTestCases()
+print('7 tests collected')
+result = unittest.TextTestRunner(verbosity=2).run(suite)
+assert result.wasSuccessful(), 'Replay tests failed'
+assert result.testsRun == 7, result.testsRun
+assert len(result.skipped) == 7, result.skipped
+assert all('Private replay report is not available' in reason for _, reason in result.skipped)
+"""
+            result = subprocess.run(
+                [sys.executable, '-S', '-c', script],
+                cwd=root, capture_output=True, text=True, timeout=60,
+            )
+            output = result.stdout + result.stderr
+            self.assertEqual(result.returncode, 0, output)
+            self.assertIn('7 tests collected', output)
+            self.assertIn('skipped=7', output)
+            self.assertNotIn('ERROR', output)
             self.assertIn('Private replay report is not available', output)
             for name in ('reports', 'logs', 'docs', 'email'):
                 self.assertFalse((root / name).exists())
+
+
+class PublicCheckoutReports(unittest.TestCase):
+    def writer(self, filename, function, root):
+        # Exercise the actual writers without importing browser dependencies or running searches.
+        import ast
+        import json
+        import time
+        tree = ast.parse((ROOT / 'scripts' / filename).read_text())
+        node = next(n for n in tree.body if isinstance(n, ast.FunctionDef) and n.name == function)
+        namespace = dict(ROOT=str(root), os=os, json=json, time=time)
+        if filename == 'design_lock.py':
+            # Its output block is inside run(); keep browser setup and layout checks out of this unit test.
+            start = next(i for i, n in enumerate(node.body)
+                         if isinstance(n, ast.Expr) and isinstance(n.value, ast.Call)
+                         and ast.unparse(n.value.func) == 'os.makedirs')
+            end = next(i for i, n in enumerate(node.body)
+                       if isinstance(n, ast.Assign) and any(isinstance(t, ast.Name) and t.id == 'base_c' for t in n.targets))
+            node = ast.FunctionDef(name='write_report', args=ast.arguments(
+                posonlyargs=[], args=[], kwonlyargs=[], kw_defaults=[], defaults=[]),
+                body=node.body[start:end], decorator_list=[])
+            namespace.update(base='local checkout', seen=1, counts={'fb': 1}, bad=['example failure'],
+                             KNOWN=[], TILES=[], probe={'ok': True})
+        module = ast.Module(body=[node], type_ignores=[])
+        exec(compile(ast.fix_missing_locations(module), filename, 'exec'), namespace)
+        return namespace[node.name]
+
+    def test_reports_create_ignored_output_directories_in_empty_checkout(self):
+        import json
+        for name in ('journeys', 'design_lock', 'sense_check'):
+            with self.subTest(name=name), tempfile.TemporaryDirectory() as directory:
+                root = Path(directory)
+                writer = self.writer(name + '.py', 'run' if name == 'design_lock' else 'report', root)
+                for _ in range(2):  # creating an existing output directory is safe too
+                    if name == 'journeys':
+                        self.assertEqual(writer({'example': {'pass': 0, 'fail': 1,
+                                                            'failures': ['example failure']}}, None), 1)
+                    elif name == 'sense_check':
+                        writer(['example failure'], [{'ok': False}])
+                    else:
+                        writer()
+                report = root / 'reports' / (name + '.md')
+                log = root / 'logs' / (name + '.json')
+                self.assertIn('example failure', report.read_text())
+                payload = json.loads(log.read_text())
+                if name == 'journeys':
+                    self.assertEqual(payload['journeys']['example']['fail'], 1)
+                elif name == 'sense_check':
+                    self.assertEqual(payload['failed'], 1)
+                else:
+                    self.assertEqual(payload['bad'], ['example failure'])
+                self.assertEqual({p.name for p in root.iterdir()}, {'reports', 'logs'})
+                for path in (report, log):
+                    ignored = subprocess.run(['git', 'check-ignore', '--', str(ROOT / path.relative_to(root))],
+                                             cwd=ROOT, capture_output=True, text=True)
+                    self.assertEqual(ignored.returncode, 0, ignored.stderr)
 
 
 class PrivateWorkingFileReplay(unittest.TestCase):
