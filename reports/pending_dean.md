@@ -785,6 +785,7 @@ Council pages say these are ON. Incident rest centres go live when overrides/inc
 
 - **North Tyneside Council** — [Severe weather shelter (SWEP)] SWEP — https://www.northtyneside.gov.uk/housing/homelessness/if-you-are-homeless-or-sleeping-rough — “seasonal (council page): SWEP is active between 1 November and 31 March”
 - **West Northamptonshire Council** — [Severe weather shelter (SWEP)] SWEP — https://www.westnorthants.gov.uk/homelessness/support-people-sleeping-rough/help-people-sleeping-rough-very-cold-or-extreme-weather — “ross the whole of West Northamptonshire. How we tell people SWEP has been activated Our Outreach team notifies: relevant council services police services faith…”
+- **Horsham District Council** — [Rest centres (incidents)] TEST — do not travel — “TEST — do not travel. This is a helpmap.uk system test. This is not a real rest centre. Do not travel.”
 <!-- /rest centre switch-on -->
 
 

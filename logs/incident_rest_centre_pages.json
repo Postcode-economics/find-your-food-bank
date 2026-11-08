@@ -815,14 +815,14 @@
    "rest_centre": null
   },
   {
-   "council": "Adur District Council",
+   "council": "Worthing Borough Council",
    "url": "https://www.adur-worthing.gov.uk/housing/advice/rough-sleepers/",
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "code": "ADU",
+   "code": "WOT",
    "site": null,
-   "checked_at": "2026-11-08T06:38:15+00:00",
+   "checked_at": "2026-11-08T06:39:21+00:00",
    "rest_centre": null
   },
   {
@@ -1343,14 +1343,14 @@
    "rest_centre": null
   },
   {
-   "council": "Eastbourne Borough Council",
+   "council": "Lewes District Council",
    "url": "https://www.lewes-eastbourne.gov.uk/article/1261/Help-for-people-sleeping-rough",
    "http": 403,
    "status": "unreachable",
    "quote": "",
-   "code": "EAS",
+   "code": "LEE",
    "site": null,
-   "checked_at": "2026-11-08T06:38:19+00:00",
+   "checked_at": "2026-11-08T06:38:25+00:00",
    "rest_centre": null
   },
   {
@@ -1756,17 +1756,6 @@
    "status": "unknown",
    "quote": "",
    "code": "LDS",
-   "site": null,
-   "checked_at": "2026-11-08T06:38:25+00:00",
-   "rest_centre": null
-  },
-  {
-   "council": "Lewes District Council",
-   "url": "https://www.lewes-eastbourne.gov.uk/article/1261/Help-for-people-sleeping-rough",
-   "http": 403,
-   "status": "unreachable",
-   "quote": "",
-   "code": "LEE",
    "site": null,
    "checked_at": "2026-11-08T06:38:25+00:00",
    "rest_centre": null
@@ -2850,17 +2839,6 @@
    "rest_centre": null
   },
   {
-   "council": "Worthing Borough Council",
-   "url": "https://www.adur-worthing.gov.uk/housing/advice/rough-sleepers/",
-   "http": 200,
-   "status": "unknown",
-   "quote": "",
-   "code": "WOT",
-   "site": null,
-   "checked_at": "2026-11-08T06:39:21+00:00",
-   "rest_centre": null
-  },
-  {
    "council": "Wrexham County Borough Council",
    "url": "https://www.wrexham.gov.uk/services/housing/homeless-or-risk/help-and-advice",
    "http": 200,
@@ -3209,7 +3187,7 @@
    "rest_centre": null
   },
   {
-   "council": "Adur District Council",
+   "council": "Worthing Borough Council",
    "url": "https://www.adur-worthing.gov.uk/news/",
    "kind": "news",
    "http": 200,
@@ -6143,15 +6121,6 @@
    "rest_centre": null
   },
   {
-   "council": "Worthing Borough Council",
-   "url": "https://www.adur-worthing.gov.uk/news/",
-   "kind": "news",
-   "http": 200,
-   "status": "checked",
-   "quote": "",
-   "rest_centre": null
-  },
-  {
    "council": "West Oxfordshire District Council",
    "url": "https://news.westoxon.gov.uk",
    "kind": "news",
@@ -6249,6 +6218,20 @@
    "status": "checked",
    "quote": "",
    "rest_centre": null
+  },
+  {
+   "council": "Horsham District Council",
+   "url": "https://example.invalid/helpmap-system-test-do-not-travel",
+   "kind": "watch",
+   "http": 200,
+   "status": "checked",
+   "quote": "",
+   "rest_centre": {
+    "active": true,
+    "name": "TEST — do not travel",
+    "quote": "TEST — do not travel — not a real rest centre TEST — do not travel This is a helpmap.uk system test. This is not a real rest centre. Do not travel. Horsham District Council has opened a rest centre at TEST — do not travel. This is a system test only. Do not travel to this location. This page is a helpmap.uk system…",
+    "location": "[redacted]"
+   }
   }
  ]
 }
