@@ -132,3 +132,27 @@ class DeployRevert(unittest.TestCase):
         result = self.run_revert_step(True, other_failure=True)
         self.assertEqual(result.returncode, 0, result.stderr)
         self.assertIn('REVERTED', result.stdout)
+
+
+class PublicCheckoutCollection(unittest.TestCase):
+    def test_private_replay_collects_and_skips_without_working_files(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            tests = root / 'tests'
+            tests.mkdir()
+            module = tests / 'test_times_crosscheck_oct29_eighteen.py'
+            shutil.copyfile(ROOT / 'tests' / module.name, module)
+            (root / 'scripts').symlink_to(ROOT / 'scripts', target_is_directory=True)
+            env = dict(os.environ, PYTEST_DISABLE_PLUGIN_AUTOLOAD='1', PYTEST_ADDOPTS='')
+            for options, expected in ((['--collect-only'], '7 tests collected'), ([], '7 skipped')):
+                result = subprocess.run(
+                    [sys.executable, '-m', 'pytest', '-q', '-rs', *options, str(module)],
+                    cwd=root, env=env, capture_output=True, text=True, timeout=60,
+                )
+                output = result.stdout + result.stderr
+                self.assertEqual(result.returncode, 0, output)
+                self.assertIn(expected, output)
+                self.assertNotIn('ERROR', output)
+            self.assertIn('Private replay report is not available', output)
+            for name in ('reports', 'logs', 'docs', 'email'):
+                self.assertFalse((root / name).exists())

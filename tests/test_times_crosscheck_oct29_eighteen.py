@@ -8,11 +8,16 @@ R1, R2 = "2026-10-29T05:39:35+00:00", "2026-10-29T14:47:47+00:00"
 ON = {"times_auto_apply": True}
 FILL = " lorem ipsum" * 40
 SIG = lambda st: json.dumps(st, sort_keys=True) if st else None
-LOG = json.load(open(os.path.join(os.path.dirname(__file__), "..", "reports", "times_auto_applied.json")))
+LOG_PATH = os.path.join(os.path.dirname(__file__), "..", "reports", "times_auto_applied.json")
 
 
 def _rec(iid):
-    return next(r for r in LOG if r.get("path") == "cross_check" and r.get("kind") == "ws" and r["id"] == iid
+    try:
+        with open(LOG_PATH, encoding="utf-8") as source:
+            log = json.load(source)
+    except FileNotFoundError:
+        raise unittest.SkipTest("Private replay report is not available in the public checkout")
+    return next(r for r in log if r.get("path") == "cross_check" and r.get("kind") == "ws" and r["id"] == iid
                 and (r.get("second_run_at") or "").startswith("2026-10-29T14:47"))
 
 
