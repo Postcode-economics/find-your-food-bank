@@ -15,15 +15,19 @@
    "official_council": true,
    "live": true,
    "opened_by": "Arun District Council",
-   "source_url": "https://example.invalid/helpmap-system-test-arun-do-not-travel",
-   "opened_for": "an incident",
+   "source_url": "",
+   "opened_for": "a TEST — do not travel (not a real rest centre)",
    "category": "incident_rest_centre",
    "council": "Arun District Council",
-   "lad": null,
+   "lad": "E07000224",
    "quote": "TEST — do not travel TEST — do not travel — not a real rest centre TEST — do not travel This is a helpmap.uk system test. This is not a real rest centre. Do not travel. Arun District Council has opened a rest centre at TEST — do not travel. This is a system test only. Do not travel to this location. This page is a…",
    "last_checked": "Checked 11:04am, Sun 8 Nov",
-   "checked_at": "Checked 11:04am, Sun 8 Nov"
+   "checked_at": "Checked 11:04am, Sun 8 Nov",
+   "lat": 50.808991,
+   "lng": -0.540882
   }
  ],
- "councils": {}
+ "councils": {
+  "E07000224": "Arun District Council"
+ }
 }

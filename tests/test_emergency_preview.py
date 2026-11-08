@@ -461,7 +461,17 @@ class Plan(unittest.TestCase):
         self.assertIn("fillVisitorLad(function(){", js)
         self.assertIn("helpmap-search", js)
         idx = rd("index.html")
-        self.assertIn("emergency.js?v=erc-town-lad1", idx)
+        self.assertIn("emergency.js?v=erc-force-gps1", idx)
+
+    def test_40_live_rest_centre_asks_for_location_without_searching_other_layers(self):
+        """When a live rest centre is on, ask for GPS here only — never run food-bank or shelter nearest()."""
+        js = rd("emergency.js")
+        self.assertIn("function askVisitorLocation", js)
+        self.assertIn("navigator.geolocation.getCurrentPosition", js)
+        self.assertIn("askVisitorLocation()", js)
+        self.assertNotIn("nearest(", js)
+        idx = rd("index.html")
+        self.assertIn("emergency.js?v=erc-force-gps1", idx)
 
 
 def _centre(name, lat, lng, until="2099-01-01T12:00:00+00:00", **kw):
