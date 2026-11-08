@@ -131,6 +131,13 @@ jobs:
             python scripts/alert.py open old-links "Deploy not live after 10 min - nothing tested, NOT reverted" "Commit ${{ github.sha }} never became the live build, so the live checks did not run. Check the Pages deploy. See run $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
             exit 1
           fi
+          # A history rewrite can remove a comparison baseline without breaking the live site.
+          # Only this dedicated preflight failure skips revert; real live failures keep the existing path.
+          if [ "$failed" = "old-links" ] && [ "${{ steps.oldlinks.outputs.snapshot_missing }}" = "true" ]; then
+            echo "::error::automatic revert skipped: missing historical snapshot; no live-site failure established"
+            python scripts/alert.py open old-links "Historical snapshot missing - NOT reverted" "Commit ${{ github.sha }}: the old-links comparison could not start because its historical snapshot commit is missing. Restore a valid public snapshot baseline. No automatic revert or push was attempted. See run $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+            exit 1
+          fi
           case "${{ github.sha }}" in ad54c561*) echo "::error::v88 (ad54c56) is never auto-reverted (Dean 25 Oct 18:56) - fix forward"; python scripts/alert.py open old-links "Live check failed ($failed) on v88 - NOT reverted (Dean's rule), fix forward" "See run $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"; exit 0;; esac
           set -euo pipefail   # 25 Oct: '&&' chains hid a failed pull (test logs left the tree dirty) and the step still passed
           git config user.name "helpmap-bot"; git config user.email "hello@helpmap.uk"

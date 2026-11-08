@@ -10,7 +10,7 @@ sys.path.insert(0, os.path.join(ROOT, "scripts"))
 import discovery_rules as DR
 
 DAY = "2026-10-30"
-BASE = "7756ee24a^"  # last publish before the first 30 Oct food-bank refresh
+BASE = "00b26f4a5badaa5edc3beeff0928cbc3d8ca0aa0"  # last publish before the first 30 Oct food-bank refresh
 
 
 def _git(path):

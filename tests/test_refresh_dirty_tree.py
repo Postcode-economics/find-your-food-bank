@@ -52,6 +52,8 @@ class DirtyTreeGuards(unittest.TestCase):
             paths = add_list(step)
             self.assertGreater(len(paths), 10, n)
             for p in paths:
+                if p.rstrip("/") in ("logs", "reports") or p.startswith(("logs/", "reports/")):
+                    continue  # Private working files are deliberately not seeded in the public tree.
                 self.assertTrue(p.rstrip("/") in tracked or any(t.startswith(p.rstrip("/") + "/") for t in tracked),
                                 n + ": " + p + " is not committed, so a run that does not write it would have nothing to add")
 

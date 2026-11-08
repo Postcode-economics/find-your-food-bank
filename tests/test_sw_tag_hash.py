@@ -76,7 +76,7 @@ class StaleWorker(unittest.TestCase):
         """The old v90 worker is still served (as Cloudflare did); the page clears its caches and reloads exactly once."""
         from playwright.sync_api import sync_playwright
         with sync_playwright() as p:
-            b, c, holder = self._ctx(p, sw_body=old_sw('e3982436c'))
+            b, c, holder = self._ctx(p, sw_body=old_sw('397c01556d5a855d5b9abba58988e23bd29deea2'))
             c.route('**://tile.openstreetmap.org/**', png)
             loads = []
             pg = c.new_page(); pg.on('load', lambda *_: loads.append(1))
@@ -97,7 +97,7 @@ class StaleWorker(unittest.TestCase):
     def _healed(self, p):
         """(1) Old v90 worker + fyfb-v90/fyfb-tiles caches installed, then the new build: heals exactly once, ends on the
         new caches, OSM draws. Returns the live page for the offline / backup follow-ups."""
-        b, c, holder = self._ctx(p, sw_body=old_sw('e3982436c'))
+        b, c, holder = self._ctx(p, sw_body=old_sw('397c01556d5a855d5b9abba58988e23bd29deea2'))
         net = {'off': False, 'osm': 0}
         def osm(route):
             if net['off']:
@@ -233,7 +233,7 @@ class OfflineAfterHeal(unittest.TestCase):
         from urllib.parse import urlparse
         from playwright.sync_api import sync_playwright
         import test_osm_default as O
-        body = {'sw': subprocess.check_output(['git', 'show', 'e3982436c:sw.js'], cwd=R)}
+        body = {'sw': subprocess.check_output(['git', 'show', '397c01556d5a855d5b9abba58988e23bd29deea2:sw.js'], cwd=R)}
         off = {'on': False}; offline_hits = []
 
         class Site(http.server.SimpleHTTPRequestHandler):

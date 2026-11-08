@@ -2,15 +2,15 @@
 For every link ever sent out (scripts/old_links.json) and the forms apps add (?igsh, ?utm_*, ?fbclid, hashes, old paths), with the
 Instagram in-app browser UA at 390px: first install an OLD release (service worker + caches; files served from a git snapshot via
 request routing), then open the link against the current site and check the map and listings render with no page errors and the
-current build. Usage: python scripts/old_links.py [BASE_URL] (default: local checkout). Exit 1 on any failure.
+current build. Usage: python scripts/old_links.py [BASE_URL] (default: local checkout). Exit 1 on a live failure; exit 3 if a historical snapshot is unavailable (nothing tested).
 Report: reports/old_links.md + logs/old_links.json."""
-import functools, http.server, json, mimetypes, os, subprocess, sys, tempfile, threading, time
-from playwright.sync_api import sync_playwright
+import functools, http.server, json, mimetypes, os, shutil, subprocess, sys, tempfile, threading, time
 import check_browser as B
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
 # commit -> must the FIRST open already show the latest build? v80's worker served HTML cache-first, so its first open shows the
 # old (working) page and the next open is the latest; v85+ pages carry the self-heal check and must show the latest at once.
-OLD_COMMITS = {'3dc505a65': True, '384b862f1': False}   # fyfb-v85 (just before self-heal), fyfb-v80 (week-old Instagram links)
+# Rewritten equivalents retain the same public site blobs after the privacy cleanup.
+OLD_COMMITS = {'563ea152e7293955a52da707d8aa12af643f33d2': True, 'd0487b0ce798ccf45137f32d76886a247a3cee84': False}   # fyfb-v85 (just before self-heal), fyfb-v80 (week-old Instagram links)
 # Dean 25 Oct 18:55: the broken old link was opened from Instagram's in-app browser. iOS uses B.IG_UA
 # (the shared agent, so the check is not answered with a bot page). Android is the same check.
 IGA = ('Mozilla/5.0 (Linux; Android 14; SM-S911B Build/UP1A; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/129.0.6668.100 '
@@ -18,10 +18,45 @@ IGA = ('Mozilla/5.0 (Linux; Android 14; SM-S911B Build/UP1A; wv) AppleWebKit/537
 UAS = (('ios', B.IG_UA), ('android', IGA))
 CHROME = '/usr/bin/google-chrome' if os.path.exists('/usr/bin/google-chrome') else None
 
+SNAPSHOT_UNAVAILABLE = 3
+
+class SnapshotUnavailable(RuntimeError):
+    """Missing test history is not evidence of a broken live site."""
+
+
+def require_snapshot(commit):
+    result = subprocess.run(['git', '-C', ROOT, 'cat-file', '-e', commit + '^{commit}'],
+                            capture_output=True, text=True)
+    if result.returncode:
+        raise SnapshotUnavailable('historical snapshot commit %s is missing; old-links comparison not run' % commit)
+
+
 def snapshot(commit):
-    d = tempfile.mkdtemp(prefix='old_%s_' % commit)
-    subprocess.run('git -C "%s" archive %s | tar -x -C "%s"' % (ROOT, commit, d), shell=True, check=True)
+    require_snapshot(commit)
+    d = tempfile.mkdtemp(prefix='old_')
+    try:
+        # No shell pipeline: archive errors cannot be hidden by tar's exit status.
+        with tempfile.TemporaryFile() as archive:
+            subprocess.run(['git', '-C', ROOT, 'archive', '--format=tar', commit], stdout=archive, check=True)
+            archive.seek(0)
+            subprocess.run(['tar', '-x', '-C', d], stdin=archive, check=True)
+    except Exception:
+        shutil.rmtree(d)
+        raise
     return d
+
+
+def main(base=None):
+    try:
+        _, bad = run(base)
+    except SnapshotUnavailable as exc:
+        print('::error::%s; automatic revert skipped (missing historical snapshot)' % exc, flush=True)
+        if os.environ.get('GITHUB_OUTPUT'):
+            with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
+                output.write('snapshot_missing=true\n')
+        return SNAPSHOT_UNAVAILABLE
+    return 1 if bad else 0
+
 
 def links():
     j = json.load(open(os.path.join(ROOT, 'scripts', 'old_links.json'))); return j['sent'] + j['variants']
@@ -44,6 +79,10 @@ def page_ok(pg, link):
       const n=typeof items!=='undefined'?items.length:0;return {ok:pane&&pins>0&&n>500,why:'pins '+pins+', items '+n+', map '+pane}})()""")
 
 def run(base=None):
+    # Preflight every baseline before opening a browser or testing any live links.
+    for commit in OLD_COMMITS:
+        require_snapshot(commit)
+    from playwright.sync_api import sync_playwright
     run.extra = 0
     srv = None
     if not base:
@@ -112,9 +151,9 @@ def run(base=None):
     json.dump(res, open(os.path.join(ROOT, 'logs', 'old_links.json'), 'w'), indent=1)
     md = ['# Old links check (%s)' % base, '', '%d of %d passed (old service worker installed first, Instagram in-app UA, 390px).' % (len(res) - len(bad), len(res)), '']
     md += ['- FAIL %s %s: %s' % (r['old'], r['link'], r['why']) for r in bad]
+    os.makedirs(os.path.join(ROOT, 'reports'), exist_ok=True)
     open(os.path.join(ROOT, 'reports', 'old_links.md'), 'w').write('\n'.join(md) + '\n')
     return res, bad
 
 if __name__ == '__main__':
-    res, bad = run(sys.argv[1] if len(sys.argv) > 1 else None)
-    sys.exit(1 if bad else 0)
+    sys.exit(main(sys.argv[1] if len(sys.argv) > 1 else None))

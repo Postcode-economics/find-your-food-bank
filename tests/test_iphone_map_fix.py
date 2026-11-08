@@ -48,8 +48,8 @@ def png(route):
         'access-control-allow-origin': '*', 'cache-control': 'public, max-age=86400', 'x-helpmap-tile': 'stub'})
 
 
-def old_sw(rev='e3982436c'):
-    """sw.js from an older build. e3982436c is fyfb-v90 (live before this fix); 5c31f005c is fyfb-v89."""
+def old_sw(rev='397c01556d5a855d5b9abba58988e23bd29deea2'):
+    """Old worker from rewritten history (v90 by default; v89 explicitly below)."""
     return subprocess.check_output(['git', 'show', rev + ':sw.js'], cwd=R)
 
 
@@ -115,10 +115,10 @@ class IPhone(unittest.TestCase):
     def test_phone_with_old_opaque_tile_cache_stays_on_openstreetmap(self):
         """Old build (v90) fills 'fyfb-tiles' with opaque tiles; the new worker takes over, deletes that store, and the
         map paints OpenStreetMap tiles with no switch to OpenFreeMap."""
-        self._old_cache('e3982436c')
+        self._old_cache('397c01556d5a855d5b9abba58988e23bd29deea2')
 
     def test_phone_from_a_v89_opaque_tile_cache_stays_on_openstreetmap(self):
-        self._old_cache('5c31f005c')
+        self._old_cache('1cfc031b2d41ac42d9dd32909fc0a7d87d6b512e')
 
     def _old_cache(self, rev):
         from playwright.sync_api import sync_playwright

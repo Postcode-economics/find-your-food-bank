@@ -98,10 +98,11 @@ class Publish(unittest.TestCase):
                 for f in files:
                     self.assertTrue(any(f == p or f.startswith(p.rstrip("/") + "/") for p in paths), "%s runs %s but does not publish %s" % (wf, script, f))
 
-    def test_no_publish_path_is_gitignored(self):
-        """git add exits 1 on an ignored path that exists, and the commit step runs under bash -e."""
+    def test_no_public_publish_path_is_gitignored(self):
+        """Private working paths may be ignored; public publish paths must remain addable."""
         for wf in ("refresh.yml", "refresh-shelters.yml", "refresh-warmspaces.yml", "sweep-daily.yml"):
             _, paths = add_list(wf)
+            paths = [p for p in paths if p.rstrip("/") not in ("logs", "reports") and not p.startswith(("logs/", "reports/"))]
             r = subprocess.run(["git", "check-ignore", "--no-index", *paths], cwd=ROOT, capture_output=True, text=True)
             self.assertEqual(r.stdout.strip(), "", wf)
 

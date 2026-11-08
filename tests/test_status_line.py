@@ -47,6 +47,7 @@ class T(unittest.TestCase):
                         c.close()
                 b.close()
         finally: s.shutdown()
+        os.makedirs(os.path.join(R, 'logs'), exist_ok=True)
         import json; json.dump(bad, open(os.path.join(R, 'logs', 'status_line_bad.json'), 'w'), indent=1)
         self.assertEqual(bad, [])
 if __name__ == '__main__': unittest.main()
