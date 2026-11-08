@@ -160,7 +160,7 @@ jobs:
                 GIT_EDITOR=true git rebase --continue && ok=1
               else echo "::warning::pull failed with no rebase in progress (not a conflict)"; git status; fi
             fi
-            if [ $ok = 1 ]; then python scripts/discovery_rules.py render || true; { python scripts/build_seo.py && python scripts/seo_meta.py; } || echo "::warning::page rebuild after merge failed"; git add -A food-banks warm-spaces shelters sitemap.xml robots.txt 404.html overrides/page_dates.json index.html version.json faq.html terms.html privacy.html accessibility.html overrides/district_cache.json; git add reports/new_today.md reports/manual_review.md; git diff --cached --quiet || git commit -m "Reports and area pages rebuilt after merge"; if git push; then exit 0; fi; fi
+            if [ $ok = 1 ]; then python scripts/discovery_rules.py render || true; { python scripts/build_seo.py && python scripts/seo_meta.py; } || echo "::warning::page rebuild after merge failed"; git add -A food-banks warm-spaces shelters sitemap.xml robots.txt 404.html overrides/page_dates.json index.html version.json faq.html terms.html privacy.html accessibility.html overrides/district_cache.json; bash scripts/git_add_existing.sh reports/new_today.md reports/manual_review.md; git diff --cached --quiet || git commit -m "Reports and area pages rebuilt after merge"; if git push; then exit 0; fi; fi
             git rebase --abort 2>/dev/null || true; sleep $((n * 10))
           done
           exit 1
@@ -198,7 +198,7 @@ jobs:
         run: |
           set +e
           python scripts/digest.py; rc=$?
-          git add reports/morning_digest.md logs/digest_state.json
+          bash scripts/git_add_existing.sh reports/morning_digest.md logs/digest_state.json
           if ! git diff --cached --quiet; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
