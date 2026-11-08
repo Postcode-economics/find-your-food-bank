@@ -110,5 +110,9 @@ function load(){var url=isLive?'incident_rest_centre_live.json':'reports/emergen
  var bust=location.search.indexOf('fresh=1')>=0?('?t='+Date.now()):'';
  fetch(url+bust,{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(data){if(!data||sample)return;if(isLive&&!data.public)return;if(isLive)liveData=data;applyData(data)}).catch(function(){});}
 if(!sample)load();
-document.addEventListener('helpmap-search',function(){if(!isLive)return;if(liveData)applyData(liveData);else load()});
+function fillVisitorLad(done){if(visitorLad()){done();return}var loc=readSearched();if(!loc){done();return}
+ fetch('https://api.postcodes.io/postcodes?lon='+encodeURIComponent(loc.lng)+'&lat='+encodeURIComponent(loc.lat)+'&limit=1').then(function(r){return r.json()}).then(function(j){
+  try{var c=j.result&&j.result[0]&&j.result[0].codes;if(c&&c.admin_district)window.__visitorLad=c.admin_district}catch(e){}
+  done()}).catch(function(){done()})}
+document.addEventListener('helpmap-search',function(){if(!isLive)return;fillVisitorLad(function(){if(liveData)applyData(liveData);else load()})});
 })();
