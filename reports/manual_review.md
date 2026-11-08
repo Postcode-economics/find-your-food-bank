@@ -1722,7 +1722,6 @@ Left out of this run because this place was not already on the map and its page 
 - Champney Hall (ww-55592205): held this run: read failed, not published before
 - Buckland Road Baptist Church (ww-55592206): held this run: read failed, not published before
 - Harwich Arts & Heritage Centre (ww-55592207): held this run: read failed, not published before
-- Polwarth Open and Welcome Space (ww-55592209): held this run: read failed, not published before
 - The Oak Centre (ww-55592211): held this run: read failed, not published before
 - Penwortham Bridge Methodist Church - Cuppa & Chat (ww-55592212): held this run: read failed, not published before
 - Sling Clubhouse (ww-55592213): held this run: read failed, not published before
@@ -1776,7 +1775,6 @@ Left out of this run because this place was not already on the map and its page 
 - Family Life Church (ww-55592282): held this run: read failed, not published before
 - Community Hub (ww-55592286): held this run: read failed, not published before
 - The Salvation Army, Community Room (ww-55592287): held this run: read failed, not published before
-- Saxon Green Community Hub (ww-55592288): held this run: read failed, not published before
 - Light & Life Centre (ww-55592294): held this run: read failed, not published before
 - Brazley Community Centre (ww-55592298): held this run: read failed, not published before
 - Haskayne Village Hall (ww-55592299): held this run: read failed, not published before
@@ -2690,7 +2688,6 @@ Left out of this run because this place was not already on the map and its page 
 - Highfield Hall Community Club (ww-57953126): held this run: read failed, not published before
 - Revelation Community Church Leyland (ww-57953128): held this run: read failed, not published before
 - Syke Community Base (ww-57953129): held this run: read failed, not published before
-- CETMA Swansea (ww-57953130): held this run: read failed, not published before
 - Balham Library (ww-57953132): held this run: read failed, not published before
 - FreeBee Cafe (ww-57953134): held this run: read failed, not published before
 - Good news church (ww-57953139): held this run: read failed, not published before
@@ -2922,7 +2919,6 @@ Left out of this run because this place was not already on the map and its page 
 - Eachstep Lockwood (ww-58084250): held this run: read failed, not published before
 - Christ Church Drop- In morning and Caring Cafe afternoon (ww-58088652): held this run: read failed, not published before
 - St John's Hoxton (ww-58093893): held this run: read failed, not published before
-- Monday Cuppa (ww-58095006): held this run: read failed, not published before
 - Swimbridge Jubilee Hall (ww-58101267): held this run: read failed, not published before
 - Barton Christadelphian Church (ww-58107120): held this run: read failed, not published before
 - Beaminster Library (ww-58107122): held this run: read failed, not published before
@@ -5435,7 +5431,6 @@ Left out of this run because this place was not already on the map and its page 
 - St Mary's Church Lutterworth (ww-68672309): held this run: read failed, not published before
 - Beacon Hill United Reformed Church (ww-68672310): held this run: read failed, not published before
 - The Free Hub (ww-68672311): held this run: read failed, not published before
-- Uppingham Methodist Church (ww-68672312): held this run: read failed, not published before
 - Christ Church Fulwood (ww-68672313): held this run: read failed, not published before
 - TLC - Warm Welcome Space (ww-68672314): held this run: read failed, not published before
 - Wellesbourne Warm Welcome Space (ww-68672315): held this run: read failed, not published before
@@ -5921,7 +5916,7 @@ Left out of this run because this place was not already on the map and its page 
 
 ### Deep sweep (council pages): 0 queued, 0 rejected
 
-### Warm spaces: 3575 queued, 4 rejected
+### Warm spaces: 5030 queued, 5 rejected
 - QUEUED Eastbrook Manor Community Centre, Fishersgate · https://www.adur-worthing.gov.uk/warm-spaces/ — directory listing only, with no 2026-27 season dates (latest stated start: none); no postcode
 - QUEUED East Worthing Baptist Church · https://www.adur-worthing.gov.uk/warm-spaces/ — directory listing only, with no 2026-27 season dates (latest stated start: none); no postcode
 - QUEUED East Worthing Community Centre · https://www.adur-worthing.gov.uk/warm-spaces/ — directory listing only, with no 2026-27 season dates (latest stated start: none); no postcode
@@ -6226,5 +6221,6 @@ Left out of this run because this place was not already on the map and its page 
 - rejected Ochiltree Hub · KA18 2PE · https://www.east-ayrshire.gov.uk/Community/cost-of-living/cost-of-living.aspx — dates all in the past (latest 2023-01-24)
 - rejected Sacred Heart Church Wadhurst · TN5 6DQ · http://sacredheartchurchwadhurst.org.uk/ — own site does not mention a warm space; own site says closed: ss the church and congratulate the parish. Sadly St Peter’s has now closed. Photography by: Daniel Archer Facebook © 2026 Sacred Heart
 - rejected Stonehouse Youth Club · GL10 2DG · https://www.thedoor.org.uk — postcode not on own site; own site does not mention a warm space; own site says closed: ade goods. 2006 – Light at The Door mentoring begins Having closed down our counselling service 2 years earlier 
+- rejected The Point · DN1 2DR · https://thepoint.org.uk/ — own site does not mention a warm space; own site says closed: 9am 4pm Friday 9am 4pm Saturday Closed Closed Sunday Closed Closed Downloadable Resources The Point Visual Story Find Us Address: 1
 
 <!-- END AUTO-DISCOVERY QUEUE -->

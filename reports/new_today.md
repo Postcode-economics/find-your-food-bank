@@ -11,6 +11,10 @@ Places added automatically by discovery today. Each passed: valid postcode in it
 ## Deep sweep (council pages): 0 added
 - none
 
-## Warm spaces: 1 added
+## Warm spaces: 5 added
 - Uppingham Methodist Church · LE15 9SQ
+- Polwarth Open and Welcome Space · EH11 1LU
+- Saxon Green Community Hub · TA6 4JA
+- CETMA Swansea · SA1 5DF
+- Monday Cuppa · NR26 8QS
 

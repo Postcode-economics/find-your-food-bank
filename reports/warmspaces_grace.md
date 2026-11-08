@@ -1,13 +1,13 @@
-# warmspaces: kept on 48-hour grace (2026-11-08T06:16:54+00:00)
+# warmspaces: kept on 48-hour grace (2026-11-08T14:23:07+00:00)
 
 Source page briefly unreachable this run; kept because it was confirmed within the last 48 hours.
 
 - Canford Heath Library (ww-65437341): kept, fetch blocked (schema: hours value invalid: Mon=10:00 - 13:00, 14:00 - 17:00; hours value invalid: Thu=10:00 - 13:00, 14:00 - 17:00; hours value invalid: Fri=10:00 - 13:00, 14:00 - 17:00); last confirmed  (Noneh ago)
 - Churchdown Library (ww-62587523): kept, fetch blocked (schema: hours value invalid: Tue=10:00 - 13:00, 14:00 - 18:00; hours value invalid: Wed=10:00 - 13:00, 14:00 - 17:00; hours value invalid: Thu=10:00 - 13:00, 14:00 - 17:00); last confirmed  (Noneh ago)
 - Inham Nook Library (ww-65438945): kept, fetch blocked (schema: hours value invalid: Thu=10:00 - 12:30, 14:00 - 16:30); last confirmed  (Noneh ago)
-- Over Wyre URC (ww-69002757): kept, fetch blocked (source unreachable this run (HTTP 404)); last confirmed 2026-11-02 (96.3h ago)
-- The King's Church Halifax (ww-65441920): kept, fetch blocked (source URL now redirects to a different site (cornerstonechurchhalifax.co.uk)); last confirmed 2026-10-26 (303.1h ago)
-- The Space at Field Lane Community Hub (ww-68652450): kept, fetch blocked (source page loaded (HTTP 200) but had no readable text this run (1 chars; likely a bot check or JavaScript-only page)); last confirmed 2026-11-07 (8.6h ago)
+- Over Wyre URC (ww-69002757): kept, fetch blocked (source unreachable this run (HTTP 404)); last confirmed 2026-11-02 (104.4h ago)
+- St Mary’s Bromley. Grace Cafe:A Place of Welcome (ww-66574549): kept, fetch blocked (source unreachable this run (HTTP error)); last confirmed 2026-11-08 (8.1h ago)
+- The King's Church Halifax (ww-65441920): kept, fetch blocked (source URL now redirects to a different site (cornerstonechurchhalifax.co.uk)); last confirmed 2026-10-26 (311.2h ago)
 - Canford Heath Library (ww-65437341): kept, fetch blocked (schema: hours value invalid: Mon=10:00 - 13:00, 14:00 - 17:00; hours value invalid: Thu=10:00 - 13:00, 14:00 - 17:00; hours value invalid: Fri=10:00 - 13:00, 14:00 - 17:00); last confirmed  (Noneh ago)
 - Churchdown Library (ww-62587523): kept, fetch blocked (schema: hours value invalid: Tue=10:00 - 13:00, 14:00 - 18:00; hours value invalid: Wed=10:00 - 13:00, 14:00 - 17:00; hours value invalid: Thu=10:00 - 13:00, 14:00 - 17:00); last confirmed  (Noneh ago)
 - Inham Nook Library (ww-65438945): kept, fetch blocked (schema: hours value invalid: Thu=10:00 - 12:30, 14:00 - 16:30); last confirmed  (Noneh ago)
@@ -813,7 +813,6 @@ A place that was not on the map, whose page could not be read, is left out of th
 - Century Theatre (ww-61274760): held this run: read failed, not published before
 - Cepen's Community Cafe (ww-64379314): held this run: read failed, not published before
 - CETMA Business & Community Centre (ww-68233708): held this run: read failed, not published before
-- CETMA Swansea (ww-57953130): held this run: read failed, not published before
 - Chadsmoor Methodist Church Friday Warm Welcome (ww-55474587): held this run: read failed, not published before
 - Chadwell Library (ww-57951985): held this run: read failed, not published before
 - Chair Based Exercise and T in the Afternoon (ww-55473509): held this run: read failed, not published before
@@ -2748,7 +2747,6 @@ A place that was not on the map, whose page could not be read, is left out of th
 - Mollys Cafe (ww-65438785): held this run: read failed, not published before
 - Mollys Warm Space (ww-65438698): held this run: read failed, not published before
 - Moment in Thyme (ww-55475088): held this run: read failed, not published before
-- Monday Cuppa (ww-58095006): held this run: read failed, not published before
 - Monday's Coffee & Chat.  Tuesday's Adult Youth Club (ww-55476163): held this run: read failed, not published before
 - Money Wellness (ww-55475178): held this run: read failed, not published before
 - Monkey Park Community Hub (ww-55476290): held this run: read failed, not published before
@@ -3172,7 +3170,6 @@ A place that was not on the map, whose page could not be read, is left out of th
 - Pollokshields Church (ww-55473959): held this run: read failed, not published before
 - Pollokshields Library (ww-58122911): held this run: read failed, not published before
 - Polperro Methodist Chapel (ww-64379311): held this run: read failed, not published before
-- Polwarth Open and Welcome Space (ww-55592209): held this run: read failed, not published before
 - Pomfret Family Hub (ww-55475703): held this run: read failed, not published before
 - Pontardawe Library (ww-57952830): held this run: read failed, not published before
 - Pontefract Library (ww-57952426): held this run: read failed, not published before
@@ -3473,7 +3470,6 @@ A place that was not on the map, whose page could not be read, is left out of th
 - Sawley St Marys  Church (ww-55744399): held this run: read failed, not published before
 - Sawston Library (ww-57951814): held this run: read failed, not published before
 - Sawtry Library (ww-55474563): held this run: read failed, not published before
-- Saxon Green Community Hub (ww-55592288): held this run: read failed, not published before
 - Scarborough Library (ww-64379112): held this run: read failed, not published before
 - Scarlet House (ww-57953164): held this run: read failed, not published before
 - scawthorpe community library (ww-55472801): held this run: read failed, not published before

@@ -2,27 +2,7 @@
  "shelters.js": {
   "added": [],
   "removed": [],
-  "changed": [
-   {
-    "id": "hab-barnet-winter-night-shelter",
-    "name": "Barnet Winter Night Shelter (Homeless Action in Barnet)",
-    "fields": [
-     "scheme_dates",
-     "season",
-     "upcoming"
-    ],
-    "before": {
-     "scheme_dates": "Opens 8 Nov 2026",
-     "season": "Winter-only (Opens 8 Nov 2026)",
-     "upcoming": true
-    },
-    "after": {
-     "scheme_dates": null,
-     "season": "Winter 2026-27 (cycle one 8 Nov – 21 Dec 2026; HAB runs the shelter October to May)",
-     "upcoming": null
-    }
-   }
-  ],
+  "changed": [],
   "tier_flips": [],
   "upcoming": [
    "Glasgow City Mission Overnight Welcome Centre – Opens 1 Dec 2026 until 31 Mar 2027",
@@ -348,6 +328,10 @@
     "reason": "source no longer names this place"
    },
    {
+    "id": "ww-66574549",
+    "reason": "source unreachable this run (HTTP error)"
+   },
+   {
     "id": "ww-65420055",
     "reason": "source unreachable this run (HTTP 403)"
    },
@@ -362,10 +346,6 @@
    {
     "id": "ww-68769406",
     "reason": "published times not found on source this run"
-   },
-   {
-    "id": "ww-68652450",
-    "reason": "source page loaded (HTTP 200) but had no readable text this run (1 chars; likely a bot check or JavaScript-only page)"
    },
    {
     "id": "ww-65441921",

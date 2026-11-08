@@ -5,7 +5,7 @@ New food banks and shelters wait here for your OK (add the id to overrides/foodb
 ## foodbanks (0)
 
 
-## warmspaces (210)
+## warmspaces (215)
 
 - Age UK Gloucester House (LE13 1JE) - no verified phone - https://www.melton.gov.uk/leisure-health-and-community/cost-of-living/warm-spaces-in-melton/
 - Age UK Surrey (GU8 5EZ) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
@@ -17,6 +17,7 @@ New food banks and shelters wait here for your OK (add the id to overrides/foodb
 - Box Hill Village Hall (KT20 7JT) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
 - Bramley Library (GU5 0HG) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
 - Camberley Baptist Church (GU15 3EN) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- CETMA Swansea (SA1 5DF) - no verified phone - https://www.warmwelcome.uk/space?l=25981
 - Churchill Square (BN1 2TE) - no verified phone - https://gis.brighton-hove.gov.uk/server/rest/services/Hosted/Warm_spaces_October_26/FeatureServer/0/query?where=1=1&outFields=*&f=json
 - Clifton Leisure Centre (NG11 8AB) - no verified phone - https://www.warmwelcome.uk/space?l=28676
 - Cradley Heath Salvation Army (B64 5EP) - no verified phone - https://www.warmwelcome.uk/space?l=26382
@@ -52,13 +53,16 @@ New food banks and shelters wait here for your OK (add the id to overrides/foodb
 - Maybury Support Group (GU22 8HF) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
 - Merstham Baptist Church (RH1 3QA) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
 - Molesey Library (KT8 2HZ) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- Monday Cuppa (NR26 8QS) - no verified phone - https://www.warmwelcome.uk/space?l=26209
 - New Haw Library (KT15 3HA) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
 - New Life Church, Woking (GU22 9BX) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
 - North Molton Community Shop (EX36 3HP) - no verified phone - https://www.warmwelcome.uk/space?l=28671
 - Oldbury Salvation Army (B68 8NG) - no verified phone - https://www.warmwelcome.uk/space?l=23196
 - Open House Drop In (CT6 5RH) - no verified phone - https://www.warmwelcome.uk/space?l=24737
+- Polwarth Open and Welcome Space (EH11 1LU) - no verified phone - https://www.warmwelcome.uk/space?l=22103
 - Poplar Salvation Army - The Table (E14 6AJ) - no verified phone - https://www.warmwelcome.uk/space?l=27947
 - Rowleys Centre for the Community (GU6 8NT) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- Saxon Green Community Hub (TA6 4JA) - no verified phone - https://www.warmwelcome.uk/space?l=22232
 - Second Chance Headway Centre (WF1 1AD) - no verified phone - https://www.warmwelcome.uk/space?l=28675
 - Southglade Leisure Centre (NG5 5GU) - no verified phone - https://www.warmwelcome.uk/space?l=28682
 - St Agatha's Hall (RH8 9FP) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
@@ -88,6 +92,7 @@ New food banks and shelters wait here for your OK (add the id to overrides/foodb
 - The Village Centre (TW20 0QX) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
 - The Westcott Village Hub CIC (RH4 3PR) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
 - The Westway Wellbeing & Community Centre (CR3 5PG) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- Uppingham Methodist Church (LE15 9SQ) - no verified phone - https://www.warmwelcome.uk/space?l=14769
 - Victoria Leisure Centre (NG1 1DB) - no verified phone - https://www.warmwelcome.uk/space?l=28685
 - Warm Space at The Hepworth Wakefield (WF1 5AW) - no verified phone - https://www.warmwelcome.uk/space?l=20139
 - Warm Welcome (SE6 2HE) - no verified phone - https://www.warmwelcome.uk/space?l=22218
@@ -222,6 +227,17 @@ New food banks and shelters wait here for your OK (add the id to overrides/foodb
 
 - Salford Foyer (M6 5WX) - no sourced 'who it's for' - https://www.openstreetmap.org/way/979361293
 - St Mungo's (SE1 0ES) - no sourced 'who it's for' - https://www.openstreetmap.org/way/753792449
+
+
+<!-- times review -->
+## Opening-times review list (times_finder)
+
+Run 2026-11-08. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs; each has its undo command). Every other row is not on the map and needs a hand check before it is added.
+
+- **Holy Trinity Church, Wester Hailes** (`ifan-5b9fd1318a04132921a389-0`, EH14 2SL): Mondays 9.15am – 11.00am | Mondays 9.30am – 11.00am  
+  source: https://www.holytrinitywesterhailes.org.uk  
+  why: hand-checked times are protected; finder only flags differences; not one clear weekly client-hours block (kept as text for review); times not read identically on 2 separate runs yet; jumble: Mon given different times in separate blocks on one page; review only
+<!-- /times review -->
 
 
 <!-- times crosscheck fb -->
@@ -483,7 +499,7 @@ New food banks and shelters wait here for your OK (add the id to overrides/foodb
 
 
 <!-- times crosscheck ws -->
-## Opening-times changes from the refresh (ws): 0 auto-applied, 38 held
+## Opening-times changes from the refresh (ws): 0 auto-applied, 39 held
 
 - **Bishops Stortford Methodist Church** (`ww-64379621`, CM23 3AZ): own site now Tues - Thurs 10am - 4pm | Mondays and Saturdays 10am - 12pm  
   source: https://www.bsm-church.org.uk  
@@ -560,6 +576,9 @@ New food banks and shelters wait here for your OK (add the id to overrides/foodb
 - **St Mary Magdalene Church** (`ww-55475671`, B71 3PJ): own site now Sunday 10am-12 | Tuesday 8.30am-10 | Wednesday 10am-12 | Friday 10am-12  
   source: https://www.achurchnearyou.com/church/4605/  
   why held: this change was undone by Dean; not re-applied
+- **St. Mary's, Broughty Ferry** (`ww-65441941`, DD5 1AJ): own site now Wednesdays 11am - 4pm  
+  source: https://www.smbfsec.com/  
+  why held: day not on the same line as its times on the own-site page; times not read identically on 2 separate runs yet
 - **Stafford Hall Community Living Room** (`ww-65419943`, E17 8JZ): own site now Thursdays 3 pm to 4:15 pm  
   source: https://www.saintbarnabaswalthamstow.com  
   why held: would cut known hours to fewer days (drops Wed, Sun) and the source does not say that session ended; review
@@ -600,6 +619,15 @@ New food banks and shelters wait here for your OK (add the id to overrides/foodb
   source: https://www.westminster.gov.uk/leisure-libraries-and-community/library-opening-times-and-contact-details/west-end-arts-library  
   why held: new own-site times look like office/centre hours; new own-site times look like general venue opening hours (identical weekday block, not warm-space session wording); new own-site times look like general venue opening hours, not a warm-space session
 <!-- /times crosscheck ws -->
+
+
+<!-- sweep shelters -->
+## Shelter candidates from the sweep (review only)
+
+Run 2026-11-08. Nothing here is on the map. Each needs a hand check before it is added.
+
+- none this run
+<!-- /sweep shelters -->
 
 
 <!-- closures -->
@@ -697,6 +725,16 @@ The 29 Oct 05:44 warm spaces refresh (477f83f73) gave these 16 warm spaces a cou
 <!-- /council line undo -->
 
 
+<!-- rest centre switch-on -->
+## Rest centre and SWEP switch-ons (waiting for Dean)
+
+Council pages say these are ON. Incident rest centres go live when overrides/incident_rest_centre_mode.json has public true. A GitHub issue was also opened for each switch-on.
+
+- **North Tyneside Council** — [Severe weather shelter (SWEP)] SWEP — https://www.northtyneside.gov.uk/housing/homelessness/if-you-are-homeless-or-sleeping-rough — “seasonal (council page): SWEP is active between 1 November and 31 March”
+- **West Northamptonshire Council** — [Severe weather shelter (SWEP)] SWEP — https://www.westnorthants.gov.uk/homelessness/support-people-sleeping-rough/help-people-sleeping-rough-very-cold-or-extreme-weather — “ross the whole of West Northamptonshire. How we tell people SWEP has been activated Our Outreach team notifies: relevant council services police services faith…”
+<!-- /rest centre switch-on -->
+
+
 <!-- held near cities -->
 ## Held near cities
 
@@ -723,7 +761,7 @@ Counts of held warm spaces, shelters and day-centre candidates within 10km of ea
 - Southampton: 0 warm spaces, 0 shelters, 0 day centres — main reason: none held
 - Brighton and Hove: 0 warm spaces, 0 shelters, 0 day centres — main reason: none held
 
-5524 held places had no outcode centroid, so they are not counted under a city.
+5520 held places had no outcode centroid, so they are not counted under a city.
 <!-- /held near cities -->
 
 
@@ -758,29 +796,3 @@ Hand check 31 Oct 2026. A directory listing alone is not enough. Nothing here is
 - **Adullam Homes HA - Bury ABEN (Phase 3)** (`hl-adullam-homes-ha-bury-aben-phase-3`): directory record only; an operator or council page has not confirmed it is running now and the phone
 - **Our Way Leeds Emergency Accommodation** (`hl-turning-lives-around-seacole-scheme`): id/name mismatch (the id is Turning Lives Around Seacole; the name is Our Way Leeds)
 <!-- /referral hostel holds -->
-<!-- rest centre switch-on -->
-## Rest centre and SWEP switch-ons (waiting for Dean)
-
-Council pages say these are ON. Incident rest centres go live when overrides/incident_rest_centre_mode.json has public true. A GitHub issue was also opened for each switch-on.
-
-- **North Tyneside Council** — [Severe weather shelter (SWEP)] SWEP — https://www.northtyneside.gov.uk/housing/homelessness/if-you-are-homeless-or-sleeping-rough — “seasonal (council page): SWEP is active between 1 November and 31 March”
-- **West Northamptonshire Council** — [Severe weather shelter (SWEP)] SWEP — https://www.westnorthants.gov.uk/homelessness/support-people-sleeping-rough/help-people-sleeping-rough-very-cold-or-extreme-weather — “ross the whole of West Northamptonshire. How we tell people SWEP has been activated Our Outreach team notifies: relevant council services police services faith…”
-<!-- /rest centre switch-on -->
-
-<!-- sweep shelters -->
-## Shelter candidates from the sweep (review only)
-
-Run 2026-11-08. Nothing here is on the map. Each needs a hand check before it is added.
-
-- none this run
-<!-- /sweep shelters -->
-
-<!-- times review -->
-## Opening-times review list (times_finder)
-
-Run 2026-11-08. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs; each has its undo command). Every other row is not on the map and needs a hand check before it is added.
-
-- **Holy Trinity Church, Wester Hailes** (`ifan-5b9fd1318a04132921a389-0`, EH14 2SL): Mondays 9.15am – 11.00am | Mondays 9.30am – 11.00am  
-  source: https://www.holytrinitywesterhailes.org.uk  
-  why: hand-checked times are protected; finder only flags differences; not one clear weekly client-hours block (kept as text for review); times not read identically on 2 separate runs yet; jumble: Mon given different times in separate blocks on one page; review only
-<!-- /times review -->
