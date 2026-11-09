@@ -42,6 +42,13 @@ class Workflows(unittest.TestCase):
             self.assertIn("success()", s.get("if", ""), name)
             self.assertEqual(s["run"].strip(), "bash scripts/private_state.sh save " + label, name)
 
+    def test_state_steps_can_never_fail_or_hang_a_run(self):
+        for name in WORKFLOWS:
+            for s in steps(name):
+                if "private_state.sh" in s.get("run", ""):
+                    self.assertIs(s.get("continue-on-error"), True, name)
+                    self.assertLessEqual(int(s.get("timeout-minutes", 999)), 5, name)
+
     def test_secret_only_in_state_steps(self):
         for name in WORKFLOWS:
             for s in steps(name):
@@ -124,6 +131,20 @@ class RoundTrip(unittest.TestCase):
         open(os.path.join(b, "logs", "s.json"), "w").write("new")
         self.run_in(b, "restore")
         self.assertEqual(open(os.path.join(b, "logs", "s.json")).read(), "new")
+
+    def test_unreachable_vault_is_fail_safe(self):
+        a = self.checkout("down")
+        env = dict(os.environ, PRIVATE_STATE_REPO="file://" + os.path.join(self.d, "missing.git"), HELPMAP_STATE_KEY="k",
+                   GITHUB_REF="refs/heads/main", PRIVATE_STATE_RETRY_WAIT="0", PRIVATE_STATE_WORK=os.path.join(self.d, "work-down"))
+        r = subprocess.run(["bash", SCRIPT, "restore"], cwd=a, env=env, capture_output=True, text=True)
+        self.assertEqual(r.returncode, 0)
+        self.assertIn("starting without saved state", r.stdout)
+        self.assertFalse(os.path.exists(os.path.join(a, "logs")))
+        os.makedirs(os.path.join(a, "logs")); open(os.path.join(a, "logs", "x.json"), "w").write("{}")
+        env["PRIVATE_STATE_WORK"] = os.path.join(self.d, "work-down2")
+        r = subprocess.run(["bash", SCRIPT, "save", "sweep"], cwd=a, env=env, capture_output=True, text=True)
+        self.assertEqual(r.returncode, 0)
+        self.assertIn("state not saved this run", r.stdout)
 
 
 if __name__ == "__main__":

@@ -17,6 +17,8 @@ jobs:
       - uses: actions/checkout@v4
         with: {fetch-depth: 0}
       - name: Restore saved run state from the private vault (logs/ and reports/; never stored in this public repo)
+        continue-on-error: true
+        timeout-minutes: 5
         env:
           HELPMAP_STATE_KEY: ${{ secrets.HELPMAP_STATE_KEY }}
         run: bash scripts/private_state.sh restore
@@ -199,6 +201,8 @@ jobs:
         run: "echo 'PRACTICE: issues skipped'"
       - name: Save this run's state to the private vault (main only; never in this public repo)
         if: success() && github.ref == 'refs/heads/main'
+        continue-on-error: true
+        timeout-minutes: 5
         env:
           HELPMAP_STATE_KEY: ${{ secrets.HELPMAP_STATE_KEY }}
         run: bash scripts/private_state.sh save shelters

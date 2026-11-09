@@ -66,7 +66,7 @@ case "$mode" in
     changed=$(hashes . | LC_ALL=C sort | comm -23 - <(LC_ALL=C sort "$MARK") | awk '{print $2}')
     if [ -z "$changed" ]; then say "no changed state files"; exit 0; fi
     for n in 1 2 3; do
-      if ! fetch; then warn "could not read the private repo (try $n)"; sleep $((n * 10)); continue; fi
+      if ! fetch; then warn "could not read the private repo (try $n)"; sleep $((n * ${PRIVATE_STATE_RETRY_WAIT:-10})); continue; fi
       k=0
       while IFS= read -r rel; do
         [ -f "$rel" ] || continue
@@ -78,7 +78,7 @@ case "$mode" in
       git -C "$WORK" -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
         commit --quiet -m "Run state: $label ${GITHUB_RUN_ID:-}" >/dev/null 2>&1
       if git -C "$WORK" push --quiet origin HEAD >/dev/null 2>&1; then say "saved $k file(s)"; exit 0; fi
-      warn "push refused (try $n), retrying on the newest copy"; sleep $((n * 10))
+      warn "push refused (try $n), retrying on the newest copy"; sleep $((n * ${PRIVATE_STATE_RETRY_WAIT:-10}))
     done
     warn "state not saved this run"
     ;;
