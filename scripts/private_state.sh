@@ -3,13 +3,18 @@
 # public repo. Since then every run started with no memory (learning back-off, two-run times confirmations, undo log,
 # carry-forward dates, discovery caches). This script keeps that state in the PRIVATE repo helpmap-research-backup
 # under site-run-state/, never in this repo, never as a workflow artifact, and never printed to the log.
-#   restore        copy the saved logs/ and reports/ into this checkout (files already in the checkout win)
-#   save <label>   main only: copy back the files this run created or changed, then commit and push privately
+#   restore        copy the saved logs/ and reports/ into this checkout (files already in the checkout win; merge rules in
+#                  scripts/private_state_restore.py). Only when real saved state came back does it set
+#                  HELPMAP_STATE_RESTORED=1; otherwise times auto-apply stays off for this run (scripts/auto_rules.py state_ok)
+#   save <label>   main only: copy the files this run created or changed into site-run-state/<label>/ (one folder per
+#                  layer: foodbanks, shelters, warmspaces, sweep, so parallel runs never write the same path), then commit
+#                  and push privately; a refused push is retried on a fresh copy of the newest private repo
 # Needs the Actions secret HELPMAP_STATE_KEY (a deploy key with write access on helpmap-research-backup only).
 # With no key it does nothing and says so: the run carries on exactly as it does without saved state. Fail-safe:
 # a clone or push problem is a warning, never a failed refresh.
 set -u
 mode="${1:-}"; label="${2:-run}"
+case "$label" in foodbanks|shelters|warmspaces|sweep|run) ;; *) echo "private state: unknown layer label" >&2; exit 2 ;; esac
 REPO="${PRIVATE_STATE_REPO:-git@github.com:Postcode-economics/helpmap-research-backup.git}"
 DIR="site-run-state"
 WORK="${PRIVATE_STATE_WORK:-${RUNNER_TEMP:-/tmp}/private-state}"
@@ -45,19 +50,18 @@ hashes() {  # "<sha256>  <path>" for every file under logs/ and reports/ of the 
 case "$mode" in
   restore)
     setup_ssh
-    if ! fetch; then warn "could not read the private repo; starting without saved state"; : > "$MARK"; exit 0; fi
-    n=0
-    if [ -d "$WORK/$DIR" ]; then
-      for sub in logs reports; do
-        [ -d "$WORK/$DIR/$sub" ] || continue
-        while IFS= read -r -d '' f; do
-          rel="${f#"$WORK/$DIR/"}"
-          if [ ! -e "$rel" ]; then mkdir -p "$(dirname "$rel")"; cp -p "$f" "$rel"; n=$((n + 1)); fi
-        done < <(find "$WORK/$DIR/$sub" -type f -print0)
-      done
+    if ! fetch; then
+      warn "could not read the private repo; starting without saved state, so times auto-apply is off for this run"
+      : > "$MARK"; exit 0
     fi
+    read -r n state < <(python3 "$(dirname "$0")/private_state_restore.py" "$WORK/$DIR" . 2>/dev/null || echo "0 missing")
     hashes . > "$MARK"
-    say "restored $n file(s) into logs/ and reports/"
+    if [ "$state" = present ]; then
+      [ -n "${GITHUB_ENV:-}" ] && echo "HELPMAP_STATE_RESTORED=1" >> "$GITHUB_ENV"
+      say "restored $n file(s) into logs/ and reports/"
+    else
+      warn "no saved state in the private repo ($n file(s) restored); times auto-apply is off for this run"
+    fi
     ;;
   save)
     if [ "${GITHUB_REF:-refs/heads/main}" != "refs/heads/main" ]; then say "not main, nothing saved"; exit 0; fi
@@ -71,10 +75,11 @@ case "$mode" in
       while IFS= read -r rel; do
         [ -f "$rel" ] || continue
         if [ "$(stat -c %s "$rel")" -gt 50000000 ]; then warn "skipped a file over 50 MB"; continue; fi
-        mkdir -p "$WORK/$DIR/$(dirname "$rel")"; cp -p "$rel" "$WORK/$DIR/$rel"; k=$((k + 1))
+        mkdir -p "$WORK/$DIR/$label/$(dirname "$rel")"; cp -p "$rel" "$WORK/$DIR/$label/$rel"; k=$((k + 1))
       done <<< "$changed"
       git -C "$WORK" add -A "$DIR" >/dev/null 2>&1
       if git -C "$WORK" diff --cached --quiet; then say "no changed state files"; exit 0; fi
+      date +%s > "$WORK/$DIR/$label/.saved_at"; git -C "$WORK" add -A "$DIR" >/dev/null 2>&1
       git -C "$WORK" -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
         commit --quiet -m "Run state: $label ${GITHUB_RUN_ID:-}" >/dev/null 2>&1
       if git -C "$WORK" push --quiet origin HEAD >/dev/null 2>&1; then say "saved $k file(s)"; exit 0; fi

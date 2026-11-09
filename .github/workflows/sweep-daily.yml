@@ -12,6 +12,8 @@ permissions:
 concurrency:
   group: sweep-daily
   cancel-in-progress: false
+env:
+  HELPMAP_STATE_CHECK: "1"   # times auto-apply only after saved run state is restored (scripts/auto_rules.py state_ok, #491)
 jobs:
   sweep:
     runs-on: ubuntu-latest
