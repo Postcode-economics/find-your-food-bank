@@ -112,5 +112,39 @@ class PublishOneWorkflowTest(unittest.TestCase):
         self.assertIn("python scripts/publish_one.py", self.content)
 
 
+    def test_lock_checks_run_before_anything_is_published(self):
+        """9 Nov 2026: a fast-track card changed what a lock test expected and every refresh then failed.
+        Each layer runs the refreshes' own checks on the card it is about to publish, after the publish
+        step and before the commit, with no always() so a failure stops the commit and the email."""
+        for name in ("publish_foodbanks", "publish_shelters", "publish_warmspaces"):
+            steps = self.data["jobs"][name]["steps"]
+            names = [step.get("name", "") for step in steps]
+            gate = names.index("Test the checks against the card about to be published")
+            publish = next(i for i, n in enumerate(names) if n.startswith("Publish one "))
+            commit = next(i for i, step in enumerate(steps) if step.get("id") == "commit")
+            self.assertLess(publish, gate)
+            self.assertLess(gate, commit)
+            self.assertEqual(steps[gate]["run"].strip(), "python -m unittest discover -s tests")
+            self.assertNotIn("if", steps[gate])
+            self.assertNotIn("continue-on-error", steps[gate])
+
+    def test_listing_prs_run_the_lock_checks_on_the_published_card(self):
+        """The PR's test job publishes its cards into a throwaway copy and runs the refreshes' own checks on it,
+        so a stale lock test fails before the merge, not on main."""
+        with open(os.path.join(ROOT, ".github", "workflows", "tests.yml"), encoding="utf-8") as f:
+            tests = yaml.safe_load(f)
+        steps = tests["jobs"]["test"]["steps"]
+        step = next(s for s in steps if str(s.get("name", "")).startswith("Card lock check"))
+        self.assertEqual(step.get("if"), "github.event_name == 'pull_request'")
+        self.assertNotIn("continue-on-error", step)
+        run = step["run"]
+        self.assertIn("set -euo pipefail", run)
+        self.assertIn("python scripts/publish_one.py --commit HEAD --list", run)
+        self.assertIn('cp -a "$GITHUB_WORKSPACE" "$work"; cd "$work"', run)
+        self.assertLess(run.index('cd "$work"'), run.index("python scripts/publish_one.py --commit HEAD\n"))
+        self.assertNotIn("--dry-run", run)
+        self.assertIn("python -m unittest discover -s tests", run)
+        self.assertIn("python -m pytest -q $named", run)
+
 if __name__ == "__main__":
     unittest.main()
