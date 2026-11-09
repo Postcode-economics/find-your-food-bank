@@ -109,7 +109,7 @@ SEEN = "logs/times_finder_seen.json"            # last run's parsed times per id
 AUTO_LOG = "reports/times_auto_applied.json"    # every automatic change, revert with scripts/times_revert.py <id>
 UNDONE = "overrides/times_auto_undone.json"     # 'finder:<id>' -> parsed table Dean undid (times_revert.py); never re-applied
 def undone_key(k): return "finder:" + k
-def times_auto_on(rules=None): return bool((rules if rules is not None else RULES).get(TIMES_KEY, False))
+def times_auto_on(rules=None): return auto_rules.times_auto_allowed(rules if rules is not None else RULES)   # off when run state is missing (#491)
 def _sig(ot): return json.dumps(ot.get("structured"), sort_keys=True) if ot and ot.get("structured") else None
 def _empty(ot):
     """No usable times: missing, closed, all-closed, or a weekly table with no sessions."""
@@ -195,7 +195,8 @@ def decide(log, items, apply, rules=None, now=None):
         if not _read(ot): continue
         it = ix.get(k, {}); ot = dict(ot, _run_at=now)
         why = strict_checks(k, ot, it, cur, seen, len(same[(urllib.parse.urlparse(ot.get("source_url") or "").netloc, ot.get("raw"))]), ks, blocked, own_sites)
-        if not why and not on: why.append("times auto-apply is off (overrides/auto_apply_rules.json times_auto_apply): hand check first")
+        if not why and not on: why.append("times auto-apply is off (overrides/auto_apply_rules.json times_auto_apply): hand check first"
+                                          if auto_rules.state_ok() else auto_rules.STATE_OFF_WHY)
         if _sig(ot): new_seen[k] = {"sig": _sig(ot), "source_url": ot.get("source_url"), "run_at": now}
         if im and IR.already_published(cur.get(k) or it.get("opening_times"), ot):
             IR.log_stale("finder:" + k)

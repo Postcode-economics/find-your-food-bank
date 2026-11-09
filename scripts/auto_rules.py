@@ -18,3 +18,12 @@ def approved(layer, root=None):
             except Exception: pass
     return ok
 def may_add(layer, rules=None): return bool((rules or load())['add_new_places'].get(layer))
+
+def state_ok():
+    """Grok Bot 2 on #491 (9 Nov 2026): the refresh and sweep workflows set HELPMAP_STATE_CHECK=1, and
+    scripts/private_state.sh sets HELPMAP_STATE_RESTORED=1 only when it really restored saved run state (undo log,
+    two-run seen maps) from the private vault. A workflow run without it applies no opening times automatically;
+    they are held as usual and everything else still publishes. Outside those workflows (local runs, tests) this is True."""
+    return not (os.environ.get('HELPMAP_STATE_CHECK') == '1' and os.environ.get('HELPMAP_STATE_RESTORED') != '1')
+STATE_OFF_WHY = "saved run state was not restored from the private vault this run, so times auto-apply is off for this run"
+def times_auto_allowed(rules): return bool(rules.get('times_auto_apply', False)) and state_ok()
