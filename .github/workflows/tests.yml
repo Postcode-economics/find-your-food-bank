@@ -222,6 +222,24 @@ jobs:
       - run: |
           if [ "$(cat selected_tests.txt)" = ALL ]; then python -m pytest -q tests
           else python -m pytest -q $(cat selected_tests.txt); fi
+      # Card lock check (9 Nov 2026). A listing PR's own tests pass because data.full.js, shelters.js and
+      # warmspaces.js only change when publish_one runs after the merge; a lock test that still expected the
+      # old card then failed every refresh. Publish the cards this PR changes into a throwaway copy, exactly as
+      # publish_one will after the merge, and run the refreshes' own checks (plus any test naming those ids)
+      # against it, so a stale lock test fails here, before the merge. The checkout itself is never changed.
+      - name: Card lock check - this PR's cards published in a copy must pass the refreshes' checks
+        if: github.event_name == 'pull_request'
+        run: |
+          set -euo pipefail
+          ids=$(python scripts/publish_one.py --commit HEAD --list)
+          echo "cards this PR changes: $ids"
+          if ! printf '%s' "$ids" | jq -e '[.[] | length] | add > 0' >/dev/null; then echo "no listing overlay changes"; exit 0; fi
+          work="$RUNNER_TEMP/card-lock-check"
+          rm -rf "$work"; cp -a "$GITHUB_WORKSPACE" "$work"; cd "$work"
+          python scripts/publish_one.py --commit HEAD
+          python -m unittest discover -s tests
+          named=$(printf '%s' "$ids" | jq -r '.[][]' | while IFS= read -r id; do grep -lF -- "$id" tests/test_*.py || true; done | sort -u)
+          if [ -n "$named" ]; then python -m pytest -q $named; fi
       # Alert-only for one week (Dean 27 Oct 2026): reports date mismatches as warnings, never fails.
       - name: Date check (alert-only)
         continue-on-error: true

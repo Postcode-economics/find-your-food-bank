@@ -93,6 +93,11 @@ jobs:
               if rc != 0:
                   sys.exit(rc)
           PY
+      # A fast-track card can change what a lock test expects (9 Nov 2026: the pantry card broke every refresh
+      # and the deep sweep, whose first step runs these same checks). Run them on the card about to be published;
+      # if any fails, nothing is committed or published.
+      - name: Test the checks against the card about to be published
+        run: python -m unittest discover -s tests
       - name: Commit if changed
         id: commit
         if: github.ref == 'refs/heads/main'
@@ -192,6 +197,11 @@ jobs:
               if rc != 0:
                   sys.exit(rc)
           PY
+      # A fast-track card can change what a lock test expects (9 Nov 2026: the pantry card broke every refresh
+      # and the deep sweep, whose first step runs these same checks). Run them on the card about to be published;
+      # if any fails, nothing is committed or published.
+      - name: Test the checks against the card about to be published
+        run: python -m unittest discover -s tests
       - name: Commit if changed
         id: commit
         if: github.ref == 'refs/heads/main'
@@ -291,6 +301,11 @@ jobs:
               if rc != 0:
                   sys.exit(rc)
           PY
+      # A fast-track card can change what a lock test expects (9 Nov 2026: the pantry card broke every refresh
+      # and the deep sweep, whose first step runs these same checks). Run them on the card about to be published;
+      # if any fails, nothing is committed or published.
+      - name: Test the checks against the card about to be published
+        run: python -m unittest discover -s tests
       - name: Commit if changed
         id: commit
         if: github.ref == 'refs/heads/main'
