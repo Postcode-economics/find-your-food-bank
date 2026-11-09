@@ -58,6 +58,12 @@ jobs:
         run: python scripts/validate.py gate
       - name: Stamp this run's UK date and time (footer last updated / checked)
         run: python scripts/stamp.py write sweep && python scripts/stamp.py verify
+      # The checks above ran on the published files. Run the same set again on this run's rebuilt files, so a
+      # rebuild that breaks a lock or verification test is never committed (earlier data stays live, the run-failed
+      # alert fires). A clean venv without Playwright, so browser checks skip exactly as in the first run.
+      - name: Test the same checks again on this run's rebuilt files (a failure stops the publish)
+        timeout-minutes: 15
+        run: python -m venv /tmp/postcheck && /tmp/postcheck/bin/python -m unittest tests.test_sweep tests.test_recheck tests.test_rule21_refresh -v
       - name: Commit new entries and the sweep log
         id: commit
         run: |
