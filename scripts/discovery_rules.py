@@ -18,6 +18,32 @@ PC = re.compile(r"\b([A-Z]{1,2}\d[A-Z\d]?)\s*(\d[A-Z]{2})\b")
 # working source and the postcode checks pass. Everything else (unreachable, closed, wrong service, redirect) is not.
 SOFT = ("postcode not on own site", "no own website in directory", "no postcode in directory")
 HARD_REJECT = ("own site says closed",)  # everything else that fails goes to the manual queue, not the bin
+
+def next_evidence(reasons, layer="warmspaces"):
+    """What the system should gather next for a queued find (plan 1.2). Never decides to publish."""
+    rs = [str(r).lower() for r in (reasons or [])]
+    blob = " | ".join(rs)
+    if any("on hold:" in r for r in rs):
+        return "wait for the hand hold to clear"
+    if any("own site unreachable" in r or "own site timed" in r for r in rs):
+        return "retry the operator's own site (or find a working own-site URL)"
+    if any("own site does not show" in r or "not show food" in r for r in rs):
+        return "find a page on the operator's own site that confirms food aid and the address"
+    if any("season dates" in r or "directory listing only" in r for r in rs):
+        if layer == "foodbanks":
+            return "confirm on the food bank's own site (food banks have no season)"
+        return "find the operator's or council's own page with this-season (2026-27) dates"
+    if any("no postcode" in r for r in rs):
+        return "find a postcode on the operator's or council's own page"
+    if any("not recognised" in r for r in rs):
+        return "confirm the postcode on the operator's own page"
+    if any("no own website" in r for r in rs):
+        return "find the operator's own website (directories only find candidates)"
+    if any("source pin" in r or "different postcode" in r for r in rs):
+        return "confirm address and postcode on the operator's own page"
+    if rs:
+        return "gather independent own-site or council confirmation for: " + "; ".join(reasons[:3])
+    return "gather own-site or council confirmation"
 def npc(p): return (p or "").upper().replace(" ", "")
 def hav(a, b, c, d):
     import math
@@ -134,7 +160,11 @@ def record(layer, run_day, added=(), queued=(), rejected=(), source="", root=Non
         seen = {a["id"] for a in d["added"]}
         d["added"] += [a for a in added if a.get("id") not in seen]
         for k, x in (("queued", queued), ("rejected", rejected)):
-            for e in x: d[k][str(e.get("id") or e.get("name"))] = e
+            for e in x:
+                e = dict(e)
+                if k == "queued" and not e.get("next_evidence"):
+                    e["next_evidence"] = next_evidence(e.get("reasons") or [], layer)
+                d[k][str(e.get("id") or e.get("name"))] = e
         os.makedirs(os.path.dirname(p), exist_ok=True)
         tmp = p + ".tmp"; json.dump(d, open(tmp, "w"), indent=1, ensure_ascii=False); os.replace(tmp, p)
         render(run_day, root)
@@ -164,7 +194,7 @@ def render(run_day, root=None):
     Q = [START, "## Auto-discovery queue (%s) — failed one auto-add check, not on the map" % run_day, ""]
     for k, x in D.items():
         Q.append("### %s: %d queued, %d rejected" % (LAYERS.get(k, k), len(x["queued"]), len(x["rejected"])))
-        Q += ["- QUEUED " + _lines(e) + " — " + "; ".join(e.get("reasons", []))[:200] for e in list(x["queued"].values())[:300]]
+        Q += ["- QUEUED " + _lines(e) + " — " + "; ".join(e.get("reasons", []))[:200] + ((" · next: " + e["next_evidence"]) if e.get("next_evidence") else "") for e in list(x["queued"].values())[:300]]
         Q += ["- rejected " + _lines(e) + " — " + "; ".join(e.get("reasons", []))[:200] for e in list(x["rejected"].values())[:100]]
         Q.append("")
     Q.append(STOP)
