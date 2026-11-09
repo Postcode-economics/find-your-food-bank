@@ -132,8 +132,14 @@ class Workflow(unittest.TestCase):
         body = text + "\n" + loop
         self.assertIn("name: Incident rest centre watch (every 10 min)", text)
         self.assertIn('cron: "*/10 * * * *"', text)
-        self.assertIn("group: incident-rest-centre-watch", text)
+        # Per-ref group so a practice branch cannot block the live main chain.
+        self.assertIn("group: incident-rest-centre-watch-${{ github.ref }}", text)
         self.assertIn("cancel-in-progress: false", text)
+        # Rule 97: never Actions cache/artifacts on this public repo for ERC state.
+        self.assertNotIn("actions/cache", text)
+        self.assertNotIn("upload-artifact", text)
+        self.assertIn("hydrate_from_public_live", open(os.path.join(ROOT, "scripts", "incident_rest_centre_live.py"), encoding="utf-8").read())
+        self.assertIn("--hydrate-from-live", loop)
         self.assertEqual(body.count("alert.py open incident-watch"), 1)
         self.assertIn("python scripts/incident_rest_centre_watch.py", loop)
         self.assertIn("bash scripts/incident_rest_centre_watch_loop.sh", text)
