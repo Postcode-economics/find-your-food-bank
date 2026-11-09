@@ -43,8 +43,10 @@ class RetryTest(unittest.TestCase):
         r = D.fetch_raw(u)
         self.assertEqual(r['http'], 200); self.assertEqual(r['retries'], 2)
         self.assertEqual(self.sleeps, [D.RETRY_BASE, D.RETRY_BASE * 3])       # backoff grows
+        # First try and polite retries now share HelpMapBot (plan 1.5); retries still use POLITE_UA headers.
         self.assertEqual(self.calls[0], D.UA['User-Agent'])
         self.assertTrue(all(c == D.POLITE_UA['User-Agent'] for c in self.calls[1:]))
+        self.assertEqual(D.UA['User-Agent'], D.POLITE_UA['User-Agent'])
         self.assertIn('helpmap.uk', D.POLITE_UA['User-Agent'])
         self.assertIn('HelpMapBot/1.0', D.POLITE_UA['User-Agent'])
 

@@ -1,6 +1,8 @@
 import json, os, re, time, urllib.request, datetime
 import place_lock  # hand-wins for the kept copy in verification_gate (one copy of the rule)
-UA = {"User-Agent": "postcode-economics-map/1.0 (+https://postcode-economics.github.io/find-your-food-bank/)"}
+# Single identified agent for council/site fetches (plan 1.5, 9 Nov 2026). Allow-list requests name this.
+HELPMAP_BOT = "Mozilla/5.0 (compatible; HelpMapBot/1.0; +https://helpmap.uk/; checks published food bank, warm space and shelter pages, a few pages a day)"
+UA = {"User-Agent": HELPMAP_BOT}
 PC_RE = re.compile(r"\b([A-Z]{1,2}[0-9][0-9A-Z]?)\s*([0-9][A-Z]{2})\b", re.I)
 def today(): return datetime.date.today().isoformat()
 FETCH_LOGS = []

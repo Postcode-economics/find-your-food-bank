@@ -16,9 +16,11 @@ Every 3x-daily run:
 Never invents data: everything published comes from a fetched page or a directory record."""
 import re, os, sys, json, html, ssl, math, time, hashlib, datetime, threading, urllib.request, urllib.parse, concurrent.futures as cf
 CTX = ssl._create_unverified_context()
-UA = {"User-Agent": "Mozilla/5.0 (FindYourFoodBank refresh; own-site check)"}
-# Polite retry (27 Oct 2026): a site that answers 403/429 is asked again more slowly, identifying who we are and why.
-POLITE_UA = {"User-Agent": "Mozilla/5.0 (compatible; HelpMapBot/1.0; +https://helpmap.uk/; checks published food bank opening times, a few pages a day)",
+# Same HelpMapBot on first try and on 403/429 retry (plan 1.5, 9 Nov 2026). Councils can allow-list one agent.
+HELPMAP_BOT = "Mozilla/5.0 (compatible; HelpMapBot/1.0; +https://helpmap.uk/; checks published food bank, warm space and shelter pages, a few pages a day)"
+UA = {"User-Agent": HELPMAP_BOT}
+# Polite retry (27 Oct 2026): a site that answers 403/429 is asked again more slowly. Same agent; still backs off.
+POLITE_UA = {"User-Agent": HELPMAP_BOT,
              "Accept": "text/html,application/xhtml+xml;q=0.9,*/*;q=0.8", "Accept-Language": "en-GB,en;q=0.8"}
 RETRY_CODES = (403, 429)
 RETRY_TRIES = int(os.environ.get("TIMES_RETRY_TRIES", "3"))       # extra attempts after the first refusal
