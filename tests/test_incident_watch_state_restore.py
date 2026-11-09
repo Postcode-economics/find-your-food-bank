@@ -86,28 +86,20 @@ class HydrateFromPublicLive(unittest.TestCase):
         self.assertEqual(state.get("incidents") or {}, {})
 
     def test_watch_rescans_hydrated_live_card_without_a_warning(self):
-        """After a job restart with empty logs/, the public live file alone is enough to re-scan."""
+        """After a job restart with empty logs/, the public live file alone supplies re-scan URLs.
+
+        Does not call the full watch run (that opens GitHub issues); other watch tests cover
+        fetch+switch-on with a fake gh. This guard locks the hydrate → live_source_urls path.
+        """
         import incident_rest_centre_live as live
         import incident_rest_centre_watch as W
         self._write_live([CARD])
-        seen = []
-        councils = [{"code": "E07000224", "name": "Arun District Council", "lad": "E07000224"}]
-        sources = [{"name": "Arun District Council", "news": [CARD["source_url"]], "emergencies": []}]
-        W.run(
-            root=self.d,
-            warnings=[],
-            fetcher=lambda u: seen.append(u) or {
-                "http": 200,
-                "html": "A rest centre is open at Riverside Hall BN17 5AA.",
-            },
-            now=NOW,
-            councils=councils,
-            sources=sources,
-            swep_sources=[],
-        )
-        self.assertIn(CARD["source_url"], seen)
+        note = live.hydrate_from_public_live(self.d, now=NOW)
+        self.assertTrue(note.startswith("hydrated"), note)
+        urls = W.live_source_urls(self.d)
+        self.assertEqual(urls, [CARD["source_url"]])
         state = live.load_state(os.path.join(self.d, live.STATE))
-        self.assertTrue(state.get("incidents"), "hydrated state must remain after the check")
+        self.assertTrue(state.get("incidents"), "hydrated state must remain")
 
 
 class WorkflowNoPublicCache(unittest.TestCase):
