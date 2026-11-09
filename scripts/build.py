@@ -166,7 +166,7 @@ def main():
     RUN_DAY = datetime.date.today().isoformat()
     def chk(c):
         r = {'result': 'flag', 'reasons': []} if DR.held(c) else discover.own_site_check(c, 'fb')
-        return c, r, DR.assess(c, r, GEO, RUN_DAY)
+        return c, r, DR.assess(c, r, GEO, RUN_DAY, layer="fb")
     import concurrent.futures as cf
     with cf.ThreadPoolExecutor(24) as ex: res = list(ex.map(chk, new_c))
     if sum(1 for x in res if x[2][0] == 'add') > int(os.environ.get('DISCOVERY_MAX_NEW', '150')):  # flood = source changed: hold all

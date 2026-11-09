@@ -154,7 +154,7 @@ def collect_pages(pages, root, day, label_ready_fn=None, hl_services=()):
             continue
         row["label"] = "Day centre" if ready else ""
         row["why"] = ("held for the Day centre label; not published as a shelter" if ready
-                      else "Day centre label is not on the map yet; held as a candidate")
+                      else "held as a candidate: needs the operator's or council's own page and a verified phone")
         row["checked_on"] = day
         by[row["id"]] = _strip_private(row)
     path = os.path.join(root, LOG)
@@ -170,7 +170,9 @@ def collect_pages(pages, root, day, label_ready_fn=None, hl_services=()):
     os.replace(tmp, path)
     lines = ["## Day centre candidates (held)", "",
              "Council day-centre / rough-sleeping pages and Homeless Link's day-centre category. Not on the map.",
-             "Publish only via the Day centre label once that label exists. Until then these stay held.", ""]
+             "Held candidates, not published. The Day centre label is on the map; each candidate still needs the operator's "
+             "or council's own page to confirm it (a directory alone is not enough) and a verified phone before a reviewed "
+             "update can add it.", ""]
     show = doc["candidates"][:25]
     if not show:
         lines.append("- none this run")
