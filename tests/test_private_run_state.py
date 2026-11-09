@@ -6,7 +6,7 @@ never prints file contents; and a round trip through a local stand-in repo resto
 Grok Bot 2 on #491: (a) no restored state -> times auto-apply off for that run; (b) one private folder per layer,
 undo logs merged, a refused push retried; (c) restored files are never staged for the public repo; (d) the sweep has
 no practice mode (rule 94), so its sync is covered here by unit tests with the 'sweep' label."""
-import os, shutil, subprocess, sys, tempfile, unittest
+import os, re, shutil, subprocess, sys, tempfile, unittest
 try:
     import yaml
 except ImportError:  # same as the other workflow guard tests: the refresh runners start without pyyaml
@@ -274,8 +274,13 @@ class TimesAutoApplyNeedsState(unittest.TestCase):
             for job in wf["jobs"].values():
                 self.assertNotIn("HELPMAP_STATE_CHECK", str(job.get("env", {})), name)
                 for s in job["steps"]:
-                    self.assertNotIn("HELPMAP_STATE_CHECK", str(s.get("env", {})), name)
-                    self.assertNotIn("HELPMAP_STATE_RESTORED", str(s.get("env", {})), name)
+                    run = s.get("run", "")
+                    is_tests = bool(re.search(r"-m (unittest|pytest)\b", run))
+                    env = s.get("env") or {}
+                    # only the test-suite steps switch the check off, so the suite never depends on run state
+                    if is_tests: self.assertEqual(str(env.get("HELPMAP_STATE_CHECK")), "0", (name, s.get("name")))
+                    else: self.assertNotIn("HELPMAP_STATE_CHECK", env, (name, s.get("name")))
+                    self.assertNotIn("HELPMAP_STATE_RESTORED", str(env), name)
                     if "private_state.sh" not in s.get("run", ""):
                         self.assertNotIn("HELPMAP_STATE_RESTORED", s.get("run", ""), name)
 

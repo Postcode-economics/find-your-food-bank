@@ -31,6 +31,8 @@ jobs:
         with:
           python-version: "3.12"
       - name: Test the sweep and verification checks
+        env:
+          HELPMAP_STATE_CHECK: "0"   # the test suite itself must not depend on run state (#491)
         run: python -m unittest tests.test_sweep tests.test_recheck tests.test_rule21_refresh -v
       - name: Sweep every council sitemap and list page (fail-safe; adds new entries only)
         run: python scripts/sweep_daily.py
@@ -56,6 +58,7 @@ jobs:
       - name: Full test suite on this run's files (a failure this run caused stops the push; rule 82 scope in scripts/sweep_gate.py)
         timeout-minutes: 40
         env:
+          HELPMAP_STATE_CHECK: "0"   # the test suite itself must not depend on run state (#491)
           GH_TOKEN: ${{ github.token }}
         run: |
           python -m venv /tmp/suite && /tmp/suite/bin/pip install -q pytest==9.1.1
@@ -70,6 +73,8 @@ jobs:
       # rebuild that breaks a lock or verification test is never committed (earlier data stays live, the run-failed
       # alert fires). A clean venv without Playwright, so browser checks skip exactly as in the first run.
       - name: Test the same checks again on this run's rebuilt files (a failure stops the publish)
+        env:
+          HELPMAP_STATE_CHECK: "0"   # the test suite itself must not depend on run state (#491)
         timeout-minutes: 15
         run: python -m venv /tmp/postcheck && /tmp/postcheck/bin/python -m unittest tests.test_sweep tests.test_recheck tests.test_rule21_refresh -v
       - name: Commit new entries and the sweep log
