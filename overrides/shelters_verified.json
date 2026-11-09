@@ -2788,7 +2788,11 @@
     "evidence_url": "https://bexhillhug.org.uk/",
     "facilities": "Not stated",
     "groups": [],
-    "hours": "Not stated",
+    "hours": {
+      "Mon": "08:30 - 11:30",
+      "Sat": "13:00 - 15:00",
+      "Thu": "08:30 - 11:30"
+    },
     "lat": 50.840098,
     "lng": 0.478858,
     "name": "HUG Safe Space (Bexhill & Rother Homelessness Unity Group)",
@@ -2798,7 +2802,7 @@
     "quote": "nts, help with shopping etc. Show Less Charity No. 1182306 56a Haslam Crescent Bexhill-on-Sea East Sussex TN40 2QH Tel: 07881-642331 bexhillhug@gmail.com Contact Us Drop us",
     "referral": "Drop in; showers & laundry",
     "season": "Daytime only",
-    "verified_on": "2026-10-31",
+    "verified_on": "2026-11-09",
     "who_for": "Not stated"
   },
   "man-joining-communities-together-jct": {
