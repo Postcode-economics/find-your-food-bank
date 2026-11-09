@@ -71,6 +71,16 @@ class Hold(unittest.TestCase):
         self.assertFalse(os.path.exists(os.path.join(self.d, "reports", "verified_new_places.json")))
         self.assertIn('"id":"keep"', open(os.path.join(self.d, "shelters.js"), encoding="utf-8").read().replace(" ", ""))
 
+    def test_held_wording_no_longer_says_the_label_does_not_exist(self):
+        D.collect_pages(
+            [{"url": "https://example.gov.uk/housing/day-centres", "html": read("listing.html"), "council": "Lambeth"}],
+            self.d, "2026-10-31", label_ready_fn=lambda: False)
+        md = open(os.path.join(self.d, "reports", "pending_dean.md"), encoding="utf-8").read()
+        self.assertNotIn("once that label exists", md)
+        self.assertIn("Held candidates, not published", md)
+        doc = json.load(open(os.path.join(self.d, "logs", "day_centre_candidates.json")))
+        self.assertTrue(all(c["publish"] is False and "own page" in c["why"] for c in doc["candidates"]))
+
     def test_label_ready_still_does_not_publish(self):
         D.collect_pages(
             [{"url": "https://example.gov.uk/housing/day-centres", "html": read("listing.html"), "council": "Lambeth"}],

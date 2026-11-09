@@ -54,3 +54,23 @@ class Record(unittest.TestCase):
         self.assertIn("hand-made section", mr); self.assertIn("Queued Place", mr); self.assertEqual(mr.count(DR.START), 1)
         self.assertEqual(len(json.load(open(os.path.join(r, "logs", "discovery_today_warmspaces.json")))["runs"]), 2)
 if __name__ == "__main__": unittest.main()
+
+
+class HoldWording(unittest.TestCase):
+    """9 Nov 2026 wording fix: food banks have no season, so their directory-only hold says what is really missing.
+    The decision itself (queue) is unchanged for every layer."""
+    def test_food_bank_directory_only_says_own_site(self):
+        d, why = DR.assess(c(notes=""), {"result": "flag", "reasons": ["no own website in directory"]}, G, T, H=[], layer="fb")
+        self.assertEqual(d, "queue")
+        self.assertIn("own site has not confirmed", why[-1])
+        self.assertNotIn("season", why[-1])
+
+    def test_warm_space_keeps_season_wording_and_same_decision(self):
+        for layer in (None, "ws", "sh"):
+            d, why = DR.assess(c(notes=""), {"result": "flag", "reasons": ["no own website in directory"]}, G, T, H=[], layer=layer)
+            self.assertEqual(d, "queue"); self.assertIn("season dates", why[-1])
+
+    def test_same_decision_for_every_layer(self):
+        for notes in ("", "SPACE OPENING ON 3rd November 2026", "SPACE OPENING ON 9th January 2024"):
+            base = DR.assess(c(notes=notes), {"result": "flag", "reasons": ["no own website in directory"]}, G, T, H=[])[0]
+            self.assertEqual(DR.assess(c(notes=notes), {"result": "flag", "reasons": ["no own website in directory"]}, G, T, H=[], layer="fb")[0], base)
