@@ -63,6 +63,10 @@ def run(root=None, warnings=None, getter=None, fetcher=None, now=None, councils=
     now = now or datetime.datetime.now(datetime.timezone.utc)
     t0 = time.monotonic()
     errs = []
+    import incident_rest_centre_live as live
+    note = live.hydrate_from_public_live(root, now=now)
+    if note.startswith("hydrated"):
+        print("incident rest centre watch: restored state from public live file (%s)" % note)
     if warnings is None:
         warnings, errs, _notes = weather.fetch_all(getter or feed_get, weather.nrw_key())
         primary = [e for e in errs if not str(e).startswith("Natural Resources Wales")]
