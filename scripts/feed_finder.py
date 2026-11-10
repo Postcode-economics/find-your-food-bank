@@ -56,15 +56,24 @@ PAGE_PATHS = [
 ]
 
 # Season evidence: explicit 2026-27 only (Bot2). A lone "updated November 2026" does not count.
+# 10 Nov 2026 (Grok Bot 2 audit of #500): these were wrongly read as current-season evidence and must not be:
+#   page metadata dates ("Page last updated 12 September 2026", "Reviewed September 2026"),
+#   a bare "winter 2026" (that is the January-March 2026 end of LAST season, e.g. "Winter 2026: 12 Jan - 30 Mar 2026"),
+#   malformed years or other digit runs ("2026-2789", "12026-27"), and a date range ending on a 27th ("30 Oct 2026 - 27 Nov").
+# A single September 2026 date only counts as a stated start ("from / opens / opening / starting ... September 2026").
+_Y1 = r"(?<!\d)2026"
+_Y2 = r"(?:20)?27(?!\d)(?!\s*(?:st|nd|rd|th)\b)(?!\s+(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\b)"  # not "2026 - 27 November"
 SEASON_RE = re.compile(
     r"(?i)("
-    r"2026\s*[–\-/]\s*27|2026/27|"
-    r"winter\s+(?:of\s+)?2026(?:\s*[–\-/]\s*27)?|"
-    r"(?:from\s+)?(?:1(?:st)?\s+)?sept(?:ember)?\s+2026|"
-    r"sept(?:ember)?\s+2026\s*(?:to|–|-|until)\s*(?:may|april|march)\s*2027|"
-    r"2026\s*(?:to|–|-|until)\s*2027"
+    + _Y1 + r"\s*(?:[\u2013\u2014\-/]|to|until)\s*" + _Y2 + r"|"
+    r"winter\s+(?:of\s+)?" + _Y1 + r"\s*(?:[\u2013\u2014\-/]|to|until)\s*" + _Y2 + r"|"
+    r"(?:from|opens?|opening|starting|starts|runs\s+from)\s+(?:on\s+)?(?:(?:mon|tues|wednes|thurs|fri|satur|sun)day\s+)?"
+    r"(?:\d{1,2}(?:st|nd|rd|th)?\s+)?sept(?:ember)?\s+" + _Y1 + r"(?!\d)|"
+    r"sept(?:ember)?\s+" + _Y1 + r"\s*(?:to|[\u2013\u2014\-]|until)\s*(?:\d{1,2}(?:st|nd|rd|th)?\s+)?(?:may|april|march)\s+2027(?!\d)"
     r")"
 )
+# Words that mark the text just before a date as page metadata, not the season.
+_META_RE = re.compile(r"(?i)(?:last\s+)?(?:updated|reviewed|modified|published|posted|edited|amended|checked)\s*(?:on|:)?\s*[\w ,]{0,20}$|\u00a9|copyright")
 ARCGIS_RE = re.compile(
     r"https?://[^\s\"'<>]+/(?:FeatureServer|MapServer)/\d+(?:/query)?[^\s\"'<>]*",
     re.I,
@@ -95,11 +104,18 @@ def covered_hosts(feeds=None):
 
 
 def season_evidence(text):
-    """Return the first explicit 2026-27 season match, or ''."""
+    """Return the first explicit 2026-27 season match, or ''.
+
+    A match whose preceding words mark it as page metadata (updated / reviewed / modified / published ...)
+    is skipped, so an edit date never counts as the season."""
     if not text:
         return ""
-    m = SEASON_RE.search(text)
-    return m.group(0) if m else ""
+    for m in SEASON_RE.finditer(text):
+        before = text[max(0, m.start() - 40):m.start()]
+        if _META_RE.search(before):
+            continue
+        return m.group(0)
+    return ""
 
 
 def _get(url, fetcher):
