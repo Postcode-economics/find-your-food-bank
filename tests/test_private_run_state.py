@@ -236,6 +236,214 @@ class RoundTrip(unittest.TestCase):
         self.assertEqual(r.returncode, 2); self.assertEqual(self.vault_files(), [])
 
 
+class SeenMemoryUnion(unittest.TestCase):
+    """Two-run times memory survives the parallel layer saves: each layer's readings come back exactly as that layer
+    saved them (signature, page and run time), whichever layer happened to save last. Synthetic ids only."""
+    def setUp(self):
+        sys.path.insert(0, os.path.join(ROOT, "scripts"))
+        import private_state_restore; self.m = private_state_restore
+        self.d = tempfile.mkdtemp(); self.src = os.path.join(self.d, "site-run-state"); self.n = 0
+
+    def tearDown(self):
+        shutil.rmtree(self.d, ignore_errors=True)
+
+    def e(self, sig, run_at, url="https://example.org/times"):
+        return {"run_at": run_at, "sig": sig, "source_url": url}
+
+    def save(self, layer, rel, data, at=None):
+        import json
+        self.n += 1
+        p = os.path.join(self.src, layer, rel); os.makedirs(os.path.dirname(p), exist_ok=True)
+        open(p, "w").write(data if isinstance(data, str) else json.dumps(data))
+        open(os.path.join(self.src, layer, ".saved_at"), "w").write(str(at if at is not None else 1000 + self.n))
+
+    def restored(self, rel="logs/times_crosscheck_seen.json", dst=None):
+        import json
+        dst = dst or os.path.join(self.d, "run-%d" % self.n); os.makedirs(dst, exist_ok=True)
+        self.m.restore(self.src, dst)
+        p = os.path.join(dst, rel)
+        return json.load(open(p)) if os.path.exists(p) else None
+
+    SEEN = "logs/times_crosscheck_seen.json"
+
+    def test_parallel_layer_saves_keep_every_layers_readings(self):
+        fb = self.e('{"mon": [["10:00", "12:00"]]}', "2026-01-05T05:52:54+00:00")
+        sh = self.e('{"tue": [["09:00", "15:00"]]}', "2026-01-05T06:30:00+00:00")
+        ws = self.e('{"wed": [["10:00", "14:00"]]}', "2026-01-05T06:05:24+00:00")
+        # all three started before any saved, so each map holds only its own kind; the food bank run saves last
+        self.save("warmspaces", self.SEEN, {"ws:test-hall": ws}, at=100)
+        self.save("shelters", self.SEEN, {"sh:test-centre": sh}, at=200)
+        self.save("foodbanks", self.SEEN, {"fb:test-bank": fb}, at=300)
+        got = self.restored()
+        self.assertEqual(got, {"fb:test-bank": fb, "sh:test-centre": sh, "ws:test-hall": ws})
+
+    def test_owner_save_is_the_only_source_for_its_keys(self):
+        old = self.e('{"mon": [["10:30", "13:30"]]}', "2026-01-04T12:41:00+00:00")
+        new = self.e('{"mon": [["11:00", "13:00"]]}', "2026-01-05T04:41:00+00:00")
+        # the food bank run carried an older shelter reading (and one the shelter run has since dropped) and saved later
+        self.save("shelters", self.SEEN, {"sh:a": new}, at=200)
+        self.save("foodbanks", self.SEEN, {"sh:a": old, "sh:dropped": old, "fb:x": old}, at=300)
+        got = self.restored()
+        self.assertEqual(got["sh:a"], new)                      # the shelter run's own reading, not the carried copy
+        self.assertNotIn("sh:dropped", got)                     # a key the owner dropped never comes back as a first reading
+        self.assertEqual(got["fb:x"], old)
+
+    def test_owner_keeps_its_reading_even_when_another_copy_is_newer(self):
+        mine = self.e("A", "2026-01-05T04:41:00+00:00")
+        other = self.e("B", "2026-01-06T04:41:00+00:00")
+        self.save("shelters", self.SEEN, {"sh:a": mine}, at=200)
+        self.save("sweep", self.SEEN, {"sh:a": other}, at=300)
+        self.assertEqual(self.restored()["sh:a"], mine)
+
+    def test_without_an_owner_save_the_newest_reading_wins(self):
+        older = self.e("A", "2026-01-04T04:41:00+00:00"); newer = self.e("B", "2026-01-05T04:41:00+00:00")
+        self.save("foodbanks", self.SEEN, {"ws:a": newer}, at=100)    # saved first but holds the newer reading
+        self.save("sweep", self.SEEN, {"ws:a": older}, at=200)
+        self.assertEqual(self.restored()["ws:a"], newer)
+
+    def test_unknown_folders_are_never_restored(self):
+        archived = self.e("OLD", "2026-01-01T00:00:00+00:00")
+        self.save("archive-2026-01-01", self.SEEN, {"sh:a": archived, "ws:b": archived}, at=999)
+        self.save("archive-2026-01-01", "reports/learning_state.json", '{"keys": {"archived": 1}}', at=999)
+        dst = os.path.join(self.d, "fresh"); os.makedirs(dst)
+        n, ok = self.m.restore(self.src, dst)
+        self.assertEqual((n, ok), (0, False))
+        self.assertFalse(os.path.exists(os.path.join(dst, "logs"))); self.assertFalse(os.path.exists(os.path.join(dst, "reports")))
+
+    def test_finder_memory_belongs_to_the_sweep(self):
+        rel = "logs/times_finder_seen.json"
+        mine = self.e("A", "2026-01-05T03:05:00+00:00"); stale = self.e("B", "2026-01-04T03:05:00+00:00")
+        self.save("sweep", rel, {"bank-1": mine}, at=100)
+        self.save("foodbanks", rel, {"bank-1": stale, "bank-2": stale}, at=200)
+        self.assertEqual(self.restored(rel), {"bank-1": mine})
+
+    def test_unreadable_owner_copy_never_falls_back_to_other_copies(self):
+        """The owner saved the file, so it alone speaks for its keys: a copy that cannot be read or is not a map gives
+        none of them, and another layer's older reading is never brought back as a first read."""
+        carried = self.e("A", "2026-01-05T04:41:00+00:00"); fb = self.e("X", "2026-01-05T04:29:00+00:00")
+        for bad in ("{not json", '{"sh:b": {"sig"', "[]", "null", '"text"', "7"):
+            with self.subTest(owner_copy=bad):
+                shutil.rmtree(self.src, ignore_errors=True)
+                self.save("foodbanks", self.SEEN, {"sh:a": carried, "fb:x": fb}, at=200)
+                self.save("shelters", self.SEEN, bad, at=300)
+                self.assertEqual(self.restored(), {"fb:x": fb})
+
+    def test_unreadable_owner_copy_saved_first_still_counts(self):
+        carried = self.e("A", "2026-01-05T04:41:00+00:00")
+        self.save("shelters", self.SEEN, "[]", at=100)
+        self.save("foodbanks", self.SEEN, {"sh:a": carried}, at=200)
+        self.assertEqual(self.restored(), {})
+
+    def test_owner_saved_empty_map_gives_no_other_layers_keys(self):
+        carried = self.e("A", "2026-01-05T04:41:00+00:00"); fb = self.e("X", "2026-01-05T04:29:00+00:00")
+        self.save("foodbanks", self.SEEN, {"sh:a": carried, "fb:x": fb}, at=200)
+        self.save("shelters", self.SEEN, {}, at=300)
+        self.assertEqual(self.restored(), {"fb:x": fb})
+
+    def test_every_copy_unreadable_restores_nothing(self):
+        self.save("shelters", self.SEEN, "[]", at=100)
+        self.save("foodbanks", self.SEEN, "{not json", at=200)
+        self.assertIsNone(self.restored())
+
+    def test_legacy_flat_copy_never_beats_the_owner(self):
+        stale = self.e("OLD", "2026-01-04T04:41:00+00:00"); mine = self.e("B", "2026-01-05T04:41:00+00:00")
+        fb = self.e("X", "2026-01-05T04:29:00+00:00")
+        flat = os.path.join(self.src, self.SEEN); os.makedirs(os.path.dirname(flat), exist_ok=True)
+        import json
+        open(flat, "w").write(json.dumps({"sh:a": stale, "sh:b": self.e("OLDER", "2026-01-03T04:41:00+00:00")}))
+        self.save("shelters", self.SEEN, {"sh:b": mine}, at=100)
+        self.save("foodbanks", self.SEEN, {"fb:x": fb}, at=200)
+        self.assertEqual(self.restored(), {"fb:x": fb, "sh:b": mine})
+
+    def test_no_owner_tie_on_equal_run_time_goes_to_the_later_save(self):
+        at = "2026-01-05T04:53:00+00:00"
+        self.save("foodbanks", self.SEEN, {"ws:a": self.e("FIRST", at)}, at=100)
+        self.save("sweep", self.SEEN, {"ws:a": self.e("LATER", at)}, at=200)
+        self.assertEqual(self.restored()["ws:a"]["sig"], "LATER")
+        shutil.rmtree(self.src)                                     # same result whichever folder name sorts first
+        self.save("sweep", self.SEEN, {"ws:a": self.e("FIRST", at)}, at=100)
+        self.save("foodbanks", self.SEEN, {"ws:a": self.e("LATER", at)}, at=200)
+        self.assertEqual(self.restored()["ws:a"]["sig"], "LATER")
+
+    def test_unknown_prefix_keys_have_no_owner_and_newest_reading_wins(self):
+        """A key no layer owns is never deleted by any layer's save: the newest reading of it is kept."""
+        older = self.e("A", "2026-01-04T04:41:00+00:00"); newer = self.e("B", "2026-01-05T04:41:00+00:00")
+        self.save("foodbanks", self.SEEN, {"zz:a": newer, "fb:x": older}, at=100)
+        self.save("shelters", self.SEEN, {"zz:a": older}, at=200)
+        self.save("warmspaces", self.SEEN, {}, at=300)
+        self.assertEqual(self.restored(), {"fb:x": older, "zz:a": newer})
+
+    def test_merged_map_is_written_like_the_gate_writes_it(self):
+        """Same bytes as discover's own dump, so an unchanged map is not seen as changed by the save step."""
+        import json
+        a = self.e("A", "2026-01-05T04:41:00+00:00"); x = self.e("X", "2026-01-05T04:29:00+00:00")
+        self.save("shelters", self.SEEN, {"sh:a": a}, at=100)
+        self.save("foodbanks", self.SEEN, {"fb:x": x}, at=200)
+        dst = os.path.join(self.d, "fmt"); os.makedirs(dst); self.m.restore(self.src, dst)
+        want = os.path.join(self.d, "want.json")
+        json.dump({"sh:a": a, "fb:x": x}, open(want, "w"), indent=0, sort_keys=True, ensure_ascii=False)
+        self.assertEqual(open(os.path.join(dst, self.SEEN), "rb").read(), open(want, "rb").read())
+        gate = open(os.path.join(ROOT, "scripts", "discover.py"), encoding="utf-8").read()
+        self.assertIn("json.dump(new_seen, open(os.path.join(R, XC_SEEN), \"w\"), indent=0, sort_keys=True, ensure_ascii=False)", gate)
+
+    def test_checkout_copy_still_wins(self):
+        self.save("shelters", self.SEEN, {"sh:a": self.e("A", "2026-01-05T04:41:00+00:00")})
+        dst = os.path.join(self.d, "co"); os.makedirs(os.path.join(dst, "logs"))
+        open(os.path.join(dst, self.SEEN), "w").write("{}")
+        self.assertEqual(self.restored(dst=dst), {})
+
+    def test_other_shared_files_still_newest_save(self):
+        self.save("foodbanks", "reports/learning_state.json", "old", at=100)
+        self.save("sweep", "reports/learning_state.json", "new", at=200)
+        dst = os.path.join(self.d, "ls"); os.makedirs(dst); self.m.restore(self.src, dst)
+        self.assertEqual(open(os.path.join(dst, "reports", "learning_state.json")).read(), "new")
+
+    def test_restored_reading_confirms_the_next_identical_read(self):
+        """A shelter reading restored after a later food bank save still counts as the first read on the next shelter
+        run, and the same run's reading never counts twice: discover's gate compares sig, page and run time."""
+        sys.path.insert(0, os.path.join(ROOT, "scripts"))
+        import discover
+        gate = open(os.path.join(ROOT, "scripts", "discover.py"), encoding="utf-8").read()
+        self.assertIn('if not sig or prev.get("sig") != sig or prev.get("source_url") != src or prev.get("run_at") == run_at:', gate)
+        sig = discover._tsig({"mon": [["10:00", "12:00"]]}); url = "https://example.org/times"
+        first = self.e(sig, "2026-01-05T04:41:00+00:00", url)
+        self.save("shelters", self.SEEN, {"sh:a": first}, at=100)
+        self.save("foodbanks", self.SEEN, {"fb:x": self.e("X", "2026-01-05T04:29:00+00:00")}, at=200)
+        prev = self.restored()["sh:a"]
+        confirms = lambda run_at, s=sig, u=url: not (not s or prev.get("sig") != s or prev.get("source_url") != u or prev.get("run_at") == run_at)
+        self.assertTrue(confirms("2026-01-05T12:41:00+00:00"))            # next run, identical read: confirmed
+        self.assertFalse(confirms("2026-01-05T04:41:00+00:00"))           # same run: never counts twice
+        self.assertFalse(confirms("2026-01-05T12:41:00+00:00", s=discover._tsig({"mon": [["10:00", "13:00"]]})))
+
+    def test_round_trip_through_the_script(self):
+        import json
+        remote = os.path.join(self.d, "p.git")
+        subprocess.run(["git", "init", "-q", "--bare", "-b", "main", remote], check=True)
+        seed = os.path.join(self.d, "seed"); subprocess.run(["git", "clone", "-q", remote, seed], check=True)
+        open(os.path.join(seed, "README.md"), "w").write("v\n")
+        g = ["git", "-C", seed, "-c", "user.name=t", "-c", "user.email=t@t"]
+        subprocess.run(g + ["add", "."], check=True); subprocess.run(g + ["commit", "-qm", "s"], check=True)
+        subprocess.run(g + ["push", "-q", "origin", "HEAD:main"], check=True)
+        def run(cwd, *a):
+            env = dict(os.environ, PRIVATE_STATE_REPO="file://" + remote, HELPMAP_STATE_KEY="k", GITHUB_REF="refs/heads/main",
+                       PRIVATE_STATE_RETRY_WAIT="0", GITHUB_ENV=os.path.join(self.d, "genv"),
+                       PRIVATE_STATE_WORK=os.path.join(self.d, "w-" + os.path.basename(cwd)))
+            return subprocess.run(["bash", SCRIPT, *a], cwd=cwd, env=env, capture_output=True, text=True)
+        runs = {}
+        for layer, key in (("warmspaces", "ws:t"), ("shelters", "sh:t"), ("foodbanks", "fb:t")):
+            c = os.path.join(self.d, layer); os.makedirs(c); run(c, "restore"); runs[layer] = (c, key)
+        import time
+        for layer, (c, key) in runs.items():      # parallel runs: each restored nothing, each saves only its own kind
+            os.makedirs(os.path.join(c, "logs"), exist_ok=True)
+            json.dump({key: self.e("S-" + layer, "2026-01-05T05:00:00+00:00")}, open(os.path.join(c, self.SEEN), "w"))
+            self.assertIn("saved", run(c, "save", layer).stdout); time.sleep(1.1)
+        nxt = os.path.join(self.d, "next"); os.makedirs(nxt); r = run(nxt, "restore")
+        got = json.load(open(os.path.join(nxt, self.SEEN)))
+        self.assertEqual(sorted(got), ["fb:t", "sh:t", "ws:t"], r.stdout + r.stderr)
+        self.assertEqual(got["sh:t"]["sig"], "S-shelters")
+        self.assertNotIn("S-shelters", r.stdout + r.stderr)
+
+
 class TimesAutoApplyNeedsState(unittest.TestCase):
     """(a) In the refresh and sweep workflows, no restored state means no automatic opening-times changes."""
     def setUp(self):
