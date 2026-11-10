@@ -314,11 +314,74 @@ class SeenMemoryUnion(unittest.TestCase):
         self.save("foodbanks", rel, {"bank-1": stale, "bank-2": stale}, at=200)
         self.assertEqual(self.restored(rel), {"bank-1": mine})
 
-    def test_unreadable_owner_copy_falls_back_to_other_copies(self):
+    def test_unreadable_owner_copy_never_falls_back_to_other_copies(self):
+        """The owner saved the file, so it alone speaks for its keys: a copy that cannot be read or is not a map gives
+        none of them, and another layer's older reading is never brought back as a first read."""
+        carried = self.e("A", "2026-01-05T04:41:00+00:00"); fb = self.e("X", "2026-01-05T04:29:00+00:00")
+        for bad in ("{not json", '{"sh:b": {"sig"', "[]", "null", '"text"', "7"):
+            with self.subTest(owner_copy=bad):
+                shutil.rmtree(self.src, ignore_errors=True)
+                self.save("foodbanks", self.SEEN, {"sh:a": carried, "fb:x": fb}, at=200)
+                self.save("shelters", self.SEEN, bad, at=300)
+                self.assertEqual(self.restored(), {"fb:x": fb})
+
+    def test_unreadable_owner_copy_saved_first_still_counts(self):
         carried = self.e("A", "2026-01-05T04:41:00+00:00")
-        self.save("shelters", self.SEEN, "{not json", at=300)
+        self.save("shelters", self.SEEN, "[]", at=100)
         self.save("foodbanks", self.SEEN, {"sh:a": carried}, at=200)
-        self.assertEqual(self.restored()["sh:a"], carried)
+        self.assertEqual(self.restored(), {})
+
+    def test_owner_saved_empty_map_gives_no_other_layers_keys(self):
+        carried = self.e("A", "2026-01-05T04:41:00+00:00"); fb = self.e("X", "2026-01-05T04:29:00+00:00")
+        self.save("foodbanks", self.SEEN, {"sh:a": carried, "fb:x": fb}, at=200)
+        self.save("shelters", self.SEEN, {}, at=300)
+        self.assertEqual(self.restored(), {"fb:x": fb})
+
+    def test_every_copy_unreadable_restores_nothing(self):
+        self.save("shelters", self.SEEN, "[]", at=100)
+        self.save("foodbanks", self.SEEN, "{not json", at=200)
+        self.assertIsNone(self.restored())
+
+    def test_legacy_flat_copy_never_beats_the_owner(self):
+        stale = self.e("OLD", "2026-01-04T04:41:00+00:00"); mine = self.e("B", "2026-01-05T04:41:00+00:00")
+        fb = self.e("X", "2026-01-05T04:29:00+00:00")
+        flat = os.path.join(self.src, self.SEEN); os.makedirs(os.path.dirname(flat), exist_ok=True)
+        import json
+        open(flat, "w").write(json.dumps({"sh:a": stale, "sh:b": self.e("OLDER", "2026-01-03T04:41:00+00:00")}))
+        self.save("shelters", self.SEEN, {"sh:b": mine}, at=100)
+        self.save("foodbanks", self.SEEN, {"fb:x": fb}, at=200)
+        self.assertEqual(self.restored(), {"fb:x": fb, "sh:b": mine})
+
+    def test_no_owner_tie_on_equal_run_time_goes_to_the_later_save(self):
+        at = "2026-01-05T04:53:00+00:00"
+        self.save("foodbanks", self.SEEN, {"ws:a": self.e("FIRST", at)}, at=100)
+        self.save("sweep", self.SEEN, {"ws:a": self.e("LATER", at)}, at=200)
+        self.assertEqual(self.restored()["ws:a"]["sig"], "LATER")
+        shutil.rmtree(self.src)                                     # same result whichever folder name sorts first
+        self.save("sweep", self.SEEN, {"ws:a": self.e("FIRST", at)}, at=100)
+        self.save("foodbanks", self.SEEN, {"ws:a": self.e("LATER", at)}, at=200)
+        self.assertEqual(self.restored()["ws:a"]["sig"], "LATER")
+
+    def test_unknown_prefix_keys_have_no_owner_and_newest_reading_wins(self):
+        """A key no layer owns is never deleted by any layer's save: the newest reading of it is kept."""
+        older = self.e("A", "2026-01-04T04:41:00+00:00"); newer = self.e("B", "2026-01-05T04:41:00+00:00")
+        self.save("foodbanks", self.SEEN, {"zz:a": newer, "fb:x": older}, at=100)
+        self.save("shelters", self.SEEN, {"zz:a": older}, at=200)
+        self.save("warmspaces", self.SEEN, {}, at=300)
+        self.assertEqual(self.restored(), {"fb:x": older, "zz:a": newer})
+
+    def test_merged_map_is_written_like_the_gate_writes_it(self):
+        """Same bytes as discover's own dump, so an unchanged map is not seen as changed by the save step."""
+        import json
+        a = self.e("A", "2026-01-05T04:41:00+00:00"); x = self.e("X", "2026-01-05T04:29:00+00:00")
+        self.save("shelters", self.SEEN, {"sh:a": a}, at=100)
+        self.save("foodbanks", self.SEEN, {"fb:x": x}, at=200)
+        dst = os.path.join(self.d, "fmt"); os.makedirs(dst); self.m.restore(self.src, dst)
+        want = os.path.join(self.d, "want.json")
+        json.dump({"sh:a": a, "fb:x": x}, open(want, "w"), indent=0, sort_keys=True, ensure_ascii=False)
+        self.assertEqual(open(os.path.join(dst, self.SEEN), "rb").read(), open(want, "rb").read())
+        gate = open(os.path.join(ROOT, "scripts", "discover.py"), encoding="utf-8").read()
+        self.assertIn("json.dump(new_seen, open(os.path.join(R, XC_SEEN), \"w\"), indent=0, sort_keys=True, ensure_ascii=False)", gate)
 
     def test_checkout_copy_still_wins(self):
         self.save("shelters", self.SEEN, {"sh:a": self.e("A", "2026-01-05T04:41:00+00:00")})

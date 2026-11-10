@@ -7,8 +7,12 @@ except the undo logs, which are the union of every layer's entries (an entry rev
 the two-run times memory (SEEN_MAPS), which is merged key by key: each key's reading comes from the layer that owns it
 (fb: food banks, sh: shelters, ws: warm spaces; the finder's map belongs to the sweep), exactly as that layer saved
 it, so its run time still identifies the run that read it. A layer that saved the map is the only source for its own
-keys, so a key it dropped stays dropped and another layer's older copy can never stand in as a first reading. Only
-when the owner has never saved the map do other layers' copies count, newest reading first. Folders other than the
+keys, so a key it dropped stays dropped and another layer's older copy can never stand in as a first reading. A
+layer counts as having saved the map when its folder holds the file, whatever is in it: a copy that cannot be read or
+is not a map gives no readings for that layer's keys (fails closed: at most one extra run before a confirmation),
+never a fallback to other layers' older copies. Only when the owner has never saved the map do other layers' copies
+count, newest reading first (equal run times: the later save). A key no layer owns (unknown prefix) is always merged
+that way: no layer can delete it, so the newest reading of it wins. Folders other than the
 known layer labels are ignored, so nothing parked under site-run-state/ is ever restored as live memory.
 Files already in the checkout always win. Prints '<files restored> present|missing'. 'missing' means no real state
 was found (nothing, or only the practice probe file): the run then keeps times auto-apply off (auto_rules.state_ok).
@@ -59,11 +63,12 @@ def _owner(owners, key):
 
 
 def _seen_union(owners, copies):
-    """copies: [(layer, map)] oldest save first. Returns the merged map; every entry is kept exactly as saved."""
-    saved_by = {layer for layer, m in copies if isinstance(m, dict)}
+    """copies: [(layer, map or None)] oldest save first; None = the layer saved the file but it is unreadable or not a
+    map. Returns the merged map; every entry is kept exactly as saved."""
+    saved_by = {layer for layer, _ in copies}                     # decided before parsing: presence, not content
     out = {}
     for layer, m in copies:
-        if not isinstance(m, dict): continue
+        if not isinstance(m, dict): continue                         # an unusable owner copy gives none of its keys
         for k, e in m.items():
             if not isinstance(e, dict): continue
             own = _owner(owners, k)
@@ -71,6 +76,12 @@ def _seen_union(owners, copies):
             if own not in saved_by and k in out and str(out[k].get("run_at") or "") > str(e.get("run_at") or ""): continue
             out[k] = e                                               # same or newer reading, or the owner's copy
     return out
+
+
+def _load(path):
+    try:
+        with open(path, encoding="utf-8") as fh: return json.load(fh)
+    except (OSError, ValueError): return None
 
 
 def restore(src, dst):
@@ -92,10 +103,7 @@ def restore(src, dst):
     for rel, fulls in sorted(undo.items()):
         out = os.path.join(dst, rel)
         if os.path.exists(out): continue
-        lists = []
-        for f in fulls:
-            try: lists.append(json.load(open(f, encoding="utf-8")))
-            except (OSError, ValueError): pass
+        lists = [_load(f) for f in fulls]
         os.makedirs(os.path.dirname(out), exist_ok=True)
         with open(out, "w", encoding="utf-8") as fh: json.dump(_union(lists), fh, indent=1, ensure_ascii=False); fh.write("\n")
         n += 1; real += 1
@@ -104,11 +112,9 @@ def restore(src, dst):
         if os.path.exists(out): continue
         if len(fulls) == 1:                                          # only one layer saved it: restored as is
             os.makedirs(os.path.dirname(out), exist_ok=True); shutil.copy2(fulls[0][1], out); n += 1; real += 1; continue
-        copies = []
-        for d, f in fulls:
-            try: copies.append((d, json.load(open(f, encoding="utf-8"))))
-            except (OSError, ValueError): pass                       # an unreadable copy counts as not saved
-        if not copies: continue
+        copies = [(d, m if isinstance(m, dict) else None) for d, m in ((d, _load(f)) for d, f in fulls)]
+        # an unreadable copy or one that is not a map is None but still counts as that layer's save
+        if all(m is None for _, m in copies): continue                # nothing usable anywhere: nothing restored
         os.makedirs(os.path.dirname(out), exist_ok=True)
         with open(out, "w", encoding="utf-8") as fh: json.dump(_seen_union(SEEN_MAPS[rel], copies), fh, indent=0, sort_keys=True, ensure_ascii=False)
         n += 1; real += 1
