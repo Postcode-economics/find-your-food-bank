@@ -13,7 +13,11 @@ START = datetime.date(2026, 9, 1)
 END = datetime.date(2027, 5, 31)
 SAMPLE = 5
 MONTHS = {m: i + 1 for i, m in enumerate(("jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"))}
-LABEL = re.compile(r"\b2026\s*[-/–]\s*(?:20)?27\b|\bwinter\s+2026\b", re.I)  # "26-27 High St" is an address, not a season
+# Explicit 2026-27 season label. A bare "Winter 2026" is NOT current: Lancashire's last list was
+# "Winter 2026 12th Jan - 30th Mar 2026", so it names last season. "2026-27th" is a date, not a season.
+LABEL = re.compile(r"\b2026\s*[-/–]\s*(?:20)?27\b(?!\s*(?:st|nd|rd|th)\b)", re.I)  # "26-27 High St" is an address, not a season
+# Page or record metadata just before a date ("Last updated 12 September 2026") is an edit date, not the season.
+META = re.compile(r"(?:updated|reviewed|modified|published|posted|edited|amended|checked)\s*(?:on|:)?\s*[\w ,]{0,20}$", re.I)
 # "12th Jan 2026", "3 November 2026", "Jan 12 2026"; also numeric 12/01/2026
 DMY = re.compile(r"\b(\d{1,2})(?:st|nd|rd|th)?\s+([A-Za-z]{3,9})\.?,?\s+(20\d\d)\b")
 MDY = re.compile(r"\b([A-Za-z]{3,9})\.?\s+(\d{1,2})(?:st|nd|rd|th)?,?\s+(20\d\d)\b")
@@ -33,16 +37,21 @@ def _mon(s):
     return MONTHS.get((s or "")[:3].lower())
 
 
+def _matches(rx, t):
+    """Matches of rx in t, minus any that sit right after a metadata word (an edit date, not the season)."""
+    return [m.groups() for m in rx.finditer(t) if not META.search(t[max(0, m.start() - 40):m.start()])]
+
+
 def dates_in(text):
     t = re.sub(r"\s+", " ", str(text or ""))
     out = []
-    for d, m, y in DMY.findall(t):
+    for d, m, y in _matches(DMY, t):
         if _mon(m): out.append(_d(y, _mon(m), d))
-    for m, d, y in MDY.findall(t):
+    for m, d, y in _matches(MDY, t):
         if _mon(m): out.append(_d(y, _mon(m), d))
-    for d, m, y in NUM.findall(t):
+    for d, m, y in _matches(NUM, t):
         out.append(_d(y, m, d))
-    for d1, m1, d2, m2, y in RANGE_TAIL.findall(t):
+    for d1, m1, d2, m2, y in _matches(RANGE_TAIL, t):
         if _mon(m1) and _mon(m2):
             y1 = int(y) - 1 if _mon(m1) > _mon(m2) else int(y)
             out.append(_d(y1, _mon(m1), d1))
