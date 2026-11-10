@@ -36,6 +36,8 @@ jobs:
       - name: Test the checks
         env:
           HELPMAP_STATE_CHECK: "0"   # the test suite itself must not depend on run state (#491)
+          HELPMAP_UNDO_BASELINE: ""        # nor on this run's start-of-run undo log: tests that run full_check.main()
+          HELPMAP_UNDO_BASELINE_ROOT: ""   # would count this run's real refresh-gate times (practice 42813119765)
         run: python -m unittest discover -s tests -v
       # build.py renders source pages that have no complete timetable in the plain HTML (discover.render_live),
       # and full_check.py renders the same way. Run 40875931731 installed Playwright only at the sense-check
@@ -143,6 +145,8 @@ jobs:
       - name: Test the same checks again on this run's rebuilt files (a failure stops the publish)
         env:
           HELPMAP_STATE_CHECK: "0"   # the test suite itself must not depend on run state (#491)
+          HELPMAP_UNDO_BASELINE: ""        # nor on this run's start-of-run undo log: tests that run full_check.main()
+          HELPMAP_UNDO_BASELINE_ROOT: ""   # would count this run's real refresh-gate times (practice 42813119765)
         timeout-minutes: 15
         run: python -m venv /tmp/postcheck && /tmp/postcheck/bin/python -m unittest discover -s tests -v
       - name: Commit if changed

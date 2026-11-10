@@ -33,6 +33,8 @@ jobs:
       - name: Test the sweep and verification checks
         env:
           HELPMAP_STATE_CHECK: "0"   # the test suite itself must not depend on run state (#491)
+          HELPMAP_UNDO_BASELINE: ""        # nor on this run's start-of-run undo log: tests that run full_check.main()
+          HELPMAP_UNDO_BASELINE_ROOT: ""   # would count this run's real refresh-gate times (practice 42813119765)
         run: python -m unittest tests.test_sweep tests.test_recheck tests.test_rule21_refresh -v
       - name: Sweep every council sitemap and list page (fail-safe; adds new entries only)
         run: python scripts/sweep_daily.py
@@ -59,6 +61,8 @@ jobs:
         timeout-minutes: 40
         env:
           HELPMAP_STATE_CHECK: "0"   # the test suite itself must not depend on run state (#491)
+          HELPMAP_UNDO_BASELINE: ""        # nor on this run's start-of-run undo log: tests that run full_check.main()
+          HELPMAP_UNDO_BASELINE_ROOT: ""   # would count this run's real refresh-gate times (practice 42813119765)
           GH_TOKEN: ${{ github.token }}
         run: |
           python -m venv /tmp/suite && /tmp/suite/bin/pip install -q pytest==9.1.1
@@ -75,6 +79,8 @@ jobs:
       - name: Test the same checks again on this run's rebuilt files (a failure stops the publish)
         env:
           HELPMAP_STATE_CHECK: "0"   # the test suite itself must not depend on run state (#491)
+          HELPMAP_UNDO_BASELINE: ""        # nor on this run's start-of-run undo log: tests that run full_check.main()
+          HELPMAP_UNDO_BASELINE_ROOT: ""   # would count this run's real refresh-gate times (practice 42813119765)
         timeout-minutes: 15
         run: python -m venv /tmp/postcheck && /tmp/postcheck/bin/python -m unittest tests.test_sweep tests.test_recheck tests.test_rule21_refresh -v
       - name: Commit new entries and the sweep log

@@ -32,6 +32,8 @@ jobs:
       - name: Council-area browser test
         env:
           HELPMAP_STATE_CHECK: "0"   # the test suite itself must not depend on run state (#491)
+          HELPMAP_UNDO_BASELINE: ""        # nor on this run's start-of-run undo log: tests that run full_check.main()
+          HELPMAP_UNDO_BASELINE_ROOT: ""   # would count this run's real refresh-gate times (practice 42813119765)
         run: |
           python -m venv /tmp/council-area-pw
           /tmp/council-area-pw/bin/pip install -q playwright==1.47.0
@@ -40,6 +42,8 @@ jobs:
       - name: Test the verification checks
         env:
           HELPMAP_STATE_CHECK: "0"   # the test suite itself must not depend on run state (#491)
+          HELPMAP_UNDO_BASELINE: ""        # nor on this run's start-of-run undo log: tests that run full_check.main()
+          HELPMAP_UNDO_BASELINE_ROOT: ""   # would count this run's real refresh-gate times (practice 42813119765)
         run: python -m unittest discover -s tests -v
       - name: Rebuild shelters.js (re-fetches and re-checks every source page)
         run: python scripts/build_shelters.py
@@ -101,6 +105,8 @@ jobs:
       - name: Test the same checks again on this run's rebuilt files (a failure stops the publish)
         env:
           HELPMAP_STATE_CHECK: "0"   # the test suite itself must not depend on run state (#491)
+          HELPMAP_UNDO_BASELINE: ""        # nor on this run's start-of-run undo log: tests that run full_check.main()
+          HELPMAP_UNDO_BASELINE_ROOT: ""   # would count this run's real refresh-gate times (practice 42813119765)
         timeout-minutes: 15
         run: python -m venv /tmp/postcheck && /tmp/postcheck/bin/python -m unittest discover -s tests -v
       - name: Commit if changed
