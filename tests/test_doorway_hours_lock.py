@@ -31,11 +31,23 @@ class DoorwayLock(unittest.TestCase):
         d = json.loads(s[s.index("{"):s.rindex("}") + 1])
         it = next(i for i in d["items"] if i["id"] == IID)
         self.assertEqual(it["hours"], "Not stated")
+    # The 5 Nov apply and its undo are in the private vault's historical undo log (HELPMAP_PRIVATE_REPLAY_ROOT, rule 97).
+    # The checkout's own reports/times_auto_applied.json is this run's run state (#491): it need not hold that record,
+    # but whatever it holds for Doorway must never be a live (un-reverted) apply of the locked wrong value.
+    @staticmethod
+    def _doorway(path):
+        log = json.load(open(path, encoding="utf-8"))
+        return [r for r in log if r.get("id") == IID and r.get("kind") == "sh" and r.get("path") == "cross_check"]
     def test_apply_log_marked_reverted(self):
-        try:
-            log = json.load(open(os.path.join(ROOT, "reports", "times_auto_applied.json")))
-        except FileNotFoundError:
+        root = os.environ.get("HELPMAP_PRIVATE_REPLAY_ROOT")
+        path = os.path.join(root, "reports", "times_auto_applied.json") if root else None
+        if not (path and os.path.exists(path)):
             raise unittest.SkipTest("Private working file is not available in the public checkout")
-        recs = [r for r in log if r.get("id") == IID and r.get("kind") == "sh" and r.get("path") == "cross_check"]
+        recs = self._doorway(path)
         self.assertTrue(recs and all(r.get("reverted") for r in recs if r.get("new_structured") == WRONG))
+    def test_run_state_log_never_holds_a_live_wrong_apply(self):
+        path = os.path.join(ROOT, "reports", "times_auto_applied.json")
+        if not os.path.exists(path):
+            raise unittest.SkipTest("No run-state undo log in this checkout")
+        self.assertEqual([r for r in self._doorway(path) if r.get("new_structured") == WRONG and not r.get("reverted")], [])
 if __name__ == "__main__": unittest.main()
