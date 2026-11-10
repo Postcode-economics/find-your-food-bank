@@ -41,6 +41,12 @@ def same(field, old, new):
 def _blank(v):
     return v is None or (isinstance(v, str) and not v.strip())
 
+def _stated(v):
+    """A hand value counts only when it says something. Blank and 'Not stated' keep the published value (#428)."""
+    if _blank(v) or v in ([], {}):
+        return False
+    return not (isinstance(v, str) and v.strip().lower() == "not stated")
+
 def _section(root, lines, tag):
     """Replace one address-review section. An empty list removes it. Other sections stay.
     Leaves the file untouched when the text would not change."""
@@ -83,7 +89,7 @@ def _add_hand(out, iid, rec):
         return
     slot = out.setdefault(iid, {})
     for f in FIELDS + ("hours", "opening_times"):
-        if f in rec and not _blank(rec[f]):
+        if f in rec and _stated(rec[f]):
             slot[f] = rec[f]
 
 def hands(root, layer):
@@ -124,12 +130,6 @@ def hands(root, layer):
 
 HAND_WIN_FIELDS = ("address", "postcode", "hours")
 PIN_FIELDS = ("address", "postcode", "lat", "lng")
-
-def _stated(v):
-    """A hand value counts only when it says something. Blank and 'Not stated' keep the published value (#428)."""
-    if _blank(v) or v in ([], {}):
-        return False
-    return not (isinstance(v, str) and v.strip().lower() == "not stated")
 
 def hand_record(*recs):
     """Merge hand records the way hands() does (later wins, blanks skipped). Shared by the kept-copy path."""
@@ -213,7 +213,7 @@ def protect(items, previous, hand, root=None, source="refresh", keep_times=()):
                 elif field in ("address", "postcode") and not _blank(was) and new != was and same(field, was, new):
                     _restore(item, field, was)
                 continue
-            if field in allowed and same(field, allowed[field], new):
+            if field in allowed and _stated(allowed[field]) and same(field, allowed[field], new):
                 continue
             _restore(item, field, was)
             kept = was if not _blank(was) else "(none)"
@@ -236,7 +236,7 @@ def protect(items, previous, hand, root=None, source="refresh", keep_times=()):
             new, was = item.get(field), old.get(field)
             if _without_check_date(new) == _without_check_date(was):
                 continue
-            if field in allowed and _without_check_date(allowed[field]) == _without_check_date(new):
+            if field in allowed and _stated(allowed[field]) and _without_check_date(allowed[field]) == _without_check_date(new):
                 continue
             _restore(item, field, was)
             line = "- times kept, not auto-applied | %s | %s | via %s | unchanged" % (iid, field, source)
