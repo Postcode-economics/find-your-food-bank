@@ -621,15 +621,29 @@ def apply_closure_notes(items, pending):
 TIMES_LOG = 'reports/times_auto_applied.json'
 def gate_applied_times(root=None):
     """Times the refresh gate (discover.times_gate_apply, run by build.py before this script) newly applied this run:
-    entries in reports/times_auto_applied.json that the last published commit does not have. They count towards the brake."""
+    entries in reports/times_auto_applied.json that were not in it when this run started. They count towards the brake.
+    Since rule 97 the log is private run state, not in the published commit, so the start-of-run copy is the one
+    scripts/private_state.sh restore set aside for that checkout (HELPMAP_UNDO_BASELINE, HELPMAP_UNDO_BASELINE_ROOT;
+    '[]' when the run started with no log). For any other folder, or without those variables (not a workflow run), the
+    last published commit is compared, as before."""
     import subprocess
     root = root or ROOT
     try: now = json.load(open(os.path.join(root, TIMES_LOG), encoding='utf-8'))
     except Exception: return []
-    try:
-        head = json.loads(subprocess.run(['git', 'show', 'HEAD:' + TIMES_LOG], cwd=root, capture_output=True, text=True, check=True).stdout)
-    except Exception:
-        print('anomaly brake: no published copy of %s to compare with; refresh-gate times not counted' % TIMES_LOG); return []
+    base = os.environ.get('HELPMAP_UNDO_BASELINE')
+    broot = os.environ.get('HELPMAP_UNDO_BASELINE_ROOT')
+    if not (broot and os.path.realpath(broot) == os.path.realpath(root)): base = None   # only for the checkout it was taken in
+    if base:
+        try:
+            with open(base, encoding='utf-8') as fh: head = json.load(fh)
+        except Exception: head = None
+        if not isinstance(head, list):
+            print('anomaly brake: start-of-run copy of %s unreadable; every refresh-gate time in it counted' % TIMES_LOG); head = []
+    else:
+        try:
+            head = json.loads(subprocess.run(['git', 'show', 'HEAD:' + TIMES_LOG], cwd=root, capture_output=True, text=True, check=True).stdout)
+        except Exception:
+            print('anomaly brake: no published copy of %s to compare with; refresh-gate times not counted' % TIMES_LOG); return []
     published = {json.dumps(e, sort_keys=True) for e in head if isinstance(e, dict)}
     return [e for e in now if isinstance(e, dict) and e.get('path') == 'cross_check' and not e.get('reverted')
             and json.dumps(e, sort_keys=True) not in published]

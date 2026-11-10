@@ -31,6 +31,93 @@ class GateTimesCount(unittest.TestCase):
         self.assertEqual(F.gate_applied_times(os.path.join(self.d, "missing")), [])
 
 
+class GateTimesCountFromStartOfRunCopy(unittest.TestCase):
+    """Since rule 97 the undo log is private run state, so it is never in the published commit: the brake compares with
+    the copy scripts/private_state.sh restore set aside at the start of the run (HELPMAP_UNDO_BASELINE). Synthetic ids."""
+    SCRIPT = os.path.join(R, "scripts", "private_state.sh")
+
+    def setUp(self):
+        self.d = tempfile.mkdtemp(); self.addCleanup(shutil.rmtree, self.d, True)
+        os.makedirs(os.path.join(self.d, "reports"))
+        self.log = os.path.join(self.d, "reports", "times_auto_applied.json")
+        self.base = os.path.join(self.d, "baseline.json")
+        self.env = dict(os.environ); self.addCleanup(lambda: (os.environ.clear(), os.environ.update(self.env)))
+
+    def count(self):
+        os.environ["HELPMAP_UNDO_BASELINE"] = self.base; os.environ["HELPMAP_UNDO_BASELINE_ROOT"] = self.d
+        return [e["id"] for e in F.gate_applied_times(self.d)]
+
+    def test_only_entries_added_since_the_run_started_count(self):
+        json.dump([entry("a"), entry("b")], open(self.base, "w"))
+        json.dump([entry("a"), entry("b", reverted=True), entry("c"), entry("d"), dict(entry("e"), path=None)], open(self.log, "w"))
+        self.assertEqual(self.count(), ["c", "d"])          # not one already there, not a revert, not a finder entry
+
+    def test_compares_with_the_start_of_run_copy_not_the_published_commit(self):
+        """No git repo at all (as on the workflow checkout, where the log is not committed): still counted."""
+        json.dump([], open(self.base, "w"))
+        json.dump([entry("a"), entry("b")], open(self.log, "w"))
+        self.assertEqual(self.count(), ["a", "b"])
+
+    def test_unreadable_start_of_run_copy_counts_every_gate_time(self):
+        open(self.base, "w").write("{not json")
+        json.dump([entry("a"), entry("b", reverted=True)], open(self.log, "w"))
+        self.assertEqual(self.count(), ["a"])
+        json.dump({"a": 1}, open(self.base, "w"))
+        self.assertEqual(self.count(), ["a"])
+
+    def test_start_of_run_copy_is_only_used_for_the_checkout_it_was_taken_in(self):
+        json.dump([], open(self.base, "w")); json.dump([entry("a")], open(self.log, "w"))
+        os.environ["HELPMAP_UNDO_BASELINE"] = self.base
+        os.environ["HELPMAP_UNDO_BASELINE_ROOT"] = os.path.join(self.d, "elsewhere")
+        self.assertEqual(F.gate_applied_times(self.d), [])   # another folder: the published-commit comparison, as before
+        os.environ.pop("HELPMAP_UNDO_BASELINE_ROOT")
+        self.assertEqual(F.gate_applied_times(self.d), [])
+
+    def restore(self, **env):
+        genv = os.path.join(self.d, "genv"); open(genv, "w").close()
+        e = dict(os.environ, GITHUB_ENV=genv, PRIVATE_STATE_WORK=os.path.join(self.d, "work"), **env)
+        e.pop("HELPMAP_STATE_KEY", None); e.update(env)
+        r = subprocess.run(["bash", self.SCRIPT, "restore"], cwd=self.d, env=e, capture_output=True, text=True)
+        self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
+        got = dict(l.split("=", 1) for l in open(genv).read().splitlines() if l.startswith("HELPMAP_UNDO_BASELINE"))
+        self.assertEqual(os.path.realpath(got["HELPMAP_UNDO_BASELINE_ROOT"]), os.path.realpath(self.d))
+        os.environ["HELPMAP_UNDO_BASELINE_ROOT"] = got["HELPMAP_UNDO_BASELINE_ROOT"]
+        return got["HELPMAP_UNDO_BASELINE"]
+
+    def test_restore_sets_aside_the_log_as_the_run_starts(self):
+        json.dump([entry("a")], open(self.log, "w"))
+        base = self.restore()                                # no key: nothing restored, the checkout's log is the start
+        self.assertEqual(json.load(open(base)), [entry("a")])
+        json.dump([entry("a"), entry("n")], open(self.log, "w"))   # the refresh gate then applies one more
+        os.environ["HELPMAP_UNDO_BASELINE"] = base
+        self.assertEqual([e["id"] for e in F.gate_applied_times(self.d)], ["n"])
+
+    def test_restore_with_no_log_starts_from_empty(self):
+        base = self.restore()
+        self.assertEqual(json.load(open(base)), [])
+
+    def test_restore_from_an_unreachable_private_repo_still_sets_it_aside(self):
+        json.dump([entry("a")], open(self.log, "w"))
+        base = self.restore(HELPMAP_STATE_KEY="k", PRIVATE_STATE_REPO="file://" + os.path.join(self.d, "missing.git"))
+        self.assertEqual(json.load(open(base)), [entry("a")])
+
+    def test_restore_sets_it_aside_after_the_saved_log_is_restored(self):
+        remote = os.path.join(self.d, "p.git"); seed = os.path.join(self.d, "seed")
+        subprocess.run(["git", "init", "-q", "--bare", "-b", "main", remote], check=True)
+        subprocess.run(["git", "clone", "-q", remote, seed], check=True, capture_output=True)
+        p = os.path.join(seed, "site-run-state", "foodbanks", "reports"); os.makedirs(p)
+        json.dump([entry("saved")], open(os.path.join(p, "times_auto_applied.json"), "w"))
+        open(os.path.join(seed, "site-run-state", "foodbanks", ".saved_at"), "w").write("100")
+        g = ["git", "-C", seed, "-c", "user.name=t", "-c", "user.email=t@t"]
+        subprocess.run(g + ["add", "."], check=True); subprocess.run(g + ["commit", "-qm", "s"], check=True, capture_output=True)
+        subprocess.run(g + ["push", "-q", "origin", "HEAD:main"], check=True, capture_output=True)
+        base = self.restore(HELPMAP_STATE_KEY="k", PRIVATE_STATE_REPO="file://" + remote)
+        self.assertEqual([e["id"] for e in json.load(open(base))], ["saved"])
+        self.assertEqual([e["id"] for e in json.load(open(self.log))], ["saved"])
+        os.environ["HELPMAP_UNDO_BASELINE"] = base
+        self.assertEqual(F.gate_applied_times(self.d), [])   # restored entries are not this run's applies
+
+
 class MainStopsOnCombinedCount(unittest.TestCase):
     """12 refresh-gate times changes against a median of 2: stop, nothing written.
     The 4 clear phone proposals in the same run are held and do not count. The same run with no gate times does not stop."""

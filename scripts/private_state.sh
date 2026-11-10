@@ -21,9 +21,16 @@ WORK="${PRIVATE_STATE_WORK:-${RUNNER_TEMP:-/tmp}/private-state}"
 MARK="$WORK.restored"
 KEY="${HELPMAP_STATE_KEY:-}"
 say() { echo "private state: $*"; }
+baseline() {  # restore only: set aside the undo log as this run starts, so full_check.py's anomaly brake counts only
+              # this run's refresh-gate applies (the log is no longer in the published commit it used to compare with)
+  local b="$WORK.undo-baseline.json"; mkdir -p "$(dirname "$b")"
+  if [ -f reports/times_auto_applied.json ]; then cp reports/times_auto_applied.json "$b"; else echo "[]" > "$b"; fi
+  if [ -n "${GITHUB_ENV:-}" ]; then printf 'HELPMAP_UNDO_BASELINE=%s\nHELPMAP_UNDO_BASELINE_ROOT=%s\n' "$b" "$(pwd -P)" >> "$GITHUB_ENV"; fi
+}
 warn() { echo "::warning::private state: $*"; }
 
 if [ -z "$KEY" ]; then
+  if [ "$mode" = restore ]; then baseline; fi
   say "no HELPMAP_STATE_KEY secret set, so nothing is $( [ "$mode" = save ] && echo saved || echo restored ) (this run has no saved state)"
   exit 0
 fi
@@ -52,10 +59,10 @@ case "$mode" in
     setup_ssh
     if ! fetch; then
       warn "could not read the private repo; starting without saved state, so times auto-apply is off for this run"
-      : > "$MARK"; exit 0
+      : > "$MARK"; baseline; exit 0
     fi
     read -r n state < <(python3 "$(dirname "$0")/private_state_restore.py" "$WORK/$DIR" . 2>/dev/null || echo "0 missing")
-    hashes . > "$MARK"
+    hashes . > "$MARK"; baseline
     if [ "$state" = present ]; then
       [ -n "${GITHUB_ENV:-}" ] && echo "HELPMAP_STATE_RESTORED=1" >> "$GITHUB_ENV"
       say "restored $n file(s) into logs/ and reports/"
