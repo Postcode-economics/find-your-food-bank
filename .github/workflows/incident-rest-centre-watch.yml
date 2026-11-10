@@ -7,22 +7,35 @@ name: Incident rest centre watch (every 10 min)
 # repeats the check every 10 minutes until near the 6-hour limit, then starts the next run itself.
 # The cron is the backup if that chain has stopped. One run at a time, so a queued cron does not
 # double-fetch. A push of these scheduling files starts the chain; later data commits do not.
+#
+# State under logs/ stays out of this public repo (rule 97). Actions cache/artifacts are NOT used
+# (a public repo's cache can be read from fork PRs; artifacts are downloadable). On each job start
+# the watch rebuilds live state from the already-public incident_rest_centre_live.json when the
+# gitignored logs are empty, so an open rest centre is still re-scanned and expired across restarts.
 on:
   schedule:
     - cron: "*/10 * * * *"
   workflow_dispatch:
+    inputs:
+      max_checks:
+        description: "Practice: stop after N checks (leave blank for the full 6-hour loop)"
+        required: false
+        default: ""
   push:
     branches: [main]
     paths:
       - .github/workflows/incident-rest-centre-watch.yml
       - scripts/incident_rest_centre_watch_loop.sh
       - scripts/incident_rest_centre_schedule.py
+      - scripts/incident_rest_centre_live.py
+      - scripts/incident_rest_centre_watch.py
 permissions:
   contents: write
   issues: write
   actions: write   # gh workflow run, to start the next loop
 concurrency:
-  group: incident-rest-centre-watch
+  # Per ref so a practice run on a branch cannot block the live main chain.
+  group: incident-rest-centre-watch-${{ github.ref }}
   cancel-in-progress: false
 jobs:
   watch:
@@ -40,9 +53,11 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           NRW_FLOOD_API_KEY: ${{ secrets.NRW_FLOOD_API_KEY }}
           BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
+          INCIDENT_WATCH_MAX_RUNS: ${{ github.event.inputs.max_checks }}
         run: bash scripts/incident_rest_centre_watch_loop.sh
       - name: Start the next check before this job hits the 6-hour limit
-        if: ${{ always() && (steps.watch.outcome == 'success' || steps.watch.outcome == 'failure') }}
+        # Practice (max_checks set) must not chain. Non-main must not restart the live chain.
+        if: ${{ always() && (steps.watch.outcome == 'success' || steps.watch.outcome == 'failure') && github.ref == 'refs/heads/main' && (github.event_name != 'workflow_dispatch' || github.event.inputs.max_checks == '') }}
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
