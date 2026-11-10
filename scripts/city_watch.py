@@ -104,6 +104,8 @@ def near_outcode(places, cities, codes, km=RADIUS_KM):
     unlocated = 0
     for p in places or []:
         xy = codes.get(outcode(p.get("postcode")))
+        if (not xy or len(xy) < 2) and isinstance(p.get("lat"), (int, float)) and isinstance(p.get("lng"), (int, float)):
+            xy = (p["lat"], p["lng"])  # no outcode centroid: fall back to the row's own pin
         if not xy or len(xy) < 2:
             unlocated += 1
             continue

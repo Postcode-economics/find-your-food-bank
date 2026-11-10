@@ -950,7 +950,9 @@ def times_gate_reasons(i, kind, field, new, texts, home, seen, blocked, on, run_
     if sig and (blocked or {}).get(key) == sig: why.append("this change was undone by Dean; not re-applied")
     w = hand_checked_hold_reason(i, field, new, overrides, path="refresh")
     if w: why.append(w)
-    if not why and not on: why.append("times auto-apply is off (overrides/auto_apply_rules.json times_auto_apply)")
+    if not why and not on:
+        import auto_rules as _ar
+        why.append("times auto-apply is off (overrides/auto_apply_rules.json times_auto_apply)" if _ar.state_ok() else _ar.STATE_OFF_WHY)
     return why
 _DAYRE = re.compile(r"mon|tue|wed|thu|fri|sat|sun", re.I)
 def _span_days(group):
@@ -1106,7 +1108,8 @@ def _write_times_pending(R, kind, bullets, own_ids, mode):
 def times_gate_apply(cands, kind, field, today, extra, state_root, rules, run_at, keep_ids=None, pending_mode="replace"):
     if rules is None:
         import auto_rules; rules = auto_rules.load()
-    on = bool(rules.get("times_auto_apply", False))
+    import auto_rules as _ar
+    on = _ar.times_auto_allowed(rules)   # off when saved run state was not restored this run (#491)
     run_at = run_at or datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds")
     R = state_root
     seen = _jload(os.path.join(R, XC_SEEN), {}) if R else {}

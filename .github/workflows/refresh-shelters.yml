@@ -9,6 +9,8 @@ permissions:
 concurrency:
   group: ${{ github.ref == 'refs/heads/main' && 'refresh-shelters' || format('refresh-shelters-pr-{0}', github.ref_name) }}
   cancel-in-progress: false
+env:
+  HELPMAP_STATE_CHECK: "1"   # times auto-apply only after saved run state is restored (scripts/auto_rules.py state_ok, #491)
 jobs:
   refresh:
     runs-on: ubuntu-latest
@@ -16,18 +18,28 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with: {fetch-depth: 0}
+      - name: Restore saved run state from the private vault (logs/ and reports/; never stored in this public repo)
+        continue-on-error: true
+        timeout-minutes: 5
+        env:
+          HELPMAP_STATE_KEY: ${{ secrets.HELPMAP_STATE_KEY }}
+        run: bash scripts/private_state.sh restore
       - name: Remember the published map
         run: echo "LIVE_BASELINE=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
       - name: Council-area browser test
+        env:
+          HELPMAP_STATE_CHECK: "0"   # the test suite itself must not depend on run state (#491)
         run: |
           python -m venv /tmp/council-area-pw
           /tmp/council-area-pw/bin/pip install -q playwright==1.47.0
           /tmp/council-area-pw/bin/python -m playwright install --with-deps chromium >/dev/null
           /tmp/council-area-pw/bin/python -m unittest tests.test_incident_rest_centre_live.LiveCouncilGate -v
       - name: Test the verification checks
+        env:
+          HELPMAP_STATE_CHECK: "0"   # the test suite itself must not depend on run state (#491)
         run: python -m unittest discover -s tests -v
       - name: Rebuild shelters.js (re-fetches and re-checks every source page)
         run: python scripts/build_shelters.py
@@ -87,6 +99,8 @@ jobs:
       # rebuild that breaks a lock or verification test is never committed (earlier data stays live, the run-failed
       # alert fires). A clean venv without Playwright, so browser checks skip exactly as in the first run.
       - name: Test the same checks again on this run's rebuilt files (a failure stops the publish)
+        env:
+          HELPMAP_STATE_CHECK: "0"   # the test suite itself must not depend on run state (#491)
         timeout-minutes: 15
         run: python -m venv /tmp/postcheck && /tmp/postcheck/bin/python -m unittest discover -s tests -v
       - name: Commit if changed
@@ -193,6 +207,13 @@ jobs:
       - name: Clear the SWEP alert practice echo
         if: success() && steps.swep.outcome == 'success' && steps.review.outcome == 'success' && github.ref != 'refs/heads/main'
         run: "echo 'PRACTICE: issues skipped'"
+      - name: Save this run's state to the private vault (main only; never in this public repo)
+        if: success() && github.ref == 'refs/heads/main'
+        continue-on-error: true
+        timeout-minutes: 5
+        env:
+          HELPMAP_STATE_KEY: ${{ secrets.HELPMAP_STATE_KEY }}
+        run: bash scripts/private_state.sh save shelters
       - name: Practice-run guard
         if: always() && github.ref != 'refs/heads/main'
         run: |
