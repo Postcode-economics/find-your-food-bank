@@ -221,6 +221,15 @@ HAND_FIELDS_ON_KEEP = ("name", "phone", "phone_label", "address", "postcode", "l
                       "discovery_url", "discovery_label", "no_pin", "card_type")
 
 
+def _where(x):
+    """Postcode and pin for a held row (private logs/ only), so the city watch can place it (9 Nov 2026: 5,520 rows unlocated)."""
+    w = {}
+    if x.get("postcode"): w["postcode"] = x["postcode"]
+    if isinstance(x.get("lat"), (int, float)) and isinstance(x.get("lng"), (int, float)) and not x.get("no_pin"):
+        w["lat"], w["lng"] = x["lat"], x["lng"]
+    return w
+
+
 def verification_gate(fresh, prev, verified, run_day, pending_path, autocheck=None, valid_until=None, unverified=None, recheck=True, now=None):
     """Returns (published_fresh, filtered_prev). Writes pending list.
     recheck=True: every run re-fetches each entry's source page.
@@ -259,7 +268,7 @@ def verification_gate(fresh, prev, verified, run_day, pending_path, autocheck=No
         grace = blocked = False
         if failed and closed_src:
             reason = "omitted this run: " + ((rc or {}).get("reason") or "source says closed")
-            pending.append({"id": x["id"], "name": x.get("name") or x["id"], "first_seen": run_day, "reason": reason,
+            pending.append({"id": x["id"], "name": x.get("name") or x["id"], "first_seen": run_day, "reason": reason, **_where(x),
                             "recheck": {k: (rc or {}).get(k) for k in ("url", "final_url", "fetched_at", "http", "sha256")}})
             held.append({"id": x["id"], "name": x.get("name") or x["id"], "reason": reason})
             continue
@@ -294,7 +303,7 @@ def verification_gate(fresh, prev, verified, run_day, pending_path, autocheck=No
         if failed:
             reason = "held this run: read failed, not published before"
             held.append({"id": x["id"], "name": x.get("name") or x["id"], "reason": reason})
-            pending.append({"id": x["id"], "name": x.get("name") or x["id"], "first_seen": run_day, "reason": reason,
+            pending.append({"id": x["id"], "name": x.get("name") or x["id"], "first_seen": run_day, "reason": reason, **_where(x),
                             "recheck": {k: (rc or {}).get(k) for k in ("url", "final_url", "fetched_at", "http", "sha256")}})
             continue
         if v and has_evidence and (x["id"] in published_ids or not valid_until or run_day <= valid_until(v)):
