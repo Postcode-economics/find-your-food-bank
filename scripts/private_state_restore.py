@@ -11,7 +11,7 @@ caps (intelligent_rails.applied_today) then see every layer's applies, not only 
 Files already in the checkout always win. Prints '<files restored> present|missing'. 'missing' means no real state
 was found (nothing, or only the practice probe file): the run then keeps times auto-apply off (auto_rules.state_ok).
 Never prints file names or contents."""
-import json, os, shutil, sys
+import datetime, json, os, re, shutil, sys
 
 PROBE = "logs/private_state_probe.json"
 UNDO_LOGS = ("reports/times_auto_applied.json", "reports/phone_auto_applied.json")
@@ -51,10 +51,21 @@ def _load(path):
     except (OSError, ValueError): return None
 
 
-def _summary_union(copies):
-    """copies: [(folder, summary or None)] oldest save first. Only the newest day counts (intelligent_rails starts a new
-    summary when the day changes). Returns None when no copy is a usable summary."""
-    usable = [(d, c) for d, c in copies if isinstance(c, dict) and isinstance(c.get("run"), str)]
+def _real_day(v, today):
+    """A summary's run day must be a real calendar date written YYYY-MM-DD and not after today, so a bogus or
+    future value can never outrank (and hide) today's saves or reset the blast caps."""
+    if not isinstance(v, str) or not re.fullmatch(r"\d{4}-\d{2}-\d{2}", v): return False
+    try: return datetime.date.fromisoformat(v) <= today
+    except ValueError: return False
+
+
+def _summary_union(copies, today=None):
+    """copies: [(folder, summary or None)] oldest save first. Only the newest real day counts (intelligent_rails starts
+    a new summary when the day changes); copies without a valid day are ignored. Returns None when no copy is usable.
+    A layer whose own copy is unreadable or has no valid day gives no slot of its own, so another save's carried copy
+    of that slot (possibly an older, lower count) is used instead: nothing else holds a newer count for it."""
+    today = today or datetime.date.today()
+    usable = [(d, c) for d, c in copies if isinstance(c, dict) and _real_day(c.get("run"), today)]
     if not usable: return None
     day = max(c["run"] for _, c in usable)
     same = [(d, c) for d, c in usable if c["run"] == day]

@@ -78,6 +78,29 @@ class RestoreIntelligentSummary(unittest.TestCase):
         got = json.loads(self.restored())
         self.assertEqual((got["run"], sorted(got["layers"])), ("2000-01-02", ["foodbanks"]))
 
+    def test_a_bogus_or_future_run_day_never_hides_today(self):
+        t = self.today
+        future = (datetime.date.today() + datetime.timedelta(days=1)).isoformat()
+        for bad in ("9999-99-99", "zzzz", "2026-13-01", "2026-02-30", future, "2026-1-5", 20261105, None):
+            with self.subTest(run=bad):
+                shutil.rmtree(self.src, ignore_errors=True)
+                self.save("shelters", summary(t, {"shelters": slot(30)}), 100)
+                self.save("foodbanks", dict(summary(t, {"foodbanks": slot(2)}), run=bad), 200)
+                self.save("warmspaces", summary(t, {"warmspaces": slot(5)}), 300)
+                got = json.loads(self.restored())
+                self.assertEqual(got["run"], t)
+                self.assertEqual(sorted(got["layers"]), ["shelters", "warmspaces"])
+                self.assertEqual(IR.applied_today(self.dst), 35)      # caps still see today's applies
+
+    def test_an_unreadable_own_copy_falls_back_to_the_carried_slot(self):
+        """Documented: with no usable own copy, the newest carried copy of that slot is the best count available."""
+        t = self.today
+        self.save("sweep", summary(t, {"shelters": slot(3), "sweep": slot(0)}), 100)
+        self.save("shelters", "{not json", 200)
+        self.save("foodbanks", summary(t, {"foodbanks": slot(1)}), 300)
+        got = json.loads(self.restored())
+        self.assertEqual(got["layers"]["shelters"]["applied"], 3)
+
     def test_day_wide_fields_are_merged(self):
         t = self.today
         self.save("shelters", summary(t, {"shelters": slot(1, ["A"])}, blocks=["coverage gate: x"], enabled=False,
