@@ -8,12 +8,20 @@ R1, R2 = "2026-10-29T05:39:35+00:00", "2026-10-29T14:47:47+00:00"
 ON = {"times_auto_apply": True}
 FILL = " lorem ipsum" * 40
 SIG = lambda st: json.dumps(st, sort_keys=True) if st else None
-LOG_PATH = os.path.join(os.path.dirname(__file__), "..", "reports", "times_auto_applied.json")
+# The 29 Oct replay records live in the private vault's historical copy of the undo log, never in this public repo
+# (rule 97). Since #491 the checkout's own reports/times_auto_applied.json is this run's private run state (restored
+# from the vault and appended to by the refresh gate), which does not hold those records, so it is never read here:
+# point HELPMAP_PRIVATE_REPLAY_ROOT at the folder that holds the historical reports/ to run these replays.
+def _log_path():
+    root = os.environ.get("HELPMAP_PRIVATE_REPLAY_ROOT")
+    return os.path.join(root, "reports", "times_auto_applied.json") if root else None
 
 
 def _rec(iid):
+    path = _log_path()
     try:
-        with open(LOG_PATH, encoding="utf-8") as source:
+        if not path: raise FileNotFoundError
+        with open(path, encoding="utf-8") as source:
             log = json.load(source)
     except FileNotFoundError:
         raise unittest.SkipTest("Private replay report is not available in the public checkout")
