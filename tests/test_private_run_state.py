@@ -152,8 +152,11 @@ class RoundTrip(unittest.TestCase):
 
     def test_unreachable_vault_is_fail_safe(self):
         a = self.checkout("down")
+        # GITHUB_ENV is always a temp file here: inside a refresh's own test step the inherited one is the real run's,
+        # and restore's start-of-run undo-log line would replace the run's real one (10 Nov practice 42798321225)
         env = dict(os.environ, PRIVATE_STATE_REPO="file://" + os.path.join(self.d, "missing.git"), HELPMAP_STATE_KEY="k",
-                   GITHUB_REF="refs/heads/main", PRIVATE_STATE_RETRY_WAIT="0", PRIVATE_STATE_WORK=os.path.join(self.d, "work-down"))
+                   GITHUB_REF="refs/heads/main", PRIVATE_STATE_RETRY_WAIT="0", PRIVATE_STATE_WORK=os.path.join(self.d, "work-down"),
+                   GITHUB_ENV=os.path.join(self.d, "github_env-down"))
         r = subprocess.run(["bash", SCRIPT, "restore"], cwd=a, env=env, capture_output=True, text=True)
         self.assertEqual(r.returncode, 0)
         self.assertIn("starting without saved state", r.stdout)

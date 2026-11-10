@@ -118,6 +118,21 @@ class GateTimesCountFromStartOfRunCopy(unittest.TestCase):
         self.assertEqual(F.gate_applied_times(self.d), [])   # restored entries are not this run's applies
 
 
+class TestsNeverWriteTheRunsGithubEnv(unittest.TestCase):
+    """Practice 42798321225 (10 Nov): refresh.yml runs this suite inside the run, where GITHUB_ENV is the run's own file.
+    A restore test that inherited it appended its temp folder as HELPMAP_UNDO_BASELINE(_ROOT), replacing the run's real
+    start-of-run copy, so the brake fell back to the published commit and counted no refresh-gate times."""
+    def test_private_state_tests_leave_an_inherited_github_env_untouched(self):
+        d = tempfile.mkdtemp(); self.addCleanup(shutil.rmtree, d, True)
+        genv = os.path.join(d, "the-runs-github-env"); open(genv, "w").close()
+        e = dict(os.environ, GITHUB_ENV=genv); e.pop("HELPMAP_STATE_KEY", None)
+        r = subprocess.run([sys.executable, "-m", "unittest", "test_private_run_state",
+                            "test_brake_blocks_publish.GateTimesCountFromStartOfRunCopy"],
+                           cwd=os.path.join(R, "tests"), env=e, capture_output=True, text=True, timeout=600)
+        self.assertEqual(r.returncode, 0, r.stdout[-3000:] + r.stderr[-3000:])
+        self.assertEqual(open(genv).read(), "")
+
+
 class MainStopsOnCombinedCount(unittest.TestCase):
     """12 refresh-gate times changes against a median of 2: stop, nothing written.
     The 4 clear phone proposals in the same run are held and do not count. The same run with no gate times does not stop."""
