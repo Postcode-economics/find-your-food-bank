@@ -55,5 +55,19 @@ class PostRebuildChecks(unittest.TestCase):
                 self.assertNotIn("|| true", run(st[post]))
 
 
+class TestStepsIgnoreTheRunsUndoBaseline(unittest.TestCase):
+    """private_state.sh restore puts HELPMAP_UNDO_BASELINE(_ROOT) in GITHUB_ENV for the anomaly brake. A test step that
+    inherits them makes every test that runs full_check.main() count this run's real refresh-gate times (practice
+    42813119765: test_brake_gaps saw 7 changes, not 0). Every unittest step blanks both, which step env does over GITHUB_ENV."""
+    def test_every_unittest_step_blanks_the_baseline(self):
+        for name in WORKFLOWS:
+            for s in steps(name):
+                if "-m unittest" not in str(s.get("run") or ""): continue
+                with self.subTest(workflow=name, step=s.get("name")):
+                    env = s.get("env") or {}
+                    self.assertEqual(env.get("HELPMAP_UNDO_BASELINE"), "")
+                    self.assertEqual(env.get("HELPMAP_UNDO_BASELINE_ROOT"), "")
+
+
 if __name__ == "__main__":
     unittest.main()
