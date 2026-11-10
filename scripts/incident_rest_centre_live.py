@@ -24,6 +24,73 @@ def load_state(path=None):
         return {"incidents": {}}
 
 
+
+def load_public_live(root=None):
+    """Read the public live file (already on the site). Empty dict if missing."""
+    root = root or ROOT
+    try:
+        return json.load(open(os.path.join(root, OUT_JSON), encoding="utf-8"))
+    except Exception:
+        return {}
+
+
+def hydrate_from_public_live(root=None, now=None):
+    """Rebuild gitignored watch state from the public live file when state is empty.
+
+    After rule 97, logs/ are not committed. A new watch job therefore starts with no
+    live_state / pages snapshot. Without a restore, an already-published rest centre
+    would not be re-scanned or expired. Rebuild from the already-public live file only
+    (rule 97). Do not use Actions cache or artifacts on this public repo. Returns a short note.
+    """
+    root = root or ROOT
+    now = now or datetime.datetime.now(datetime.timezone.utc)
+    state_path = os.path.join(root, STATE)
+    state = load_state(state_path)
+    if state.get("incidents"):
+        return "state-present"
+    payload = load_public_live(root)
+    cards = list(payload.get("cards") or [])
+    if not cards:
+        return "no-cards"
+    incidents = {}
+    pages = []
+    for card in cards:
+        if not isinstance(card, dict):
+            continue
+        url = (card.get("source_url") or "").strip()
+        council = card.get("council") or card.get("opened_by") or ""
+        key = "%s|%s" % (council, url or card.get("name") or "rest-centre")
+        incidents[key] = {"council": council, "url": url, "card": dict(card)}
+        if url:
+            rc = {
+                "active": True,
+                "name": card.get("name") or "Rest centre",
+                "quote": card.get("quote") or "",
+                "location": card.get("address") or "",
+            }
+            pages.append({
+                "council": council,
+                "url": url,
+                "http": 200,
+                "status": None,
+                "rest_centre": rc,
+                "quote": card.get("quote") or "",
+            })
+    if not incidents:
+        return "no-cards"
+    state = {"incidents": incidents, "updated": now.isoformat(timespec="seconds"), "hydrated_from": OUT_JSON}
+    save_state(state, state_path)
+    # Seed the pages snapshot so the next fetch does not treat an already-live centre as a new switch-on.
+    try:
+        import incident_rest_centre_switch_on as irso
+        snap = irso.load_snapshot(root)
+        if not snap and pages:
+            irso.save_snapshot(pages, root)
+    except Exception:
+        pass
+    return "hydrated-%d" % len(incidents)
+
+
 def save_state(state, path=None):
     path = path or os.path.join(ROOT, STATE)
     os.makedirs(os.path.dirname(path), exist_ok=True)
@@ -193,3 +260,11 @@ def drop_expired(root=None, now=None):
     save_state(state, os.path.join(root, STATE))
     write_public(root=root, state=state, now=now)
     return gone
+
+
+if __name__ == "__main__":
+    import sys
+    if len(sys.argv) > 1 and sys.argv[1] == "--hydrate-from-live":
+        print(hydrate_from_public_live())
+        raise SystemExit(0)
+    raise SystemExit("usage: incident_rest_centre_live.py --hydrate-from-live")

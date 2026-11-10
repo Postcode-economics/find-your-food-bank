@@ -114,6 +114,10 @@ publish() {
   return 0
 }
 
+# Rebuild gitignored state from the public live file when Actions cache left nothing
+# (rule 97: logs/ stay out of the public repo).
+python scripts/incident_rest_centre_live.py --hydrate-from-live || true
+
 echo "Incident rest centre watch loop: every ${interval}s for up to ${budget}s"
 job_start=$SECONDS
 runs=0
