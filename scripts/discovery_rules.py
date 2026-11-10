@@ -42,7 +42,7 @@ def dates_state(c, today):
         if start and start > today: return "future", start, end
         return "current", start, end
     except Exception: return "current", "", ""
-def assess(c, site, geo, today, H=None):
+def assess(c, site, geo, today, H=None, layer=None):
     """c: candidate; site: own_site_check() result (or {'result':'add'} for a live directory record);
     geo: {POSTCODE_NOSPACE: (lat, lng)} for this run. Returns (decision, reasons): 'add' | 'queue' | 'reject'."""
     try:
@@ -60,7 +60,10 @@ def assess(c, site, geo, today, H=None):
         elif soft:  # directory record only (e.g. a Warm Welcome listing): it must carry THIS season's dates, or it may be an old listing
             y = int(today[:4]) - (0 if today[5:7] >= "08" else 1); season = "%d-08-01" % y
             if not ((start and start >= season) or (end and end >= today)):
-                q.append("directory listing only, with no %d-%02d season dates (latest stated start: %s)" % (y, (y + 1) % 100, start or "none"))
+                if layer == "fb":  # food banks have no season: the real gap is the own-site confirmation (wording only)
+                    q.append("directory listing only; the food bank's own site has not confirmed it yet")
+                else:
+                    q.append("directory listing only, with no %d-%02d season dates (latest stated start: %s)" % (y, (y + 1) % 100, start or "none"))
         pc = npc(c.get("postcode"))
         g = geo.get(pc) if pc else None
         if not pc: q.append("no postcode")
