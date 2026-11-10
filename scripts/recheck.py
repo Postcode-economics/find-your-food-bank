@@ -38,6 +38,26 @@ def host(u):
 TIME_RE = re.compile(r"^([01]\d|2[0-3]):[0-5]\d - ([01]\d|2[0-3]):[0-5]\d$")
 DAYKEYS = {"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"}
 PC_RE = re.compile(r"^(GIR 0AA|[A-Z]{1,2}\d[A-Z\d]? ?\d[A-Z]{2})$")
+MAX_SESSIONS = 3
+def split_session_errors(v):
+    """Split sessions in one day written with commas, e.g. '10:00 - 13:00, 14:00 - 17:00' (libraries closed at lunch).
+    None when v is not a comma list (the caller keeps the original ' / ' check exactly as it was).
+    '' when every rule holds: each part a valid range, start before end, in time order, no overlap, at most 3.
+    Otherwise the reason it is invalid. Only the comma form is newly accepted; nothing that failed before passes
+    unless it meets all of these (Grok Bot 2, 9 Nov 2026)."""
+    if "," not in v or " / " in v:
+        return None
+    parts = [p.strip() for p in v.split(",")]
+    if not all(TIME_RE.match(p) for p in parts):
+        return "not every session is a valid time range"
+    if len(parts) > MAX_SESSIONS:
+        return "more than %d sessions in one day" % MAX_SESSIONS
+    spans = [(p[:5], p[-5:]) for p in parts]
+    if any(a >= b for a, b in spans):
+        return "a session ends before it starts"
+    if any(spans[i][1] > spans[i + 1][0] for i in range(len(spans) - 1)):
+        return "sessions overlap or are out of order"
+    return ""
 def schema_errors(x, layer):
     """Validate every published field. Returns a list of problems (empty = valid)."""
     e = []
@@ -54,8 +74,11 @@ def schema_errors(x, layer):
         for k, v in h.items():
             if k not in DAYKEYS: e.append(f"hours day key invalid: {k}")
             if str(v) in ("24 hours", "Closed"): continue  # 24/7 from OSM, or a day the source says is closed
-            for part in str(v).replace(" Monthly", "").replace(" Fortnightly", "").split(" / "):
-                if not TIME_RE.match(part.strip()): e.append(f"hours value invalid: {k}={v}")
+            bad = split_session_errors(str(v).replace(" Monthly", "").replace(" Fortnightly", ""))
+            if bad is None:  # not a comma list of sessions: the original " / " check, unchanged
+                for part in str(v).replace(" Monthly", "").replace(" Fortnightly", "").split(" / "):
+                    if not TIME_RE.match(part.strip()): e.append(f"hours value invalid: {k}={v}")
+            elif bad: e.append(f"hours value invalid: {k}={v} ({bad})")
     elif h not in ("", None) and not isinstance(h, str): e.append("hours wrong type")
     if layer == "sh":
         if x.get("access_type") not in (None, "open_access", "self_referral", "referral_only"): e.append("access_type invalid")
