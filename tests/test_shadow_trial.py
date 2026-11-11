@@ -1,7 +1,7 @@
-"""Two-week shadow trial of the proposed Phase 2 rules (scripts/shadow_trial.py), record only.
+"""Seven-day shadow trial of the proposed Phase 2 rules (scripts/shadow_trial.py), record only.
 Proves: nothing is written outside reports/shadow/; the refresh gate's items and files are byte-identical with the
 trial on or off; a shadow error never fails or changes the refresh; results and the start date carry forward through
-the private run-state restore; the trial records a 14-day window; and the four main workflows switch it on."""
+the private run-state restore; the trial records a 7-day window; and the four main workflows switch it on."""
 import datetime, hashlib, json, os, shutil, sys, tempfile, unittest
 from unittest import mock
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -82,6 +82,18 @@ class NoWritesOutside(unittest.TestCase):
 
     def test_path_outside_shadow_refused(self):
         with self.assertRaises(ValueError): ST._safe_path("/tmp/x", "..", "..", "overrides", "phones.json")
+
+    def test_symlinked_shadow_outside_checkout_refused(self):
+        root = tempfile.mkdtemp()
+        outside = tempfile.mkdtemp()
+        try:
+            os.makedirs(os.path.join(root, "reports"))
+            os.symlink(outside, os.path.join(root, "reports", "shadow"))
+            with self.assertRaises(ValueError):
+                ST._safe_path(root, "trial.json")
+        finally:
+            shutil.rmtree(root)
+            shutil.rmtree(outside)
 
     def test_nothing_recorded_without_restored_state(self):
         root = tempfile.mkdtemp()
@@ -164,14 +176,14 @@ class CarryForward(unittest.TestCase):
 
 
 class TrialWindow(unittest.TestCase):
-    def test_start_and_fourteen_day_end(self):
+    def test_start_and_seven_day_end(self):
         root = tempfile.mkdtemp()
         try:
             t = ST.trial_state(root)
             s = datetime.date.fromisoformat(t["start"])
             self.assertEqual(t["start"], datetime.datetime.now(datetime.timezone.utc).date().isoformat())
-            self.assertEqual(datetime.date.fromisoformat(t["last_day"]) - s, datetime.timedelta(days=13))
-            self.assertEqual(datetime.date.fromisoformat(t["end"]) - s, datetime.timedelta(days=14))
+            self.assertEqual(datetime.date.fromisoformat(t["last_day"]) - s, datetime.timedelta(days=6))
+            self.assertEqual(datetime.date.fromisoformat(t["end"]) - s, datetime.timedelta(days=7))
             self.assertEqual(t["rules"], list(ST.RULES))
             json.dump(dict(t, start="2026-01-01"), open(os.path.join(root, "reports", "shadow", "trial.json"), "w"))
             self.assertEqual(ST.trial_state(root)["start"], "2026-01-01")  # never reset once recorded

@@ -1,4 +1,4 @@
-"""Two-week shadow trial of the proposed Phase 2 automatic rules (record only).
+"""Seven-day shadow trial of the proposed Phase 2 automatic rules (record only).
 
 Plan: the 9 Nov self-sufficiency plan in the private vault, with Grok Bot 2's binding notes (9 Nov 14:19 GMT):
 "Every Phase 2 rule: 2 weeks in shadow mode against the 08:00 hand-check first." Rules shadowed here, in Bot 2's
@@ -28,7 +28,7 @@ import datetime, hashlib, json, os, re, sys, threading, urllib.parse
 ENV = "HELPMAP_SHADOW_TRIAL"
 OUT = os.path.join("reports", "shadow")
 TRIAL = os.path.join(OUT, "trial.json")
-TRIAL_DAYS = 14
+TRIAL_DAYS = 7
 TRUST_MIN_APPLIES = 10
 TRUST_DAYS = 30
 READS_UNTRUSTED = 3
@@ -37,7 +37,8 @@ COVER_FLOOR = 0.50
 RENDER_CEIL = 0.25
 RULES = ("2.5-host-trust", "2.1-per-item-cap", "2.2b-per-host-coverage", "2.4-fewer-days")
 SOURCE = ("vault workspace/docs/self_sufficient_plan_2026-11-09.md, Phase 2 + Grok Bot 2 binding notes "
-          "(9 Nov 2026 14:19 GMT): every Phase 2 rule 2 weeks in shadow against the 08:00 hand-check")
+          "(9 Nov 2026 14:19 GMT): every Phase 2 rule in shadow against the 08:00 hand-check; "
+          "Dean 11 Nov 2026 18:36 GMT: 7-day trial")
 DAYS = ("mon", "tue", "wed", "thu", "fri", "sat", "sun")
 DAY_WORDS = {"mon": r"\bmon(day)?s?\b", "tue": r"\btues?(day)?s?\b", "wed": r"\bwed(nesday)?s?\b",
              "thu": r"\bthu(rs?)?(day)?s?\b", "fri": r"\bfri(day)?s?\b", "sat": r"\bsat(urday)?s?\b",
@@ -88,9 +89,19 @@ def _dump(path, obj):
 
 
 def _safe_path(root, *parts):
-    """Every write goes through here: it must resolve inside <root>/reports/shadow."""
+    """Every write goes through here: it must resolve inside <root>/reports/shadow.
+
+    The real path is checked, so a symlink of reports/ or reports/shadow that
+    points outside the checkout is refused (same pattern as scorecard.safe_out).
+    """
+    root_real = os.path.realpath(root)
+    rep = os.path.realpath(os.path.join(root, "reports"))
     base = os.path.realpath(os.path.join(root, OUT))
     p = os.path.realpath(os.path.join(root, OUT, *parts))
+    if not (rep == os.path.join(root_real, "reports") or rep.startswith(root_real + os.sep)):
+        raise ValueError("shadow write outside reports/shadow refused")
+    if not base.startswith(rep + os.sep):
+        raise ValueError("shadow write outside reports/shadow refused")
     if p != base and not p.startswith(base + os.sep):
         raise ValueError("shadow write outside reports/shadow refused")
     return p
