@@ -2,7 +2,7 @@
 - WebPage JSON-LD with dateModified on every page (block marked data-ld="page")
 - Dataset JSON-LD on the home page (data-ld="dataset"), FAQPage JSON-LD on faq.html (data-ld="faq")
 - the no-JS text of the home page's 'Updated today at HH:MM' line
-- sitemap.xml lastmod for every page
+- sitemap.xml lastmod for every page (the date that page's meaningful content last changed, not the refresh day)
 - ?v=h<sha256[:12]> content hash on data.js, stamp.js and access.js in index.html (cache-first safe with sw.js).
 Usage: python scripts/seo_meta.py"""
 import datetime, glob, html, json, os, re
@@ -195,7 +195,7 @@ def put_social(s, rel):
     return head + ''.join(add) + sep + rest if add else s
 
 def run(root=ROOT):
-    t = stamp(root); iso = t.isoformat(timespec='seconds'); day = t.date().isoformat()
+    t = stamp(root); iso = t.isoformat(timespec='seconds')
     ps = pages(root); L = stamp_layers(root); pd = os.path.join(root, 'overrides', 'page_dates.json')
     dates = json.load(open(pd)) if os.path.exists(pd) else {}
     if os.path.exists(os.path.join(root, '404.html')):
@@ -222,10 +222,9 @@ def run(root=ROOT):
         if rel == 'faq.html':
             s = put(s, 'faq', ld('faq', faq_ld(s)))
         if s != s0: open(p, 'w', encoding='utf-8').write(s)
+    import sitemap_lastmod
+    sitemap_lastmod.write_urlset(root, ps, t.date(), dates=dates, bump=True, persist=True)
     if os.path.isdir(os.path.dirname(pd)): json.dump(dates, open(pd, 'w'), indent=1, sort_keys=True)
-    sm = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
-    sm += ['<url><loc>%s</loc><lastmod>%s</lastmod></url>' % (url_of(r), day) for r in ps]
-    open(os.path.join(root, 'sitemap.xml'), 'w').write('\n'.join(sm + ['</urlset>']) + '\n')
     print('seo_meta: %d pages stamped %s' % (len(ps), iso))
     return ps
 

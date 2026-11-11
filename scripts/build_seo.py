@@ -407,13 +407,19 @@ def build(out=ROOT, fetch=True):
         for sub in os.listdir(os.path.join(out, d)):
             p = os.path.join(out, d, sub)
             if os.path.isdir(p) and not os.listdir(p): os.rmdir(p)
-    lm = {'/': fb['fetched']}
-    sm = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
-    for u in ['/'] + urls + ['/faq.html', '/privacy.html', '/terms.html', '/accessibility.html']:
-        d = ws['updated'] if u.startswith('/warm-spaces') else sh['updated'] if u.startswith('/shelters') else fb['fetched']
-        sm.append('<url><loc>%s%s</loc><lastmod>%s</lastmod></url>' % (SITE, u, d))
-    sm.append('</urlset>')
-    open(os.path.join(out, 'sitemap.xml'), 'w').write('\n'.join(sm) + '\n')
+    # Sitemap lastmod: keep each URL's previous date unless seo_meta.py (which runs
+    # after this) sees a real content change. This first pass never bumps lastmod,
+    # so a failed seo_meta step cannot stamp today on every URL.
+    import sitemap_lastmod
+    rels = ['/'] + urls + ['/faq.html', '/privacy.html', '/terms.html', '/accessibility.html']
+    dates = {}
+    try:
+        pd = os.path.join(out, 'overrides', 'page_dates.json')
+        if os.path.exists(pd):
+            dates = json.load(open(pd))
+    except Exception:
+        dates = {}
+    sitemap_lastmod.write_urlset(out, rels, datetime.date.today(), dates=dates, bump=False, persist=False)
     open(os.path.join(out, 'robots.txt'), 'w').write('User-agent: *\nAllow: /\nDisallow: /logs/\nDisallow: /reports/\nDisallow: /overrides/\nDisallow: /scripts/\nDisallow: /tests/\n\nSitemap: %s/sitemap.xml\n' % SITE)
     body = ('<h1>Page not found</h1><p>Sorry, that page isn’t here. It may have moved.</p><a class="cta" href="/">Open the helpmap.uk map</a>'
             '<p><a href="/food-banks/">Food banks by area</a> · <a href="/warm-spaces/">Warm spaces by area</a> · <a href="/shelters/">Shelters by area</a></p>')
