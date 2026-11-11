@@ -5274,25 +5274,40 @@
     "who_for": "Not stated"
   },
   "man-york-road-project": {
-    "access": "Priority to Woking connection; also Woking council page lists it",
-    "access_type": "referral_only",
-    "address": "1 York Road, Woking (night shelter); resource centre 30 Goldsworth Road GU21 6JT",
-    "evidence_name": "yorkroadproject.org.uk",
-    "evidence_url": "https://yorkroadproject.org.uk/",
-    "facilities": "Not stated",
-    "groups": [],
+    "access": "Direct access accommodation at 1 York Road, Woking. Call 01483 728739 if you need help urgently.",
+    "access_type": "open_access",
+    "address": "1 York Road, Woking (direct access accommodation); resource centre and main office 30 Goldsworth Road, GU21 6JT",
+    "evidence_name": "York Road Project",
+    "evidence_url": "https://yorkroadproject.org.uk/how-we-work/",
+    "facilities": [
+      "The project offers a place in its 10-bed shelter.",
+      "The shelter is a sanctuary where clients can stay safe during the day as well as at night."
+    ],
+    "facilities_quote": "Our shelter is a sanctuary where our clients can stay safe during the day as well as at night.",
+    "facilities_source": "https://yorkroadproject.org.uk/how-we-work/",
+    "groups": [
+      "People who are homeless",
+      "A 10-bed shelter for rough sleepers in Woking"
+    ],
+    "groups_quote": "Our team is on the streets of Woking earning the trust of rough sleepers and offering them a place in our 10-bed shelter.",
+    "groups_source": "https://yorkroadproject.org.uk/how-we-work/",
     "hours": "Not stated",
+    "hours_checked": "2026-11-11",
     "lat": 51.314543,
     "lng": -0.562545,
     "name": "York Road Project",
-    "note": "Dean blanket approval for verified items, national web sweep 31 Oct 2026. Phone found verbatim on the page above; pin is the postcodes.io centroid.",
     "phone": "01483 728739",
     "postcode": "GU22 7XH",
-    "quote": "to be supported by the National Lottery Community Fund DONATE NOW GET HELP Email us Info@yorkroadproject.org.uk Call us 01483 728739 Resource Centre and main office address",
-    "referral": "Referral: Priority to Woking connection; also Woking council page lists it",
+    "quote": "Direct access accommodation and registered address. Our team is on the streets of Woking earning the trust of rough sleepers and offering them a place in our 10-bed shelter. Our shelter is a sanctuary where our clients can stay safe during the day as well as at night.",
+    "referral": "Direct access accommodation at 1 York Road, Woking. Call 01483 728739 if you need help urgently.",
     "season": "Year-round",
-    "verified_on": "2026-10-31",
-    "who_for": "Not stated"
+    "source_label": "York Road Project",
+    "verified_on": "2026-11-11",
+    "who_for": [
+      "People who are homeless",
+      "A 10-bed shelter for rough sleepers in Woking"
+    ],
+    "website": "https://yorkroadproject.org.uk/get-help/"
   },
   "osm-node-11975250474": {
     "access": "referral only (Manchester City Council)",
