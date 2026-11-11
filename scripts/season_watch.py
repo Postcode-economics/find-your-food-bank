@@ -17,15 +17,31 @@ MONTHS = {m: i + 1 for i, m in enumerate(("jan", "feb", "mar", "apr", "may", "ju
 # "Winter 2026 12th Jan - 30th Mar 2026", so it names last season. "2026-27th" is a date, not a season.
 # "2026 to 2027" counts too. The ordinal lookahead has no \s*, so a following word such as " St Annes" or
 # " St Helens" (Lytham St Annes, St Helens) is never mistaken for an ordinal. "26-27 High St" is an address, not a season.
-# A day-month-year straight after ("12 Jan 2026 - 27 Feb 2026") is a date range, not a season label.
-_MON = r"(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?"
-LABEL = re.compile(r"\b2026(?:\s*[-/–]\s*|\s+to\s+)(?:20)?27\b(?!(?:st|nd|rd|th)\b)(?!\s+" + _MON + r",?\s+20\d\d\b)", re.I)
+# A 4-digit second part ("2026-2027", "2026/2027", "2026 to 2027") is always a season label, whatever follows
+# ("Winter 2026-2027 November 2026 - March 2027"). A 2-digit "27" can also be the start of a date ("12 Jan 2026 -
+# 27 Feb 2026", "12/01/2026 - 27/02/2026"), so it is NOT a label when a month name sits straight before the 2026
+# (checked in _label below) or when "/27" carries on as a numeric date. "2026-27 June 2027" stays a label.
+LABEL = re.compile(r"\b2026(?:\s*[-/–]\s*|\s+to\s+)(?:(?P<long>2027)|27)\b(?!(?:st|nd|rd|th)\b)(?![/.]\d)", re.I)
+# a whole month word (not "Marketplace") right before the 2026: "12 Jan 2026 - 27 ..." is a date range
+_MONTH_BEFORE = re.compile(r"\b(?:jan(?:uary)?|feb(?:ruary)?|mar(?:ch)?|apr(?:il)?|may|june?|july?|aug(?:ust)?|"
+                           r"sep(?:t(?:ember)?)?|oct(?:ober)?|nov(?:ember)?|dec(?:ember)?)\.?,?\s*$", re.I)
+
+
+def _label(t):
+    """First explicit 2026-27 season label in t, or None."""
+    for m in LABEL.finditer(t):
+        if m.group("long") or not _MONTH_BEFORE.search(t[max(0, m.start() - 12):m.start()]):
+            return m
+    return None
+
+
 # Page or record metadata just before a date ("Last updated 12 September 2026", "Updated: 12/09/2026",
 # "Checked on Monday 3 November 2026") is an edit date, not the season. Whole words only ("Signposted" is not
-# "posted"), and only "on" or ":" (plus an optional weekday) may sit between the word and the date, so
+# "posted"), and only "on", "on:", ":" or a dash (plus an optional weekday and "the") may sit between the word and
+# the date ("Updated: Weds 5 Nov 2026", "Updated on the 12 October 2026"), so
 # "checked weekly, open from 5 November 2026" still counts the opening date.
-META = re.compile(r"\b(?:updated|reviewed|modified|published|posted|edited|amended|checked)\b\s*(?:on\b|:)?\s*"
-                  r"(?:(?:mon|tues?|wed(?:nes)?|thu(?:rs)?|fri|sat(?:ur)?|sun)(?:day)?\.?,?\s*)?$", re.I)
+META = re.compile(r"\b(?:updated|reviewed|modified|published|posted|edited|amended|checked)\b\s*(?:on\b\s*:?|:|[-–])?\s*"
+                  r"(?:(?:mon|tues?|wed(?:nes|s)?|thu(?:rs)?|fri|sat(?:ur)?|sun)(?:day)?\.?,?\s*)?(?:the\s+)?$", re.I)
 # "12th Jan 2026", "3 November 2026", "Jan 12 2026"; also numeric 12/01/2026
 DMY = re.compile(r"\b(\d{1,2})(?:st|nd|rd|th)?\s+([A-Za-z]{3,9})\.?,?\s+(20\d\d)\b")
 MDY = re.compile(r"\b([A-Za-z]{3,9})\.?\s+(\d{1,2})(?:st|nd|rd|th)?,?\s+(20\d\d)\b")
@@ -74,7 +90,7 @@ def row_season(attrs):
     # (e.g. name "... 2026-27" + address "St Annes Road", or notes "Last checked by council" + times "From 5 Nov 2026").
     fields = [re.sub(r"\s+", " ", a[k]) for k in a if isinstance(a.get(k), str) and a[k].strip()]
     for t in fields:
-        m = LABEL.search(t)
+        m = _label(t)
         if m:
             return "current", m.group(0)
     ds = [x for t in fields for x in dates_in(t)]

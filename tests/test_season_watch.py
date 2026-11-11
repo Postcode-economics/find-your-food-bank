@@ -114,6 +114,35 @@ class SecondReview512(unittest.TestCase):
         self.assertEqual(S.row_season({"orgopentimes": "Warm Spaces Winter 2026 12th Jan - 30th Mar 2026"})[0], "past")
 
 
+class ThirdReview512(unittest.TestCase):
+    """Grok Bot 2 re-review of #512 (11 Nov, VERDICT_v2): a 4-digit "2026-2027" label followed by month-year text was
+    undated, and a 2-digit label followed by a month-year read as an out-of-window date ("past")."""
+
+    def test_four_digit_label_then_month_year_is_current(self):
+        for t in ("Winter 2026-2027 November 2026 - March 2027", "Winter 2026/2027 Nov 2026 to Mar 2027", "Winter 2026-2027 November 2026",
+                  "2026/2027 Oct 2026", "Winter 2026 - 2027 Nov 2026 - Mar 2027", "2026 to 2027 November 2026 to March 2027"):
+            self.assertEqual(S.row_season({"orgopentimes": t})[0], "current", t)
+        self.assertEqual(S.row_season({"orgopentimes": "Winter 2026-2027 November 2026 - March 2027"}), ("current", "2026-2027"))
+
+    def test_two_digit_label_then_out_of_window_month_is_current_not_past(self):
+        self.assertEqual(S.row_season({"orgopentimes": "2026-27 June 2027"}), ("current", "2026-27"))
+        self.assertEqual(S.row_season({"orgopentimes": "Warm spaces 2026/27 Aug 2026 - Mar 2027"}), ("current", "2026/27"))
+        self.assertEqual(S.row_season({"orgopentimes": "Winter 2026-27 November 2026 to March 2027"})[0], "current")
+
+    def test_date_ranges_are_still_not_labels(self):
+        for t in ("12 Jan 2026 - 27 Feb 2026", "12 Jan 2026 to 27 Feb 2026", "Mon 12 Jan 2026 - 27 Mar", "12 Jan 2026 to 27 March",
+                  "12/01/2026 - 27/02/2026"):
+            self.assertEqual(S.row_season({"orgopentimes": t})[0], "past", t)
+        # a word that merely starts like a month is not a month
+        self.assertEqual(S.row_season({"orgopentimes": "Warm Spaces Winter Marketplace 2026-27"}), ("current", "2026-27"))
+
+    def test_more_edit_date_forms_are_ignored(self):
+        for t in ("Updated: Weds 5 Nov 2026", "Updated on the 12 October 2026", "Updated on: 12 October 2026", "Last updated - 12 October 2026"):
+            self.assertEqual(S.row_season({"orgopentimes": t})[0], "undated", t)
+        # the real opening date next to it still counts
+        self.assertEqual(S.row_season({"orgopentimes": "Updated: Weds 5 Nov 2026. Open Weds from 5 Nov 2026"}), ("current", "2026-11-05"))
+
+
 class MergeWritesOnlyWhereTold(unittest.TestCase):
     """Grok Bot 2 review (10 Nov): the watcher must write to the caller's report root, never the real checkout from a test,
     and must only see the Lancashire rows of this merge_into run."""
