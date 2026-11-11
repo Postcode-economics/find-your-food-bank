@@ -188,7 +188,7 @@ class Writes(Fixture):
 
 
 class ReviewFixes(Fixture):
-    """R1-R4 and S1-S2 from the Grok Bot 2 review of c05b1cf5."""
+    """R1-R4 / S1-S2 from the review of c05b1cf5, and C1-C3 from the review of 9f2a2df2."""
 
     def test_r1_missing_held_keys_are_null_not_zero(self):
         put(self.state, "foodbanks/reports/intelligent_mode.json", {
@@ -299,6 +299,88 @@ class ReviewFixes(Fixture):
         self.assertEqual(c["layers"]["foodbanks"]["latest_day"]["hold_reasons"], {"why": 1})
         self.assertNotEqual(c["layers"]["foodbanks"]["latest_day"]["hold_reasons"], {"h": 1, "w": 1, "y": 1})
         self.assertEqual(c["layers"]["foodbanks"]["discovery"]["queue_reasons"], {"hold": 1})
+
+
+    def test_c1_non_numeric_headline_does_not_skip_the_card(self):
+        # P24: last week's held is the string "5". Compare used to TypeError and skip the card.
+        prev = {"week": "2026-W45", "layers": {"foodbanks": {"latest_day": {"held": "5"}}}}
+        c = S.build(self.state, "2026-W46", prev=prev, now=SUNDAY, gh={l: None for l in S.LAYERS})
+        self.assertEqual(c["week"], "2026-W46")
+        self.assertEqual(c["week_on_week"]["previous_week"], "2026-W45")
+        self.assertIsNone(c["week_on_week"]["change"]["foodbanks"]["held_latest_day"])
+        self.assertIsNotNone(S.render(c))
+        # P33: this week's held is the string "53" and a previous numeric card exists.
+        put(self.state, "foodbanks/reports/intelligent_mode.json", {
+            "run": "2026-11-14", "layers": {"foodbanks": {"held": "53", "applied": 1, "stale_cleared": 0}},
+        })
+        prev_num = {"week": "2026-W45", "layers": {"foodbanks": {"latest_day": {"held": 5}}}}
+        c2 = S.build(self.state, "2026-W46", prev=prev_num, now=SUNDAY, gh={l: None for l in S.LAYERS})
+        self.assertIsNone(c2["layers"]["foodbanks"]["latest_day"]["held"])
+        self.assertIsNone(c2["week_on_week"]["change"]["foodbanks"]["held_latest_day"])
+        # main used to print "scorecard: skipped (TypeError)" and write nothing
+        put(self.root, "reports/scorecard/2026-W45.json", prev)
+        buf = io.StringIO()
+        with mock.patch("sys.stdout", buf):
+            self.assertEqual(S.main(["--state", self.state, "--root", self.root, "--week", "2026-W46"],
+                                    now=SUNDAY, gh={l: None for l in S.LAYERS}), 0)
+        self.assertNotIn("skipped", buf.getvalue())
+        self.assertIn("wrote", buf.getvalue())
+        self.assertTrue(os.path.exists(os.path.join(self.root, "reports", "scorecard", "2026-W46.md")))
+        md = open(os.path.join(self.root, "reports", "scorecard", "2026-W46.md"), encoding="utf-8").read()
+        self.assertNotIn("could not be built", md)
+
+    def test_c2_boolean_and_string_counts_are_not_shown_as_numbers(self):
+        # P29: held "53" must be null, not the string, and markdown must still build
+        put(self.state, "foodbanks/reports/intelligent_mode.json", {
+            "run": "2026-11-14", "layers": {"foodbanks": {"held": "53", "applied": True, "stale_cleared": "0"}},
+        })
+        c = self.card()
+        ld = c["layers"]["foodbanks"]["latest_day"]
+        self.assertIsNone(ld["held"])
+        self.assertIsNone(ld["applied_that_day"])
+        self.assertIsNone(ld["stale_cleared"])
+        md = S.render(c)
+        self.assertNotIn("could not be built", md)
+        line = [ln for ln in md.splitlines() if ln.startswith("2. Opening-time changes held")][0]
+        self.assertIn("no data yet", line)
+        self.assertNotRegex(line, r": 53")
+        # P30: held true must be null, never the invented count 1
+        put(self.state, "foodbanks/reports/intelligent_mode.json", {
+            "run": "2026-11-14", "layers": {"foodbanks": {"held": True, "applied": 1, "stale_cleared": 0}},
+        })
+        c2 = self.card()
+        self.assertIsNone(c2["layers"]["foodbanks"]["latest_day"]["held"])
+        self.assertIs(c2["layers"]["foodbanks"]["latest_day"]["held"] is True, False)
+        line2 = [ln for ln in S.render(c2).splitlines() if ln.startswith("2. Opening-time changes held")][0]
+        self.assertIn("no data yet", line2)
+        self.assertNotRegex(line2, r": 1\b")
+        # P34: last week's held true must not invent a week-on-week change of +6 (7 - 1)
+        prev = {"week": "2026-W45", "layers": {"foodbanks": {"latest_day": {"held": True}}}}
+        put(self.state, "foodbanks/reports/intelligent_mode.json", {
+            "run": "2026-11-14", "layers": {"foodbanks": {"held": 7, "applied": 1, "stale_cleared": 0}},
+        })
+        c3 = S.build(self.state, "2026-W46", prev=prev, now=SUNDAY, gh={l: None for l in S.LAYERS})
+        self.assertEqual(c3["layers"]["foodbanks"]["latest_day"]["held"], 7)
+        self.assertIsNone(c3["week_on_week"]["change"]["foodbanks"]["held_latest_day"])
+
+    def test_c3_brake_stop_without_a_readable_day_is_no_data_yet(self):
+        # P35: stop is set but there is no day, so the week is unknown — not a "no"
+        put(self.state, "foodbanks/reports/learning_state.json", {"anomaly": {"stop": True}, "change_counts": []})
+        c = self.card()
+        self.assertIsNone(c["brake"]["trip_on_file_this_week"])
+        md = S.render(c)
+        self.assertIn("Brake trip on file this week: no data yet", md)
+        self.assertNotIn("Brake trip on file this week: no\n", md + "\n")
+        # unreadable day is the same
+        put(self.state, "foodbanks/reports/learning_state.json",
+            {"anomaly": {"stop": True, "day": "not-a-day"}, "change_counts": []})
+        self.assertIsNone(self.card()["brake"]["trip_on_file_this_week"])
+        self.assertIn("Brake trip on file this week: no data yet", S.render(self.card()))
+        # a readable day last week is still an honest "no"
+        put(self.state, "foodbanks/reports/learning_state.json",
+            {"anomaly": {"stop": True, "day": "2026-11-02"}, "change_counts": []})
+        self.assertIs(self.card()["brake"]["trip_on_file_this_week"], False)
+        self.assertIn("Brake trip on file this week: no", S.render(self.card()))
 
 
 class Workflow(unittest.TestCase):

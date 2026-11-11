@@ -229,8 +229,8 @@ def held(state):
                 errors = None
             else:
                 errors = len(slot["errors"])
-            res[l] = {"run_day": d.get("run"), "held": slot.get("held"), "applied_that_day": slot.get("applied"),
-                      "stale_cleared": slot.get("stale_cleared"), "rejected_listed": rejected_listed,
+            res[l] = {"run_day": d.get("run"), "held": _int(slot.get("held")), "applied_that_day": _int(slot.get("applied")),
+                      "stale_cleared": _int(slot.get("stale_cleared")), "rejected_listed": rejected_listed,
                       "held_ids": held_ids, "hold_reasons": hold_reasons, "unreachable": unreach or None,
                       "coverage_gate_blocks": coverage_gate_blocks, "errors": errors}
         except Exception:
@@ -324,8 +324,15 @@ def brakes(state, start, end):
         trip_on_file, last_trip = None, None
     else:
         an = ls["anomaly"]
-        trip_on_file = bool(an.get("stop") and _in(an.get("day"), start, end))
-        last_trip = ({"day": an.get("day"), "reason": an.get("reason")} if an.get("stop") else None)
+        if not an.get("stop"):
+            trip_on_file, last_trip = False, None
+        elif _ts(an.get("day")) is None:
+            # stop is set but the week cannot be read, so this is not a "no"
+            trip_on_file = None
+            last_trip = {"day": an.get("day"), "reason": an.get("reason")}
+        else:
+            trip_on_file = bool(_in(an.get("day"), start, end))
+            last_trip = {"day": an.get("day"), "reason": an.get("reason")}
     if "change_counts" not in ls or not isinstance(ls.get("change_counts"), list):
         runs_counted, max_changes = None, None
     else:
@@ -348,7 +355,7 @@ def failures(state):
         return None
     codes = collections.Counter(str(e.get("http") or "error") for e in se["errors"] if isinstance(e, dict))
     blocked = sum(n for c, n in codes.items() if c in ("403", "429"))
-    return {"run": se.get("run"), "checked": se.get("checked"), "failed": len(se["errors"]), "blocked_403_429": blocked}
+    return {"run": se.get("run"), "checked": _int(se.get("checked")), "failed": len(se["errors"]), "blocked_403_429": blocked}
 
 
 def corrections(state, start, end):
@@ -492,7 +499,7 @@ def build(state, week, prev=None, now=None, gh=None):
                              "held_at_last_card": (len(last_held) if isinstance(last_held, list) else None),
                              "latest_day": hd.get(l), "pending": pd.get(l), "discovery": disc.get(l),
                              "shadow": ((sh or {}).get("layers") or {}).get(l) if isinstance(sh, dict) else None}
-    card["week_on_week"] = compare(card, prev)
+    card["week_on_week"] = _measure(lambda: compare(card, prev), None)
     return card
 
 
@@ -505,10 +512,10 @@ def _headline(card, l):
     ld = L.get("latest_day") if isinstance(L.get("latest_day"), dict) else {}
     pd = L.get("pending") if isinstance(L.get("pending"), dict) else {}
     dc = L.get("discovery") if isinstance(L.get("discovery"), dict) else {}
-    return {"auto_applied_this_week": L.get("auto_applied_this_week"), "undone_of_those": L.get("undone_of_those"),
-            "held_latest_day": ld.get("held"),
-            "pending_size": pd.get("size"),
-            "discovery_queued": dc.get("queued")}
+    return {"auto_applied_this_week": _int(L.get("auto_applied_this_week")), "undone_of_those": _int(L.get("undone_of_those")),
+            "held_latest_day": _int(ld.get("held")),
+            "pending_size": _int(pd.get("size")),
+            "discovery_queued": _int(dc.get("queued"))}
 
 
 def compare(card, prev):
@@ -520,7 +527,10 @@ def compare(card, prev):
             now_h, then_h = _headline(card, l), _headline(prev, l)
         except Exception:
             continue
-        out[l] = {k: (None if now_h[k] is None or then_h.get(k) is None else now_h[k] - then_h[k]) for k in now_h}
+        out[l] = {}
+        for k in now_h:
+            a, b = _int(now_h[k]), _int(then_h.get(k))
+            out[l][k] = None if a is None or b is None else a - b
     return {"previous_week": prev.get("week"), "change": out}
 
 
