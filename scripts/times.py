@@ -72,6 +72,10 @@ def parse_segment(seg):
     """-> dict day -> list of ranges ([] = explicitly closed), or None if not fully understood"""
     s = seg.lower().replace('\u00a0', ' ')
     s = re.sub(r'(?i)\b(\d{1,2}(?:[:.]\d{2})?\s*(?:am|pm))\s+(12(?:[:.]00)?\s*(?:noon|midday|pm))\b', r'\1 - \2', s)
+    # weekdays / weekday = Monday-Friday; do this before the junk check so "week" does not
+    # reject a weekday collection line (Beacon Food Bank, 8 Nov 2026). weekly / every week
+    # / this week still contain "week" and stay rejected.
+    s = re.sub(r'(?i)\bweekdays?\b', 'monday-friday', s)
     if re.search(r'month|fortnight|alternat|other|except|week|\b(1st|2nd|3rd|4th|first|second|third|fourth|last)\b|only|donat|appoint|referr|age|term|holiday|evening|morning|afternoon|lunch|by\b|via', s): return None
     s = re.sub(r'^opening times\s*', '', s).strip()
     if re.search(r'[-–—]\s*[-–—]', s): return None  # 'Thursday – – – Friday': a blank cell on their site, don't guess

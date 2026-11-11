@@ -13,6 +13,16 @@ def test_monthly_falls_back():
     assert r['status'] == 'TIMES_TEXT_ONLY' and r['lines'] == ['Wednesday of the month 10:00am to 12:00pm']
 def test_conflict_falls_back():
     assert T('Mon 10:00 - 12:00 | Mon 13:00 - 15:00')['status'] == 'TIMES_TEXT_ONLY'
+def test_weekdays_means_monday_to_friday():
+    r = T('weekdays 10.30am – 1pm')
+    assert r['status'] == 'TIMES_FOUND'
+    assert r['structured'] == {d: [['10:30', '13:00']] for d in ('mon', 'tue', 'wed', 'thu', 'fri')}
+def test_referral_weekdays_are_not_a_table():
+    r = T('Open for referrals: weekdays 10am – 12.30pm')
+    assert r is None or r.get('status') != 'TIMES_FOUND' or not r.get('structured')
+def test_weekly_is_still_not_a_table():
+    r = T('every week Tuesday 10am – 12pm')
+    assert r is None or r.get('status') != 'TIMES_FOUND' or not r.get('structured')
 def test_placeholder():
     assert T('Opening times Mon Closed Tue Closed Wed Closed Thu Closed Fri Closed Sat Closed Sun Closed') is None
 if __name__ == '__main__':

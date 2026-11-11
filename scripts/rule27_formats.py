@@ -30,10 +30,20 @@ def clean(text):
     t = re.sub(r"(?i)\b(\d{1,2}(?:[:.]\d{2})?)\s*(-|–|—|to)\s*12(?:[:.]00)?\s*am\b",
                lambda m: (m.group(1) + "am " + m.group(2) + " 12pm") if int(re.split(r"[:.]", m.group(1))[0]) < 12 else m.group(0), t)
     t = re.sub(r"(?i)\b(" + DAYW + r")(s?)\s+(?:from|at)\s+(?=\d)", r"\1\2 ", t)
+    # weekdays / weekday means Monday-Friday (not weekly / every week / this week). Done before the
+    # bank-holiday clean-up, and never when an exception follows ('weekdays except bank holidays'):
+    # that stays unexpanded, so it is not read as a plain Monday-Friday table (Grok Bot 2, #478, 11 Nov 2026).
+    t = re.sub(r"(?i)\bweekdays?\b(?!\s*,?\s*\(?\s*(?:except|excluding|apart from|not open on|closed on|but not)\b)", "Monday-Friday", t)
     t = re.sub(r"(?i)\(?\s*(?:except|not open on|closed on)\s+(?:all\s+)?bank holidays?\s*\)?", " ", t)
     t = re.sub(r"(?i)\b(" + DAYW + r")\s+through\s+to\s+(" + DAYW + r")\b", r"\1 to \2", t)
     t = re.sub(r"(?i)\b(" + DAYW + r")\s+through\s+(" + DAYW + r")\b", r"\1 to \2", t)
     t = re.sub(r"(?i)\b(\d{1,2}(?:[:.]\d{2})?\s*(?:am|pm))\s+(12(?:[:.]00)?\s*(?:noon|midday|pm))\b", r"\1 - \2", t)
+    # "10.30am - 1pm on Monday-Friday" (after 'between X and Y' cleanup) -> days first
+    t = re.sub(
+        r"(?i)(" + T + r"\s*(?:-|–|—|to|until|till)\s*" + T + r")\s+on\s+(Monday-Friday)",
+        r"\2 \1",
+        t,
+    )
     return re.sub(r" +", " ", t).strip()
 
 def to24(s):

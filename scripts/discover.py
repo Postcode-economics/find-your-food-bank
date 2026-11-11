@@ -299,6 +299,37 @@ ORDINAL = re.compile(r"\b(?:first|second|third|fourth|last|1st|2nd|3rd|4th)\s+(?
 ORD_SPAN = re.compile(r"(\b(?:first|second|third|fourth|last|1st|2nd|3rd|4th)\s+(?:mon|tues|wednes|thurs|fri|satur|sun)day\s+(?:of\s+)?(?:the|each|every)\s+month)[\s:,(–-]*((?:\d{1,2}(?:[:.]\d{2})?\s*(?:am|pm)?|noon)\s*(?:-|–|—|to|until|till)\s*(?:\d{1,2}(?:[:.]\d{2})?\s*(?:am|pm)?|noon))", re.I)
 APPT = re.compile(r"by appointment|appointment only|appointments only|phone in advance|telephone request|by arrangement|on request", re.I)   # North Ayrshire St John's: 'only open upon a telephone request'
 DONATION_PAGE = re.compile(r"donat|giv(e|ing)|volunteer|drop-?off|support-us|fundrais", re.I)
+# Referral desks / lines read straight before the days and times are not collection hours: 'Referrals accepted weekdays
+# 9am - 5pm', 'Referral line open weekdays ...', 'Agencies can refer weekdays ...', 'To make a referral call weekdays ...',
+# 'Open for referrals: weekdays 10am - 12.30pm' (Beacon Food Bank, 8 Nov 2026). Anchored to the time span itself (only
+# is / are / open / hours / times / ':' / ',' / '-' / on / every / from / between in between), never the 160-char
+# NOT_CLIENT window, so a referral sentence or heading earlier on the page ('We are open for referrals from any agency'
+# then 'Thursday 1pm - 3pm') does not drop real opening hours (Grok Bot 2, #478, 11 Nov 2026).
+# The page readers flatten <br> and line breaks to spaces (discover.text_of, trussell_times.text_of), so a line break
+# cannot be relied on as the boundary. Instead:
+#  - strong link: the wording names the times as referral hours/times ('Referral hours Monday ...', 'Referral desk
+#    hours: weekdays ...') or joins them with on / every / from / between ('Referral line is open on Monday ...',
+#    'Agencies can refer between Monday and Friday ...'). A heading followed by a new line never ends that way, so
+#    these are rejected whatever the days.
+#  - bare adjacency ('We accept referrals Monday 10am - 12pm', 'Open for referrals Tuesday ...', 'Referral line open
+#    Monday - Friday ...') may be a heading over the opening hours with the line break flattened away, so it rejects
+#    only a 'weekdays' span, which main never read either. Named days stay read exactly as on main.
+REFERRAL_DIRECT = re.compile(r"(?:referrals?\s+(?:are\s+)?accepted|accept(?:s|ing)?\s+referrals|referral\s+(?:line|desk|hours|times)s?"
+                             r"|open\s+for\s+referrals|can\s+refer|make\s+a\s+referral,?\s+(?:please\s+)?(?:call|ring|phone)(?:\s+us)?)"
+                             r"(?:\s+(?:is|are))?(?:\s+open)?(?:\s+(?:hours|times))?\s*[:,\-–]?\s*(?:(?:on|every|from|between)\s+)?$", re.I)
+REFERRAL_STRONG = re.compile(r"\b(?:hours|times)\b|\b(?:on|every|from|between)\s*$", re.I)
+def referral_direct(t, at, raw=None):
+    """Referral wording ending directly before the span at `at` in the cleaned text `t` (see REFERRAL_DIRECT).
+    Bare adjacency rejects only a span that clean() expanded from 'weekdays' in the page text `raw`.
+    Returns the matched words or ''."""
+    m = REFERRAL_DIRECT.search(t[max(0, at - 80):at])
+    if not m: return ""
+    words = re.sub(r"\s+", " ", m.group(0).strip(" :,-–")).lower()
+    if REFERRAL_STRONG.search(m.group(0).strip()): return words
+    if not t[at:at + 13].lower().startswith("monday-friday"): return ""
+    src = raw if raw is not None else t
+    pat = r"[^A-Za-z0-9]+".join(re.escape(w) for w in re.findall(r"[A-Za-z0-9]+", m.group(0)))
+    return words if re.search(r"\b" + pat + r"[^A-Za-z0-9]+weekdays?\b", src, re.I) else ""
 def not_client_context(t, at, prev_span_end=None):
     """Up to 160 chars before the times, but not past the previous time span (that belongs to another line/centre).
     Upper Eden (23 Oct): 'Wheelie Bins outside the Sands Methodist Church in Appleby on: Tuesdays 11 - 11:30am'."""
@@ -308,6 +339,19 @@ def not_client_context(t, at, prev_span_end=None):
     if k >= 0: lo = k + 2
     m = NOT_CLIENT.search(t[lo:at])
     return m.group(0).lower() if m else ""
+def appt_before(t, at, prev_span_end=None):
+    """The text before a time span that its appointment wording can come from: this sentence up to the
+    times, plus the one sentence immediately before it (at most 160 chars, never past the previous time span).
+    North Ayrshire St John's: 'Please phone in advance to arrange a collection. Fri 12:30 - 14:00'.
+    A later, separate 'by appointment' sentence is not in this window, so it cannot discard hours already read."""
+    lo = max(0, at - 160)
+    if prev_span_end is not None and prev_span_end > lo: lo = prev_span_end
+    cut = [i for i in (t.rfind(". ", lo, at), t.rfind("; ", lo, at)) if i >= 0]
+    if cut:
+        k = max(cut)
+        k2 = max(t.rfind(". ", lo, k), t.rfind("; ", lo, k))
+        if k2 >= 0: lo = k2 + 2
+    return t[lo:at]
 def postcode_block(text, postcode):
     """The slice of `text` that belongs to this postcode, or None when that slice cannot be fixed.
     Same window extract_times uses: one postcode keeps the page; several postcodes keep only the block that
@@ -397,6 +441,7 @@ def extract_times(text, postcode=None, rejected=None, name=None):
             return None
         return {"raw": lay["raw"], "status": "TIMES_FOUND", "structured": lay["structured"], "layout": lay["layout"],
                 "quote": lay["quote"], "unclear_days": lay.get("unclear_days") or {}}
+    raw_page = text
     text = strip_phone_hours(R27.clean(text))
     scoped = listing_place_block(text, name)
     if scoped is not None: text = scoped
@@ -425,8 +470,12 @@ def extract_times(text, postcode=None, rejected=None, name=None):
             whyctx = not_client_context(src, m.start(), prev_end)
             if whyctx == "volunteer" and FB_CLIENT_LINE.search(_span_line(src, m.start(), m.end())): whyctx = ""
             why = ("non-client hours (%s)" % whyctx) if whyctx else ("agency/professional-only line" if agency_only_after(src, m.end()) else "")
+            if not why:
+                refctx = referral_direct(src, m.start(), raw_page)
+                if refctx: why = "non-client hours (%s)" % refctx
             if not why and prev_skipped and follows: why = last_why + " (same list)"
             skip = bool(why)
+            prev_span = prev_end
             prev_end, prev_skipped = m.end(), skip
             tried.add(seg0)
             if skip:   # office / warehouse / donation / bin hours are not client times
@@ -435,7 +484,7 @@ def extract_times(text, postcode=None, rejected=None, name=None):
             if CAFE_LINE.search(line) and not FB_CLIENT_LINE.search(line): _reject(rejected, m, "café/coffee-shop hours, not food bank"); continue
             seg = (m.group(1).strip(" ,&-–") + " " + m.group(2)).strip()
             nxt = src[m.end():m.end() + 40]; nxt = nxt[:min([len(nxt)] + [x.start() - m.end() for x in spans if x.start() >= m.end()])]
-            if APPT.search(nxt) or APPT.search(src[max(0, m.start() - 30):m.start()]): seg += " (by appointment)"
+            if APPT.search(nxt) or APPT.search(appt_before(src, m.start(), prev_span)): seg += " (by appointment)"
             found.append((m.start(), seg))
     _take_spans(t, list(TIMESPAN.finditer(t)), check_ords=True)
     # Every opening-hours block on this place's page, including one whose days and clock times
@@ -454,6 +503,9 @@ def extract_times(text, postcode=None, rejected=None, name=None):
     if not segs: return None
     from times import normalise
     raw = " | ".join(segs)
+    # Page-level appointment guard (unchanged from main, rule 34): appointment wording anywhere in this
+    # centre's block keeps the times text-only, e.g. 'Opening times: Monday 10am - 12pm, Wednesday 1pm - 3pm.
+    # Please note all collections are by appointment only.' (Grok Bot 2, #478, 11 Nov 2026).
     ba = APPT.search(t)   # the centre's own block says appointment / phone first / on request (North Ayrshire St John's)
     if ba and not APPT.search(raw): raw += " (" + ba.group(0).lower() + ")"; segs = segs + ["(" + ba.group(0).lower() + ")"]
     if APPT.search(raw) or ORDINAL.search(raw):   # monthly / appointment-only: keep as written, never as a weekly table
