@@ -14,7 +14,7 @@ import discover
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROPOSAL = "reports/verified_new_places.json"
 SEEN = "logs/follow_through_seen.json"
-DIRECTORY_HOSTS = {"warmwelcome.uk", "homeless.org.uk", "homelesslink.org.uk"}
+DIRECTORY_HOSTS = {"warmwelcome.uk", "homeless.org.uk", "homelesslink.org.uk", "streetsupport.net"}
 SKIP_PARTS = ("facebook.com", "instagram.com", "twitter.com", "x.com/", "linktr.ee", "google.com", "bit.ly", "goo.gl")
 INDEX_PATH = re.compile(
     r"/(warm-?(spaces?|hubs?|places?|welcome)|libraries|find-a-library|community-centres?|"
@@ -404,10 +404,13 @@ def _pass_on(c, kind, res, found_via, day, home):
     final = res.get("final_url") or ""
     if final and not _same_site(final, home):
         return None
+    evidence = final or home
+    # Directories only find candidates (rules 56/89); never treat them as own-site evidence.
+    if _directory(home) or _directory(evidence):
+        return None
     q = quote_for_venue(_page_text(res), c.get("name"), c.get("postcode"), kind)
     if not q:
         return None
-    evidence = final or home
     html = res.get("html") or ""
     if org_differs(c.get("name"), evidence, html):
         return None
@@ -419,6 +422,8 @@ def follow(c, kind, budget, day=None, landing=None):
     url = normalise_website(c.get("website"))
     if not discover.usable_site(url) or any(s in url for s in SKIP_PARTS):
         return {"passed": False, "reason": "no usable website"}
+    if _directory(url):
+        return {"passed": False, "reason": "directory page is not own-site evidence"}
     res = landing
     if res is None:
         res = budget.fetch(url)
@@ -605,20 +610,20 @@ def sweep_queue(root=None, fetcher=None, limit=40, gap=1.0, render=None, day=Non
             # Only act when the next step is an own-site / council confirmation we can attempt
             if not any(k in (nxt or "").lower() for k in ("own site", "own-site", "council", "website", "operator")):
                 continue
-            website = normalise_website(e.get("website") or e.get("url") or e.get("source_url") or e.get("directory_url"))
-            if not discover.usable_site(website) and not e.get("directory_url"):
+            # Own website only — never fall back to source_url or a directory URL (rules 56/89).
+            website = normalise_website(e.get("website"))
+            if not discover.usable_site(website) or _directory(website):
                 continue
-            rows.append(dict(e, website=website or e.get("directory_url"), _layer=layer, _kind=kind_of.get(layer, "ws"), next_evidence=nxt))
+            # follow() only proposes warm spaces and shelters. Do not mark food banks seen
+            # (a permanent seen stamp would skip them forever if that path is added later).
+            if layer == "foodbanks":
+                continue
+            rows.append(dict(e, website=website, _layer=layer, _kind=kind_of.get(layer, "ws"), next_evidence=nxt))
     todo = [r for r in rows if r["id"] not in seen][:limit]
     budget = Budget(fetcher, per_host=int(os.environ.get("FOLLOW_PER_HOST", "8")), gap=gap, render=render)
     hits, checked = [], []
     for r in todo:
         kind = r["_kind"]
-        if kind == "fb":
-            # Food banks: follow-through module only proposes ws/sh; still mark seen and skip publish
-            seen[r["id"]] = day
-            checked.append(r["id"])
-            continue
         try:
             hit = follow(r, kind, budget, day)
         except Exception as ex:
