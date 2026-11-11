@@ -1,4 +1,2786 @@
 {
+ "_sitemap": {
+  "https://helpmap.uk/": {
+   "hash": "00d23832a476d1ea",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/accessibility.html": {
+   "hash": "e37365f18f3c5800",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/faq.html": {
+   "hash": "e17dd220f43d32ea",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/": {
+   "hash": "7fa9b142ab601ece",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/aberdeen-city/": {
+   "hash": "65af4b463d8d09ca",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/aberdeenshire/": {
+   "hash": "246f6f948384810d",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/adur/": {
+   "hash": "7b57576c3eb73473",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/amber-valley/": {
+   "hash": "0eb03b133e21f90e",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/angus/": {
+   "hash": "9859df847c1a4e9d",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/antrim-and-newtownabbey/": {
+   "hash": "0c33d862023ea1b3",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/ards-and-north-down/": {
+   "hash": "0b87bd265d30ff11",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/argyll-and-bute/": {
+   "hash": "85abea2a44b2fa30",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/armagh-city-banbridge-and-craigavon/": {
+   "hash": "7badcb035372fa92",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/arun/": {
+   "hash": "c2e2fadf4022bdb0",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/ashfield/": {
+   "hash": "1fcd0f903b15bb31",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/ashford/": {
+   "hash": "bdd55c888cbe2612",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/babergh/": {
+   "hash": "f87c580cc93bdf2b",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/barking-and-dagenham/": {
+   "hash": "f897ba4885963c71",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/barnet/": {
+   "hash": "0553c5f2f7832d6b",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/barnsley/": {
+   "hash": "c84a69c5d485fd66",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/basildon/": {
+   "hash": "fe4d7e7acfcf61e9",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/basingstoke-and-deane/": {
+   "hash": "b17e73b033efd4a0",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/bassetlaw/": {
+   "hash": "10d28abfa316df88",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/bath-and-north-east-somerset/": {
+   "hash": "7657e5ef5e10390e",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/bedford/": {
+   "hash": "4929a8b455c774fb",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/belfast/": {
+   "hash": "3d4597b55d428790",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/bexley/": {
+   "hash": "e3427ba93db66371",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/birmingham/": {
+   "hash": "f864a8aa7b7286de",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/blaby/": {
+   "hash": "0ef51c590dcddc87",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/blackburn-with-darwen/": {
+   "hash": "63e72eb867f8e797",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/blackpool/": {
+   "hash": "c2c0f6a6891fa0ea",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/blaenau-gwent/": {
+   "hash": "8b497d88b86ad9b1",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/bolsover/": {
+   "hash": "aa890ed4298588ab",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/bolton/": {
+   "hash": "d54fa53503b086b9",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/boston/": {
+   "hash": "8db220c6365eef0d",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/bournemouth-christchurch-and-poole/": {
+   "hash": "99c6a19788b04391",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/bracknell-forest/": {
+   "hash": "bafe4e9b16e56573",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/bradford/": {
+   "hash": "658e85c533f9594d",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/braintree/": {
+   "hash": "168b6f8154af67af",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/breckland/": {
+   "hash": "3f006e49f6613f86",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/brent/": {
+   "hash": "2ac8d85f97fe3603",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/brentwood/": {
+   "hash": "874977d9907c9d47",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/bridgend/": {
+   "hash": "06d71a091a9bc7e9",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/brighton-and-hove/": {
+   "hash": "4ab3787b69c69dc8",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/bristol-city-of/": {
+   "hash": "ab0755e81f99d34c",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/broadland/": {
+   "hash": "9e0978f0a903a8c2",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/bromley/": {
+   "hash": "faa42f6abbbe7e4c",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/bromsgrove/": {
+   "hash": "a8d26c90f17a2628",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/broxbourne/": {
+   "hash": "39adb23e99c3e9f9",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/broxtowe/": {
+   "hash": "043236eb4b413225",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/buckinghamshire/": {
+   "hash": "8f3f013deb0a2958",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/burnley/": {
+   "hash": "8b3f72082d084b28",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/bury/": {
+   "hash": "0d8ef4ed0dfc7f06",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/caerphilly/": {
+   "hash": "21027c5b5c26b710",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/calderdale/": {
+   "hash": "568b31c528be4140",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/cambridge/": {
+   "hash": "06da7a75fbbe0306",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/camden/": {
+   "hash": "edc93961e8eba5d4",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/cannock-chase/": {
+   "hash": "3facb96a056167e4",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/canterbury/": {
+   "hash": "5f0e4c3a65535362",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/cardiff/": {
+   "hash": "a8d8353c74af3061",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/carmarthenshire/": {
+   "hash": "bcce8fc097c2316e",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/castle-point/": {
+   "hash": "57294c0822e74cf0",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/causeway-coast-and-glens/": {
+   "hash": "da7b1e6bcc94148e",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/central-bedfordshire/": {
+   "hash": "62a90b491100c854",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/ceredigion/": {
+   "hash": "937bf76b1c3fea4a",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/channel-islands/": {
+   "hash": "1164c94349d59f3f",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/charnwood/": {
+   "hash": "10ae8665d694a79e",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/chelmsford/": {
+   "hash": "29193fd7fd313555",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/cheltenham/": {
+   "hash": "f3fb03a13f59d1a9",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/cherwell/": {
+   "hash": "5421074d1c69a292",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/cheshire-east/": {
+   "hash": "8856121ee462fbe4",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/cheshire-west-and-chester/": {
+   "hash": "fdb0201d80ce37cd",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/chesterfield/": {
+   "hash": "22cbb092846e1d48",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/chichester/": {
+   "hash": "0e56fa9c36d68c36",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/chorley/": {
+   "hash": "15ef0238e08ce9c3",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/city-of-edinburgh/": {
+   "hash": "c6f23d16b1068871",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/clackmannanshire/": {
+   "hash": "57196d7a3de7dee6",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/colchester/": {
+   "hash": "25973069d8b17827",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/conwy/": {
+   "hash": "da686f572497f27d",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/cornwall/": {
+   "hash": "810c49ab8ca0e7e2",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/cotswold/": {
+   "hash": "262b03448d3c845b",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/county-durham/": {
+   "hash": "79521f423ef5350f",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/coventry/": {
+   "hash": "4394d528c493da09",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/crawley/": {
+   "hash": "d3c012dced71a44e",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/croydon/": {
+   "hash": "f0b60f6808b471d4",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/cumberland/": {
+   "hash": "e8fcda1227f49b8d",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/dacorum/": {
+   "hash": "5a94a6b52462346b",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/darlington/": {
+   "hash": "f68bbe22d79dd727",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/dartford/": {
+   "hash": "e302288fb541da47",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/denbighshire/": {
+   "hash": "36dd1783146ed0f4",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/derby/": {
+   "hash": "d89e3e9b4ef80df2",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/derbyshire-dales/": {
+   "hash": "1048dff40d4a6146",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/derry-city-and-strabane/": {
+   "hash": "2e7820b86cd43322",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/doncaster/": {
+   "hash": "aaeabce1a95515ed",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/dorset/": {
+   "hash": "3d192c9265dc308c",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/dover/": {
+   "hash": "a977df6bea999696",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/dudley/": {
+   "hash": "f6fc7df84b490614",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/dumfries-and-galloway/": {
+   "hash": "61be111a1bad5755",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/dundee-city/": {
+   "hash": "f855e549b79fff12",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/ealing/": {
+   "hash": "34089d0e7b36e022",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/east-ayrshire/": {
+   "hash": "d5f33994ef1e99cc",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/east-cambridgeshire/": {
+   "hash": "e845c951d623a0a8",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/east-devon/": {
+   "hash": "75c7b69308c9b17b",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/east-dunbartonshire/": {
+   "hash": "45e04ed91ecf1b17",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/east-hampshire/": {
+   "hash": "b2e85b1dc8e3fa9c",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/east-hertfordshire/": {
+   "hash": "04a359b3912d7c71",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/east-lindsey/": {
+   "hash": "22096b89ba3136d0",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/east-lothian/": {
+   "hash": "cf829476603be8f3",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/east-renfrewshire/": {
+   "hash": "02760957add45565",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/east-riding-of-yorkshire/": {
+   "hash": "2cf6045f09521f78",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/east-staffordshire/": {
+   "hash": "7820f2c9ce15bcd7",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/east-suffolk/": {
+   "hash": "52d4bac1003792b2",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/eastbourne/": {
+   "hash": "6109d867e37753bf",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/eastleigh/": {
+   "hash": "8433791e3c982e97",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/elmbridge/": {
+   "hash": "6d593ca3eb2e7c2b",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/enfield/": {
+   "hash": "e0aded913f9dbb17",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/epping-forest/": {
+   "hash": "b18a6dd9dcb78a8e",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/epsom-and-ewell/": {
+   "hash": "77d588a52be672b5",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/erewash/": {
+   "hash": "cba118467b872d3e",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/exeter/": {
+   "hash": "9574d1b0e61d8bff",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/falkirk/": {
+   "hash": "96342071d3360040",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/fareham/": {
+   "hash": "61e4d1b90fbf7ec9",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/fenland/": {
+   "hash": "b2a6343a9589b8e1",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/fermanagh-and-omagh/": {
+   "hash": "ce128c5d07613697",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/fife/": {
+   "hash": "fdcd13f40866b33c",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/flintshire/": {
+   "hash": "c1622942f7f47e96",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/folkestone-and-hythe/": {
+   "hash": "50310056c56e18e8",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/forest-of-dean/": {
+   "hash": "6d6559a72569ef89",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/fylde/": {
+   "hash": "427a3f86011d38c6",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/gateshead/": {
+   "hash": "23d12e5115fa64e3",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/gedling/": {
+   "hash": "28b16f42a7291f67",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/glasgow-city/": {
+   "hash": "ca1df91570a7d562",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/gloucester/": {
+   "hash": "37c5004083de59ec",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/gosport/": {
+   "hash": "d4e17d70c7e532ed",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/gravesham/": {
+   "hash": "a043f8f38ef777d0",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/great-yarmouth/": {
+   "hash": "7129ebb4f19281ec",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/greenwich/": {
+   "hash": "7e87a245f33721ff",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/guildford/": {
+   "hash": "17fe9ccf61baf69a",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/gwynedd/": {
+   "hash": "84a5c186604342ae",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/hackney/": {
+   "hash": "ecad2898fa77f21b",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/halton/": {
+   "hash": "6fe0fed975be7433",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/hammersmith-and-fulham/": {
+   "hash": "5a521844b12dd898",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/harborough/": {
+   "hash": "2926bcc0619edb4e",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/haringey/": {
+   "hash": "69a4dd1dde593e8a",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/harlow/": {
+   "hash": "0380d13f8f3dbc71",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/harrow/": {
+   "hash": "ae74b04fde224233",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/hart/": {
+   "hash": "d989f654f42b3912",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/hartlepool/": {
+   "hash": "4f83f0a618720f89",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/hastings/": {
+   "hash": "85621bf42ea4429d",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/havant/": {
+   "hash": "483af72cf46afb1e",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/havering/": {
+   "hash": "9427c7ae962aab1f",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/herefordshire-county-of/": {
+   "hash": "594b409620473a2d",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/hertsmere/": {
+   "hash": "ff8c9cbc5c354c8f",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/high-peak/": {
+   "hash": "636d2edf2d540412",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/highland/": {
+   "hash": "a6404cbf00c7d575",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/hillingdon/": {
+   "hash": "581d2474fdd7bff8",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/hinckley-and-bosworth/": {
+   "hash": "7ef70a616afd44a0",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/horsham/": {
+   "hash": "961074dc45ac3349",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/hounslow/": {
+   "hash": "f882b95c9c4624fe",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/huntingdonshire/": {
+   "hash": "2bf462ff08120aac",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/hyndburn/": {
+   "hash": "d5a32dbea49a05fa",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/inverclyde/": {
+   "hash": "5ac51311a3c385cb",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/ipswich/": {
+   "hash": "a622ea28f4c84824",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/isle-of-anglesey/": {
+   "hash": "f2b88d056c84746b",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/isle-of-man/": {
+   "hash": "6978d20514375aac",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/isle-of-wight/": {
+   "hash": "791d81c6d01a60c9",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/islington/": {
+   "hash": "0ca9d47b10194341",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/kensington-and-chelsea/": {
+   "hash": "7ff7def08b111ecd",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/king-s-lynn-and-west-norfolk/": {
+   "hash": "9b1b108d13664775",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/kingston-upon-hull-city-of/": {
+   "hash": "b2dc96fc064a37ae",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/kingston-upon-thames/": {
+   "hash": "ca09f17bf6908731",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/kirklees/": {
+   "hash": "f713c8b8f310fdfe",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/knowsley/": {
+   "hash": "3eba9827d7521f71",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/lambeth/": {
+   "hash": "3408f7ceaaf8c933",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/lancaster/": {
+   "hash": "fe6e6284ce73daeb",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/leeds/": {
+   "hash": "75cf54ed499d67af",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/leicester/": {
+   "hash": "865f65e77c2d754a",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/lewes/": {
+   "hash": "1d85a24488123533",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/lewisham/": {
+   "hash": "8ca297f28001febc",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/lichfield/": {
+   "hash": "8ee8f08dda02bf00",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/lincoln/": {
+   "hash": "18ccba8d32c802e0",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/lisburn-and-castlereagh/": {
+   "hash": "939eeb12b79c5482",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/liverpool/": {
+   "hash": "ac4d8814a799ef9b",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/luton/": {
+   "hash": "04c990a1ab99abb1",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/maidstone/": {
+   "hash": "abe1ee74cb838aa3",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/maldon/": {
+   "hash": "e0e30bdf0884d39c",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/malvern-hills/": {
+   "hash": "47f226a26a1b423a",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/manchester/": {
+   "hash": "6ddb6871ad44b79e",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/mansfield/": {
+   "hash": "ab0e7bc846398836",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/medway/": {
+   "hash": "32d74cfa2036abd6",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/melton/": {
+   "hash": "beb6e7658265c1ef",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/merthyr-tydfil/": {
+   "hash": "09b08e8b18fd91d5",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/merton/": {
+   "hash": "365584ab33ba6482",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/mid-and-east-antrim/": {
+   "hash": "1426c6f35d5025fe",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/mid-devon/": {
+   "hash": "f54b290027302b85",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/mid-suffolk/": {
+   "hash": "3abf0e831d61bb26",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/mid-sussex/": {
+   "hash": "866ad8d2bf0a9ac1",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/mid-ulster/": {
+   "hash": "27c2fafeb9c91072",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/middlesbrough/": {
+   "hash": "5759f091a3babd0e",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/midlothian/": {
+   "hash": "bcfd923938114143",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/milton-keynes/": {
+   "hash": "84ffc5409772b9e0",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/mole-valley/": {
+   "hash": "7444cb8a2a8fdf33",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/monmouthshire/": {
+   "hash": "b19784b28eac83f1",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/moray/": {
+   "hash": "2783e54610fc13f4",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/na-h-eileanan-siar/": {
+   "hash": "17c26a149c8f9a65",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/neath-port-talbot/": {
+   "hash": "43a7046c94050750",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/new-forest/": {
+   "hash": "3748da7350108f4c",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/newark-and-sherwood/": {
+   "hash": "4086bf8d96edf616",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/newcastle-under-lyme/": {
+   "hash": "0759b4c5b769ab9b",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/newcastle-upon-tyne/": {
+   "hash": "e913745e05764877",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/newham/": {
+   "hash": "b8ad0e9e916897ac",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/newport/": {
+   "hash": "18a13ae1d336441b",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/newry-mourne-and-down/": {
+   "hash": "d78a28232d5d2238",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/north-ayrshire/": {
+   "hash": "ccbc80ec50d3d894",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/north-devon/": {
+   "hash": "4b37cf6a8476b1b8",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/north-east-derbyshire/": {
+   "hash": "e6ff9da0bd74eede",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/north-east-lincolnshire/": {
+   "hash": "0d38cfb21aae07f6",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/north-hertfordshire/": {
+   "hash": "db4096a443c5fc39",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/north-kesteven/": {
+   "hash": "0b329beab61381b4",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/north-lanarkshire/": {
+   "hash": "ad165b001b515d84",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/north-lincolnshire/": {
+   "hash": "7dfd7e9f20d30841",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/north-norfolk/": {
+   "hash": "b29ad479122c775a",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/north-northamptonshire/": {
+   "hash": "c75549fa10029609",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/north-somerset/": {
+   "hash": "0b2aaaff913a95f9",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/north-tyneside/": {
+   "hash": "dd7334bcf92da66d",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/north-west-leicestershire/": {
+   "hash": "ff705e2296563e09",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/north-yorkshire/": {
+   "hash": "ef15dbc1ce7a13d1",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/northumberland/": {
+   "hash": "0629d5da47af172e",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/norwich/": {
+   "hash": "bd596bb3e6cabd6e",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/nottingham/": {
+   "hash": "73628b8b5436ee43",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/nuneaton-and-bedworth/": {
+   "hash": "2d2ddfdb38b4c1ee",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/oadby-and-wigston/": {
+   "hash": "b5eb0a8b3637c679",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/oldham/": {
+   "hash": "be909acd9fb08357",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/orkney-islands/": {
+   "hash": "cacee3a9484ab5e3",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/oxford/": {
+   "hash": "ae78540f7831756c",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/pembrokeshire/": {
+   "hash": "4009568c65993ebe",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/pendle/": {
+   "hash": "6cc97d2c56d06633",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/perth-and-kinross/": {
+   "hash": "03582becc8665872",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/peterborough/": {
+   "hash": "358bca4a799afb64",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/plymouth/": {
+   "hash": "a28ca8d580c8922f",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/portsmouth/": {
+   "hash": "2fbd357f7bd9f7de",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/powys/": {
+   "hash": "f476733a42a17ae7",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/preston/": {
+   "hash": "1cde7dba5d81bdf0",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/reading/": {
+   "hash": "bb9730741ef73f53",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/redbridge/": {
+   "hash": "a6945088fdaa410d",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/redcar-and-cleveland/": {
+   "hash": "25c980eff1adcf47",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/redditch/": {
+   "hash": "acf277d58ab77f57",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/reigate-and-banstead/": {
+   "hash": "08ceea246088df71",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/renfrewshire/": {
+   "hash": "2f747d9ef0c2c39a",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/rhondda-cynon-taf/": {
+   "hash": "3570a2c735c502b1",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/ribble-valley/": {
+   "hash": "3fb6665cfdda4341",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/richmond-upon-thames/": {
+   "hash": "19953db947d5b7ea",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/rochdale/": {
+   "hash": "0fb554c2607d4d5b",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/rochford/": {
+   "hash": "d4f82db731ac7e14",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/rossendale/": {
+   "hash": "fc603124f72933e3",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/rother/": {
+   "hash": "868d2054a1eb8366",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/rotherham/": {
+   "hash": "76de755891c318e8",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/rugby/": {
+   "hash": "5f8f6da19eb64be0",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/runnymede/": {
+   "hash": "836050f69117d978",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/rushcliffe/": {
+   "hash": "6d96ff613cdfd873",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/rushmoor/": {
+   "hash": "95261bf853643109",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/rutland/": {
+   "hash": "3e993a007c768746",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/salford/": {
+   "hash": "b283a5dddc3ca018",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/sandwell/": {
+   "hash": "b2b5b74ba5ba47d4",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/scottish-borders/": {
+   "hash": "bc423f4cfc3a1b31",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/sefton/": {
+   "hash": "99dbf14caf6f6859",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/sevenoaks/": {
+   "hash": "3447840a5459bce0",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/sheffield/": {
+   "hash": "98b2e5f1de3a23e6",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/shetland-islands/": {
+   "hash": "f2774da1ac5d7c50",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/shropshire/": {
+   "hash": "501c67856b887276",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/slough/": {
+   "hash": "e2ae80674ded0dbd",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/solihull/": {
+   "hash": "fcd06d1758d77611",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/somerset/": {
+   "hash": "7fc729c3399ed880",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/south-ayrshire/": {
+   "hash": "2211d356c1b7325c",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/south-cambridgeshire/": {
+   "hash": "7914779ff568a355",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/south-derbyshire/": {
+   "hash": "239573c5e7f7c7e2",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/south-gloucestershire/": {
+   "hash": "e75d8048269d621b",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/south-hams/": {
+   "hash": "453f415f89d86ef0",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/south-holland/": {
+   "hash": "0e968370fb9cf822",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/south-kesteven/": {
+   "hash": "1ec351a7bf506943",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/south-lanarkshire/": {
+   "hash": "cadfe8b63754651d",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/south-norfolk/": {
+   "hash": "1427905eec27372e",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/south-oxfordshire/": {
+   "hash": "3615a3e5f2a17d51",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/south-ribble/": {
+   "hash": "4d5585c54f34015d",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/south-staffordshire/": {
+   "hash": "93b18c9fb3e0d93e",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/south-tyneside/": {
+   "hash": "a9c24eef686383fb",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/southampton/": {
+   "hash": "79f09d41903db2b6",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/southend-on-sea/": {
+   "hash": "151450e5c1c12e30",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/southwark/": {
+   "hash": "88e6da1ad3c4c1eb",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/spelthorne/": {
+   "hash": "27913774674984a6",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/st-albans/": {
+   "hash": "8a9a0e0f6d317e2d",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/st-helens/": {
+   "hash": "8f2e945e00aa6197",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/stafford/": {
+   "hash": "978c2a6c5777a151",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/staffordshire-moorlands/": {
+   "hash": "c3ef21bfc9eba346",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/stevenage/": {
+   "hash": "8e79b20aae4c498b",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/stirling/": {
+   "hash": "e18bc803fdaadd60",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/stockport/": {
+   "hash": "03ed684b76bb3fb8",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/stockton-on-tees/": {
+   "hash": "c04e9c5b2ec72c99",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/stoke-on-trent/": {
+   "hash": "ba705589aa0154be",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/stratford-on-avon/": {
+   "hash": "ef85aa557fbdcaf6",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/stroud/": {
+   "hash": "3fbafc685adaba07",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/sunderland/": {
+   "hash": "8437f355be85a4ea",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/surrey-heath/": {
+   "hash": "127fba982a66470d",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/sutton/": {
+   "hash": "069a23369e846429",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/swale/": {
+   "hash": "46d4b0c2dc89bde6",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/swansea/": {
+   "hash": "2b581ba4ca1818f3",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/swindon/": {
+   "hash": "3584aa004f376524",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/tameside/": {
+   "hash": "58dede5c4634a85a",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/tamworth/": {
+   "hash": "710d21e3e9989319",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/tandridge/": {
+   "hash": "27d63a12a3f112c7",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/teignbridge/": {
+   "hash": "3c3dcef0f72f44a7",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/telford-and-wrekin/": {
+   "hash": "087ed119a46872fe",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/tendring/": {
+   "hash": "24cb9e8be043d215",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/test-valley/": {
+   "hash": "cb86705851c2f46b",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/tewkesbury/": {
+   "hash": "404a1fce7945e2b3",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/thanet/": {
+   "hash": "e91dcb844b17f518",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/three-rivers/": {
+   "hash": "da66a38ca1132c23",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/thurrock/": {
+   "hash": "a4dd37ac492725be",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/tonbridge-and-malling/": {
+   "hash": "90511b6cededa6f4",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/torbay/": {
+   "hash": "e40076c392de9981",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/torfaen/": {
+   "hash": "a14746cf5f5d6414",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/torridge/": {
+   "hash": "0bf4bbd424566f57",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/tower-hamlets/": {
+   "hash": "b38ef118e66fbe5c",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/trafford/": {
+   "hash": "42b7efa37ab0d3fa",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/tunbridge-wells/": {
+   "hash": "ebeb0d2ce8501e17",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/uttlesford/": {
+   "hash": "41127f66778f5a9c",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/vale-of-glamorgan/": {
+   "hash": "b3aa7038d0fe2686",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/vale-of-white-horse/": {
+   "hash": "de058d7143f22879",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/wakefield/": {
+   "hash": "d1dc266dc51f0b8d",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/walsall/": {
+   "hash": "2b83c94413a1dbef",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/waltham-forest/": {
+   "hash": "5d5361c7ef50b67f",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/wandsworth/": {
+   "hash": "b812ab026cb03a7c",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/warrington/": {
+   "hash": "e0117b0171b53e3c",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/warwick/": {
+   "hash": "8f22496a8d867b46",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/watford/": {
+   "hash": "6f660d290e0995c5",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/waverley/": {
+   "hash": "77cc6ef2154be27c",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/wealden/": {
+   "hash": "52e8b5d0d7c03307",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/welwyn-hatfield/": {
+   "hash": "01fa4979ceda042d",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/west-berkshire/": {
+   "hash": "939f2aa84b3086e4",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/west-devon/": {
+   "hash": "3df61d010a01a298",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/west-dunbartonshire/": {
+   "hash": "55742182c9ebfc08",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/west-lancashire/": {
+   "hash": "12ac352ecd96bfd6",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/west-lindsey/": {
+   "hash": "68df6f6c8973c42b",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/west-lothian/": {
+   "hash": "eb6d8eaa5e1ad4e9",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/west-northamptonshire/": {
+   "hash": "ddfb39b1e7d56bc8",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/west-oxfordshire/": {
+   "hash": "4fb11839f0f9dfbc",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/west-suffolk/": {
+   "hash": "21a335afe0fa5ff7",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/westminster/": {
+   "hash": "8a4f88cf7ab78d3a",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/westmorland-and-furness/": {
+   "hash": "19369f4e4a3a3230",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/wigan/": {
+   "hash": "53d166ba7e51802b",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/wiltshire/": {
+   "hash": "0b95490ae2b49d75",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/winchester/": {
+   "hash": "f9399df3fef8da02",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/windsor-and-maidenhead/": {
+   "hash": "d52e9eb464931301",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/wirral/": {
+   "hash": "6ef260351485fba8",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/woking/": {
+   "hash": "718f0e2647a30374",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/wokingham/": {
+   "hash": "d0ca0a3f9ad53df5",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/wolverhampton/": {
+   "hash": "67413dbab8961282",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/worcester/": {
+   "hash": "250da217e7c5299c",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/worthing/": {
+   "hash": "bd062f4503985483",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/wrexham/": {
+   "hash": "c4a32255b82f539b",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/wychavon/": {
+   "hash": "35ab2661291e3d5b",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/wyre-forest/": {
+   "hash": "49728abf9080d7d6",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/wyre/": {
+   "hash": "b7713ba33b14ec85",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/food-banks/york/": {
+   "hash": "39944f307416d9ff",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/privacy.html": {
+   "hash": "90f7e72eed734927",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/": {
+   "hash": "5b8a75f30237d7ad",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/aberdeen-city/": {
+   "hash": "6a71eaa10d8ba66f",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/ards-and-north-down/": {
+   "hash": "667d67115a65fb98",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/armagh-city-banbridge-and-craigavon/": {
+   "hash": "978151da1887d828",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/arun/": {
+   "hash": "1e0edc7238e377f5",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/barking-and-dagenham/": {
+   "hash": "098f544228a15430",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/barnet/": {
+   "hash": "19e3d21d841810b7",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/barnsley/": {
+   "hash": "8f8a695aa7d1c1c8",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/basingstoke-and-deane/": {
+   "hash": "3df725065fb1b5f2",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/bassetlaw/": {
+   "hash": "790edfbe8bc0be9a",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/bath-and-north-east-somerset/": {
+   "hash": "f6be0b64c6ccd5bc",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/belfast/": {
+   "hash": "e547e510a21ea115",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/birmingham/": {
+   "hash": "f8e7076e5ce283c1",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/blackburn-with-darwen/": {
+   "hash": "8e20379707cf4d0d",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/blackpool/": {
+   "hash": "b3a557950f58c3b9",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/bognor-regis/": {
+   "hash": "dceb6c80c4d25fa8",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/bolton/": {
+   "hash": "aaad2abb7a3c7c1a",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/boston/": {
+   "hash": "60864ae789328ee6",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/bournemouth-christchurch-and-poole/": {
+   "hash": "5fec69b0a701624c",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/bradford/": {
+   "hash": "235666e176231ef4",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/braintree/": {
+   "hash": "07cc5fa9a8cbcfb2",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/brent/": {
+   "hash": "d3a54a5bed1cbf23",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/bridgend/": {
+   "hash": "a1cab800d46740be",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/brighton-and-hove/": {
+   "hash": "00355cc48dc93a39",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/bristol-city-of/": {
+   "hash": "ce14ecd92461fe06",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/buckinghamshire/": {
+   "hash": "5fe99f7e8b7dfa68",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/buxton/": {
+   "hash": "7eed7dd5f5c8046a",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/cambridge/": {
+   "hash": "da1d06eb924bd9e4",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/camden/": {
+   "hash": "952b13419affcd36",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/canterbury/": {
+   "hash": "a2af520ecf4bc8a3",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/cardiff/": {
+   "hash": "06d06440d4d31836",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/causeway-coast-and-glens/": {
+   "hash": "257b504cad9ae2b1",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/ceredigion/": {
+   "hash": "70b35f8ddbe01611",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/charnwood/": {
+   "hash": "f1c8be64ab0aed8a",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/chelmsford/": {
+   "hash": "4e6fea1a6cd1788d",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/cheshire-west-and-chester/": {
+   "hash": "8c6bdc129dcfbb61",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/chesterfield/": {
+   "hash": "97d9c5e9c29c6086",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/chichester/": {
+   "hash": "dc07430c76fbc055",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/chorley/": {
+   "hash": "9e6c5b55f947be99",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/city-of-edinburgh/": {
+   "hash": "a6654ccfcc30d428",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/colchester/": {
+   "hash": "298b9b16868a90c6",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/cornwall/": {
+   "hash": "2129ef52eedf300b",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/county-durham/": {
+   "hash": "f908d5ed1f6b0dd5",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/coventry/": {
+   "hash": "42abec646243782a",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/crawley/": {
+   "hash": "cded233e933bc054",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/croydon/": {
+   "hash": "db299d43dce31d2a",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/dacorum/": {
+   "hash": "4086c536e206c0b3",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/darlington/": {
+   "hash": "0f7b239d39aa32d7",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/derby/": {
+   "hash": "531f045e3fd44242",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/derry-city-and-strabane/": {
+   "hash": "5722b2191d8419eb",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/dorset/": {
+   "hash": "a6519204afe3d6e3",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/dover/": {
+   "hash": "2f090d5cb9bd90a8",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/dundee-city/": {
+   "hash": "51e366647460d1dd",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/east-hertfordshire/": {
+   "hash": "c88245aeb6fca9cc",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/east-lindsey/": {
+   "hash": "826d381c6be393fe",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/fenland/": {
+   "hash": "91dee8c7be6294cf",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/fife/": {
+   "hash": "8264b2c806abe07b",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/folkestone-and-hythe/": {
+   "hash": "7d43be6f590c620c",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/glasgow-city/": {
+   "hash": "3c67e065f1732101",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/gloucester/": {
+   "hash": "d9af63ad94c8d891",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/gravesham/": {
+   "hash": "cf6e307eb25f9fc2",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/greenwich/": {
+   "hash": "b3873f2f73ba8294",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/hammersmith-and-fulham/": {
+   "hash": "d1fb3674b1cc70b9",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/haringey/": {
+   "hash": "f9d21435bffee9d6",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/harlow/": {
+   "hash": "14370984413066bf",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/hastings/": {
+   "hash": "e640bcf5cb6435da",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/herefordshire-county-of/": {
+   "hash": "fc458805063a6031",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/huntingdonshire/": {
+   "hash": "029e7de3399dfb5d",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/ipswich/": {
+   "hash": "877fc11eab85d7b7",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/isle-of-anglesey/": {
+   "hash": "09f31794ae45400c",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/isle-of-wight/": {
+   "hash": "06e8200dd95a803c",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/islington/": {
+   "hash": "0a4ee4108c28bdfa",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/king-s-lynn-and-west-norfolk/": {
+   "hash": "620c608576de3dbc",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/kingston-upon-hull-city-of/": {
+   "hash": "8eccef528015636e",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/kingston-upon-thames/": {
+   "hash": "438dd0297e60096b",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/lambeth/": {
+   "hash": "ed7848e77f0baace",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/lancaster/": {
+   "hash": "e404bc611889adbb",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/leeds/": {
+   "hash": "152c0f33815236b0",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/leicester/": {
+   "hash": "dd78ee47ec43a70f",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/lewisham/": {
+   "hash": "e72af6abaea6df4f",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/lisburn-and-castlereagh/": {
+   "hash": "8a49f0491b763eaa",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/liverpool/": {
+   "hash": "c5bad56f0df4b505",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/luton/": {
+   "hash": "d4f839ad8d706f1d",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/maidstone/": {
+   "hash": "baa882137974ccc9",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/manchester/": {
+   "hash": "0ab2a03a3cd115a7",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/merton/": {
+   "hash": "ef0a1fa55edf9012",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/mid-and-east-antrim/": {
+   "hash": "d2ce8762bfd76c31",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/milton-keynes/": {
+   "hash": "082372df08c7d93d",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/mole-valley/": {
+   "hash": "fad717c8adcbc990",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/monmouthshire/": {
+   "hash": "5dd0dfc69ccda35d",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/neath-port-talbot/": {
+   "hash": "4eba14eb9eb2dbb4",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/newcastle-under-lyme/": {
+   "hash": "1d55b801dfbb2cc4",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/newcastle-upon-tyne/": {
+   "hash": "18afb5a82e10071c",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/newry-mourne-and-down/": {
+   "hash": "7b25636ebe604b35",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/north-devon/": {
+   "hash": "52c215a30a940b04",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/north-east-lincolnshire/": {
+   "hash": "2f2358752afc9e69",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/north-lanarkshire/": {
+   "hash": "3b1277966ef2067a",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/north-lincolnshire/": {
+   "hash": "1274cabaa142522e",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/north-somerset/": {
+   "hash": "462a4659a6f88324",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/north-yorkshire/": {
+   "hash": "007df188523ec7b3",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/norwich/": {
+   "hash": "03a7c37e58123cd4",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/nottingham/": {
+   "hash": "037ee3c9ccde1705",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/nuneaton-and-bedworth/": {
+   "hash": "d8164393f1e1ca5f",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/oxford/": {
+   "hash": "d6344eecc7f6041c",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/pendle/": {
+   "hash": "ae85a341f02dfb06",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/perth-and-kinross/": {
+   "hash": "44df9ee9a02fe62b",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/peterborough/": {
+   "hash": "37d672f9f22d9c01",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/plymouth/": {
+   "hash": "2985de5cabbc191d",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/pontefract/": {
+   "hash": "87d1b4fbed427dab",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/portsmouth/": {
+   "hash": "e5fc0fd5f237a7b7",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/preston/": {
+   "hash": "0733ca84b5f5aa32",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/reading/": {
+   "hash": "e3ff93053ec741af",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/redbridge/": {
+   "hash": "bab2b0c8c46cd445",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/reigate-and-banstead/": {
+   "hash": "a656367dbd4aed0f",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/rochdale/": {
+   "hash": "06a75e893d64fdc3",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/rother/": {
+   "hash": "5236d1bf217b4917",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/rotherham/": {
+   "hash": "024c00a4a74f9cff",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/rugby/": {
+   "hash": "0e4816342063ab85",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/salford/": {
+   "hash": "a02e482ce777fd5e",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/sheffield/": {
+   "hash": "03fc77b89d633e13",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/shropshire/": {
+   "hash": "28b3792577bb2be9",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/slough/": {
+   "hash": "fe9da1b339b56509",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/somerset/": {
+   "hash": "18c72ec78321ec8b",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/southampton/": {
+   "hash": "bd7eed1ea758d619",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/southwark/": {
+   "hash": "ca2717e14f9768a1",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/spelthorne/": {
+   "hash": "13157462b147cf69",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/st-albans/": {
+   "hash": "28f5af6fbd69fc83",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/st-helens/": {
+   "hash": "a46caca6bf8d28b5",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/stafford/": {
+   "hash": "05091cb703f43a28",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/stockport/": {
+   "hash": "be8142b4fc3a46db",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/stoke-on-trent/": {
+   "hash": "709f92e3aaf2f3d3",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/stroud/": {
+   "hash": "e947b65f348d3e48",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/sunderland/": {
+   "hash": "d4b4baeafd409568",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/surrey-heath/": {
+   "hash": "c8d375c4efb01cb6",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/sutton/": {
+   "hash": "3353e44ddab1b7fe",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/swansea/": {
+   "hash": "8a49cb75a47260d5",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/swindon/": {
+   "hash": "9360ba8239b96529",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/tendring/": {
+   "hash": "f89423b6f88d3108",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/torbay/": {
+   "hash": "7e24b5ae1fe10905",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/tower-hamlets/": {
+   "hash": "e91749a937ad5d33",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/trafford/": {
+   "hash": "cc64da92b6a67a72",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/wakefield/": {
+   "hash": "723f7e44c367ecb4",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/waltham-forest/": {
+   "hash": "c5f1dcc9de37eeb1",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/warrington/": {
+   "hash": "1e626b1590116cd0",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/watford/": {
+   "hash": "fd8b57aa29baa177",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/welwyn-hatfield/": {
+   "hash": "edc010a6536fe475",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/west-northamptonshire/": {
+   "hash": "0693d039e60b81d7",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/westmorland-and-furness/": {
+   "hash": "f5738e623d1b48e7",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/wiltshire/": {
+   "hash": "ee1a383a58ddd313",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/winchester/": {
+   "hash": "0500fcbc71391d41",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/woking/": {
+   "hash": "5a3ba787e78a7512",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/wolverhampton/": {
+   "hash": "02448632cde9dbfb",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/worcester/": {
+   "hash": "029c90be271d4f39",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/worthing/": {
+   "hash": "602cb6c6499b8597",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/wrexham/": {
+   "hash": "5ad05318200e45b1",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/wyre/": {
+   "hash": "3f356af3aef54ec9",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/shelters/york/": {
+   "hash": "13dddb94aaa612e4",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/terms.html": {
+   "hash": "cec9d92efe0e5989",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/": {
+   "hash": "f3e06db3dad3ef79",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/aberdeenshire/": {
+   "hash": "9074d7789ec9abde",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/armagh-city-banbridge-and-craigavon/": {
+   "hash": "9a1ccbd8ce5125c8",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/arun/": {
+   "hash": "1546f824d4052d5c",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/barking-and-dagenham/": {
+   "hash": "de407c05dd9d812e",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/barnet/": {
+   "hash": "d7eee0ce857ed3b0",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/barnsley/": {
+   "hash": "51a16bf0788118b6",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/bassetlaw/": {
+   "hash": "53388d4d4cb8b1ce",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/bath-and-north-east-somerset/": {
+   "hash": "6c0fbf70ca5a8fe2",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/bexley/": {
+   "hash": "6e52c340e8ec0598",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/birmingham/": {
+   "hash": "5cee509a78c5de10",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/blackburn-with-darwen/": {
+   "hash": "a95d9a56e52ddb03",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/bolton/": {
+   "hash": "342a3a9249b93dd8",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/boston/": {
+   "hash": "3632d28f6d050bea",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/bournemouth-christchurch-and-poole/": {
+   "hash": "5e068ca6f9fd5452",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/bradford/": {
+   "hash": "58a726ce5e10e8b8",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/brent/": {
+   "hash": "996cd7e3a71968cf",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/brentwood/": {
+   "hash": "a1360c34fb5e8f9f",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/brighton-and-hove/": {
+   "hash": "168acc6c8be6236a",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/bristol-city-of/": {
+   "hash": "666455e7e393b8d1",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/broadland/": {
+   "hash": "a7e580774c13c947",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/bromley/": {
+   "hash": "930b5e8cd0c76e31",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/broxbourne/": {
+   "hash": "f773536c32ccd743",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/broxtowe/": {
+   "hash": "ec600c432745f892",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/buckinghamshire/": {
+   "hash": "2c24b67a6dc5421a",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/bury/": {
+   "hash": "73d2b1b9c4e0c795",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/calderdale/": {
+   "hash": "f70899a0c847c9d4",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/camden/": {
+   "hash": "bf704176c105b0fd",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/cannock-chase/": {
+   "hash": "f71f957beecc3080",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/cardiff/": {
+   "hash": "ab6fd6eec4397ce8",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/carmarthenshire/": {
+   "hash": "390968f4e713ba79",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/central-bedfordshire/": {
+   "hash": "4bafbd5e3e3338a7",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/ceredigion/": {
+   "hash": "113b68916e0033cb",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/charnwood/": {
+   "hash": "d1f6456d7c0b9295",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/cherwell/": {
+   "hash": "13f923cb2fd4a659",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/cheshire-east/": {
+   "hash": "de6117af056e585b",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/cheshire-west-and-chester/": {
+   "hash": "03246fa8740a83f5",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/chesterfield/": {
+   "hash": "6dee4c8925cef2e9",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/chorley/": {
+   "hash": "2e3e38aceb3f3fe2",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/city-of-edinburgh/": {
+   "hash": "a032044a50aa6f16",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/clackmannanshire/": {
+   "hash": "860f02092a100d73",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/cornwall/": {
+   "hash": "2792a7d2c95b8a2a",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/cotswold/": {
+   "hash": "347e75aa449587d1",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/county-durham/": {
+   "hash": "e356e2af2093361e",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/coventry/": {
+   "hash": "51537462ba5ae2a0",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/cumberland/": {
+   "hash": "4f0306affaeb25b2",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/dartford/": {
+   "hash": "7b61bfe214184bdd",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/derby/": {
+   "hash": "c406a1170868bbd6",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/derbyshire-dales/": {
+   "hash": "8ca425d074bac2ae",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/doncaster/": {
+   "hash": "1d87c8f5c9e7d694",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/dorset/": {
+   "hash": "f5c92f91c512d620",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/dumfries-and-galloway/": {
+   "hash": "9f5c6e2194cfcf3d",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/dundee-city/": {
+   "hash": "6c3f67f186825294",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/east-cambridgeshire/": {
+   "hash": "93b4f884d61ea9f2",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/east-devon/": {
+   "hash": "12dd3666e30ecbd6",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/east-hertfordshire/": {
+   "hash": "4924433ba3c9b9c7",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/east-lothian/": {
+   "hash": "4f7383697055ee93",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/east-riding-of-yorkshire/": {
+   "hash": "91fdc727629bc8a8",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/eastbourne/": {
+   "hash": "b5fafa37bdbf2a2f",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/eastleigh/": {
+   "hash": "3227f3c085572a62",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/enfield/": {
+   "hash": "c0cd674ef44e7afa",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/exeter/": {
+   "hash": "69b546c5804fcf43",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/fareham/": {
+   "hash": "6a62cc11b7ca1105",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/fenland/": {
+   "hash": "b4d495b1b0091d93",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/fife/": {
+   "hash": "a62c5e9bf3b87419",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/folkestone-and-hythe/": {
+   "hash": "a3f52f6e2bcf374a",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/forest-of-dean/": {
+   "hash": "92d2c3846368ac84",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/fylde/": {
+   "hash": "f6e96b3a4b47d0a0",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/gateshead/": {
+   "hash": "2a63dc86245575d0",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/gedling/": {
+   "hash": "39634f697f59e061",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/greenwich/": {
+   "hash": "3c2c8aeabd2db20b",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/guildford/": {
+   "hash": "4000a0db145c88fe",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/gwynedd/": {
+   "hash": "cc23be72675c48fd",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/hackney/": {
+   "hash": "fd58c2a4b7c1e9a0",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/halton/": {
+   "hash": "e8e907e24439021d",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/hammersmith-and-fulham/": {
+   "hash": "dfae94e30999fb63",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/haringey/": {
+   "hash": "ade1ed20f791396b",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/harrow/": {
+   "hash": "545aaa50a7667fdf",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/hart/": {
+   "hash": "c75f183dddd415ea",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/hastings/": {
+   "hash": "5ffc99c5a511c914",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/havering/": {
+   "hash": "a1d5feb8fdf6d718",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/high-peak/": {
+   "hash": "8e791e3b478b4a1d",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/hinckley-and-bosworth/": {
+   "hash": "2f43a309cb14b6c2",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/islington/": {
+   "hash": "8cde1a05e7a46ba4",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/kingston-upon-hull-city-of/": {
+   "hash": "af026d1acb724cab",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/kingston-upon-thames/": {
+   "hash": "97f7bd7bd707ae0e",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/kirklees/": {
+   "hash": "c2ca1c5976ba06c3",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/lambeth/": {
+   "hash": "e4380e50df3a4aa9",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/lancaster/": {
+   "hash": "d330078be6120116",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/leeds/": {
+   "hash": "d40f35a4741bbdbf",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/leicester/": {
+   "hash": "dc06725930e67fcd",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/lewisham/": {
+   "hash": "336a3c5e3bf8e921",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/lincoln/": {
+   "hash": "956702177c360c39",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/liverpool/": {
+   "hash": "580ee332d18c2c98",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/maidstone/": {
+   "hash": "0d5ea6c2d2f2198d",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/manchester/": {
+   "hash": "71e4d0c3e17ce3d8",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/mansfield/": {
+   "hash": "ae5c94704e96f112",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/medway/": {
+   "hash": "765b24d9c1577cb6",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/merton/": {
+   "hash": "644a85021ba010ab",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/mole-valley/": {
+   "hash": "c3a4fe79b7a9f29a",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/new-forest/": {
+   "hash": "a2fe31e2a525617a",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/newcastle-upon-tyne/": {
+   "hash": "44145d70eb0a4b8a",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/north-devon/": {
+   "hash": "0082a8d5691fcea9",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/north-east-derbyshire/": {
+   "hash": "e9c5d79f667effc4",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/north-east-lincolnshire/": {
+   "hash": "678ddb7f226ca8db",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/north-hertfordshire/": {
+   "hash": "506e3c853cbfc1d4",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/north-norfolk/": {
+   "hash": "e94a90b01383937e",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/north-northamptonshire/": {
+   "hash": "3e146ed49535b5a8",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/north-warwickshire/": {
+   "hash": "8288ff52ba7fa1da",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/north-west-leicestershire/": {
+   "hash": "9e6913292eeb91b7",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/north-yorkshire/": {
+   "hash": "61c743b4627ba28c",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/northumberland/": {
+   "hash": "c97f6dbb01862295",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/norwich/": {
+   "hash": "56a2fbf0b8572acc",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/nottingham/": {
+   "hash": "477c7397f6d8135e",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/nuneaton-and-bedworth/": {
+   "hash": "3f04f17967b8d3aa",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/oldham/": {
+   "hash": "5123e55753597dc3",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/oxford/": {
+   "hash": "14b9067c5f6fe80d",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/plymouth/": {
+   "hash": "e8f41608ae585777",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/portsmouth/": {
+   "hash": "58126f1fd9c28ace",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/powys/": {
+   "hash": "dbb81dab3dfede1b",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/reading/": {
+   "hash": "3a00c85fb368bc09",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/reigate-and-banstead/": {
+   "hash": "519d405ce8cf3860",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/rochdale/": {
+   "hash": "0f6baa0e8df05e43",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/rushcliffe/": {
+   "hash": "b213d3226bb3f66d",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/rushmoor/": {
+   "hash": "fe55166ede6ba010",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/salford/": {
+   "hash": "a4355faa44441f82",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/sandwell/": {
+   "hash": "ba88f379385bcd06",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/sefton/": {
+   "hash": "5331cd7305062fa7",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/sheffield/": {
+   "hash": "7ab219e06988a755",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/shropshire/": {
+   "hash": "02b3811a6ac062df",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/somerset/": {
+   "hash": "53ba04ac1e41a4c7",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/south-cambridgeshire/": {
+   "hash": "4e49057d3d75a00c",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/south-gloucestershire/": {
+   "hash": "363f9790b570a170",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/south-hams/": {
+   "hash": "be25a653fbf94771",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/south-holland/": {
+   "hash": "eeb58991dd9c7973",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/south-lanarkshire/": {
+   "hash": "204ccd4f03a3babb",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/south-norfolk/": {
+   "hash": "adcd481960d15a05",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/south-oxfordshire/": {
+   "hash": "d29394a1b2f65f14",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/south-ribble/": {
+   "hash": "3905aa8819c2e029",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/southampton/": {
+   "hash": "ce282dd52508cd81",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/southend-on-sea/": {
+   "hash": "c88a987c31fb79dd",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/southwark/": {
+   "hash": "949cbbe942cf3bb9",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/stockton-on-tees/": {
+   "hash": "71aa121a527071fe",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/stoke-on-trent/": {
+   "hash": "97b708b92d425bec",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/stratford-on-avon/": {
+   "hash": "9031d246446f99c6",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/stroud/": {
+   "hash": "b33fa656d4ac91f0",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/sunderland/": {
+   "hash": "35a9b36c09ade8bd",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/sutton/": {
+   "hash": "0e13216d6a79d9b4",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/swale/": {
+   "hash": "1226ef60aaf84b28",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/swansea/": {
+   "hash": "a8c2232a94a6bb80",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/teignbridge/": {
+   "hash": "d7264a9bf6df269f",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/tendring/": {
+   "hash": "1b0a1824b36219c6",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/test-valley/": {
+   "hash": "f406221f3569fb37",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/tewkesbury/": {
+   "hash": "d0d207718b259961",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/tonbridge-and-malling/": {
+   "hash": "aa9cdd4cf9de59b8",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/torridge/": {
+   "hash": "e8b5ca486428e491",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/tower-hamlets/": {
+   "hash": "f126be79f793d62c",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/trafford/": {
+   "hash": "cd22989e19d58b44",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/tunbridge-wells/": {
+   "hash": "d112e22a0c978210",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/wakefield/": {
+   "hash": "6e964ef72485cfbe",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/walsall/": {
+   "hash": "ef3f37ea243f347a",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/waltham-forest/": {
+   "hash": "2acebbe4d138d759",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/warrington/": {
+   "hash": "f1225caefa6dc719",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/west-berkshire/": {
+   "hash": "2b70e57560c57448",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/westminster/": {
+   "hash": "92f9f460a4bf0580",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/westmorland-and-furness/": {
+   "hash": "d6d7e1336fdd27f6",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/wiltshire/": {
+   "hash": "ea13591e2dbcd0cf",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/winchester/": {
+   "hash": "b4b07e75c8ddbf5a",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/wirral/": {
+   "hash": "aeba427648049327",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/woking/": {
+   "hash": "359becdf8c453d3a",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/wolverhampton/": {
+   "hash": "c13b602fa8d99d64",
+   "lastmod": "2026-11-11"
+  },
+  "https://helpmap.uk/warm-spaces/wyre/": {
+   "hash": "4e35e2d188e10cdf",
+   "lastmod": "2026-11-11"
+  }
+ },
  "accessibility.html": {
   "at": "2026-10-29T05:44:53+00:00",
   "hash": "8a9078b59d1c434f"
