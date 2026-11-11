@@ -16,10 +16,12 @@ Every 3x-daily run:
 Never invents data: everything published comes from a fetched page or a directory record."""
 import re, os, sys, json, html, ssl, math, time, hashlib, datetime, threading, urllib.request, urllib.parse, concurrent.futures as cf
 CTX = ssl._create_unverified_context()
-# Same HelpMapBot on first try and on 403/429 retry (plan 1.5, 9 Nov 2026). Councils can allow-list one agent.
-HELPMAP_BOT = "Mozilla/5.0 (compatible; HelpMapBot/1.0; +https://helpmap.uk/; checks published food bank, warm space and shelter pages, a few pages a day)"
-UA = {"User-Agent": HELPMAP_BOT}
-# Polite retry (27 Oct 2026): a site that answers 403/429 is asked again more slowly. Same agent; still backs off.
+# First try keeps the browser-like agent: with HelpMapBot on the first try ~60 more food bank own sites were
+# unreachable in practice (153/154 vs 86-96; #499 evidence, 11 Nov 2026).
+UA = {"User-Agent": "Mozilla/5.0 (FindYourFoodBank refresh; own-site check)"}
+# Polite retry (27 Oct 2026): a site that answers 403/429 is asked again more slowly, identifying who we are and why,
+# with the one shared HelpMapBot agent (plan 1.5) so a site can allow-list one name.
+HELPMAP_BOT = "Mozilla/5.0 (compatible; HelpMapBot/1.0; +https://helpmap.uk/; checks published food bank, warm space and shelter pages, a few pages a day)"   # == common.HELPMAP_BOT (locked by tests/test_helpmapbot_ua.py)
 POLITE_UA = {"User-Agent": HELPMAP_BOT,
              "Accept": "text/html,application/xhtml+xml;q=0.9,*/*;q=0.8", "Accept-Language": "en-GB,en;q=0.8"}
 RETRY_CODES = (403, 429)
