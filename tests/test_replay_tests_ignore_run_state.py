@@ -106,7 +106,7 @@ class TimesReview29OctIgnoresRunState(unittest.TestCase):
         self.write(self.d, [fresh_apply("synthetic-%d" % i, "fb") for i in range(8)])
         r = self.run_test()
         self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
-        self.assertIn("Private replay report is not available", r.stdout)
+        self.assertIn("Private working file is not available", r.stdout)
 
     def test_replay_copy_missing_the_records_still_fails(self):
         replay = os.path.join(self.d, "replay"); self.write(replay, [fresh_apply()])
