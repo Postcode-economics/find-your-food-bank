@@ -1,5 +1,10 @@
 import json, os, re, time, urllib.request, datetime
 import place_lock  # hand-wins for the kept copy in verification_gate (one copy of the rule)
+# HelpMapBot: the identified agent used on the polite 403/429 retry (discover.POLITE_UA), so a site that refuses
+# us can see who we are and allow-list one name (plan 1.5, 9 Nov 2026).
+HELPMAP_BOT = "Mozilla/5.0 (compatible; HelpMapBot/1.0; +https://helpmap.uk/; checks published food bank, warm space and shelter pages, a few pages a day)"
+# First-try agent for common.get stays as it was on main: the 9 Nov / 11 Nov practices showed the shelters build
+# read 331 listings instead of 364-365 when this was switched to HelpMapBot (#499 evidence).
 UA = {"User-Agent": "postcode-economics-map/1.0 (+https://postcode-economics.github.io/find-your-food-bank/)"}
 PC_RE = re.compile(r"\b([A-Z]{1,2}[0-9][0-9A-Z]?)\s*([0-9][A-Z]{2})\b", re.I)
 def today(): return datetime.date.today().isoformat()
