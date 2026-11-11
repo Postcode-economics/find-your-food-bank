@@ -281,8 +281,7 @@ NOT_CLIENT = re.compile(r"office|warehouse|donat|drop[- ]?off|admin|phone line|t
                         # preschool sessions, adviser drop-ins and café/coffee-shop times were read as food bank hours
                         r"|contact (?:hours|times)|\badvis[eo]rs?\b|\bgym\b|fitness|leisure cent|swimming|\bpool\b|sports? (?:hall|cent)"
                         r"|reception|centre opening (?:hours|times)|building (?:is )?open|pre-?school|nursery|playgroup|toddlers?|cr[eè]che"
-                        r"|caf[eé] (?:is )?open|caf[eé] (?:opening )?(?:hours|times)|coffee (?:shop|morning)|\bshop (?:is )?open|shop (?:opening )?(?:hours|times)"
-                        r"|open for referrals", re.I)  # rule 27 (26 Oct): phone/office/donation/church-service hours. 'Open for referrals: weekdays ...' is a referral desk, not collection hours (Beacon Food Bank, 8 Nov 2026).
+                        r"|caf[eé] (?:is )?open|caf[eé] (?:opening )?(?:hours|times)|coffee (?:shop|morning)|\bshop (?:is )?open|shop (?:opening )?(?:hours|times)", re.I)  # rule 27 (26 Oct): phone/office/donation/church-service hours
 # Trinity (29 Oct 2026): 'We accept phone calls Mon-Thurs 10am - 2pm only from Statuatory agencies'. A day and time
 # followed by an agency/professional-only line is a referral line, not a time a client can come.
 AGENCY_ONLY = re.compile(r"\bonly\s+(?:from|for|by)\s+(?:the\s+)?(?:statu\w*|referr\w*|professional\w*|partner\w*|support|external)\s+"
@@ -301,24 +300,36 @@ ORD_SPAN = re.compile(r"(\b(?:first|second|third|fourth|last|1st|2nd|3rd|4th)\s+
 APPT = re.compile(r"by appointment|appointment only|appointments only|phone in advance|telephone request|by arrangement|on request", re.I)   # North Ayrshire St John's: 'only open upon a telephone request'
 DONATION_PAGE = re.compile(r"donat|giv(e|ing)|volunteer|drop-?off|support-us|fundrais", re.I)
 # Referral desks / lines read straight before the days and times are not collection hours: 'Referrals accepted weekdays
-# 9am - 5pm', 'Referral line open weekdays ...', 'Agencies can refer weekdays ...', 'To make a referral call weekdays ...'.
-# Anchored to the time span itself (only open / on / hours / ':' / '-' between), never a 160-char window, so a referral
-# sentence or heading earlier on the page ('We accept referrals from local agencies' then 'Thursday 1pm - 3pm') does not
-# drop real opening hours. A line break or a sentence end between them is a hard stop (Grok Bot 2, #478, 11 Nov 2026).
+# 9am - 5pm', 'Referral line open weekdays ...', 'Agencies can refer weekdays ...', 'To make a referral call weekdays ...',
+# 'Open for referrals: weekdays 10am - 12.30pm' (Beacon Food Bank, 8 Nov 2026). Anchored to the time span itself (only
+# is / are / open / hours / times / ':' / ',' / '-' / on / every / from / between in between), never the 160-char
+# NOT_CLIENT window, so a referral sentence or heading earlier on the page ('We are open for referrals from any agency'
+# then 'Thursday 1pm - 3pm') does not drop real opening hours (Grok Bot 2, #478, 11 Nov 2026).
+# The page readers flatten <br> and line breaks to spaces (discover.text_of, trussell_times.text_of), so a line break
+# cannot be relied on as the boundary. Instead:
+#  - strong link: the wording names the times as referral hours/times ('Referral hours Monday ...', 'Referral desk
+#    hours: weekdays ...') or joins them with on / every / from / between ('Referral line is open on Monday ...',
+#    'Agencies can refer between Monday and Friday ...'). A heading followed by a new line never ends that way, so
+#    these are rejected whatever the days.
+#  - bare adjacency ('We accept referrals Monday 10am - 12pm', 'Open for referrals Tuesday ...', 'Referral line open
+#    Monday - Friday ...') may be a heading over the opening hours with the line break flattened away, so it rejects
+#    only a 'weekdays' span, which main never read either. Named days stay read exactly as on main.
 REFERRAL_DIRECT = re.compile(r"(?:referrals?\s+(?:are\s+)?accepted|accept(?:s|ing)?\s+referrals|referral\s+(?:line|desk|hours|times)s?"
-                             r"|can\s+refer|make\s+a\s+referral,?\s+(?:please\s+)?(?:call|ring|phone)(?:\s+us)?)"
+                             r"|open\s+for\s+referrals|can\s+refer|make\s+a\s+referral,?\s+(?:please\s+)?(?:call|ring|phone)(?:\s+us)?)"
                              r"(?:\s+(?:is|are))?(?:\s+open)?(?:\s+(?:hours|times))?\s*[:,\-–]?\s*(?:(?:on|every|from|between)\s+)?$", re.I)
+REFERRAL_STRONG = re.compile(r"\b(?:hours|times)\b|\b(?:on|every|from|between)\s*$", re.I)
 def referral_direct(t, at, raw=None):
-    """'referral line' etc. ending directly before the span at `at` in the cleaned text `t`, on the same line of the
-    original page text `raw`. Returns the matched words or ''."""
+    """Referral wording ending directly before the span at `at` in the cleaned text `t` (see REFERRAL_DIRECT).
+    Bare adjacency rejects only a span that clean() expanded from 'weekdays' in the page text `raw`.
+    Returns the matched words or ''."""
     m = REFERRAL_DIRECT.search(t[max(0, at - 80):at])
     if not m: return ""
-    if raw:   # the cleaned text has no line breaks: find these words in the page text and stop at a line break
-        words = re.findall(r"[A-Za-z0-9]+", m.group(0))
-        pat = r"[^A-Za-z0-9]+".join(re.escape(w) for w in words) + r"[^A-Za-z0-9]*"
-        hits = [x.group(0) for x in re.finditer(r"\b" + pat, raw, re.I)]
-        if hits and all(re.search(r"[\n\r\u2028\u2029]", h) for h in hits): return ""
-    return re.sub(r"\s+", " ", m.group(0).strip(" :,-–")).lower()
+    words = re.sub(r"\s+", " ", m.group(0).strip(" :,-–")).lower()
+    if REFERRAL_STRONG.search(m.group(0).strip()): return words
+    if not t[at:at + 13].lower().startswith("monday-friday"): return ""
+    src = raw if raw is not None else t
+    pat = r"[^A-Za-z0-9]+".join(re.escape(w) for w in re.findall(r"[A-Za-z0-9]+", m.group(0)))
+    return words if re.search(r"\b" + pat + r"[^A-Za-z0-9]+weekdays?\b", src, re.I) else ""
 def not_client_context(t, at, prev_span_end=None):
     """Up to 160 chars before the times, but not past the previous time span (that belongs to another line/centre).
     Upper Eden (23 Oct): 'Wheelie Bins outside the Sands Methodist Church in Appleby on: Tuesdays 11 - 11:30am'."""

@@ -125,11 +125,14 @@ class AppointmentSentenceBefore(unittest.TestCase):
 
 
 class WeekdayReferralLines(unittest.TestCase):
-    """Referral desks / lines are not collection hours, with 'weekdays' or named days (Grok Bot 2 probe (b), #478)."""
+    """Referral desks / lines are not collection hours (Grok Bot 2 probe (b), #478). Named days straight after bare
+    referral wording stay read as on main, because a flattened '<br>' looks the same (VERDICT_v3 n20F); named days are
+    rejected when the wording names them as referral hours or joins them with on / between."""
     def test_referral_hours_are_not_opening_times(self):
         for text in ("Referrals accepted weekdays 9am - 5pm", "Referral line open weekdays 9am - 5pm",
                      "Agencies can refer weekdays 9am - 1pm", "To make a referral call weekdays 9am - 1pm",
-                     "Referrals accepted Monday - Friday 9am - 5pm", "Referral line open Monday to Friday 9am - 5pm"):
+                     "Referrals accepted between Monday and Friday 9am - 5pm", "Referral line is open on Monday to Friday 9am - 5pm",
+                     "Referral hours: Monday - Friday 9am - 5pm"):
             rej = []
             got = D.extract_times(text, None, rejected=rej)
             self.assertFalse(got and got.get("structured"), (text, got))
@@ -149,96 +152,178 @@ class WeekdayReferralLines(unittest.TestCase):
 
 
 class ReferralWordingAnchoredToTheTimes(unittest.TestCase):
-    """Grok Bot 2 VERDICT_v2 (#478, 11 Nov 2026): referral wording only rejects hours it sits directly before, on the
-    same line; an earlier referral sentence, heading or line never drops real opening hours. Every row equals main
-    (57719d64) or is the intended weekdays = Monday-Friday read."""
+    """Grok Bot 2 VERDICT_v2 and VERDICT_v3 (#478, 11 Nov 2026): referral wording (including 'open for referrals') only
+    rejects hours it sits directly before; an earlier referral sentence, heading or line never drops real opening hours.
+    Rows whose id ends in F are the same page put through discover.text_of first, as the own-site check and the times
+    finder do (<br> and line breaks become spaces), so the boundary must hold without line breaks.
+    Every row's expected result is main's (86d27edc), except the intended changes in MAIN_DIFFERS."""
+    # Intended differences from main: weekdays read as Monday-Friday (p2, p3, r3, r5, s1, s2, s3, s5, w1, w3), that read
+    # kept text-only by appointment wording (a3, a4; p1 only changes its label), and referral hours named as such or
+    # joined to the days by on / between (n7, n8, n9, n11, n12: main read these referral-desk hours as opening times).
+    MAIN_DIFFERS = {"a3", "a4", "p1", "p2", "p3", "r3", "r5", "s1", "s2", "s3", "s5", "w1", "w3", "n7", "n8", "n9", "n11", "n12"}
     CASES = [
-        ('a1', 'Opening times: Monday 10am - 12pm, Wednesday 1pm - 3pm. Please note all collections are by appointment only.', None, ('TIMES_TEXT_ONLY', None)),
-        ('a2', 'Opening times: Monday 10am - 12pm, Wednesday 1pm - 3pm. We are a small team of volunteers working hard every week. Please note that all food parcels are by appointment only.', None, ('TIMES_TEXT_ONLY', None)),
-        ('a3', 'Weekdays 10am - 12pm. All collections are by appointment only, please call first.', None, ('TIMES_TEXT_ONLY', None)),
-        ('a4', 'Open weekdays 10.30am - 1pm. Food hampers are only available for collection by appointment.', None, ('TIMES_TEXT_ONLY', None)),
-        ('b1', 'Referrals accepted weekdays 9am - 5pm', None, None),
-        ('b2', 'Referral line open weekdays 9am - 5pm', None, None),
-        ('b3', 'Agencies can refer weekdays 9am - 1pm', None, None),
-        ('b4', 'To make a referral call weekdays 9am - 1pm', None, None),
-        ('b5', 'Referrals are accepted weekdays 9am - 5pm', None, None),
-        ('b6', 'We accept referrals weekdays 9am - 5pm', None, None),
-        ('b7', 'Referral desk hours: weekdays 9am - 5pm', None, None),
-        ('b8', 'Referral times weekdays 9am - 12pm', None, None),
-        ('c1', 'Open weekdays except bank holidays 10am - 12pm', None, None),
-        ('c2', 'Open weekdays (except bank holidays) 10am - 12pm', None, None),
-        ('c3', 'Open weekdays, excluding bank holidays, 10am - 12pm', None, None),
-        ('c4', 'Open weekdays apart from bank holidays 10am - 12pm', None, None),
-        ('c5', 'Open weekdays but not bank holidays 10am - 12pm', None, None),
-        ('c6', 'Open weekdays, closed bank holidays, 10am - 12pm', None, None),
-        ('c7', 'Open weekdays not including bank holidays 10am - 12pm', None, None),
-        ('c8', 'Open weekdays except Wednesday 10am - 12pm', None, ('TIMES_FOUND', {'wed': [['10:00', '12:00']]})),
-        ('p1', 'Please phone in advance to arrange a collection. Fri 12:30 - 14:00', None, ('TIMES_TEXT_ONLY', None)),
-        ('p2', 'weekdays 10.30am - 1pm', None, ('TIMES_FOUND', {'mon': [['10:30', '13:00']], 'tue': [['10:30', '13:00']], 'wed': [['10:30', '13:00']], 'thu': [['10:30', '13:00']], 'fri': [['10:30', '13:00']]})),
-        ('p3', 'Hampers can be collected between 10.30am and 1pm on weekdays.', None, ('TIMES_FOUND', {'mon': [['10:30', '13:00']], 'tue': [['10:30', '13:00']], 'wed': [['10:30', '13:00']], 'thu': [['10:30', '13:00']], 'fri': [['10:30', '13:00']]})),
-        ('p4', 'Open for referrals: weekdays 9am - 5pm', None, None),
-        ('p5', 'Donations accepted weekdays 9am - 5pm', None, None),
-        ('p6', 'Drop off donations weekdays 9am - 5pm', None, None),
-        ('p7', 'Phone lines open weekdays 9am - 5pm', None, None),
-        ('p8', 'Our office is open weekdays 9am - 5pm', None, None),
-        ('p9', 'Volunteers needed weekdays 9am - 1pm', None, None),
-        ('p10', 'Warehouse open weekdays 9am - 1pm', None, None),
-        ('p11', 'The food bank is only open upon a telephone request. Monday 10am - 12pm', None, ('TIMES_TEXT_ONLY', None)),
-        ('m1', "Our centres. St Mark's Church, High Street, Townsville AB1 2CD. Open Monday 10am - 12pm. Hope Hall, Low Road, Townsville AB3 4EF. Thursday 1pm - 3pm. Collections at Hope Hall are by appointment only.", 'AB1 2CD', ('TIMES_FOUND', {'mon': [['10:00', '12:00']]})),
-        ('m2', "Our centres. St Mark's Church, High Street, Townsville AB1 2CD. Open Monday 10am - 12pm. Hope Hall, Low Road, Townsville AB3 4EF. Thursday 1pm - 3pm. Collections at Hope Hall are by appointment only.", 'AB3 4EF', ('TIMES_TEXT_ONLY', None)),
-        ('m3', "St Mark's Church, High Street, Townsville AB1 2CD. Collections by appointment only. Monday 10am - 12pm. Hope Hall, Low Road, Townsville AB3 4EF. Thursday 1pm - 3pm.", 'AB3 4EF', ('TIMES_FOUND', {'thu': [['13:00', '15:00']]})),
-        ('m4', "St Mark's Church, High Street, Townsville AB1 2CD. Collections by appointment only. Monday 10am - 12pm. Hope Hall, Low Road, Townsville AB3 4EF. Thursday 1pm - 3pm.", 'AB1 2CD', ('TIMES_TEXT_ONLY', None)),
-        ('m5', "Our centres. St Mark's Church, High Street, Townsville AB1 2CD. Open Monday 10am - 12pm. Hope Hall, Low Road, Townsville AB3 4EF. Thursday 1pm - 3pm. Collections at Hope Hall are by appointment only.", None, ('TIMES_TEXT_ONLY', None)),
-        ('ap1', 'Open Monday 10am - 12pm. Appointments available on request.', None, ('TIMES_TEXT_ONLY', None)),
-        ('ap2', 'Open Monday 10am - 12pm. Appointments available.', None, ('TIMES_FOUND', {'mon': [['10:00', '12:00']]})),
-        ('ap3', 'Open Monday 10am - 12pm. Appointments are available if you cannot make these times.', None, ('TIMES_FOUND', {'mon': [['10:00', '12:00']]})),
-        ('ap4', 'Open Monday 10am - 12pm by appointment only.', None, ('TIMES_TEXT_ONLY', None)),
-        ('ap5', 'Monday 10am - 12pm (appointments only)', None, ('TIMES_TEXT_ONLY', None)),
-        ('r1', 'We work closely with referral agencies across the town. Open Monday 10am - 12pm.', None, ('TIMES_FOUND', {'mon': [['10:00', '12:00']]})),
-        ('r2', 'Agencies can refer clients to us online. Our food bank is open Tuesday 10am - 12pm.', None, ('TIMES_FOUND', {'tue': [['10:00', '12:00']]})),
-        ('r3', 'Referrals are accepted from any agency. The food bank is open weekdays 10am - 12pm.', None, ('TIMES_FOUND', {'mon': [['10:00', '12:00']], 'tue': [['10:00', '12:00']], 'wed': [['10:00', '12:00']], 'thu': [['10:00', '12:00']], 'fri': [['10:00', '12:00']]})),
-        ('r4', 'Speak to an agency who can refer you, then come along Monday 10am - 12pm', None, ('TIMES_FOUND', {'mon': [['10:00', '12:00']]})),
-        ('r5', 'Self-referrals accepted, open weekdays 10am - 12pm', None, ('TIMES_FOUND', {'mon': [['10:00', '12:00']], 'tue': [['10:00', '12:00']], 'wed': [['10:00', '12:00']], 'thu': [['10:00', '12:00']], 'fri': [['10:00', '12:00']]})),
-        ('r6', 'Self-referrals accepted. Open Monday 10am - 12pm', None, ('TIMES_FOUND', {'mon': [['10:00', '12:00']]})),
-        ('r7', 'Agencies can refer you to us\nOpen Monday 10am - 12pm', None, ('TIMES_FOUND', {'mon': [['10:00', '12:00']]})),
-        ('r8', 'We accept referrals from GPs, schools and Citizens Advice\nOpening times: Wednesday 1pm - 3pm', None, ('TIMES_FOUND', {'wed': [['13:00', '15:00']]})),
-        ('s1', 'self-referral welcome, open weekdays 10am-12pm', None, ('TIMES_FOUND', {'mon': [['10:00', '12:00']], 'tue': [['10:00', '12:00']], 'wed': [['10:00', '12:00']], 'thu': [['10:00', '12:00']], 'fri': [['10:00', '12:00']]})),
-        ('s2', 'Self-referral welcome. Open weekdays 10am - 12pm', None, ('TIMES_FOUND', {'mon': [['10:00', '12:00']], 'tue': [['10:00', '12:00']], 'wed': [['10:00', '12:00']], 'thu': [['10:00', '12:00']], 'fri': [['10:00', '12:00']]})),
-        ('s3', 'You can refer yourself. Open weekdays 10am - 12pm', None, ('TIMES_FOUND', {'mon': [['10:00', '12:00']], 'tue': [['10:00', '12:00']], 'wed': [['10:00', '12:00']], 'thu': [['10:00', '12:00']], 'fri': [['10:00', '12:00']]})),
-        ('s4', 'No referral needed. Monday 10am - 12pm', None, ('TIMES_FOUND', {'mon': [['10:00', '12:00']]})),
-        ('s5', 'You can refer yourself, open weekdays 10am - 12pm', None, ('TIMES_FOUND', {'mon': [['10:00', '12:00']], 'tue': [['10:00', '12:00']], 'wed': [['10:00', '12:00']], 'thu': [['10:00', '12:00']], 'fri': [['10:00', '12:00']]})),
-        ('s6', 'Clients can refer themselves Monday 10am - 12pm', None, ('TIMES_FOUND', {'mon': [['10:00', '12:00']]})),
-        ('w1', 'Open weekdays and Saturday 10am - 12pm', None, ('TIMES_FOUND', {'mon': [['10:00', '12:00']], 'tue': [['10:00', '12:00']], 'wed': [['10:00', '12:00']], 'thu': [['10:00', '12:00']], 'fri': [['10:00', '12:00']], 'sat': [['10:00', '12:00']]})),
-        ('w2', 'Weekday mornings 10am - 12pm', None, None),
-        ('w3', 'Open every weekday 10am - 12pm', None, ('TIMES_FOUND', {'mon': [['10:00', '12:00']], 'tue': [['10:00', '12:00']], 'wed': [['10:00', '12:00']], 'thu': [['10:00', '12:00']], 'fri': [['10:00', '12:00']]})),
-        ('w4', 'Open weekdays only 10am - 12pm', None, None),
-        ('w5', 'Open Monday to Friday except bank holidays 10am - 12pm', None, ('TIMES_FOUND', {'mon': [['10:00', '12:00']], 'tue': [['10:00', '12:00']], 'wed': [['10:00', '12:00']], 'thu': [['10:00', '12:00']], 'fri': [['10:00', '12:00']]})),
-        ('w6', 'Open weekly on Tuesday 10am - 12pm', None, ('TIMES_FOUND', {'tue': [['10:00', '12:00']]})),
-        ('x1', 'Opening times\nMonday 10am - 12pm\nWe accept referrals from local agencies\nThursday 1pm - 3pm', None, ('TIMES_FOUND', {'mon': [['10:00', '12:00']], 'thu': [['13:00', '15:00']]})),
-        ('x2', 'How to get help\nYou will need a voucher from an agency who can refer you\nOpening times\nTuesday 10am - 12pm\nFriday 1pm - 3pm', None, ('TIMES_FOUND', {'tue': [['10:00', '12:00']], 'fri': [['13:00', '15:00']]})),
-        ('x3', 'Our food bank is open Monday 10am - 12pm\nAgencies can refer clients through our online form\nWednesday 1pm - 3pm', None, ('TIMES_FOUND', {'mon': [['10:00', '12:00']], 'wed': [['13:00', '15:00']]})),
-        ('x4', "Get help\nWe accept referrals from GPs, schools and Citizens Advice\nDistribution centre\nSt Mark's Church\nTuesday 10am - 12pm", None, ('TIMES_FOUND', {'tue': [['10:00', '12:00']]})),
-        ('x5', 'Referrals accepted from all agencies\nOpening hours\nMonday 10am - 12pm', None, ('TIMES_FOUND', {'mon': [['10:00', '12:00']]})),
-        ('x6', 'Need a referral? Your local agency can refer you. Opening hours Monday 10am - 12pm', None, ('TIMES_FOUND', {'mon': [['10:00', '12:00']]})),
-        ('x7', 'Need a referral? Your local agency can refer you\nOpening hours Monday 10am - 12pm', None, ('TIMES_FOUND', {'mon': [['10:00', '12:00']]})),
-        ('x8', 'Referral line 01234 567890\nCentre open Monday 10am - 12pm', None, ('TIMES_FOUND', {'mon': [['10:00', '12:00']]})),
-        ('x9', 'Open Monday 10am - 12pm. Referral line open weekdays 9am - 5pm.', None, ('TIMES_FOUND', {'mon': [['10:00', '12:00']]})),
-        ('x10', 'Monday 10am - 12pm, Thursday 1pm - 3pm. To make a referral call 01234 567890.', None, ('TIMES_FOUND', {'mon': [['10:00', '12:00']], 'thu': [['13:00', '15:00']]})),
+        ('a1', 'Opening times: Monday 10am - 12pm, Wednesday 1pm - 3pm. Please note all collections are by appointment only.', None, False, ('TIMES_TEXT_ONLY', None)),
+        ('a2', 'Opening times: Monday 10am - 12pm, Wednesday 1pm - 3pm. We are a small team of volunteers working hard every week. Please note that all food parcels are by appointment only.', None, False, ('TIMES_TEXT_ONLY', None)),
+        ('a3', 'Weekdays 10am - 12pm. All collections are by appointment only, please call first.', None, False, ('TIMES_TEXT_ONLY', None)),
+        ('a4', 'Open weekdays 10.30am - 1pm. Food hampers are only available for collection by appointment.', None, False, ('TIMES_TEXT_ONLY', None)),
+        ('b1', 'Referrals accepted weekdays 9am - 5pm', None, False, None),
+        ('b2', 'Referral line open weekdays 9am - 5pm', None, False, None),
+        ('b3', 'Agencies can refer weekdays 9am - 1pm', None, False, None),
+        ('b4', 'To make a referral call weekdays 9am - 1pm', None, False, None),
+        ('b5', 'Referrals are accepted weekdays 9am - 5pm', None, False, None),
+        ('b6', 'We accept referrals weekdays 9am - 5pm', None, False, None),
+        ('b7', 'Referral desk hours: weekdays 9am - 5pm', None, False, None),
+        ('b8', 'Referral times weekdays 9am - 12pm', None, False, None),
+        ('c1', 'Open weekdays except bank holidays 10am - 12pm', None, False, None),
+        ('c2', 'Open weekdays (except bank holidays) 10am - 12pm', None, False, None),
+        ('c3', 'Open weekdays, excluding bank holidays, 10am - 12pm', None, False, None),
+        ('c4', 'Open weekdays apart from bank holidays 10am - 12pm', None, False, None),
+        ('c5', 'Open weekdays but not bank holidays 10am - 12pm', None, False, None),
+        ('c6', 'Open weekdays, closed bank holidays, 10am - 12pm', None, False, None),
+        ('c7', 'Open weekdays not including bank holidays 10am - 12pm', None, False, None),
+        ('c8', 'Open weekdays except Wednesday 10am - 12pm', None, False, ('TIMES_FOUND', {'wed': [['10:00', '12:00']]})),
+        ('p1', 'Please phone in advance to arrange a collection. Fri 12:30 - 14:00', None, False, ('TIMES_TEXT_ONLY', None)),
+        ('p2', 'weekdays 10.30am - 1pm', None, False, ('TIMES_FOUND', {'mon': [['10:30', '13:00']], 'tue': [['10:30', '13:00']], 'wed': [['10:30', '13:00']], 'thu': [['10:30', '13:00']], 'fri': [['10:30', '13:00']]})),
+        ('p3', 'Hampers can be collected between 10.30am and 1pm on weekdays.', None, False, ('TIMES_FOUND', {'mon': [['10:30', '13:00']], 'tue': [['10:30', '13:00']], 'wed': [['10:30', '13:00']], 'thu': [['10:30', '13:00']], 'fri': [['10:30', '13:00']]})),
+        ('p4', 'Open for referrals: weekdays 9am - 5pm', None, False, None),
+        ('p5', 'Donations accepted weekdays 9am - 5pm', None, False, None),
+        ('p6', 'Drop off donations weekdays 9am - 5pm', None, False, None),
+        ('p7', 'Phone lines open weekdays 9am - 5pm', None, False, None),
+        ('p8', 'Our office is open weekdays 9am - 5pm', None, False, None),
+        ('p9', 'Volunteers needed weekdays 9am - 1pm', None, False, None),
+        ('p10', 'Warehouse open weekdays 9am - 1pm', None, False, None),
+        ('p11', 'The food bank is only open upon a telephone request. Monday 10am - 12pm', None, False, ('TIMES_TEXT_ONLY', None)),
+        ('m1', "Our centres. St Mark's Church, High Street, Townsville AB1 2CD. Open Monday 10am - 12pm. Hope Hall, Low Road, Townsville AB3 4EF. Thursday 1pm - 3pm. Collections at Hope Hall are by appointment only.", 'AB1 2CD', False, ('TIMES_FOUND', {'mon': [['10:00', '12:00']]})),
+        ('m2', "Our centres. St Mark's Church, High Street, Townsville AB1 2CD. Open Monday 10am - 12pm. Hope Hall, Low Road, Townsville AB3 4EF. Thursday 1pm - 3pm. Collections at Hope Hall are by appointment only.", 'AB3 4EF', False, ('TIMES_TEXT_ONLY', None)),
+        ('m3', "St Mark's Church, High Street, Townsville AB1 2CD. Collections by appointment only. Monday 10am - 12pm. Hope Hall, Low Road, Townsville AB3 4EF. Thursday 1pm - 3pm.", 'AB3 4EF', False, ('TIMES_FOUND', {'thu': [['13:00', '15:00']]})),
+        ('m4', "St Mark's Church, High Street, Townsville AB1 2CD. Collections by appointment only. Monday 10am - 12pm. Hope Hall, Low Road, Townsville AB3 4EF. Thursday 1pm - 3pm.", 'AB1 2CD', False, ('TIMES_TEXT_ONLY', None)),
+        ('m5', "Our centres. St Mark's Church, High Street, Townsville AB1 2CD. Open Monday 10am - 12pm. Hope Hall, Low Road, Townsville AB3 4EF. Thursday 1pm - 3pm. Collections at Hope Hall are by appointment only.", None, False, ('TIMES_TEXT_ONLY', None)),
+        ('ap1', 'Open Monday 10am - 12pm. Appointments available on request.', None, False, ('TIMES_TEXT_ONLY', None)),
+        ('ap2', 'Open Monday 10am - 12pm. Appointments available.', None, False, ('TIMES_FOUND', {'mon': [['10:00', '12:00']]})),
+        ('ap3', 'Open Monday 10am - 12pm. Appointments are available if you cannot make these times.', None, False, ('TIMES_FOUND', {'mon': [['10:00', '12:00']]})),
+        ('ap4', 'Open Monday 10am - 12pm by appointment only.', None, False, ('TIMES_TEXT_ONLY', None)),
+        ('ap5', 'Monday 10am - 12pm (appointments only)', None, False, ('TIMES_TEXT_ONLY', None)),
+        ('r1', 'We work closely with referral agencies across the town. Open Monday 10am - 12pm.', None, False, ('TIMES_FOUND', {'mon': [['10:00', '12:00']]})),
+        ('r2', 'Agencies can refer clients to us online. Our food bank is open Tuesday 10am - 12pm.', None, False, ('TIMES_FOUND', {'tue': [['10:00', '12:00']]})),
+        ('r3', 'Referrals are accepted from any agency. The food bank is open weekdays 10am - 12pm.', None, False, ('TIMES_FOUND', {'mon': [['10:00', '12:00']], 'tue': [['10:00', '12:00']], 'wed': [['10:00', '12:00']], 'thu': [['10:00', '12:00']], 'fri': [['10:00', '12:00']]})),
+        ('r4', 'Speak to an agency who can refer you, then come along Monday 10am - 12pm', None, False, ('TIMES_FOUND', {'mon': [['10:00', '12:00']]})),
+        ('r5', 'Self-referrals accepted, open weekdays 10am - 12pm', None, False, ('TIMES_FOUND', {'mon': [['10:00', '12:00']], 'tue': [['10:00', '12:00']], 'wed': [['10:00', '12:00']], 'thu': [['10:00', '12:00']], 'fri': [['10:00', '12:00']]})),
+        ('r6', 'Self-referrals accepted. Open Monday 10am - 12pm', None, False, ('TIMES_FOUND', {'mon': [['10:00', '12:00']]})),
+        ('r7', 'Agencies can refer you to us\nOpen Monday 10am - 12pm', None, False, ('TIMES_FOUND', {'mon': [['10:00', '12:00']]})),
+        ('r7F', 'Agencies can refer you to us\nOpen Monday 10am - 12pm', None, True, ('TIMES_FOUND', {'mon': [['10:00', '12:00']]})),
+        ('r8', 'We accept referrals from GPs, schools and Citizens Advice\nOpening times: Wednesday 1pm - 3pm', None, False, ('TIMES_FOUND', {'wed': [['13:00', '15:00']]})),
+        ('r8F', 'We accept referrals from GPs, schools and Citizens Advice\nOpening times: Wednesday 1pm - 3pm', None, True, ('TIMES_FOUND', {'wed': [['13:00', '15:00']]})),
+        ('s1', 'self-referral welcome, open weekdays 10am-12pm', None, False, ('TIMES_FOUND', {'mon': [['10:00', '12:00']], 'tue': [['10:00', '12:00']], 'wed': [['10:00', '12:00']], 'thu': [['10:00', '12:00']], 'fri': [['10:00', '12:00']]})),
+        ('s2', 'Self-referral welcome. Open weekdays 10am - 12pm', None, False, ('TIMES_FOUND', {'mon': [['10:00', '12:00']], 'tue': [['10:00', '12:00']], 'wed': [['10:00', '12:00']], 'thu': [['10:00', '12:00']], 'fri': [['10:00', '12:00']]})),
+        ('s3', 'You can refer yourself. Open weekdays 10am - 12pm', None, False, ('TIMES_FOUND', {'mon': [['10:00', '12:00']], 'tue': [['10:00', '12:00']], 'wed': [['10:00', '12:00']], 'thu': [['10:00', '12:00']], 'fri': [['10:00', '12:00']]})),
+        ('s4', 'No referral needed. Monday 10am - 12pm', None, False, ('TIMES_FOUND', {'mon': [['10:00', '12:00']]})),
+        ('s5', 'You can refer yourself, open weekdays 10am - 12pm', None, False, ('TIMES_FOUND', {'mon': [['10:00', '12:00']], 'tue': [['10:00', '12:00']], 'wed': [['10:00', '12:00']], 'thu': [['10:00', '12:00']], 'fri': [['10:00', '12:00']]})),
+        ('s6', 'Clients can refer themselves Monday 10am - 12pm', None, False, ('TIMES_FOUND', {'mon': [['10:00', '12:00']]})),
+        ('w1', 'Open weekdays and Saturday 10am - 12pm', None, False, ('TIMES_FOUND', {'mon': [['10:00', '12:00']], 'tue': [['10:00', '12:00']], 'wed': [['10:00', '12:00']], 'thu': [['10:00', '12:00']], 'fri': [['10:00', '12:00']], 'sat': [['10:00', '12:00']]})),
+        ('w2', 'Weekday mornings 10am - 12pm', None, False, None),
+        ('w3', 'Open every weekday 10am - 12pm', None, False, ('TIMES_FOUND', {'mon': [['10:00', '12:00']], 'tue': [['10:00', '12:00']], 'wed': [['10:00', '12:00']], 'thu': [['10:00', '12:00']], 'fri': [['10:00', '12:00']]})),
+        ('w4', 'Open weekdays only 10am - 12pm', None, False, None),
+        ('w5', 'Open Monday to Friday except bank holidays 10am - 12pm', None, False, ('TIMES_FOUND', {'mon': [['10:00', '12:00']], 'tue': [['10:00', '12:00']], 'wed': [['10:00', '12:00']], 'thu': [['10:00', '12:00']], 'fri': [['10:00', '12:00']]})),
+        ('w6', 'Open weekly on Tuesday 10am - 12pm', None, False, ('TIMES_FOUND', {'tue': [['10:00', '12:00']]})),
+        ('x1', 'Opening times\nMonday 10am - 12pm\nWe accept referrals from local agencies\nThursday 1pm - 3pm', None, False, ('TIMES_FOUND', {'mon': [['10:00', '12:00']], 'thu': [['13:00', '15:00']]})),
+        ('x1F', 'Opening times\nMonday 10am - 12pm\nWe accept referrals from local agencies\nThursday 1pm - 3pm', None, True, ('TIMES_FOUND', {'mon': [['10:00', '12:00']], 'thu': [['13:00', '15:00']]})),
+        ('x2', 'How to get help\nYou will need a voucher from an agency who can refer you\nOpening times\nTuesday 10am - 12pm\nFriday 1pm - 3pm', None, False, ('TIMES_FOUND', {'tue': [['10:00', '12:00']], 'fri': [['13:00', '15:00']]})),
+        ('x2F', 'How to get help\nYou will need a voucher from an agency who can refer you\nOpening times\nTuesday 10am - 12pm\nFriday 1pm - 3pm', None, True, ('TIMES_FOUND', {'tue': [['10:00', '12:00']], 'fri': [['13:00', '15:00']]})),
+        ('x3', 'Our food bank is open Monday 10am - 12pm\nAgencies can refer clients through our online form\nWednesday 1pm - 3pm', None, False, ('TIMES_FOUND', {'mon': [['10:00', '12:00']], 'wed': [['13:00', '15:00']]})),
+        ('x3F', 'Our food bank is open Monday 10am - 12pm\nAgencies can refer clients through our online form\nWednesday 1pm - 3pm', None, True, ('TIMES_FOUND', {'mon': [['10:00', '12:00']], 'wed': [['13:00', '15:00']]})),
+        ('x4', "Get help\nWe accept referrals from GPs, schools and Citizens Advice\nDistribution centre\nSt Mark's Church\nTuesday 10am - 12pm", None, False, ('TIMES_FOUND', {'tue': [['10:00', '12:00']]})),
+        ('x4F', "Get help\nWe accept referrals from GPs, schools and Citizens Advice\nDistribution centre\nSt Mark's Church\nTuesday 10am - 12pm", None, True, ('TIMES_FOUND', {'tue': [['10:00', '12:00']]})),
+        ('x5', 'Referrals accepted from all agencies\nOpening hours\nMonday 10am - 12pm', None, False, ('TIMES_FOUND', {'mon': [['10:00', '12:00']]})),
+        ('x5F', 'Referrals accepted from all agencies\nOpening hours\nMonday 10am - 12pm', None, True, ('TIMES_FOUND', {'mon': [['10:00', '12:00']]})),
+        ('x6', 'Need a referral? Your local agency can refer you. Opening hours Monday 10am - 12pm', None, False, ('TIMES_FOUND', {'mon': [['10:00', '12:00']]})),
+        ('x7', 'Need a referral? Your local agency can refer you\nOpening hours Monday 10am - 12pm', None, False, ('TIMES_FOUND', {'mon': [['10:00', '12:00']]})),
+        ('x7F', 'Need a referral? Your local agency can refer you\nOpening hours Monday 10am - 12pm', None, True, ('TIMES_FOUND', {'mon': [['10:00', '12:00']]})),
+        ('x8', 'Referral line 01234 567890\nCentre open Monday 10am - 12pm', None, False, ('TIMES_FOUND', {'mon': [['10:00', '12:00']]})),
+        ('x8F', 'Referral line 01234 567890\nCentre open Monday 10am - 12pm', None, True, ('TIMES_FOUND', {'mon': [['10:00', '12:00']]})),
+        ('x9', 'Open Monday 10am - 12pm. Referral line open weekdays 9am - 5pm.', None, False, ('TIMES_FOUND', {'mon': [['10:00', '12:00']]})),
+        ('x10', 'Monday 10am - 12pm, Thursday 1pm - 3pm. To make a referral call 01234 567890.', None, False, ('TIMES_FOUND', {'mon': [['10:00', '12:00']], 'thu': [['13:00', '15:00']]})),
+        ('n1', 'We accept referrals open Monday 10am-12pm', None, False, ('TIMES_FOUND', {'mon': [['10:00', '12:00']]})),
+        ('n2', 'Referral needed Monday 10am-12pm', None, False, ('TIMES_FOUND', {'mon': [['10:00', '12:00']]})),
+        ('n3', 'Referral needed. Monday 10am - 12pm', None, False, ('TIMES_FOUND', {'mon': [['10:00', '12:00']]})),
+        ('n4', 'Referrals: Monday 10-12', None, False, ('TIMES_FOUND', {'mon': [['10:00', '12:00']]})),
+        ('n5', 'Referral only food bank. Referrals: Monday 10am - 12pm', None, False, ('TIMES_FOUND', {'mon': [['10:00', '12:00']]})),
+        ('n6', 'Referrals Monday 10am - 12pm', None, False, ('TIMES_FOUND', {'mon': [['10:00', '12:00']]})),
+        ('n7', 'Referral hours Monday 10am - 12pm', None, False, None),
+        ('n8', 'Referral times: Monday 10am - 12pm', None, False, None),
+        ('n9', 'Referral line is open on Monday 10am - 12pm', None, False, None),
+        ('n10', 'To make a referral, please call us on Monday 10am - 12pm', None, False, None),
+        ('n11', 'Agencies can refer on Monday 10am - 12pm', None, False, None),
+        ('n12', 'Agencies can refer between Monday and Friday 9am - 5pm', None, False, None),
+        ('n13', 'We are open for referrals from any agency\nOpening times Tuesday 10am - 12pm', None, False, ('TIMES_FOUND', {'tue': [['10:00', '12:00']]})),
+        ('n13F', 'We are open for referrals from any agency\nOpening times Tuesday 10am - 12pm', None, True, ('TIMES_FOUND', {'tue': [['10:00', '12:00']]})),
+        ('n14', 'We accept referrals\nMonday 10am - 12pm', None, False, ('TIMES_FOUND', {'mon': [['10:00', '12:00']]})),
+        ('n14F', 'We accept referrals\nMonday 10am - 12pm', None, True, ('TIMES_FOUND', {'mon': [['10:00', '12:00']]})),
+        ('n15', 'We accept referrals\r\nMonday 10am - 12pm', None, False, ('TIMES_FOUND', {'mon': [['10:00', '12:00']]})),
+        ('n15F', 'We accept referrals\r\nMonday 10am - 12pm', None, True, ('TIMES_FOUND', {'mon': [['10:00', '12:00']]})),
+        ('n16', 'We accept referrals<br>Monday 10am - 12pm', None, False, ('TIMES_FOUND', {'mon': [['10:00', '12:00']]})),
+        ('n16F', 'We accept referrals<br>Monday 10am - 12pm', None, True, ('TIMES_FOUND', {'mon': [['10:00', '12:00']]})),
+        ('n17', 'We accept referrals<br/>Monday 10am - 12pm\r\nThursday 1pm - 3pm', None, False, ('TIMES_FOUND', {'mon': [['10:00', '12:00']], 'thu': [['13:00', '15:00']]})),
+        ('n17F', 'We accept referrals<br/>Monday 10am - 12pm\r\nThursday 1pm - 3pm', None, True, ('TIMES_FOUND', {'mon': [['10:00', '12:00']], 'thu': [['13:00', '15:00']]})),
+        ('n18', 'Opening times\r\nMonday 10am - 12pm\r\nWe accept referrals from local agencies\r\nThursday 1pm - 3pm', None, False, ('TIMES_FOUND', {'mon': [['10:00', '12:00']], 'thu': [['13:00', '15:00']]})),
+        ('n18F', 'Opening times\r\nMonday 10am - 12pm\r\nWe accept referrals from local agencies\r\nThursday 1pm - 3pm', None, True, ('TIMES_FOUND', {'mon': [['10:00', '12:00']], 'thu': [['13:00', '15:00']]})),
+        ('n19', 'Opening times<br>Monday 10am - 12pm<br>Agencies can refer clients through our online form<br>Wednesday 1pm - 3pm', None, False, ('TIMES_FOUND', {'mon': [['10:00', '12:00']], 'wed': [['13:00', '15:00']]})),
+        ('n19F', 'Opening times<br>Monday 10am - 12pm<br>Agencies can refer clients through our online form<br>Wednesday 1pm - 3pm', None, True, ('TIMES_FOUND', {'mon': [['10:00', '12:00']], 'wed': [['13:00', '15:00']]})),
+        ('n20', 'Referral line open<br>Monday - Friday 9am - 5pm', None, False, ('TIMES_FOUND', {'mon': [['09:00', '17:00']], 'tue': [['09:00', '17:00']], 'wed': [['09:00', '17:00']], 'thu': [['09:00', '17:00']], 'fri': [['09:00', '17:00']]})),
+        ('n20F', 'Referral line open<br>Monday - Friday 9am - 5pm', None, True, ('TIMES_FOUND', {'mon': [['09:00', '17:00']], 'tue': [['09:00', '17:00']], 'wed': [['09:00', '17:00']], 'thu': [['09:00', '17:00']], 'fri': [['09:00', '17:00']]})),
+        ('n21', 'Referral line open\nweekdays 9am - 5pm', None, False, None),
+        ('n21F', 'Referral line open\nweekdays 9am - 5pm', None, True, None),
+        ('n22', 'Agencies can refer you, Monday 10am - 12pm', None, False, ('TIMES_FOUND', {'mon': [['10:00', '12:00']]})),
+        ('n23', 'Anyone can refer Monday 10am - 12pm', None, False, ('TIMES_FOUND', {'mon': [['10:00', '12:00']]})),
+        ('n24', 'You can refer yourself Monday 10am - 12pm', None, False, ('TIMES_FOUND', {'mon': [['10:00', '12:00']]})),
+        ('n25', 'Clients can refer themselves on Monday 10am - 12pm', None, False, ('TIMES_FOUND', {'mon': [['10:00', '12:00']]})),
+        ('q1', 'Opening times\nMonday 10am - 12pm\nWe are open for referrals from any agency\nThursday 1pm - 3pm', None, False, ('TIMES_FOUND', {'mon': [['10:00', '12:00']], 'thu': [['13:00', '15:00']]})),
+        ('q1F', 'Opening times\nMonday 10am - 12pm\nWe are open for referrals from any agency\nThursday 1pm - 3pm', None, True, ('TIMES_FOUND', {'mon': [['10:00', '12:00']], 'thu': [['13:00', '15:00']]})),
+        ('q2', 'Opening times Monday 10am - 12pm We are open for referrals from any agency Thursday 1pm - 3pm', None, False, ('TIMES_FOUND', {'mon': [['10:00', '12:00']], 'thu': [['13:00', '15:00']]})),
+        ('q3', 'Opening times Monday 10am - 12pm. We accept referrals Thursday 1pm - 3pm', None, False, ('TIMES_FOUND', {'mon': [['10:00', '12:00']], 'thu': [['13:00', '15:00']]})),
+        ('q4', 'Open for referrals\nTuesday 10am - 12pm', None, False, ('TIMES_FOUND', {'tue': [['10:00', '12:00']]})),
+        ('q4F', 'Open for referrals\nTuesday 10am - 12pm', None, True, ('TIMES_FOUND', {'tue': [['10:00', '12:00']]})),
+        ('q5', 'We are open for referrals from any agency. Opening times Tuesday 10am - 12pm', None, False, ('TIMES_FOUND', {'tue': [['10:00', '12:00']]})),
+        ('q6', 'Food bank open for referrals and walk-ins Tuesday 10am - 12pm', None, False, ('TIMES_FOUND', {'tue': [['10:00', '12:00']]})),
     ]
 
+    def _read(self, text, pc, flat):
+        r = D.extract_times(D.text_of(text) if flat else text, pc)
+        return None if r is None else (r["status"], r.get("structured") or None)
+
     def test_every_probe(self):
-        for cid, text, pc, exp in self.CASES:
-            r = D.extract_times(text, pc)
-            got = None if r is None else (r["status"], r.get("structured") or None)
-            self.assertEqual(got, exp, cid)
+        for cid, text, pc, flat, exp in self.CASES:
+            self.assertEqual(self._read(text, pc, flat), exp, cid)
 
-    def test_line_break_is_a_hard_stop(self):
-        for text, exp in (("We accept referrals\nOpen Monday 10am - 12pm", {"mon": [["10:00", "12:00"]]}),
-                          ("Referral line\nMonday 10am - 12pm", {"mon": [["10:00", "12:00"]]})):
-            self.assertEqual(D.extract_times(text, None)["structured"], exp, text)
+    def test_referral_only_rows_read_nothing(self):
+        """b1-b8 and Beacon's 'Open for referrals: weekdays ...' stay rejected, raw and flattened."""
+        rows = {cid: (text, pc) for cid, text, pc, flat, exp in self.CASES if not flat}
+        for cid in ("b1", "b2", "b3", "b4", "b5", "b6", "b7", "b8", "p4"):
+            for flat in (False, True):
+                self.assertIsNone(self._read(*rows[cid], flat), (cid, flat))
+        self.assertIsNone(self._read("Open for referrals: weekdays 10am \u2013 12.30pm", None, False))
 
-    def test_referral_directly_before_named_days_is_rejected(self):
-        for text in ("Referral line open Monday to Friday 9am - 5pm", "Referrals accepted Monday - Friday 9am - 5pm"):
+    def test_open_for_referrals_is_anchored_like_other_referral_wording(self):
+        mon_thu = ("TIMES_FOUND", {"mon": [["10:00", "12:00"]], "thu": [["13:00", "15:00"]]})
+        tue = ("TIMES_FOUND", {"tue": [["10:00", "12:00"]]})
+        for text, exp in (("Opening times\nMonday 10am - 12pm\nWe are open for referrals from any agency\nThursday 1pm - 3pm", mon_thu),
+                          ("Open for referrals\nTuesday 10am - 12pm", tue),
+                          ("Food bank open for referrals and walk-ins Tuesday 10am - 12pm", tue),
+                          ("We are open for referrals from any agency\nOpening times Tuesday 10am - 12pm", tue)):
+            for flat in (False, True):
+                self.assertEqual(self._read(text, None, flat), exp, (text, flat))
+
+    def test_flattened_line_breaks_keep_main_reads(self):
+        mon = ("TIMES_FOUND", {"mon": [["10:00", "12:00"]]})
+        monfri = ("TIMES_FOUND", {d: [["09:00", "17:00"]] for d in ("mon", "tue", "wed", "thu", "fri")})
+        for text, exp in (("We accept referrals<br>Monday 10am - 12pm", mon),
+                          ("We accept referrals\nMonday 10am - 12pm", mon),
+                          ("Referral line open<br>Monday - Friday 9am - 5pm", monfri)):
+            self.assertEqual(self._read(text, None, True), exp, text)
+
+    def test_referral_hours_named_or_joined_by_on_are_rejected(self):
+        for text in ("Referral hours Monday 10am - 12pm", "Referral times: Monday 10am - 12pm",
+                     "Referral line is open on Monday 10am - 12pm", "Agencies can refer on Monday 10am - 12pm",
+                     "Agencies can refer between Monday and Friday 9am - 5pm"):
             rej = []
             self.assertIsNone(D.extract_times(text, None, rejected=rej), text)
             self.assertTrue(rej and rej[0]["reason"].startswith("non-client hours"), (text, rej))
