@@ -69,22 +69,30 @@ class NonClientHours(unittest.TestCase):
             self.assertTrue(rej and rej[0]["reason"].startswith("non-client hours"), (text, rej))
 
 
+    BEACON_HEAD = (
+        "Beacon Food Bank, 69-73 Meridian Centre, HAVANT PO9 1UN. "
+        "Open for referrals: weekdays 10am – 12.30pm. "
+        "Please make referrals to 07718 424 618 before 12.30pm; after this you will have to leave a message for the following day. "
+        "Hampers can be collected from Beacon Lounge between 10.30am and 1pm on weekdays, even when Beacon Lounge is closed to customers. "
+    )
+    BEACON_TAIL = "Donation Points: The Beacon Lounge on weekdays between 10am and 2pm (top of the stairs in the Meridian Centre)."
+
     def test_weekday_collection_hours_are_read_as_monday_to_friday(self):
-        text = (
-            "Beacon Food Bank, 69-73 Meridian Centre, HAVANT PO9 1UN. "
-            "Open for referrals: weekdays 10am – 12.30pm. "
-            "Please make referrals to 07718 424 618 before 12.30pm; after this you will have to leave a message for the following day. "
-            "Hampers can be collected from Beacon Lounge between 10.30am and 1pm on weekdays, even when Beacon Lounge is closed to customers. "
-            "Food hampers are only available for collection from the Meridian Centre by appointment. "
-            "Donation Points: The Beacon Lounge on weekdays between 10am and 2pm (top of the stairs in the Meridian Centre)."
-        )
         rej = []
-        got = D.extract_times(text, "PO9 1UN", rejected=rej)
+        got = D.extract_times(self.BEACON_HEAD + self.BEACON_TAIL, "PO9 1UN", rejected=rej)
         self.assertIsNotNone(got)
         self.assertEqual(got["status"], "TIMES_FOUND")
         self.assertEqual(got["structured"], {d: [["10:30", "13:00"]] for d in ("mon", "tue", "wed", "thu", "fri")})
         self.assertTrue(any("open for referrals" in r["reason"] for r in rej), rej)
         self.assertTrue(any("donat" in r["reason"] for r in rej), rej)
+
+    def test_weekday_hours_with_page_appointment_sentence_stay_text_only(self):
+        """The page-level appointment guard is kept (rule 34): Beacon's 'only available for collection ... by
+        appointment' sentence keeps the read text-only. Beacon's live hours come from the hand-checked overlay (#477)."""
+        text = self.BEACON_HEAD + "Food hampers are only available for collection from the Meridian Centre by appointment. " + self.BEACON_TAIL
+        got = D.extract_times(text, "PO9 1UN")
+        self.assertTrue(got is None or got["status"] == "TIMES_TEXT_ONLY", got)
+        self.assertFalse(got and got.get("structured"), got)
 
     def test_times_next_to_by_appointment_stay_text_only(self):
         got = D.extract_times("Collection Monday 10am - 12pm by appointment.", None)
@@ -101,13 +109,43 @@ class AppointmentSentenceBefore(unittest.TestCase):
         self.assertTrue(got is None or got["status"] == "TIMES_TEXT_ONLY", got)
         self.assertFalse(got and got.get("structured"), got)
 
-    def test_later_separate_appointment_sentence_keeps_hours(self):
-        got = D.extract_times("Community Pantry, 1 High Street, PO9 1UN. Food parcels can be collected on Tuesday 10am - 12pm. "
-                              "Our hall is next to the library and there is parking at the back. "
-                              "Extra support sessions with our adviser are by appointment.", "PO9 1UN")
-        self.assertIsNotNone(got)
-        self.assertEqual(got["status"], "TIMES_FOUND", got)
-        self.assertEqual(got["structured"], {"tue": [["10:00", "12:00"]]})
+    def test_later_appointment_sentence_on_page_keeps_text_only(self):
+        """Page-level guard unchanged from main: a later appointment sentence in this centre's block keeps the
+        times text-only (never a weekly table). Grok Bot 2 probe (a), #478, 11 Nov 2026."""
+        for text, pc in (
+            ("Opening times: Monday 10am - 12pm, Wednesday 1pm - 3pm. Please note all collections are by appointment only.", None),
+            ("Community Pantry, 1 High Street, PO9 1UN. Food parcels can be collected on Tuesday 10am - 12pm. "
+             "Our hall is next to the library and there is parking at the back. "
+             "Extra support sessions with our adviser are by appointment.", "PO9 1UN"),
+            ("Collections weekdays 10am - 12pm. Please note all collections are by appointment only.", None),
+        ):
+            got = D.extract_times(text, pc)
+            self.assertTrue(got is None or got["status"] == "TIMES_TEXT_ONLY", (text, got))
+            self.assertFalse(got and got.get("structured"), (text, got))
+
+
+class WeekdayReferralLines(unittest.TestCase):
+    """Referral desks / lines are not collection hours, with 'weekdays' or named days (Grok Bot 2 probe (b), #478)."""
+    def test_referral_hours_are_not_opening_times(self):
+        for text in ("Referrals accepted weekdays 9am - 5pm", "Referral line open weekdays 9am - 5pm",
+                     "Agencies can refer weekdays 9am - 1pm", "To make a referral call weekdays 9am - 1pm",
+                     "Referrals accepted Monday - Friday 9am - 5pm", "Referral line open Monday to Friday 9am - 5pm"):
+            rej = []
+            got = D.extract_times(text, None, rejected=rej)
+            self.assertFalse(got and got.get("structured"), (text, got))
+            self.assertTrue(rej and rej[0]["reason"].startswith("non-client hours"), (text, rej))
+
+    def test_client_referral_wording_is_still_read(self):
+        got = D.extract_times("You can refer yourself. Open weekdays 10am - 12pm", None)
+        self.assertEqual(got["structured"], {d: [["10:00", "12:00"]] for d in ("mon", "tue", "wed", "thu", "fri")})
+        got = D.extract_times("No referral needed. Monday 10am - 12pm", None)
+        self.assertEqual(got["structured"], {"mon": [["10:00", "12:00"]]})
+
+    def test_weekdays_with_an_exception_is_not_a_plain_monday_to_friday(self):
+        """Probe (c): 'weekdays except bank holidays' is not expanded, so it is never a plain Mon-Fri table."""
+        for text in ("Open weekdays except bank holidays 10am - 12pm", "Open weekdays (except bank holidays) 10am - 12pm"):
+            got = D.extract_times(text, None)
+            self.assertFalse(got and got.get("structured"), (text, got))
 
 
 class Jumble(unittest.TestCase):

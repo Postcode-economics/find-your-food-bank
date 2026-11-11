@@ -282,7 +282,12 @@ NOT_CLIENT = re.compile(r"office|warehouse|donat|drop[- ]?off|admin|phone line|t
                         r"|contact (?:hours|times)|\badvis[eo]rs?\b|\bgym\b|fitness|leisure cent|swimming|\bpool\b|sports? (?:hall|cent)"
                         r"|reception|centre opening (?:hours|times)|building (?:is )?open|pre-?school|nursery|playgroup|toddlers?|cr[eè]che"
                         r"|caf[eé] (?:is )?open|caf[eé] (?:opening )?(?:hours|times)|coffee (?:shop|morning)|\bshop (?:is )?open|shop (?:opening )?(?:hours|times)"
-                        r"|open for referrals", re.I)  # rule 27 (26 Oct): phone/office/donation/church-service hours. 'Open for referrals: weekdays ...' is a referral desk, not collection hours (Beacon Food Bank, 8 Nov 2026).
+                        r"|open for referrals"
+                        # referral desks / lines, not collection hours: 'Referrals accepted weekdays 9am - 5pm', 'Referral line open
+                        # weekdays ...', 'Agencies can refer weekdays ...', 'To make a referral call weekdays ...' (Grok Bot 2, #478, 11 Nov 2026).
+                        # 'You can refer yourself' and 'No referral needed' are client wording and are not matched.
+                        r"|referrals? (?:are )?accepted|accept(?:s|ing)? referrals|referral (?:line|desk|hours|times)s?"
+                        r"|can refer(?!\s+(?:yourself|themselves|myself))|make a referral|refer(?:ral)?s? (?:line|desk|hours)", re.I)  # rule 27 (26 Oct): phone/office/donation/church-service hours. 'Open for referrals: weekdays ...' is a referral desk, not collection hours (Beacon Food Bank, 8 Nov 2026).
 # Trinity (29 Oct 2026): 'We accept phone calls Mon-Thurs 10am - 2pm only from Statuatory agencies'. A day and time
 # followed by an agency/professional-only line is a referral line, not a time a client can come.
 AGENCY_ONLY = re.compile(r"\bonly\s+(?:from|for|by)\s+(?:the\s+)?(?:statu\w*|referr\w*|professional\w*|partner\w*|support|external)\s+"
@@ -439,6 +444,7 @@ def extract_times(text, postcode=None, rejected=None, name=None):
             whyctx = not_client_context(src, m.start(), prev_end)
             if whyctx == "volunteer" and FB_CLIENT_LINE.search(_span_line(src, m.start(), m.end())): whyctx = ""
             why = ("non-client hours (%s)" % whyctx) if whyctx else ("agency/professional-only line" if agency_only_after(src, m.end()) else "")
+            if "refer" in whyctx and agency_only_after(src, m.end()): why = "agency/professional-only line"   # keep the more specific reason
             if not why and prev_skipped and follows: why = last_why + " (same list)"
             skip = bool(why)
             prev_span = prev_end
@@ -469,10 +475,11 @@ def extract_times(text, postcode=None, rejected=None, name=None):
     if not segs: return None
     from times import normalise
     raw = " | ".join(segs)
-    # Appointment wording next to a time span is already copied onto that segment
-    # ('Monday 10am-12pm by appointment' stays text-only). A later sentence such as
-    # 'Food hampers are only available for collection ... by appointment' must not
-    # discard weekday collection hours that were already read (Beacon Food Bank, 8 Nov 2026).
+    # Page-level appointment guard (unchanged from main, rule 34): appointment wording anywhere in this
+    # centre's block keeps the times text-only, e.g. 'Opening times: Monday 10am - 12pm, Wednesday 1pm - 3pm.
+    # Please note all collections are by appointment only.' (Grok Bot 2, #478, 11 Nov 2026).
+    ba = APPT.search(t)   # the centre's own block says appointment / phone first / on request (North Ayrshire St John's)
+    if ba and not APPT.search(raw): raw += " (" + ba.group(0).lower() + ")"; segs = segs + ["(" + ba.group(0).lower() + ")"]
     if APPT.search(raw) or ORDINAL.search(raw):   # monthly / appointment-only: keep as written, never as a weekly table
         return {"raw": raw, "status": "TIMES_TEXT_ONLY", "structured": None, "lines": segs}
     return normalise({"raw": raw, "status": "TIMES_TEXT_ONLY", "structured": None})
