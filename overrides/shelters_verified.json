@@ -2906,26 +2906,47 @@
     "who_for": "Not stated"
   },
   "man-leatherhead-start": {
-    "access": "Self referral or agency referral (council hostel list); Mole Valley priority",
-    "access_quote": "Hostel name (self referral and agency referral)",
-    "access_type": "self_referral",
-    "address": "3 Church Road, Leatherhead",
-    "evidence_name": "www.reigate-banstead.gov.uk",
-    "evidence_url": "https://www.reigate-banstead.gov.uk/info/20379/common_housing_problems/862/useful_housing_contacts/2",
-    "facilities": "Not stated",
-    "groups": [],
+    "access": "Direct access emergency short-term accommodation. The hostel office takes referrals from 8am until 11pm. Priority is given to people with a local connection to Mole Valley.",
+    "access_type": "open_access",
+    "address": "3 Church Road, Leatherhead, Surrey",
+    "evidence_name": "LeatherHEAD START",
+    "evidence_url": "https://leatherheadstart.org/our-services/accommodation/",
+    "facilities": [
+      "The hostel has 11 bedrooms: 10 single rooms and 1 double room, used as a single when it is not needed by a couple.",
+      "Nine bedrooms have an ensuite shower and toilet; one bedroom has shared bathroom facilities; the double room has a separate bathroom.",
+      "Ground floor bedrooms are wheelchair accessible, and disabled clients have access to a disabled wet room as well as their own ensuite.",
+      "The hostel provides 24 hour support, with office staff from 8am until 11pm and a sleep-in member of staff from 11pm until 8am.",
+      "Communal rooms are used for meals, training, meetings and relaxing, and there is a laundry room and computer access for clients."
+    ],
+    "facilities_quote": "We have 11 bedrooms : 10 single and 1 double (used as a single when not needed by a couple)",
+    "facilities_source": "https://leatherheadstart.org/our-services/accommodation/",
+    "groups": [
+      "Homeless men and women over the age of 18",
+      "Priority is given to those with a local connection to Mole Valley",
+      "Accommodation for one established couple"
+    ],
+    "groups_quote": "LeatherHead Start provides emergency, direct access, short- term accommodation for homeless men and women over the age of 18. Priority is given to those with a local connection to Mole Valley.",
+    "groups_source": "https://leatherheadstart.org/home/",
     "hours": "Not stated",
+    "hours_checked": "2026-11-11",
     "lat": 51.294949,
     "lng": -0.325732,
     "name": "LeatherHEAD START",
-    "note": "Dean blanket approval for verified items, national web sweep 31 Oct 2026. Phone found verbatim on the page above; pin is the postcodes.io centroid.",
     "phone": "01372 377790",
     "postcode": "KT22 8AT",
-    "quote": "pport Referral and resettlement into move-on accommodation No maximum stay 3 Church Road, Leatherhead, Surrey, KT22 8AT 01372 377 790 www.leatherheadstart.org Mulberry House",
-    "referral": "Self referral or agency referral (council hostel list); Mole Valley priority",
+    "quote": "LeatherHead Start provides emergency, direct access, short- term accommodation for homeless men and women over the age of 18. Priority is given to those with a local connection to Mole Valley.",
+    "referral": "Direct access emergency short-term accommodation. The hostel office takes referrals from 8am until 11pm. Priority is given to people with a local connection to Mole Valley.",
     "season": "Year-round",
-    "verified_on": "2026-10-31",
-    "who_for": "Not stated"
+    "source_label": "LeatherHEAD START",
+    "verified_on": "2026-11-11",
+    "wheelchair": "partial",
+    "wheelchair_quote": "Ground floor bedrooms are wheelchair accessible",
+    "wheelchair_source": "https://leatherheadstart.org/our-services/accommodation/",
+    "who_for": [
+      "Homeless men and women over the age of 18",
+      "Priority is given to those with a local connection to Mole Valley",
+      "Accommodation for one established couple"
+    ]
   },
   "man-lee-s-place-community-power": {
     "access": "Drop-in warm hub",
