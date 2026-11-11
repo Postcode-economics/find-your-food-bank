@@ -1161,6 +1161,30 @@ def _write_times_pending(R, kind, bullets, own_ids, mode):
     L.extend(body); L.append("<!-- /%s -->" % tag)
     if not prev.strip(): prev = "# Pending for Dean"
     open(pd, "w").write(prev + "\n\n" + "\n".join(L) + "\n")
+# Two-week shadow trial of the proposed Phase 2 rules (scripts/shadow_trial.py). Record only: these helpers copy what
+# the gate already decided and write only under reports/shadow/. Off unless HELPMAP_SHADOW_TRIAL=1; any error is
+# swallowed, so the gate's decisions, the items and every other file are the same with the trial on or off.
+def _shadow_row(buf, i, field, new, texts, home, why):
+    try:
+        if os.environ.get("HELPMAP_SHADOW_TRIAL") != "1": return
+        import shadow_trial
+        row = shadow_trial.snapshot(i, field, new, texts, home, why, "hold" if why else "apply")
+        if row: buf.append(row)
+    except Exception: pass
+def _shadow_done(layer, buf, root, run_at, n_applied):
+    try:
+        if os.environ.get("HELPMAP_SHADOW_TRIAL") != "1" or not buf: return
+        import shadow_trial, intelligent_rails as _IR
+        with _IR._lock: stats = dict(_IR._stats.get(layer) or {})
+        before = max(0, _IR.applied_today(root, layer) - int(n_applied or 0)) if root else 0
+        shadow_trial.record(layer, buf, root, run_at=run_at, stats=stats, applied_before=before)
+    except Exception: pass
+def _shadow_failed(kind, urls):
+    try:
+        if os.environ.get("HELPMAP_SHADOW_TRIAL") != "1": return
+        import shadow_trial, intelligent_rails as _IR
+        shadow_trial.note_failed_reads(_IR.layer_name(kind), urls)
+    except Exception: pass
 def times_gate_apply(cands, kind, field, today, extra, state_root, rules, run_at, keep_ids=None, pending_mode="replace"):
     if rules is None:
         import auto_rules; rules = auto_rules.load()
@@ -1198,6 +1222,7 @@ def times_gate_apply(cands, kind, field, today, extra, state_root, rules, run_at
         plan_block = IR.batch_block(rules, ready, layer, R)
         if plan_block: IR.alert(plan_block, R)
     held, applied, logged, stale, hand_override_writes = [], [], [], [], []
+    _sh = []   # shadow trial snapshots (record only; scripts/shadow_trial.py)
     for i, rec, new, texts, home in cands:
         # Dean 27 Oct 2026 12:12 GMT: nothing read. Do not blank the listing, do not mark it closed, do not queue it.
         if not _hours_read(new): continue
@@ -1211,6 +1236,7 @@ def times_gate_apply(cands, kind, field, today, extra, state_root, rules, run_at
         why = _why_for(i, new, texts, home)
         if sig: new_seen[key] = {"sig": sig, "source_url": home.get("final_url"), "run_at": run_at}
         if im and plan_block and not why: why = [plan_block]
+        _shadow_row(_sh, i, field, new, texts, home, why)
         if why:
             rec.update(status="held_for_dean", reason="; ".join(why), held=why)
             if hand_checked(i, field, ot_overrides):
@@ -1237,6 +1263,7 @@ def times_gate_apply(cands, kind, field, today, extra, state_root, rules, run_at
             hand_override_writes.append((i["id"], _merge_hand_override_on_apply(ot_overrides.get(i["id"]) or {}, val)))
         applied.append(i)
     if im and applied: IR.record_applied(layer, len(applied))
+    _shadow_done(layer, _sh, R, run_at, len(applied))
     if not R: return
     os.makedirs(os.path.join(R, "logs"), exist_ok=True); os.makedirs(os.path.join(R, "reports"), exist_ok=True)
     json.dump(new_seen, open(os.path.join(R, XC_SEEN), "w"), indent=0, sort_keys=True, ensure_ascii=False)
@@ -1311,6 +1338,7 @@ def read_sources(items, kind, field, fetcher, render, threads):
     with cf.ThreadPoolExecutor(max(1, threads)) as ex: out = dict(ex.map(one, todo))
     opened = sum(1 for v in out.values() if v[0])
     print("times check: %d source pages read in %.0fs, %d opened" % (len(todo), time.monotonic() - t0, opened), flush=True)
+    _shadow_failed(kind, [src for iid, src, _ in todo if not (out.get(iid) or (None,))[0]])
     import intelligent_rails as IR
     IR.note(IR.layer_name(kind), source_pages=len(todo), source_opened=opened)
     return out

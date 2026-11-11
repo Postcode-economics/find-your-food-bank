@@ -50,6 +50,16 @@ jobs:
         continue-on-error: true
         timeout-minutes: 35
         run: python scripts/times_finder.py --render
+        env:
+          HELPMAP_SHADOW_TRIAL: "1"   # two-week shadow trial of Phase 2 rules: record only, private reports/shadow/ (scripts/shadow_trial.py)
+      - name: Weekly council warm-space feed finder - draft proposals only, private reports/ (plan 1.3; Sundays, first sweep; fail-safe)
+        # scripts/feed_finder.py never publishes and never edits overrides/arcgis_warmspaces.json. Its proposals go to the
+        # ignored reports/official_source_proposals.* and are carried by the private run state; each needs a hand check.
+        if: github.ref == 'refs/heads/main'
+        continue-on-error: true
+        timeout-minutes: 10
+        run: |
+          if [ "$(date -u +%u)" = 7 ] && [ "$(date -u +%H)" -lt 10 ]; then python scripts/feed_finder.py; else echo "feed finder: weekly (Sunday first sweep), not this run"; fi
       - name: Page dates - WebPage/Dataset/FAQ JSON-LD dateModified, home 'Updated' line, sitemap.xml lastmod (fail-safe)
         continue-on-error: true
         run: python scripts/seo_meta.py
