@@ -114,11 +114,20 @@ def test_refresh_and_finder_treat_them_as_hand_checked():
         why = times_finder.strict_checks(k, {'raw': 'Monday 9am - 5pm', 'source_url': url}, ix[k], OT, {}, 1, {'pages': {}, 'skip': {}}, {}, {})
         assert 'hand-checked times are protected; finder only flags differences' in why, k
 
+def _replay_log_path():
+    # The 29 Oct apply records live in the private vault's historical copy of the undo log (rule 97), read only through
+    # HELPMAP_PRIVATE_REPLAY_ROOT, as the #507 replays do. Since #491 the checkout's own reports/times_auto_applied.json
+    # is this run's private run state (restored from the vault, appended to by the refresh gate). It never holds the
+    # 29 Oct records, so it is never read here (11 Nov deep sweep failed on it once the restore brought it back).
+    root = os.environ.get('HELPMAP_PRIVATE_REPLAY_ROOT')
+    return os.path.join(root, 'reports', 'times_auto_applied.json') if root else None
+
 def test_logged_with_old_value_and_undo():
-    try:
-        log = json.load(open(os.path.join(ROOT, 'reports', 'times_auto_applied.json')))
-    except FileNotFoundError:
-        raise unittest.SkipTest("Private working file is not available in the public checkout")
+    path = _replay_log_path()
+    if not (path and os.path.exists(path)):
+        raise unittest.SkipTest("Private replay report is not available in the public checkout")
+    with open(path, encoding='utf-8') as source:
+        log = json.load(source)
     for k, (raw, url) in FIXED_TEXT.items():
         rec = [r for r in log if r['id'] == k]
         assert len(rec) == 1, k
