@@ -1619,7 +1619,13 @@
     "evidence_url": "https://www.firststopcentre.com/location-and-opening-times",
     "facilities": "Not stated",
     "groups": [],
-    "hours": "Not stated",
+    "hours": {
+      "Mon": "10:30 - 13:30",
+      "Tue": "10:30 - 13:30",
+      "Wed": "Closed",
+      "Thu": "10:30 - 13:30",
+      "Fri": "10:30 - 13:30"
+    },
     "lat": 51.880937,
     "lng": 0.551812,
     "name": "First Stop Centre",
@@ -1629,8 +1635,14 @@
     "quote": "Now Chat Now BACK TO TOP ^ © 2020 First Stop Centre Download File Location Mail 29 Bocking End, Braintree, CM7 9AE Tel: 01376 346535 Email - contact@firststopcentre.onmicro",
     "referral": "Drop-in, anyone welcome; postal address service; canteen",
     "season": "Daytime only",
-    "verified_on": "2026-10-31",
-    "who_for": "Not stated"
+    "verified_on": "2026-11-10",
+    "who_for": "Not stated",
+    "hours_source": "https://www.firststopcentre.com/location-and-opening-times",
+    "hours_quote": "Monday 10:30AM- 1:30PM Tuesday 10:30AM-1:30PM Wednesday Closed Thursday 10:30AM-1:30PM Friday 10:30AM-1:30PM",
+    "hours_checked": "2026-11-10",
+    "checked_on": "2026-11-10",
+    "last_checked": "2026-11-10",
+    "last_verified": "2026-11-10"
   },
   "man-first-stop-darlington": {
     "access": "Drop-in",
