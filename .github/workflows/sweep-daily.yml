@@ -162,6 +162,15 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: python scripts/alert.py resolve sweep
+      - name: Weekly self-sufficiency scorecard - private reports/scorecard/ only (plan 0.2; Sundays; fail-safe, never blocks)
+        # scripts/scorecard.py reads the saved state the restore step cloned into the runner's temp folder and writes
+        # only the ignored reports/scorecard/; the save step below carries it to the private vault. Nothing is published.
+        if: success() && github.ref == 'refs/heads/main'
+        continue-on-error: true
+        timeout-minutes: 5
+        env:
+          GH_TOKEN: ${{ github.token }}   # job token has write access; the script only GETs this week's main run outcomes
+        run: python scripts/scorecard.py --weekly --state "${RUNNER_TEMP}/private-state/site-run-state" || true
       - name: Save this run's state to the private vault (main only; never in this public repo)
         if: success() && github.ref == 'refs/heads/main'
         continue-on-error: true
