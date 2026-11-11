@@ -96,7 +96,7 @@ class Counts(Fixture):
         self.assertEqual(c["discovery"]["follow_through"], {"followed_up_this_week": 1, "tracked": 2})
         self.assertEqual(c["brake"]["runs_counted_this_week"], 1)
         self.assertEqual(c["brake"]["max_changes_in_a_run"], 6)
-        self.assertEqual(c["brake"]["trips_this_week"], 0)
+        self.assertIsNone(c["brake"]["trip_on_file_this_week"])  # no anomaly key: not a made-up 0
 
     def test_week_on_week_and_queue_age(self):
         prev = json.loads(json.dumps(self.card()))
@@ -132,6 +132,15 @@ class Counts(Fixture):
 
 
 class Writes(Fixture):
+    def setUp(self):
+        super().setUp()
+        self._runs = mock.patch.object(S, "runs", return_value={l: None for l in S.LAYERS})
+        self._runs.start()
+
+    def tearDown(self):
+        self._runs.stop()
+        super().tearDown()
+
     def files(self):
         out = []
         for d, _, fs in os.walk(self.root):
@@ -139,7 +148,10 @@ class Writes(Fixture):
         return sorted(out)
 
     def test_writes_only_reports_scorecard(self):
-        self.assertEqual(S.main(["--state", self.state, "--root", self.root, "--week", "2026-W46"], now=SUNDAY), 0)
+        with mock.patch.dict(os.environ, {"GH_TOKEN": "dummy-token-must-not-be-used"}):
+            with mock.patch.object(S.urllib.request, "urlopen", side_effect=AssertionError("live GitHub API call")) as u:
+                self.assertEqual(S.main(["--state", self.state, "--root", self.root, "--week", "2026-W46"], now=SUNDAY), 0)
+                u.assert_not_called()
         self.assertEqual(self.files(), ["reports/scorecard/2026-W46.json", "reports/scorecard/2026-W46.md"])
 
     def test_no_state_writes_nothing(self):
@@ -173,6 +185,120 @@ class Writes(Fixture):
     def test_reports_folder_is_ignored_by_git(self):
         ign = open(os.path.join(ROOT, ".gitignore"), encoding="utf-8").read().split()
         self.assertIn("reports/", ign)
+
+
+class ReviewFixes(Fixture):
+    """R1-R4 and S1-S2 from the Grok Bot 2 review of c05b1cf5."""
+
+    def test_r1_missing_held_keys_are_null_not_zero(self):
+        put(self.state, "foodbanks/reports/intelligent_mode.json", {
+            "run": "2026-11-14",
+            "layers": {"foodbanks": {"held": 3, "applied": 1, "stale_cleared": 0}},
+        })
+        ld = self.card()["layers"]["foodbanks"]["latest_day"]
+        self.assertEqual(ld["held"], 3)
+        self.assertIsNone(ld["coverage_gate_blocks"])
+        self.assertIsNone(ld["errors"])
+        self.assertIsNone(ld["rejected_listed"])
+        md = S.render(self.card())
+        self.assertIn("coverage-gate blocks no data yet", md)
+        self.assertNotRegex(md, r"coverage-gate blocks 0")
+
+    def test_r1_missing_discovery_and_brake_keys_are_null_not_zero(self):
+        put(self.state, "foodbanks/logs/discovery_today_foodbanks.json", {"day": "2026-11-14"})
+        put(self.state, "foodbanks/reports/learning_state.json", {})
+        c = self.card()
+        d = c["layers"]["foodbanks"]["discovery"]
+        self.assertEqual(d["day"], "2026-11-14")
+        self.assertIsNone(d["queued"])
+        self.assertIsNone(d["runs_that_day"])
+        put(self.state, "foodbanks/logs/discovery_today_foodbanks.json", {"day": "2026-11-14", "queued": ["not", "a", "dict"]})
+        self.assertIsNone(self.card()["layers"]["foodbanks"]["discovery"]["queued"])
+        b = c["brake"]
+        self.assertIsNone(b["runs_counted_this_week"])
+        self.assertIsNone(b["max_changes_in_a_run"])
+        self.assertIsNone(b["trip_on_file_this_week"])
+        put(self.state, "foodbanks/reports/learning_state.json",
+            {"change_counts": [{"day": "2026-11-10"}]})  # record exists, but no numeric changes
+        b2 = self.card()["brake"]
+        self.assertEqual(b2["runs_counted_this_week"], 1)
+        self.assertIsNone(b2["max_changes_in_a_run"])
+
+    def test_r2_partial_held_total_is_labelled_not_shown_as_all_layers(self):
+        c = self.card()
+        self.assertEqual(c["layers"]["foodbanks"]["latest_day"]["held"], 3)
+        self.assertIsNone(c["layers"]["shelters"]["latest_day"])
+        self.assertIsNone(c["layers"]["warmspaces"]["latest_day"])
+        md = S.render(c)
+        line = [ln for ln in md.splitlines() if ln.startswith("2. Opening-time changes held")][0]
+        self.assertIn("partial: food banks only", line)
+        self.assertNotIn("held on the latest run day (food banks, shelters, warm spaces): 3;", line)
+
+    def test_r3_brake_trip_is_yes_no_not_a_count_capped_at_one(self):
+        put(self.state, "foodbanks/reports/learning_state.json", {
+            "anomaly": {"stop": True, "day": "2026-11-12", "reason": "r"},
+        })
+        c = self.card()
+        self.assertIs(c["brake"]["trip_on_file_this_week"], True)
+        self.assertNotIn("trips_this_week", c["brake"])
+        md = S.render(c)
+        self.assertIn("Brake trip on file this week: yes", md)
+        self.assertIn("trip on file this week: yes", md)
+        self.assertNotIn("Brake trips this week", md)
+        put(self.state, "foodbanks/reports/learning_state.json", {
+            "anomaly": {"stop": True, "day": "2026-11-03", "reason": "old"},
+        })
+        self.assertIs(self.card()["brake"]["trip_on_file_this_week"], False)
+        self.assertIn("Brake trip on file this week: no", S.render(self.card()))
+
+    def test_r4_main_does_not_call_github_when_token_is_set(self):
+        # Same call path as test_writes_only_reports_scorecard, with GH_TOKEN set as the sweep's
+        # "Full test suite" step does. S.runs is stubbed so no real API call can go out.
+        with mock.patch.object(S, "runs", return_value={l: None for l in S.LAYERS}):
+            with mock.patch.dict(os.environ, {"GH_TOKEN": "dummy-token-must-not-be-used"}):
+                with mock.patch.object(S.urllib.request, "urlopen", side_effect=AssertionError("live GitHub API call")) as u:
+                    self.assertEqual(S.main(["--state", self.state, "--root", self.root, "--week", "2026-W46"], now=SUNDAY), 0)
+                    u.assert_not_called()
+
+    def test_s1_one_bad_field_does_not_skip_the_card(self):
+        put(self.state, "foodbanks/reports/intelligent_mode.json", {
+            "run": "2026-11-14", "would_block": [],
+            "layers": {"foodbanks": {"held": 3, "applied": 1, "errors": [], "rejected": ["not-a-dict", "also-a-string"]}},
+        })
+        put(self.state, "foodbanks/reports/learning_state.json",
+            {"change_counts": [{"day": "2026-11-10", "changes": "x"}]})
+        put(self.state, "shelters/reports/shadow/shelters/2026-11-13.json",
+            {"runs": [{"candidates": "abc", "rules": {}}]})
+        put(self.state, "shelters/reports/shadow/trial.json", {"start": "2026-11-12"})
+        prev_str = {"week": "2026-W45", "layers": {"foodbanks": {"latest_day": "not-a-dict", "pending": {"ids": ["a"]}}}}
+        c = S.build(self.state, "2026-W46", prev=prev_str, now=SUNDAY, gh={l: None for l in S.LAYERS})
+        self.assertEqual(c["layers"]["foodbanks"]["latest_day"]["held"], 3)
+        self.assertEqual(c["layers"]["foodbanks"]["latest_day"]["rejected_listed"], 2)
+        self.assertIsNone(c["brake"]["max_changes_in_a_run"])
+        self.assertEqual(c["brake"]["runs_counted_this_week"], 1)
+        self.assertIsNone(c["layers"]["foodbanks"]["held_at_last_card_auto_applied_since"])
+        # previous card is a list: still writes
+        c2 = S.build(self.state, "2026-W46", prev=["not", "a", "card"], now=SUNDAY, gh={l: None for l in S.LAYERS})
+        self.assertEqual(c2["week"], "2026-W46")
+        self.assertIsNone(c2["week_on_week"])
+        # main still writes a card (does not skip)
+        self.assertEqual(S.main(["--state", self.state, "--root", self.root, "--week", "2026-W46"],
+                                now=SUNDAY, gh={l: None for l in S.LAYERS}), 0)
+        self.assertTrue(os.path.exists(os.path.join(self.root, "reports", "scorecard", "2026-W46.md")))
+
+    def test_s2_reasons_string_is_one_reason_not_letters(self):
+        put(self.state, "foodbanks/reports/intelligent_mode.json", {
+            "run": "2026-11-14", "would_block": [],
+            "layers": {"foodbanks": {"held": 1, "applied": 0, "errors": [],
+                                     "rejected": [{"id": "x", "reasons": "why"}]}},
+        })
+        put(self.state, "foodbanks/logs/discovery_today_foodbanks.json", {
+            "day": "2026-11-14", "queued": {"q1": {"reasons": "hold"}}, "runs": [],
+        })
+        c = self.card()
+        self.assertEqual(c["layers"]["foodbanks"]["latest_day"]["hold_reasons"], {"why": 1})
+        self.assertNotEqual(c["layers"]["foodbanks"]["latest_day"]["hold_reasons"], {"h": 1, "w": 1, "y": 1})
+        self.assertEqual(c["layers"]["foodbanks"]["discovery"]["queue_reasons"], {"hold": 1})
 
 
 class Workflow(unittest.TestCase):

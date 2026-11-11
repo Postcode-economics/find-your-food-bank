@@ -159,7 +159,7 @@ jobs:
         continue-on-error: true
         timeout-minutes: 5
         env:
-          GH_TOKEN: ${{ github.token }}   # read-only: this week's main run outcomes for the card
+          GH_TOKEN: ${{ github.token }}   # job token has write access; the script only GETs this week's main run outcomes
         run: python scripts/scorecard.py --weekly --state "${RUNNER_TEMP}/private-state/site-run-state" || true
       - name: Save this run's state to the private vault (main only; never in this public repo)
         if: success() && github.ref == 'refs/heads/main'
