@@ -5865,7 +5865,13 @@
     "lng": 0.551812,
     "phone": "01376 346535",
     "website": "https://www.firststopcentre.com/location-and-opening-times",
-    "hours": "Not stated",
+    "hours": {
+      "Mon": "10:30 - 13:30",
+      "Tue": "10:30 - 13:30",
+      "Wed": "Closed",
+      "Thu": "10:30 - 13:30",
+      "Fri": "10:30 - 13:30"
+    },
     "referral": "Drop-in, anyone welcome; postal address service; canteen",
     "beds": "",
     "groups": [],
@@ -5874,14 +5880,17 @@
     "flag_closed": false,
     "source": "Manual (verified from source pages)",
     "source_url": "https://www.firststopcentre.com/location-and-opening-times",
-    "last_verified": "2026-10-31",
+    "last_verified": "2026-11-10",
     "stale": false,
     "access_type": "open_access",
     "facilities": "Not stated",
-    "checked_on": "2026-10-31",
+    "checked_on": "2026-11-10",
     "kind": "day_centre",
     "who_for": "Not stated",
-    "last_checked": "2026-10-31"
+    "last_checked": "2026-11-10",
+    "hours_source": "https://www.firststopcentre.com/location-and-opening-times",
+    "hours_quote": "Monday 10:30AM- 1:30PM Tuesday 10:30AM-1:30PM Wednesday Closed Thursday 10:30AM-1:30PM Friday 10:30AM-1:30PM",
+    "hours_checked": "2026-11-10"
   },
   {
     "id": "man-salvation-army-newcastle-under-lyme-homeless-hub",
