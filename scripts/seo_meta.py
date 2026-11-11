@@ -72,8 +72,8 @@ def dataset(iso):
         'name': 'helpmap.uk: UK food banks, homeless shelters and warm spaces',
         'description': 'Free map data of UK food banks, homeless shelters, day centres, young people\'s housing and warm spaces, with addresses, phone numbers and opening times. '
                        'Almost every listing is checked three times a day against its own source page, and a deep sweep three times a day looks for new places. '
-                       'We also monitor the severe weather and homelessness pages of all 382 UK councils on every shelter refresh, '
-                       'and every 10 minutes we read Met Office, Environment Agency, SEPA, Natural Resources Wales and UK Emergency Alerts warnings '
+                       'We have looked up all 382 UK councils, and the severe weather and homelessness pages we hold for them are checked on every shelter refresh. Every council is also re-checked in full once a day. '
+                       'Every 10 minutes we read Met Office, Environment Agency, SEPA, Natural Resources Wales and UK Emergency Alerts warnings '
                        'so emergency rest centres (ERCs) opened for floods, storms and other major incidents are picked up quickly.',
         'url': SITE + '/', 'isAccessibleForFree': True, 'inLanguage': ['en-GB', 'cy'], 'spatialCoverage': {'@type': 'Place', 'name': 'United Kingdom'},
         'dateModified': iso, 'creator': {'@type': 'Organization', 'name': 'Postcode Economics', 'email': 'hello@helpmap.uk'},
@@ -173,7 +173,7 @@ def put_counts(s, n):
 DESC = {'privacy.html': 'Privacy and data protection at helpmap.uk: what information the map uses, what is kept, and your rights.',
         'terms.html': 'Terms of use for helpmap.uk, the free UK map of food banks, homeless shelters and warm spaces, and how the data may be reused.',
         'accessibility.html': 'Accessibility statement for helpmap.uk, the free UK map of food banks, homeless shelters and warm spaces, and how to report a problem.',
-        'faq.html': 'How helpmap.uk works and keeps food bank, shelter and warm space details up to date, checked three times a day against each source.'}
+        'faq.html': 'How helpmap.uk keeps food bank, shelter, warm space and emergency rest centre information up to date: almost every listing is checked three times a day, and official UK warning feeds are read every 10 minutes.'}
 OG_IMG, OG_ALT = SITE + '/og_launch.png', 'Free UK food bank, shelter and warm space map'
 def _meta_content(s, attr, name):
     m = re.search(r'<meta %s="%s" content="([^"]*)"' % (attr, re.escape(name)), s)
@@ -213,7 +213,7 @@ def run(root=ROOT):
             s = put_asset_tags(s, root)
             s = put(s, 'dataset', ld('dataset', dataset(iso)))
             s = re.sub(r'(<a id="freshtxt"[^>]*>)[^<]*(</a>)', lambda m: m.group(1) + 'Updated %s' % lab(t) + m.group(2), s)
-        if rel == 'faq.html': s = put_counts(s, swep_counts(root))
+        if rel in ('faq.html', 'index.html'): s = put_counts(s, swep_counts(root))
         s = put_info(s, rel, t, L)
         s = put_social(s, rel)
         if rel in TOP: s = put_upd(s, rel, t, dates)
