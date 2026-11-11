@@ -3682,25 +3682,51 @@
     "who_for": "Not stated"
   },
   "man-renewed-hope-drop-in-day-centre": {
-    "access": "Self-refer; winter night shelter Dec-early Mar via council referral 01737 276790",
-    "access_type": "self_referral",
+    "access": "Anyone is welcome to come in to Drop-In.",
+    "access_type": "open_access",
     "address": "Shrewsbury Chapel, Shrewsbury Road, Redhill",
-    "evidence_name": "www.renewedhope.org.uk",
-    "evidence_url": "https://www.renewedhope.org.uk/contact-us/",
-    "facilities": "Not stated",
-    "groups": [],
-    "hours": "Not stated",
+    "evidence_name": "Renewed Hope Drop-In",
+    "evidence_url": "https://www.renewedhope.org.uk/homepage/what-we-do/drop-in/",
+    "facilities": [
+      "Guests can have a free meal together.",
+      "Monday to Friday a support worker can help people connect with the services they need, including help with paperwork.",
+      "On bank holidays the Drop-In is open from 12pm until 1.30pm."
+    ],
+    "facilities_quote": "Anyone is welcome to come in to Drop-In. It is a warm and welcoming place for the homeless, vulnerable and isolated to come and chat, have a free meal together and form new friendships.",
+    "facilities_source": "https://www.renewedhope.org.uk/homepage/what-we-do/drop-in/",
+    "groups": [
+      "Anyone is welcome",
+      "A place for the homeless, vulnerable and isolated"
+    ],
+    "groups_quote": "Anyone is welcome to come in to Drop-In. It is a warm and welcoming place for the homeless, vulnerable and isolated to come and chat, have a free meal together and form new friendships.",
+    "groups_source": "https://www.renewedhope.org.uk/homepage/what-we-do/drop-in/",
+    "hours": {
+      "Mon": "11:00 - 15:00",
+      "Tue": "11:00 - 15:00",
+      "Wed": "11:00 - 15:00",
+      "Thu": "11:00 - 15:00",
+      "Fri": "11:00 - 15:00",
+      "Sat": "12:00 - 13:30"
+    },
+    "hours_checked": "2026-11-11",
+    "hours_quote": "Monday to Friday from 11am until 3pm; Saturdays & Bank Holidays 12-1.30pm",
+    "hours_source": "https://www.renewedhope.org.uk/homepage/what-we-do/drop-in/",
+    "kind": "day_centre",
     "lat": 51.237771,
     "lng": -0.179781,
     "name": "Renewed Hope Drop-In Day Centre",
-    "note": "Dean blanket approval for verified items, national web sweep 31 Oct 2026. Phone found verbatim on the page above; pin is the postcodes.io centroid.",
     "phone": "01737 886997",
     "postcode": "RH1 6BH",
-    "quote": "volunteering and finance Support and Recovery Workers Rosie Smerald and Nadine Kennedy Telephone (during office hours) 01737 886997 (Mon-Fri, 9am-4.30pm) Email General inq",
-    "referral": "Self-refer; winter night shelter Dec-early Mar via council referral 01737 276790",
+    "quote": "Monday to Friday from 11am until 3pm; Saturdays & Bank Holidays 12-1.30pm Anyone is welcome to come in to Drop-In. It is a warm and welcoming place for the homeless, vulnerable and isolated to come and chat, have a free meal together and form new friendships.",
+    "referral": "Anyone is welcome to come in to Drop-In.",
     "season": "Daytime only",
-    "verified_on": "2026-10-31",
-    "who_for": "Not stated"
+    "source_label": "Renewed Hope Drop-In",
+    "verified_on": "2026-11-11",
+    "who_for": [
+      "Anyone is welcome",
+      "A place for the homeless, vulnerable and isolated"
+    ],
+    "website": "https://www.renewedhope.org.uk/homepage/what-we-do/drop-in/"
   },
   "man-robinson-court": {
     "access": "Referral needed – contact City of York Council Housing Options, the Rough Sleeper Team drop-in, or the Single Access Point",
