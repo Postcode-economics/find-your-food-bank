@@ -173,6 +173,7 @@ def decide(log, items, apply, rules=None, now=None):
     for k, ot in log["found"].items():
         same[(urllib.parse.urlparse(ot.get("source_url") or "").netloc, ot.get("raw"))].add(norm_pc(ix.get(k, {}).get("postcode")))
     log["applied"], log["review"] = [], []
+    _sh = []   # shadow trial snapshots (record only; scripts/shadow_trial.py)
     auto = json.load(open(AUTO_LOG)) if os.path.exists(AUTO_LOG) else []
     new_seen = {}
     import intelligent_rails as IR
@@ -202,6 +203,8 @@ def decide(log, items, apply, rules=None, now=None):
             IR.log_stale("finder:" + k)
             continue
         if im and plan_block and not why: why = [plan_block]
+        D._shadow_row(_sh, {"id": k, "name": it.get("name"), "postcode": it.get("postcode"), "opening_times": cur.get(k) or it.get("opening_times")},
+                      "opening_times", ot, None, {"final_url": ot.get("source_url")}, why)   # shadow trial, record only
         if why: log["review"].append({"id": k, "name": it.get("name"), "postcode": it.get("postcode"), "proposed": ot.get("raw"), "source_url": ot.get("source_url"), "why": why})
         else:
             clean = {x: v for x, v in ot.items() if not x.startswith("_")}
@@ -215,6 +218,7 @@ def decide(log, items, apply, rules=None, now=None):
                              "first_run_at": seen[k]["run_at"], "second_run_at": now, "revert": "python scripts/times_revert.py " + k})
             cur[k] = clean; log["applied"].append(k)
     if im and log["applied"]: IR.record_applied("foodbanks", len(log["applied"]))
+    D._shadow_done("sweep", _sh, os.getcwd(), now, 0)
     json.dump(log, open("logs/times_finder.json", "w"), indent=0, ensure_ascii=False)
     os.makedirs("logs", exist_ok=True); json.dump(new_seen, open(SEEN, "w"), indent=0, sort_keys=True, ensure_ascii=False)
     if log["applied"]:

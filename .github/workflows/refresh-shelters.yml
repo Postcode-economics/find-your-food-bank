@@ -47,6 +47,8 @@ jobs:
         run: python -m unittest discover -s tests -v
       - name: Rebuild shelters.js (re-fetches and re-checks every source page)
         run: python scripts/build_shelters.py
+        env:
+          HELPMAP_SHADOW_TRIAL: "1"   # two-week shadow trial of Phase 2 rules: record only, private reports/shadow/ (scripts/shadow_trial.py)
       - name: Refuse to publish without fresh verification
         run: python scripts/verify_fresh.py shelters
       - name: Publish gate - new places need a verified phone (shelters also who it's for); held ones go to reports/pending_dean.md
