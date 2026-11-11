@@ -282,12 +282,7 @@ NOT_CLIENT = re.compile(r"office|warehouse|donat|drop[- ]?off|admin|phone line|t
                         r"|contact (?:hours|times)|\badvis[eo]rs?\b|\bgym\b|fitness|leisure cent|swimming|\bpool\b|sports? (?:hall|cent)"
                         r"|reception|centre opening (?:hours|times)|building (?:is )?open|pre-?school|nursery|playgroup|toddlers?|cr[eè]che"
                         r"|caf[eé] (?:is )?open|caf[eé] (?:opening )?(?:hours|times)|coffee (?:shop|morning)|\bshop (?:is )?open|shop (?:opening )?(?:hours|times)"
-                        r"|open for referrals"
-                        # referral desks / lines, not collection hours: 'Referrals accepted weekdays 9am - 5pm', 'Referral line open
-                        # weekdays ...', 'Agencies can refer weekdays ...', 'To make a referral call weekdays ...' (Grok Bot 2, #478, 11 Nov 2026).
-                        # 'You can refer yourself' and 'No referral needed' are client wording and are not matched.
-                        r"|referrals? (?:are )?accepted|accept(?:s|ing)? referrals|referral (?:line|desk|hours|times)s?"
-                        r"|can refer(?!\s+(?:yourself|themselves|myself))|make a referral|refer(?:ral)?s? (?:line|desk|hours)", re.I)  # rule 27 (26 Oct): phone/office/donation/church-service hours. 'Open for referrals: weekdays ...' is a referral desk, not collection hours (Beacon Food Bank, 8 Nov 2026).
+                        r"|open for referrals", re.I)  # rule 27 (26 Oct): phone/office/donation/church-service hours. 'Open for referrals: weekdays ...' is a referral desk, not collection hours (Beacon Food Bank, 8 Nov 2026).
 # Trinity (29 Oct 2026): 'We accept phone calls Mon-Thurs 10am - 2pm only from Statuatory agencies'. A day and time
 # followed by an agency/professional-only line is a referral line, not a time a client can come.
 AGENCY_ONLY = re.compile(r"\bonly\s+(?:from|for|by)\s+(?:the\s+)?(?:statu\w*|referr\w*|professional\w*|partner\w*|support|external)\s+"
@@ -305,6 +300,25 @@ ORDINAL = re.compile(r"\b(?:first|second|third|fourth|last|1st|2nd|3rd|4th)\s+(?
 ORD_SPAN = re.compile(r"(\b(?:first|second|third|fourth|last|1st|2nd|3rd|4th)\s+(?:mon|tues|wednes|thurs|fri|satur|sun)day\s+(?:of\s+)?(?:the|each|every)\s+month)[\s:,(–-]*((?:\d{1,2}(?:[:.]\d{2})?\s*(?:am|pm)?|noon)\s*(?:-|–|—|to|until|till)\s*(?:\d{1,2}(?:[:.]\d{2})?\s*(?:am|pm)?|noon))", re.I)
 APPT = re.compile(r"by appointment|appointment only|appointments only|phone in advance|telephone request|by arrangement|on request", re.I)   # North Ayrshire St John's: 'only open upon a telephone request'
 DONATION_PAGE = re.compile(r"donat|giv(e|ing)|volunteer|drop-?off|support-us|fundrais", re.I)
+# Referral desks / lines read straight before the days and times are not collection hours: 'Referrals accepted weekdays
+# 9am - 5pm', 'Referral line open weekdays ...', 'Agencies can refer weekdays ...', 'To make a referral call weekdays ...'.
+# Anchored to the time span itself (only open / on / hours / ':' / '-' between), never a 160-char window, so a referral
+# sentence or heading earlier on the page ('We accept referrals from local agencies' then 'Thursday 1pm - 3pm') does not
+# drop real opening hours. A line break or a sentence end between them is a hard stop (Grok Bot 2, #478, 11 Nov 2026).
+REFERRAL_DIRECT = re.compile(r"(?:referrals?\s+(?:are\s+)?accepted|accept(?:s|ing)?\s+referrals|referral\s+(?:line|desk|hours|times)s?"
+                             r"|can\s+refer|make\s+a\s+referral,?\s+(?:please\s+)?(?:call|ring|phone)(?:\s+us)?)"
+                             r"(?:\s+(?:is|are))?(?:\s+open)?(?:\s+(?:hours|times))?\s*[:,\-–]?\s*(?:(?:on|every|from|between)\s+)?$", re.I)
+def referral_direct(t, at, raw=None):
+    """'referral line' etc. ending directly before the span at `at` in the cleaned text `t`, on the same line of the
+    original page text `raw`. Returns the matched words or ''."""
+    m = REFERRAL_DIRECT.search(t[max(0, at - 80):at])
+    if not m: return ""
+    if raw:   # the cleaned text has no line breaks: find these words in the page text and stop at a line break
+        words = re.findall(r"[A-Za-z0-9]+", m.group(0))
+        pat = r"[^A-Za-z0-9]+".join(re.escape(w) for w in words) + r"[^A-Za-z0-9]*"
+        hits = [x.group(0) for x in re.finditer(r"\b" + pat, raw, re.I)]
+        if hits and all(re.search(r"[\n\r\u2028\u2029]", h) for h in hits): return ""
+    return re.sub(r"\s+", " ", m.group(0).strip(" :,-–")).lower()
 def not_client_context(t, at, prev_span_end=None):
     """Up to 160 chars before the times, but not past the previous time span (that belongs to another line/centre).
     Upper Eden (23 Oct): 'Wheelie Bins outside the Sands Methodist Church in Appleby on: Tuesdays 11 - 11:30am'."""
@@ -416,6 +430,7 @@ def extract_times(text, postcode=None, rejected=None, name=None):
             return None
         return {"raw": lay["raw"], "status": "TIMES_FOUND", "structured": lay["structured"], "layout": lay["layout"],
                 "quote": lay["quote"], "unclear_days": lay.get("unclear_days") or {}}
+    raw_page = text
     text = strip_phone_hours(R27.clean(text))
     scoped = listing_place_block(text, name)
     if scoped is not None: text = scoped
@@ -444,7 +459,9 @@ def extract_times(text, postcode=None, rejected=None, name=None):
             whyctx = not_client_context(src, m.start(), prev_end)
             if whyctx == "volunteer" and FB_CLIENT_LINE.search(_span_line(src, m.start(), m.end())): whyctx = ""
             why = ("non-client hours (%s)" % whyctx) if whyctx else ("agency/professional-only line" if agency_only_after(src, m.end()) else "")
-            if "refer" in whyctx and agency_only_after(src, m.end()): why = "agency/professional-only line"   # keep the more specific reason
+            if not why:
+                refctx = referral_direct(src, m.start(), raw_page)
+                if refctx: why = "non-client hours (%s)" % refctx
             if not why and prev_skipped and follows: why = last_why + " (same list)"
             skip = bool(why)
             prev_span = prev_end
