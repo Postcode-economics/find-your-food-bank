@@ -15,9 +15,17 @@ SAMPLE = 5
 MONTHS = {m: i + 1 for i, m in enumerate(("jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"))}
 # Explicit 2026-27 season label. A bare "Winter 2026" is NOT current: Lancashire's last list was
 # "Winter 2026 12th Jan - 30th Mar 2026", so it names last season. "2026-27th" is a date, not a season.
-LABEL = re.compile(r"\b2026\s*[-/–]\s*(?:20)?27\b(?!\s*(?:st|nd|rd|th)\b)", re.I)  # "26-27 High St" is an address, not a season
-# Page or record metadata just before a date ("Last updated 12 September 2026") is an edit date, not the season.
-META = re.compile(r"(?:updated|reviewed|modified|published|posted|edited|amended|checked)\s*(?:on|:)?\s*[\w ,]{0,20}$", re.I)
+# "2026 to 2027" counts too. The ordinal lookahead has no \s*, so a following word such as " St Annes" or
+# " St Helens" (Lytham St Annes, St Helens) is never mistaken for an ordinal. "26-27 High St" is an address, not a season.
+# A day-month-year straight after ("12 Jan 2026 - 27 Feb 2026") is a date range, not a season label.
+_MON = r"(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?"
+LABEL = re.compile(r"\b2026(?:\s*[-/–]\s*|\s+to\s+)(?:20)?27\b(?!(?:st|nd|rd|th)\b)(?!\s+" + _MON + r",?\s+20\d\d\b)", re.I)
+# Page or record metadata just before a date ("Last updated 12 September 2026", "Updated: 12/09/2026",
+# "Checked on Monday 3 November 2026") is an edit date, not the season. Whole words only ("Signposted" is not
+# "posted"), and only "on" or ":" (plus an optional weekday) may sit between the word and the date, so
+# "checked weekly, open from 5 November 2026" still counts the opening date.
+META = re.compile(r"\b(?:updated|reviewed|modified|published|posted|edited|amended|checked)\b\s*(?:on\b|:)?\s*"
+                  r"(?:(?:mon|tues?|wed(?:nes)?|thu(?:rs)?|fri|sat(?:ur)?|sun)(?:day)?\.?,?\s*)?$", re.I)
 # "12th Jan 2026", "3 November 2026", "Jan 12 2026"; also numeric 12/01/2026
 DMY = re.compile(r"\b(\d{1,2})(?:st|nd|rd|th)?\s+([A-Za-z]{3,9})\.?,?\s+(20\d\d)\b")
 MDY = re.compile(r"\b([A-Za-z]{3,9})\.?\s+(\d{1,2})(?:st|nd|rd|th)?,?\s+(20\d\d)\b")
@@ -62,11 +70,14 @@ def row_season(attrs):
     """-> ('current', evidence) for explicit 2026-27 text; ('past', evidence) for dated text all before 1 Sep 2026;
     ('undated', '') otherwise. Edit dates are ignored on purpose."""
     a = attrs or {}
-    text = " ".join(str(a.get(k) or "") for k in a if isinstance(a.get(k), str))
-    m = LABEL.search(text)
-    if m:
-        return "current", m.group(0)
-    ds = dates_in(text)
+    # Each field is read on its own, so no label, date or metadata word can run across two fields
+    # (e.g. name "... 2026-27" + address "St Annes Road", or notes "Last checked by council" + times "From 5 Nov 2026").
+    fields = [re.sub(r"\s+", " ", a[k]) for k in a if isinstance(a.get(k), str) and a[k].strip()]
+    for t in fields:
+        m = LABEL.search(t)
+        if m:
+            return "current", m.group(0)
+    ds = [x for t in fields for x in dates_in(t)]
     cur = [x for x in ds if START <= x <= END]
     if cur:
         return "current", min(cur).isoformat()

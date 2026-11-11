@@ -70,6 +70,50 @@ class Winter2026IsLastSeason(unittest.TestCase):
         self.assertEqual(S.row_season({"orgopentimes": "Weds from 5th November 2026", "orgnotes": "Updated 12 September 2026"}), ("current", "2026-11-05"))
 
 
+class SecondReview512(unittest.TestCase):
+    """Grok Bot 2 review of #512 (11 Nov): current 2026-27 lists must not be reported as undated."""
+
+    def test_a_label_followed_by_saint_place_name(self):  # Lytham St Annes, St Helens
+        self.assertEqual(S.row_season({"orgopentimes": "Warm Spaces 2026-27 St Annes Library"}), ("current", "2026-27"))
+        self.assertEqual(S.row_season({"orgopentimes": "Winter 2026/27 St Helens Road"}), ("current", "2026/27"))
+        # across fields: the name carries the label, the address starts with "St"
+        self.assertEqual(S.row_season({"orgname": "Warm Spaces 2026-27", "orgaddress": "St Annes Road, Lytham"})[0], "current")
+        # still not a season: an ordinal date, an address, or a dated range straight after
+        self.assertEqual(S.row_season({"orgopentimes": "2026-27th"})[0], "undated")
+        self.assertEqual(S.row_season({"orgaddress": "26-27 High St", "orgopentimes": "Mon 10-12"})[0], "undated")
+        self.assertEqual(S.row_season({"orgopentimes": "12 Jan 2026 - 27 Feb 2026"})[0], "past")
+
+    def test_b_checked_with_free_words_before_the_date(self):
+        self.assertEqual(S.row_season({"orgopentimes": "Opening times checked weekly, open from 5 November 2026"}), ("current", "2026-11-05"))
+        # a real check date is still ignored
+        self.assertEqual(S.row_season({"orgopentimes": "Mon 10-12. Last checked 12 September 2026"})[0], "undated")
+        self.assertEqual(S.row_season({"orgopentimes": "Mon 10-12. Checked on Monday 12 October 2026"})[0], "undated")
+        self.assertEqual(S.row_season({"orgopentimes": "Mon 10-12. Updated: 12/09/2026"})[0], "undated")
+
+    def test_c_keyword_inside_a_longer_word(self):
+        self.assertEqual(S.row_season({"orgopentimes": "Signposted from 5 November 2026"}), ("current", "2026-11-05"))
+
+    def test_d_metadata_word_in_another_field(self):
+        self.assertEqual(S.row_season({"orgnotes": "Last checked by council", "orgopentimes": "From 5 November 2026"}), ("current", "2026-11-05"))
+        # a metadata date inside its own field is still ignored
+        self.assertEqual(S.row_season({"orgnotes": "Last checked on 3 October 2026", "orgopentimes": "Mon 10-12"})[0], "undated")
+
+    def test_e_winter_2026_to_2027(self):
+        self.assertEqual(S.row_season({"orgopentimes": "Winter 2026 to 2027"}), ("current", "2026 to 2027"))
+        self.assertEqual(S.row_season({"orgopentimes": "Winter 2026"})[0], "undated")
+
+    def test_already_passed_cases_unchanged(self):
+        for t in ("Winter 2026-27", "winter 2026/27", "Winter 2026-2027", "Warm spaces 2026\u201327", "2026 - 27", "2026/2027",
+                  "Winter 2026\u20132027 season", "2026-27 season", "Weds from 5th November 2026", "Open 3 November 2026 to 31 March 2027",
+                  "3rd Nov - 27th Mar 2027", "From November 3rd, 2026", "Open from 03/11/2026", "Hours checked by staff. Opens 5 November 2026",
+                  "Posted leaflets; open 5 Nov 2026", "Updated hours: open from 3 November 2026", "Starts Monday 2nd November 2026"):
+            self.assertEqual(S.row_season({"orgopentimes": t})[0], "current", t)
+        for t in ("Winter 2026", "Warm Spaces Winter 2026", "Mon 10-12. Last updated 12 September 2026", "Reviewed on 3 October 2026",
+                  "Updated: 12/09/2026", "Winter 2026 (Nov - Mar)", "Page last updated 12 September 2026. Warm space Winter 2026"):
+            self.assertEqual(S.row_season({"orgopentimes": t})[0], "undated", t)
+        self.assertEqual(S.row_season({"orgopentimes": "Warm Spaces Winter 2026 12th Jan - 30th Mar 2026"})[0], "past")
+
+
 class MergeWritesOnlyWhereTold(unittest.TestCase):
     """Grok Bot 2 review (10 Nov): the watcher must write to the caller's report root, never the real checkout from a test,
     and must only see the Lancashire rows of this merge_into run."""

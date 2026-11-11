@@ -138,6 +138,11 @@ class HoursKeepPublished(unittest.TestCase):
         )
         import subprocess
         # Compare to origin/main (this branch starts from it; those files must be identical).
+        # A checkout without an origin/main ref (shallow or single-branch clone) has nothing to compare: skip, not fail.
+        has_ref = subprocess.run(["git", "rev-parse", "--verify", "--quiet", "origin/main^{commit}"],
+                                 cwd=ROOT, capture_output=True).returncode == 0
+        if not has_ref:
+            self.skipTest("origin/main ref not available in this checkout")
         for name in names:
             rel = "tests/" + name
             rc = subprocess.run(
