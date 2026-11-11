@@ -420,6 +420,7 @@ def run(sources=None, fetcher=fetch, geocoder=geo, write=True):
         try:
             import follow_through
             follow_through.sweep_held(ROOT, limit=int(os.environ.get("FOLLOW_HELD_LIMIT", "40")))
+            follow_through.sweep_queue(ROOT, limit=int(os.environ.get("FOLLOW_QUEUE_LIMIT", "40")))
         except Exception as ex:
             print("follow-through skipped: %s" % ex, flush=True)
         try:

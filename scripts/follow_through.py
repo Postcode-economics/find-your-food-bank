@@ -14,7 +14,7 @@ import discover
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROPOSAL = "reports/verified_new_places.json"
 SEEN = "logs/follow_through_seen.json"
-DIRECTORY_HOSTS = {"warmwelcome.uk", "homeless.org.uk", "homelesslink.org.uk"}
+DIRECTORY_HOSTS = {"warmwelcome.uk", "homeless.org.uk", "homelesslink.org.uk", "streetsupport.net"}
 SKIP_PARTS = ("facebook.com", "instagram.com", "twitter.com", "x.com/", "linktr.ee", "google.com", "bit.ly", "goo.gl")
 INDEX_PATH = re.compile(
     r"/(warm-?(spaces?|hubs?|places?|welcome)|libraries|find-a-library|community-centres?|"
@@ -404,10 +404,13 @@ def _pass_on(c, kind, res, found_via, day, home):
     final = res.get("final_url") or ""
     if final and not _same_site(final, home):
         return None
+    evidence = final or home
+    # Directories only find candidates (rules 56/89); never treat them as own-site evidence.
+    if _directory(home) or _directory(evidence):
+        return None
     q = quote_for_venue(_page_text(res), c.get("name"), c.get("postcode"), kind)
     if not q:
         return None
-    evidence = final or home
     html = res.get("html") or ""
     if org_differs(c.get("name"), evidence, html):
         return None
@@ -419,6 +422,8 @@ def follow(c, kind, budget, day=None, landing=None):
     url = normalise_website(c.get("website"))
     if not discover.usable_site(url) or any(s in url for s in SKIP_PARTS):
         return {"passed": False, "reason": "no usable website"}
+    if _directory(url):
+        return {"passed": False, "reason": "directory page is not own-site evidence"}
     res = landing
     if res is None:
         res = budget.fetch(url)
@@ -570,6 +575,70 @@ def sweep_held(root=None, fetcher=None, limit=40, gap=1.0, render=None, day=None
     return {"checked": len(checked), "passed": len(hits), "proposal": path, "examples": [to_place(h) for h in hits[:8]]}
 
 
+
+def sweep_queue(root=None, fetcher=None, limit=40, gap=1.0, render=None, day=None, layers=None):
+    """Bounded follow-through on discovery queue rows that still need own-site evidence (plan 1.2).
+
+    Reads logs/discovery_today_*.json queued entries. Runs the same follow() used for held rows.
+    Writes proposals only (reports/verified_new_places.json). Never publishes, never changes phones.
+    """
+    import datetime
+    import discovery_rules as DR
+    root = root or ROOT
+    day = day or datetime.date.today().isoformat()
+    fetcher = fetcher or discover.fetch_raw
+    if render is None:
+        render = default_render if render_enabled() else False
+    layers = layers or ("warmspaces", "shelters", "foodbanks")
+    kind_of = {"warmspaces": "ws", "shelters": "sh", "foodbanks": "fb"}
+    seen_path = os.path.join(root, "logs", "follow_through_queue_seen.json")
+    seen = _load_json(seen_path, {})
+    if not isinstance(seen, dict):
+        seen = {}
+    rows = []
+    for layer in layers:
+        path = os.path.join(root, "logs", "discovery_today_%s.json" % layer)
+        data = _load_json(path, {})
+        if data.get("day") != day and data.get("queued"):
+            # still useful to work yesterday's leftover queue in the same UK day window
+            pass
+        for e in (data.get("queued") or {}).values():
+            if not isinstance(e, dict) or not e.get("id"):
+                continue
+            reasons = e.get("reasons") or []
+            nxt = e.get("next_evidence") or DR.next_evidence(reasons, layer)
+            # Only act when the next step is an own-site / council confirmation we can attempt
+            if not any(k in (nxt or "").lower() for k in ("own site", "own-site", "council", "website", "operator")):
+                continue
+            # Own website only — never fall back to source_url or a directory URL (rules 56/89).
+            website = normalise_website(e.get("website"))
+            if not discover.usable_site(website) or _directory(website):
+                continue
+            # follow() only proposes warm spaces and shelters. Do not mark food banks seen
+            # (a permanent seen stamp would skip them forever if that path is added later).
+            if layer == "foodbanks":
+                continue
+            rows.append(dict(e, website=website, _layer=layer, _kind=kind_of.get(layer, "ws"), next_evidence=nxt))
+    todo = [r for r in rows if r["id"] not in seen][:limit]
+    budget = Budget(fetcher, per_host=int(os.environ.get("FOLLOW_PER_HOST", "8")), gap=gap, render=render)
+    hits, checked = [], []
+    for r in todo:
+        kind = r["_kind"]
+        try:
+            hit = follow(r, kind, budget, day)
+        except Exception as ex:
+            hit = {"passed": False, "reason": str(ex)[:80]}
+        if not hit.get("retry"):
+            seen[r["id"]] = day
+            checked.append(r["id"])
+        if hit.get("passed"):
+            hits.append(hit)
+    os.makedirs(os.path.dirname(seen_path), exist_ok=True)
+    json.dump(seen, open(seen_path, "w"), indent=0)
+    path = merge_proposal(hits, root, day)
+    return {"checked": len(checked), "passed": len(hits), "proposal": path, "examples": [to_place(h) for h in hits[:8]]}
+
+
 def dry_run(root=None, sample=200, fetcher=None, gap=1.0, render=False, day=None, out_path=None):
     """Follow-through on a deterministic sample of held warm spaces. Does not publish or write the proposal."""
     import datetime
@@ -627,13 +696,16 @@ def main(argv):
     if cmd == "sweep-held":
         print(json.dumps(sweep_held(), default=str)[:2000])
         return 0
+    if cmd == "sweep-queue":
+        print(json.dumps(sweep_queue(), default=str)[:2000])
+        return 0
     if cmd == "dry-run":
         n = int(argv[2]) if len(argv) > 2 else 200
         out = argv[3] if len(argv) > 3 else ""
         rep = dry_run(sample=n, out_path=out or None, render=default_render if render_enabled() else False)
         print(json.dumps({k: rep[k] for k in ("sample", "passed", "failed", "host_budget_skipped", "usable_websites")}, indent=1))
         return 0
-    print("usage: follow_through.py sweep-held | dry-run [N] [out.json]")
+    print("usage: follow_through.py sweep-held | sweep-queue | dry-run [N] [out.json]")
     return 0
 
 
