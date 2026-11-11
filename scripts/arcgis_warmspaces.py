@@ -537,7 +537,11 @@ def _cherwell_name(attrs, row):
     return ev or org
 
 
+_LANCS_SEEN = {}  # raw Lancashire features from this run, for the season watcher (plan 1.4; reporting only)
+
+
 def _parse_lancashire(features, feed, run_day, kept, skipped, used):
+    _LANCS_SEEN.update(features=list(features or []), run_day=run_day)
     prefix = (feed.get("id_prefix") or "lancs").strip("-")
     for feature in features or []:
         a = _attrs(feature)
@@ -833,9 +837,12 @@ def pending_rows(path):
     return [p for p in data if isinstance(p, dict) and p.get("id")]
 
 
-def merge_into(fresh, run_day, config_path=None, pending_path=None, getter=None):
-    """Fetch every configured feed and merge it into fresh. Returns (added ids, skipped, status)."""
+def merge_into(fresh, run_day, config_path=None, pending_path=None, getter=None, report_root=None):
+    """Fetch every configured feed and merge it into fresh. Returns (added ids, skipped, status).
+    report_root: where logs/arcgis_lancs_pending.json and the season watcher's reports/lancs_season.* are written
+    (default: this checkout; tests pass a temp folder so they never touch real logs or reports)."""
     from common import get
+    _LANCS_SEEN.clear()  # only this run's Lancashire rows feed the season watcher, never an earlier caller's
     getter = getter or get
     feeds = load_config(config_path)
     pending = pending_rows(pending_path)
@@ -858,7 +865,7 @@ def merge_into(fresh, run_day, config_path=None, pending_path=None, getter=None)
         status["status"] = "failed: " + "; ".join(f["error"] for f in failed)
     lancs_held = [s for s in skipped if s.get("reason") == LANCS_HOLD_REASON]
     if lancs_held:
-        os.makedirs(os.path.join(ROOT, "logs"), exist_ok=True)
+        os.makedirs(os.path.join(report_root or ROOT, "logs"), exist_ok=True)
         seen, uniq = set(), []
         for s in lancs_held:
             key = s.get("objectid") or (s.get("name"), s.get("postcode"))
@@ -866,5 +873,12 @@ def merge_into(fresh, run_day, config_path=None, pending_path=None, getter=None)
                 continue
             seen.add(key)
             uniq.append(s)
-        json.dump(uniq, open(os.path.join(ROOT, "logs", "arcgis_lancs_pending.json"), "w"), indent=1, ensure_ascii=False)
+        json.dump(uniq, open(os.path.join(report_root or ROOT, "logs", "arcgis_lancs_pending.json"), "w"), indent=1, ensure_ascii=False)
+    if _LANCS_SEEN.get("features"):
+        try:  # reporting only: never changes what was kept or held above
+            import season_watch
+            season_watch.write(_LANCS_SEEN["features"], _LANCS_SEEN.get("run_day") or run_day, report_root or ROOT)
+        except Exception as ex:
+            print("Lancashire season watch skipped: %s" % str(ex)[:120])
+        _LANCS_SEEN.clear()
     return added, skipped, status

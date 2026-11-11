@@ -13,6 +13,7 @@ Usage: refresh_guard.py foodbanks|shelters|warmspaces [baseline-git-ref, default
 import datetime, json, os, subprocess, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import auto_rules; RULES = auto_rules.load()  # Dean 25 Oct 2026: refresh stops if overrides/auto_apply_rules.json is missing
+import place_lock
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
 FILES = {'foodbanks': 'data.full.js', 'shelters': 'shelters.js', 'warmspaces': 'warmspaces.js'}
 
@@ -42,10 +43,14 @@ def removal_ok(i, ok, ex):
     return any(i['id'] == e['slug'] or (not e.get('exact') and (i['id'].startswith(e['slug'] + '/') or (e.get('host') and host == e['host']))) for e in ex)
 
 def has_times(layer, i):
+    # "Not stated" is a leftover overlay default, not real hours (#428). A truthy
+    # string must not block restoring a published timetable.
     if layer == 'foodbanks':
         ot = i.get('opening_times') or {}
-        return bool(ot.get('raw') or ot.get('structured') or ot.get('text') or ot.get('sessions'))
-    return bool(i.get('hours'))
+        if not isinstance(ot, dict):
+            return place_lock._stated(ot)
+        return any(place_lock._stated(ot.get(k)) for k in ('raw', 'structured', 'text', 'sessions'))
+    return place_lock._stated(i.get('hours'))
 
 _norm = lambda x: ''.join(c for c in (x or '').lower() if c.isalnum())
 
