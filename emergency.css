@@ -55,3 +55,5 @@ html.em-preview .em-key b,html.em-live .em-key b{color:#FF3B30}
 html.em-preview .em-quiet,html.em-live .em-quiet{margin:8px 0;font-size:15px;line-height:1.4}
 html.em-preview.em-only #list,html.em-live.em-only #list,html.em-preview.em-only #xextra,html.em-live.em-only #xextra{display:none!important}
 html.em-preview #em-keyleg,html.em-live #em-keyleg{display:inline-flex;align-items:center;gap:6px}
+/* 12 Nov 2026 (Dean, phone test): the banner sits at the very top of the page, above "Find help near you", and clears the EN | CY switch. */
+html.em-preview header>#em-banner,html.em-live header>#em-banner{margin:52px 0 14px}

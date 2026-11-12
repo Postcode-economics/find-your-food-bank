@@ -33,7 +33,8 @@ function popCard(c,example){return '<article class="em-card em-pop"'+attrs(c)+'>
 var root=document.createElement('div');root.id='em-root';
 var banner=document.createElement('div');banner.id='em-banner';banner.hidden=true;
 var hit=document.createElement('button');hit.type='button';hit.className='em-hit';hit.setAttribute('aria-label','Go to nearest open rest centre');banner.appendChild(hit);
-var msg=document.getElementById('msg');if(msg)msg.insertAdjacentElement('afterend',banner);
+/* 12 Nov 2026 (Dean, phone test): the banner sits at the very top of the page, above "Find help near you", so it is the first thing seen. */
+var hdr=document.querySelector('header'),h1=hdr&&hdr.querySelector('h1'),msg=document.getElementById('msg');if(h1)h1.insertAdjacentElement('beforebegin',banner);else if(msg)msg.insertAdjacentElement('afterend',banner);
 var col=document.getElementById('v3col')||document.getElementById('list');
 if(col)col.insertAdjacentElement('afterbegin',root);else document.body.appendChild(root);
 function setKey(on){var leg=document.getElementById('em-keyleg');if(!on){if(leg)leg.remove();return}
@@ -49,12 +50,18 @@ function centresForArea(data,lad){return ((data&&data.cards)||[]).filter(functio
 function openCards(){return [].filter.call(root.querySelectorAll('.em-card'),function(el){if(el.hidden)return false;return !passed(el.getAttribute('data-open-until'))})}
 function hav(lat1,lng1,lat2,lng2){var r=function(x){return x*Math.PI/180},R=6371,x=Math.sin(r(lat2-lat1)/2),y=Math.sin(r(lng2-lng1)/2),h=x*x+Math.cos(r(lat1))*Math.cos(r(lat2))*y*y;return 2*R*Math.asin(Math.min(1,Math.sqrt(h)))}
 function choose(loc){var cards=openCards();if(!cards.length)return null;if(!loc)return cards[0];var best=null,bestD=Infinity,any=false;cards.forEach(function(el){var la=parseFloat(el.getAttribute('data-lat')),ln=parseFloat(el.getAttribute('data-lng'));if(!isFinite(la)||!isFinite(ln))return;any=true;var d=hav(loc.lat,loc.lng,la,ln);if(d<bestD){bestD=d;best=el}});return any?best:cards[0]}
-function plot(cards,example){emMarkers={};if(typeof L==='undefined'||typeof map==='undefined')return;if(!plot.layer)plot.layer=L.layerGroup().addTo(map);hideExpired.layer=plot.layer;plot.layer.clearLayers();(cards||[]).forEach(function(c){if(c.lat==null||c.lng==null||passed(c.open_until))return;var id=c.id||c.name;var m=L.marker([+c.lat,+c.lng],{icon:L.divIcon({className:'em-pinwrap',html:pin(),iconSize:[34,44],iconAnchor:[17,43],popupAnchor:[0,-40]}),title:c.name,keyboard:true,zIndexOffset:800});m.bindPopup(popCard(c,!!example),{maxWidth:320,autoPan:true,autoPanPadding:[12,12]});emMarkers[id]=m;plot.layer.addLayer(m)})}
-function reveal(card){if(!card)return;root.querySelectorAll('.em-card.em-go').forEach(function(el){el.classList.remove('em-go')});card.classList.add('em-go');if(!card.hasAttribute('tabindex'))card.setAttribute('tabindex','-1');
- var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;try{card.scrollIntoView({block:'center',behavior:reduce?'auto':'smooth'})}catch(e){card.scrollIntoView()}
- try{card.focus({preventScroll:true})}catch(e){try{card.focus()}catch(e2){}}
- var m=emMarkers[card.getAttribute('data-em')];if(!m||typeof map==='undefined')return;try{map.closePopup()}catch(e){}
- try{clearTimeout(window._refitT)}catch(e){}var z=Math.max(map.getZoom?map.getZoom():12,12);try{map.setView(m.getLatLng(),z,{animate:!reduce})}catch(e){try{map.panTo(m.getLatLng(),{animate:!reduce})}catch(e2){}}m.openPopup()}
+/* The map script can finish after the rest centre file loads; `map` is then not ready yet (typeof alone throws while it is uninitialised). Wait for it, so the red pin is never missed. */
+function mapReady(){try{return typeof L!=='undefined'&&typeof map!=='undefined'&&!!map&&!!map.addLayer}catch(e){return false}}
+function plot(cards,example,tries){if(!mapReady()){tries=(tries||0)+1;if(tries<=120)setTimeout(function(){plot(cards,example,tries)},250);return}emMarkers={};if(!plot.layer)plot.layer=L.layerGroup().addTo(map);hideExpired.layer=plot.layer;plot.layer.clearLayers();(cards||[]).forEach(function(c){if(c.lat==null||c.lng==null||passed(c.open_until))return;var id=c.id||c.name;var m=L.marker([+c.lat,+c.lng],{icon:L.divIcon({className:'em-pinwrap',html:pin(),iconSize:[34,44],iconAnchor:[17,43],popupAnchor:[0,-40]}),title:c.name,keyboard:true,zIndexOffset:800});/* 12 Nov 2026 (Dean, phone test): no map pop-up for rest centres. A tap on the red pin goes to its card in the list, like the banner. */
+m.on('click',function(){var el=root.querySelector('.em-card[data-em="'+String(id).replace(/["\\]/g,'\\$&')+'"]');if(el&&!el.hidden)reveal(el,true)});emMarkers[id]=m;plot.layer.addLayer(m)})}
+function reveal(card,fromPin){if(!card)return;root.querySelectorAll('.em-card.em-go').forEach(function(el){el.classList.remove('em-go')});card.classList.add('em-go');if(!card.hasAttribute('tabindex'))card.setAttribute('tabindex','-1');
+ var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ /* Banner or pin tap: scroll to the rest centre's card in the list and highlight it. The map is centred on the pin, with no pop-up over the map. */
+ var m=emMarkers[card.getAttribute('data-em')];
+ if(m&&mapReady()){try{map.closePopup()}catch(e){}try{clearTimeout(window._refitT)}catch(e){}
+  if(!fromPin){var z=Math.max(map.getZoom?map.getZoom():12,12);try{map.setView(m.getLatLng(),z,{animate:false})}catch(e){try{map.panTo(m.getLatLng(),{animate:false})}catch(e2){}}}}
+ try{card.scrollIntoView({block:'center',behavior:reduce?'auto':'smooth'})}catch(e){card.scrollIntoView()}
+ try{card.focus({preventScroll:true})}catch(e){try{card.focus()}catch(e2){}}}
 function readSearched(){try{if(typeof lastNear!=='undefined'&&lastNear&&isFinite(+lastNear[0])&&isFinite(+lastNear[1]))return {lat:+lastNear[0],lng:+lastNear[1]}}catch(e){}return null}
 function locationReady(){var known=readSearched();if(known)return Promise.resolve(known);
  try{if(!navigator.geolocation||!navigator.permissions||!navigator.permissions.query)return Promise.resolve(null);

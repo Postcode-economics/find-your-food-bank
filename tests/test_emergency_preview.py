@@ -212,7 +212,7 @@ class Plan(unittest.TestCase):
         css, js = rd("emergency.css"), rd("emergency.js")
         self.assertIn("position:static", css)
         self.assertNotIn("position:fixed", css)
-        self.assertIn("insertAdjacentElement('afterend',banner)", js.replace(" ", ""))
+        self.assertIn("h1.insertAdjacentElement('beforebegin',banner)", js.replace(" ", ""))
         try:
             from playwright.sync_api import sync_playwright
         except Exception:
@@ -470,7 +470,7 @@ class Plan(unittest.TestCase):
         self.assertIn("fillVisitorLad(function(){", js)
         self.assertIn("helpmap-search", js)
         idx = rd("index.html")
-        self.assertIn("emergency.js?v=erc-force-gps1", idx)
+        self.assertIn("emergency.js?v=erc-pop2", idx)
 
     def test_40_live_rest_centre_asks_for_location_without_searching_other_layers(self):
         """When a live rest centre is on, ask for GPS here only — never run food-bank or shelter nearest()."""
@@ -480,7 +480,7 @@ class Plan(unittest.TestCase):
         self.assertIn("askVisitorLocation()", js)
         self.assertNotIn("nearest(", js)
         idx = rd("index.html")
-        self.assertIn("emergency.js?v=erc-force-gps1", idx)
+        self.assertIn("emergency.js?v=erc-pop2", idx)
 
 
 def _centre(name, lat, lng, until="2099-01-01T12:00:00+00:00", **kw):
@@ -564,16 +564,26 @@ class BannerClick(unittest.TestCase):
         self.assertEqual(got, name, pg.evaluate("()=>({geo:window.__geoCalls,names:[...document.querySelectorAll('.em-card h3')].map(h=>h.textContent),on:[...document.querySelectorAll('.em-card')].filter(e=>!e.hidden).map(e=>e.getAttribute('data-em'))})"))
 
     def _map(self, pg, name, lat, lng):
-        pg.wait_for_selector(".leaflet-popup-content", timeout=8000)
+        """12 Nov 2026 (Dean): no rest centre pop-up over the map; the map is centred on the pin and the list card is highlighted."""
         last = None
         for _ in range(50):
-            last = pg.evaluate("""([n,la,ln])=>{const pop=document.querySelector('.leaflet-popup-content');const c=map.getCenter();
-              return {ok:!!(pop&&pop.innerText.indexOf(n)>=0&&Math.abs(c.lat-la)<0.45&&Math.abs(c.lng-ln)<0.45),
-                pop:pop?pop.innerText.slice(0,80):'',lat:c.lat,lng:c.lng}}""", [name, lat, lng])
+            last = pg.evaluate("""([n,la,ln])=>{const c=map.getCenter();const go=document.querySelector('.em-card.em-go h3');
+              return {ok:!!(go&&go.textContent===n&&!document.querySelector('.leaflet-popup')&&Math.abs(c.lat-la)<0.45&&Math.abs(c.lng-ln)<0.45),
+                go:go?go.textContent:'',popup:!!document.querySelector('.leaflet-popup'),lat:c.lat,lng:c.lng}}""", [name, lat, lng])
             if last["ok"]:
                 return
             pg.wait_for_timeout(100)
         self.fail(last)
+
+    def test_pin_tap_goes_to_list_card_without_popup(self):
+        pg = self._page(); self._open(pg, "&sample=1"); pg.wait_for_selector("#em-banner .em-cta")
+        pg.evaluate("()=>{map.setView([51.5074,-0.1278],12,{animate:false})}"); pg.wait_for_timeout(300)
+        pg.evaluate("()=>{const ms=[];map.eachLayer(l=>{if(l.options&&l.options.title==='Example Community Hall (example)')ms.push(l)});ms[0].fire('click')}")
+        pg.wait_for_selector(".em-card.em-go h3", timeout=8000)
+        self.assertEqual(pg.locator(".em-card.em-go h3").inner_text(), "Example Community Hall (example)")
+        pg.wait_for_timeout(300)
+        self.assertEqual(pg.locator(".leaflet-popup").count(), 0)
+        self.assertNotIn("bindPopup(", rd("emergency.js"))
 
     def test_banner_is_clickable(self):
         for scheme in ("dark", "light"):
