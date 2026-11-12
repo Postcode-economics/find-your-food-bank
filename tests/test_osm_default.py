@@ -83,8 +83,7 @@ class KeysAndDefault(unittest.TestCase):
 
     def test_tracked_but_missing_file_is_skipped(self):
         """A rebuild can delete a still-tracked area page; scanning must not crash (warm-spaces/wyre, 12 Nov 2026)."""
-        rel = 'warm-spaces/wyre/index.html'
-        self.assertIn(rel, list(site_paths()))
+        rel = next(p for p in site_paths() if p.endswith('index.html'))
         hidden = os.path.abspath(os.path.join(R, rel))
         real_open = open
 
