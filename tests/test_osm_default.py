@@ -6,7 +6,7 @@ must still leave OpenStreetMap as that default. A first visit caches OpenStreetM
 service-worker version changes, a MapTiler entry is gone and a later offline visit still shows the cached
 OpenStreetMap tiles. Tile hosts are answered with a blank PNG. Nothing here contacts a map server or the live site.
 """
-import http.server, os, re, shutil, ssl, struct, subprocess, tempfile, threading, unittest, zlib
+import http.server, os, re, shutil, ssl, struct, subprocess, tempfile, threading, unittest, unittest.mock, zlib
 from urllib.parse import urlparse
 R = os.path.join(os.path.dirname(__file__), '..')
 DEAD = 'xl3BtUpx' + 'Qak69583G9Q6'
@@ -44,6 +44,15 @@ def site_paths():
             yield path
 
 
+def read_site_text(path):
+    """Read a tracked site file. Skip binaries, directories, and files removed from disk mid-run."""
+    try:
+        with open(os.path.join(R, path), encoding='utf-8') as fh:
+            return fh.read()
+    except (UnicodeDecodeError, IsADirectoryError, FileNotFoundError):
+        return None
+
+
 def solid_png(w, h, rgba):
     raw = b''.join(b'\x00' + bytes(rgba) * w for _ in range(h))
     def chunk(tag, data):
@@ -60,9 +69,8 @@ class KeysAndDefault(unittest.TestCase):
         self.assertEqual(FIELD.search(tiles).group(1), '')
         bad = []
         for path in site_paths():
-            try:
-                text = open(os.path.join(R, path), encoding='utf-8').read()
-            except (UnicodeDecodeError, IsADirectoryError):
+            text = read_site_text(path)
+            if text is None:
                 continue
             if DEAD in text:
                 bad.append(path + ': dead MapTiler key')
@@ -72,6 +80,22 @@ class KeysAndDefault(unittest.TestCase):
             if URLKEY.search(text):
                 bad.append(path + ': MapTiler key in a URL')
         self.assertEqual(bad, [])
+
+    def test_tracked_but_missing_file_is_skipped(self):
+        """A rebuild can delete a still-tracked area page; scanning must not crash (warm-spaces/wyre, 12 Nov 2026)."""
+        rel = 'warm-spaces/wyre/index.html'
+        self.assertIn(rel, list(site_paths()))
+        hidden = os.path.abspath(os.path.join(R, rel))
+        real_open = open
+
+        def wrapped(path, *args, **kwargs):
+            if os.path.abspath(path) == hidden:
+                raise FileNotFoundError(path)
+            return real_open(path, *args, **kwargs)
+
+        with unittest.mock.patch('builtins.open', wrapped):
+            self.assertIsNone(read_site_text(rel))
+            self.test_no_maptiler_key_and_osm_is_first()
 
     def test_worker_caches_osm_and_drops_maptiler_on_version_bump(self):
         sw = open(os.path.join(R, 'sw.js'), encoding='utf-8').read()
