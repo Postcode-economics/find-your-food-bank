@@ -157,11 +157,13 @@ def put_chk(s, t, rel):
 
 def swep_counts(root=ROOT):
     """Dean 25 Oct: SWEP figures on faq.html come from the data each run (never hand-edited).
-    3 Nov: councils = the sweep's own council list (scripts/sweep_sources.json), so a council's extra page (e.g. Birmingham (news)) is not a second council."""
+    3 Nov: councils = the sweep's own council list (scripts/sweep_sources.json), so a council's extra page (e.g. Birmingham (news)) is not a second council.
+    12 Nov: pages = records with a url in overrides/swep_sources.json, the same definition scripts/swep.py uses for sources. Do not read logs/swep_status.json: that file is private run state, can be hours stale on a long refresh, and is not in a public checkout."""
     try:
         src = json.load(open(os.path.join(root, 'overrides', 'swep_sources.json')))
-        st = json.load(open(os.path.join(root, 'logs', 'swep_status.json')))
-        return {'swep-councils': len(json.load(open(os.path.join(root, 'scripts', 'sweep_sources.json')))['councils']), 'swep-pages': st['sources'] if isinstance(st.get('sources'), int) else len(st.get('sources') or [])}
+        pages = sum(1 for x in src if isinstance(x, dict) and x.get('url'))
+        councils = len(json.load(open(os.path.join(root, 'scripts', 'sweep_sources.json')))['councils'])
+        return {'swep-councils': councils, 'swep-pages': pages}
     except Exception:
         return {}
 
