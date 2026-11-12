@@ -243,4 +243,5 @@ html body .xacts>a.btn.web .xdom{text-overflow:ellipsis!important}
 html.light #h2bar .fresh a,html.light #h2bar #freshtxt,html.light #h2bar>#v3tools .v3t{color:#0A1628!important}
 html:not(.light) #h2bar #freshtxt,html:not(.light) #h2bar .fresh,html:not(.light) #h2bar .fresh a,html:not(.light) #h2bar>#v3tools .v3t{color:#F2F4F8!important}
 #v3prow[hidden]{display:none!important;min-height:0!important;margin:0!important}
-@media (max-width:1023px){#map{min-height:0}}
+/* Phones: keep the 48vh / min 320px map and add the ~58px freed by the removed status box. Desktop unchanged. */
+@media (max-width:1023px){#map{height:calc(48vh + 58px)!important;min-height:378px!important}}
