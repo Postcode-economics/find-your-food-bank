@@ -174,6 +174,34 @@ class LiveCouncilGate(unittest.TestCase):
         self.assertEqual(pg.locator("#em-root .em-card").count(), 0)
         ctx.close()
 
+    def test_note_above_map_and_card_survive_type_switches(self):
+        """12 Nov 2026 (Dean): one compact note just above the map (not in the header); the rest centre card sits first,
+        above the list; switching Food bank / Warm space / Shelter keeps the note, the card and the red pin."""
+        card = {"id": "rc-switch", "name": "Riverside Hall", "live": True, "lad": "E07000224", "lat": 50.81, "lng": -0.54,
+                "open_until": "2099-01-01T12:00:00+00:00", "open_until_label": "open", "opened_by": "Example District Council",
+                "opened_for": "flooding", "source_url": "https://example.gov.uk/page", "category": "incident_rest_centre"}
+        self._write_live([card], public=True)
+        ctx = self.browser.new_context(viewport={"width": 390, "height": 844})
+        ctx.add_init_script("window.__visitorLad='E07000224';")
+        pg = ctx.new_page()
+        pg.goto(self.base + "/?fresh=1&nocount=1", wait_until="load")
+        pg.wait_for_selector("#em-banner .em-cta", timeout=15000)
+        pg.wait_for_selector(".em-pinwrap", timeout=15000)
+        pos = pg.evaluate("""()=>{const b=document.getElementById('em-banner'),m=document.getElementById('map'),r=document.getElementById('em-root'),l=document.getElementById('list');
+          return {inHeader:!!b.closest('header'),beforeMap:!!(b.compareDocumentPosition(m)&Node.DOCUMENT_POSITION_FOLLOWING),
+            rootBeforeList:!l.contains(r)&&!!(r.compareDocumentPosition(l)&Node.DOCUMENT_POSITION_FOLLOWING),noPopup:!document.querySelector('.leaflet-popup')}}""")
+        self.assertEqual(pos, {"inHeader": False, "beforeMap": True, "rootBeforeList": True, "noPopup": True})
+        vis = """()=>{const b=document.getElementById('em-banner'),c=document.querySelector('#em-root .em-card');
+          return [!!b&&!b.hidden&&b.getClientRects().length>0,!!c&&!c.hidden&&c.getClientRects().length>0,document.querySelectorAll('.em-pinwrap').length]}"""
+        for label in ("Shelter", "Warm space", "Food bank"):
+            btn = pg.locator(".v3b", has_text=label).first
+            if not btn.count():
+                continue
+            btn.click()
+            pg.wait_for_timeout(800)
+            self.assertEqual(pg.evaluate(vis), [True, True, 1], label)
+        ctx.close()
+
     def test_visitor_inside_lad_sees_banner(self):
         card = {
             "id": "arun-hall",
@@ -198,8 +226,12 @@ class LiveCouncilGate(unittest.TestCase):
         pg.wait_for_selector("#em-banner .em-cta", timeout=15000)
         self.assertFalse(pg.evaluate("document.getElementById('em-banner').hidden"))
         banner = pg.locator("#em-banner").inner_text()
-        self.assertIn("Checked 6:03am, Sat 31 Oct", banner)
-        self.assertNotIn("2026-10-31T06:03", banner)
+        self.assertIn("Rest centre open near you: ", banner)
+        self.assertIn("Tap for details", banner)
+        card = pg.locator("#em-root .em-card").inner_text()  # 12 Nov 2026: the full wording moved from the banner to the card
+        self.assertIn("Checked 6:03am, Sat 31 Oct", card)
+        self.assertNotIn("2026-10-31T06:03", card)
+        self.assertIn("call 999", card)
         self.assertEqual(pg.locator("#em-root .em-card").count(), 1)
         ctx.close()
 

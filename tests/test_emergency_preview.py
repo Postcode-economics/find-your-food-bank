@@ -212,7 +212,7 @@ class Plan(unittest.TestCase):
         css, js = rd("emergency.css"), rd("emergency.js")
         self.assertIn("position:static", css)
         self.assertNotIn("position:fixed", css)
-        self.assertIn("insertAdjacentElement('afterend',banner)", js.replace(" ", ""))
+        self.assertIn("mapBox.insertAdjacentElement('beforebegin',banner)", js.replace(" ", ""))
         try:
             from playwright.sync_api import sync_playwright
         except Exception:
@@ -451,7 +451,7 @@ class Plan(unittest.TestCase):
         self.assertIn("if(!isLive)returntrue", js)
         self.assertIn("centresForEveryone", js)
         js_raw = rd("emergency.js")
-        self.assertIn("Nearest rest centre", js_raw)
+        self.assertIn("Tap for details", js_raw)
         self.assertIn("Go to nearest open rest centre", js_raw)
         self.assertIn("'<div class=\"em-row\">'+dir+call", js_raw)
         css = rd("emergency.css").replace(" ", "")
@@ -470,7 +470,7 @@ class Plan(unittest.TestCase):
         self.assertIn("fillVisitorLad(function(){", js)
         self.assertIn("helpmap-search", js)
         idx = rd("index.html")
-        self.assertIn("emergency.js?v=erc-force-gps1", idx)
+        self.assertIn("emergency.js?v=erc-pop3", idx)
 
     def test_40_live_rest_centre_asks_for_location_without_searching_other_layers(self):
         """When a live rest centre is on, ask for GPS here only — never run food-bank or shelter nearest()."""
@@ -480,7 +480,7 @@ class Plan(unittest.TestCase):
         self.assertIn("askVisitorLocation()", js)
         self.assertNotIn("nearest(", js)
         idx = rd("index.html")
-        self.assertIn("emergency.js?v=erc-force-gps1", idx)
+        self.assertIn("emergency.js?v=erc-pop3", idx)
 
 
 def _centre(name, lat, lng, until="2099-01-01T12:00:00+00:00", **kw):
@@ -564,16 +564,26 @@ class BannerClick(unittest.TestCase):
         self.assertEqual(got, name, pg.evaluate("()=>({geo:window.__geoCalls,names:[...document.querySelectorAll('.em-card h3')].map(h=>h.textContent),on:[...document.querySelectorAll('.em-card')].filter(e=>!e.hidden).map(e=>e.getAttribute('data-em'))})"))
 
     def _map(self, pg, name, lat, lng):
-        pg.wait_for_selector(".leaflet-popup-content", timeout=8000)
+        """12 Nov 2026 (Dean): no rest centre pop-up over the map; the map is centred on the pin and the list card is highlighted."""
         last = None
         for _ in range(50):
-            last = pg.evaluate("""([n,la,ln])=>{const pop=document.querySelector('.leaflet-popup-content');const c=map.getCenter();
-              return {ok:!!(pop&&pop.innerText.indexOf(n)>=0&&Math.abs(c.lat-la)<0.45&&Math.abs(c.lng-ln)<0.45),
-                pop:pop?pop.innerText.slice(0,80):'',lat:c.lat,lng:c.lng}}""", [name, lat, lng])
+            last = pg.evaluate("""([n,la,ln])=>{const c=map.getCenter();const go=document.querySelector('.em-card.em-go h3');
+              return {ok:!!(go&&go.textContent===n&&!document.querySelector('.leaflet-popup')&&Math.abs(c.lat-la)<0.45&&Math.abs(c.lng-ln)<0.45),
+                go:go?go.textContent:'',popup:!!document.querySelector('.leaflet-popup'),lat:c.lat,lng:c.lng}}""", [name, lat, lng])
             if last["ok"]:
                 return
             pg.wait_for_timeout(100)
         self.fail(last)
+
+    def test_pin_tap_goes_to_list_card_without_popup(self):
+        pg = self._page(); self._open(pg, "&sample=1"); pg.wait_for_selector("#em-banner .em-cta")
+        pg.evaluate("()=>{map.setView([51.5074,-0.1278],12,{animate:false})}"); pg.wait_for_timeout(300)
+        pg.evaluate("()=>{const ms=[];map.eachLayer(l=>{if(l.options&&l.options.title==='Example Community Hall (example)')ms.push(l)});ms[0].fire('click')}")
+        pg.wait_for_selector(".em-card.em-go h3", timeout=8000)
+        self.assertEqual(pg.locator(".em-card.em-go h3").inner_text(), "Example Community Hall (example)")
+        pg.wait_for_timeout(300)
+        self.assertEqual(pg.locator(".leaflet-popup").count(), 0)
+        self.assertNotIn("bindPopup(", rd("emergency.js"))
 
     def test_banner_is_clickable(self):
         for scheme in ("dark", "light"):
@@ -583,9 +593,9 @@ class BannerClick(unittest.TestCase):
             self.assertIn(info["tag"], ("BUTTON", "A"), scheme)
             self.assertEqual(info["name"], "Go to nearest open rest centre", scheme)
             self.assertGreaterEqual(info["tab"], 0, scheme)
-            self.assertEqual(info["cta"], "Nearest rest centre", scheme)
+            self.assertEqual(info["cta"], "Tap for details", scheme)
             self.assertEqual(info["deco"], "underline", scheme)
-            self.assertEqual(info["transform"], "uppercase", scheme)
+            self.assertEqual(info["transform"], "none", scheme)
             self.assertIn(info["weight"], ("900", "800", "bold"), scheme)
             self.assertEqual(info["ctaColor"], "rgb(255, 255, 255)", scheme)
             self.assertEqual(info["color"], "rgb(255, 255, 255)", scheme)
@@ -640,15 +650,15 @@ class BannerClick(unittest.TestCase):
         self.assertNotEqual(pg.locator(".em-card.em-go").get_attribute("data-em"), "london-rest-centre")
 
     def test_text_only_link_still_opens_emergency_txt(self):
-        pg = self._page(); self._open(pg, "&sample=1"); pg.wait_for_selector("#em-banner a.em-text")
-        self.assertEqual(pg.locator("#em-banner a.em-text").get_attribute("href"), "emergency.txt")
-        held = self._page(); self._open(held, "&sample=1"); held.wait_for_selector("#em-banner a.em-text")
-        held.evaluate("document.querySelector('#em-banner a.em-text').addEventListener('click',e=>e.preventDefault(),true)")
-        held.click("#em-banner a.em-text")
+        pg = self._page(); self._open(pg, "&sample=1"); pg.wait_for_selector("#em-root a.em-text")
+        self.assertEqual(pg.locator("#em-root a.em-text").first.get_attribute("href"), "emergency.txt")
+        held = self._page(); self._open(held, "&sample=1"); held.wait_for_selector("#em-root a.em-text")
+        held.evaluate("document.querySelector('#em-root a.em-text').addEventListener('click',e=>e.preventDefault(),true)")
+        held.click("#em-root a.em-text")
         held.wait_for_timeout(400)
         self.assertEqual(held.locator(".em-card.em-go").count(), 0)
         with pg.expect_navigation(wait_until="load", timeout=8000):
-            pg.click("#em-banner a.em-text")
+            pg.click("#em-root a.em-text")
         self.assertTrue(pg.url.endswith("emergency.txt"), pg.url)
         body = pg.locator("body").inner_text()
         self.assertIn("999", body)
@@ -703,7 +713,7 @@ class BannerClick(unittest.TestCase):
                 pg = self._page(390, scheme); self._open(pg, query); self._theme(pg, scheme)
                 pg.wait_for_selector("#em-banner .em-ico")
                 info = self._banner_info(pg)
-                self.assertEqual(info["cta"], "Nearest rest centre", (query, scheme))
+                self.assertEqual(info["cta"], "Tap for details", (query, scheme))
                 self.assertEqual(info["bg"], "rgb(255, 59, 48)", (query, scheme))
                 self.assertEqual(info["ctaColor"], "rgb(255, 255, 255)", (query, scheme))
                 self.assertEqual(info["icons"], 1, (query, scheme))
