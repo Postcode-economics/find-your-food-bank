@@ -386,9 +386,34 @@ addEventListener('load',()=>setTimeout(()=>{const q=document.getElementById('q')
  map.eachLayer(on);map.on('layeradd',e=>on(e.layer));addEventListener('online',()=>{n.hidden=true;bad=0});map.on('movestart',()=>{if(navigator.onLine)n.hidden=true})})();
 })();
 
-/* Header option A (Dean, 25 Oct 2026): type tiles, then filters, then 'Find nearest', then one info strip
-   (see-list line + Always call before you go + Updated). Built once the pieces exist; behaviour unchanged. */
-(function(){function h2(){const big=document.getElementById('v3big'),filt=document.getElementById('v3filt'),pill=document.getElementById('v3pill'),xb=document.getElementById('xbefore'),fr=document.querySelector('header .fresh'),near=document.getElementById('xnear');
- if(!big||!filt||!pill||!xb||!fr||!near)return false;if(document.getElementById('h2info'))return true;
- big.after(filt);filt.after(near);const info=document.createElement('div');info.id='h2info';near.after(info);info.append(pill,xb,fr);return true}
- if(h2())return;const mo=new MutationObserver(()=>{if(h2())mo.disconnect()});mo.observe(document.documentElement,{childList:true,subtree:true});setTimeout(()=>{h2();mo.disconnect()},15000)})();
+/* 12 Nov 2026 (Dean): drop the #h2info status box. 'Updated today at HH:MM' sits on the same plain row as
+   List only / Light mode (#h2bar), on the left, in the same font. The idle 'Showing…' line and 'Always call
+   before you go' are hidden; after a search, 'Food banks near <place>' still shows. If the row would wrap on
+   a narrow phone, the stamp shortens to 'Updated HH:MM'. On phones the map fills the space the box used to
+   take, leaving a sliver of the list visible so people know to scroll; desktop split layout is unchanged. */
+(function(){
+function fitBar(){const bar=document.getElementById('h2bar'),a=document.getElementById('freshtxt');if(!bar||!a)return;
+ const cur=a.textContent.trim();const m=cur.match(/Updated(?: today at)? (\d\d:\d\d)/);if(m)a.dataset.full='Updated today at '+m[1];
+ if(!a.dataset.full)a.dataset.full=cur;a.textContent=a.dataset.full;
+ if(bar.scrollWidth>bar.clientWidth+1){const tm=a.dataset.full.match(/Updated today at (\d\d:\d\d)/);if(tm)a.textContent='Updated '+tm[1]}}
+function sizeMap(){const map=document.getElementById('map');if(!map)return;
+ if(matchMedia('(min-width:1024px)').matches){map.style.removeProperty('height');map.style.removeProperty('min-height');return}
+ const header=document.querySelector('header');const top=header?Math.round(header.getBoundingClientRect().bottom):0;
+ const sliver=56;const h=Math.max(140,Math.round(innerHeight-top-sliver));
+ map.style.height=h+'px';map.style.minHeight='140px';
+ try{if(window.map&&window.map.invalidateSize)window.map.invalidateSize()}catch(e){}}
+function syncProw(){const pill=document.getElementById('v3pill'),prow=document.getElementById('v3prow');
+ const hasPlace=!!(pill&&pill.querySelector('.v3pl'));
+ if(pill){pill.hidden=!hasPlace;pill.style.display=hasPlace?'':'none'}
+ if(prow){prow.hidden=!hasPlace;prow.style.display=hasPlace?'flex':'none'}
+ sizeMap()}
+function h2(){const big=document.getElementById('v3big'),filt=document.getElementById('v3filt'),pill=document.getElementById('v3pill'),xb=document.getElementById('xbefore'),fr=document.querySelector('header .fresh'),near=document.getElementById('xnear'),tl=document.getElementById('v3tools');
+ if(!big||!filt||!fr||!near||!tl)return false;if(document.getElementById('h2bar')){fitBar();syncProw();return true}
+ big.after(filt);filt.after(near);
+ if(xb){xb.hidden=true;xb.style.display='none'}
+ const old=document.getElementById('h2info');if(old)old.remove();
+ const bar=document.createElement('div');bar.id='h2bar';near.after(bar);bar.append(fr,tl);
+ syncProw();setTimeout(fitBar,0);setTimeout(function(){fitBar();syncProw()},800);
+ if(pill&&!pill._h2obs){const mo2=new MutationObserver(syncProw);mo2.observe(pill,{childList:true,subtree:true,characterData:true});pill._h2obs=1}
+ return true}
+ if(h2())return;const mo=new MutationObserver(()=>{if(h2())mo.disconnect()});mo.observe(document.documentElement,{childList:true,subtree:true});setTimeout(()=>{h2();mo.disconnect()},15000);addEventListener('resize',()=>{fitBar();sizeMap()});addEventListener('load',()=>setTimeout(function(){fitBar();syncProw()},0))})();

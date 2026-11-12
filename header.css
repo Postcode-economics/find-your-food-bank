@@ -230,3 +230,17 @@ html body .xacts>a.btn.web .xdom{text-overflow:ellipsis!important}
  html[data-v3k=sh] #v3filt [data-f=shost],html[data-v3k=sh] #v3filt [data-f=youth],html[data-v3k=sh] #v3filt [data-f=sday],html[data-v3k=sh] #v3filt>label#v3open{font-size:12px!important;padding:0 8px 0 10px!important;gap:4px!important;min-width:0;max-width:100%;overflow:hidden;white-space:normal}
  html[data-v3k=sh] #v3filt .fchip :is(.v-en,.v-cy),html[data-v3k=sh] #v3filt>label#v3open{white-space:normal!important;line-height:1.05!important}
 }
+
+
+/* Status row (option 1): no box; Updated today + List only + Light mode on one plain row. Idle placeholder and Always-call hidden. */
+#h2info{display:none!important}
+#xbefore{display:none!important}
+#h2bar{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:0;padding:0;border:0;background:transparent;flex-wrap:nowrap;min-width:0}
+#h2bar .fresh{margin:0!important;min-height:44px;display:flex;align-items:center;flex:0 1 auto;min-width:0}
+#h2bar .fresh a,#h2bar #freshtxt{font-size:14px!important;font-weight:700!important;line-height:1.2;text-decoration:underline!important;text-underline-offset:3px;color:#F2F4F8!important;white-space:nowrap;background:transparent!important;border:0!important}
+#h2bar>#v3tools,#h2bar>#v3tools.v3tight{display:flex!important;gap:14px!important;margin:0 0 0 auto!important;flex:0 0 auto}
+#h2bar>#v3tools .v3t,#h2bar>#v3tools.v3tight .v3t{height:44px!important;min-height:44px!important;border:0!important;background:transparent!important;color:#F2F4F8!important;font-size:14px!important;font-weight:700!important;text-decoration:underline!important;text-underline-offset:3px;padding:0 2px!important;border-radius:0!important}
+html.light #h2bar .fresh a,html.light #h2bar #freshtxt,html.light #h2bar>#v3tools .v3t{color:#0A1628!important}
+html:not(.light) #h2bar #freshtxt,html:not(.light) #h2bar .fresh,html:not(.light) #h2bar .fresh a,html:not(.light) #h2bar>#v3tools .v3t{color:#F2F4F8!important}
+#v3prow[hidden]{display:none!important;min-height:0!important;margin:0!important}
+@media (max-width:1023px){#map{min-height:0}}
