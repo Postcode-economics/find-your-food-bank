@@ -23,27 +23,30 @@ function buttons(c,example){var call=c.phone?'<a class="em-call" href="tel:'+esc
  var dir=example?'<a class="em-dir" href="#em-root">Directions</a>':(c.lat!=null&&c.lng!=null?'<a class="em-dir" href="https://www.google.com/maps/dir/?api=1&destination='+encodeURIComponent(c.lat+','+c.lng)+'&travelmode=walking">Directions</a>':'');
  return '<a class="em-999" href="tel:999">'+PHONE+'999 Emergency services</a>'+(call||dir?'<div class="em-row">'+dir+call+'</div>':'')}
 function attrs(c){var id=c.id||c.name||'';return ' data-em="'+esc(id)+'" data-lat="'+(c.lat==null?'':esc(c.lat))+'" data-lng="'+(c.lng==null?'':esc(c.lng))+'" data-open-until="'+esc(c.open_until||'')+'" data-lad="'+esc(c.lad||'')+'"'}
-function listCard(c,example){var fl=flood(c.postcode,c.nation);
+function listCard(c,example,data){var fl=flood(c.postcode,c.nation);
  var quote=c.quote?'<p class="em-quote">'+esc(c.quote)+'</p>':'';
  var when=checkedLabel(c.last_checked||c.checked_at);
  var dl=row('Opened by',c.opened_by||c.council)+row('Opened for',c.opened_for)+row('Open until',c.open_until_label)+row('Pets',c.pets)+row('Access',c.access)+row('Beds',c.beds)+row('Checked',when.replace(/^Checked\s+/,''));
  var src=c.source_url?'<p class="em-src"><a href="'+esc(c.source_url)+'">Council page</a></p>':'';
- return '<article class="em-card"'+attrs(c)+'><span class="em-badge">'+esc(BADGE)+'</span><h3 class="em-title">'+esc(c.name)+'</h3>'+quote+(dl?'<dl class="em-dl">'+dl+'</dl>':'')+buttons(c,example)+'<div class="em-flood"><span>'+esc(fl[0])+'</span><span>'+esc(fl[1])+'</span></div>'+src+'</article>'}
+ return '<article class="em-card"'+attrs(c)+'><span class="em-badge">'+esc(BADGE)+'</span><h3 class="em-title">'+esc(c.name)+'</h3>'+(example?'':noticeHtml(c,data))+quote+(dl?'<dl class="em-dl">'+dl+'</dl>':'')+buttons(c,example)+'<div class="em-flood"><span>'+esc(fl[0])+'</span><span>'+esc(fl[1])+'</span></div>'+src+'</article>'}
 function popCard(c,example){return '<article class="em-card em-pop"'+attrs(c)+'><span class="em-badge">'+esc(BADGE)+'</span><h3 class="em-title">'+esc(c.name)+'</h3><p class="em-sub">Open until '+esc(c.open_until_label||'')+'</p>'+buttons(c,example)+'</article>'}
 var root=document.createElement('div');root.id='em-root';
 var banner=document.createElement('div');banner.id='em-banner';banner.hidden=true;
 var hit=document.createElement('button');hit.type='button';hit.className='em-hit';hit.setAttribute('aria-label','Go to nearest open rest centre');banner.appendChild(hit);
-/* 12 Nov 2026 (Dean, phone test): the banner sits at the very top of the page, above "Find help near you", so it is the first thing seen. */
-var hdr=document.querySelector('header'),h1=hdr&&hdr.querySelector('h1'),msg=document.getElementById('msg');if(h1)h1.insertAdjacentElement('beforebegin',banner);else if(msg)msg.insertAdjacentElement('afterend',banner);
-var col=document.getElementById('v3col')||document.getElementById('list');
-if(col)col.insertAdjacentElement('afterbegin',root);else document.body.appendChild(root);
+/* 12 Nov 2026 (Dean, phone test): one compact note, just above the map (not at the top of the page). A tap goes to the rest centre card. */
+var mapBox=document.getElementById('map'),msg=document.getElementById('msg');if(mapBox)mapBox.insertAdjacentElement('beforebegin',banner);else if(msg)msg.insertAdjacentElement('afterend',banner);
+/* 12 Nov 2026 (Dean): the rest centre card sits first, just above the list, as a sibling of #list (not inside it), so switching
+   Food bank / Warm space / Shelter, filters or a new search never hides or wipes it. */
+function placeRoot(){var l=document.getElementById('list');if(l&&l.parentElement){if(root.nextElementSibling!==l)l.insertAdjacentElement('beforebegin',root)}else if(!root.parentElement){var c=document.getElementById('v3col');if(c)c.insertAdjacentElement('afterbegin',root);else document.body.appendChild(root)}}
+placeRoot();
 function setKey(on){var leg=document.getElementById('em-keyleg');if(!on){if(leg)leg.remove();return}
  if(leg)return;var host=document.getElementById('xupd');if(!host)return;leg=document.createElement('span');leg.id='em-keyleg';
  leg.innerHTML='<b>'+esc(BADGE)+'</b>';host.appendChild(leg)}
 function iconHtml(){return '<span class="em-ico" aria-hidden="true">'+pin()+'</span>'}
-function fillBanner(html){banner.hidden=!html;if(!html){hit.innerHTML='';var old=banner.querySelector('a.em-text');if(old)old.remove();return}
- hit.innerHTML='<span class="em-top">'+iconHtml()+'<span class="em-cta">Nearest rest centre</span></span><span class="em-body">'+html+'</span>';
- if(!banner.querySelector('a.em-text')){var a=document.createElement('a');a.className='em-text';a.href='emergency.txt';a.textContent='Text-only list';banner.appendChild(a)}}
+/* 12 Nov 2026 (Dean: "a bit big"): a compact red note: pin icon, "Rest centre open near you: <council>" and an underlined "Tap for details".
+   The full wording (what it is for, council page, checked time, follow advice / call 999, text-only list) is on the rest centre card. */
+function fillBanner(lead){banner.hidden=!lead;if(!lead){hit.innerHTML='';return}
+ hit.innerHTML='<span class="em-top">'+iconHtml()+'<span class="em-lead"><span class="em-msg">'+esc(lead)+'</span> <span class="em-cta">Tap for details</span></span></span>'}
 function visitorLad(){try{if(window.__visitorLad)return window.__visitorLad}catch(e){}return null}
 function centreAllowed(c,lad){if(!isLive)return true;if(!lad)return false;var cl=c.lad||'';return cl&&cl===lad}
 function centresForArea(data,lad){return ((data&&data.cards)||[]).filter(function(c){if(!c||c.kind==='day_centre'||c.service==='day_centre'||c.kind==='young_people'||c.kind==='advice_service')return false;if(!(c.live!==false&&!c.example))return false;if(isLive&&passed(c.open_until))return false;return centreAllowed(c,lad)})}
@@ -85,26 +88,23 @@ function checkedLabel(raw){var s=String(raw==null?'':raw).trim();if(!s)return ''
  var h24=parseInt(g.hour,10);if(isNaN(h24)||!g.minute)return s;
  var ap=h24<12?'am':'pm',h=h24%12||12;
  return 'Checked '+h+':'+g.minute+ap+', '+g.weekday+' '+g.day+' '+g.month}
-function liveBannerText(cards,data){if(!cards.length)return '';
- var c=cards[0], council=c.opened_by||c.council||'The council', incident=c.opened_for||'an incident', src=c.source_url||'', chk=checkedLabel(c.last_checked||c.checked_at||data.generated||'');
+function bannerLead(cards){if(!cards.length)return '';var c=cards[0];var council=c.opened_by||c.council||'';return 'Rest centre open near you'+(council?': '+council:'')}
+function noticeHtml(c,data){if(!c)return '';
+ var council=c.opened_by||c.council||'The council', incident=c.opened_for||'an incident', src=c.source_url||'', chk=checkedLabel(c.last_checked||c.checked_at||(data&&data.generated)||'');
  var lead='Rest centre open: '+council+' has opened a rest centre for people affected by '+incident+'.';
  var meta='Information from '+(src?'<a href="'+esc(src)+'">the council page</a>':'the council')+(chk?', '+esc(chk):'')+'. Follow advice from the emergency services and the council. In danger, call 999.';
- return esc(lead)+'<br>'+meta}
-function applyData(data){var lad=visitorLad();var cards=centresForArea(data,lad);if(isLive&&!lad){banner.hidden=true;root.innerHTML='';setKey(false);return}
+ return '<div class="em-notice"><p>'+esc(lead)+'</p><p>'+meta+'</p><p><a class="em-text" href="emergency.txt">Text-only list</a></p></div>'}
+function applyData(data){placeRoot();var lad=visitorLad();var cards=centresForArea(data,lad);if(isLive&&!lad){banner.hidden=true;root.innerHTML='';setKey(false);return}
  if(!cards.length){if(isLive){banner.hidden=true;root.innerHTML='';setKey(false)}return}
- root.innerHTML=cards.map(function(c){return listCard(c,false)}).join('');
- var bannerHtml;
- if(isPreview&&!sample){bannerHtml='If you are in danger, call 999. Every open rest centre is listed below.'}
- else if(isPreview&&sample){bannerHtml=''}
- else{bannerHtml=liveBannerText(cards,data)}
- fillBanner(bannerHtml||liveBannerText(cards,data));
+ root.innerHTML=cards.map(function(c){return listCard(c,false,data)}).join('');
+ fillBanner(isPreview&&!sample?'Rest centre open: if you are in danger, call 999':bannerLead(cards));
  setKey(true);hideExpired(root);plot(cards,false)}
 if(sample){var fl=flood();
  var leisure={id:'example-leisure',name:'Example Leisure Centre (example)',opened_by:'Example District Council (example)',opened_for:'Flooding (only if the source says so)',open_until:'2099-01-01T08:00:00+00:00',open_until_label:'08:00 Mon 26 Oct (example)',last_checked:'20:10 (example)',phone:'01234 000000',postcode:'BN17 5AA',lat:50.8092,lng:-0.5406,quote:'Example council wording (example).'};
  var hall={id:'example-hall',name:'Example Community Hall (example)',open_until:'2099-01-01T23:00:00+00:00',open_until_label:'23:00 (example)',phone:'01234 000000',lat:51.5074,lng:-0.1278};
- fillBanner('EXAMPLE · PREVIEW ONLY. '+esc('Rest centre open: Example District Council (example) has opened a rest centre for people affected by flooding (example).'));
+ fillBanner('EXAMPLE · Rest centre open near you: Example District Council (example)');
  root.innerHTML='<p class="em-kicker">EXAMPLE MAP PIN</p><div class="em-pinrow">'+pin()+esc(BADGE)+'</div>'
-  +'<p class="em-kicker">EXAMPLE LIST CARD</p>'+listCard(leisure,true)
+  +'<p class="em-kicker">EXAMPLE LIST CARD</p>'+listCard(leisure,true).replace('</h3>','</h3>'+noticeHtml(leisure,null))
   +'<p class="em-kicker">EXAMPLE MAP POP-UP CARD</p>'+popCard(hall,true);
  setKey(true);plot([leisure,hall],true)}
 else if(isPreview)root.innerHTML='<p class="em-quiet">Incident rest centre preview. No council rest centre is listed. <a href="emergency.txt">Text-only list</a></p>';

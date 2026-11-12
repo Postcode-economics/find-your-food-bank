@@ -212,7 +212,7 @@ class Plan(unittest.TestCase):
         css, js = rd("emergency.css"), rd("emergency.js")
         self.assertIn("position:static", css)
         self.assertNotIn("position:fixed", css)
-        self.assertIn("h1.insertAdjacentElement('beforebegin',banner)", js.replace(" ", ""))
+        self.assertIn("mapBox.insertAdjacentElement('beforebegin',banner)", js.replace(" ", ""))
         try:
             from playwright.sync_api import sync_playwright
         except Exception:
@@ -451,7 +451,7 @@ class Plan(unittest.TestCase):
         self.assertIn("if(!isLive)returntrue", js)
         self.assertIn("centresForEveryone", js)
         js_raw = rd("emergency.js")
-        self.assertIn("Nearest rest centre", js_raw)
+        self.assertIn("Tap for details", js_raw)
         self.assertIn("Go to nearest open rest centre", js_raw)
         self.assertIn("'<div class=\"em-row\">'+dir+call", js_raw)
         css = rd("emergency.css").replace(" ", "")
@@ -470,7 +470,7 @@ class Plan(unittest.TestCase):
         self.assertIn("fillVisitorLad(function(){", js)
         self.assertIn("helpmap-search", js)
         idx = rd("index.html")
-        self.assertIn("emergency.js?v=erc-pop2", idx)
+        self.assertIn("emergency.js?v=erc-pop3", idx)
 
     def test_40_live_rest_centre_asks_for_location_without_searching_other_layers(self):
         """When a live rest centre is on, ask for GPS here only — never run food-bank or shelter nearest()."""
@@ -480,7 +480,7 @@ class Plan(unittest.TestCase):
         self.assertIn("askVisitorLocation()", js)
         self.assertNotIn("nearest(", js)
         idx = rd("index.html")
-        self.assertIn("emergency.js?v=erc-pop2", idx)
+        self.assertIn("emergency.js?v=erc-pop3", idx)
 
 
 def _centre(name, lat, lng, until="2099-01-01T12:00:00+00:00", **kw):
@@ -593,9 +593,9 @@ class BannerClick(unittest.TestCase):
             self.assertIn(info["tag"], ("BUTTON", "A"), scheme)
             self.assertEqual(info["name"], "Go to nearest open rest centre", scheme)
             self.assertGreaterEqual(info["tab"], 0, scheme)
-            self.assertEqual(info["cta"], "Nearest rest centre", scheme)
+            self.assertEqual(info["cta"], "Tap for details", scheme)
             self.assertEqual(info["deco"], "underline", scheme)
-            self.assertEqual(info["transform"], "uppercase", scheme)
+            self.assertEqual(info["transform"], "none", scheme)
             self.assertIn(info["weight"], ("900", "800", "bold"), scheme)
             self.assertEqual(info["ctaColor"], "rgb(255, 255, 255)", scheme)
             self.assertEqual(info["color"], "rgb(255, 255, 255)", scheme)
@@ -650,15 +650,15 @@ class BannerClick(unittest.TestCase):
         self.assertNotEqual(pg.locator(".em-card.em-go").get_attribute("data-em"), "london-rest-centre")
 
     def test_text_only_link_still_opens_emergency_txt(self):
-        pg = self._page(); self._open(pg, "&sample=1"); pg.wait_for_selector("#em-banner a.em-text")
-        self.assertEqual(pg.locator("#em-banner a.em-text").get_attribute("href"), "emergency.txt")
-        held = self._page(); self._open(held, "&sample=1"); held.wait_for_selector("#em-banner a.em-text")
-        held.evaluate("document.querySelector('#em-banner a.em-text').addEventListener('click',e=>e.preventDefault(),true)")
-        held.click("#em-banner a.em-text")
+        pg = self._page(); self._open(pg, "&sample=1"); pg.wait_for_selector("#em-root a.em-text")
+        self.assertEqual(pg.locator("#em-root a.em-text").first.get_attribute("href"), "emergency.txt")
+        held = self._page(); self._open(held, "&sample=1"); held.wait_for_selector("#em-root a.em-text")
+        held.evaluate("document.querySelector('#em-root a.em-text').addEventListener('click',e=>e.preventDefault(),true)")
+        held.click("#em-root a.em-text")
         held.wait_for_timeout(400)
         self.assertEqual(held.locator(".em-card.em-go").count(), 0)
         with pg.expect_navigation(wait_until="load", timeout=8000):
-            pg.click("#em-banner a.em-text")
+            pg.click("#em-root a.em-text")
         self.assertTrue(pg.url.endswith("emergency.txt"), pg.url)
         body = pg.locator("body").inner_text()
         self.assertIn("999", body)
@@ -713,7 +713,7 @@ class BannerClick(unittest.TestCase):
                 pg = self._page(390, scheme); self._open(pg, query); self._theme(pg, scheme)
                 pg.wait_for_selector("#em-banner .em-ico")
                 info = self._banner_info(pg)
-                self.assertEqual(info["cta"], "Nearest rest centre", (query, scheme))
+                self.assertEqual(info["cta"], "Tap for details", (query, scheme))
                 self.assertEqual(info["bg"], "rgb(255, 59, 48)", (query, scheme))
                 self.assertEqual(info["ctaColor"], "rgb(255, 255, 255)", (query, scheme))
                 self.assertEqual(info["icons"], 1, (query, scheme))

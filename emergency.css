@@ -55,5 +55,16 @@ html.em-preview .em-key b,html.em-live .em-key b{color:#FF3B30}
 html.em-preview .em-quiet,html.em-live .em-quiet{margin:8px 0;font-size:15px;line-height:1.4}
 html.em-preview.em-only #list,html.em-live.em-only #list,html.em-preview.em-only #xextra,html.em-live.em-only #xextra{display:none!important}
 html.em-preview #em-keyleg,html.em-live #em-keyleg{display:inline-flex;align-items:center;gap:6px}
-/* 12 Nov 2026 (Dean, phone test): the banner sits at the very top of the page, above "Find help near you", and clears the EN | CY switch. */
-html.em-preview header>#em-banner,html.em-live header>#em-banner{margin:52px 0 14px}
+/* 12 Nov 2026 (Dean): one compact red note just above the map: pin icon + "Rest centre open near you: <council>" + underlined "Tap for details".
+   The full wording is on the rest centre card (first in the list). */
+html.em-preview #em-banner,html.em-live #em-banner{margin:8px 0;padding:8px 12px;font-size:15px;line-height:1.3}
+html.em-preview #em-banner .em-hit,html.em-live #em-banner .em-hit{font-size:15px;line-height:1.3}
+html.em-preview #em-banner .em-top,html.em-live #em-banner .em-top{align-items:center;margin:0}
+html.em-preview #em-banner .em-ico svg,html.em-live #em-banner .em-ico svg{width:24px;height:31px}
+html.em-preview #em-banner .em-lead,html.em-live #em-banner .em-lead{flex:1 1 auto;min-width:0;overflow-wrap:anywhere}
+html.em-preview #em-banner .em-cta,html.em-live #em-banner .em-cta{display:inline;text-transform:none;white-space:nowrap}
+html.em-preview .em-notice,html.em-live .em-notice{font-size:15px;line-height:1.4;margin:0 0 12px;padding:0 0 12px;border-bottom:1px solid #3A5378}
+html.em-preview .em-notice p,html.em-live .em-notice p{margin:0 0 6px}
+html.em-preview .em-notice p:first-child,html.em-live .em-notice p:first-child{font-weight:800}
+html.em-preview .em-notice a,html.em-live .em-notice a{color:#F5C518;text-decoration:underline}
+html.light.em-preview .em-notice a,html.light.em-live .em-notice a{color:#00379E!important}
