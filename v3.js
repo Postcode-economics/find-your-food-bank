@@ -398,7 +398,9 @@ function fitBar(){const bar=document.getElementById('h2bar'),a=document.getEleme
  if(bar.scrollWidth>bar.clientWidth+1){const tm=a.dataset.full.match(/Updated today at (\d\d:\d\d)/);if(tm)a.textContent='Updated '+tm[1]}}
 function sizeMap(){const map=document.getElementById('map');if(!map)return;
  if(matchMedia('(min-width:1024px)').matches){map.style.removeProperty('height');map.style.removeProperty('min-height');return}
- const header=document.querySelector('header');const top=header?Math.round(header.getBoundingClientRect().bottom):0;
+ const header=document.querySelector('header');let top=header?Math.round(header.getBoundingClientRect().bottom):0;
+ const ban=document.getElementById('em-banner');
+ if(ban&&!ban.hidden&&ban.offsetHeight){const cs=getComputedStyle(ban);top+=Math.round(ban.getBoundingClientRect().height+(parseFloat(cs.marginTop)||0)+(parseFloat(cs.marginBottom)||0))}
  const sliver=56;const h=Math.max(140,Math.round(innerHeight-top-sliver));
  map.style.height=h+'px';map.style.minHeight='140px';
  try{if(window.map&&window.map.invalidateSize)window.map.invalidateSize()}catch(e){}}
