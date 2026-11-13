@@ -311,6 +311,6 @@ html.light #h2bar>#v3tools .v3t[aria-pressed=true]{
   color:#0A1628!important;text-decoration:underline!important;
   text-decoration-color:#8A5A00!important;font-weight:800!important
 }
-/* Updated link: if even 'Updated HH:MM' does not fit beside the pill, it wraps onto two lines; if a single word still does not fit, it gets its own line above the pill. Never cut off. */
+/* Updated link: if even 'Updated HH:MM' does not fit beside the pill, it wraps onto two lines; if a word still does not fit or it needs three lines, it gets its own line above the pill. Never cut off. */
 #h2bar .fresh a#freshtxt.fitwrap{white-space:normal!important;display:inline-block;max-width:100%}
 #h2bar.fitstack{flex-wrap:wrap!important;row-gap:0}#h2bar.fitstack>.fresh{flex:1 0 100%!important}#h2bar.fitstack>#v3tools{margin-left:auto}
