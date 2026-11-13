@@ -10345,7 +10345,7 @@
     "last_verified": "2026-11-13",
     "kind": "day_centre",
     "no_pin": true,
-    "town": "London Borough of Lambeth",
+    "town": "Lambeth",
     "who_for": "Not stated",
     "postcode": "",
     "lat": null,
@@ -10376,12 +10376,10 @@
     "kind": "advice_service",
     "no_pin": true,
     "groups": [
-      "Care leavers aged 15½ and over",
-      "Families"
+      "Care leavers aged 15½ and over"
     ],
     "who_for": [
-      "Care leavers aged 15½ and over",
-      "Families"
+      "Care leavers aged 15½ and over"
     ],
     "hours": {
       "Mon": "09:00 - 17:00",
@@ -10392,12 +10390,7 @@
     },
     "postcode": "",
     "lat": null,
-    "lng": null,
-    "facilities": [
-      "TV",
-      "Food Available",
-      "Staffed 24 hours a day"
-    ]
+    "lng": null
   },
   {
     "id": "man-acton-homeless-concern",
@@ -10424,8 +10417,7 @@
     "who_for": "Not stated",
     "facilities": [
       "Showers",
-      "Food Available",
-      "The Damien Centre is open Monday to Friday, 09:00 to 12:00 and 14:00 to 18:00 (Thursday afternoons from 14:30). Emmaus House, their other drop-in in Berrymead Gardens, is a separate centre with its own number, 020 8992 5768"
+      "Food Available"
     ]
   },
   {
@@ -10482,19 +10474,14 @@
     "postcode": "E1 7QX",
     "lat": 51.516012,
     "lng": -0.070399,
-    "who_for": [
-      "Families"
-    ],
+    "who_for": "Not stated",
     "hours": {
       "Mon": "14:00 - 18:00",
       "Tue": "14:00 - 18:00",
       "Wed": "14:00 - 18:00",
       "Thu": "14:00 - 18:00",
       "Fri": "14:00 - 18:00"
-    },
-    "groups": [
-      "Families"
-    ]
+    }
   },
   {
     "id": "man-alabare-christian-care-wiltshire-foyer",
@@ -10608,12 +10595,7 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "phone_label": "The Amber Foundation central line",
-    "facilities": [
-      "Computer Access",
-      "TV",
-      "Food Available"
-    ]
+    "phone_label": "The Amber Foundation central line"
   },
   {
     "id": "man-amber-foundation-downsview",
@@ -10641,12 +10623,7 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "phone_label": "The Amber Foundation central line",
-    "facilities": [
-      "Computer Access",
-      "TV",
-      "Food Available"
-    ]
+    "phone_label": "The Amber Foundation central line"
   },
   {
     "id": "man-amber-foundation-farm-place",
@@ -10674,12 +10651,7 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "phone_label": "The Amber Foundation central line",
-    "facilities": [
-      "Computer Access",
-      "TV",
-      "Food Available"
-    ]
+    "phone_label": "The Amber Foundation central line"
   },
   {
     "id": "man-ashford-place",
@@ -10703,20 +10675,7 @@
     "postcode": "NW2 6TU",
     "lat": 51.556463,
     "lng": -0.218904,
-    "who_for": [
-      "Families"
-    ],
-    "hours": {
-      "Wed": "13:30 - 14:00",
-      "Thu": "11:00 - 12:00",
-      "Fri": "11:00 - 12:30"
-    },
-    "facilities": [
-      "Food Available"
-    ],
-    "groups": [
-      "Families"
-    ]
+    "who_for": "Not stated"
   },
   {
     "id": "man-ashley-foundation-elm-house",
@@ -10740,12 +10699,12 @@
     "card_type": "referral_hostel",
     "town": "Blackpool",
     "groups": [
-      "People aged 18 and over",
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 24"
     ],
     "who_for": [
-      "People aged 18 and over",
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 24"
     ],
     "access": "You can refer yourself by calling 01253 297200.",
     "referral": "You can refer yourself by calling 01253 297200.",
@@ -10753,13 +10712,7 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "phone_label": "Homeless Action central line",
-    "facilities": [
-      "Laundry",
-      "TV",
-      "Food Available",
-      "Staffed 24 hours a day"
-    ]
+    "phone_label": "Homeless Action central line"
   },
   {
     "id": "man-aylesbury-homeless-action-group",
@@ -10962,12 +10915,7 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "phone_label": "Barnardo's central line",
-    "facilities": [
-      "Laundry",
-      "Food Available",
-      "Staffed 24 hours a day"
-    ]
+    "phone_label": "Barnardo's central line"
   },
   {
     "id": "man-barnardos-merriweather-home",
@@ -11020,13 +10968,15 @@
     "no_pin": true,
     "town": "Broadland",
     "who_for": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 24"
     ],
     "postcode": "",
     "lat": null,
     "lng": null,
     "groups": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 24"
     ],
     "phone_label": "Benjamin Foundation central line"
   },
@@ -11049,14 +10999,7 @@
     "last_verified": "2026-11-13",
     "kind": "day_centre",
     "no_pin": true,
-    "groups": [
-      "Men and women",
-      "Families"
-    ],
-    "who_for": [
-      "Men and women",
-      "Families"
-    ],
+    "who_for": "Not stated",
     "hours": {
       "Mon": "10:30 - 14:30",
       "Tue": "10:30 - 14:30",
@@ -11069,7 +11012,6 @@
     "lng": null,
     "facilities": [
       "Laundry",
-      "Computer Access",
       "Food Available"
     ]
   },
@@ -11095,11 +11037,11 @@
     "town": "Northumberland",
     "groups": [
       "Young people aged 16 to 25",
-      "Families"
+      "Men and women"
     ],
     "who_for": [
       "Young people aged 16 to 25",
-      "Families"
+      "Men and women"
     ],
     "access": "A referral is needed. Call 01289 333100 for advice.",
     "referral": "A referral is needed. Call 01289 333100 for advice.",
@@ -11107,10 +11049,7 @@
     "wheelchair": "yes",
     "postcode": "",
     "lat": null,
-    "lng": null,
-    "facilities": [
-      "Staffed 24 hours a day"
-    ]
+    "lng": null
   },
   {
     "id": "man-bht-advice-centre-housing-aid-and-legal-centre",
@@ -11144,10 +11083,7 @@
       "Wed": "09:15 - 12:30",
       "Thu": "09:15 - 16:30",
       "Fri": "09:15 - 12:30"
-    },
-    "facilities": [
-      "Staffed 24 hours a day"
-    ]
+    }
   },
   {
     "id": "man-bht-eastbourne-advice",
@@ -11181,10 +11117,7 @@
     },
     "postcode": "",
     "lat": null,
-    "lng": null,
-    "facilities": [
-      "Staffed 24 hours a day"
-    ]
+    "lng": null
   },
   {
     "id": "man-bht-hastings-advice",
@@ -11218,10 +11151,7 @@
     },
     "postcode": "",
     "lat": null,
-    "lng": null,
-    "facilities": [
-      "Staffed 24 hours a day"
-    ]
+    "lng": null
   },
   {
     "id": "man-big-issue-in-the-midlands-birmingham",
@@ -11242,9 +11172,7 @@
     "last_verified": "2026-11-13",
     "kind": "advice_service",
     "no_pin": true,
-    "who_for": [
-      "Families"
-    ],
+    "who_for": "Not stated",
     "hours": {
       "Mon": "09:00 - 16:30",
       "Tue": "09:00 - 16:30",
@@ -11255,14 +11183,7 @@
     },
     "postcode": "",
     "lat": null,
-    "lng": null,
-    "facilities": [
-      "TV",
-      "Food Available"
-    ],
-    "groups": [
-      "Families"
-    ]
+    "lng": null
   },
   {
     "id": "man-big-issue-north-leeds",
@@ -11285,18 +11206,9 @@
     "no_pin": true,
     "town": "Leeds",
     "who_for": "Not stated",
-    "hours": {
-      "Mon": "08:00 - 16:00",
-      "Fri": "08:00 - 13:00",
-      "Sat": "08:00 - 12:00"
-    },
     "postcode": "",
     "lat": null,
-    "lng": null,
-    "facilities": [
-      "Charging Facilities",
-      "Food Available"
-    ]
+    "lng": null
   },
   {
     "id": "man-bond-scheme-selby",
@@ -11348,14 +11260,16 @@
     "kind": "young_people",
     "no_pin": true,
     "who_for": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 25"
     ],
     "postcode": "",
     "lat": null,
     "lng": null,
     "phone_label": "Bournemouth Churches central line",
     "groups": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 25"
     ]
   },
   {
@@ -11412,7 +11326,7 @@
     "kind": "hostel",
     "no_pin": true,
     "card_type": "referral_hostel",
-    "town": "Brighton or Hove",
+    "town": "Brighton",
     "groups": [
       "Men and women"
     ],
@@ -11459,7 +11373,6 @@
       "Fri": "10:00 - 16:00"
     },
     "facilities": [
-      "Free Wifi",
       "Food Available"
     ]
   },
@@ -11514,7 +11427,7 @@
     "kind": "hostel",
     "no_pin": true,
     "card_type": "referral_hostel",
-    "town": "Cambridge City",
+    "town": "Cambridge",
     "who_for": "Not stated",
     "access": "A referral is needed. Call 01223 712501 for advice.",
     "referral": "A referral is needed. Call 01223 712501 for advice.",
@@ -11559,9 +11472,6 @@
       "Thu": "10:00 - 13:00",
       "Fri": "10:00 - 13:00"
     },
-    "facilities": [
-      "Parking"
-    ],
     "groups": [
       "Families"
     ]
@@ -11586,20 +11496,18 @@
     "kind": "young_people",
     "no_pin": true,
     "who_for": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 25"
     ],
     "access": "A referral is needed. Call 0300 111 3555 for advice.",
     "referral": "A referral is needed. Call 0300 111 3555 for advice.",
     "access_type": "referral_only",
-    "hours": {
-      "Thu": "01:00 - 02:30",
-      "Fri": "09:00 - 17:00"
-    },
     "postcode": "",
     "lat": null,
     "lng": null,
     "groups": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 25"
     ],
     "phone_label": "Cambridge Housing Society central line"
   },
@@ -11688,21 +11596,17 @@
     "lat": 51.495751,
     "lng": -0.131476,
     "groups": [
-      "Young people aged 16 to 25",
-      "Families"
+      "Families",
+      "Young people aged 16 to 24"
     ],
     "who_for": [
-      "Young people aged 16 to 25",
-      "Families"
+      "Families",
+      "Young people aged 16 to 24"
     ],
     "access": "A referral is needed. Call 020 7222 1602 for advice.",
     "referral": "A referral is needed. Call 020 7222 1602 for advice.",
     "access_type": "referral_only",
-    "phone_label": "Cardinal Hume central line",
-    "facilities": [
-      "Accessible Toilets",
-      "Food Available"
-    ]
+    "phone_label": "Cardinal Hume central line"
   },
   {
     "id": "man-care-community-support-grimsby",
@@ -11732,15 +11636,6 @@
     "access": "You can turn up without a referral. Call 01472 232310 if you want to check first.",
     "referral": "You can turn up without a referral. Call 01472 232310 if you want to check first.",
     "access_type": "open_access",
-    "hours": {
-      "Fri": "09:00 - 16:00",
-      "Sun": "10:00 - 16:00"
-    },
-    "facilities": [
-      "Accessible Toilets",
-      "Other Refreshments",
-      "Food Available"
-    ],
     "groups": [
       "Families"
     ]
@@ -11991,9 +11886,6 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "TV"
-    ],
     "groups": [
       "Families"
     ],
@@ -12054,7 +11946,7 @@
     "kind": "day_centre",
     "no_pin": true,
     "who_for": [
-      "Families"
+      "People aged 18 and over"
     ],
     "postcode": "",
     "lat": null,
@@ -12064,7 +11956,7 @@
       "Food Available"
     ],
     "groups": [
-      "Families"
+      "People aged 18 and over"
     ]
   },
   {
@@ -12197,10 +12089,7 @@
     },
     "postcode": "",
     "lat": null,
-    "lng": null,
-    "facilities": [
-      "Food Available"
-    ]
+    "lng": null
   },
   {
     "id": "man-chadd-on-route-foyer",
@@ -12230,9 +12119,6 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Staffed 24 hours a day"
-    ],
     "groups": [
       "Families"
     ]
@@ -12280,14 +12166,7 @@
     "last_verified": "2026-11-13",
     "kind": "advice_service",
     "no_pin": true,
-    "groups": [
-      "Men and women",
-      "Families"
-    ],
-    "who_for": [
-      "Men and women",
-      "Families"
-    ],
+    "who_for": "Not stated",
     "access": "A referral is needed. Call 01274 731909 for advice.",
     "referral": "A referral is needed. Call 01274 731909 for advice.",
     "access_type": "referral_only",
@@ -12302,8 +12181,7 @@
     "lat": null,
     "lng": null,
     "facilities": [
-      "Food Available",
-      "Bradford Council's Assisted Purchase Scheme , Food Parcels and Fuel Top Up's"
+      "Food Available"
     ]
   },
   {
@@ -12360,22 +12238,16 @@
     "no_pin": true,
     "town": "Cheltenham",
     "who_for": [
-      "Families"
+      "People aged 18 and over"
     ],
     "access": "A referral is needed. Call 01242 226672 for advice.",
     "referral": "A referral is needed. Call 01242 226672 for advice.",
     "access_type": "referral_only",
-    "hours": {
-      "Wed": "09:30 - 16:30",
-      "Thu": "09:30 - 15:00",
-      "Fri": "Closed",
-      "Sun": "Closed"
-    },
     "postcode": "",
     "lat": null,
     "lng": null,
     "groups": [
-      "Families"
+      "People aged 18 and over"
     ]
   },
   {
@@ -12400,18 +12272,15 @@
     "town": "Sheffield",
     "groups": [
       "Young people aged 16 to 21",
-      "Families"
+      "Men and women"
     ],
     "who_for": [
       "Young people aged 16 to 21",
-      "Families"
+      "Men and women"
     ],
     "postcode": "",
     "lat": null,
-    "lng": null,
-    "facilities": [
-      "Staffed 24 hours a day"
-    ]
+    "lng": null
   },
   {
     "id": "man-christian-action-housing-young-people-services",
@@ -12439,13 +12308,7 @@
     "access_type": "referral_only",
     "postcode": "",
     "lat": null,
-    "lng": null,
-    "facilities": [
-      "Laundry",
-      "Charging Facilities",
-      "TV",
-      "Staffed 24 hours a day"
-    ]
+    "lng": null
   },
   {
     "id": "man-churches-housing-action-team-mid-devon",
@@ -12479,10 +12342,7 @@
       "Wed": "09:30 - 16:30",
       "Thu": "09:30 - 16:30",
       "Fri": "09:30 - 16:30"
-    },
-    "facilities": [
-      "Food Available"
-    ]
+    }
   },
   {
     "id": "man-cirencester-housing-for-young-people",
@@ -12507,14 +12367,11 @@
     "lng": null,
     "groups": [
       "Young people aged 16 to 25",
-      "Families"
+      "Men and women"
     ],
     "who_for": [
       "Young people aged 16 to 25",
-      "Families"
-    ],
-    "facilities": [
-      "It offers 24-hour supported accommodation for young people aged 16 to 25"
+      "Men and women"
     ],
     "no_pin": true
   },
@@ -12583,11 +12440,6 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Charging Facilities",
-      "Computer Access",
-      "Staffed 24 hours a day"
-    ],
     "phone_label": "Central line"
   },
   {
@@ -12648,11 +12500,11 @@
     "town": "Colchester",
     "groups": [
       "Young people aged 16 to 25",
-      "Families"
+      "Men and women"
     ],
     "who_for": [
       "Young people aged 16 to 25",
-      "Families"
+      "Men and women"
     ],
     "access": "A referral is needed. Call 01206 869533 for advice.",
     "referral": "A referral is needed. Call 01206 869533 for advice.",
@@ -12878,10 +12730,7 @@
       "Wed": "09:00 - 17:00",
       "Thu": "09:00 - 17:00",
       "Fri": "09:00 - 17:00"
-    },
-    "facilities": [
-      "TV"
-    ]
+    }
   },
   {
     "id": "man-curo-choice-bath-foyer",
@@ -12906,10 +12755,7 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "phone_label": "Curo Choice central line",
-    "facilities": [
-      "Staffed 24 hours a day"
-    ]
+    "phone_label": "Curo Choice central line"
   },
   {
     "id": "man-curo-choice-cleveland-house-and-cottage",
@@ -12930,15 +12776,12 @@
     "last_verified": "2026-11-13",
     "kind": "young_people",
     "no_pin": true,
-    "town": "BANES",
+    "town": "Bath and North East Somerset",
     "who_for": "Not stated",
     "postcode": "",
     "lat": null,
     "lng": null,
-    "phone_label": "Curo Choice central line",
-    "facilities": [
-      "Staffed 24 hours a day"
-    ]
+    "phone_label": "Curo Choice central line"
   },
   {
     "id": "man-curo-choice-pathways-wells-road",
@@ -12959,15 +12802,12 @@
     "last_verified": "2026-11-13",
     "kind": "young_people",
     "no_pin": true,
-    "town": "BANES",
+    "town": "Bath and North East Somerset",
     "who_for": "Not stated",
     "postcode": "",
     "lat": null,
     "lng": null,
-    "phone_label": "Curo Choice central line",
-    "facilities": [
-      "Staffed 24 hours a day"
-    ]
+    "phone_label": "Curo Choice central line"
   },
   {
     "id": "man-daylight-centre",
@@ -12988,9 +12828,7 @@
     "last_verified": "2026-11-13",
     "kind": "day_centre",
     "no_pin": true,
-    "who_for": [
-      "Families"
-    ],
+    "who_for": "Not stated",
     "hours": {
       "Mon": "10:00 - 13:00",
       "Tue": "10:00 - 13:00",
@@ -13004,9 +12842,6 @@
     "facilities": [
       "Showers",
       "Food Available"
-    ],
-    "groups": [
-      "Families"
     ]
   },
   {
@@ -13028,9 +12863,7 @@
     "last_verified": "2026-11-13",
     "kind": "day_centre",
     "no_pin": true,
-    "who_for": [
-      "Families"
-    ],
+    "who_for": "Not stated",
     "access": "A referral is needed. Call 01442 800268 for advice.",
     "referral": "A referral is needed. Call 01442 800268 for advice.",
     "access_type": "referral_only",
@@ -13046,12 +12879,7 @@
     "lng": null,
     "facilities": [
       "Showers",
-      "Laundry",
-      "Charging Facilities",
       "Food Available"
-    ],
-    "groups": [
-      "Families"
     ]
   },
   {
@@ -13074,7 +12902,7 @@
     "kind": "advice_service",
     "no_pin": true,
     "who_for": [
-      "Families"
+      "Young people aged 11 to 25"
     ],
     "hours": {
       "Mon": "09:00 - 21:00",
@@ -13088,7 +12916,7 @@
     "lat": null,
     "lng": null,
     "groups": [
-      "Families"
+      "Young people aged 11 to 25"
     ]
   },
   {
@@ -13151,14 +12979,16 @@
     "no_pin": true,
     "town": "London",
     "who_for": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 25"
     ],
     "postcode": "",
     "lat": null,
     "lng": null,
     "phone_label": "Depaul UK central line",
     "groups": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 25"
     ]
   },
   {
@@ -13204,9 +13034,7 @@
     "last_verified": "2026-11-13",
     "kind": "advice_service",
     "no_pin": true,
-    "who_for": [
-      "Families"
-    ],
+    "who_for": "Not stated",
     "hours": {
       "Mon": "09:00 - 16:30",
       "Tue": "09:00 - 16:30",
@@ -13216,10 +13044,7 @@
     },
     "postcode": "",
     "lat": null,
-    "lng": null,
-    "groups": [
-      "Families"
-    ]
+    "lng": null
   },
   {
     "id": "man-depaul-uk-oldham-reconnect",
@@ -13277,13 +13102,15 @@
     "kind": "young_people",
     "no_pin": true,
     "who_for": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 25"
     ],
     "postcode": "",
     "lat": null,
     "lng": null,
     "groups": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 25"
     ]
   },
   {
@@ -13338,7 +13165,7 @@
     "no_pin": true,
     "town": "Derbyshire",
     "who_for": [
-      "Families"
+      "People aged 18 and over"
     ],
     "access": "A referral is needed. Call 01773 734989 for advice.",
     "referral": "A referral is needed. Call 01773 734989 for advice.",
@@ -13347,7 +13174,7 @@
     "lat": null,
     "lng": null,
     "groups": [
-      "Families"
+      "People aged 18 and over"
     ]
   },
   {
@@ -13470,19 +13297,14 @@
     "kind": "young_people",
     "no_pin": true,
     "groups": [
-      "Young people aged 16 to 25",
-      "Families"
+      "Young people aged 16 to 25"
     ],
     "who_for": [
-      "Young people aged 16 to 25",
-      "Families"
+      "Young people aged 16 to 25"
     ],
     "postcode": "",
     "lat": null,
-    "lng": null,
-    "facilities": [
-      "Food Available"
-    ]
+    "lng": null
   },
   {
     "id": "man-dudley-rent-deposit-scheme",
@@ -13503,7 +13325,7 @@
     "last_verified": "2026-11-13",
     "kind": "advice_service",
     "no_pin": true,
-    "town": "Dudley Borough",
+    "town": "Dudley",
     "who_for": [
       "Families"
     ],
@@ -13520,10 +13342,6 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Parking",
-      "Staffed 24 hours a day"
-    ],
     "groups": [
       "Families"
     ]
@@ -13562,9 +13380,6 @@
       "Sat": "10:00 - 17:00",
       "Sun": "10:00 - 14:30"
     },
-    "facilities": [
-      "Food Available"
-    ],
     "groups": [
       "Families"
     ]
@@ -13654,9 +13469,6 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Staffed 24 hours a day"
-    ],
     "phone_label": "Main office"
   },
   {
@@ -13688,10 +13500,7 @@
     },
     "postcode": "",
     "lat": null,
-    "lng": null,
-    "facilities": [
-      "Staffed 24 hours a day"
-    ]
+    "lng": null
   },
   {
     "id": "man-empanda-yps-cromer-foyer",
@@ -13713,10 +13522,12 @@
     "kind": "young_people",
     "no_pin": true,
     "groups": [
-      "Young people aged 16 to 24"
+      "Men and women",
+      "Young people aged 16 to 25"
     ],
     "who_for": [
-      "Young people aged 16 to 24"
+      "Men and women",
+      "Young people aged 16 to 25"
     ],
     "access": "A referral is needed. Call 01603 552102 for advice.",
     "referral": "A referral is needed. Call 01603 552102 for advice.",
@@ -13727,9 +13538,7 @@
     "phone_label": "Empanda YPS central line",
     "facilities": [
       "Laundry",
-      "Free Wifi",
-      "Food Available",
-      "Staffed 24 hours a day"
+      "Free Wifi"
     ]
   },
   {
@@ -13752,18 +13561,17 @@
     "kind": "young_people",
     "no_pin": true,
     "groups": [
-      "Young people aged 16 to 24"
+      "Men and women",
+      "Young people aged 16 to 25"
     ],
     "who_for": [
-      "Young people aged 16 to 24"
+      "Men and women",
+      "Young people aged 16 to 25"
     ],
     "postcode": "",
     "lat": null,
     "lng": null,
-    "phone_label": "Empanda YPS central line",
-    "facilities": [
-      "Food Available"
-    ]
+    "phone_label": "Empanda YPS central line"
   },
   {
     "id": "man-empanda-yps-stalham-foyer",
@@ -13785,18 +13593,17 @@
     "kind": "young_people",
     "no_pin": true,
     "groups": [
-      "Young people aged 16 to 24"
+      "Men and women",
+      "Young people aged 16 to 25"
     ],
     "who_for": [
-      "Young people aged 16 to 24"
+      "Men and women",
+      "Young people aged 16 to 25"
     ],
     "postcode": "",
     "lat": null,
     "lng": null,
-    "phone_label": "Empanda YPS central line",
-    "facilities": [
-      "Food Available"
-    ]
+    "phone_label": "Empanda YPS central line"
   },
   {
     "id": "man-encompass-southwest",
@@ -13888,9 +13695,7 @@
     "last_verified": "2026-11-13",
     "kind": "advice_service",
     "no_pin": true,
-    "who_for": [
-      "Families"
-    ],
+    "who_for": "Not stated",
     "access": "A referral is needed. Call 0117 909 6630 for advice.",
     "referral": "A referral is needed. Call 0117 909 6630 for advice.",
     "access_type": "referral_only",
@@ -13905,12 +13710,6 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Staffed 24 hours a day"
-    ],
-    "groups": [
-      "Families"
-    ],
     "phone_label": "Second Step central line"
   },
   {
@@ -13983,9 +13782,6 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Staffed 24 hours a day"
-    ],
     "phone_label": "Framework HA central line"
   },
   {
@@ -14007,7 +13803,7 @@
     "last_verified": "2026-11-13",
     "kind": "day_centre",
     "no_pin": true,
-    "town": "Homeless",
+    "town": "Brighton and Hove",
     "who_for": "Not stated",
     "hours": {
       "Mon": "19:30 - 21:00"
@@ -14047,8 +13843,7 @@
     "lat": null,
     "lng": null,
     "facilities": [
-      "Showers",
-      "Food Available"
+      "Showers"
     ]
   },
   {
@@ -14173,9 +13968,6 @@
     "access": "You can refer yourself by calling 0300 111 7000.",
     "referral": "You can refer yourself by calling 0300 111 7000.",
     "access_type": "self_referral",
-    "hours": {
-      "Thu": "08:45 - 17:15"
-    },
     "postcode": "",
     "lat": null,
     "lng": null
@@ -14268,12 +14060,7 @@
     "who_for": "Not stated",
     "postcode": "",
     "lat": null,
-    "lng": null,
-    "facilities": [
-      "Charging Facilities",
-      "Parking",
-      "Staffed 24 hours a day"
-    ]
+    "lng": null
   },
   {
     "id": "man-harp-southend-bradbury-day-centre",
@@ -14294,9 +14081,7 @@
     "last_verified": "2026-11-13",
     "kind": "day_centre",
     "no_pin": true,
-    "who_for": [
-      "Families"
-    ],
+    "who_for": "Not stated",
     "access": "A referral is needed. Call 01702 615000 for advice.",
     "referral": "A referral is needed. Call 01702 615000 for advice.",
     "access_type": "referral_only",
@@ -14313,9 +14098,6 @@
     "facilities": [
       "Showers",
       "Food Available"
-    ],
-    "groups": [
-      "Families"
     ]
   },
   {
@@ -14426,12 +14208,10 @@
     "kind": "advice_service",
     "no_pin": true,
     "groups": [
-      "Young people aged 16 to 24",
-      "Families"
+      "Young people aged 16 to 24"
     ],
     "who_for": [
-      "Young people aged 16 to 24",
-      "Families"
+      "Young people aged 16 to 24"
     ],
     "hours": {
       "Mon": "09:00 - 17:00",
@@ -14538,10 +14318,7 @@
     "access_type": "self_referral",
     "postcode": "",
     "lat": null,
-    "lng": null,
-    "facilities": [
-      "Other Refreshments"
-    ]
+    "lng": null
   },
   {
     "id": "man-homemaker-southwest",
@@ -14691,7 +14468,7 @@
     "no_pin": true,
     "town": "Darlington",
     "who_for": [
-      "Families"
+      "Young people aged 16 to 25"
     ],
     "access": "A referral is needed. Call 01325 731160 for advice.",
     "referral": "A referral is needed. Call 01325 731160 for advice.",
@@ -14706,11 +14483,8 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Charging Facilities"
-    ],
     "groups": [
-      "Families"
+      "Young people aged 16 to 25"
     ],
     "phone_label": "Central line"
   },
@@ -14775,16 +14549,15 @@
     "no_pin": true,
     "town": "Brighton and Hove",
     "who_for": [
-      "Families"
+      "Women only",
+      "People aged 16 to 30"
     ],
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Food Available"
-    ],
     "groups": [
-      "Families"
+      "Women only",
+      "People aged 16 to 30"
     ]
   },
   {
@@ -14841,13 +14614,6 @@
     "kind": "day_centre",
     "no_pin": true,
     "who_for": "Not stated",
-    "hours": {
-      "Mon": "09:30 - 10:30",
-      "Tue": "Closed",
-      "Wed": "09:30 - 10:30",
-      "Thu": "09:30 - 10:30",
-      "Fri": "09:30 - 10:30"
-    },
     "postcode": "",
     "lat": null,
     "lng": null,
@@ -14882,11 +14648,7 @@
     "access_type": "referral_only",
     "postcode": "",
     "lat": null,
-    "lng": null,
-    "facilities": [
-      "Food Available",
-      "Staffed 24 hours a day"
-    ]
+    "lng": null
   },
   {
     "id": "man-irwell-valley-ha-greenbank-young-persons-supported",
@@ -14911,10 +14673,7 @@
     "who_for": "Not stated",
     "postcode": "",
     "lat": null,
-    "lng": null,
-    "facilities": [
-      "Staffed 24 hours a day"
-    ]
+    "lng": null
   },
   {
     "id": "man-jericho-foundation",
@@ -14935,9 +14694,7 @@
     "last_verified": "2026-11-13",
     "kind": "advice_service",
     "no_pin": true,
-    "who_for": [
-      "Families"
-    ],
+    "who_for": "Not stated",
     "hours": {
       "Mon": "09:00 - 17:00",
       "Tue": "09:00 - 17:00",
@@ -14947,10 +14704,7 @@
     },
     "postcode": "",
     "lat": null,
-    "lng": null,
-    "groups": [
-      "Families"
-    ]
+    "lng": null
   },
   {
     "id": "man-just-homes-cumberland-road",
@@ -14973,19 +14727,16 @@
     "no_pin": true,
     "card_type": "referral_hostel",
     "groups": [
-      "Men and women",
-      "Families"
+      "Men only",
+      "People aged 18 to 59"
     ],
     "who_for": [
-      "Men and women",
-      "Families"
+      "Men only",
+      "People aged 18 to 59"
     ],
     "postcode": "",
     "lat": null,
-    "lng": null,
-    "facilities": [
-      "Food Available"
-    ]
+    "lng": null
   },
   {
     "id": "man-justlife-brighton",
@@ -15090,7 +14841,7 @@
     "last_verified": "2026-11-13",
     "kind": "advice_service",
     "no_pin": true,
-    "town": "Thursday",
+    "town": "London",
     "who_for": "Not stated",
     "access": "You can refer yourself by calling 020 7359 5767.",
     "referral": "You can refer yourself by calling 020 7359 5767.",
@@ -15125,14 +14876,6 @@
     "lat": 53.476923,
     "lng": -2.237248,
     "who_for": "Not stated",
-    "hours": {
-      "Mon": "10:30 - 17:00",
-      "Tue": "10:30 - 17:00",
-      "Wed": "10:30 - 17:00",
-      "Thu": "10:30 - 17:00",
-      "Fri": "10:30 - 17:00",
-      "Sun": "07:00 - 09:00"
-    },
     "facilities": [
       "Food Available"
     ]
@@ -15183,14 +14926,16 @@
     "no_pin": true,
     "town": "Liverpool",
     "who_for": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 21"
     ],
     "postcode": "",
     "lat": null,
     "lng": null,
     "phone_label": "Local Solutions central line",
     "groups": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 21"
     ]
   },
   {
@@ -15213,14 +14958,16 @@
     "kind": "young_people",
     "no_pin": true,
     "who_for": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 18"
     ],
     "postcode": "",
     "lat": null,
     "lng": null,
     "phone_label": "Local Solutions central line",
     "groups": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 18"
     ]
   },
   {
@@ -15244,7 +14991,8 @@
     "no_pin": true,
     "town": "Huntingdonshire",
     "who_for": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 25"
     ],
     "access": "A referral is needed. Call 01480 388218 for advice.",
     "referral": "A referral is needed. Call 01480 388218 for advice.",
@@ -15252,11 +15000,9 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Parking"
-    ],
     "groups": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 25"
     ],
     "phone_label": "Central line"
   },
@@ -15369,11 +15115,7 @@
     "who_for": "Not stated",
     "postcode": "",
     "lat": null,
-    "lng": null,
-    "facilities": [
-      "Charging Facilities",
-      "Staffed 24 hours a day"
-    ]
+    "lng": null
   },
   {
     "id": "man-missing-link-housing-service",
@@ -15395,11 +15137,9 @@
     "kind": "advice_service",
     "no_pin": true,
     "groups": [
-      "Young people aged 16 to 24",
       "Families"
     ],
     "who_for": [
-      "Young people aged 16 to 24",
       "Families"
     ],
     "hours": {
@@ -15411,10 +15151,7 @@
     },
     "postcode": "",
     "lat": null,
-    "lng": null,
-    "facilities": [
-      "Staffed 24 hours a day"
-    ]
+    "lng": null
   },
   {
     "id": "man-mosscare-st-vincents-housing-group-blackburn-with",
@@ -15475,13 +15212,6 @@
     "who_for": [
       "Young people aged 16 to 25"
     ],
-    "hours": {
-      "Mon": "09:00 - 17:00",
-      "Tue": "09:00 - 17:00",
-      "Thu": "09:00 - 17:00",
-      "Fri": "09:00 - 16:30",
-      "Sun": "Closed"
-    },
     "postcode": "",
     "lat": null,
     "lng": null
@@ -15542,17 +15272,12 @@
     "postcode": "E6 2SG",
     "lat": 51.530838,
     "lng": 0.061849,
-    "who_for": [
-      "Families"
-    ],
+    "who_for": "Not stated",
     "facilities": [
       "Showers",
       "Laundry",
       "Computer Access",
       "Food Available"
-    ],
-    "groups": [
-      "Families"
     ]
   },
   {
@@ -15606,13 +15331,15 @@
     "kind": "young_people",
     "no_pin": true,
     "who_for": [
-      "Families"
+      "Men and women",
+      "People aged 16 to 35"
     ],
     "postcode": "",
     "lat": null,
     "lng": null,
     "groups": [
-      "Families"
+      "Men and women",
+      "People aged 16 to 35"
     ]
   },
   {
@@ -15673,9 +15400,6 @@
     "who_for": [
       "Families"
     ],
-    "hours": {
-      "Sun": "Closed"
-    },
     "postcode": "",
     "lat": null,
     "lng": null,
@@ -15734,15 +15458,11 @@
     "last_verified": "2026-11-13",
     "kind": "young_people",
     "no_pin": true,
-    "town": "LBs Wandsworth and Merton",
+    "town": "Wandsworth and Merton",
     "who_for": "Not stated",
     "postcode": "",
     "lat": null,
-    "lng": null,
-    "facilities": [
-      "Charging Facilities",
-      "Staffed 24 hours a day"
-    ]
+    "lng": null
   },
   {
     "id": "man-nottingham-community-ha-branching-out",
@@ -15766,11 +15486,7 @@
     "who_for": "Not stated",
     "postcode": "",
     "lat": null,
-    "lng": null,
-    "facilities": [
-      "Showers",
-      "Staffed 24 hours a day"
-    ]
+    "lng": null
   },
   {
     "id": "man-nugent-care-housing-support-unit",
@@ -15825,9 +15541,7 @@
     "postcode": "M18 7FB",
     "lat": 53.460598,
     "lng": -2.16976,
-    "who_for": [
-      "Families"
-    ],
+    "who_for": "Not stated",
     "hours": {
       "Mon": "09:30 - 14:00",
       "Tue": "09:30 - 14:00",
@@ -15837,11 +15551,7 @@
     },
     "facilities": [
       "Computer Access",
-      "TV",
       "Food Available"
-    ],
-    "groups": [
-      "Families"
     ]
   },
   {
@@ -15965,7 +15675,7 @@
     "kind": "hostel",
     "no_pin": true,
     "card_type": "referral_hostel",
-    "town": "LB Camden",
+    "town": "Camden",
     "groups": [
       "Men and women"
     ],
@@ -15975,9 +15685,6 @@
     "access": "A referral is needed. Call 020 7974 5081 for advice.",
     "referral": "A referral is needed. Call 020 7974 5081 for advice.",
     "access_type": "referral_only",
-    "hours": {
-      "Sun": "20:30 - 08:30"
-    },
     "postcode": "",
     "lat": null,
     "lng": null
@@ -16035,9 +15742,7 @@
     "last_verified": "2026-11-13",
     "kind": "advice_service",
     "no_pin": true,
-    "who_for": [
-      "Families"
-    ],
+    "who_for": "Not stated",
     "hours": {
       "Mon": "09:30 - 15:00",
       "Tue": "09:30 - 15:00",
@@ -16047,14 +15752,7 @@
     },
     "postcode": "",
     "lat": null,
-    "lng": null,
-    "facilities": [
-      "Free Wifi",
-      "TV"
-    ],
-    "groups": [
-      "Families"
-    ]
+    "lng": null
   },
   {
     "id": "man-orwell-ha-hinde-house",
@@ -16076,7 +15774,8 @@
     "kind": "young_people",
     "no_pin": true,
     "who_for": [
-      "Families"
+      "Women only",
+      "People aged 16 and over"
     ],
     "access": "A referral is needed. Call 0345 601 0030 for advice.",
     "referral": "A referral is needed. Call 0345 601 0030 for advice.",
@@ -16085,7 +15784,8 @@
     "lat": null,
     "lng": null,
     "groups": [
-      "Families"
+      "Women only",
+      "People aged 16 and over"
     ],
     "phone_label": "Central line"
   },
@@ -16109,7 +15809,8 @@
     "kind": "young_people",
     "no_pin": true,
     "who_for": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 18"
     ],
     "access": "A referral is needed. Call 020 8573 3107 for advice.",
     "referral": "A referral is needed. Call 020 8573 3107 for advice.",
@@ -16117,11 +15818,9 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Staffed 24 hours a day"
-    ],
     "groups": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 18"
     ]
   },
   {
@@ -16145,7 +15844,7 @@
     "no_pin": true,
     "town": "Calderdale",
     "who_for": [
-      "Families"
+      "People aged 25 and over"
     ],
     "access": "A referral is needed. Call 0808 304 9730 for advice.",
     "referral": "A referral is needed. Call 0808 304 9730 for advice.",
@@ -16161,7 +15860,7 @@
     "lat": null,
     "lng": null,
     "groups": [
-      "Families"
+      "People aged 25 and over"
     ]
   },
   {
@@ -16187,12 +15886,10 @@
     "lat": 52.516884,
     "lng": -0.251083,
     "groups": [
-      "People aged 18 and over",
-      "Families"
+      "People aged 18 and over"
     ],
     "who_for": [
-      "People aged 18 and over",
-      "Families"
+      "People aged 18 and over"
     ],
     "access": "A referral is needed. Call 0808 169 8099 for advice.",
     "referral": "A referral is needed. Call 0808 169 8099 for advice.",
@@ -16218,7 +15915,8 @@
     "kind": "young_people",
     "no_pin": true,
     "who_for": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 18"
     ],
     "access": "A referral is needed. Call 07510 926225 for advice.",
     "referral": "A referral is needed. Call 07510 926225 for advice.",
@@ -16226,11 +15924,9 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Staffed 24 hours a day"
-    ],
     "groups": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 18"
     ]
   },
   {
@@ -16254,22 +15950,16 @@
     "no_pin": true,
     "town": "Derbyshire",
     "who_for": [
-      "Families"
+      "People aged 16 and over"
     ],
     "access": "A referral is needed. Call 01773 742051 for advice.",
     "referral": "A referral is needed. Call 01773 742051 for advice.",
     "access_type": "referral_only",
-    "hours": {
-      "Mon": "14:00 - 16:00",
-      "Tue": "10:00 - 13:00",
-      "Wed": "14:00 - 16:00",
-      "Thu": "14:00 - 16:00"
-    },
     "postcode": "",
     "lat": null,
     "lng": null,
     "groups": [
-      "Families"
+      "People aged 16 and over"
     ]
   },
   {
@@ -16292,7 +15982,8 @@
     "kind": "young_people",
     "no_pin": true,
     "who_for": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 18"
     ],
     "access": "A referral is needed. Call 01625 669629 for advice.",
     "referral": "A referral is needed. Call 01625 669629 for advice.",
@@ -16300,11 +15991,9 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Staffed 24 hours a day"
-    ],
     "groups": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 18"
     ]
   },
   {
@@ -16339,10 +16028,7 @@
     "access_type": "referral_only",
     "postcode": "",
     "lat": null,
-    "lng": null,
-    "facilities": [
-      "Staffed 24 hours a day"
-    ]
+    "lng": null
   },
   {
     "id": "man-p3-charity-rotherham-housing-related-support-servi",
@@ -16397,12 +16083,10 @@
     "no_pin": true,
     "town": "Rutland",
     "groups": [
-      "People aged 16 and over",
-      "Families"
+      "People aged 16 and over"
     ],
     "who_for": [
-      "People aged 16 and over",
-      "Families"
+      "People aged 16 and over"
     ],
     "access": "A referral is needed. Call 07923 169469 for advice.",
     "referral": "A referral is needed. Call 07923 169469 for advice.",
@@ -16410,10 +16094,7 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "phone_label": "P3 Charity central line",
-    "facilities": [
-      "Laundry"
-    ]
+    "phone_label": "P3 Charity central line"
   },
   {
     "id": "man-p3-charity-rutland-mental-health-and-wellbeing-ser",
@@ -16435,12 +16116,10 @@
     "kind": "advice_service",
     "no_pin": true,
     "groups": [
-      "People aged 18 and over",
-      "Families"
+      "People aged 18 and over"
     ],
     "who_for": [
-      "People aged 18 and over",
-      "Families"
+      "People aged 18 and over"
     ],
     "postcode": "",
     "lat": null,
@@ -16470,7 +16149,7 @@
     "lat": 52.374089,
     "lng": -1.259738,
     "who_for": [
-      "Families"
+      "People aged 25 and over"
     ],
     "access": "A referral is needed. Call 0808 164 6220 for advice.",
     "referral": "A referral is needed. Call 0808 164 6220 for advice.",
@@ -16482,7 +16161,7 @@
     },
     "phone_label": "P3 Charity central line",
     "groups": [
-      "Families"
+      "People aged 25 and over"
     ]
   },
   {
@@ -16508,7 +16187,7 @@
     "lat": 52.374089,
     "lng": -1.259738,
     "who_for": [
-      "Families"
+      "People aged 25 and over"
     ],
     "access": "A referral is needed. Call 0808 164 6220 for advice.",
     "referral": "A referral is needed. Call 0808 164 6220 for advice.",
@@ -16520,7 +16199,7 @@
     },
     "phone_label": "P3 Charity central line",
     "groups": [
-      "Families"
+      "People aged 25 and over"
     ]
   },
   {
@@ -16557,10 +16236,7 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "phone_label": "P3 Charity central line",
-    "facilities": [
-      "Staffed 24 hours a day"
-    ]
+    "phone_label": "P3 Charity central line"
   },
   {
     "id": "man-p3-charity-wokingham-floating-support-service",
@@ -16582,7 +16258,8 @@
     "kind": "young_people",
     "no_pin": true,
     "who_for": [
-      "Families"
+      "Men and women",
+      "Young people aged 18 to 25"
     ],
     "access": "A referral is needed. Call 07720 162645 for advice.",
     "referral": "A referral is needed. Call 07720 162645 for advice.",
@@ -16592,7 +16269,8 @@
     "lng": null,
     "phone_label": "P3 Charity central line",
     "groups": [
-      "Families"
+      "Men and women",
+      "Young people aged 18 to 25"
     ]
   },
   {
@@ -16616,11 +16294,11 @@
     "no_pin": true,
     "groups": [
       "Young people aged 16 to 25",
-      "Families"
+      "Men and women"
     ],
     "who_for": [
       "Young people aged 16 to 25",
-      "Families"
+      "Men and women"
     ],
     "access": "A referral is needed. Call 07720 162645 for advice.",
     "referral": "A referral is needed. Call 07720 162645 for advice.",
@@ -16628,10 +16306,7 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "phone_label": "P3 Charity central line",
-    "facilities": [
-      "Staffed 24 hours a day"
-    ]
+    "phone_label": "P3 Charity central line"
   },
   {
     "id": "man-p3-charity-wolverhampton-at-roland-elcock-house",
@@ -16654,7 +16329,8 @@
     "no_pin": true,
     "town": "Wolverhampton",
     "who_for": [
-      "Families"
+      "Men and women",
+      "Young people aged 18 to 21"
     ],
     "access": "A referral is needed. Call 01902 925168 for advice.",
     "referral": "A referral is needed. Call 01902 925168 for advice.",
@@ -16662,11 +16338,9 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Staffed 24 hours a day"
-    ],
     "groups": [
-      "Families"
+      "Men and women",
+      "Young people aged 18 to 21"
     ]
   },
   {
@@ -16729,7 +16403,7 @@
     "lat": 51.513428,
     "lng": -0.470919,
     "who_for": [
-      "Families"
+      "Young people aged 13 to 25"
     ],
     "access": "A referral is needed. Call 01895 436114 for advice.",
     "referral": "A referral is needed. Call 01895 436114 for advice.",
@@ -16743,7 +16417,7 @@
     },
     "phone_label": "P3 Charity central line",
     "groups": [
-      "Families"
+      "Young people aged 13 to 25"
     ]
   },
   {
@@ -16769,12 +16443,10 @@
     "lat": 51.513428,
     "lng": -0.470919,
     "groups": [
-      "Young people aged 16 to 25",
-      "Families"
+      "Young people aged 16 to 25"
     ],
     "who_for": [
-      "Young people aged 16 to 25",
-      "Families"
+      "Young people aged 16 to 25"
     ],
     "access": "A referral is needed. Call 01895 436114 for advice.",
     "referral": "A referral is needed. Call 01895 436114 for advice.",
@@ -16811,12 +16483,10 @@
     "lat": 53.201113,
     "lng": -1.398175,
     "groups": [
-      "People aged 18 and over",
-      "Families"
+      "People aged 18 and over"
     ],
     "who_for": [
-      "People aged 18 and over",
-      "Families"
+      "People aged 18 and over"
     ],
     "access": "You can refer yourself by calling 01246 949410.",
     "referral": "You can refer yourself by calling 01246 949410.",
@@ -16861,10 +16531,7 @@
     "access_type": "referral_only",
     "postcode": "",
     "lat": null,
-    "lng": null,
-    "facilities": [
-      "Staffed 24 hours a day"
-    ]
+    "lng": null
   },
   {
     "id": "man-p3-cotswolds-community-based-support-service",
@@ -16887,12 +16554,10 @@
     "no_pin": true,
     "town": "Cotswolds",
     "groups": [
-      "People aged 16 and over",
-      "Families"
+      "People aged 16 and over"
     ],
     "who_for": [
-      "People aged 16 and over",
-      "Families"
+      "People aged 16 and over"
     ],
     "access": "A referral is needed. Call 01285 652340 for advice.",
     "referral": "A referral is needed. Call 01285 652340 for advice.",
@@ -16995,12 +16660,10 @@
     "no_pin": true,
     "town": "Milton Keynes",
     "groups": [
-      "People aged 18 and over",
-      "Families"
+      "People aged 18 and over"
     ],
     "who_for": [
-      "People aged 18 and over",
-      "Families"
+      "People aged 18 and over"
     ],
     "access": "You can refer yourself by calling 0808 164 1810.",
     "referral": "You can refer yourself by calling 0808 164 1810.",
@@ -17029,7 +16692,8 @@
     "kind": "young_people",
     "no_pin": true,
     "who_for": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 18"
     ],
     "access": "A referral is needed. Call 07713 342508 for advice.",
     "referral": "A referral is needed. Call 07713 342508 for advice.",
@@ -17037,11 +16701,9 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Staffed 24 hours a day"
-    ],
     "groups": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 18"
     ]
   },
   {
@@ -17074,10 +16736,6 @@
     "access": "You can refer yourself by calling 01706 212894.",
     "referral": "You can refer yourself by calling 01706 212894.",
     "access_type": "self_referral",
-    "hours": {
-      "Fri": "08:30 - 22:15",
-      "Sun": "09:30 - 17:30"
-    },
     "postcode": "",
     "lat": null,
     "lng": null
@@ -17103,7 +16761,7 @@
     "no_pin": true,
     "town": "Plymouth",
     "who_for": [
-      "Families"
+      "People aged 16 and over"
     ],
     "hours": {
       "Mon": "09:00 - 16:00",
@@ -17115,13 +16773,8 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Hot Drinks",
-      "Food Available",
-      "Staffed 24 hours a day"
-    ],
     "groups": [
-      "Families"
+      "People aged 16 and over"
     ]
   },
   {
@@ -17155,9 +16808,6 @@
     "access": "You can refer yourself by calling 01376 552525.",
     "referral": "You can refer yourself by calling 01376 552525.",
     "access_type": "self_referral",
-    "hours": {
-      "Thu": "09:00 - 17:30"
-    },
     "postcode": "",
     "lat": null,
     "lng": null,
@@ -17183,7 +16833,7 @@
     "kind": "hostel",
     "no_pin": true,
     "card_type": "referral_hostel",
-    "town": "Braintree District Council",
+    "town": "Braintree",
     "who_for": "Not stated",
     "postcode": "",
     "lat": null,
@@ -17209,7 +16859,7 @@
     "last_verified": "2026-11-13",
     "kind": "young_people",
     "no_pin": true,
-    "town": "LB Lewisham",
+    "town": "Lewisham",
     "groups": [
       "Young people aged 16 to 21",
       "Men and women"
@@ -17242,7 +16892,7 @@
     "kind": "night_shelter",
     "no_pin": true,
     "card_type": "referral_hostel",
-    "town": "EHM",
+    "town": "Hackney",
     "who_for": "Not stated",
     "postcode": "",
     "lat": null,
@@ -17267,9 +16917,7 @@
     "last_verified": "2026-11-13",
     "kind": "advice_service",
     "no_pin": true,
-    "who_for": [
-      "Families"
-    ],
+    "who_for": "Not stated",
     "hours": {
       "Mon": "09:30 - 17:00",
       "Tue": "09:30 - 17:00",
@@ -17279,13 +16927,7 @@
     },
     "postcode": "",
     "lat": null,
-    "lng": null,
-    "facilities": [
-      "Staffed 24 hours a day"
-    ],
-    "groups": [
-      "Families"
-    ]
+    "lng": null
   },
   {
     "id": "man-phoenix-futures-town-centre-outreach-service",
@@ -17306,10 +16948,8 @@
     "last_verified": "2026-11-13",
     "kind": "advice_service",
     "no_pin": true,
-    "town": "Birkenhead town centre",
-    "who_for": [
-      "Families"
-    ],
+    "town": "Birkenhead",
+    "who_for": "Not stated",
     "hours": {
       "Mon": "09:00 - 16:30",
       "Tue": "09:00 - 16:30",
@@ -17319,13 +16959,7 @@
     },
     "postcode": "",
     "lat": null,
-    "lng": null,
-    "facilities": [
-      "Staffed 24 hours a day"
-    ],
-    "groups": [
-      "Families"
-    ]
+    "lng": null
   },
   {
     "id": "man-places-for-people-dock-street",
@@ -17347,13 +16981,15 @@
     "kind": "young_people",
     "no_pin": true,
     "who_for": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 24"
     ],
     "postcode": "",
     "lat": null,
     "lng": null,
     "groups": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 24"
     ]
   },
   {
@@ -17377,13 +17013,15 @@
     "no_pin": true,
     "town": "Salford",
     "who_for": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 25"
     ],
     "postcode": "",
     "lat": null,
     "lng": null,
     "groups": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 25"
     ]
   },
   {
@@ -17414,9 +17052,6 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Parking"
-    ],
     "groups": [
       "Families"
     ]
@@ -17488,10 +17123,7 @@
     "access_type": "referral_only",
     "postcode": "",
     "lat": null,
-    "lng": null,
-    "facilities": [
-      "Staffed 24 hours a day"
-    ]
+    "lng": null
   },
   {
     "id": "man-providence-row-daniel-gilbert-house",
@@ -17512,7 +17144,7 @@
     "last_verified": "2026-11-13",
     "kind": "young_people",
     "no_pin": true,
-    "town": "LB Tower Hamlets",
+    "town": "Tower Hamlets",
     "groups": [
       "Young people aged 16 to 25",
       "Men and women"
@@ -17556,14 +17188,7 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "phone_label": "Riverside central line",
-    "facilities": [
-      "Showers",
-      "Charging Facilities",
-      "Accessible Toilets",
-      "Computer Access",
-      "Staffed 24 hours a day"
-    ]
+    "phone_label": "Riverside central line"
   },
   {
     "id": "man-queen-victoria-seamens-rest",
@@ -17584,7 +17209,7 @@
     "last_verified": "2026-11-13",
     "kind": "young_people",
     "no_pin": true,
-    "town": "LB Tower Hamlets",
+    "town": "Tower Hamlets",
     "groups": [
       "Men and women"
     ],
@@ -17658,7 +17283,8 @@
     "kind": "young_people",
     "no_pin": true,
     "who_for": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 25"
     ],
     "access": "A referral is needed. Call 01325 731160 for advice.",
     "referral": "A referral is needed. Call 01325 731160 for advice.",
@@ -17666,11 +17292,9 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Charging Facilities"
-    ],
     "groups": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 25"
     ]
   },
   {
@@ -17702,9 +17326,6 @@
     "access": "You can turn up without a referral. Call 0151 288 8100 if you want to check first.",
     "referral": "You can turn up without a referral. Call 0151 288 8100 if you want to check first.",
     "access_type": "open_access",
-    "hours": {
-      "Tue": "09:00 - 17:00"
-    },
     "postcode": "",
     "lat": null,
     "lng": null
@@ -17744,11 +17365,6 @@
       "Thu": "10:00 - 12:00",
       "Fri": "10:00 - 12:00"
     },
-    "facilities": [
-      "Showers",
-      "Food Available",
-      "Staffed 24 hours a day"
-    ],
     "groups": [
       "Families"
     ]
@@ -17773,7 +17389,8 @@
     "kind": "young_people",
     "no_pin": true,
     "who_for": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 24"
     ],
     "access": "A referral is needed. Call 0345 606 6067 for advice.",
     "referral": "A referral is needed. Call 0345 606 6067 for advice.",
@@ -17782,12 +17399,9 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Charging Facilities",
-      "Food Available"
-    ],
     "groups": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 24"
     ]
   },
   {
@@ -17819,7 +17433,6 @@
       "Sun": "14:00 - 15:15"
     },
     "facilities": [
-      "Hot Drinks",
       "Showers",
       "Other Refreshments",
       "Food Available"
@@ -17846,21 +17459,15 @@
     "no_pin": true,
     "card_type": "referral_hostel",
     "who_for": [
-      "Families"
+      "Men only",
+      "People aged 19 and over"
     ],
-    "hours": {
-      "Fri": "09:00 - 17:00",
-      "Sat": "08:30 - 13:30",
-      "Sun": "10:00 - 18:00"
-    },
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Staffed 24 hours a day"
-    ],
     "groups": [
-      "Families"
+      "Men only",
+      "People aged 19 and over"
     ],
     "phone_label": "Sapphire Independent Housing central line"
   },
@@ -17883,23 +17490,17 @@
     "last_verified": "2026-11-13",
     "kind": "young_people",
     "no_pin": true,
-    "town": "LB Islington",
+    "town": "Islington",
     "who_for": [
-      "Families"
+      "Women only",
+      "People aged 16 to 65"
     ],
-    "hours": {
-      "Fri": "09:00 - 17:00",
-      "Sat": "08:30 - 13:30",
-      "Sun": "10:00 - 18:00"
-    },
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Staffed 24 hours a day"
-    ],
     "groups": [
-      "Families"
+      "Women only",
+      "People aged 16 to 65"
     ],
     "phone_label": "Sapphire Independent Housing central line"
   },
@@ -17923,21 +17524,15 @@
     "kind": "young_people",
     "no_pin": true,
     "who_for": [
-      "Families"
+      "Women only",
+      "Young people aged 16 to 25"
     ],
-    "hours": {
-      "Fri": "09:00 - 17:00",
-      "Sat": "08:30 - 13:30",
-      "Sun": "10:00 - 18:00"
-    },
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Staffed 24 hours a day"
-    ],
     "groups": [
-      "Families"
+      "Women only",
+      "Young people aged 16 to 25"
     ],
     "phone_label": "Sapphire Independent Housing central line"
   },
@@ -17993,7 +17588,7 @@
     "last_verified": "2026-11-13",
     "kind": "advice_service",
     "no_pin": true,
-    "town": "Scotland",
+    "town": "London",
     "who_for": "Not stated",
     "hours": {
       "Mon": "09:00 - 17:00",
@@ -18038,11 +17633,7 @@
     },
     "postcode": "",
     "lat": null,
-    "lng": null,
-    "facilities": [
-      "Charging Facilities",
-      "Other Refreshments"
-    ]
+    "lng": null
   },
   {
     "id": "man-second-step-homefield-court",
@@ -18065,7 +17656,8 @@
     "no_pin": true,
     "card_type": "referral_hostel",
     "who_for": [
-      "Families"
+      "Men only",
+      "People aged 22 and over"
     ],
     "access": "A referral is needed. Call 0117 909 6630 for advice.",
     "referral": "A referral is needed. Call 0117 909 6630 for advice.",
@@ -18074,11 +17666,9 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Staffed 24 hours a day"
-    ],
     "groups": [
-      "Families"
+      "Men only",
+      "People aged 22 and over"
     ],
     "phone_label": "Second Step central line"
   },
@@ -18145,10 +17735,7 @@
     },
     "postcode": "",
     "lat": null,
-    "lng": null,
-    "facilities": [
-      "Parking"
-    ]
+    "lng": null
   },
   {
     "id": "man-signposts-guildford-hall-start-over-shelter-sos",
@@ -18171,19 +17758,16 @@
     "no_pin": true,
     "card_type": "referral_hostel",
     "groups": [
-      "People aged 16 and over"
+      "Men and women",
+      "People aged 18 to 65"
     ],
     "who_for": [
-      "People aged 16 and over"
+      "Men and women",
+      "People aged 18 to 65"
     ],
     "postcode": "",
     "lat": null,
-    "lng": null,
-    "facilities": [
-      "Laundry",
-      "Food Available",
-      "Staffed 24 hours a day"
-    ]
+    "lng": null
   },
   {
     "id": "man-slap-street-level-access-programme",
@@ -18205,14 +17789,6 @@
     "kind": "day_centre",
     "no_pin": true,
     "who_for": "Not stated",
-    "hours": {
-      "Mon": "10:00 - 12:00",
-      "Tue": "13:00 - 14:00",
-      "Wed": "12:00 - 14:00",
-      "Thu": "13:00 - 14:00",
-      "Fri": "15:00 - 17:00",
-      "Sun": "12:00 - 13:00"
-    },
     "postcode": "",
     "lat": null,
     "lng": null,
@@ -18244,22 +17820,15 @@
     "no_pin": true,
     "groups": [
       "Young people aged 16 to 25",
-      "Families"
+      "Men and women"
     ],
     "who_for": [
       "Young people aged 16 to 25",
-      "Families"
+      "Men and women"
     ],
-    "hours": {
-      "Thu": "09:30 - 17:00",
-      "Fri": "09:30 - 16:30"
-    },
     "postcode": "",
     "lat": null,
-    "lng": null,
-    "facilities": [
-      "Food Available"
-    ]
+    "lng": null
   },
   {
     "id": "man-smart-prebend",
@@ -18286,14 +17855,6 @@
     "who_for": [
       "People aged 16 and over"
     ],
-    "hours": {
-      "Mon": "08:30 - 13:00",
-      "Tue": "08:30 - 13:00",
-      "Wed": "08:30 - 15:00",
-      "Thu": "08:30 - 13:00",
-      "Fri": "08:30 - 13:00",
-      "Sun": "08:30 - 13:00"
-    },
     "postcode": "",
     "lat": null,
     "lng": null,
@@ -18370,9 +17931,6 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Charging Facilities"
-    ],
     "phone_label": "Central line"
   },
   {
@@ -18402,9 +17960,6 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Charging Facilities"
-    ],
     "phone_label": "Central line"
   },
   {
@@ -18460,10 +18015,7 @@
     "who_for": "Not stated",
     "postcode": "",
     "lat": null,
-    "lng": null,
-    "facilities": [
-      "Food Available"
-    ]
+    "lng": null
   },
   {
     "id": "man-spaces-single-persons-accommodation-centre-for-the",
@@ -18498,14 +18050,6 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Showers",
-      "Charging Facilities",
-      "Accessible Toilets",
-      "Computer Access",
-      "Energy Advice",
-      "Staffed 24 hours a day"
-    ],
     "phone_label": "Central line"
   },
   {
@@ -18584,27 +18128,18 @@
     "no_pin": true,
     "town": "Rochester",
     "who_for": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 25"
     ],
     "access": "A referral is needed. Call 01634 334466 for advice.",
     "referral": "A referral is needed. Call 01634 334466 for advice.",
     "access_type": "referral_only",
-    "hours": {
-      "Fri": "09:00 - 17:00",
-      "Sat": "09:00 - 16:00",
-      "Sun": "Closed"
-    },
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Charging Facilities",
-      "Parking",
-      "Food Available",
-      "Staffed 24 hours a day"
-    ],
     "groups": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 25"
     ]
   },
   {
@@ -18700,10 +18235,6 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Food Available",
-      "Staffed 24 hours a day"
-    ],
     "phone_label": "St Basils central line"
   },
   {
@@ -18838,11 +18369,9 @@
     "kind": "advice_service",
     "no_pin": true,
     "groups": [
-      "Men and women",
       "Families"
     ],
     "who_for": [
-      "Men and women",
       "Families"
     ],
     "access": "A referral is needed. Call 01274 726790 for advice.",
@@ -18857,10 +18386,7 @@
     },
     "postcode": "",
     "lat": null,
-    "lng": null,
-    "facilities": [
-      "Food Available"
-    ]
+    "lng": null
   },
   {
     "id": "man-step-by-step-foyer-accommodation",
@@ -18884,21 +18410,18 @@
     "lat": null,
     "lng": null,
     "groups": [
-      "Young people aged 16 to 21",
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 25"
     ],
     "who_for": [
-      "Young people aged 16 to 21",
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 25"
     ],
     "access": "A referral is needed. Call 01252 346100 for advice.",
     "referral": "A referral is needed. Call 01252 346100 for advice.",
     "access_type": "referral_only",
     "no_pin": true,
-    "phone_label": "Step by central line",
-    "facilities": [
-      "Staffed 24 hours a day"
-    ]
+    "phone_label": "Step by central line"
   },
   {
     "id": "man-step-by-step-launch",
@@ -18923,12 +18446,10 @@
     "lat": 51.248751,
     "lng": -0.759707,
     "groups": [
-      "Young people aged 16 to 21",
-      "Families"
+      "Young people aged 11 to 25"
     ],
     "who_for": [
-      "Young people aged 16 to 21",
-      "Families"
+      "Young people aged 11 to 25"
     ],
     "access": "A referral is needed. Call 01252 346100 for advice.",
     "referral": "A referral is needed. Call 01252 346100 for advice.",
@@ -18940,10 +18461,7 @@
       "Thu": "09:00 - 16:00",
       "Fri": "09:00 - 16:00"
     },
-    "phone_label": "Step by central line",
-    "facilities": [
-      "Staffed 24 hours a day"
-    ]
+    "phone_label": "Step by central line"
   },
   {
     "id": "man-stoll",
@@ -19030,9 +18548,6 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Staffed 24 hours a day"
-    ],
     "groups": [
       "Families"
     ]
@@ -19057,16 +18572,15 @@
     "kind": "young_people",
     "no_pin": true,
     "who_for": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 25"
     ],
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Staffed 24 hours a day"
-    ],
     "groups": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 25"
     ]
   },
   {
@@ -19141,7 +18655,8 @@
     "kind": "young_people",
     "no_pin": true,
     "who_for": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 25"
     ],
     "access": "A referral is needed. Call 0808 168 3476 for advice.",
     "referral": "A referral is needed. Call 0808 168 3476 for advice.",
@@ -19149,12 +18664,9 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Parking",
-      "Staffed 24 hours a day"
-    ],
     "groups": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 25"
     ]
   },
   {
@@ -19254,12 +18766,7 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "phone_label": "The Amber Foundation central line",
-    "facilities": [
-      "Computer Access",
-      "TV",
-      "Food Available"
-    ]
+    "phone_label": "The Amber Foundation central line"
   },
   {
     "id": "man-the-benjamin-foundation-steven-newing-house",
@@ -19282,13 +18789,15 @@
     "no_pin": true,
     "town": "North Norfolk",
     "who_for": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 25"
     ],
     "postcode": "",
     "lat": null,
     "lng": null,
     "groups": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 25"
     ],
     "phone_label": "Benjamin Foundation central line"
   },
@@ -19312,13 +18821,15 @@
     "kind": "young_people",
     "no_pin": true,
     "who_for": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 25"
     ],
     "postcode": "",
     "lat": null,
     "lng": null,
     "groups": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 25"
     ],
     "phone_label": "Benjamin Foundation central line"
   },
@@ -19343,24 +18854,20 @@
     "no_pin": true,
     "groups": [
       "Young people aged 16 to 25",
-      "Young people aged 16 to 24",
-      "Families"
+      "Families",
+      "Men and women"
     ],
     "who_for": [
       "Young people aged 16 to 25",
-      "Young people aged 16 to 24",
-      "Families"
+      "Families",
+      "Men and women"
     ],
     "access": "A referral is needed. Call 01695 728391 for advice.",
     "referral": "A referral is needed. Call 01695 728391 for advice.",
     "access_type": "referral_only",
     "postcode": "",
     "lat": null,
-    "lng": null,
-    "facilities": [
-      "Food Available",
-      "Staffed 24 hours a day"
-    ]
+    "lng": null
   },
   {
     "id": "man-the-bond-board",
@@ -19384,19 +18891,14 @@
     "postcode": "BL1 1LS",
     "lat": 53.576925,
     "lng": -2.428463,
-    "who_for": [
-      "Families"
-    ],
+    "who_for": "Not stated",
     "hours": {
       "Mon": "10:00 - 16:00",
       "Tue": "10:00 - 16:00",
       "Wed": "10:00 - 16:00",
       "Thu": "10:00 - 16:00",
       "Fri": "10:00 - 16:00"
-    },
-    "groups": [
-      "Families"
-    ]
+    }
   },
   {
     "id": "man-the-bridge-advice-and-support",
@@ -19450,20 +18952,18 @@
     "no_pin": true,
     "town": "East Cambridgeshire",
     "who_for": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 25"
     ],
     "access": "A referral is needed. Call 0300 111 3555 for advice.",
     "referral": "A referral is needed. Call 0300 111 3555 for advice.",
     "access_type": "referral_only",
-    "hours": {
-      "Thu": "01:00 - 02:30",
-      "Fri": "09:00 - 17:00"
-    },
     "postcode": "",
     "lat": null,
     "lng": null,
     "groups": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 25"
     ],
     "phone_label": "Cambridge Housing Society central line"
   },
@@ -19492,12 +18992,6 @@
     "access": "You can refer yourself by calling 01909 479191.",
     "referral": "You can refer yourself by calling 01909 479191.",
     "access_type": "self_referral",
-    "hours": {
-      "Mon": "Closed",
-      "Tue": "11:00 - 15:00",
-      "Thu": "14:00 - 17:00",
-      "Fri": "Closed"
-    },
     "postcode": "",
     "lat": null,
     "lng": null,
@@ -19668,9 +19162,7 @@
     "last_verified": "2026-11-13",
     "kind": "day_centre",
     "no_pin": true,
-    "who_for": [
-      "Families"
-    ],
+    "who_for": "Not stated",
     "hours": {
       "Mon": "09:30 - 15:00",
       "Tue": "09:30 - 15:00",
@@ -19683,9 +19175,6 @@
     "lng": null,
     "facilities": [
       "Food Available"
-    ],
-    "groups": [
-      "Families"
     ]
   },
   {
@@ -19749,10 +19238,7 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "phone_label": "The Passage central line",
-    "facilities": [
-      "Food Available"
-    ]
+    "phone_label": "The Passage central line"
   },
   {
     "id": "man-the-project-birmingham",
@@ -19773,21 +19259,16 @@
     "last_verified": "2026-11-13",
     "kind": "advice_service",
     "no_pin": true,
-    "town": "Homeless Prevention",
+    "town": "Birmingham",
     "groups": [
-      "People aged 16 and over",
-      "Families"
+      "Young people aged 16 to 24"
     ],
     "who_for": [
-      "People aged 16 and over",
-      "Families"
+      "Young people aged 16 to 24"
     ],
     "access": "A referral is needed. Call 0121 453 0606 for advice.",
     "referral": "A referral is needed. Call 0121 453 0606 for advice.",
     "access_type": "referral_only",
-    "hours": {
-      "Thu": "09:30 - 15:30"
-    },
     "postcode": "",
     "lat": null,
     "lng": null,
@@ -19855,13 +19336,6 @@
     "kind": "advice_service",
     "no_pin": true,
     "who_for": "Not stated",
-    "hours": {
-      "Mon": "13:00 - 14:00",
-      "Tue": "Closed",
-      "Wed": "13:00 - 15:00",
-      "Thu": "13:00 - 14:00",
-      "Fri": "13:00 - 14:00"
-    },
     "postcode": "",
     "lat": null,
     "lng": null,
@@ -19962,14 +19436,7 @@
     "last_verified": "2026-11-13",
     "kind": "advice_service",
     "no_pin": true,
-    "groups": [
-      "People aged 18 and over",
-      "Families"
-    ],
-    "who_for": [
-      "People aged 18 and over",
-      "Families"
-    ],
+    "who_for": "Not stated",
     "hours": {
       "Mon": "09:30 - 17:30",
       "Tue": "09:30 - 17:30",
@@ -19979,10 +19446,7 @@
     },
     "postcode": "",
     "lat": null,
-    "lng": null,
-    "facilities": [
-      "Food Available"
-    ]
+    "lng": null
   },
   {
     "id": "man-trident-reach-ravenhurst-cottages",
@@ -20039,17 +19503,16 @@
     "no_pin": true,
     "card_type": "referral_hostel",
     "who_for": [
-      "Families"
+      "Men and women",
+      "People aged 18 to 60"
     ],
     "postcode": "",
     "lat": null,
     "lng": null,
     "phone_label": "Society of St James central line",
-    "facilities": [
-      "Computer Access"
-    ],
     "groups": [
-      "Families"
+      "Men and women",
+      "People aged 18 to 60"
     ]
   },
   {
@@ -20104,21 +19567,13 @@
     "last_verified": "2026-11-13",
     "kind": "day_centre",
     "no_pin": true,
-    "who_for": [
-      "Families"
-    ],
+    "who_for": "Not stated",
     "access": "You can refer yourself by calling 01252 400196.",
     "referral": "You can refer yourself by calling 01252 400196.",
     "access_type": "self_referral",
     "postcode": "",
     "lat": null,
-    "lng": null,
-    "facilities": [
-      "Food Available"
-    ],
-    "groups": [
-      "Families"
-    ]
+    "lng": null
   },
   {
     "id": "man-vineyard-community-centre",
@@ -20139,9 +19594,7 @@
     "last_verified": "2026-11-13",
     "kind": "day_centre",
     "no_pin": true,
-    "who_for": [
-      "Families"
-    ],
+    "who_for": "Not stated",
     "hours": {
       "Mon": "09:00 - 11:00",
       "Tue": "09:00 - 11:00",
@@ -20153,11 +19606,7 @@
     "lat": null,
     "lng": null,
     "facilities": [
-      "Charging Facilities",
       "Food Available"
-    ],
-    "groups": [
-      "Families"
     ]
   },
   {
@@ -20179,9 +19628,7 @@
     "last_verified": "2026-11-13",
     "kind": "advice_service",
     "no_pin": true,
-    "who_for": [
-      "Families"
-    ],
+    "who_for": "Not stated",
     "access": "A referral is needed. Call 01325 731160 for advice.",
     "referral": "A referral is needed. Call 01325 731160 for advice.",
     "access_type": "referral_only",
@@ -20195,12 +19642,6 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Charging Facilities"
-    ],
-    "groups": [
-      "Families"
-    ],
     "phone_label": "Central line"
   },
   {
@@ -20226,10 +19667,10 @@
     "lat": 51.501257,
     "lng": -0.10752,
     "groups": [
-      "Men and women"
+      "People aged 18 and over"
     ],
     "who_for": [
-      "Men and women"
+      "People aged 18 and over"
     ],
     "hours": {
       "Mon": "08:45 - 11:45",
@@ -20340,12 +19781,7 @@
     },
     "postcode": "",
     "lat": null,
-    "lng": null,
-    "facilities": [
-      "Free Wifi",
-      "Accessible Toilets",
-      "Food Available"
-    ]
+    "lng": null
   },
   {
     "id": "man-women-at-the-well",
@@ -20376,8 +19812,7 @@
     "facilities": [
       "Showers",
       "Laundry",
-      "Food Available",
-      "Staffed 24 hours a day"
+      "Food Available"
     ]
   },
   {
@@ -20430,11 +19865,11 @@
     "lng": -2.246058,
     "groups": [
       "Young people aged 16 to 25",
-      "Families"
+      "Men and women"
     ],
     "who_for": [
       "Young people aged 16 to 25",
-      "Families"
+      "Men and women"
     ]
   },
   {
@@ -20460,10 +19895,10 @@
     "lat": 50.856393,
     "lng": 0.58061,
     "groups": [
-      "Young people aged 16 to 24"
+      "Young people aged 16 to 25"
     ],
     "who_for": [
-      "Young people aged 16 to 24"
+      "Young people aged 16 to 25"
     ],
     "access": "A referral is needed. Call 07752 674581 for advice.",
     "referral": "A referral is needed. Call 07752 674581 for advice.",
@@ -20500,12 +19935,10 @@
     "lat": 52.631832,
     "lng": -1.126989,
     "groups": [
-      "Young people aged 16 to 25",
-      "Families"
+      "People aged 16 and over"
     ],
     "who_for": [
-      "Young people aged 16 to 25",
-      "Families"
+      "People aged 16 and over"
     ],
     "hours": {
       "Mon": "07:30 - 16:00",
@@ -20805,7 +20238,7 @@
     "last_verified": "2026-11-13",
     "kind": "young_people",
     "no_pin": true,
-    "town": "Borough",
+    "town": "St Helens",
     "groups": [
       "Young people aged 16 to 25",
       "Men and women"
@@ -20841,20 +20274,9 @@
     "kind": "advice_service",
     "no_pin": true,
     "who_for": "Not stated",
-    "hours": {
-      "Mon": "12:00 - 18:00",
-      "Tue": "12:00 - 18:00",
-      "Wed": "12:00 - 18:00",
-      "Thu": "12:00 - 18:00",
-      "Fri": "12:00 - 18:00",
-      "Sat": "11:00 - 15:00"
-    },
     "postcode": "",
     "lat": null,
-    "lng": null,
-    "facilities": [
-      "Charging Facilities"
-    ]
+    "lng": null
   },
   {
     "id": "man-ywca-yorkshire-peile-house-project",
@@ -20906,7 +20328,7 @@
     "kind": "advice_service",
     "no_pin": true,
     "who_for": [
-      "Families"
+      "Young people aged 18 to 25"
     ],
     "hours": {
       "Mon": "10:00 - 16:00",
@@ -20919,7 +20341,7 @@
     "lat": null,
     "lng": null,
     "groups": [
-      "Families"
+      "Young people aged 18 to 25"
     ]
   },
   {
@@ -20942,14 +20364,16 @@
     "kind": "young_people",
     "no_pin": true,
     "who_for": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 25"
     ],
     "postcode": "",
     "lat": null,
     "lng": null,
     "phone_label": "Barnardo's central line",
     "groups": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 25"
     ]
   },
   {
@@ -21035,7 +20459,7 @@
     "kind": "young_people",
     "no_pin": true,
     "who_for": [
-      "Families"
+      "Men and women"
     ],
     "access": "A referral is needed. Call 0300 365 8999 for advice.",
     "referral": "A referral is needed. Call 0300 365 8999 for advice.",
@@ -21043,11 +20467,8 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "TV"
-    ],
     "groups": [
-      "Families"
+      "Men and women"
     ],
     "phone_label": "CCP central line"
   },
@@ -21109,14 +20530,16 @@
     "kind": "young_people",
     "no_pin": true,
     "who_for": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 25"
     ],
     "postcode": "",
     "lat": null,
     "lng": null,
     "phone_label": "Depaul UK central line",
     "groups": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 25"
     ]
   },
   {
@@ -21203,10 +20626,6 @@
     "access": "You can refer yourself by calling 01872 277422.",
     "referral": "You can refer yourself by calling 01872 277422.",
     "access_type": "self_referral",
-    "hours": {
-      "Fri": "09:00 - 18:00",
-      "Sat": "09:00 - 17:00"
-    },
     "postcode": "",
     "lat": null,
     "lng": null,
@@ -21267,10 +20686,6 @@
     "no_pin": true,
     "town": "Newbury",
     "who_for": "Not stated",
-    "hours": {
-      "Wed": "09:30 - 10:45",
-      "Fri": "09:30 - 10:45"
-    },
     "postcode": "",
     "lat": null,
     "lng": null,
@@ -21329,9 +20744,6 @@
     "kind": "day_centre",
     "no_pin": true,
     "who_for": "Not stated",
-    "hours": {
-      "Wed": "18:00 - 19:30"
-    },
     "postcode": "",
     "lat": null,
     "lng": null,
@@ -21362,14 +20774,14 @@
     "no_pin": true,
     "town": "Derbyshire",
     "who_for": [
-      "Families"
+      "People aged 18 and over"
     ],
     "postcode": "",
     "lat": null,
     "lng": null,
     "phone_label": "P3 Charity central line",
     "groups": [
-      "Families"
+      "People aged 18 and over"
     ]
   },
   {
@@ -21394,7 +20806,8 @@
     "card_type": "referral_hostel",
     "town": "Derbyshire",
     "who_for": [
-      "Families"
+      "Men and women",
+      "People aged 16 and over"
     ],
     "access": "A referral is needed.",
     "referral": "A referral is needed.",
@@ -21402,11 +20815,9 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Food Available"
-    ],
     "groups": [
-      "Families"
+      "Men and women",
+      "People aged 16 and over"
     ]
   },
   {
@@ -21430,14 +20841,14 @@
     "no_pin": true,
     "town": "Gloucestershire",
     "who_for": [
-      "Families"
+      "People aged 18 and over"
     ],
     "postcode": "",
     "lat": null,
     "lng": null,
     "phone_label": "P3 Charity central line",
     "groups": [
-      "Families"
+      "People aged 18 and over"
     ]
   },
   {
@@ -21460,7 +20871,7 @@
     "kind": "young_people",
     "no_pin": true,
     "who_for": [
-      "Families"
+      "Men and women"
     ],
     "postcode": "",
     "lat": null,
@@ -21470,7 +20881,7 @@
       "Laundry"
     ],
     "groups": [
-      "Families"
+      "Men and women"
     ]
   },
   {
@@ -21492,16 +20903,16 @@
     "last_verified": "2026-11-13",
     "kind": "advice_service",
     "no_pin": true,
-    "town": "Nottingham aged",
+    "town": "Nottingham",
     "who_for": [
-      "Families"
+      "People aged 18 and over"
     ],
     "postcode": "",
     "lat": null,
     "lng": null,
     "phone_label": "P3 Charity central line",
     "groups": [
-      "Families"
+      "People aged 18 and over"
     ]
   },
   {
@@ -21525,14 +20936,14 @@
     "no_pin": true,
     "town": "Nottingham",
     "who_for": [
-      "Families"
+      "Young people aged 16 to 21"
     ],
     "postcode": "",
     "lat": null,
     "lng": null,
     "phone_label": "P3 Charity central line",
     "groups": [
-      "Families"
+      "Young people aged 16 to 21"
     ]
   },
   {
@@ -21554,16 +20965,11 @@
     "last_verified": "2026-11-13",
     "kind": "advice_service",
     "no_pin": true,
-    "who_for": [
-      "Families"
-    ],
+    "who_for": "Not stated",
     "postcode": "",
     "lat": null,
     "lng": null,
-    "phone_label": "P3 Charity central line",
-    "groups": [
-      "Families"
-    ]
+    "phone_label": "P3 Charity central line"
   },
   {
     "id": "man-p3-charity-warwickshire-hoarding-service",
@@ -21584,16 +20990,11 @@
     "last_verified": "2026-11-13",
     "kind": "advice_service",
     "no_pin": true,
-    "who_for": [
-      "Families"
-    ],
+    "who_for": "Not stated",
     "postcode": "",
     "lat": null,
     "lng": null,
-    "phone_label": "P3 Charity central line",
-    "groups": [
-      "Families"
-    ]
+    "phone_label": "P3 Charity central line"
   },
   {
     "id": "man-p3-derbyshire-homeless-prevention-service",
@@ -21615,16 +21016,11 @@
     "kind": "advice_service",
     "no_pin": true,
     "town": "Chesterfield",
-    "who_for": [
-      "Families"
-    ],
+    "who_for": "Not stated",
     "postcode": "",
     "lat": null,
     "lng": null,
-    "phone_label": "P3 Charity central line",
-    "groups": [
-      "Families"
-    ]
+    "phone_label": "P3 Charity central line"
   },
   {
     "id": "man-rentstart-uk-limited",
@@ -21848,7 +21244,8 @@
     "no_pin": true,
     "town": "Southwark",
     "who_for": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 25"
     ],
     "access": "A referral is needed. Call 020 7367 4800 for advice.",
     "referral": "A referral is needed. Call 020 7367 4800 for advice.",
@@ -21856,11 +21253,9 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Staffed 24 hours a day"
-    ],
     "groups": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 25"
     ],
     "phone_label": "Salvation Army central line"
   },
@@ -22209,12 +21604,12 @@
     "kind": "young_people",
     "no_pin": true,
     "groups": [
-      "Young people aged 16 to 21",
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 18"
     ],
     "who_for": [
-      "Young people aged 16 to 21",
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 18"
     ],
     "access": "A referral is needed. Call 01252 346100 for advice.",
     "referral": "A referral is needed. Call 01252 346100 for advice.",
@@ -22222,10 +21617,7 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "phone_label": "Step by central line",
-    "facilities": [
-      "Staffed 24 hours a day"
-    ]
+    "phone_label": "Step by central line"
   },
   {
     "id": "man-the-cambridge-housing-society-fenland-young-people",
@@ -22469,7 +21861,7 @@
     "last_verified": "2026-11-13",
     "kind": "young_people",
     "no_pin": true,
-    "town": "LB Ealing",
+    "town": "Ealing",
     "groups": [
       "Men and women"
     ],
@@ -22603,7 +21995,8 @@
     "no_pin": true,
     "card_type": "referral_hostel",
     "who_for": [
-      "Families"
+      "Men and women",
+      "People aged 18 to 65"
     ],
     "access": "A referral is needed. Call 0345 601 0030 for advice.",
     "referral": "A referral is needed. Call 0345 601 0030 for advice.",
@@ -22612,7 +22005,8 @@
     "lat": null,
     "lng": null,
     "groups": [
-      "Families"
+      "Men and women",
+      "People aged 18 to 65"
     ],
     "phone_label": "Central line"
   },
@@ -22800,11 +22194,7 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "phone_label": "Homeless Action central line",
-    "facilities": [
-      "Laundry",
-      "Food Available"
-    ]
+    "phone_label": "Homeless Action central line"
   },
   {
     "id": "man-ashley-foundation-oak-house",
@@ -22839,11 +22229,7 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "phone_label": "Homeless Action central line",
-    "facilities": [
-      "Laundry",
-      "Food Available"
-    ]
+    "phone_label": "Homeless Action central line"
   },
   {
     "id": "man-bosco-society",
@@ -22865,7 +22251,7 @@
     "kind": "hostel",
     "no_pin": true,
     "card_type": "referral_hostel",
-    "town": "Stay'",
+    "town": "Sefton",
     "groups": [
       "Men and women"
     ],
@@ -22899,7 +22285,7 @@
     "kind": "hostel",
     "no_pin": true,
     "card_type": "referral_hostel",
-    "town": "Exeter County Council",
+    "town": "Exeter",
     "groups": [
       "Men and women"
     ],
@@ -23130,10 +22516,6 @@
     "access": "You can refer yourself by calling 020 8365 1751.",
     "referral": "You can refer yourself by calling 020 8365 1751.",
     "access_type": "self_referral",
-    "hours": {
-      "Thu": "09:00 - 12:00",
-      "Fri": "09:00 - 12:00"
-    },
     "postcode": "",
     "lat": null,
     "lng": null
@@ -23348,7 +22730,7 @@
     "kind": "hostel",
     "no_pin": true,
     "card_type": "referral_hostel",
-    "town": "Cambridge City",
+    "town": "Cambridge",
     "who_for": "Not stated",
     "access": "A referral is needed. Call 01223 712501 for advice.",
     "referral": "A referral is needed. Call 01223 712501 for advice.",
@@ -23411,7 +22793,6 @@
     "kind": "hostel",
     "no_pin": true,
     "card_type": "referral_hostel",
-    "town": "Amber Accept",
     "groups": [
       "Men and women"
     ],
@@ -23528,10 +22909,6 @@
     "access": "You can refer yourself by calling 01637 875684.",
     "referral": "You can refer yourself by calling 01637 875684.",
     "access_type": "self_referral",
-    "hours": {
-      "Fri": "08:00 - 21:00",
-      "Sun": "21:00 - 07:00"
-    },
     "postcode": "",
     "lat": null,
     "lng": null
@@ -23814,7 +23191,6 @@
     "kind": "hostel",
     "no_pin": true,
     "card_type": "referral_hostel",
-    "town": "Communities Social Enterprise",
     "groups": [
       "Men and women"
     ],
@@ -23855,10 +23231,6 @@
     "who_for": [
       "Men and women"
     ],
-    "hours": {
-      "Thu": "08:45 - 15:00",
-      "Fri": "08:45 - 16:30"
-    },
     "postcode": "",
     "lat": null,
     "lng": null
@@ -24076,7 +23448,7 @@
     "kind": "hostel",
     "no_pin": true,
     "card_type": "referral_hostel",
-    "town": "Newcastle or Gateshead",
+    "town": "Gateshead",
     "who_for": "Not stated",
     "access": "You are referred by a statutory or voluntary agency, or through the Gateshead Portal or Newcastle Gateway. Call 0191 477 5605.",
     "referral": "You are referred by a statutory or voluntary agency, or through the Gateshead Portal or Newcastle Gateway. Call 0191 477 5605.",
@@ -24176,10 +23548,6 @@
     "access": "You can refer yourself by calling 020 7361 3008.",
     "referral": "You can refer yourself by calling 020 7361 3008.",
     "access_type": "self_referral",
-    "hours": {
-      "Fri": "10:00 - 21:00",
-      "Sun": "10:00 - 18:00"
-    },
     "postcode": "",
     "lat": null,
     "lng": null
@@ -24211,10 +23579,6 @@
     "who_for": [
       "Men and women"
     ],
-    "hours": {
-      "Fri": "08:00 - 18:00",
-      "Sun": "09:00 - 18:00"
-    },
     "postcode": "",
     "lat": null,
     "lng": null
@@ -24343,10 +23707,10 @@
     "card_type": "referral_hostel",
     "town": "Sunderland",
     "groups": [
-      "People aged 18 and over"
+      "Men and women"
     ],
     "who_for": [
-      "People aged 18 and over"
+      "Men and women"
     ],
     "access": "You can refer yourself by calling 01253 297200.",
     "referral": "You can refer yourself by calling 01253 297200.",
@@ -24354,11 +23718,7 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "phone_label": "Homeless Action central line",
-    "facilities": [
-      "Laundry",
-      "Food Available"
-    ]
+    "phone_label": "Homeless Action central line"
   },
   {
     "id": "man-horizons-north-east",
@@ -24610,7 +23970,7 @@
     "kind": "hostel",
     "no_pin": true,
     "card_type": "referral_hostel",
-    "town": "LB Brent",
+    "town": "Brent",
     "groups": [
       "Men and women"
     ],
@@ -24829,11 +24189,11 @@
     "card_type": "referral_hostel",
     "groups": [
       "Men and women",
-      "Families"
+      "People aged 18 and over"
     ],
     "who_for": [
       "Men and women",
-      "Families"
+      "People aged 18 and over"
     ],
     "access": "A referral is needed. Call 07541 455508 for advice.",
     "referral": "A referral is needed. Call 07541 455508 for advice.",
@@ -24994,7 +24354,7 @@
     "kind": "hostel",
     "no_pin": true,
     "card_type": "referral_hostel",
-    "town": "LB Barking & Dagenham",
+    "town": "Barking & Dagenham",
     "groups": [
       "Men and women"
     ],
@@ -25069,11 +24429,7 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "phone_label": "Midland Heart central line",
-    "facilities": [
-      "Charging Facilities",
-      "Staffed 24 hours a day"
-    ]
+    "phone_label": "Midland Heart central line"
   },
   {
     "id": "man-midland-heart-the-snow-hill",
@@ -25102,11 +24458,7 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "phone_label": "Midland Heart central line",
-    "facilities": [
-      "Charging Facilities",
-      "Staffed 24 hours a day"
-    ]
+    "phone_label": "Midland Heart central line"
   },
   {
     "id": "man-naash-supported-services",
@@ -25195,10 +24547,6 @@
     "access": "A referral is needed. Call 020 7641 1000 for advice.",
     "referral": "A referral is needed. Call 020 7641 1000 for advice.",
     "access_type": "referral_only",
-    "hours": {
-      "Tue": "08:00 - 20:00",
-      "Fri": "08:00 - 18:00"
-    },
     "postcode": "",
     "lat": null,
     "lng": null
@@ -25230,10 +24578,7 @@
     "access_type": "referral_only",
     "postcode": "",
     "lat": null,
-    "lng": null,
-    "facilities": [
-      "Staffed 24 hours a day"
-    ]
+    "lng": null
   },
   {
     "id": "man-new-start-dispersed-tenancies-service",
@@ -25462,10 +24807,7 @@
     "access_type": "referral_only",
     "postcode": "",
     "lat": null,
-    "lng": null,
-    "facilities": [
-      "Staffed 24 hours a day"
-    ]
+    "lng": null
   },
   {
     "id": "man-onward-homes-limited-alt-bank-house",
@@ -25554,7 +24896,8 @@
     "card_type": "referral_hostel",
     "town": "Derbyshire",
     "who_for": [
-      "Families"
+      "Men and women",
+      "People aged 18 and over"
     ],
     "access": "A referral is needed.",
     "referral": "A referral is needed.",
@@ -25563,7 +24906,8 @@
     "lat": null,
     "lng": null,
     "groups": [
-      "Families"
+      "Men and women",
+      "People aged 18 and over"
     ]
   },
   {
@@ -25588,7 +24932,8 @@
     "card_type": "referral_hostel",
     "town": "Gloucestershire",
     "who_for": [
-      "Families"
+      "Men and women",
+      "People aged 18 and over"
     ],
     "access": "A referral is needed.",
     "referral": "A referral is needed.",
@@ -25598,7 +24943,8 @@
     "lng": null,
     "phone_label": "P3 Charity central line",
     "groups": [
-      "Families"
+      "Men and women",
+      "People aged 18 and over"
     ]
   },
   {
@@ -25656,7 +25002,8 @@
     "card_type": "referral_hostel",
     "town": "Lincoln",
     "who_for": [
-      "Families"
+      "Men and women",
+      "People aged 18 and over"
     ],
     "access": "A referral is needed.",
     "referral": "A referral is needed.",
@@ -25665,7 +25012,8 @@
     "lat": null,
     "lng": null,
     "groups": [
-      "Families"
+      "Men and women",
+      "People aged 18 and over"
     ]
   },
   {
@@ -25690,7 +25038,8 @@
     "card_type": "referral_hostel",
     "town": "North East Derbyshire",
     "who_for": [
-      "Families"
+      "Men and women",
+      "People aged 18 and over"
     ],
     "access": "A referral is needed.",
     "referral": "A referral is needed.",
@@ -25700,7 +25049,8 @@
     "lng": null,
     "phone_label": "P3 Charity central line",
     "groups": [
-      "Families"
+      "Men and women",
+      "People aged 18 and over"
     ]
   },
   {
@@ -25723,9 +25073,10 @@
     "kind": "hostel",
     "no_pin": true,
     "card_type": "referral_hostel",
-    "town": "Congleton People aged",
+    "town": "Congleton",
     "who_for": [
-      "Families"
+      "Men and women",
+      "People aged 18 and over"
     ],
     "access": "A referral is needed.",
     "referral": "A referral is needed.",
@@ -25734,7 +25085,8 @@
     "lat": null,
     "lng": null,
     "groups": [
-      "Families"
+      "Men and women",
+      "People aged 18 and over"
     ]
   },
   {
@@ -25759,7 +25111,8 @@
     "card_type": "referral_hostel",
     "town": "Wolverhampton",
     "who_for": [
-      "Families"
+      "Men and women",
+      "People aged 18 and over"
     ],
     "access": "A referral is needed.",
     "referral": "A referral is needed.",
@@ -25768,7 +25121,8 @@
     "lat": null,
     "lng": null,
     "groups": [
-      "Families"
+      "Men and women",
+      "People aged 18 and over"
     ]
   },
   {
@@ -25792,7 +25146,8 @@
     "no_pin": true,
     "card_type": "referral_hostel",
     "who_for": [
-      "Families"
+      "Men and women",
+      "People aged 18 and over"
     ],
     "access": "A referral is needed.",
     "referral": "A referral is needed.",
@@ -25802,7 +25157,8 @@
     "lng": null,
     "phone_label": "P3 Charity central line",
     "groups": [
-      "Families"
+      "Men and women",
+      "People aged 18 and over"
     ]
   },
   {
@@ -25861,7 +25217,8 @@
     "card_type": "referral_hostel",
     "town": "Erewash",
     "who_for": [
-      "Families"
+      "Men and women",
+      "People aged 18 to 75"
     ],
     "access": "A referral is needed.",
     "referral": "A referral is needed.",
@@ -25870,7 +25227,8 @@
     "lat": null,
     "lng": null,
     "groups": [
-      "Families"
+      "Men and women",
+      "People aged 18 to 75"
     ]
   },
   {
@@ -25895,7 +25253,8 @@
     "card_type": "referral_hostel",
     "town": "South Derbyshire",
     "who_for": [
-      "Families"
+      "Men and women",
+      "People aged 18 to 75"
     ],
     "access": "A referral is needed.",
     "referral": "A referral is needed.",
@@ -25904,7 +25263,8 @@
     "lat": null,
     "lng": null,
     "groups": [
-      "Families"
+      "Men and women",
+      "People aged 18 to 75"
     ]
   },
   {
@@ -25929,7 +25289,8 @@
     "card_type": "referral_hostel",
     "town": "Milton Keynes",
     "who_for": [
-      "Families"
+      "Men and women",
+      "People aged 18 and over"
     ],
     "access": "A referral is needed.",
     "referral": "A referral is needed.",
@@ -25939,7 +25300,8 @@
     "lng": null,
     "phone_label": "P3 Charity central line",
     "groups": [
-      "Families"
+      "Men and women",
+      "People aged 18 and over"
     ]
   },
   {
@@ -25972,9 +25334,6 @@
       "Families"
     ],
     "wheelchair": "yes",
-    "hours": {
-      "Fri": "09:00 - 17:00"
-    },
     "postcode": "",
     "lat": null,
     "lng": null,
@@ -26067,7 +25426,8 @@
     "no_pin": true,
     "card_type": "referral_hostel",
     "who_for": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 25"
     ],
     "access": "A referral is needed.",
     "referral": "A referral is needed.",
@@ -26076,7 +25436,8 @@
     "lat": null,
     "lng": null,
     "groups": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 25"
     ],
     "phone_label": "Main office"
   },
@@ -26102,7 +25463,8 @@
     "card_type": "referral_hostel",
     "town": "Bristol",
     "who_for": [
-      "Families"
+      "Men only",
+      "People aged 18 and over"
     ],
     "access": "A referral is needed.",
     "referral": "A referral is needed.",
@@ -26111,7 +25473,8 @@
     "lat": null,
     "lng": null,
     "groups": [
-      "Families"
+      "Men only",
+      "People aged 18 and over"
     ],
     "phone_label": "Main office"
   },
@@ -26234,7 +25597,7 @@
     "kind": "hostel",
     "no_pin": true,
     "card_type": "referral_hostel",
-    "town": "LB Tower Hamlets",
+    "town": "Tower Hamlets",
     "who_for": "Not stated",
     "access": "A referral is needed. Call 020 7364 7151 for advice.",
     "referral": "A referral is needed. Call 020 7364 7151 for advice.",
@@ -26265,10 +25628,6 @@
     "no_pin": true,
     "card_type": "referral_hostel",
     "who_for": "Not stated",
-    "hours": {
-      "Thu": "13:00 - 18:00",
-      "Fri": "09:30 - 16:00"
-    },
     "postcode": "",
     "lat": null,
     "lng": null,
@@ -26296,11 +25655,11 @@
     "card_type": "referral_hostel",
     "groups": [
       "Men and women",
-      "Families"
+      "People aged 18 to 65"
     ],
     "who_for": [
       "Men and women",
-      "Families"
+      "People aged 18 to 65"
     ],
     "access": "A referral is needed. Call 0845 602 7895 for advice.",
     "referral": "A referral is needed. Call 0845 602 7895 for advice.",
@@ -26430,14 +25789,7 @@
     "access_type": "referral_only",
     "postcode": "",
     "lat": null,
-    "lng": null,
-    "facilities": [
-      "Showers",
-      "Charging Facilities",
-      "Accessible Toilets",
-      "Computer Access",
-      "Staffed 24 hours a day"
-    ]
+    "lng": null
   },
   {
     "id": "man-salisbury-trust-for-the-homeless",
@@ -26494,7 +25846,8 @@
     "no_pin": true,
     "card_type": "referral_hostel",
     "who_for": [
-      "Families"
+      "Men and women",
+      "People aged 25 and over"
     ],
     "access": "A referral is needed. Call 020 7367 4800 for advice.",
     "referral": "A referral is needed. Call 020 7367 4800 for advice.",
@@ -26502,11 +25855,9 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Staffed 24 hours a day"
-    ],
     "groups": [
-      "Families"
+      "Men and women",
+      "People aged 25 and over"
     ]
   },
   {
@@ -26559,7 +25910,8 @@
     "no_pin": true,
     "card_type": "referral_hostel",
     "who_for": [
-      "Families"
+      "Men only",
+      "People aged 18 to 65"
     ],
     "access": "A referral is needed. Call 020 7367 4800 for advice.",
     "referral": "A referral is needed. Call 020 7367 4800 for advice.",
@@ -26567,11 +25919,9 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Staffed 24 hours a day"
-    ],
     "groups": [
-      "Families"
+      "Men only",
+      "People aged 18 to 65"
     ],
     "phone_label": "Salvation Army central line"
   },
@@ -26630,7 +25980,8 @@
     "card_type": "referral_hostel",
     "town": "Essex",
     "who_for": [
-      "Families"
+      "Men and women",
+      "People aged 18 and over"
     ],
     "access": "A referral is needed. Call 020 7367 4800 for advice.",
     "referral": "A referral is needed. Call 020 7367 4800 for advice.",
@@ -26638,11 +25989,9 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Staffed 24 hours a day"
-    ],
     "groups": [
-      "Families"
+      "Men and women",
+      "People aged 18 and over"
     ],
     "phone_label": "Salvation Army central line"
   },
@@ -26695,26 +26044,19 @@
     "no_pin": true,
     "card_type": "referral_hostel",
     "who_for": [
-      "Families"
+      "Men and women",
+      "People aged 22 and over"
     ],
     "access": "A referral is needed. Call 0117 909 6630 for advice.",
     "referral": "A referral is needed. Call 0117 909 6630 for advice.",
     "access_type": "referral_only",
     "wheelchair": "yes",
-    "hours": {
-      "Fri": "09:00 - 20:00",
-      "Sun": "10:00 - 18:30"
-    },
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Accessible Toilets",
-      "Parking",
-      "Staffed 24 hours a day"
-    ],
     "groups": [
-      "Families"
+      "Men and women",
+      "People aged 22 and over"
     ],
     "phone_label": "Second Step central line"
   },
@@ -26739,7 +26081,8 @@
     "no_pin": true,
     "card_type": "referral_hostel",
     "who_for": [
-      "Families"
+      "Men and women",
+      "People aged 22 and over"
     ],
     "access": "A referral is needed. Call 0117 909 6630 for advice.",
     "referral": "A referral is needed. Call 0117 909 6630 for advice.",
@@ -26748,13 +26091,9 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Accessible Toilets",
-      "Parking",
-      "Staffed 24 hours a day"
-    ],
     "groups": [
-      "Families"
+      "Men and women",
+      "People aged 22 and over"
     ],
     "phone_label": "Second Step central line"
   },
@@ -26813,7 +26152,8 @@
     "card_type": "referral_hostel",
     "town": "Southampton",
     "who_for": [
-      "Families"
+      "Men and women",
+      "People aged 18 to 65"
     ],
     "access": "A referral is needed.",
     "referral": "A referral is needed.",
@@ -26822,11 +26162,9 @@
     "lat": null,
     "lng": null,
     "phone_label": "Society of St James central line",
-    "facilities": [
-      "Computer Access"
-    ],
     "groups": [
-      "Families"
+      "Men and women",
+      "People aged 18 to 65"
     ]
   },
   {
@@ -26856,10 +26194,7 @@
     "access_type": "referral_only",
     "postcode": "",
     "lat": null,
-    "lng": null,
-    "facilities": [
-      "Charging Facilities"
-    ]
+    "lng": null
   },
   {
     "id": "man-spear-penny-wade-house",
@@ -26881,7 +26216,7 @@
     "kind": "hostel",
     "no_pin": true,
     "card_type": "referral_hostel",
-    "town": "LB Richmond",
+    "town": "Richmond",
     "groups": [
       "Men and women"
     ],
@@ -26977,7 +26312,7 @@
     "kind": "hostel",
     "no_pin": true,
     "card_type": "referral_hostel",
-    "town": "Leeds and surrounding areas",
+    "town": "Leeds",
     "who_for": "Not stated",
     "access": "A referral is needed. Call 0113 440 0810 for advice.",
     "referral": "A referral is needed. Call 0113 440 0810 for advice.",
@@ -27049,10 +26384,6 @@
     "access": "You can refer yourself by calling 01872 264153.",
     "referral": "You can refer yourself by calling 01872 264153.",
     "access_type": "self_referral",
-    "hours": {
-      "Mon": "10:00 - 16:00",
-      "Fri": "09:30 - 16:00"
-    },
     "postcode": "",
     "lat": null,
     "lng": null,
@@ -27085,11 +26416,7 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "phone_label": "Stepping Stone central line",
-    "facilities": [
-      "Charging Facilities",
-      "Staffed 24 hours a day"
-    ]
+    "phone_label": "Stepping Stone central line"
   },
   {
     "id": "man-stepping-stone-projects-prevention-service",
@@ -27144,11 +26471,6 @@
     "access": "A referral is needed. Call 0161 474 4237 for advice.",
     "referral": "A referral is needed. Call 0161 474 4237 for advice.",
     "access_type": "referral_only",
-    "hours": {
-      "Thu": "08:30 - 16:30",
-      "Fri": "08:00 - 22:00",
-      "Sun": "09:00 - 19:00"
-    },
     "postcode": "",
     "lat": null,
     "lng": null
@@ -27179,10 +26501,7 @@
     "access_type": "referral_only",
     "postcode": "",
     "lat": null,
-    "lng": null,
-    "facilities": [
-      "Staffed 24 hours a day"
-    ]
+    "lng": null
   },
   {
     "id": "man-supporting-lives",
@@ -27239,20 +26558,18 @@
     "card_type": "referral_hostel",
     "town": "Cambridge",
     "who_for": [
-      "Families"
+      "Women only",
+      "People aged 18 and over"
     ],
     "access": "A referral is needed. Call 0300 111 3555 for advice.",
     "referral": "A referral is needed. Call 0300 111 3555 for advice.",
     "access_type": "referral_only",
-    "hours": {
-      "Thu": "01:00 - 02:30",
-      "Fri": "09:00 - 17:00"
-    },
     "postcode": "",
     "lat": null,
     "lng": null,
     "groups": [
-      "Families"
+      "Women only",
+      "People aged 18 and over"
     ],
     "phone_label": "Cambridge Housing Society central line"
   },
@@ -27339,10 +26656,7 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "phone_label": "The Passage central line",
-    "facilities": [
-      "Food Available"
-    ]
+    "phone_label": "The Passage central line"
   },
   {
     "id": "man-the-shelter-project-hounslow-tsph",
@@ -27364,7 +26678,7 @@
     "kind": "hostel",
     "no_pin": true,
     "card_type": "referral_hostel",
-    "town": "LB Hounslow",
+    "town": "Hounslow",
     "who_for": "Not stated",
     "access": "A referral is needed. Call 07804 654510 for advice.",
     "referral": "A referral is needed. Call 07804 654510 for advice.",
@@ -27572,7 +26886,7 @@
     "kind": "hostel",
     "no_pin": true,
     "card_type": "referral_hostel",
-    "town": "Hillingdon call us",
+    "town": "Hillingdon",
     "groups": [
       "Men and women"
     ],
@@ -27709,10 +27023,6 @@
     "access": "A referral is needed. Call 01772 458657 for advice.",
     "referral": "A referral is needed. Call 01772 458657 for advice.",
     "access_type": "referral_only",
-    "hours": {
-      "Fri": "09:00 - 21:00",
-      "Sun": "13:00 - 21:00"
-    },
     "postcode": "",
     "lat": null,
     "lng": null
@@ -27778,11 +27088,6 @@
     "who_for": [
       "Men and women"
     ],
-    "hours": {
-      "Thu": "08:00 - 20:00",
-      "Fri": "09:00 - 16:30",
-      "Sat": "08:00 - 15:00"
-    },
     "postcode": "",
     "lat": null,
     "lng": null,
@@ -27904,7 +27209,6 @@
     "kind": "hostel",
     "no_pin": true,
     "card_type": "referral_hostel",
-    "town": "HM Armed Forces",
     "groups": [
       "Men and women"
     ],
@@ -27914,10 +27218,6 @@
     "access": "You can refer yourself by calling 020 7828 246808000126867.",
     "referral": "You can refer yourself by calling 020 7828 246808000126867.",
     "access_type": "self_referral",
-    "hours": {
-      "Thu": "08:30 - 15:30",
-      "Fri": "08:30 - 13:30"
-    },
     "postcode": "",
     "lat": null,
     "lng": null
@@ -27942,7 +27242,6 @@
     "kind": "hostel",
     "no_pin": true,
     "card_type": "referral_hostel",
-    "town": "British Military",
     "groups": [
       "Men and women"
     ],
@@ -27976,7 +27275,7 @@
     "kind": "hostel",
     "no_pin": true,
     "card_type": "referral_hostel",
-    "town": "LB Wandsworth",
+    "town": "Wandsworth",
     "who_for": "Not stated",
     "access": "You can refer yourself by calling 020 8696 1564.",
     "referral": "You can refer yourself by calling 020 8696 1564.",
@@ -28066,7 +27365,7 @@
     "kind": "hostel",
     "no_pin": true,
     "card_type": "referral_hostel",
-    "town": "Metropolitan Borough of Wirral",
+    "town": "Wirral",
     "groups": [
       "Men and women"
     ],
@@ -28076,10 +27375,6 @@
     "access": "You can refer yourself by calling 0151 650 10150151649071.",
     "referral": "You can refer yourself by calling 0151 650 10150151649071.",
     "access_type": "self_referral",
-    "hours": {
-      "Fri": "09:00 - 21:00",
-      "Sun": "10:00 - 18:00"
-    },
     "postcode": "",
     "lat": null,
     "lng": null
@@ -28104,7 +27399,7 @@
     "kind": "hostel",
     "no_pin": true,
     "card_type": "referral_hostel",
-    "town": "City of Westminster",
+    "town": "Westminster",
     "groups": [
       "Men and women"
     ],
@@ -28398,7 +27693,7 @@
     "kind": "hostel",
     "no_pin": true,
     "card_type": "referral_hostel",
-    "town": "Coventry/Rugby",
+    "town": "Coventry",
     "groups": [
       "Men and women"
     ],
@@ -28596,7 +27891,7 @@
     "kind": "hostel",
     "no_pin": true,
     "card_type": "referral_hostel",
-    "town": "Ripon or Harrogate",
+    "town": "Ripon",
     "groups": [
       "Men and women"
     ],
@@ -28666,7 +27961,7 @@
     "kind": "hostel",
     "no_pin": true,
     "card_type": "referral_hostel",
-    "town": "RB Kingston upon Thamesfor",
+    "town": "Surbiton",
     "groups": [
       "Men and women"
     ],
@@ -28935,18 +28230,16 @@
     "lat": 51.495751,
     "lng": -0.131476,
     "who_for": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 24"
     ],
     "access": "A referral is needed. Call 020 7227 1673 for advice.",
     "referral": "A referral is needed. Call 020 7227 1673 for advice.",
     "access_type": "referral_only",
     "phone_label": "Cardinal Hume central line",
-    "facilities": [
-      "Accessible Toilets",
-      "Food Available"
-    ],
     "groups": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 24"
     ]
   },
   {
@@ -29034,7 +28327,7 @@
     "no_pin": true,
     "card_type": "referral_hostel",
     "who_for": [
-      "Families"
+      "Men and women"
     ],
     "access": "A referral is needed. Call 0300 365 8999 for advice.",
     "referral": "A referral is needed. Call 0300 365 8999 for advice.",
@@ -29043,11 +28336,8 @@
     "lat": null,
     "lng": null,
     "phone_label": "CCP central line",
-    "facilities": [
-      "TV"
-    ],
     "groups": [
-      "Families"
+      "Men and women"
     ]
   },
   {
@@ -29070,7 +28360,7 @@
     "kind": "young_people",
     "no_pin": true,
     "who_for": [
-      "Families"
+      "Men and women"
     ],
     "access": "A referral is needed. Call 0300 365 8999 for advice.",
     "referral": "A referral is needed. Call 0300 365 8999 for advice.",
@@ -29079,11 +28369,8 @@
     "lat": null,
     "lng": null,
     "phone_label": "CCP central line",
-    "facilities": [
-      "TV"
-    ],
     "groups": [
-      "Families"
+      "Men and women"
     ]
   },
   {
@@ -29106,7 +28393,8 @@
     "kind": "young_people",
     "no_pin": true,
     "who_for": [
-      "Families"
+      "Men and women",
+      "Young people aged 18 to 25"
     ],
     "access": "A referral is needed. Call 0300 365 8999 for advice.",
     "referral": "A referral is needed. Call 0300 365 8999 for advice.",
@@ -29115,11 +28403,9 @@
     "lat": null,
     "lng": null,
     "phone_label": "CCP central line",
-    "facilities": [
-      "TV"
-    ],
     "groups": [
-      "Families"
+      "Men and women",
+      "Young people aged 18 to 25"
     ]
   },
   {
@@ -29142,7 +28428,8 @@
     "kind": "young_people",
     "no_pin": true,
     "who_for": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 25"
     ],
     "phone_label": "Main office",
     "postcode": "",
@@ -29153,7 +28440,8 @@
       "Accessible Toilets"
     ],
     "groups": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 25"
     ]
   },
   {
@@ -29176,14 +28464,16 @@
     "kind": "young_people",
     "no_pin": true,
     "who_for": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 25"
     ],
     "phone_label": "Main office",
     "postcode": "",
     "lat": null,
     "lng": null,
     "groups": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 25"
     ]
   },
   {
@@ -29778,7 +29068,7 @@
     "last_verified": "2026-11-13",
     "kind": "young_people",
     "no_pin": true,
-    "town": "LB Lewisham",
+    "town": "Lewisham",
     "groups": [
       "Young people aged 16 to 21",
       "Men and women"
@@ -29912,11 +29202,6 @@
     "who_for": [
       "Men and women"
     ],
-    "facilities": [
-      "Laundry",
-      "Computer Access",
-      "Bedrooms have an ensuite. There is a shared kitchen and a communal lounge. Six rooms are fully accessible"
-    ],
     "postcode": "",
     "lat": null,
     "lng": null
@@ -29993,7 +29278,7 @@
     "kind": "hostel",
     "no_pin": true,
     "card_type": "referral_hostel",
-    "town": "Stay'",
+    "town": "Sefton",
     "groups": [
       "Men and women"
     ],
@@ -30064,7 +29349,7 @@
     "no_pin": true,
     "card_type": "referral_hostel",
     "who_for": [
-      "Families"
+      "Men and women"
     ],
     "access": "A referral is needed. Call 0300 365 8999 for advice.",
     "referral": "A referral is needed. Call 0300 365 8999 for advice.",
@@ -30073,11 +29358,8 @@
     "lat": null,
     "lng": null,
     "phone_label": "CCP central line",
-    "facilities": [
-      "TV"
-    ],
     "groups": [
-      "Families"
+      "Men and women"
     ]
   },
   {
@@ -30101,7 +29383,7 @@
     "no_pin": true,
     "card_type": "referral_hostel",
     "who_for": [
-      "Families"
+      "Men and women"
     ],
     "access": "A referral is needed. Call 0300 365 8999 for advice.",
     "referral": "A referral is needed. Call 0300 365 8999 for advice.",
@@ -30110,11 +29392,8 @@
     "lat": null,
     "lng": null,
     "phone_label": "CCP central line",
-    "facilities": [
-      "TV"
-    ],
     "groups": [
-      "Families"
+      "Men and women"
     ]
   },
   {
@@ -30232,7 +29511,7 @@
     "kind": "hostel",
     "no_pin": true,
     "card_type": "referral_hostel",
-    "town": "LB Tower Hamlets",
+    "town": "Tower Hamlets",
     "groups": [
       "Men and women"
     ],
@@ -30352,7 +29631,8 @@
     "card_type": "referral_hostel",
     "town": "Bristol",
     "who_for": [
-      "Families"
+      "Women only",
+      "People aged 18 and over"
     ],
     "access": "A referral is needed.",
     "referral": "A referral is needed.",
@@ -30362,7 +29642,8 @@
     "lat": null,
     "lng": null,
     "groups": [
-      "Families"
+      "Women only",
+      "People aged 18 and over"
     ]
   },
   {
@@ -30456,14 +29737,7 @@
     "phone_label": "Main office",
     "postcode": "",
     "lat": null,
-    "lng": null,
-    "facilities": [
-      "Showers",
-      "Charging Facilities",
-      "Accessible Toilets",
-      "Computer Access",
-      "Staffed 24 hours a day"
-    ]
+    "lng": null
   },
   {
     "id": "man-salvation-army-riverside-complex-tower-hamlets",
@@ -30486,7 +29760,8 @@
     "no_pin": true,
     "card_type": "referral_hostel",
     "who_for": [
-      "Families"
+      "Men only",
+      "People aged 18 to 60"
     ],
     "access": "A referral is needed.",
     "referral": "A referral is needed.",
@@ -30496,7 +29771,8 @@
     "lng": null,
     "phone_label": "Salvation Army Homes central line",
     "groups": [
-      "Families"
+      "Men only",
+      "People aged 18 to 60"
     ]
   },
   {
@@ -31003,7 +30279,7 @@
     "kind": "hostel",
     "no_pin": true,
     "card_type": "referral_hostel",
-    "town": "Worthing or Littlehampton",
+    "town": "Worthing",
     "groups": [
       "Men and women"
     ],
@@ -31016,10 +30292,7 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "phone_label": "Turning Tides central line",
-    "facilities": [
-      "It is staffed 24 hours a day"
-    ]
+    "phone_label": "Turning Tides central line"
   },
   {
     "id": "man-hope-house-day-centre",
@@ -31053,12 +30326,6 @@
     "access": "You can turn up without an appointment. Call in on Crab Street during opening hours.",
     "referral": "You can turn up without an appointment. Call in on Crab Street during opening hours.",
     "access_type": "open_access",
-    "facilities": [
-      "Food Available",
-      "Computer Access",
-      "It offers a basic needs and personal care service, including help with benefits, identification and a correspondence address",
-      "Donated clothes and toiletries are sometimes available; they ask you to contact them before dropping things off"
-    ],
     "hours": {
       "Mon": "09:00 - 15:30",
       "Tue": "09:00 - 15:30",
@@ -31123,21 +30390,12 @@
     "kind": "day_centre",
     "no_pin": true,
     "town": "Bury St Edmunds",
-    "groups": [
-      "People who are homeless or vulnerably housed"
-    ],
-    "who_for": [
-      "People who are homeless or vulnerably housed"
-    ],
+    "who_for": "Not stated",
     "access": "You can turn up at the sessions without a referral. Call 01284 763233. For emergencies outside those hours, call 01284 763252.",
     "referral": "You can turn up at the sessions without a referral. Call 01284 763233. For emergencies outside those hours, call 01284 763252.",
     "access_type": "open_access",
     "facilities": [
-      "Food Available",
-      "Showers",
-      "Laundry",
-      "The council's rough sleeper team and an NHS health outreach team attend the sessions",
-      "Emergency provisions can include tents, sleeping bags, toiletries, clean clothes, prepaid food vouchers and basic mobile phone kits"
+      "Food Available"
     ],
     "hours": {
       "Tue": "11:00 - 13:30",
@@ -31171,10 +30429,7 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "phone_label": "Adullam Homes central line",
-    "facilities": [
-      "Food Available"
-    ]
+    "phone_label": "Adullam Homes central line"
   },
   {
     "id": "man-adullam-homes-ha-liberty-house-salford",
@@ -31200,10 +30455,7 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "phone_label": "Adullam Homes central line",
-    "facilities": [
-      "Food Available"
-    ]
+    "phone_label": "Adullam Homes central line"
   },
   {
     "id": "man-barnardos-morecambe-moving-on",
@@ -31256,14 +30508,16 @@
     "kind": "young_people",
     "no_pin": true,
     "who_for": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 25"
     ],
     "postcode": "",
     "lat": null,
     "lng": null,
     "phone_label": "Bournemouth Churches central line",
     "groups": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 25"
     ]
   },
   {
@@ -31287,14 +30541,16 @@
     "no_pin": true,
     "town": "Purbeck",
     "who_for": [
-      "Families"
+      "Men and women",
+      "Young people aged 18 to 24"
     ],
     "postcode": "",
     "lat": null,
     "lng": null,
     "phone_label": "Bournemouth Churches central line",
     "groups": [
-      "Families"
+      "Men and women",
+      "Young people aged 18 to 24"
     ]
   },
   {
@@ -31435,14 +30691,16 @@
     "kind": "young_people",
     "no_pin": true,
     "who_for": [
-      "Families"
+      "Men and women",
+      "Young people aged 18 to 25"
     ],
     "postcode": "",
     "lat": null,
     "lng": null,
     "phone_label": "Salvation Army Homes central line",
     "groups": [
-      "Families"
+      "Men and women",
+      "Young people aged 18 to 25"
     ]
   },
   {
@@ -31571,10 +30829,7 @@
     "access_type": "referral_only",
     "postcode": "",
     "lat": null,
-    "lng": null,
-    "facilities": [
-      "Computer Access"
-    ]
+    "lng": null
   },
   {
     "id": "man-centrepoint-widecombe-close",
@@ -31607,10 +30862,7 @@
     "access_type": "referral_only",
     "postcode": "",
     "lat": null,
-    "lng": null,
-    "facilities": [
-      "Computer Access"
-    ]
+    "lng": null
   },
   {
     "id": "man-centrepoint-woodstock-grove",
@@ -31662,7 +30914,7 @@
     "last_verified": "2026-11-13",
     "kind": "young_people",
     "no_pin": true,
-    "town": "LB Brent",
+    "town": "Brent",
     "groups": [
       "Young people aged 16 to 25",
       "Men and women"
@@ -31697,13 +30949,15 @@
     "no_pin": true,
     "town": "Manchester",
     "who_for": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 24"
     ],
     "postcode": "",
     "lat": null,
     "lng": null,
     "groups": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 24"
     ],
     "phone_label": "Central line"
   },
@@ -31728,13 +30982,15 @@
     "no_pin": true,
     "town": "Oldham",
     "who_for": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 25"
     ],
     "postcode": "",
     "lat": null,
     "lng": null,
     "groups": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 25"
     ]
   },
   {
@@ -31757,17 +31013,15 @@
     "kind": "young_people",
     "no_pin": true,
     "who_for": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 25"
     ],
-    "hours": {
-      "Fri": "07:00 - 01:00",
-      "Sat": "08:00 - 01:00"
-    },
     "postcode": "",
     "lat": null,
     "lng": null,
     "groups": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 25"
     ]
   },
   {
@@ -31789,16 +31043,14 @@
     "last_verified": "2026-11-13",
     "kind": "young_people",
     "no_pin": true,
-    "town": "LB Brent",
+    "town": "Brent",
     "groups": [
       "Young people aged 16 to 25",
-      "Men and women",
-      "Families"
+      "Men and women"
     ],
     "who_for": [
       "Young people aged 16 to 25",
-      "Men and women",
-      "Families"
+      "Men and women"
     ],
     "postcode": "",
     "lat": null,
@@ -32014,9 +31266,10 @@
     "kind": "hostel",
     "no_pin": true,
     "card_type": "referral_hostel",
-    "town": "Nottingham City",
+    "town": "Nottingham",
     "who_for": [
-      "Families"
+      "Men and women",
+      "People aged 16 and over"
     ],
     "access": "A referral is needed. Call 0115 841 7711 for advice.",
     "referral": "A referral is needed. Call 0115 841 7711 for advice.",
@@ -32024,12 +31277,9 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Food Available",
-      "Staffed 24 hours a day"
-    ],
     "groups": [
-      "Families"
+      "Men and women",
+      "People aged 16 and over"
     ],
     "phone_label": "Framework HA central line"
   },
@@ -32056,10 +31306,7 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "phone_label": "Home Group central line",
-    "facilities": [
-      "Staffed 24 hours a day"
-    ]
+    "phone_label": "Home Group central line"
   },
   {
     "id": "man-home-group-derwentside-accommodation",
@@ -32085,10 +31332,7 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "phone_label": "Home Group central line",
-    "facilities": [
-      "Staffed 24 hours a day"
-    ]
+    "phone_label": "Home Group central line"
   },
   {
     "id": "man-home-group-easington-accommodation-service",
@@ -32113,10 +31357,7 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "phone_label": "Home Group central line",
-    "facilities": [
-      "Staffed 24 hours a day"
-    ]
+    "phone_label": "Home Group central line"
   },
   {
     "id": "man-home-group-grove-road-young-peoples-services",
@@ -32141,10 +31382,7 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "phone_label": "Home Group central line",
-    "facilities": [
-      "Staffed 24 hours a day"
-    ]
+    "phone_label": "Home Group central line"
   },
   {
     "id": "man-home-group-tyneside-foyer",
@@ -32165,15 +31403,12 @@
     "last_verified": "2026-11-13",
     "kind": "young_people",
     "no_pin": true,
-    "town": "City of Newcastle",
+    "town": "Newcastle upon Tyne",
     "who_for": "Not stated",
     "postcode": "",
     "lat": null,
     "lng": null,
-    "phone_label": "Home Group central line",
-    "facilities": [
-      "Staffed 24 hours a day"
-    ]
+    "phone_label": "Home Group central line"
   },
   {
     "id": "man-home-group-wilkinson-house",
@@ -32200,10 +31435,7 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "phone_label": "Home Group central line",
-    "facilities": [
-      "Staffed 24 hours a day"
-    ]
+    "phone_label": "Home Group central line"
   },
   {
     "id": "man-home-group-young-people-service-gloucestershire",
@@ -32224,15 +31456,12 @@
     "last_verified": "2026-11-13",
     "kind": "young_people",
     "no_pin": true,
-    "town": "Cheltenham and Gloucester",
+    "town": "Gloucestershire",
     "who_for": "Not stated",
     "postcode": "",
     "lat": null,
     "lng": null,
-    "phone_label": "Home Group central line",
-    "facilities": [
-      "Staffed 24 hours a day"
-    ]
+    "phone_label": "Home Group central line"
   },
   {
     "id": "man-lewisham-mansion-house",
@@ -32295,9 +31524,6 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Staffed 24 hours a day"
-    ],
     "phone_label": "LiveWest central line"
   },
   {
@@ -32324,16 +31550,9 @@
     "access": "A referral is needed. Call 0300 123 8080 for advice.",
     "referral": "A referral is needed. Call 0300 123 8080 for advice.",
     "access_type": "referral_only",
-    "hours": {
-      "Thu": "08:30 - 17:00",
-      "Fri": "08:30 - 16:30"
-    },
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Staffed 24 hours a day"
-    ],
     "phone_label": "LiveWest central line"
   },
   {
@@ -32362,9 +31581,6 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Staffed 24 hours a day"
-    ],
     "phone_label": "LiveWest central line"
   },
   {
@@ -32393,9 +31609,6 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Staffed 24 hours a day"
-    ],
     "phone_label": "LiveWest central line"
   },
   {
@@ -32425,9 +31638,6 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Staffed 24 hours a day"
-    ],
     "phone_label": "LiveWest central line"
   },
   {
@@ -32456,9 +31666,6 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Staffed 24 hours a day"
-    ],
     "phone_label": "LiveWest central line"
   },
   {
@@ -32487,9 +31694,6 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Staffed 24 hours a day"
-    ],
     "phone_label": "LiveWest central line"
   },
   {
@@ -32516,10 +31720,7 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "phone_label": "Just central line",
-    "facilities": [
-      "Staffed 24 hours a day"
-    ]
+    "phone_label": "Just central line"
   },
   {
     "id": "man-look-ahead-115-pound-lane",
@@ -32541,19 +31742,17 @@
     "kind": "night_shelter",
     "no_pin": true,
     "card_type": "referral_hostel",
-    "town": "LB Brent",
+    "town": "Brent",
     "who_for": [
-      "Families"
+      "Men only",
+      "People aged 18 to 65"
     ],
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Charging Facilities",
-      "Staffed 24 hours a day"
-    ],
     "groups": [
-      "Families"
+      "Men only",
+      "People aged 18 to 65"
     ],
     "phone_label": "Look Ahead central line"
   },
@@ -32576,19 +31775,17 @@
     "last_verified": "2026-11-13",
     "kind": "young_people",
     "no_pin": true,
-    "town": "LB Tower Hamlets",
+    "town": "Tower Hamlets",
     "who_for": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 25"
     ],
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Charging Facilities",
-      "Staffed 24 hours a day"
-    ],
     "groups": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 25"
     ],
     "phone_label": "Look Ahead central line"
   },
@@ -32613,12 +31810,12 @@
     "no_pin": true,
     "town": "Birmingham",
     "groups": [
-      "Young people aged 16 to 25",
-      "Families"
+      "Men and women",
+      "Young people aged 18 to 25"
     ],
     "who_for": [
-      "Young people aged 16 to 25",
-      "Families"
+      "Men and women",
+      "Young people aged 18 to 25"
     ],
     "access": "A referral is needed. Call 0121 772 2483 for advice.",
     "referral": "A referral is needed. Call 0121 772 2483 for advice.",
@@ -32626,10 +31823,6 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Food Available",
-      "Staffed 24 hours a day"
-    ],
     "phone_label": "St Basils central line"
   },
   {
@@ -32651,15 +31844,17 @@
     "last_verified": "2026-11-13",
     "kind": "young_people",
     "no_pin": true,
-    "town": "LB Islington",
+    "town": "Islington",
     "who_for": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 21"
     ],
     "postcode": "",
     "lat": null,
     "lng": null,
     "groups": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 21"
     ]
   },
   {
@@ -32715,15 +31910,7 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "phone_label": "Riverside central line",
-    "facilities": [
-      "Showers",
-      "Charging Facilities",
-      "Accessible Toilets",
-      "Computer Access",
-      "Energy Advice",
-      "Staffed 24 hours a day"
-    ]
+    "phone_label": "Riverside central line"
   },
   {
     "id": "man-riverside-cambridge-youth-foyer",
@@ -32752,15 +31939,7 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "phone_label": "Riverside central line",
-    "facilities": [
-      "Showers",
-      "Charging Facilities",
-      "Accessible Toilets",
-      "Computer Access",
-      "Energy Advice",
-      "Staffed 24 hours a day"
-    ]
+    "phone_label": "Riverside central line"
   },
   {
     "id": "man-riverside-cangle-foyer",
@@ -32788,15 +31967,7 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "phone_label": "Riverside central line",
-    "facilities": [
-      "Showers",
-      "Charging Facilities",
-      "Accessible Toilets",
-      "Computer Access",
-      "Energy Advice",
-      "Staffed 24 hours a day"
-    ]
+    "phone_label": "Riverside central line"
   },
   {
     "id": "man-riverside-centre-28",
@@ -32824,15 +31995,7 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "phone_label": "Riverside central line",
-    "facilities": [
-      "Showers",
-      "Charging Facilities",
-      "Accessible Toilets",
-      "Computer Access",
-      "Energy Advice",
-      "Staffed 24 hours a day"
-    ]
+    "phone_label": "Riverside central line"
   },
   {
     "id": "man-riverside-sash-project",
@@ -32860,15 +32023,7 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "phone_label": "Riverside central line",
-    "facilities": [
-      "Showers",
-      "Charging Facilities",
-      "Accessible Toilets",
-      "Computer Access",
-      "Energy Advice",
-      "Staffed 24 hours a day"
-    ]
+    "phone_label": "Riverside central line"
   },
   {
     "id": "man-riverside-stopover-project",
@@ -32926,9 +32081,10 @@
     "last_verified": "2026-11-13",
     "kind": "young_people",
     "no_pin": true,
-    "town": "Hyndburn Borough Council",
+    "town": "Accrington",
     "who_for": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 21"
     ],
     "access": "A referral is needed. Call 020 3455 1229 for advice.",
     "referral": "A referral is needed. Call 020 3455 1229 for advice.",
@@ -32936,11 +32092,9 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Staffed 24 hours a day"
-    ],
     "groups": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 21"
     ]
   },
   {
@@ -32964,14 +32118,16 @@
     "no_pin": true,
     "town": "Braintree",
     "who_for": [
-      "Families"
+      "Men and women",
+      "People aged 18 to 35"
     ],
     "postcode": "",
     "lat": null,
     "lng": null,
     "phone_label": "Salvation Army Homes central line",
     "groups": [
-      "Families"
+      "Men and women",
+      "People aged 18 to 35"
     ]
   },
   {
@@ -32994,14 +32150,16 @@
     "kind": "young_people",
     "no_pin": true,
     "who_for": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 25"
     ],
     "postcode": "",
     "lat": null,
     "lng": null,
     "phone_label": "Salvation Army Homes central line",
     "groups": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 25"
     ]
   },
   {
@@ -33024,14 +32182,16 @@
     "kind": "young_people",
     "no_pin": true,
     "who_for": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 25"
     ],
     "postcode": "",
     "lat": null,
     "lng": null,
     "phone_label": "Salvation Army Homes central line",
     "groups": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 25"
     ]
   },
   {
@@ -33055,14 +32215,16 @@
     "no_pin": true,
     "town": "East Sussex",
     "who_for": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 24"
     ],
     "postcode": "",
     "lat": null,
     "lng": null,
     "phone_label": "Salvation Army Homes central line",
     "groups": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 24"
     ]
   },
   {
@@ -33086,14 +32248,16 @@
     "no_pin": true,
     "town": "Manchester",
     "who_for": [
-      "Families"
+      "Men only",
+      "Young people aged 16 to 25"
     ],
     "postcode": "",
     "lat": null,
     "lng": null,
     "phone_label": "Salvation Army Homes central line",
     "groups": [
-      "Families"
+      "Men only",
+      "Young people aged 16 to 25"
     ]
   },
   {
@@ -33118,19 +32282,16 @@
     "card_type": "referral_hostel",
     "groups": [
       "Men and women",
-      "Families"
+      "People aged 18 and over"
     ],
     "who_for": [
       "Men and women",
-      "Families"
+      "People aged 18 and over"
     ],
     "postcode": "",
     "lat": null,
     "lng": null,
-    "phone_label": "Sanctuary Supported Living central line",
-    "facilities": [
-      "Staffed 24 hours a day"
-    ]
+    "phone_label": "Sanctuary Supported Living central line"
   },
   {
     "id": "man-sanctuary-supported-living-southend-young-persons",
@@ -33154,19 +32315,16 @@
     "town": "Southend-on-Sea",
     "groups": [
       "Men and women",
-      "Families"
+      "Young people aged 16 to 25"
     ],
     "who_for": [
       "Men and women",
-      "Families"
+      "Young people aged 16 to 25"
     ],
     "postcode": "",
     "lat": null,
     "lng": null,
-    "phone_label": "Sanctuary Supported Living central line",
-    "facilities": [
-      "Staffed 24 hours a day"
-    ]
+    "phone_label": "Sanctuary Supported Living central line"
   },
   {
     "id": "man-sanctuary-supported-living-weston-foyer",
@@ -33189,19 +32347,16 @@
     "no_pin": true,
     "groups": [
       "Men and women",
-      "Families"
+      "Young people aged 16 to 25"
     ],
     "who_for": [
       "Men and women",
-      "Families"
+      "Young people aged 16 to 25"
     ],
     "postcode": "",
     "lat": null,
     "lng": null,
-    "phone_label": "Sanctuary Supported Living central line",
-    "facilities": [
-      "Staffed 24 hours a day"
-    ]
+    "phone_label": "Sanctuary Supported Living central line"
   },
   {
     "id": "man-shap-one-six-two-project",
@@ -33223,7 +32378,8 @@
     "kind": "young_people",
     "no_pin": true,
     "who_for": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 24"
     ],
     "access": "A referral is needed. Call 01744 454056 for advice.",
     "referral": "A referral is needed. Call 01744 454056 for advice.",
@@ -33233,7 +32389,8 @@
     "lng": null,
     "phone_label": "SHAP central line",
     "groups": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 24"
     ]
   },
   {
@@ -33257,7 +32414,8 @@
     "no_pin": true,
     "town": "Knowsley",
     "who_for": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 21"
     ],
     "access": "A referral is needed. Call 01744 454056 for advice.",
     "referral": "A referral is needed. Call 01744 454056 for advice.",
@@ -33267,7 +32425,8 @@
     "lng": null,
     "phone_label": "SHAP central line",
     "groups": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 21"
     ]
   },
   {
@@ -33290,7 +32449,8 @@
     "kind": "young_people",
     "no_pin": true,
     "who_for": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 21"
     ],
     "access": "A referral is needed. Call 01744 454056 for advice.",
     "referral": "A referral is needed. Call 01744 454056 for advice.",
@@ -33300,7 +32460,8 @@
     "lng": null,
     "phone_label": "SHAP central line",
     "groups": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 21"
     ]
   },
   {
@@ -33356,13 +32517,11 @@
     "town": "Greenwich",
     "groups": [
       "Young people aged 16 to 21",
-      "Men and women",
-      "Families"
+      "Men and women"
     ],
     "who_for": [
       "Young people aged 16 to 21",
-      "Men and women",
-      "Families"
+      "Men and women"
     ],
     "postcode": "",
     "lat": null,
@@ -33391,13 +32550,11 @@
     "town": "Lewisham",
     "groups": [
       "Young people aged 16 to 21",
-      "Men and women",
-      "Families"
+      "Men and women"
     ],
     "who_for": [
       "Young people aged 16 to 21",
-      "Men and women",
-      "Families"
+      "Men and women"
     ],
     "postcode": "",
     "lat": null,
@@ -33423,7 +32580,7 @@
     "last_verified": "2026-11-13",
     "kind": "advice_service",
     "no_pin": true,
-    "town": "LB Lambeth on benefits",
+    "town": "Lambeth",
     "who_for": "Not stated",
     "hours": {
       "Mon": "09:00 - 17:00",
@@ -33456,12 +32613,14 @@
     "kind": "young_people",
     "no_pin": true,
     "groups": [
-      "Young people aged 16 to 25",
-      "Families"
+      "Families",
+      "Men and women",
+      "Young people aged 18 to 25"
     ],
     "who_for": [
-      "Young people aged 16 to 25",
-      "Families"
+      "Families",
+      "Men and women",
+      "Young people aged 18 to 25"
     ],
     "access": "A referral is needed. Call 0121 772 2483 for advice.",
     "referral": "A referral is needed. Call 0121 772 2483 for advice.",
@@ -33469,10 +32628,6 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Food Available",
-      "Staffed 24 hours a day"
-    ],
     "phone_label": "St Basils central line"
   },
   {
@@ -33495,12 +32650,12 @@
     "kind": "young_people",
     "no_pin": true,
     "groups": [
-      "Young people aged 16 to 25",
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 24"
     ],
     "who_for": [
-      "Young people aged 16 to 25",
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 24"
     ],
     "access": "A referral is needed. Call 0121 772 2483 for advice.",
     "referral": "A referral is needed. Call 0121 772 2483 for advice.",
@@ -33508,10 +32663,6 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Food Available",
-      "Staffed 24 hours a day"
-    ],
     "phone_label": "St Basils central line"
   },
   {
@@ -33533,7 +32684,6 @@
     "last_verified": "2026-11-13",
     "kind": "young_people",
     "no_pin": true,
-    "town": "Education",
     "groups": [
       "Young people aged 16 to 25",
       "Families"
@@ -33548,10 +32698,6 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Food Available",
-      "Staffed 24 hours a day"
-    ],
     "phone_label": "St Basils central line"
   },
   {
@@ -33575,11 +32721,11 @@
     "no_pin": true,
     "groups": [
       "Young people aged 16 to 25",
-      "Families"
+      "Men and women"
     ],
     "who_for": [
       "Young people aged 16 to 25",
-      "Families"
+      "Men and women"
     ],
     "access": "A referral is needed. Call 0121 772 2483 for advice.",
     "referral": "A referral is needed. Call 0121 772 2483 for advice.",
@@ -33587,10 +32733,6 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Food Available",
-      "Staffed 24 hours a day"
-    ],
     "phone_label": "St Basils central line"
   },
   {
@@ -33626,10 +32768,6 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Food Available",
-      "Staffed 24 hours a day"
-    ],
     "phone_label": "St Basils central line"
   },
   {
@@ -33653,11 +32791,11 @@
     "no_pin": true,
     "groups": [
       "Young people aged 16 to 25",
-      "Families"
+      "Men and women"
     ],
     "who_for": [
       "Young people aged 16 to 25",
-      "Families"
+      "Men and women"
     ],
     "access": "A referral is needed. Call 0121 772 2483 for advice.",
     "referral": "A referral is needed. Call 0121 772 2483 for advice.",
@@ -33665,10 +32803,6 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Food Available",
-      "Staffed 24 hours a day"
-    ],
     "phone_label": "St Basils central line"
   },
   {
@@ -33692,11 +32826,11 @@
     "no_pin": true,
     "groups": [
       "Young people aged 16 to 25",
-      "Families"
+      "Men and women"
     ],
     "who_for": [
       "Young people aged 16 to 25",
-      "Families"
+      "Men and women"
     ],
     "access": "A referral is needed. Call 0121 772 2483 for advice.",
     "referral": "A referral is needed. Call 0121 772 2483 for advice.",
@@ -33704,10 +32838,6 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Food Available",
-      "Staffed 24 hours a day"
-    ],
     "phone_label": "St Basils central line"
   },
   {
@@ -33730,12 +32860,14 @@
     "kind": "young_people",
     "no_pin": true,
     "groups": [
-      "Young people aged 16 to 25",
-      "Families"
+      "Families",
+      "Men and women",
+      "Young people aged 16 to 24"
     ],
     "who_for": [
-      "Young people aged 16 to 25",
-      "Families"
+      "Families",
+      "Men and women",
+      "Young people aged 16 to 24"
     ],
     "access": "A referral is needed. Call 0121 772 2483 for advice.",
     "referral": "A referral is needed. Call 0121 772 2483 for advice.",
@@ -33743,10 +32875,6 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Food Available",
-      "Staffed 24 hours a day"
-    ],
     "phone_label": "St Basils central line"
   },
   {
@@ -33768,14 +32896,14 @@
     "last_verified": "2026-11-13",
     "kind": "young_people",
     "no_pin": true,
-    "town": "Solihull Metropolitan",
+    "town": "Solihull",
     "groups": [
-      "Young people aged 16 to 25",
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 24"
     ],
     "who_for": [
-      "Young people aged 16 to 25",
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 24"
     ],
     "access": "A referral is needed. Call 0121 772 2483 for advice.",
     "referral": "A referral is needed. Call 0121 772 2483 for advice.",
@@ -33783,10 +32911,6 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Food Available",
-      "Staffed 24 hours a day"
-    ],
     "phone_label": "St Basils central line"
   },
   {
@@ -33810,11 +32934,11 @@
     "no_pin": true,
     "groups": [
       "Young people aged 16 to 25",
-      "Families"
+      "Men and women"
     ],
     "who_for": [
       "Young people aged 16 to 25",
-      "Families"
+      "Men and women"
     ],
     "access": "A referral is needed. Call 0121 772 2483 for advice.",
     "referral": "A referral is needed. Call 0121 772 2483 for advice.",
@@ -33822,10 +32946,6 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Food Available",
-      "Staffed 24 hours a day"
-    ],
     "phone_label": "St Basils central line"
   },
   {
@@ -33849,26 +32969,18 @@
     "no_pin": true,
     "groups": [
       "Young people aged 16 to 25",
-      "Families"
+      "Men and women"
     ],
     "who_for": [
       "Young people aged 16 to 25",
-      "Families"
+      "Men and women"
     ],
     "access": "A referral is needed. Call 0121 772 2483 for advice.",
     "referral": "A referral is needed. Call 0121 772 2483 for advice.",
     "access_type": "referral_only",
-    "hours": {
-      "Fri": "09:00 - 17:00",
-      "Sun": "08:30 - 21:30"
-    },
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Food Available",
-      "Staffed 24 hours a day"
-    ],
     "phone_label": "St Basils central line"
   },
   {
@@ -33892,11 +33004,11 @@
     "no_pin": true,
     "groups": [
       "Young people aged 16 to 25",
-      "Families"
+      "Men and women"
     ],
     "who_for": [
       "Young people aged 16 to 25",
-      "Families"
+      "Men and women"
     ],
     "access": "A referral is needed. Call 0121 772 2483 for advice.",
     "referral": "A referral is needed. Call 0121 772 2483 for advice.",
@@ -33904,10 +33016,6 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Food Available",
-      "Staffed 24 hours a day"
-    ],
     "phone_label": "St Basils central line"
   },
   {
@@ -33930,7 +33038,7 @@
     "kind": "hostel",
     "no_pin": true,
     "card_type": "referral_hostel",
-    "town": "LB Camden",
+    "town": "Camden",
     "who_for": "Not stated",
     "postcode": "",
     "lat": null,
@@ -34009,7 +33117,7 @@
     "kind": "hostel",
     "no_pin": true,
     "card_type": "referral_hostel",
-    "town": "LB Islington",
+    "town": "Islington",
     "who_for": "Not stated",
     "postcode": "",
     "lat": null,
@@ -34063,25 +33171,19 @@
     "no_pin": true,
     "town": "Burnley",
     "who_for": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 21"
     ],
     "access": "You can refer yourself by calling 01706 359600.",
     "referral": "You can refer yourself by calling 01706 359600.",
     "access_type": "self_referral",
-    "hours": {
-      "Fri": "09:00 - 17:00",
-      "Sun": "19:00 - 03:00"
-    },
     "postcode": "",
     "lat": null,
     "lng": null,
     "phone_label": "Stepping Stone central line",
-    "facilities": [
-      "Charging Facilities",
-      "Staffed 24 hours a day"
-    ],
     "groups": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 21"
     ]
   },
   {
@@ -34130,14 +33232,14 @@
     "last_verified": "2026-11-13",
     "kind": "young_people",
     "no_pin": true,
-    "town": "LB Brent",
+    "town": "Brent",
     "groups": [
       "Men and women",
-      "Families"
+      "Young people aged 16 to 17"
     ],
     "who_for": [
       "Men and women",
-      "Families"
+      "Young people aged 16 to 17"
     ],
     "postcode": "",
     "lat": null,
@@ -34268,7 +33370,8 @@
     "kind": "young_people",
     "no_pin": true,
     "who_for": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 25"
     ],
     "access": "A referral is needed. Call 0300 365 8999 for advice.",
     "referral": "A referral is needed. Call 0300 365 8999 for advice.",
@@ -34276,11 +33379,9 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "TV"
-    ],
     "groups": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 25"
     ],
     "phone_label": "CCP central line"
   },
@@ -34304,7 +33405,7 @@
     "kind": "young_people",
     "no_pin": true,
     "who_for": [
-      "Families"
+      "Men and women"
     ],
     "access": "A referral is needed. Call 0300 365 8999 for advice.",
     "referral": "A referral is needed. Call 0300 365 8999 for advice.",
@@ -34312,11 +33413,8 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "TV"
-    ],
     "groups": [
-      "Families"
+      "Men and women"
     ],
     "phone_label": "CCP central line"
   },
@@ -34340,7 +33438,8 @@
     "kind": "young_people",
     "no_pin": true,
     "who_for": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 25"
     ],
     "access": "A referral is needed. Call 0300 365 8999 for advice.",
     "referral": "A referral is needed. Call 0300 365 8999 for advice.",
@@ -34348,11 +33447,9 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "TV"
-    ],
     "groups": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 25"
     ],
     "phone_label": "CCP central line"
   },
@@ -34376,7 +33473,8 @@
     "kind": "young_people",
     "no_pin": true,
     "who_for": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 25"
     ],
     "access": "A referral is needed. Call 0300 365 8999 for advice.",
     "referral": "A referral is needed. Call 0300 365 8999 for advice.",
@@ -34384,11 +33482,9 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "TV"
-    ],
     "groups": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 25"
     ],
     "phone_label": "CCP central line"
   },
@@ -34412,7 +33508,7 @@
     "kind": "young_people",
     "no_pin": true,
     "who_for": [
-      "Families"
+      "Men and women"
     ],
     "access": "A referral is needed. Call 0300 365 8999 for advice.",
     "referral": "A referral is needed. Call 0300 365 8999 for advice.",
@@ -34420,11 +33516,8 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "TV"
-    ],
     "groups": [
-      "Families"
+      "Men and women"
     ],
     "phone_label": "CCP central line"
   },
@@ -34448,7 +33541,8 @@
     "kind": "young_people",
     "no_pin": true,
     "who_for": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 25"
     ],
     "access": "A referral is needed. Call 0300 365 8999 for advice.",
     "referral": "A referral is needed. Call 0300 365 8999 for advice.",
@@ -34456,11 +33550,9 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "TV"
-    ],
     "groups": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 25"
     ],
     "phone_label": "CCP central line"
   },
@@ -34484,7 +33576,8 @@
     "kind": "young_people",
     "no_pin": true,
     "who_for": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 18"
     ],
     "access": "A referral is needed. Call 0300 365 8999 for advice.",
     "referral": "A referral is needed. Call 0300 365 8999 for advice.",
@@ -34492,11 +33585,9 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "TV"
-    ],
     "groups": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 18"
     ],
     "phone_label": "CCP central line"
   },
@@ -34520,7 +33611,8 @@
     "kind": "young_people",
     "no_pin": true,
     "who_for": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 25"
     ],
     "access": "A referral is needed. Call 0300 365 8999 for advice.",
     "referral": "A referral is needed. Call 0300 365 8999 for advice.",
@@ -34528,11 +33620,9 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "TV"
-    ],
     "groups": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 25"
     ],
     "phone_label": "CCP central line"
   },
@@ -34556,7 +33646,7 @@
     "kind": "young_people",
     "no_pin": true,
     "who_for": [
-      "Families"
+      "Men and women"
     ],
     "access": "A referral is needed. Call 0300 365 8999 for advice.",
     "referral": "A referral is needed. Call 0300 365 8999 for advice.",
@@ -34564,11 +33654,8 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "TV"
-    ],
     "groups": [
-      "Families"
+      "Men and women"
     ],
     "phone_label": "CCP central line"
   },
@@ -34591,7 +33678,7 @@
     "last_verified": "2026-11-13",
     "kind": "young_people",
     "no_pin": true,
-    "town": "LB Ealing",
+    "town": "Ealing",
     "groups": [
       "Young people aged 16 to 25",
       "Men and women"
@@ -34733,10 +33820,7 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "phone_label": "Home Group central line",
-    "facilities": [
-      "Staffed 24 hours a day"
-    ]
+    "phone_label": "Home Group central line"
   },
   {
     "id": "man-one-housing-group-young-peoples-assessment-support",
@@ -34757,17 +33841,13 @@
     "last_verified": "2026-11-13",
     "kind": "young_people",
     "no_pin": true,
-    "town": "LB Tower Hamlets",
+    "town": "Tower Hamlets",
     "who_for": [
       "Families"
     ],
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Charging Facilities",
-      "Staffed 24 hours a day"
-    ],
     "groups": [
       "Families"
     ],
@@ -34795,11 +33875,11 @@
     "town": "Birmingham",
     "groups": [
       "Young people aged 16 to 25",
-      "Families"
+      "Men and women"
     ],
     "who_for": [
       "Young people aged 16 to 25",
-      "Families"
+      "Men and women"
     ],
     "access": "A referral is needed. Call 0121 772 2483 for advice.",
     "referral": "A referral is needed. Call 0121 772 2483 for advice.",
@@ -34807,9 +33887,6 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Food Available"
-    ],
     "phone_label": "St Basils central line"
   },
   {
@@ -34831,14 +33908,13 @@
     "last_verified": "2026-11-13",
     "kind": "young_people",
     "no_pin": true,
-    "town": "Transition Hub",
     "groups": [
       "Young people aged 16 to 25",
-      "Families"
+      "Men and women"
     ],
     "who_for": [
       "Young people aged 16 to 25",
-      "Families"
+      "Men and women"
     ],
     "access": "A referral is needed. Call 0121 772 2483 for advice.",
     "referral": "A referral is needed. Call 0121 772 2483 for advice.",
@@ -34846,9 +33922,6 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Food Available"
-    ],
     "phone_label": "St Basils central line"
   },
   {
@@ -34903,7 +33976,8 @@
     "no_pin": true,
     "card_type": "referral_hostel",
     "who_for": [
-      "Families"
+      "Men and women",
+      "People aged 18 to 65"
     ],
     "access": "A referral is needed.",
     "referral": "A referral is needed.",
@@ -34913,7 +33987,8 @@
     "lng": null,
     "phone_label": "Bournemouth Churches central line",
     "groups": [
-      "Families"
+      "Men and women",
+      "People aged 18 to 65"
     ]
   },
   {
@@ -34938,7 +34013,8 @@
     "card_type": "referral_hostel",
     "town": "Bournemouth",
     "who_for": [
-      "Families"
+      "Men and women",
+      "People aged 21 and over"
     ],
     "access": "A referral is needed.",
     "referral": "A referral is needed.",
@@ -34948,7 +34024,8 @@
     "lng": null,
     "phone_label": "Bournemouth Churches central line",
     "groups": [
-      "Families"
+      "Men and women",
+      "People aged 21 and over"
     ]
   },
   {
@@ -34972,7 +34049,7 @@
     "no_pin": true,
     "card_type": "referral_hostel",
     "who_for": [
-      "Families"
+      "Men and women"
     ],
     "access": "A referral is needed. Call 0300 365 8999 for advice.",
     "referral": "A referral is needed. Call 0300 365 8999 for advice.",
@@ -34980,11 +34057,8 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "TV"
-    ],
     "groups": [
-      "Families"
+      "Men and women"
     ],
     "phone_label": "CCP central line"
   },
@@ -35009,7 +34083,7 @@
     "no_pin": true,
     "card_type": "referral_hostel",
     "who_for": [
-      "Families"
+      "Men and women"
     ],
     "access": "A referral is needed. Call 0300 365 8999 for advice.",
     "referral": "A referral is needed. Call 0300 365 8999 for advice.",
@@ -35017,11 +34091,8 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "TV"
-    ],
     "groups": [
-      "Families"
+      "Men and women"
     ],
     "phone_label": "CCP central line"
   },
@@ -35046,7 +34117,7 @@
     "no_pin": true,
     "card_type": "referral_hostel",
     "who_for": [
-      "Families"
+      "Men and women"
     ],
     "access": "A referral is needed. Call 0300 365 8999 for advice.",
     "referral": "A referral is needed. Call 0300 365 8999 for advice.",
@@ -35054,11 +34125,8 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "TV"
-    ],
     "groups": [
-      "Families"
+      "Men and women"
     ],
     "phone_label": "CCP central line"
   },
@@ -35083,7 +34151,7 @@
     "no_pin": true,
     "card_type": "referral_hostel",
     "who_for": [
-      "Families"
+      "Men and women"
     ],
     "access": "A referral is needed. Call 0300 365 8999 for advice.",
     "referral": "A referral is needed. Call 0300 365 8999 for advice.",
@@ -35091,11 +34159,8 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "TV"
-    ],
     "groups": [
-      "Families"
+      "Men and women"
     ],
     "phone_label": "CCP central line"
   },
@@ -35125,10 +34190,6 @@
     "who_for": [
       "Men and women"
     ],
-    "hours": {
-      "Fri": "08:00 - 22:00",
-      "Sun": "08:00 - 20:00"
-    },
     "postcode": "",
     "lat": null,
     "lng": null
@@ -35323,14 +34384,7 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "phone_label": "Riverside central line",
-    "facilities": [
-      "Showers",
-      "Charging Facilities",
-      "Accessible Toilets",
-      "Computer Access",
-      "Staffed 24 hours a day"
-    ]
+    "phone_label": "Riverside central line"
   },
   {
     "id": "man-evolve-housing-and-support-fitze-millenium-centre",
@@ -35352,7 +34406,7 @@
     "kind": "hostel",
     "no_pin": true,
     "card_type": "referral_hostel",
-    "town": "LB Croydon",
+    "town": "Croydon",
     "groups": [
       "Men and women"
     ],
@@ -35531,9 +34585,6 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Staffed 24 hours a day"
-    ],
     "phone_label": "Framework HA central line"
   },
   {
@@ -35564,9 +34615,6 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Staffed 24 hours a day"
-    ],
     "phone_label": "Framework HA central line"
   },
   {
@@ -35597,10 +34645,7 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "phone_label": "Home Group central line",
-    "facilities": [
-      "Staffed 24 hours a day"
-    ]
+    "phone_label": "Home Group central line"
   },
   {
     "id": "man-home-group-lowestoft-kirkley-cliff",
@@ -35626,16 +34671,10 @@
     "access": "A referral is needed.",
     "referral": "A referral is needed.",
     "access_type": "referral_only",
-    "hours": {
-      "Sun": "08:30 - 17:30"
-    },
     "postcode": "",
     "lat": null,
     "lng": null,
-    "phone_label": "Home Group central line",
-    "facilities": [
-      "Staffed 24 hours a day"
-    ]
+    "phone_label": "Home Group central line"
   },
   {
     "id": "man-home-group-river-view",
@@ -35662,16 +34701,10 @@
     "access": "A referral is needed.",
     "referral": "A referral is needed.",
     "access_type": "referral_only",
-    "hours": {
-      "Sun": "19:55 - 08:00"
-    },
     "postcode": "",
     "lat": null,
     "lng": null,
-    "phone_label": "Home Group central line",
-    "facilities": [
-      "Staffed 24 hours a day"
-    ]
+    "phone_label": "Home Group central line"
   },
   {
     "id": "man-london-cyrenians-5-the-butts-brentford",
@@ -35868,7 +34901,8 @@
     "no_pin": true,
     "card_type": "referral_hostel",
     "who_for": [
-      "Families"
+      "Men and women",
+      "People aged 18 to 65"
     ],
     "access": "A referral is needed.",
     "referral": "A referral is needed.",
@@ -35876,12 +34910,9 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Charging Facilities",
-      "Staffed 24 hours a day"
-    ],
     "groups": [
-      "Families"
+      "Men and women",
+      "People aged 18 to 65"
     ],
     "phone_label": "Look Ahead central line"
   },
@@ -36103,22 +35134,13 @@
     "kind": "hostel",
     "no_pin": true,
     "card_type": "referral_hostel",
-    "who_for": [
-      "Families"
-    ],
+    "who_for": "Not stated",
     "access": "A referral is needed.",
     "referral": "A referral is needed.",
     "access_type": "referral_only",
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Charging Facilities",
-      "Staffed 24 hours a day"
-    ],
-    "groups": [
-      "Families"
-    ],
     "phone_label": "Look Ahead central line"
   },
   {
@@ -36149,14 +35171,7 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "phone_label": "Riverside central line",
-    "facilities": [
-      "Showers",
-      "Charging Facilities",
-      "Accessible Toilets",
-      "Computer Access",
-      "Staffed 24 hours a day"
-    ]
+    "phone_label": "Riverside central line"
   },
   {
     "id": "man-riverside-marsh-way-house",
@@ -36185,14 +35200,7 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "phone_label": "Riverside central line",
-    "facilities": [
-      "Showers",
-      "Charging Facilities",
-      "Accessible Toilets",
-      "Computer Access",
-      "Staffed 24 hours a day"
-    ]
+    "phone_label": "Riverside central line"
   },
   {
     "id": "man-riverside-mike-jackson-house",
@@ -36221,14 +35229,7 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "phone_label": "Riverside central line",
-    "facilities": [
-      "Showers",
-      "Charging Facilities",
-      "Accessible Toilets",
-      "Computer Access",
-      "Staffed 24 hours a day"
-    ]
+    "phone_label": "Riverside central line"
   },
   {
     "id": "man-riverside-no5-project",
@@ -36257,14 +35258,7 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "phone_label": "Riverside central line",
-    "facilities": [
-      "Showers",
-      "Charging Facilities",
-      "Accessible Toilets",
-      "Computer Access",
-      "Staffed 24 hours a day"
-    ]
+    "phone_label": "Riverside central line"
   },
   {
     "id": "man-riverside-open-house-plus",
@@ -36293,14 +35287,7 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "phone_label": "Riverside central line",
-    "facilities": [
-      "Showers",
-      "Charging Facilities",
-      "Accessible Toilets",
-      "Computer Access",
-      "Staffed 24 hours a day"
-    ]
+    "phone_label": "Riverside central line"
   },
   {
     "id": "man-riverside-regent-house",
@@ -36330,14 +35317,7 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "phone_label": "Riverside central line",
-    "facilities": [
-      "Showers",
-      "Charging Facilities",
-      "Accessible Toilets",
-      "Computer Access",
-      "Staffed 24 hours a day"
-    ]
+    "phone_label": "Riverside central line"
   },
   {
     "id": "man-riverside-stages-academy",
@@ -36366,14 +35346,7 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "phone_label": "Riverside central line",
-    "facilities": [
-      "Showers",
-      "Charging Facilities",
-      "Accessible Toilets",
-      "Computer Access",
-      "Staffed 24 hours a day"
-    ]
+    "phone_label": "Riverside central line"
   },
   {
     "id": "man-riverside-towers-point",
@@ -36403,14 +35376,7 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "phone_label": "Riverside central line",
-    "facilities": [
-      "Showers",
-      "Charging Facilities",
-      "Accessible Toilets",
-      "Computer Access",
-      "Staffed 24 hours a day"
-    ]
+    "phone_label": "Riverside central line"
   },
   {
     "id": "man-riverside-townsend-gardens",
@@ -36441,11 +35407,7 @@
     "lng": null,
     "phone_label": "Riverside central line",
     "facilities": [
-      "Showers",
-      "Charging Facilities",
-      "Accessible Toilets",
-      "Computer Access",
-      "Staffed 24 hours a day"
+      "Showers"
     ]
   },
   {
@@ -36468,7 +35430,7 @@
     "kind": "hostel",
     "no_pin": true,
     "card_type": "referral_hostel",
-    "town": "Cambridge City",
+    "town": "Cambridge",
     "who_for": "Not stated",
     "access": "A referral is needed. Call 0300 123 9966 for advice.",
     "referral": "A referral is needed. Call 0300 123 9966 for advice.",
@@ -36476,14 +35438,7 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "phone_label": "Riverside central line",
-    "facilities": [
-      "Showers",
-      "Charging Facilities",
-      "Accessible Toilets",
-      "Computer Access",
-      "Staffed 24 hours a day"
-    ]
+    "phone_label": "Riverside central line"
   },
   {
     "id": "man-riverside-wharf-house",
@@ -36512,14 +35467,7 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "phone_label": "Riverside central line",
-    "facilities": [
-      "Showers",
-      "Charging Facilities",
-      "Accessible Toilets",
-      "Computer Access",
-      "Staffed 24 hours a day"
-    ]
+    "phone_label": "Riverside central line"
   },
   {
     "id": "man-riverside-wilson-carlile-house",
@@ -36548,14 +35496,7 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "phone_label": "Riverside central line",
-    "facilities": [
-      "Showers",
-      "Charging Facilities",
-      "Accessible Toilets",
-      "Computer Access",
-      "Staffed 24 hours a day"
-    ]
+    "phone_label": "Riverside central line"
   },
   {
     "id": "man-rochdale-petrus-community-beswicke-royds-street",
@@ -36749,10 +35690,7 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "phone_label": "Rochdale Petrus central line",
-    "facilities": [
-      "Charging Facilities"
-    ]
+    "phone_label": "Rochdale Petrus central line"
   },
   {
     "id": "man-salvation-army-bramwell-house",
@@ -36775,7 +35713,8 @@
     "no_pin": true,
     "card_type": "referral_hostel",
     "who_for": [
-      "Families"
+      "Men and women",
+      "People aged 18 and over"
     ],
     "access": "A referral is needed. Call 020 7367 4800 for advice.",
     "referral": "A referral is needed. Call 020 7367 4800 for advice.",
@@ -36783,11 +35722,9 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Staffed 24 hours a day"
-    ],
     "groups": [
-      "Families"
+      "Men and women",
+      "People aged 18 and over"
     ],
     "phone_label": "Salvation Army central line"
   },
@@ -36811,21 +35748,13 @@
     "kind": "hostel",
     "no_pin": true,
     "card_type": "referral_hostel",
-    "who_for": [
-      "Families"
-    ],
+    "who_for": "Not stated",
     "access": "A referral is needed. Call 020 7367 4800 for advice.",
     "referral": "A referral is needed. Call 020 7367 4800 for advice.",
     "access_type": "referral_only",
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Staffed 24 hours a day"
-    ],
-    "groups": [
-      "Families"
-    ],
     "phone_label": "Salvation Army central line"
   },
   {
@@ -36883,7 +35812,8 @@
     "no_pin": true,
     "card_type": "referral_hostel",
     "who_for": [
-      "Families"
+      "Women only",
+      "People aged 16 to 30"
     ],
     "access": "A referral is needed.",
     "referral": "A referral is needed.",
@@ -36893,7 +35823,8 @@
     "lng": null,
     "phone_label": "Salvation Army Homes central line",
     "groups": [
-      "Families"
+      "Women only",
+      "People aged 16 to 30"
     ]
   },
   {
@@ -36917,7 +35848,8 @@
     "no_pin": true,
     "card_type": "referral_hostel",
     "who_for": [
-      "Families"
+      "Men and women",
+      "People aged 16 and over"
     ],
     "access": "A referral is needed.",
     "referral": "A referral is needed.",
@@ -36927,7 +35859,8 @@
     "lng": null,
     "phone_label": "Salvation Army Homes central line",
     "groups": [
-      "Families"
+      "Men and women",
+      "People aged 16 and over"
     ]
   },
   {
@@ -36952,7 +35885,8 @@
     "card_type": "referral_hostel",
     "town": "Guildford",
     "who_for": [
-      "Families"
+      "Women only",
+      "People aged 18 and over"
     ],
     "access": "A referral is needed.",
     "referral": "A referral is needed.",
@@ -36962,7 +35896,8 @@
     "lng": null,
     "phone_label": "Salvation Army Homes central line",
     "groups": [
-      "Families"
+      "Women only",
+      "People aged 18 and over"
     ]
   },
   {
@@ -37021,7 +35956,8 @@
     "card_type": "referral_hostel",
     "town": "Huntingdon",
     "who_for": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 25"
     ],
     "access": "A referral is needed. Call 020 7367 4800 for advice.",
     "referral": "A referral is needed. Call 020 7367 4800 for advice.",
@@ -37029,11 +35965,9 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Staffed 24 hours a day"
-    ],
     "groups": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 25"
     ],
     "phone_label": "Salvation Army central line"
   },
@@ -37059,7 +35993,8 @@
     "card_type": "referral_hostel",
     "town": "Bristol",
     "who_for": [
-      "Families"
+      "Men only",
+      "People aged 22 and over"
     ],
     "access": "A referral is needed. Call 020 7367 4800 for advice.",
     "referral": "A referral is needed. Call 020 7367 4800 for advice.",
@@ -37067,11 +36002,9 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Staffed 24 hours a day"
-    ],
     "groups": [
-      "Families"
+      "Men only",
+      "People aged 22 and over"
     ],
     "phone_label": "Salvation Army central line"
   },
@@ -37095,9 +36028,10 @@
     "kind": "hostel",
     "no_pin": true,
     "card_type": "referral_hostel",
-    "town": "Willow House",
+    "town": "Reading",
     "who_for": [
-      "Families"
+      "Men and women",
+      "People aged 18 and over"
     ],
     "access": "A referral is needed. Call 020 7367 4800 for advice.",
     "referral": "A referral is needed. Call 020 7367 4800 for advice.",
@@ -37105,11 +36039,9 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Staffed 24 hours a day"
-    ],
     "groups": [
-      "Families"
+      "Men and women",
+      "People aged 18 and over"
     ],
     "phone_label": "Salvation Army central line"
   },
@@ -37134,7 +36066,8 @@
     "no_pin": true,
     "card_type": "referral_hostel",
     "who_for": [
-      "Families"
+      "Men and women",
+      "People aged 18 to 65"
     ],
     "access": "A referral is needed. Call 020 7367 4800 for advice.",
     "referral": "A referral is needed. Call 020 7367 4800 for advice.",
@@ -37142,11 +36075,9 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Staffed 24 hours a day"
-    ],
     "groups": [
-      "Families"
+      "Men and women",
+      "People aged 18 to 65"
     ],
     "phone_label": "Salvation Army central line"
   },
@@ -37171,7 +36102,8 @@
     "no_pin": true,
     "card_type": "referral_hostel",
     "who_for": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 24"
     ],
     "access": "A referral is needed. Call 01744 454056 for advice.",
     "referral": "A referral is needed. Call 01744 454056 for advice.",
@@ -37181,7 +36113,8 @@
     "lng": null,
     "phone_label": "SHAP central line",
     "groups": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 24"
     ]
   },
   {
@@ -37205,7 +36138,8 @@
     "no_pin": true,
     "card_type": "referral_hostel",
     "who_for": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 24"
     ],
     "access": "A referral is needed. Call 01744 454056 for advice.",
     "referral": "A referral is needed. Call 01744 454056 for advice.",
@@ -37215,7 +36149,8 @@
     "lng": null,
     "phone_label": "SHAP central line",
     "groups": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 24"
     ]
   },
   {
@@ -37239,7 +36174,8 @@
     "no_pin": true,
     "card_type": "referral_hostel",
     "who_for": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 25"
     ],
     "access": "A referral is needed. Call 01744 454056 for advice.",
     "referral": "A referral is needed. Call 01744 454056 for advice.",
@@ -37249,7 +36185,8 @@
     "lng": null,
     "phone_label": "SHAP central line",
     "groups": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 25"
     ]
   },
   {
@@ -37272,9 +36209,10 @@
     "kind": "hostel",
     "no_pin": true,
     "card_type": "referral_hostel",
-    "town": "LB Islington",
+    "town": "Islington",
     "who_for": [
-      "Families"
+      "Men and women",
+      "People aged 18 and over"
     ],
     "access": "A referral is needed.",
     "referral": "A referral is needed.",
@@ -37282,12 +36220,9 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "facilities": [
-      "Charging Facilities",
-      "Staffed 24 hours a day"
-    ],
     "groups": [
-      "Families"
+      "Men and women",
+      "People aged 18 and over"
     ],
     "phone_label": "Look Ahead central line"
   },
@@ -37311,7 +36246,7 @@
     "kind": "hostel",
     "no_pin": true,
     "card_type": "referral_hostel",
-    "town": "LB Camden",
+    "town": "Camden",
     "groups": [
       "Men and women"
     ],
@@ -37953,11 +36888,7 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "phone_label": "Stepping Stone central line",
-    "facilities": [
-      "Charging Facilities",
-      "Staffed 24 hours a day"
-    ]
+    "phone_label": "Stepping Stone central line"
   },
   {
     "id": "man-stepping-stone-projects-redfearn-house",
@@ -37986,11 +36917,7 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "phone_label": "Stepping Stone central line",
-    "facilities": [
-      "Charging Facilities",
-      "Staffed 24 hours a day"
-    ]
+    "phone_label": "Stepping Stone central line"
   },
   {
     "id": "man-stepping-stone-projects-skye-crescent-lodge",
@@ -38019,11 +36946,7 @@
     "postcode": "",
     "lat": null,
     "lng": null,
-    "phone_label": "Stepping Stone central line",
-    "facilities": [
-      "Charging Facilities",
-      "Staffed 24 hours a day"
-    ]
+    "phone_label": "Stepping Stone central line"
   },
   {
     "id": "man-thames-reach-bermondsey-projects",
@@ -38055,10 +36978,6 @@
     "access": "You can refer yourself by calling 020 3228 1800.",
     "referral": "You can refer yourself by calling 020 3228 1800.",
     "access_type": "self_referral",
-    "hours": {
-      "Fri": "08:00 - 20:00",
-      "Sun": "10:00 - 18:00"
-    },
     "postcode": "",
     "lat": null,
     "lng": null
@@ -38179,7 +37098,7 @@
     "kind": "hostel",
     "no_pin": true,
     "card_type": "referral_hostel",
-    "town": "Hart District Council",
+    "town": "Farnham",
     "groups": [
       "Men and women"
     ],
