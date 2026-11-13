@@ -22,6 +22,7 @@ LAYOUT = r"""() => {
   return {vw: innerWidth, sw: document.documentElement.scrollWidth,
     host: g('#chips [data-f=shost]'), youth: g('#chips [data-f=youth]'), day: g('#chips [data-f=sday]'),
     open: g('#v3open'), x: g('#fhide'), tools: g('#v3tools'),
+    bar: g('#h2bar'), fresh: g('#h2bar .fresh, #h2bar #freshtxt'),
     walk: g('#chips [data-f=walk]'), vouch: g('#chips [data-f=vouch]'),
     sym: sr && {w: sr.width, h: sr.height},
     ck: cr && {t: cr.top, l: cr.left, r: cr.right, b: cr.bottom, w: cr.width, h: cr.height}};
@@ -100,7 +101,13 @@ class Chips(unittest.TestCase):
         self.assertLess(day['l'], open_['l'], box)
         self.assertLess(open_['l'], x['l'], box)
         self.assertGreater(tools['t'], x['b'] - 2, box)
-        self.assertLess(tools['t'] - x['b'], 24, (w, 'gap above List only', box))
+        # 12 Nov 2026: List only / Light mode sit on #h2bar with Updated today, below Find nearest, not tight under the reset
+        bar = box.get('bar') or {}
+        fresh = box.get('fresh') or {}
+        self.assertTrue(bar.get('show'), (w, 'status row missing', box))
+        self.assertLess(abs(tools['t'] - bar.get('t', -999)), 8, (w, 'List only not on the status row', box))
+        self.assertLess(abs(tools['t'] - fresh.get('t', -999)), 8, (w, 'List only not beside Updated today', box))
+        self.assertGreater(tools['t'] - x['b'], 24, (w, 'List only still tight under the reset', box))
         self.assertLessEqual(x['r'], box['vw'] + 1, box)
         self.assertLessEqual(box['sw'], box['vw'] + 1, box)
         ck = box.get('ck') or {}

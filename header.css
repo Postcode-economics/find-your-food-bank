@@ -242,6 +242,11 @@ html body .xacts>a.btn.web .xdom{text-overflow:ellipsis!important}
 #h2bar>#v3tools .v3t,#h2bar>#v3tools.v3tight .v3t{height:44px!important;min-height:44px!important;border:0!important;background:transparent!important;color:#F2F4F8!important;font-size:14px!important;font-weight:700!important;text-decoration:underline!important;text-underline-offset:3px;padding:0 2px!important;border-radius:0!important}
 html.light #h2bar .fresh a,html.light #h2bar #freshtxt,html.light #h2bar>#v3tools .v3t{color:#0A1628!important}
 html:not(.light) #h2bar #freshtxt,html:not(.light) #h2bar .fresh,html:not(.light) #h2bar .fresh a,html:not(.light) #h2bar>#v3tools .v3t{color:#F2F4F8!important}
+#h2bar>#v3tools .v3t[aria-pressed=true],html:not(.light) #h2bar>#v3tools .v3t[aria-pressed=true],html:not(.light) #h2bar>#v3tools .v3t[aria-pressed=true]:focus,html:not(.light) #h2bar>#v3tools .v3t[aria-pressed=true]:active,html:not(.light) #h2bar>#v3tools .v3t[aria-pressed=true]:hover{color:#F5C518!important;background:transparent!important}
+html.light #h2bar>#v3tools .v3t[aria-pressed=true]{color:#8A5A00!important;background:transparent!important}
 #v3prow[hidden]{display:none!important;min-height:0!important;margin:0!important}
 /* Phones: keep the 48vh / min 320px map and add the ~58px freed by the removed status box. Desktop unchanged. */
 @media (max-width:1023px){#map{height:calc(48vh + 58px)!important;min-height:378px!important}}
+/* Pins stay tappable over the map credit. The 44px hit area used to reach up into markers; grow it down instead (#map is overflow:hidden, so the extra does not steal taps below the map). On phones the OpenFreeMap credit otherwise wraps to two lines and the first line covers pins; keep it on one line. */
+#map .leaflet-control-attribution a{padding:0 2px 28px!important;margin:0 0 -28px 0!important}
+@media (max-width:1023px){#map .leaflet-control-attribution{white-space:nowrap;max-width:100%;overflow:hidden;font-size:10px;line-height:16px}}

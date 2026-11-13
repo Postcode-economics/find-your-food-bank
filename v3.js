@@ -399,8 +399,11 @@ function fitBar(){const bar=document.getElementById('h2bar'),a=document.getEleme
  if(bar.scrollWidth>bar.clientWidth+1){const tm=a.dataset.full.match(/Updated today at (\d\d:\d\d)/);if(tm)a.textContent='Updated '+tm[1]}}
 function syncProw(){const pill=document.getElementById('v3pill'),prow=document.getElementById('v3prow');
  const hasPlace=!!(pill&&pill.querySelector('.v3pl'));
- if(pill){pill.hidden=!hasPlace;pill.style.display=hasPlace?'':'none'}
- if(prow){prow.hidden=!hasPlace;prow.style.display=hasPlace?'flex':'none'}
+ const hasErr=!!(pill&&pill.querySelector('.v3err,.didyou'));
+ const searching=!!(pill&&pill.querySelector('.v3ph')&&/Searching|Finding|Chwilio/i.test(pill.textContent||''));
+ const show=hasPlace||hasErr||searching;
+ if(pill){pill.hidden=!show;pill.style.display=show?'':'none'}
+ if(prow){prow.hidden=!show;prow.style.display=show?'flex':'none'}
 }
 function h2(){const big=document.getElementById('v3big'),filt=document.getElementById('v3filt'),pill=document.getElementById('v3pill'),xb=document.getElementById('xbefore'),fr=document.querySelector('header .fresh'),near=document.getElementById('xnear'),tl=document.getElementById('v3tools');
  if(!big||!filt||!fr||!near||!tl)return false;if(document.getElementById('h2bar')){fitBar();syncProw();return true}
