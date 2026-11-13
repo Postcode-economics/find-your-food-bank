@@ -10870,12 +10870,10 @@
     "kind": "young_people",
     "no_pin": true,
     "groups": [
-      "Young people aged 16 to 24",
-      "Families"
+      "Young people aged 16 to 24"
     ],
     "who_for": [
-      "Young people aged 16 to 24",
-      "Families"
+      "Young people aged 16 to 24"
     ],
     "access": "A referral is needed. Call 0800 328 7795 for advice.",
     "referral": "A referral is needed. Call 0800 328 7795 for advice.",
@@ -10905,12 +10903,10 @@
     "kind": "young_people",
     "no_pin": true,
     "groups": [
-      "Young people aged 16 to 25",
-      "Families"
+      "Young people aged 16 to 25"
     ],
     "who_for": [
-      "Young people aged 16 to 25",
-      "Families"
+      "Young people aged 16 to 25"
     ],
     "postcode": "",
     "lat": null,
@@ -10937,14 +10933,16 @@
     "kind": "young_people",
     "no_pin": true,
     "who_for": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 25"
     ],
     "postcode": "",
     "lat": null,
     "lng": null,
     "phone_label": "Barnardo's central line",
     "groups": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 25"
     ]
   },
   {
@@ -11460,7 +11458,7 @@
     "lat": 51.490265,
     "lng": -0.097344,
     "who_for": [
-      "Families"
+      "Covers Southwark"
     ],
     "access": "A referral is needed. Call 020 7358 7025 for advice.",
     "referral": "A referral is needed. Call 020 7358 7025 for advice.",
@@ -11473,7 +11471,7 @@
       "Fri": "10:00 - 13:00"
     },
     "groups": [
-      "Families"
+      "Covers Southwark"
     ]
   },
   {
@@ -11631,13 +11629,13 @@
     "lat": 53.565652,
     "lng": -0.083491,
     "who_for": [
-      "Families"
+      "People who are homeless or on benefits"
     ],
     "access": "You can turn up without a referral. Call 01472 232310 if you want to check first.",
     "referral": "You can turn up without a referral. Call 01472 232310 if you want to check first.",
     "access_type": "open_access",
     "groups": [
-      "Families"
+      "People who are homeless or on benefits"
     ]
   },
   {
@@ -12111,7 +12109,8 @@
     "kind": "young_people",
     "no_pin": true,
     "who_for": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 25"
     ],
     "access": "A referral is needed. Call 01384 455464 for advice.",
     "referral": "A referral is needed. Call 01384 455464 for advice.",
@@ -12120,7 +12119,8 @@
     "lat": null,
     "lng": null,
     "groups": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 25"
     ]
   },
   {
@@ -14509,7 +14509,7 @@
     "no_pin": true,
     "town": "Hull",
     "who_for": [
-      "Families"
+      "People who are homeless, leaving care or have offended"
     ],
     "access": "A referral is needed. Call 01482 586633 for advice.",
     "referral": "A referral is needed. Call 01482 586633 for advice.",
@@ -14525,7 +14525,7 @@
     "lat": null,
     "lng": null,
     "groups": [
-      "Families"
+      "People who are homeless, leaving care or have offended"
     ]
   },
   {
@@ -15137,10 +15137,12 @@
     "kind": "advice_service",
     "no_pin": true,
     "groups": [
-      "Families"
+      "Women only",
+      "Women with mental health needs who need housing support"
     ],
     "who_for": [
-      "Families"
+      "Women only",
+      "Women with mental health needs who need housing support"
     ],
     "hours": {
       "Mon": "09:00 - 17:00",
@@ -15151,7 +15153,10 @@
     },
     "postcode": "",
     "lat": null,
-    "lng": null
+    "lng": null,
+    "access": "Referrals come only through the local NHS mental health trust (Avon and Wiltshire Mental Health Partnership).",
+    "referral": "Referrals come only through the local NHS mental health trust (Avon and Wiltshire Mental Health Partnership).",
+    "access_type": "referral_only"
   },
   {
     "id": "man-mosscare-st-vincents-housing-group-blackburn-with",
@@ -16519,12 +16524,10 @@
     "kind": "young_people",
     "no_pin": true,
     "groups": [
-      "Young people aged 16 to 25",
-      "Families"
+      "Young people aged 16 to 25"
     ],
     "who_for": [
-      "Young people aged 16 to 25",
-      "Families"
+      "Young people aged 16 to 25"
     ],
     "access": "A referral is needed. Call 07510 926379 for advice.",
     "referral": "A referral is needed. Call 07510 926379 for advice.",
@@ -16841,38 +16844,6 @@
     "phone_label": "Peabody Trust central line"
   },
   {
-    "id": "man-perry-vale",
-    "name": "SHP Young Persons (YP) Specialist Services",
-    "phone": "020 8314 3020 or 020 8314 3898",
-    "website": "https://www.shp.org.uk/about-shp/contact-us/",
-    "source_url": "https://www.shp.org.uk/about-shp/contact-us/",
-    "source_label": "SHP Young Persons (YP) Specialist Services",
-    "evidence_name": "SHP Young Persons (YP) Specialist Services",
-    "evidence_url": "https://www.shp.org.uk/about-shp/contact-us/",
-    "season": "Year-round",
-    "flag_closed": false,
-    "stale": false,
-    "verified_on": "2026-11-13",
-    "hours_checked": "2026-11-13",
-    "checked_on": "2026-11-13",
-    "last_checked": "2026-11-13",
-    "last_verified": "2026-11-13",
-    "kind": "young_people",
-    "no_pin": true,
-    "town": "Lewisham",
-    "groups": [
-      "Young people aged 16 to 21",
-      "Men and women"
-    ],
-    "who_for": [
-      "Young people aged 16 to 21",
-      "Men and women"
-    ],
-    "postcode": "",
-    "lat": null,
-    "lng": null
-  },
-  {
     "id": "man-peter-bedford-ha-hackney",
     "name": "Peter Bedford HA - Hackney",
     "phone": "020 3815 4100",
@@ -17044,7 +17015,8 @@
     "kind": "young_people",
     "no_pin": true,
     "who_for": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 25"
     ],
     "access": "A referral is needed. Call 01200 425111 for advice.",
     "referral": "A referral is needed. Call 01200 425111 for advice.",
@@ -17053,7 +17025,8 @@
     "lat": null,
     "lng": null,
     "groups": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 25"
     ]
   },
   {
@@ -17244,13 +17217,11 @@
     "no_pin": true,
     "groups": [
       "Young people aged 16 to 25",
-      "Men and women",
-      "Families"
+      "Men and women"
     ],
     "who_for": [
       "Young people aged 16 to 25",
-      "Men and women",
-      "Families"
+      "Men and women"
     ],
     "access": "You can refer yourself by calling 01527 66036.",
     "referral": "You can refer yourself by calling 01527 66036.",
@@ -17353,7 +17324,7 @@
     "lat": 53.954742,
     "lng": -1.066699,
     "who_for": [
-      "Families"
+      "People who are homeless or at risk of homelessness, especially rough sleepers"
     ],
     "access": "A referral is needed. Call 01904 416562 for advice.",
     "referral": "A referral is needed. Call 01904 416562 for advice.",
@@ -17366,7 +17337,7 @@
       "Fri": "10:00 - 12:00"
     },
     "groups": [
-      "Families"
+      "People who are homeless or at risk of homelessness, especially rough sleepers"
     ]
   },
   {
@@ -18215,12 +18186,10 @@
     "kind": "day_centre",
     "no_pin": true,
     "groups": [
-      "Young people aged 16 to 25",
-      "Families"
+      "Young people aged 16 to 25"
     ],
     "who_for": [
-      "Young people aged 16 to 25",
-      "Families"
+      "Young people aged 16 to 25"
     ],
     "access": "A referral is needed. Call 0121 772 2483 for advice.",
     "referral": "A referral is needed. Call 0121 772 2483 for advice.",
@@ -18294,12 +18263,12 @@
     "lat": 52.583973,
     "lng": -2.137297,
     "groups": [
-      "People aged 18 and over",
-      "Families"
+      "Men only",
+      "People aged 18 and over"
     ],
     "who_for": [
-      "People aged 18 and over",
-      "Families"
+      "Men only",
+      "People aged 18 and over"
     ],
     "hours": {
       "Mon": "09:00 - 17:00",
@@ -18854,12 +18823,10 @@
     "no_pin": true,
     "groups": [
       "Young people aged 16 to 25",
-      "Families",
       "Men and women"
     ],
     "who_for": [
       "Young people aged 16 to 25",
-      "Families",
       "Men and women"
     ],
     "access": "A referral is needed. Call 01695 728391 for advice.",
@@ -19300,7 +19267,7 @@
     "lat": 54.28624,
     "lng": -0.39799,
     "who_for": [
-      "Families"
+      "People who are homeless or in need in Scarborough"
     ],
     "hours": {
       "Mon": "09:00 - 14:00",
@@ -19313,7 +19280,7 @@
       "Food Available"
     ],
     "groups": [
-      "Families"
+      "People who are homeless or in need in Scarborough"
     ]
   },
   {
@@ -19930,10 +19897,10 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "advice_service",
-    "address": "7 East Street, Leicester",
-    "postcode": "LE1 6EY",
-    "lat": 52.631832,
-    "lng": -1.126989,
+    "address": "165 Granby Street, Leicester",
+    "postcode": "LE1 6FE",
+    "lat": 52.632031,
+    "lng": -1.127191,
     "groups": [
       "People aged 16 and over"
     ],
@@ -19941,17 +19908,16 @@
       "People aged 16 and over"
     ],
     "hours": {
-      "Mon": "07:30 - 16:00",
-      "Tue": "07:30 - 16:00",
-      "Wed": "07:30 - 16:00",
-      "Thu": "07:30 - 16:00",
-      "Fri": "07:30 - 16:00"
+      "Mon": "08:00 - 13:00",
+      "Tue": "08:00 - 13:00",
+      "Wed": "08:00 - 13:00",
+      "Thu": "08:00 - 13:00",
+      "Fri": "08:00 - 13:00"
     },
     "facilities": [
-      "Accessible Toilets",
-      "Computer Access",
+      "Food Available",
       "Other Refreshments",
-      "Food Available"
+      "Computer Access"
     ]
   },
   {
@@ -21928,13 +21894,11 @@
     "no_pin": true,
     "groups": [
       "Young people aged 16 to 21",
-      "Men and women",
-      "Families"
+      "Men and women"
     ],
     "who_for": [
       "Young people aged 16 to 21",
-      "Men and women",
-      "Families"
+      "Men and women"
     ],
     "access": "A referral is needed. Call 01253 775400 for advice.",
     "referral": "A referral is needed. Call 01253 775400 for advice.",
@@ -25183,7 +25147,8 @@
     "card_type": "referral_hostel",
     "town": "Coventry",
     "who_for": [
-      "Families"
+      "Men and women",
+      "People aged 18 and over"
     ],
     "access": "A referral is needed.",
     "referral": "A referral is needed.",
@@ -25192,7 +25157,8 @@
     "lat": null,
     "lng": null,
     "groups": [
-      "Families"
+      "Men and women",
+      "People aged 18 and over"
     ]
   },
   {
@@ -27414,11 +27380,11 @@
     "id": "man-ymca-brighton-george-williams-centre",
     "name": "YMCA Brighton - George Williams Centre",
     "phone": "01273 294400",
-    "website": "https://www.brightonymca.co.uk",
-    "source_url": "https://www.brightonymca.co.uk",
+    "website": "https://www.ymcabrighton.co.uk/services/housing/",
+    "source_url": "https://www.ymcabrighton.co.uk/services/housing/",
     "source_label": "YMCA Brighton - George Williams Centre",
     "evidence_name": "YMCA Brighton - George Williams Centre",
-    "evidence_url": "https://www.brightonymca.co.uk",
+    "evidence_url": "https://www.ymcabrighton.co.uk/services/housing/",
     "season": "Year-round",
     "flag_closed": false,
     "stale": false,
@@ -27431,18 +27397,24 @@
     "no_pin": true,
     "card_type": "referral_hostel",
     "groups": [
-      "Men and women"
+      "Men and women",
+      "People aged 18 and over"
     ],
     "who_for": [
-      "Men and women"
+      "Men and women",
+      "People aged 18 and over"
     ],
-    "access": "A referral is needed. Call 01273 294400 for advice.",
-    "referral": "A referral is needed. Call 01273 294400 for advice.",
+    "access": "YMCA Brighton takes all housing referrals through Brighton & Hove City Council. Call the council’s Housing Options team on 01273 294400, Monday to Friday 9am to 5pm.",
+    "referral": "YMCA Brighton takes all housing referrals through Brighton & Hove City Council. Call the council’s Housing Options team on 01273 294400, Monday to Friday 9am to 5pm.",
     "access_type": "referral_only",
     "postcode": "",
     "lat": null,
     "lng": null,
-    "phone_label": "Brighton & Hove Council Housing Advice (referral line)"
+    "phone_label": "Brighton & Hove City Council Housing Options (the referral route; YMCA Brighton does not take direct referrals)",
+    "town": "Brighton",
+    "facilities": [
+      "Computer Access"
+    ]
   },
   {
     "id": "man-ymca-brighton-stanley-court",
@@ -29080,7 +29052,10 @@
     "phone_label": "Main office",
     "postcode": "",
     "lat": null,
-    "lng": null
+    "lng": null,
+    "access": "Referrals come only from Lewisham Council’s SHIP team. Call 020 4509 8300 for more information.",
+    "referral": "Referrals come only from Lewisham Council’s SHIP team. Call 020 4509 8300 for more information.",
+    "access_type": "referral_only"
   },
   {
     "id": "man-sussex-nightstop-3",
@@ -29760,20 +29735,21 @@
     "no_pin": true,
     "card_type": "referral_hostel",
     "who_for": [
-      "Men only",
-      "People aged 18 to 60"
+      "Women only",
+      "People aged 18 and over"
     ],
-    "access": "A referral is needed.",
-    "referral": "A referral is needed.",
+    "access": "Places are allocated through Tower Hamlets Council’s housing register. Contact the council on 020 7364 5015 to register your interest.",
+    "referral": "Places are allocated through Tower Hamlets Council’s housing register. Contact the council on 020 7364 5015 to register your interest.",
     "access_type": "referral_only",
     "postcode": "",
     "lat": null,
     "lng": null,
     "phone_label": "Salvation Army Homes central line",
     "groups": [
-      "Men only",
-      "People aged 18 to 60"
-    ]
+      "Women only",
+      "People aged 18 and over"
+    ],
+    "town": "Tower Hamlets"
   },
   {
     "id": "man-shp-165",
@@ -30212,44 +30188,12 @@
     "no_pin": true,
     "card_type": "referral_hostel",
     "groups": [
-      "Men and women"
+      "Men and women",
+      "People aged 18 and over"
     ],
     "who_for": [
-      "Men and women"
-    ],
-    "access": "A referral is needed. Call 020 8317 8632 for advice.",
-    "referral": "A referral is needed. Call 020 8317 8632 for advice.",
-    "access_type": "referral_only",
-    "postcode": "",
-    "lat": null,
-    "lng": null,
-    "phone_label": "Thames Reach central line"
-  },
-  {
-    "id": "man-thames-reach-greenwich-vulnerable-adults-pathway-2",
-    "name": "Thames Reach - Greenwich Vulnerable Adults Pathway",
-    "phone": "020 8317 8632",
-    "website": "https://thamesreach.org.uk/",
-    "source_url": "https://thamesreach.org.uk/2022/03/14/interview-greenwich-navigators/",
-    "source_label": "Thames Reach - Greenwich Vulnerable Adults Pathway",
-    "evidence_name": "Thames Reach - Greenwich Vulnerable Adults Pathway",
-    "evidence_url": "https://thamesreach.org.uk/2022/03/14/interview-greenwich-navigators/",
-    "season": "Year-round",
-    "flag_closed": false,
-    "stale": false,
-    "verified_on": "2026-11-13",
-    "hours_checked": "2026-11-13",
-    "checked_on": "2026-11-13",
-    "last_checked": "2026-11-13",
-    "last_verified": "2026-11-13",
-    "kind": "hostel",
-    "no_pin": true,
-    "card_type": "referral_hostel",
-    "groups": [
-      "Men and women"
-    ],
-    "who_for": [
-      "Men and women"
+      "Men and women",
+      "People aged 18 and over"
     ],
     "access": "A referral is needed. Call 020 8317 8632 for advice.",
     "referral": "A referral is needed. Call 020 8317 8632 for advice.",
@@ -30478,14 +30422,16 @@
     "no_pin": true,
     "town": "Lancaster",
     "who_for": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 24"
     ],
     "postcode": "",
     "lat": null,
     "lng": null,
     "phone_label": "Salvation Army Homes central line",
     "groups": [
-      "Families"
+      "Men and women",
+      "Young people aged 16 to 24"
     ]
   },
   {
