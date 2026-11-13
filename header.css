@@ -286,12 +286,15 @@ html:not(.light) #h2bar>#v3tools .v3t,
 html:not(.light) #h2bar>#v3tools .v3t:hover,
 html:not(.light) #h2bar>#v3tools .v3t:focus,
 html:not(.light) #h2bar>#v3tools .v3t:active{
-  height:32px!important;min-height:32px!important;border:0!important;background:transparent!important;
+  height:44px!important;min-height:44px!important;margin:-4px 0!important;border:0!important;background:transparent!important;
   color:#F2F4F8!important;font-size:13px!important;font-weight:600!important;
   text-decoration:none!important;padding:0 12px!important;border-radius:0!important;
   box-shadow:none!important;-webkit-appearance:none;appearance:none
 }
-#h2bar>#v3tools #v3light,html:not(.light) #h2bar>#v3tools #v3light{border-left:1px solid rgba(242,244,248,.35)!important;border-radius:0!important}
+/* Each option keeps a 44px tap height (accessibility page promise) and overhangs the 36px pill by 4px top and bottom,
+   so the pill looks the same; the divider is drawn 32px tall inside it. */
+#h2bar>#v3tools #v3light{position:relative}
+#h2bar>#v3tools #v3light::before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:1px;background:rgba(242,244,248,.35);pointer-events:none}
 #h2bar>#v3tools .v3t[aria-pressed=true],
 html:not(.light) #h2bar>#v3tools .v3t[aria-pressed=true],
 html:not(.light) #h2bar>#v3tools .v3t[aria-pressed=true]:focus,
@@ -303,7 +306,7 @@ html:not(.light) #h2bar>#v3tools .v3t[aria-pressed=true]:hover{
 }
 html.light #h2bar>#v3tools,html.light #h2bar>#v3tools.v3tight{background:#F2F4F8!important;border-color:#C9D1DE!important}
 html.light #h2bar>#v3tools .v3t{color:#0A1628!important}
-html.light #h2bar>#v3tools #v3light{border-left-color:#C9D1DE!important}
+html.light #h2bar>#v3tools #v3light::before{background:#C9D1DE}
 html.light #h2bar>#v3tools .v3t[aria-pressed=true]{
   color:#0A1628!important;text-decoration:underline!important;
   text-decoration-color:#F5C518!important;font-weight:800!important
