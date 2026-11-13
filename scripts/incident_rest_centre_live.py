@@ -91,6 +91,45 @@ def hydrate_from_public_live(root=None, now=None):
     return "hydrated-%d" % len(incidents)
 
 
+def _card_key(card):
+    """Same key the watch uses for an incident: council|council page (or name when there is no page)."""
+    url = (card.get("source_url") or "").strip()
+    council = card.get("council") or card.get("opened_by") or ""
+    return "%s|%s" % (council, url or card.get("name") or "rest-centre")
+
+
+def reconcile_with_public(state, root=None):
+    """The public live file is the record of what is live (12 Nov 2026).
+
+    logs/ is not committed (rule 97), so a Shelters refresh or the SWEP daily check starts with no live state, or
+    with an older private copy. Rewriting the live file from that state wiped a rest centre the watch had put up, or
+    could bring back one that had been taken down. Before any update, state keeps only incidents that are in the
+    public file, and gains any public card it is missing. Does nothing when public mode is off or the file is
+    missing or unreadable."""
+    root = root or ROOT
+    if not mode_public(root) or not os.path.exists(os.path.join(root, OUT_JSON)):
+        return state
+    payload = load_public_live(root)
+    if not isinstance(payload, dict) or not payload.get("public") or not isinstance(payload.get("cards"), list):
+        return state
+    pub = {}
+    for card in payload["cards"]:
+        if isinstance(card, dict):
+            pub[_card_key(card)] = card
+    inc = state.get("incidents") or {}
+    out = {}
+    for k, v in inc.items():
+        if k in pub or _card_key((v or {}).get("card") or {}) in pub:
+            out[k] = v
+    have = set(out) | {_card_key((v or {}).get("card") or {}) for v in out.values()}
+    for k, card in pub.items():
+        if k not in have:
+            out[k] = {"council": card.get("council") or card.get("opened_by") or "",
+                      "url": (card.get("source_url") or "").strip(), "card": dict(card)}
+    state["incidents"] = out
+    return state
+
+
 def save_state(state, path=None):
     path = path or os.path.join(ROOT, STATE)
     os.makedirs(os.path.dirname(path), exist_ok=True)
@@ -158,7 +197,7 @@ def sync_from_pages(pages, root=None, now=None):
     sys.path.insert(0, os.path.join(root, "scripts"))
     import weather
 
-    state = load_state(os.path.join(root, STATE))
+    state = reconcile_with_public(load_state(os.path.join(root, STATE)), root)
     inc = state.get("incidents") or {}
     seen = set()
     confirmed_off = set()
@@ -228,9 +267,16 @@ def write_public(root=None, state=None, now=None):
         "councils": councils,
     }
     jp = os.path.join(root, OUT_JSON)
+    before = load_public_live(root)
     json.dump(payload, open(jp, "w"), indent=1, ensure_ascii=False)
     js = "window.incidentRestCentreLive=" + json.dumps(payload, ensure_ascii=False) + ";\n"
     open(os.path.join(root, OUT_JS), "w", encoding="utf-8").write(js)
+    # A real (non-test) rest centre that was not in the live file before: one erc-live issue for Dean (main runs only).
+    try:
+        import erc_live_alert
+        erc_live_alert.notify(before, payload, root=root)
+    except Exception as e:
+        print("::warning::rest centre live alert skipped: %s: %s" % (type(e).__name__, e))
     return payload
 
 
@@ -245,7 +291,7 @@ def drop_expired(root=None, now=None):
     root = root or ROOT
     now = now or datetime.datetime.now(datetime.timezone.utc)
     import weather
-    state = load_state(os.path.join(root, STATE))
+    state = reconcile_with_public(load_state(os.path.join(root, STATE)), root)
     inc = state.get("incidents") or {}
     gone = []
     for key, v in list(inc.items()):
