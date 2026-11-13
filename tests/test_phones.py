@@ -23,13 +23,22 @@ class TestCleanPhone(unittest.TestCase):
     def test_clean_number_keeps_wording(self):
         x = apply_phone({"phone": "0151 207 3815"}); self.assertEqual((x["phone"], x["tel"]), ("0151 207 3815", "01512073815"))
 
+
+    def test_116000_is_accepted(self):
+        self.assertEqual(clean_phone("116 000"), ("116 000", "116000"))
+        self.assertEqual(clean_phone("116000"), ("116 000", "116000"))
+        x = apply_phone({"phone": "116 000"})
+        self.assertEqual(x["tel"], "116000")
+        self.assertEqual(x["phone"], "116 000")
+
 class TestPublishedData(unittest.TestCase):
     def test_every_tel_is_one_valid_uk_number(self):
         for f in ("data.full.js", "shelters.js", "warmspaces.js"):
             s = open(os.path.join(ROOT, f)).read(); d = json.loads(s[s.index("{"):s.rindex("}") + 1])
             for i in d["items"]:
                 if i.get("phone"):
-                    self.assertRegex(i.get("tel", ""), r"^0\d{9,10}$", f"{f} {i['id']} {i['phone']!r}")
+                    self.assertRegex(i.get("tel", ""), r"^(0\d{9,10}|116\d{3})$", f"{f} {i['id']} {i['phone']!r}")
                     self.assertNotRegex(i["phone"], r"%|<|>|\"|target=", f"{f} {i['id']}")
 
 if __name__ == "__main__": unittest.main()
+

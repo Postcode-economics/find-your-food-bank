@@ -62,12 +62,14 @@ from urllib.parse import unquote as _unquote
 FIVE_DIGIT_AREAS = set("01204 01208 01254 01276 01297 01298 01363 01364 01384 01386 01404 01420 01460 01461 01480 01488 01524 01527 01562 01566 01606 01629 01635 01647 01659 01695 01726 01744 01750 01768 01827 01837 01884 01900 01905 01935 01949 01963 01995".split())
 
 def _valid_uk(d):
-    """UK number in national format: 11 digits starting 01/02/03/05/07/08/09, or the 10-digit 016977 / 0800 1111 cases."""
+    """UK number in national format: 11 digits starting 01/02/03/05/07/08/09, the 10-digit 016977 / 0800 1111 cases, or 116xxx."""
+    if re.fullmatch(r"116\d{3}", d): return True
     if re.fullmatch(r"0[1235789]\d{9}", d): return True
     if len(d) == 10 and d[:5] in FIVE_DIGIT_AREAS: return True
     return bool(re.fullmatch(r"016977\d{4}|08001111", d))
 
 def _fmt_uk(d):
+    if re.fullmatch(r"116\d{3}", d): return "%s %s" % (d[:3], d[3:])
     if re.match(r"02", d): return "%s %s %s" % (d[:3], d[3:7], d[7:])
     if re.match(r"01\d1|011", d): return "%s %s %s" % (d[:4], d[4:7], d[7:])
     if re.match(r"0[3589]", d): return "%s %s %s" % (d[:4], d[4:7], d[7:])

@@ -5,7 +5,7 @@ ROOT = os.path.join(os.path.dirname(__file__), "..")
 sys.path.insert(0, os.path.join(ROOT, "scripts"))
 import common, hours_norm
 
-KINDS = {None, "hostel", "day_centre", "young_people", "advice_service"}  # advice_service: Dean 4 Nov 2026 (Crisis Skylight Oxford)  # None = standard hostel/night shelter icon (layers.js)
+KINDS = {None, "hostel", "night_shelter", "day_centre", "young_people", "advice_service"}  # advice_service: Dean 4 Nov 2026 (Crisis Skylight Oxford)  # None = standard hostel/night shelter icon (layers.js)
 ISO = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 
 def _items(fn):

@@ -58,7 +58,7 @@
   }
   function isYouth(i) {
     i = i || {};
-    if (i.kind === 'severe_weather' || i.kind === 'advice_service') return false;
+    if (i.kind === 'severe_weather' || i.kind === 'advice_service' || i.kind === 'day_centre' || i.kind === 'hostel' || i.kind === 'night_shelter') return false;
     if (i.kind === 'young_people') return true;
     const name = String(i.name || '');
     const blob = youthBlob(i);
@@ -92,6 +92,7 @@
     if (i.kind === 'advice_service') return ['Advice service', 'Gwasanaeth cyngor'];
     if (i.kind === 'severe_weather')
       return ['Severe weather shelter (SWEP)', 'Lloches tywydd garw (SWEP)'];
+    if (i.card_type === 'referral_hostel') return ['Referral hostel', 'Hostel drwy atgyfeiriad'];
     if (isYouth(i))
       return ['Young people’s housing (16–25), referral needed', 'Tai i bobl ifanc (16–25), angen atgyfeiriad'];
     if (isDayCentre(i)) return ['Day centre', 'Canolfan ddydd'];
