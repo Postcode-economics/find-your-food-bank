@@ -116,8 +116,9 @@ class Chips(unittest.TestCase):
         self.assertGreaterEqual(ck.get('t', -1), host['t'] - 0.6, box)
         self.assertLessEqual(ck.get('b', 10 ** 9), host['b'] + 0.6, box)
         self.assertGreater(ck.get('w', 0), 16, box)
-        self.assertAlmostEqual(box['sym']['w'], 28, delta=1)
-        self.assertAlmostEqual(box['sym']['h'], 28, delta=1)
+        # 13 Nov 2026 (Dean approved the design preview): chip symbols grow from 28px to 32px inside unchanged chips.
+        self.assertAlmostEqual(box['sym']['w'], 32, delta=1)
+        self.assertAlmostEqual(box['sym']['h'], 32, delta=1)
         # nothing else sits on the reset's row except Day centre and Open today
         mates = [n for n, b in (('host', host), ('youth', youth), ('day', day), ('open', open_), ('tools', tools)) if abs(b['t'] - x['t']) < 4]
         self.assertEqual(mates, ['day', 'open'], (w, mates))

@@ -245,8 +245,66 @@ html:not(.light) #h2bar #freshtxt,html:not(.light) #h2bar .fresh,html:not(.light
 #h2bar>#v3tools .v3t[aria-pressed=true],html:not(.light) #h2bar>#v3tools .v3t[aria-pressed=true],html:not(.light) #h2bar>#v3tools .v3t[aria-pressed=true]:focus,html:not(.light) #h2bar>#v3tools .v3t[aria-pressed=true]:active,html:not(.light) #h2bar>#v3tools .v3t[aria-pressed=true]:hover{color:#F5C518!important;background:transparent!important}
 html.light #h2bar>#v3tools .v3t[aria-pressed=true]{color:#8A5A00!important;background:transparent!important}
 #v3prow[hidden]{display:none!important;min-height:0!important;margin:0!important}
+/* After a search the 'near <place>' link has a 48px tap area (20px text + 14px above and below, v3.css). Keep the row 48px and the link centred so that tap area stays inside the row and never reaches the top of the map. */
+#v3prow:not([hidden]){min-height:48px!important}#v3prow #v3pill{margin:0!important;min-width:0!important;max-width:100%!important}
 /* Phones: keep the 48vh / min 320px map and add the ~58px freed by the removed status box. Desktop unchanged. */
 @media (max-width:1023px){#map{height:calc(48vh + 58px)!important;min-height:378px!important}}
 /* Pins stay tappable over the map credit. The 44px hit area used to reach up into markers; grow it down instead (#map is overflow:hidden, so the extra does not steal taps below the map). On phones the OpenFreeMap credit otherwise wraps to two lines and the first line covers pins; keep it on one line. */
 #map .leaflet-control-attribution a{padding:0 2px 28px!important;margin:0 0 -28px 0!important}
 @media (max-width:1023px){#map .leaflet-control-attribution{white-space:nowrap;max-width:100%;overflow:hidden;font-size:10px;line-height:16px}}
+
+/* Status row look (Dean, approved 13 Nov 2026): bigger icons inside unchanged buttons;
+   List only / Light mode as one dark rounded pill with a divider, active option
+   bold and underlined; Updated as plain small light-grey text, still a link. */
+#v3big .v3b,#v3big .v3b[aria-checked]{gap:4px!important;padding:6px 4px 5px!important}
+#v3big .v3b[aria-checked=true]{padding-left:4px!important;padding-right:4px!important}
+#v3big .v3b .ic .ico{width:38px!important;height:38px!important}
+
+#v3filt .fchip .ck,#v3filt>#v3open::before{width:22px!important;height:22px!important;flex:0 0 22px!important;min-width:22px!important}
+#v3filt .fchip .xcs,html[data-v3k=sh] #v3filt .fchip .xcs{flex:0 0 32px!important}
+#v3filt .fchip .xcs svg{width:32px!important;height:32px!important}
+
+#h2bar .fresh a,#h2bar #freshtxt,
+html:not(.light) #h2bar #freshtxt,html:not(.light) #h2bar .fresh,html:not(.light) #h2bar .fresh a{
+  font-size:13px!important;font-weight:400!important;color:#C9D1DE!important;
+  text-decoration:none!important;line-height:17px
+}
+html.light #h2bar .fresh a,html.light #h2bar #freshtxt{
+  color:#4A5568!important;font-weight:400!important;text-decoration:none!important
+}
+#h2bar .fresh a:focus-visible,#h2bar #freshtxt:focus-visible{outline:2px solid #F5C518;outline-offset:2px}
+
+#h2bar>#v3tools,#h2bar>#v3tools.v3tight{
+  display:flex!important;align-items:center!important;gap:0!important;
+  margin:0 0 0 auto!important;flex:0 0 auto;
+  background:#13223d!important;border:1px solid rgba(242,244,248,.22)!important;
+  border-radius:999px!important;padding:2px!important;height:36px!important;min-height:36px!important;
+  box-sizing:border-box
+}
+#h2bar>#v3tools .v3t,#h2bar>#v3tools.v3tight .v3t,
+html:not(.light) #h2bar>#v3tools .v3t,
+html:not(.light) #h2bar>#v3tools .v3t:hover,
+html:not(.light) #h2bar>#v3tools .v3t:focus,
+html:not(.light) #h2bar>#v3tools .v3t:active{
+  height:32px!important;min-height:32px!important;border:0!important;background:transparent!important;
+  color:#F2F4F8!important;font-size:13px!important;font-weight:600!important;
+  text-decoration:none!important;padding:0 12px!important;border-radius:0!important;
+  box-shadow:none!important;-webkit-appearance:none;appearance:none
+}
+#h2bar>#v3tools #v3light,html:not(.light) #h2bar>#v3tools #v3light{border-left:1px solid rgba(242,244,248,.35)!important;border-radius:0!important}
+#h2bar>#v3tools .v3t[aria-pressed=true],
+html:not(.light) #h2bar>#v3tools .v3t[aria-pressed=true],
+html:not(.light) #h2bar>#v3tools .v3t[aria-pressed=true]:focus,
+html:not(.light) #h2bar>#v3tools .v3t[aria-pressed=true]:active,
+html:not(.light) #h2bar>#v3tools .v3t[aria-pressed=true]:hover{
+  color:#F2F4F8!important;font-weight:800!important;background:transparent!important;
+  text-decoration:underline!important;text-decoration-color:#F5C518!important;
+  text-underline-offset:3px!important;text-decoration-thickness:2px!important
+}
+html.light #h2bar>#v3tools,html.light #h2bar>#v3tools.v3tight{background:#F2F4F8!important;border-color:#C9D1DE!important}
+html.light #h2bar>#v3tools .v3t{color:#0A1628!important}
+html.light #h2bar>#v3tools #v3light{border-left-color:#C9D1DE!important}
+html.light #h2bar>#v3tools .v3t[aria-pressed=true]{
+  color:#0A1628!important;text-decoration:underline!important;
+  text-decoration-color:#F5C518!important;font-weight:800!important
+}
