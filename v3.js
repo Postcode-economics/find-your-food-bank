@@ -393,10 +393,19 @@ addEventListener('load',()=>setTimeout(()=>{const q=document.getElementById('q')
    and adds the height freed by the removed box; it is not shrunk after a search or when a rest-centre note
    is showing — the page scrolls. Desktop split layout is unchanged. */
 (function(){
-function fitBar(){const bar=document.getElementById('h2bar'),a=document.getElementById('freshtxt');if(!bar||!a)return;
- const cur=a.textContent.trim();const m=cur.match(/Updated(?: today at)? (\d\d:\d\d)/);if(m)a.dataset.full='Updated today at '+m[1];
- if(!a.dataset.full)a.dataset.full=cur;a.textContent=a.dataset.full;
- if(bar.scrollWidth>bar.clientWidth+1){const tm=a.dataset.full.match(/Updated today at (\d\d:\d\d)/);if(tm)a.textContent='Updated '+tm[1]}}
+function fitBar(){const fr=document.querySelector('#h2bar .fresh'),a=document.getElementById('freshtxt');if(!fr||!a||fitBar.busy)return;
+ // Measure the Updated link against its own (shrinkable) slot, not the bar: .fresh has min-width:0, so the bar never overflows.
+ // Text is always set in English; layers.js turns it into Welsh before the next frame. Full form, then 'Updated HH:MM'
+ // (or the date without the year), then wrap onto two lines so it is never cut off mid-text.
+ const cur=a.textContent.trim(),tm=cur.match(/^(?:Updated today at|Diweddarwyd heddiw am|Updated|Diweddarwyd) (\d\d:\d\d)$/);
+ if(tm)a.dataset.full='Updated today at '+tm[1];else if(!a.dataset.full||/\d{4},/.test(cur)||!/\d\d:\d\d$/.test(cur))a.dataset.full=cur;
+ const full=a.dataset.full,t=full.match(/^Updated today at (\d\d:\d\d)$/),short=t?'Updated '+t[1]:full.replace(/ \d{4},/,',');
+ const bar=fr.parentNode,over=()=>a.getBoundingClientRect().width>fr.clientWidth+1||a.scrollWidth>a.clientWidth+1;
+ fitBar.busy=1;a.classList.remove('fitwrap');bar.classList.remove('fitstack');if(a.textContent!==full)a.textContent=full;
+ requestAnimationFrame(()=>{if(!over()){fitBar.busy=0;return}if(short!==full)a.textContent=short;
+  requestAnimationFrame(()=>{if(over())a.classList.add('fitwrap');
+   requestAnimationFrame(()=>{if(!over()){fitBar.busy=0;return}bar.classList.add('fitstack');a.classList.remove('fitwrap');a.textContent=full;
+    requestAnimationFrame(()=>{if(over()&&short!==full)a.textContent=short;requestAnimationFrame(()=>{if(over())a.classList.add('fitwrap');fitBar.busy=0})})})})})}
 function syncProw(){const pill=document.getElementById('v3pill'),prow=document.getElementById('v3prow');
  const hasPlace=!!(pill&&pill.querySelector('.v3pl'));
  const hasErr=!!(pill&&pill.querySelector('.v3err,.didyou'));
@@ -412,6 +421,7 @@ function h2(){const big=document.getElementById('v3big'),filt=document.getElemen
  const old=document.getElementById('h2info');if(old)old.remove();
  const bar=document.createElement('div');bar.id='h2bar';near.after(bar);bar.append(fr,tl);
  syncProw();setTimeout(fitBar,0);setTimeout(function(){fitBar();syncProw()},800);
+ const ft=document.getElementById('freshtxt');if(ft&&!ft._fitobs){new MutationObserver(()=>{if(!fitBar.busy)fitBar()}).observe(ft,{childList:true,subtree:true,characterData:true});ft._fitobs=1;addEventListener('resize',fitBar)}
  if(pill&&!pill._h2obs){const mo2=new MutationObserver(syncProw);mo2.observe(pill,{childList:true,subtree:true,characterData:true});pill._h2obs=1}
  return true}
  if(h2())return;const mo=new MutationObserver(()=>{if(h2())mo.disconnect()});mo.observe(document.documentElement,{childList:true,subtree:true});setTimeout(()=>{h2();mo.disconnect()},15000);addEventListener('resize',fitBar);addEventListener('load',()=>setTimeout(function(){fitBar();syncProw()},0))})();
