@@ -83,7 +83,10 @@ def merge_lifecycle(prev, fresh, run_day, stale_days=7, close_after=14, keep_clo
         if k in items and not items[k].get("flag_closed"): closed.pop(k)  # re-listed
         elif (rd - d(closed[k]["closed_on"])).days > keep_closed: closed.pop(k)
     for x in items.values():
-        x["stale"] = (rd - d(x["last_verified"])).days > stale_days
+        try:
+            x["stale"] = (rd - d(x["last_verified"])).days > stale_days
+        except (KeyError, TypeError, ValueError):
+            x["stale"] = True  # no readable date: count it as stale, never fail the whole refresh (rule 82)
     return sorted(items.values(), key=lambda x: x["name"].lower()), sorted(closed.values(), key=lambda x: x["closed_on"], reverse=True)
 def append_log(path, entry):
     log = json.load(open(path)) if os.path.exists(path) else []
