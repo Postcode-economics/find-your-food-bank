@@ -47,6 +47,38 @@ def detect(text, postcode, today=None):
             if m.group(0).lower().startswith(("will be closing", "closing")) and not d: continue
             return blk.strip()[:400]
     return None
+
+UNDONE = os.path.join("overrides", "closure_auto_undone.json")
+
+def _norm_ev(s):
+    if not s: return ""
+    s = str(s).replace("’", "'").replace("‘", "'").replace("“", '"').replace("”", '"')
+    s = s.replace("–", "-").replace("—", "-")
+    return " ".join(s.split()).casefold()
+
+def _repo_root():
+    return os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+def load_undone(root=None):
+    path = os.path.join(root or _repo_root(), UNDONE)
+    try:
+        data = json.load(open(path, encoding="utf-8"))
+    except (OSError, ValueError):
+        return {}
+    return data if isinstance(data, dict) else {}
+
+def locked_phrase(item_id, root=None):
+    rec = load_undone(root).get(item_id)
+    if isinstance(rec, str): return rec
+    if isinstance(rec, dict): return rec.get("evidence") or rec.get("phrase") or ""
+    return ""
+
+def evidence_is_locked(item_id, evidence, root=None):
+    """True only when the closed reading contains this id's exact locked wording. Other closed wording still applies."""
+    phrase = locked_phrase(item_id, root)
+    n_phrase, n_ev = _norm_ev(phrase), _norm_ev(evidence)
+    return bool(n_phrase and n_ev and n_phrase in n_ev)
+
 def fetch(u):
     try:
         r = urllib.request.urlopen(urllib.request.Request(u, headers={"User-Agent": "Mozilla/5.0 (FindYourFoodBank closure check)"}), timeout=20, context=CTX)
@@ -75,6 +107,8 @@ def check_all(items, fetcher=fetch, today=None, threads=16):
         for i in sites[s]:
             for u, t in pages:
                 ev = detect(t, i.get("postcode"), today)
+                if ev and evidence_is_locked(i.get("id"), ev):
+                    continue
                 if ev: out[i["id"]] = {"url": u, "evidence": ev}; break
         return out
     res = {}

@@ -40,4 +40,42 @@ class T3(unittest.TestCase):
         items = [{"id": "kt", "name": "KT", "postcode": "NW1 8PD", "website": "https://kt.example/"}]
         self.assertEqual(C.apply(items, d, T, fetcher=lambda u: (u, KT)), []); self.assertEqual(len(items), 1)
         self.assertEqual(json.load(open(d + "/logs/foodbank_closed.json"))["held_for_review"][0]["id"], "kt")
-if __name__ == "__main__": unittest.main()
+class T4(unittest.TestCase):
+    # Exact-value lock only: the gallery-closure wording is ignored for this id,
+    # but a different venue-level closed reading still counts.
+    GALLERY = "Please note, The Vivarium and Nature’s Library are now closed until May 2027, while we work on something very exciting."
+    PHRASE = "The Vivarium and Nature’s Library are now closed until May 2027"
+    VENUE = "Manchester Museum, M13 9PL, is now closed."
+    def _root(self, phrase):
+        d = tempfile.mkdtemp(); os.makedirs(d + "/overrides")
+        json.dump({"ww-57952305": {"evidence": phrase}}, open(d + "/overrides/closure_auto_undone.json", "w"))
+        return d
+    def test_exact_gallery_wording_is_locked(self):
+        d = self._root(self.PHRASE)
+        self.assertTrue(C.evidence_is_locked("ww-57952305", self.GALLERY, d))
+        # typographic vs ASCII apostrophe still matches the same locked wording
+        self.assertTrue(C.evidence_is_locked("ww-57952305", self.GALLERY.replace("’", "'"), d))
+    def test_different_closed_wording_still_applies(self):
+        d = self._root(self.PHRASE)
+        self.assertFalse(C.evidence_is_locked("ww-57952305", self.VENUE, d))
+        self.assertFalse(C.evidence_is_locked("ww-99999999", self.GALLERY, d))
+    def test_check_all_skips_only_the_locked_wording(self):
+        d = self._root(self.PHRASE)
+        old = C._repo_root
+        C._repo_root = lambda: d
+        try:
+            page = "Please note, The Vivarium and Nature’s Library are now closed until May 2027. Free entry Manchester Museum, M13 9PL."
+            items = [{"id": "ww-57952305", "name": "Manchester Museum", "postcode": "M13 9PL", "website": "https://museum.example/"}]
+            self.assertEqual(C.check_all(items, fetcher=lambda u: (u, page), today=T), {})
+            closed = [{"id": "ww-57952305", "name": "Manchester Museum", "postcode": "M13 9PL", "website": "https://museum.example/"}]
+            self.assertEqual(set(C.check_all(closed, fetcher=lambda u: (u, self.VENUE), today=T)), {"ww-57952305"})
+        finally:
+            C._repo_root = old
+    def test_repo_lock_matches_the_gallery_sentence(self):
+        root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        self.assertTrue(C.evidence_is_locked("ww-57952305", self.GALLERY, root))
+        self.assertFalse(C.evidence_is_locked("ww-57952305", self.VENUE, root))
+
+if __name__ == "__main__":
+    unittest.main()
+
