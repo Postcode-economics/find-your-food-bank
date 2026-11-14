@@ -64,15 +64,15 @@ class T(unittest.TestCase):
                         pg.evaluate("m=>document.documentElement.classList.toggle('light', m==='light')", mode)
                         # Header option A moves the filters into the header a frame after v3.js. Sampling
                         # before that lands makes dark and light heights differ (430 vs 619 on a slow run).
-                        # Wait until #h2info exists and the height has stopped changing. The 0.5px check stays.
+                        # Wait until #h2bar exists (the status box #h2info was removed) and the height has stopped changing. The 0.5px check stays.
                         last = None
                         stable = 0
                         for _ in range(80):
                             try:
                                 h = pg.evaluate("""() => {
-                                  const info = document.getElementById('h2info');
+                                  const bar = document.getElementById('h2bar');
                                   const hdr = document.querySelector('header');
-                                  if (!info || !hdr) return 0;
+                                  if (!bar || !hdr) return 0;
                                   return hdr.getBoundingClientRect().height;
                                 }""")
                             except Exception:

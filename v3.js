@@ -386,9 +386,47 @@ addEventListener('load',()=>setTimeout(()=>{const q=document.getElementById('q')
  map.eachLayer(on);map.on('layeradd',e=>on(e.layer));addEventListener('online',()=>{n.hidden=true;bad=0});map.on('movestart',()=>{if(navigator.onLine)n.hidden=true})})();
 })();
 
-/* Header option A (Dean, 25 Oct 2026): type tiles, then filters, then 'Find nearest', then one info strip
-   (see-list line + Always call before you go + Updated). Built once the pieces exist; behaviour unchanged. */
-(function(){function h2(){const big=document.getElementById('v3big'),filt=document.getElementById('v3filt'),pill=document.getElementById('v3pill'),xb=document.getElementById('xbefore'),fr=document.querySelector('header .fresh'),near=document.getElementById('xnear');
- if(!big||!filt||!pill||!xb||!fr||!near)return false;if(document.getElementById('h2info'))return true;
- big.after(filt);filt.after(near);const info=document.createElement('div');info.id='h2info';near.after(info);info.append(pill,xb,fr);return true}
- if(h2())return;const mo=new MutationObserver(()=>{if(h2())mo.disconnect()});mo.observe(document.documentElement,{childList:true,subtree:true});setTimeout(()=>{h2();mo.disconnect()},15000)})();
+/* 12 Nov 2026 (Dean): drop the #h2info status box. 'Updated today at HH:MM' sits on the same plain row as
+   List only / Light mode (#h2bar), on the left, in the same font. The idle 'Showing…' line and 'Always call
+   before you go' are hidden; after a search, 'Food banks near <place>' still shows. If the row would wrap on
+   a narrow phone, the stamp shortens to 'Updated HH:MM'. On phones the map keeps its 48vh / 320px baseline
+   and adds the height freed by the removed box; it is not shrunk after a search or when a rest-centre note
+   is showing — the page scrolls. Desktop split layout is unchanged. */
+(function(){
+function fitBar(){const fr=document.querySelector('#h2bar .fresh'),a=document.getElementById('freshtxt');if(!fr||!a||fitBar.busy)return;
+ // Measure the Updated link against its own (shrinkable) slot, not the bar: .fresh has min-width:0, so the bar never overflows.
+ // Text is always set in English; layers.js turns it into Welsh before the next frame. Tries, in order: full text on one line,
+ // 'Updated HH:MM', the full text on two lines, the date without its year on two lines. Only if none fits (a word wider than
+ // the space, e.g. Welsh at 320px) does the link get its own line above the pill. Never cut off, never more than two lines.
+ const cur=a.textContent.trim(),tm=cur.match(/^(?:Updated today at|Diweddarwyd heddiw am|Updated|Diweddarwyd) (\d\d:\d\d)$/);
+ if(tm)a.dataset.full='Updated today at '+tm[1];else if(!a.dataset.full||/\d{4},/.test(cur)||!/\d\d:\d\d$/.test(cur))a.dataset.full=cur;
+ const full=a.dataset.full,t=full.match(/^Updated today at (\d\d:\d\d)$/),noyr=full.replace(/ \d{4},/,',');
+ const tries=[[full,0]];if(t)tries.push(['Updated '+t[1],0]);tries.push([full,1]);if(t)tries.push(['Updated '+t[1],1]);if(noyr!==full)tries.push([noyr,1]);
+ const bar=fr.parentNode,lh=parseFloat(getComputedStyle(a).lineHeight)||17;let h1=0;
+ const fits=()=>{const r=a.getBoundingClientRect();return r.width<=fr.clientWidth+1&&a.scrollWidth<=a.clientWidth+1&&r.height<=h1+lh*1.5};
+ const set=(x)=>{a.classList.toggle('fitwrap',!!x[1]);if(a.textContent!==x[0])a.textContent=x[0]};
+ fitBar.busy=1;bar.classList.remove('fitstack');set(tries[0]);
+ let i=0,stacked=0;const step=()=>{if(!i)h1=a.getBoundingClientRect().height;
+  if(fits()){fitBar.busy=0;return}
+  if(++i>=tries.length){if(stacked){fitBar.busy=0;return}stacked=1;i=0;bar.classList.add('fitstack')}
+  set(tries[i]);requestAnimationFrame(step)};
+ requestAnimationFrame(step)}
+function syncProw(){const pill=document.getElementById('v3pill'),prow=document.getElementById('v3prow');
+ const hasPlace=!!(pill&&pill.querySelector('.v3pl'));
+ const hasErr=!!(pill&&pill.querySelector('.v3err,.didyou'));
+ const searching=!!(pill&&pill.querySelector('.v3ph')&&/Searching|Finding|Chwilio/i.test(pill.textContent||''));
+ const show=hasPlace||hasErr||searching;
+ if(pill){pill.hidden=!show;pill.style.display=show?'':'none'}
+ if(prow){prow.hidden=!show;prow.style.display=show?'flex':'none'}
+}
+function h2(){const big=document.getElementById('v3big'),filt=document.getElementById('v3filt'),pill=document.getElementById('v3pill'),xb=document.getElementById('xbefore'),fr=document.querySelector('header .fresh'),near=document.getElementById('xnear'),tl=document.getElementById('v3tools');
+ if(!big||!filt||!fr||!near||!tl)return false;if(document.getElementById('h2bar')){fitBar();syncProw();return true}
+ big.after(filt);filt.after(near);
+ if(xb){xb.hidden=true;xb.style.display='none'}
+ const old=document.getElementById('h2info');if(old)old.remove();
+ const bar=document.createElement('div');bar.id='h2bar';near.after(bar);bar.append(fr,tl);
+ syncProw();setTimeout(fitBar,0);setTimeout(function(){fitBar();syncProw()},800);
+ const ft=document.getElementById('freshtxt');if(ft&&!ft._fitobs){new MutationObserver(()=>{if(!fitBar.busy)fitBar()}).observe(ft,{childList:true,subtree:true,characterData:true});ft._fitobs=1;addEventListener('resize',fitBar);const tl=document.getElementById('v3tools');if(tl&&window.ResizeObserver)new ResizeObserver(()=>{if(!fitBar.busy)fitBar()}).observe(tl)}
+ if(pill&&!pill._h2obs){const mo2=new MutationObserver(syncProw);mo2.observe(pill,{childList:true,subtree:true,characterData:true});pill._h2obs=1}
+ return true}
+ if(h2())return;const mo=new MutationObserver(()=>{if(h2())mo.disconnect()});mo.observe(document.documentElement,{childList:true,subtree:true});setTimeout(()=>{h2();mo.disconnect()},15000);addEventListener('resize',fitBar);addEventListener('load',()=>setTimeout(function(){fitBar();syncProw()},0))})();

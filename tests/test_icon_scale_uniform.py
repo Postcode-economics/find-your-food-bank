@@ -37,9 +37,10 @@ BOX_CHECK = r"""() => {
   const chipSvgs = document.documentElement.dataset.v3k === 'sh'
     ? [...document.querySelectorAll('#chips [data-f=shost] .xcs svg, #chips [data-f=youth] .xcs svg, #chips [data-f=sday] .xcs svg')]
     : [];
+  // 13 Nov 2026 (Dean approved the design preview): shelter chip symbols are 32px; card and key icons stay 28px.
   for (const svg of chipSvgs) {
     const b = svg.getBoundingClientRect();
-    if (Math.abs(b.width - 28) > tol || Math.abs(b.height - 28) > tol)
+    if (Math.abs(b.width - 32) > tol || Math.abs(b.height - 32) > tol)
       bad.push('chip box ' + b.width.toFixed(2) + 'x' + b.height.toFixed(2));
   }
   return { bad, keyCount: keySvgs.length, chipCount: chipSvgs.length };

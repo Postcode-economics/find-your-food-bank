@@ -120,9 +120,12 @@ class IPhoneBackupMap(unittest.TestCase):
                         painted = []
                         for fx in (0.15, 0.35, 0.5, 0.65, 0.85):
                             for fy in (0.15, 0.35, 0.5, 0.65, 0.85):
-                                if box['y'] + box['height'] * fy >= pg.viewport_size['height'] - 1:
+                                # Whole CSS pixels: WebKit's Page.snapshotRect fails ("Could not capture snapshot") on some
+                                # fractional 1x1 clips, e.g. y=511.3 on iPhone SE once the phone map became 378px tall (#536).
+                                x, y = int(box['x'] + box['width'] * fx), int(box['y'] + box['height'] * fy)
+                                if y >= pg.viewport_size['height'] - 1:
                                     continue
-                                px = pixel(pg.screenshot(clip={'x': box['x'] + box['width'] * fx, 'y': box['y'] + box['height'] * fy, 'width': 1, 'height': 1}))
+                                px = pixel(pg.screenshot(clip={'x': x, 'y': y, 'width': 1, 'height': 1}))
                                 if near(px, LAND):
                                     painted.append(px)
                         if len(painted) >= 5:
