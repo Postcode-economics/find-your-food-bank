@@ -50,7 +50,7 @@ const SYM={
  flame:'<g class="xmk"><path d="M16.2 7.2c.4 3.2-2.4 4.6-2.2 8 .2 2.2 2.2 3.2 4.2 2.4 1.2-2.4-.4-4 1.4-6.2 1.8 2.4 2.6 4.8 1.2 7.6a5.2 5.2 0 1 1-9.4-2.8c.8-2.6 2.8-4 4.8-9z" fill="#0A1628"/></g>'};
 const shAdvice=i=>!!(i&&i.kind==='advice_service');  /* Dean 4 Nov 2026: advice and housing help, no beds, food or drop-in */
 const shYouthBlob=i=>{if(!i)return'';const wf=Array.isArray(i.who_for)?i.who_for.join(' '):String(i.who_for||'');return(String(i.name||'')+' '+(i.groups||[]).join(' ')+' '+wf).replace(/\s+/g,' ')};
-const shYouth=i=>{if(i&&i.kind==='severe_weather')return false;if(shAdvice(i))return false;const U=window.UFacts;if(U&&U.isYouth)return U.isYouth(i);if(!i||i.kind==='young_people')return!!(i&&i.kind==='young_people');const name=String(i.name||''),blob=shYouthBlob(i);return/\bfoyers?\b/i.test(blob)||/\byoung people\b/i.test(blob)||/\byouth\b/i.test(blob)||/Age\s*16\s*[-–]\s*25/i.test(blob)||/16\s*[-–to]{1,3}\s*25/i.test(blob)||/1[678]\s*[-–to]{1,3}\s*2[0-9]/i.test(blob)||(/\bhousing\b/i.test(name)&&/16\s*[-–to]{1,3}\s*25/i.test(blob))||/young people'?s housing/i.test(blob)};
+const shYouth=i=>{if(i&&(i.kind==='severe_weather'||i.kind==='advice_service'||i.kind==='day_centre'||i.kind==='hostel'||i.kind==='night_shelter'))return false;if(shAdvice(i))return false;const U=window.UFacts;if(U&&U.isYouth)return U.isYouth(i);if(!i||i.kind==='young_people')return!!(i&&i.kind==='young_people');const name=String(i.name||''),blob=shYouthBlob(i);return/\bfoyers?\b/i.test(blob)||/\byoung people\b/i.test(blob)||/\byouth\b/i.test(blob)||/Age\s*16\s*[-–]\s*25/i.test(blob)||/16\s*[-–to]{1,3}\s*25/i.test(blob)||/1[678]\s*[-–to]{1,3}\s*2[0-9]/i.test(blob)||(/\bhousing\b/i.test(name)&&/16\s*[-–to]{1,3}\s*25/i.test(blob))||/young people'?s housing/i.test(blob)};
 const shDay=i=>{if(i&&i.kind==='severe_weather')return false;if(shAdvice(i))return false;const U=window.UFacts;if(U&&U.isDayCentre)return U.isDayCentre(i);if(shYouth(i))return false;const k=String((i&&i.kind)||(i&&i.service)||'').toLowerCase().replace(/-/g,' ').replace(/_/g,' ');return i&&i.label==='Day centre'||k==='day centre'};
 const shHostel=i=>i&&!shDay(i)&&!shYouth(i)&&!shAdvice(i);
 const symKey=i=>!i?'house':shAdvice(i)?'info':shYouth(i)?'youth':shDay(i)?'sun':'house';
@@ -171,7 +171,7 @@ function cardTop(layer,i){const sk=layer==='fb'?'food':layer==='ws'?'flame':symK
  const px=sk==='flame'?34:28;const sym=`<span class="xmkbox" data-sym="${sk}">${symSvg(sk,px)}</span>`;
  let en,cy;
  if(layer==='sh'&&i&&i.kind==='severe_weather'){en='Severe weather shelter (SWEP)';cy='Lloches tywydd garw (SWEP)'}
- else if(layer==='sh'){const pillKey=sk==='info'?'adviceService':sk==='sun'?'dayCentre':sk==='youth'?'pillYouth':(i.kind==='hostel'||/\bhostel\b/i.test(i.name||''))?'pillHostel':'pillNight';en=T.en[pillKey];cy=T.cy[pillKey]}
+ else if(layer==='sh'){const pillKey=sk==='info'?'adviceService':sk==='sun'?'dayCentre':sk==='youth'?'pillYouth':(i.card_type==='referral_hostel')?'refHostel':(i.kind==='hostel'||/\bhostel\b/i.test(i.name||''))?'pillHostel':'pillNight';en=T.en[pillKey];cy=T.cy[pillKey]}
  else if(window.UFacts){const p=UFacts.typeOf(layer,i);en=p[0];cy=p[1]}
  else if(i&&i.kind==='day_centre'){en=T.en.dayCentre;cy=T.cy.dayCentre}
  else {en=layer;cy=layer}
@@ -191,7 +191,7 @@ function shSource(i){const host=u=>esc(String(u||'').replace(/^https?:\/\/(www\.
  if(i.discovery_url&&i.discovery_label)bits.push(`<span class="xvia"><span class="v-en">Found via</span><span class="v-cy" lang="cy">Daethpwyd o hyd iddo drwy</span> <a href="${esc(i.discovery_url)}" target="_blank" rel="noopener">${esc(i.discovery_label)}</a></span>`);
  if(!bits.length)return '';
  return `<p class="xsrc"><b>${bi('src')}:</b> ${bits.join(' · ')}</p>`}
-function detail(k,i,dist){const tel0=(i.phone||'').replace(/[^\d+]/g,''),tel=i.tel!==undefined?(/^0\d{9,10}$/.test(i.tel)?i.tel:''):(/^(0\d{9,10}|\+44\d{9,10})$/.test(tel0)?tel0:''),row=(l,v)=>v&&v.length?`<p class="xrow"><b>${t(l)}:</b> ${v}</p>`:'';
+function detail(k,i,dist){const tel0=(i.phone||'').replace(/[^\d+]/g,''),tel=i.tel!==undefined?(/^(0\d{9,10}|116\d{3})$/.test(i.tel)?i.tel:''):(/^(0\d{9,10}|\+44\d{9,10}|116\d{3})$/.test(tel0)?tel0:''),row=(l,v)=>v&&v.length?`<p class="xrow"><b>${t(l)}:</b> ${v}</p>`:'';
  const day=k==='sh'&&shDay(i);
  const youth=k==='sh'&&shYouth(i);
  const advice=k==='sh'&&shAdvice(i);
@@ -204,7 +204,8 @@ function detail(k,i,dist){const tel0=(i.phone||'').replace(/[^\d+]/g,''),tel=i.t
  const checked=window.UFacts?UFacts.checked(i):'';
  const call=tel?`<a class="btn call" href="tel:${tel}">${IC('phone')}<span class="xnum">${esc(fmtNum(String(i.phone||'').split(' or ')[0]))}</span></a>`:'';
  const share=window.V3?V3.share(i):'';
- const dir=`<a class="btn gm" href="https://www.google.com/maps/dir/?api=1&destination=${i.lat},${i.lng}&travelmode=walking" target="_blank" rel="noopener">${t('dir')}</a>`;
+ const hasPin=!i.no_pin&&Number.isFinite(Number(i.lat))&&Number.isFinite(Number(i.lng));
+ const dir=hasPin?`<a class="btn gm" href="https://www.google.com/maps/dir/?api=1&destination=${i.lat},${i.lng}&travelmode=walking" target="_blank" rel="noopener">${t('dir')}</a>`:'';
  return `${tierTop(i,k)}${cardTop(k,i)}${window.V3?V3.badge(k,i):''}${dayHtml}<h3>${esc(i.name)}</h3>${dist!=null?`<div class="d">${dist*0.621<0.1?'0.1':dist*0.621<10?(dist*0.621).toFixed(1):Math.round(dist*0.621)} ${lang==='cy'?'milltir':(dist*0.621).toFixed(1)==='1.0'?'mile':'miles'}</div>`:''}${window.V3?V3.walk(dist):''}
 
  ${i.ended?`<p class="xw">${IC('alert')}${t('ended')}</p>`:''}${i.stale?`<p class="xw">${IC('alert')}${t('stale')}</p>`:''}

@@ -145,7 +145,7 @@ class Coverage(unittest.TestCase):
         self.assertNotIn("ww-68672298", near)
         self.assertNotIn("ww-55473189", near)
         day = [i for i in shelters if C.is_day_centre(i)]
-        night = [i for i in shelters if not C.is_day_centre(i) and i.get("kind") != "young_people"]
+        night = [i for i in shelters if not C.is_day_centre(i) and i.get("kind") not in ("young_people", "advice_service")]
         row = C.coverage(warm, night, day, [BRIGHTON])[0]
         self.assertGreaterEqual(row["warm"], 25)
         self.assertEqual(row["day_centres"], 3)  # First Base, Clock Tower Sanctuary, Antifreeze (#363, 1 Nov 2026)

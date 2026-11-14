@@ -150,7 +150,8 @@ class Chips(unittest.TestCase):
         pg = self.page(390)
         self.search(pg, 'BN1 4NJ')
         mixed = pg.evaluate(KINDS)
-        self.assertTrue({k['sym'] for k in mixed} >= {'house', 'sun', 'youth'}, mixed)
+        # Clock Tower Sanctuary is a day centre for 16-25s, so it uses the day-centre icon, not Young people.
+        self.assertTrue({k['sym'] for k in mixed} >= {'house', 'sun'}, mixed)
         pg.click('#chips [data-f=shost]')
         self.assertTrue(until(pg, "() => document.querySelectorAll('#xlist > .card.xsh').length > 0"))
         kinds = pg.evaluate(KINDS)
@@ -158,6 +159,8 @@ class Chips(unittest.TestCase):
         pins = pg.evaluate(PINS)
         self.assertEqual(set(pins), {'house'}, pins)
         pg.click('#chips [data-f=shost]')
+        # Pinned young people's housing (Streetlife, Blackpool) for the youth filter.
+        self.search(pg, 'FY1 3LQ')
         pg.click('#chips [data-f=youth]')
         self.assertTrue(until(pg, """() => { const cs=[...document.querySelectorAll('#xlist > .card.xsh')];
           const ok=i=>window.shYouth?shYouth(i):i.kind==='young_people';
