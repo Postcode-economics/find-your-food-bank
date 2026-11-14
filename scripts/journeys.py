@@ -161,10 +161,10 @@ def run(base=None, chrome=None, quick=False):
                         box['c'] = fresh(b, w, sc, geo=True); box['pg'] = pg = load(box['c'], base); pick(pg, k)
                         if pg.locator(how).is_visible(): pg.click(how); settle(pg, 2500); check_landing(r, pg, 'J1 search lands on list', '%s | %s | %s (location mocked)' % (V, k, how), k)
                         else: r.ok('J1 search lands on list', '%s | %s | %s visible' % (V, k, how), False, 'not visible')
-                        if how == '#me':  # see-list pill (after scrolling back up)
+                        if how == '#me':  # 14 Nov 2026 (Dean): the place line under the yellow bar must stay hidden
                             pg.evaluate('scrollTo(0,0)'); pg.wait_for_timeout(300); pl = pg.locator('a.v3pl')
-                            if r.ok('J1 search lands on list', '%s | %s | see-list pill shown' % (V, k), pl.count() > 0 and pl.first.is_visible()):
-                                pl.first.click(); settle(pg, 900); check_landing(r, pg, 'J1 search lands on list', '%s | %s | see-list pill' % (V, k), k)
+                            shown = pl.count() > 0 and pl.first.is_visible()
+                            r.ok('J1 search lands on list', '%s | %s | place line hidden' % (V, k), not shown, 'place line still visible')
                     scenario(r, 'J1 search lands on list', '%s | %s | %s' % (V, k, how), body_loc)
             def body_j3(box):
                 box['c'] = fresh(b, w, sc); box['pg'] = pg = load(box['c'], base)
