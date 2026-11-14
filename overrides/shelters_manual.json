@@ -19329,10 +19329,11 @@
       "Thu": "09:30 - 17:30",
       "Fri": "09:30 - 17:30"
     },
-    "postcode": "BB2 1LX",
-    "lat": 53.746821,
-    "lng": -2.486993,
-    "address": "St Anne's House, France Street, Blackburn"
+    "postcode": "",
+    "lat": null,
+    "lng": null,
+    "address": "",
+    "no_pin": true
   },
   {
     "id": "man-trident-reach-ravenhurst-cottages",
@@ -20192,42 +20193,6 @@
     ]
   },
   {
-    "id": "man-alone-in-london-service",
-    "name": "Depaul UK - Alone in London Service",
-    "phone": "020 7278 4224",
-    "website": "https://www.youthaccess.org.uk/our-network/find-help/alone-london-depaul-uk",
-    "source_url": "https://www.youthaccess.org.uk/our-network/find-help/alone-london-depaul-uk",
-    "source_label": "Depaul UK - Alone in London Service",
-    "evidence_name": "Depaul UK - Alone in London Service",
-    "evidence_url": "https://www.youthaccess.org.uk/our-network/find-help/alone-london-depaul-uk",
-    "season": "Year-round",
-    "flag_closed": false,
-    "stale": false,
-    "verified_on": "2026-11-13",
-    "hours_checked": "2026-11-13",
-    "checked_on": "2026-11-13",
-    "last_checked": "2026-11-13",
-    "last_verified": "2026-11-13",
-    "kind": "advice_service",
-    "who_for": [
-      "Young people aged 18 to 25"
-    ],
-    "hours": {
-      "Mon": "10:00 - 16:00",
-      "Tue": "10:00 - 16:00",
-      "Wed": "10:00 - 16:00",
-      "Thu": "10:00 - 16:00",
-      "Fri": "10:00 - 16:00"
-    },
-    "postcode": "SE1 4QQ",
-    "lat": 51.497593,
-    "lng": -0.083424,
-    "groups": [
-      "Young people aged 18 to 25"
-    ],
-    "address": "Endeavour Centre, Sherbourne House, 34 Decima Street, London"
-  },
-  {
     "id": "man-barnardos-2a-high-street",
     "name": "Barnardo's - 2A High Street",
     "phone": "0800 328 7795",
@@ -20934,10 +20899,11 @@
       "Thu": "09:00 - 17:00",
       "Fri": "09:00 - 17:00"
     },
-    "postcode": "KT12 1DH",
-    "lat": 51.384906,
-    "lng": -0.417952,
-    "address": "51-55 High Street, Walton on Thames"
+    "postcode": "",
+    "lat": null,
+    "lng": null,
+    "address": "",
+    "no_pin": true
   },
   {
     "id": "man-rooftop-housing-group-gloucester",
@@ -27999,7 +27965,7 @@
   {
     "id": "man-ymca-wirral",
     "name": "YMCA Wirral",
-    "phone": "0151 666 5511",
+    "phone": "0151 650 1015",
     "website": "https://ymcawirral.org.uk/our-services/homelessness-support/",
     "source_url": "https://ymcawirral.org.uk/our-services/homelessness-support/",
     "source_label": "YMCA Wirral",
@@ -28022,12 +27988,13 @@
     "who_for": [
       "Men and women"
     ],
-    "access": "You can refer yourself by calling 0151 666 5511.",
-    "referral": "You can refer yourself by calling 0151 666 5511.",
+    "access": "Call 0151 650 1015 to find out more. Access may need an assessment or a referral through Wirral Council's Housing Options team or YMCA Wirral's Rough Sleeper Initiative.",
+    "referral": "Call 0151 650 1015 to find out more. Access may need an assessment or a referral through Wirral Council's Housing Options team or YMCA Wirral's Rough Sleeper Initiative.",
     "access_type": "self_referral",
     "postcode": "",
     "lat": null,
-    "lng": null
+    "lng": null,
+    "phone_label": "YMCA Wirral (also used by Wirral Independent Living Services)"
   },
   {
     "id": "man-akt-digital-advice-service",
