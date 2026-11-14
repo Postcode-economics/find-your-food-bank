@@ -999,6 +999,10 @@ def _publish(root, layer, item_id, dry_run, now=None):
     if not card.get("name"):
         raise ValueError("Rejecting %s: rebuilt card has no name" % item_id)
     run_day = now.date().isoformat() if now is not None else datetime.date.today().isoformat()
+    if layer in ("shelters", "warmspaces") and not card.get("last_verified"):
+        # The full rebuild's merge_lifecycle reads last_verified on every carried card;
+        # a card published here without it made the 14 Nov warm spaces refresh crash.
+        card["last_verified"] = card.get("verified_on") or run_day
     validate_card_gates(root, layer, card, is_new, run_day=run_day)
     updated = list(items)
     if is_new:

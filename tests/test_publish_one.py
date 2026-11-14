@@ -543,6 +543,23 @@ class TestPublishOne(unittest.TestCase):
         self.assertEqual(stamp["layers"]["sh"], self.stamp["layers"]["sh"])
         self.assertEqual(stamp["kind"], "warmspaces")
 
+    def test_warmspace_card_gets_last_verified(self):
+        # 14 Nov 2026: a card published without last_verified crashed the next full rebuild.
+        _dump(os.path.join(self.overrides, "warmspaces_manual.json"), [{"id": "existing-ws-1", "phone": "01234 567892"}])
+        now = datetime.datetime(2026, 11, 14, 11, 0, tzinfo=datetime.timezone.utc)
+        res = publish_one.publish_one(self.temp_dir, "warmspaces", "existing-ws-1", now=now)
+        self.assertEqual(res["last_verified"], "2026-11-14")
+        _, data, _ = publish_one.read_layer(self.temp_dir, "warmspaces")
+        self.assertTrue(all(x.get("last_verified") for x in data["items"]))
+
+    def test_warmspace_existing_last_verified_is_kept(self):
+        self.ws["items"][0]["last_verified"] = "2026-11-10"
+        with open(os.path.join(self.temp_dir, "warmspaces.js"), "w", encoding="utf-8") as f:
+            f.write("var WARMSPACES=" + json.dumps(self.ws) + ";\n")
+        _dump(os.path.join(self.overrides, "warmspaces_manual.json"), [{"id": "existing-ws-1", "phone": "01234 567892"}])
+        res = publish_one.publish_one(self.temp_dir, "warmspaces", "existing-ws-1")
+        self.assertEqual(res["last_verified"], "2026-11-10")
+
     def test_overlay_collection_hours_keep_a_parent_client_facing(self):
         _, data, _ = publish_one.read_layer(self.temp_dir, "foodbanks")
         data["items"].append({
