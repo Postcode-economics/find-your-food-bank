@@ -10232,7 +10232,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "advice_service",
-    "no_pin": true,
     "town": "Bristol",
     "who_for": [
       "Young people aged 16 to 25"
@@ -10244,13 +10243,14 @@
       "Thu": "09:00 - 17:00",
       "Fri": "09:00 - 17:00"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null,
+    "postcode": "BS2 0ER",
+    "lat": 51.456004,
+    "lng": -2.5808,
     "groups": [
       "Young people aged 16 to 25"
     ],
-    "phone_label": "1625 Independent People central line"
+    "phone_label": "1625 Independent People central line",
+    "address": "Kingsley Hall, 59 Old Market Street, Bristol"
   },
   {
     "id": "man-1625-independent-people-dispersed-housing",
@@ -10321,15 +10321,15 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "advice_service",
-    "no_pin": true,
     "town": "Northamptonshire",
     "who_for": "Not stated",
     "access": "A referral is needed. Call 01536 416560 for advice.",
     "referral": "A referral is needed. Call 01536 416560 for advice.",
     "access_type": "referral_only",
-    "postcode": "",
-    "lat": null,
-    "lng": null
+    "postcode": "NN16 8TL",
+    "lat": 52.398384,
+    "lng": -0.730425,
+    "address": "1 Meadow Road, Kettering"
   },
   {
     "id": "man-ace-of-clubs",
@@ -10349,17 +10349,17 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "day_centre",
-    "no_pin": true,
     "town": "Lambeth",
     "who_for": "Not stated",
-    "postcode": "",
-    "lat": null,
-    "lng": null,
+    "postcode": "SW4 7AS",
+    "lat": 51.460284,
+    "lng": -0.137718,
     "facilities": [
       "Laundry",
       "Computer Access",
       "Food Available"
-    ]
+    ],
+    "address": "Ace of Clubs, St Alphonsus Road, London"
   },
   {
     "id": "man-action-for-children-youth-reach",
@@ -10379,7 +10379,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "advice_service",
-    "no_pin": true,
     "groups": [
       "Care leavers aged 15½ and over"
     ],
@@ -10393,9 +10392,10 @@
       "Thu": "09:00 - 17:00",
       "Fri": "09:00 - 17:00"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null
+    "postcode": "DE55 2EJ",
+    "lat": 53.104662,
+    "lng": -1.342493,
+    "address": "74 Market Street, South Normanton, Alfreton"
   },
   {
     "id": "man-acton-homeless-concern",
@@ -10443,7 +10443,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "advice_service",
-    "no_pin": true,
     "town": "Cosham",
     "who_for": "Not stated",
     "hours": {
@@ -10453,9 +10452,10 @@
       "Thu": "13:00 - 19:30",
       "Fri": "09:00 - 16:30"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null
+    "postcode": "PO2 8AL",
+    "lat": 50.812865,
+    "lng": -1.080938,
+    "address": "116 Kingston Crescent, Portsmouth"
   },
   {
     "id": "man-advisory-service-for-squatters",
@@ -10737,11 +10737,11 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "day_centre",
-    "no_pin": true,
     "who_for": "Not stated",
-    "postcode": "",
-    "lat": null,
-    "lng": null
+    "postcode": "HP20 2RX",
+    "lat": 51.816117,
+    "lng": -0.815088,
+    "address": "2 Rickfords Hill, Aylesbury"
   },
   {
     "id": "man-back-on-track",
@@ -10761,7 +10761,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "advice_service",
-    "no_pin": true,
     "who_for": "Not stated",
     "hours": {
       "Mon": "12:30 - 16:00",
@@ -10770,9 +10769,10 @@
       "Thu": "10:00 - 16:00",
       "Fri": "10:00 - 16:00"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null
+    "postcode": "M4 5JW",
+    "lat": 53.485461,
+    "lng": -2.233302,
+    "address": "4th Floor, Swan Buildings, 20 Swan Street, Manchester"
   },
   {
     "id": "man-backup-north-west",
@@ -10841,7 +10841,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "day_centre",
-    "no_pin": true,
     "town": "Manchester",
     "who_for": "Not stated",
     "hours": {
@@ -10851,9 +10850,10 @@
       "Thu": "07:30 - 12:00",
       "Fri": "Closed"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null
+    "postcode": "M1 3LY",
+    "lat": 53.476948,
+    "lng": -2.238062,
+    "address": "The Beacon, 45 Bloom Street, Manchester"
   },
   {
     "id": "man-barnardos-bay-6-project-emergency-accommodation",
@@ -11001,7 +11001,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "day_centre",
-    "no_pin": true,
     "who_for": "Not stated",
     "hours": {
       "Mon": "10:30 - 14:30",
@@ -11010,13 +11009,14 @@
       "Thu": "10:30 - 14:30",
       "Fri": "10:30 - 14:30"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null,
+    "postcode": "S10 2GB",
+    "lat": 53.379526,
+    "lng": -1.4855,
     "facilities": [
       "Laundry",
       "Food Available"
-    ]
+    ],
+    "address": "22 Wilkinson Street, Sheffield"
   },
   {
     "id": "man-berwick-youth-project-supported-accommodation",
@@ -11106,7 +11106,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "advice_service",
-    "no_pin": true,
     "who_for": "Not stated",
     "access": "A referral is needed. Call 01273 645455 for advice.",
     "referral": "A referral is needed. Call 01273 645455 for advice.",
@@ -11118,9 +11117,10 @@
       "Thu": "09:00 - 17:00",
       "Fri": "09:00 - 16:30"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null
+    "postcode": "BN21 3UT",
+    "lat": 50.771694,
+    "lng": 0.28302,
+    "address": "Unit 6, Highlight House, 8 St Leonard's Road, Eastbourne"
   },
   {
     "id": "man-bht-hastings-advice",
@@ -11140,7 +11140,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "advice_service",
-    "no_pin": true,
     "who_for": "Not stated",
     "access": "A referral is needed. Call 01273 645455 for advice.",
     "referral": "A referral is needed. Call 01273 645455 for advice.",
@@ -11152,9 +11151,10 @@
       "Thu": "09:00 - 16:30",
       "Fri": "09:00 - 16:30"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null
+    "postcode": "TN37 6AN",
+    "lat": 50.853101,
+    "lng": 0.559783,
+    "address": "Advice and Community Hub, Renaissance House, London Road, St Leonards on Sea"
   },
   {
     "id": "man-big-issue-in-the-midlands-birmingham",
@@ -11174,7 +11174,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "advice_service",
-    "no_pin": true,
     "who_for": "Not stated",
     "hours": {
       "Mon": "09:00 - 16:30",
@@ -11184,9 +11183,10 @@
       "Fri": "09:00 - 16:30",
       "Sat": "09:00 - 14:00"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null
+    "postcode": "B19 3SD",
+    "lat": 52.487225,
+    "lng": -1.899752,
+    "address": "Pace House, 17 Summer Lane, Birmingham"
   },
   {
     "id": "man-big-issue-north-leeds",
@@ -11206,12 +11206,12 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "advice_service",
-    "no_pin": true,
     "town": "Leeds",
     "who_for": "Not stated",
-    "postcode": "",
-    "lat": null,
-    "lng": null
+    "postcode": "LS9 8AA",
+    "lat": 53.79657,
+    "lng": -1.532565,
+    "address": "66 York Street, Leeds"
   },
   {
     "id": "man-bond-scheme-selby",
@@ -11397,7 +11397,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "advice_service",
-    "no_pin": true,
     "who_for": "Not stated",
     "hours": {
       "Mon": "09:00 - 17:00",
@@ -11406,9 +11405,10 @@
       "Thu": "09:00 - 17:00",
       "Fri": "09:00 - 17:00"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null
+    "postcode": "HX1 2AF",
+    "lat": 53.720311,
+    "lng": -1.862641,
+    "address": "15 Harrison Road, Halifax"
   },
   {
     "id": "man-cambridge-cyrenians-short-stay-accommodation",
@@ -11532,7 +11532,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "advice_service",
-    "no_pin": true,
     "who_for": "Not stated",
     "hours": {
       "Mon": "10:00 - 14:00",
@@ -11541,9 +11540,10 @@
       "Thu": "10:00 - 14:00",
       "Fri": "10:00 - 14:00"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null
+    "postcode": "CT1 2HA",
+    "lat": 51.279083,
+    "lng": 1.081798,
+    "address": "2nd Floor, 24 Burgate, Canterbury"
   },
   {
     "id": "man-cardboard-citizens",
@@ -11563,7 +11563,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "day_centre",
-    "no_pin": true,
     "who_for": "Not stated",
     "hours": {
       "Mon": "10:00 - 18:00",
@@ -11572,9 +11571,10 @@
       "Thu": "10:00 - 18:00",
       "Fri": "10:00 - 18:00"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null
+    "postcode": "E1 1EJ",
+    "lat": 51.515787,
+    "lng": -0.065494,
+    "address": "77a Greenfield Road, Whitechapel, London"
   },
   {
     "id": "man-cardinal-hume-centre-advice",
@@ -11728,7 +11728,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "advice_service",
-    "no_pin": true,
     "who_for": "Not stated",
     "hours": {
       "Mon": "09:00 - 17:00",
@@ -11737,12 +11736,13 @@
       "Thu": "09:00 - 17:00",
       "Fri": "09:00 - 17:00"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null,
+    "postcode": "M3 6DP",
+    "lat": 53.483743,
+    "lng": -2.25983,
     "facilities": [
       "Food Available"
-    ]
+    ],
+    "address": "Cathedral Centre, 3 Ford Street, Salford"
   },
   {
     "id": "man-catalyst-artisan-crescent-st-albans",
@@ -11843,7 +11843,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "advice_service",
-    "no_pin": true,
     "who_for": "Not stated",
     "hours": {
       "Mon": "09:00 - 17:00",
@@ -11852,9 +11851,10 @@
       "Thu": "09:00 - 17:00",
       "Fri": "09:00 - 17:00"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null
+    "postcode": "GL50 3HW",
+    "lat": 51.903344,
+    "lng": -2.079277,
+    "address": "301-305 High Street, Cheltenham"
   },
   {
     "id": "man-ccp-cheltenham-advice-and-inclusion-service",
@@ -11874,7 +11874,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "advice_service",
-    "no_pin": true,
     "who_for": [
       "Families"
     ],
@@ -11886,13 +11885,14 @@
       "Wed": "09:00 - 15:00",
       "Thu": "09:00 - 15:00"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null,
+    "postcode": "GL50 3DA",
+    "lat": 51.900098,
+    "lng": -2.078966,
     "groups": [
       "Families"
     ],
-    "phone_label": "CCP central line"
+    "phone_label": "CCP central line",
+    "address": "15 Royal Crescent, Cheltenham"
   },
   {
     "id": "man-ccp-cheltenham-foyer-the-arkells",
@@ -11947,20 +11947,20 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "day_centre",
-    "no_pin": true,
     "who_for": [
       "People aged 18 and over"
     ],
-    "postcode": "",
-    "lat": null,
-    "lng": null,
+    "postcode": "AL3 4PQ",
+    "lat": 51.751986,
+    "lng": -0.342585,
     "facilities": [
       "Showers",
       "Food Available"
     ],
     "groups": [
       "People aged 18 and over"
-    ]
+    ],
+    "address": "2a Spicer Street, St Albans"
   },
   {
     "id": "man-centrepoint-bedford-hill",
@@ -12170,7 +12170,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "advice_service",
-    "no_pin": true,
     "who_for": "Not stated",
     "access": "A referral is needed. Call 01274 731909 for advice.",
     "referral": "A referral is needed. Call 01274 731909 for advice.",
@@ -12182,12 +12181,13 @@
       "Thu": "09:00 - 17:00",
       "Fri": "09:00 - 17:00"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null,
+    "postcode": "BD3 0DZ",
+    "lat": 53.801046,
+    "lng": -1.744621,
     "facilities": [
       "Food Available"
-    ]
+    ],
+    "address": "Rees Way, Otley Road, Bradford"
   },
   {
     "id": "man-chelsea-methodist-church-pastoral-centre",
@@ -12207,20 +12207,20 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "day_centre",
-    "no_pin": true,
     "who_for": "Not stated",
     "hours": {
       "Mon": "09:00 - 12:00",
       "Tue": "09:00 - 12:00"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null,
+    "postcode": "SW3 5TX",
+    "lat": 51.487827,
+    "lng": -0.167292,
     "facilities": [
       "Hot Drinks",
       "Showers",
       "Food Available"
-    ]
+    ],
+    "address": "155a King's Road, London"
   },
   {
     "id": "man-cheltenham-housing-aid-centre",
@@ -12398,7 +12398,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "advice_service",
-    "no_pin": true,
     "who_for": "Not stated",
     "hours": {
       "Mon": "09:00 - 17:00",
@@ -12407,9 +12406,10 @@
       "Thu": "09:00 - 17:00",
       "Fri": "09:00 - 17:00"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null
+    "postcode": "TS1 5DW",
+    "lat": 54.573249,
+    "lng": -1.239018,
+    "address": "16 Borough Road, Middlesbrough"
   },
   {
     "id": "man-coastline-housing-day-centre",
@@ -12429,7 +12429,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "day_centre",
-    "no_pin": true,
     "who_for": "Not stated",
     "access": "A referral is needed. Call 01209 200200 for advice.",
     "referral": "A referral is needed. Call 01209 200200 for advice.",
@@ -12442,10 +12441,11 @@
       "Thu": "09:00 - 17:00",
       "Fri": "09:00 - 17:00"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null,
-    "phone_label": "Central line"
+    "postcode": "TR15 3QT",
+    "lat": 50.222804,
+    "lng": -5.274883,
+    "phone_label": "Central line",
+    "address": "Chi Winder, Dudnance Lane, Pool"
   },
   {
     "id": "man-coatham-house",
@@ -12628,7 +12628,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "advice_service",
-    "no_pin": true,
     "town": "South Hams",
     "who_for": "Not stated",
     "hours": {
@@ -12639,9 +12638,10 @@
       "Fri": "09:30 - 16:30",
       "Sat": "09:30 - 13:00"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null
+    "postcode": "TQ7 1EY",
+    "lat": 50.281535,
+    "lng": -3.781502,
+    "address": "The Cornelius Shop, Mill Street, Kingsbridge"
   },
   {
     "id": "man-cranstoun-west-hill",
@@ -12832,7 +12832,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "day_centre",
-    "no_pin": true,
     "who_for": "Not stated",
     "hours": {
       "Mon": "10:00 - 13:00",
@@ -12841,13 +12840,14 @@
       "Thu": "10:00 - 13:00",
       "Fri": "10:00 - 13:00"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null,
+    "postcode": "NN8 4JU",
+    "lat": 52.302857,
+    "lng": -0.697385,
     "facilities": [
       "Showers",
       "Food Available"
-    ]
+    ],
+    "address": "Daylight Centre Fellowship, Queens Hall, 8 High Street, Wellingborough"
   },
   {
     "id": "man-dens-day-centre",
@@ -12867,7 +12867,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "day_centre",
-    "no_pin": true,
     "who_for": "Not stated",
     "access": "A referral is needed. Call 01442 800268 for advice.",
     "referral": "A referral is needed. Call 01442 800268 for advice.",
@@ -12879,13 +12878,14 @@
       "Thu": "09:00 - 13:30",
       "Fri": "09:00 - 13:30"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null,
+    "postcode": "HP1 1HT",
+    "lat": 51.757494,
+    "lng": -0.472975,
     "facilities": [
       "Showers",
       "Food Available"
-    ]
+    ],
+    "address": "Bury Lodge, 1 Queensway, Hemel Hempstead"
   },
   {
     "id": "man-depaul-uk-baseline",
@@ -12905,7 +12905,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "advice_service",
-    "no_pin": true,
     "who_for": [
       "Young people aged 11 to 25"
     ],
@@ -12917,12 +12916,13 @@
       "Fri": "10:00 - 16:00",
       "Sat": "10:00 - 14:00"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null,
+    "postcode": "NE6 5JY",
+    "lat": 54.986268,
+    "lng": -1.578025,
     "groups": [
       "Young people aged 11 to 25"
-    ]
+    ],
+    "address": "58 Simonside Terrace, Heaton, Newcastle upon Tyne"
   },
   {
     "id": "man-depaul-uk-nightstop-greater-manchester",
@@ -13038,7 +13038,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "advice_service",
-    "no_pin": true,
     "who_for": "Not stated",
     "hours": {
       "Mon": "09:00 - 16:30",
@@ -13047,9 +13046,10 @@
       "Thu": "09:00 - 16:30",
       "Fri": "09:00 - 16:30"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null
+    "postcode": "NE26 1AD",
+    "lat": 55.043589,
+    "lng": -1.445123,
+    "address": "Resource Centre, Oxford Street, Whitley Bay"
   },
   {
     "id": "man-depaul-uk-oldham-reconnect",
@@ -13200,7 +13200,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "advice_service",
-    "no_pin": true,
     "who_for": [
       "Families"
     ],
@@ -13214,12 +13213,13 @@
       "Thu": "09:30 - 16:30",
       "Fri": "09:30 - 16:30"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null,
+    "postcode": "BA1 5BD",
+    "lat": 51.385856,
+    "lng": -2.359437,
     "groups": [
       "Families"
-    ]
+    ],
+    "address": "The Beehive, Beehive Yard, Walcot Street, Bath"
   },
   {
     "id": "man-doctors-of-the-world-uk-london-clinic",
@@ -13407,7 +13407,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "advice_service",
-    "no_pin": true,
     "who_for": "Not stated",
     "hours": {
       "Mon": "09:30 - 17:30",
@@ -13416,9 +13415,10 @@
       "Thu": "09:30 - 17:30",
       "Fri": "09:30 - 17:30"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null
+    "postcode": "W7 3HL",
+    "lat": 51.509929,
+    "lng": -0.336095,
+    "address": "Hanwell Community Library, Cherington Road, London"
   },
   {
     "id": "man-elim-connect-centre",
@@ -13494,7 +13494,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "advice_service",
-    "no_pin": true,
     "who_for": "Not stated",
     "hours": {
       "Mon": "09:00 - 17:00",
@@ -13503,9 +13502,10 @@
       "Thu": "09:00 - 17:00",
       "Fri": "09:00 - 17:00"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null
+    "postcode": "OX4 1UE",
+    "lat": 51.747047,
+    "lng": -1.235272,
+    "address": "Bullingdon House, 174b Cowley Road, Oxford"
   },
   {
     "id": "man-empanda-yps-cromer-foyer",
@@ -13735,7 +13735,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "advice_service",
-    "no_pin": true,
     "town": "Leeds",
     "who_for": "Not stated",
     "access": "A referral is needed. Call 0113 273 9660 for advice.",
@@ -13748,10 +13747,11 @@
       "Thu": "09:00 - 17:00",
       "Fri": "09:00 - 16:00"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null,
-    "phone_label": "Foundation central line"
+    "postcode": "LS2 9ET",
+    "lat": 53.807759,
+    "lng": -1.546275,
+    "phone_label": "Foundation central line",
+    "address": "Tennant Hall, Blenheim Grove, Leeds"
   },
   {
     "id": "man-framework-homelessness-prevention-service",
@@ -13771,7 +13771,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "advice_service",
-    "no_pin": true,
     "town": "Nottinghamshire",
     "who_for": "Not stated",
     "access": "You can refer yourself by calling 0115 841 7711.",
@@ -13784,10 +13783,11 @@
       "Thu": "09:00 - 17:00",
       "Fri": "09:00 - 17:00"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null,
-    "phone_label": "Framework HA central line"
+    "postcode": "NG7 6NX",
+    "lat": 52.967255,
+    "lng": -1.161318,
+    "phone_label": "Framework HA central line",
+    "address": "Val Roberts House, 25 Gregory Boulevard, Nottingham"
   },
   {
     "id": "man-friends-first-drop-in-centre",
@@ -13807,15 +13807,15 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "day_centre",
-    "no_pin": true,
     "town": "Brighton and Hove",
     "who_for": "Not stated",
     "hours": {
       "Mon": "19:30 - 21:00"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null
+    "postcode": "BN3 3RE",
+    "lat": 50.832312,
+    "lng": -0.175786,
+    "address": "21-23 Clarendon Villas, Hove"
   },
   {
     "id": "man-gatehouse-oxford",
@@ -13835,7 +13835,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "day_centre",
-    "no_pin": true,
     "who_for": "Not stated",
     "hours": {
       "Mon": "17:00 - 19:00",
@@ -13844,12 +13843,13 @@
       "Thu": "17:00 - 19:00",
       "Fri": "17:00 - 19:00"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null,
+    "postcode": "OX2 6HT",
+    "lat": 51.760413,
+    "lng": -1.261374,
     "facilities": [
       "Showers"
-    ]
+    ],
+    "address": "The Gatehouse @ St Giles, 10 Woodstock Road, Oxford"
   },
   {
     "id": "man-gems",
@@ -13869,15 +13869,15 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "advice_service",
-    "no_pin": true,
     "who_for": "Not stated",
     "hours": {
       "Tue": "19:00 - 21:00",
       "Thu": "19:00 - 21:00"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null
+    "postcode": "N16 8NA",
+    "lat": 51.55082,
+    "lng": -0.081201,
+    "address": "Mildmay Centre, Woodville Road, Islington, London"
   },
   {
     "id": "man-gipsil-our-way-leeds-owl",
@@ -13995,7 +13995,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "advice_service",
-    "no_pin": true,
     "town": "Greenwich",
     "who_for": "Not stated",
     "hours": {
@@ -14005,9 +14004,10 @@
       "Thu": "13:00 - 16:00",
       "Fri": "10:00 - 13:00"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null
+    "postcode": "SE18 6PF",
+    "lat": 51.490405,
+    "lng": 0.065483,
+    "address": "36 Wellington Street, Woolwich, London"
   },
   {
     "id": "man-grimsby-and-cleethorpes-area-doorstep",
@@ -14068,44 +14068,6 @@
     "lng": null
   },
   {
-    "id": "man-harp-southend-bradbury-day-centre",
-    "name": "HARP Southend - Bradbury Day Centre",
-    "phone": "01702 430696",
-    "website": "https://www.harpsouthend.org.uk/",
-    "source_url": "https://www.harpsouthend.org.uk/",
-    "source_label": "HARP Southend - Bradbury Day Centre",
-    "evidence_name": "HARP Southend - Bradbury Day Centre",
-    "evidence_url": "https://www.harpsouthend.org.uk/",
-    "season": "Year-round",
-    "flag_closed": false,
-    "stale": false,
-    "verified_on": "2026-11-13",
-    "hours_checked": "2026-11-13",
-    "checked_on": "2026-11-13",
-    "last_checked": "2026-11-13",
-    "last_verified": "2026-11-13",
-    "kind": "day_centre",
-    "no_pin": true,
-    "who_for": "Not stated",
-    "access": "A referral is needed. Call 01702 615000 for advice.",
-    "referral": "A referral is needed. Call 01702 615000 for advice.",
-    "access_type": "referral_only",
-    "hours": {
-      "Mon": "08:00 - 16:00",
-      "Tue": "08:00 - 16:00",
-      "Wed": "08:00 - 16:00",
-      "Thu": "08:00 - 16:00",
-      "Fri": "08:00 - 16:00"
-    },
-    "postcode": "",
-    "lat": null,
-    "lng": null,
-    "facilities": [
-      "Showers",
-      "Food Available"
-    ]
-  },
-  {
     "id": "man-hastings-advice-and-representation-centre-harc",
     "name": "Hastings Advice and Representation Centre (HARC)",
     "phone": "01424 428375 or 01424 444986",
@@ -14123,7 +14085,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "advice_service",
-    "no_pin": true,
     "town": "Bexhill",
     "who_for": "Not stated",
     "hours": {
@@ -14133,9 +14094,10 @@
       "Thu": "09:00 - 16:30",
       "Fri": "09:00 - 16:30"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null
+    "postcode": "TN37 6AN",
+    "lat": 50.853101,
+    "lng": 0.559783,
+    "address": "The Advice and Community Hub, Renaissance House, London Road, St Leonards on Sea"
   },
   {
     "id": "man-havebury-housing-partnership-tayfen-house",
@@ -14180,7 +14142,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "advice_service",
-    "no_pin": true,
     "who_for": "Not stated",
     "hours": {
       "Mon": "09:00 - 16:30",
@@ -14189,9 +14150,10 @@
       "Thu": "09:00 - 16:30",
       "Fri": "09:00 - 16:30"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null
+    "postcode": "AL9 5AD",
+    "lat": 51.763207,
+    "lng": -0.214273,
+    "address": "HYH, 2nd Floor, York House, 14 Salisbury Square, Hatfield"
   },
   {
     "id": "man-herts-young-homeless-group",
@@ -14211,7 +14173,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "advice_service",
-    "no_pin": true,
     "groups": [
       "Young people aged 16 to 24"
     ],
@@ -14225,9 +14186,10 @@
       "Thu": "09:00 - 17:00",
       "Fri": "09:00 - 16:00"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null
+    "postcode": "AL10 8HX",
+    "lat": 51.761719,
+    "lng": -0.227605,
+    "address": "1st Floor, Gracemead House, Woods Avenue, Hatfield"
   },
   {
     "id": "man-hightown-ha-dacorum-young-peoples-housing",
@@ -14343,7 +14305,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "advice_service",
-    "no_pin": true,
     "town": "SW England",
     "who_for": "Not stated",
     "hours": {
@@ -14353,9 +14314,10 @@
       "Thu": "09:00 - 17:00",
       "Fri": "09:00 - 17:00"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null
+    "postcode": "EX1 2LD",
+    "lat": 50.724896,
+    "lng": -3.521112,
+    "address": "17 Heavitree Road, Exeter"
   },
   {
     "id": "man-horton-housing-association-community-support-agenc",
@@ -14407,7 +14369,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "day_centre",
-    "no_pin": true,
     "who_for": "Not stated",
     "hours": {
       "Mon": "09:30 - 12:30",
@@ -14415,12 +14376,13 @@
       "Thu": "09:30 - 12:30",
       "Fri": "09:30 - 12:30"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null,
+    "postcode": "HD1 1QA",
+    "lat": 53.648023,
+    "lng": -1.780383,
     "facilities": [
       "Food Available"
-    ]
+    ],
+    "address": "3-13 Lord Street, Huddersfield"
   },
   {
     "id": "man-hull-resettlement-project-harthill-drive",
@@ -14511,7 +14473,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "advice_service",
-    "no_pin": true,
     "town": "Hull",
     "who_for": [
       "People who are homeless, leaving care or have offended"
@@ -14526,12 +14487,13 @@
       "Thu": "08:30 - 17:00",
       "Fri": "08:30 - 17:00"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null,
+    "postcode": "HU3 1XR",
+    "lat": 53.752892,
+    "lng": -0.348483,
     "groups": [
       "People who are homeless, leaving care or have offended"
-    ]
+    ],
+    "address": "81 Beverley Road, Hull"
   },
   {
     "id": "man-impact-initiatives-stopover",
@@ -14617,15 +14579,15 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "day_centre",
-    "no_pin": true,
     "who_for": "Not stated",
-    "postcode": "",
-    "lat": null,
-    "lng": null,
+    "postcode": "BS5 0QY",
+    "lat": 51.459653,
+    "lng": -2.575765,
     "facilities": [
       "Showers",
       "Food Available"
-    ]
+    ],
+    "address": "32 Stapleton Road, Easton, Bristol"
   },
   {
     "id": "man-intact-projects-trafford",
@@ -14698,7 +14660,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "advice_service",
-    "no_pin": true,
     "who_for": "Not stated",
     "hours": {
       "Mon": "09:00 - 17:00",
@@ -14707,9 +14668,10 @@
       "Thu": "09:00 - 17:00",
       "Fri": "09:00 - 17:00"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null
+    "postcode": "B12 9LX",
+    "lat": 52.457895,
+    "lng": -1.894123,
+    "address": "196-198 Edward Road, Balsall Heath, Birmingham"
   },
   {
     "id": "man-just-homes-cumberland-road",
@@ -14789,7 +14751,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "day_centre",
-    "no_pin": true,
     "town": "Higher Openshaw",
     "who_for": "Not stated",
     "hours": {
@@ -14799,9 +14760,10 @@
       "Thu": "09:00 - 17:00",
       "Fri": "09:00 - 15:00"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null
+    "postcode": "M11 1HH",
+    "lat": 53.472941,
+    "lng": -2.155075,
+    "address": "1479-1489 Ashton Old Road, Manchester"
   },
   {
     "id": "man-keychange-charity-esther-community",
@@ -15370,7 +15332,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "day_centre",
-    "no_pin": true,
     "who_for": "Not stated",
     "hours": {
       "Mon": "10:00 - 17:00",
@@ -15380,13 +15341,14 @@
       "Fri": "10:00 - 17:00",
       "Sat": "10:00 - 13:30"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null,
+    "postcode": "SO14 2DF",
+    "lat": 50.900894,
+    "lng": -1.403445,
     "facilities": [
       "Showers",
       "Laundry"
-    ]
+    ],
+    "address": "13 High Street, Southampton"
   },
   {
     "id": "man-north-east-windhill-community-association",
@@ -15406,16 +15368,16 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "advice_service",
-    "no_pin": true,
     "who_for": [
       "Families"
     ],
-    "postcode": "",
-    "lat": null,
-    "lng": null,
+    "postcode": "BD18 2NR",
+    "lat": 53.833757,
+    "lng": -1.764236,
     "groups": [
       "Families"
-    ]
+    ],
+    "address": "Church Street, Windhill, Shipley"
   },
   {
     "id": "man-north-kenton-supported-housing",
@@ -15516,7 +15478,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "advice_service",
-    "no_pin": true,
     "who_for": "Not stated",
     "hours": {
       "Mon": "09:00 - 17:00",
@@ -15525,9 +15486,10 @@
       "Thu": "09:00 - 17:00",
       "Fri": "09:00 - 17:00"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null
+    "postcode": "L7 2PE",
+    "lat": 53.407592,
+    "lng": -2.952325,
+    "address": "99 Edge Lane, Liverpool"
   },
   {
     "id": "man-oasis-centre",
@@ -15620,7 +15582,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "day_centre",
-    "no_pin": true,
     "who_for": "Not stated",
     "hours": {
       "Mon": "09:00 - 14:00",
@@ -15629,16 +15590,17 @@
       "Thu": "09:00 - 14:00",
       "Fri": "09:00 - 14:00"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null,
+    "postcode": "NE8 1PZ",
+    "lat": 54.95944,
+    "lng": -1.600637,
     "facilities": [
       "Hot Drinks",
       "Showers",
       "Laundry",
       "Computer Access",
       "Food Available"
-    ]
+    ],
+    "address": "Basis, Aquila House, Warwick Street, Gateshead"
   },
   {
     "id": "man-oasis-community-housing-croydon-foyer",
@@ -15717,7 +15679,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "day_centre",
-    "no_pin": true,
     "who_for": "Not stated",
     "hours": {
       "Mon": "09:30 - 15:30",
@@ -15726,12 +15687,13 @@
       "Thu": "10:00 - 15:30",
       "Fri": "09:30 - 15:30"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null,
+    "postcode": "EX8 1PE",
+    "lat": 50.619157,
+    "lng": -3.411292,
     "facilities": [
       "Food Available"
-    ]
+    ],
+    "address": "Church Street, Exmouth"
   },
   {
     "id": "man-open-door-thurrock",
@@ -15751,7 +15713,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "advice_service",
-    "no_pin": true,
     "who_for": "Not stated",
     "hours": {
       "Mon": "09:30 - 15:00",
@@ -15760,9 +15721,10 @@
       "Thu": "09:30 - 15:00",
       "Fri": "09:30 - 15:00"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null
+    "postcode": "RM17 6XP",
+    "lat": 51.47439,
+    "lng": 0.322501,
+    "address": "HASS Open Door, Beehive Resource Centre, Grays"
   },
   {
     "id": "man-orwell-ha-hinde-house",
@@ -16892,7 +16854,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "advice_service",
-    "no_pin": true,
     "who_for": "Not stated",
     "hours": {
       "Mon": "09:30 - 17:00",
@@ -16901,9 +16862,10 @@
       "Thu": "09:30 - 17:00",
       "Fri": "09:30 - 17:00"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null
+    "postcode": "S10 1GF",
+    "lat": 53.385608,
+    "lng": -1.4975,
+    "address": "63-73 Commonside, Sheffield"
   },
   {
     "id": "man-phoenix-futures-town-centre-outreach-service",
@@ -16923,7 +16885,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "advice_service",
-    "no_pin": true,
     "town": "Birkenhead",
     "who_for": "Not stated",
     "hours": {
@@ -16933,9 +16894,10 @@
       "Thu": "09:00 - 16:30",
       "Fri": "09:00 - 16:30"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null
+    "postcode": "CH41 5AE",
+    "lat": 53.39191,
+    "lng": -3.01623,
+    "address": "50 Hamilton Street, Birkenhead"
   },
   {
     "id": "man-places-for-people-dock-street",
@@ -17052,7 +17014,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "day_centre",
-    "no_pin": true,
     "town": "Portsmouth",
     "groups": [
       "People aged 18 and over"
@@ -17067,14 +17028,15 @@
       "Thu": "08:00 - 16:00",
       "Fri": "08:00 - 16:00"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null,
+    "postcode": "PO5 1LR",
+    "lat": 50.789208,
+    "lng": -1.083587,
     "facilities": [
       "Hot Drinks",
       "Showers",
       "Laundry"
-    ]
+    ],
+    "address": "130 Kingsway house, Elm Grove, Portsmouth"
   },
   {
     "id": "man-project-john",
@@ -17563,7 +17525,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "advice_service",
-    "no_pin": true,
     "town": "London",
     "who_for": "Not stated",
     "hours": {
@@ -17573,9 +17534,10 @@
       "Thu": "09:00 - 17:00",
       "Fri": "09:00 - 16:00"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null
+    "postcode": "SE1 3UW",
+    "lat": 51.499062,
+    "lng": -0.080927,
+    "address": "183-185 Bermondsey Street, London"
   },
   {
     "id": "man-seaview-project",
@@ -17595,7 +17557,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "day_centre",
-    "no_pin": true,
     "who_for": "Not stated",
     "access": "You can turn up without a referral. Call 01424 717981 if you want to check first.",
     "referral": "You can turn up without a referral. Call 01424 717981 if you want to check first.",
@@ -17607,9 +17568,10 @@
       "Thu": "08:00 - 09:00",
       "Fri": "09:00 - 15:00"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null
+    "postcode": "TN37 6LB",
+    "lat": 50.856751,
+    "lng": 0.559869,
+    "address": "Southwater Centre, Hatherley Road, St Leonards on Sea"
   },
   {
     "id": "man-second-step-homefield-court",
@@ -17697,7 +17659,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "advice_service",
-    "no_pin": true,
     "who_for": "Not stated",
     "access": "A referral is needed. Call 01952 217100 for advice.",
     "referral": "A referral is needed. Call 01952 217100 for advice.",
@@ -17709,9 +17670,10 @@
       "Thu": "09:30 - 16:00",
       "Fri": "09:30 - 16:00"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null
+    "postcode": "SY1 1HU",
+    "lat": 52.707509,
+    "lng": -2.756906,
+    "address": "11 Bellstone, Shrewsbury"
   },
   {
     "id": "man-signposts-guildford-hall-start-over-shelter-sos",
@@ -17763,17 +17725,17 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "day_centre",
-    "no_pin": true,
     "who_for": "Not stated",
-    "postcode": "",
-    "lat": null,
-    "lng": null,
+    "postcode": "BA5 2BE",
+    "lat": 51.208813,
+    "lng": -2.65274,
     "facilities": [
       "Showers",
       "Laundry",
       "Food Available"
     ],
-    "phone_label": "Central line"
+    "phone_label": "Central line",
+    "address": "Elim Connect Centre, Portway, Wells"
   },
   {
     "id": "man-sleap-leyland",
@@ -17824,21 +17786,21 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "day_centre",
-    "no_pin": true,
     "groups": [
       "People aged 16 and over"
     ],
     "who_for": [
       "People aged 16 and over"
     ],
-    "postcode": "",
-    "lat": null,
-    "lng": null,
+    "postcode": "MK40 1QW",
+    "lat": 52.13456,
+    "lng": -0.474436,
     "facilities": [
       "Showers",
       "Laundry",
       "Food Available"
-    ]
+    ],
+    "address": "The Prebend Day Centre, 12 Prebend Street, Bedford"
   },
   {
     "id": "man-smart-works",
@@ -17892,7 +17854,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "advice_service",
-    "no_pin": true,
     "who_for": "Not stated",
     "access": "A referral is needed. Call 07384 518527 for advice.",
     "referral": "A referral is needed. Call 07384 518527 for advice.",
@@ -17904,10 +17865,11 @@
       "Thu": "09:00 - 13:00",
       "Fri": "09:00 - 13:00"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null,
-    "phone_label": "Central line"
+    "postcode": "IP22 4LB",
+    "lat": 52.377491,
+    "lng": 1.107639,
+    "phone_label": "Central line",
+    "address": "12A St Nicholas Street, Diss"
   },
   {
     "id": "man-solo-housing-norfolk-support-service",
@@ -17956,7 +17918,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "advice_service",
-    "no_pin": true,
     "who_for": "Not stated",
     "hours": {
       "Mon": "09:00 - 16:00",
@@ -17965,9 +17926,10 @@
       "Thu": "09:00 - 16:00",
       "Fri": "09:00 - 16:00"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null
+    "postcode": "NE33 5LZ",
+    "lat": 54.979772,
+    "lng": -1.443878,
+    "address": "St Mary's Centre, Whitehead Street, South Shields"
   },
   {
     "id": "man-southern-housing-group-atkinson-house",
@@ -18011,7 +17973,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "advice_service",
-    "no_pin": true,
     "who_for": "Not stated",
     "access": "A referral is needed. Call 0300 123 9966 for advice.",
     "referral": "A referral is needed. Call 0300 123 9966 for advice.",
@@ -18023,10 +17984,11 @@
       "Thu": "09:00 - 17:00",
       "Fri": "09:00 - 17:00"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null,
-    "phone_label": "Central line"
+    "postcode": "DL9 3AU",
+    "lat": 54.378543,
+    "lng": -1.727447,
+    "phone_label": "Central line",
+    "address": "The Beacon, Marne Road, Catterick Garrison, Catterick Garrison"
   },
   {
     "id": "man-spelthorne-rentstart",
@@ -18077,11 +18039,11 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "day_centre",
-    "no_pin": true,
     "who_for": "Not stated",
-    "postcode": "",
-    "lat": null,
-    "lng": null
+    "postcode": "E14 6EQ",
+    "lat": 51.512767,
+    "lng": -0.017672,
+    "address": "Lanbury Lodge, 117 Ricardo St, London"
   },
   {
     "id": "man-springboard-foyer",
@@ -18189,7 +18151,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "day_centre",
-    "no_pin": true,
     "groups": [
       "Young people aged 16 to 25"
     ],
@@ -18206,10 +18167,11 @@
       "Thu": "09:00 - 17:00",
       "Fri": "09:00 - 17:00"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null,
-    "phone_label": "St Basils central line"
+    "postcode": "B9 4AX",
+    "lat": 52.477022,
+    "lng": -1.881018,
+    "phone_label": "St Basils central line",
+    "address": "120 Heath Mill Lane, Birmingham"
   },
   {
     "id": "man-st-cuthberts-drop-in-centre",
@@ -18301,7 +18263,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "day_centre",
-    "no_pin": true,
     "who_for": "Not stated",
     "access": "A referral is needed. Call 01392 217550422396 for advice.",
     "referral": "A referral is needed. Call 01392 217550422396 for advice.",
@@ -18313,15 +18274,16 @@
       "Thu": "08:30 - 13:00",
       "Fri": "08:30 - 13:00"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null,
+    "postcode": "EX1 1HJ",
+    "lat": 50.722425,
+    "lng": -3.531912,
     "facilities": [
       "Showers",
       "Laundry",
       "Computer Access",
       "Food Available"
-    ]
+    ],
+    "address": "10 Cathedral Yard, Exeter"
   },
   {
     "id": "man-st-vincent-support-centre",
@@ -18341,7 +18303,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "advice_service",
-    "no_pin": true,
     "groups": [
       "Families"
     ],
@@ -18358,9 +18319,10 @@
       "Thu": "09:00 - 16:00",
       "Fri": "09:00 - 16:00"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null
+    "postcode": "LS9 9AA",
+    "lat": 53.797732,
+    "lng": -1.521636,
+    "address": "82 York Road, Leeds"
   },
   {
     "id": "man-step-by-step-foyer-accommodation",
@@ -18600,14 +18562,14 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "day_centre",
-    "no_pin": true,
     "who_for": "Not stated",
-    "postcode": "",
-    "lat": null,
-    "lng": null,
+    "postcode": "SR4 7TF",
+    "lat": 54.901348,
+    "lng": -1.411556,
     "facilities": [
       "Food Available"
-    ]
+    ],
+    "address": "St Gabriels Church, Chester Road, Sunderland"
   },
   {
     "id": "man-swan-house-foyer",
@@ -18694,7 +18656,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "day_centre",
-    "no_pin": true,
     "who_for": "Not stated",
     "hours": {
       "Mon": "09:00 - 16:00",
@@ -18703,16 +18664,17 @@
       "Thu": "09:00 - 16:00",
       "Fri": "09:00 - 16:00"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null,
+    "postcode": "SE8 4AT",
+    "lat": 51.475801,
+    "lng": -0.026966,
     "phone_label": "Thames Reach central line",
     "facilities": [
       "Hot Drinks",
       "Showers",
       "Laundry",
       "Food Available"
-    ]
+    ],
+    "address": "64 Speedwell Street, London"
   },
   {
     "id": "man-the-amber-foundation-ashley-court",
@@ -18890,7 +18852,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "advice_service",
-    "no_pin": true,
     "who_for": "Not stated",
     "hours": {
       "Mon": "09:30 - 13:00",
@@ -18899,9 +18860,10 @@
       "Thu": "09:30 - 13:00",
       "Fri": "09:30 - 13:00"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null
+    "postcode": "LE11 3HA",
+    "lat": 52.769083,
+    "lng": -1.207798,
+    "address": "John Storer House, Wards End, Loughborough"
   },
   {
     "id": "man-the-cambridge-housing-society-ely-young-peoples-se",
@@ -18957,16 +18919,15 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "day_centre",
-    "no_pin": true,
     "who_for": [
       "Families"
     ],
     "access": "You can refer yourself by calling 01909 479191.",
     "referral": "You can refer yourself by calling 01909 479191.",
     "access_type": "self_referral",
-    "postcode": "",
-    "lat": null,
-    "lng": null,
+    "postcode": "S80 2LA",
+    "lat": 53.301473,
+    "lng": -1.116375,
     "facilities": [
       "Showers",
       "Laundry",
@@ -18974,7 +18935,8 @@
     ],
     "groups": [
       "Families"
-    ]
+    ],
+    "address": "Abbey Street Community Centre, Abbey Street, Worksop"
   },
   {
     "id": "man-the-centre-project-leicester",
@@ -18994,7 +18956,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "day_centre",
-    "no_pin": true,
     "who_for": "Not stated",
     "access": "A referral is needed. Call 07458 308966 for advice.",
     "referral": "A referral is needed. Call 07458 308966 for advice.",
@@ -19006,12 +18967,13 @@
       "Thu": "10:00 - 16:00",
       "Fri": "10:00 - 16:00"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null,
+    "postcode": "LE1 1EB",
+    "lat": 52.633169,
+    "lng": -1.129119,
     "facilities": [
       "Food Available"
-    ]
+    ],
+    "address": "1 Alfred Place, off Granby Street, Leicester"
   },
   {
     "id": "man-the-friary",
@@ -19063,7 +19025,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "day_centre",
-    "no_pin": true,
     "who_for": "Not stated",
     "hours": {
       "Mon": "10:00 - 16:00",
@@ -19072,12 +19033,13 @@
       "Thu": "10:00 - 16:00",
       "Fri": "10:00 - 16:00"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null,
+    "postcode": "WS1 3RU",
+    "lat": 52.578596,
+    "lng": -1.986213,
     "facilities": [
       "Showers"
-    ]
+    ],
+    "address": "Wednesbury Road, Walsall"
   },
   {
     "id": "man-the-guildford-action-day-service",
@@ -19097,7 +19059,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "day_centre",
-    "no_pin": true,
     "who_for": "Not stated",
     "hours": {
       "Mon": "09:30 - 16:00",
@@ -19106,14 +19067,15 @@
       "Thu": "09:30 - 16:00",
       "Fri": "09:30 - 16:00"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null,
+    "postcode": "GU1 4ND",
+    "lat": 51.239013,
+    "lng": -0.573622,
     "facilities": [
       "Showers",
       "Laundry",
       "Food Available"
-    ]
+    ],
+    "address": "Beverley Hall, 71 Haydon Place, Guildford"
   },
   {
     "id": "man-the-hinge-centre",
@@ -19167,7 +19129,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "advice_service",
-    "no_pin": true,
     "who_for": "Not stated",
     "hours": {
       "Mon": "09:00 - 15:00",
@@ -19176,9 +19137,10 @@
       "Thu": "09:00 - 15:00",
       "Fri": "09:00 - 15:00"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null
+    "postcode": "WA10 2DT",
+    "lat": 53.457251,
+    "lng": -2.743899,
+    "address": "Atherton Street, St Helens"
   },
   {
     "id": "man-the-passage-resource-centre",
@@ -19198,7 +19160,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "day_centre",
-    "no_pin": true,
     "who_for": "Not stated",
     "hours": {
       "Mon": "09:00 - 12:00",
@@ -19207,10 +19168,11 @@
       "Thu": "09:00 - 12:00",
       "Fri": "09:00 - 12:00"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null,
-    "phone_label": "The Passage central line"
+    "postcode": "SW1P 1NL",
+    "lat": 51.495439,
+    "lng": -0.141256,
+    "phone_label": "The Passage central line",
+    "address": "St Vincents, Carlisle Place, London"
   },
   {
     "id": "man-the-project-birmingham",
@@ -19306,14 +19268,14 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "advice_service",
-    "no_pin": true,
     "who_for": "Not stated",
-    "postcode": "",
-    "lat": null,
-    "lng": null,
+    "postcode": "DT9 3BJ",
+    "lat": 50.947482,
+    "lng": -2.515873,
     "facilities": [
       "Free Wifi"
-    ]
+    ],
+    "address": "Under Cheap Street Church, Sherborne"
   },
   {
     "id": "man-the-robes-project",
@@ -19407,7 +19369,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "advice_service",
-    "no_pin": true,
     "who_for": "Not stated",
     "hours": {
       "Mon": "09:30 - 17:30",
@@ -19416,9 +19377,10 @@
       "Thu": "09:30 - 17:30",
       "Fri": "09:30 - 17:30"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null
+    "postcode": "BB2 1LX",
+    "lat": 53.746821,
+    "lng": -2.486993,
+    "address": "St Anne's House, France Street, Blackburn"
   },
   {
     "id": "man-trident-reach-ravenhurst-cottages",
@@ -19538,14 +19500,14 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "day_centre",
-    "no_pin": true,
     "who_for": "Not stated",
     "access": "You can refer yourself by calling 01252 400196.",
     "referral": "You can refer yourself by calling 01252 400196.",
     "access_type": "self_referral",
-    "postcode": "",
-    "lat": null,
-    "lng": null
+    "postcode": "GU11 1BA",
+    "lat": 51.248915,
+    "lng": -0.761609,
+    "address": "The Vine Centre, 33 Station Road, Aldershot"
   },
   {
     "id": "man-vineyard-community-centre",
@@ -19736,7 +19698,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "advice_service",
-    "no_pin": true,
     "groups": [
       "Young people aged 16 to 24"
     ],
@@ -19751,9 +19712,10 @@
       "Fri": "09:00 - 16:00",
       "Sat": "09:00 - 16:00"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null
+    "postcode": "CA28 7JG",
+    "lat": 54.547523,
+    "lng": -3.591374,
+    "address": "Market Hall, Market Place, Whitehaven"
   },
   {
     "id": "man-women-at-the-well",
@@ -20240,11 +20202,11 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "advice_service",
-    "no_pin": true,
     "who_for": "Not stated",
-    "postcode": "",
-    "lat": null,
-    "lng": null
+    "postcode": "HP13 5DG",
+    "lat": 51.631272,
+    "lng": -0.752438,
+    "address": "52 Frogmoor, High Wycombe"
   },
   {
     "id": "man-ywca-yorkshire-peile-house-project",
@@ -20294,7 +20256,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "advice_service",
-    "no_pin": true,
     "who_for": [
       "Young people aged 18 to 25"
     ],
@@ -20305,12 +20266,13 @@
       "Thu": "10:00 - 16:00",
       "Fri": "10:00 - 16:00"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null,
+    "postcode": "SE1 4QQ",
+    "lat": 51.497593,
+    "lng": -0.083424,
     "groups": [
       "Young people aged 18 to 25"
-    ]
+    ],
+    "address": "Endeavour Centre, Sherbourne House, 34 Decima Street, London"
   },
   {
     "id": "man-barnardos-2a-high-street",
@@ -20393,7 +20355,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "advice_service",
-    "no_pin": true,
     "who_for": "Not stated",
     "hours": {
       "Mon": "09:00 - 17:00",
@@ -20403,9 +20364,10 @@
       "Fri": "09:00 - 17:00",
       "Sat": "09:00 - 14:00"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null
+    "postcode": "BS2 8QF",
+    "lat": 51.461359,
+    "lng": -2.588856,
+    "address": "Unit 1, York Court, Upper York Street, Bristol"
   },
   {
     "id": "man-ccp-wiltshire-care-leavers",
@@ -20528,7 +20490,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "advice_service",
-    "no_pin": true,
     "town": "North East Lincolnshire",
     "groups": [
       "Young people aged 16 to 25"
@@ -20536,9 +20497,10 @@
     "who_for": [
       "Young people aged 16 to 25"
     ],
-    "postcode": "",
-    "lat": null,
-    "lng": null
+    "postcode": "DN32 9EE",
+    "lat": 53.564669,
+    "lng": -0.069855,
+    "address": "115 Pasture Street, Grimsby"
   },
   {
     "id": "man-hope-worldwide",
@@ -20558,11 +20520,11 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "advice_service",
-    "no_pin": true,
     "who_for": "Not stated",
-    "postcode": "",
-    "lat": null,
-    "lng": null
+    "postcode": "EC1V 2PY",
+    "lat": 51.530733,
+    "lng": -0.102347,
+    "address": "360 City Road, London"
   },
   {
     "id": "man-livewest-truro-foyer",
@@ -20651,15 +20613,15 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "day_centre",
-    "no_pin": true,
     "town": "Newbury",
     "who_for": "Not stated",
-    "postcode": "",
-    "lat": null,
-    "lng": null,
+    "postcode": "RG14 1RS",
+    "lat": 51.402846,
+    "lng": -1.331032,
     "facilities": [
       "Food Available"
-    ]
+    ],
+    "address": "Newbury Cricket Club, Northcroft  Lane, Newbury"
   },
   {
     "id": "man-missing-people",
@@ -21008,7 +20970,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "advice_service",
-    "no_pin": true,
     "town": "Elmbridge",
     "who_for": "Not stated",
     "hours": {
@@ -21018,9 +20979,10 @@
       "Thu": "09:00 - 17:00",
       "Fri": "09:00 - 17:00"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null
+    "postcode": "KT12 1DH",
+    "lat": 51.384906,
+    "lng": -0.417952,
+    "address": "51-55 High Street, Walton on Thames"
   },
   {
     "id": "man-rooftop-housing-group-gloucester",
@@ -21109,7 +21071,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "day_centre",
-    "no_pin": true,
     "who_for": "Not stated",
     "access": "A referral is needed. Call 0151 933 0670 for advice.",
     "referral": "A referral is needed. Call 0151 933 0670 for advice.",
@@ -21121,12 +21082,13 @@
       "Thu": "09:30 - 11:30",
       "Fri": "10:00 - 13:00"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null,
+    "postcode": "L20 3EF",
+    "lat": 53.45405,
+    "lng": -2.991569,
     "facilities": [
       "Food Available"
-    ]
+    ],
+    "address": "381 Stanley Road, Bootle, Liverpool"
   },
   {
     "id": "man-salvation-army-bristol-tenancy-support-team",
@@ -21178,7 +21140,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "day_centre",
-    "no_pin": true,
     "who_for": "Not stated",
     "hours": {
       "Mon": "10:00 - 16:00",
@@ -21187,9 +21148,10 @@
       "Thu": "10:00 - 16:00",
       "Fri": "10:00 - 16:00"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null
+    "postcode": "W1B 2LH",
+    "lat": 51.514597,
+    "lng": -0.143171,
+    "address": "10 Princes Street, London"
   },
   {
     "id": "man-salvation-army-southwark-young-people-service-syps",
@@ -21503,7 +21465,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "day_centre",
-    "no_pin": true,
     "who_for": "Not stated",
     "access": "A referral is needed. Call 01743 363305 for advice.",
     "referral": "A referral is needed. Call 01743 363305 for advice.",
@@ -21515,14 +21476,15 @@
       "Thu": "09:00 - 14:00",
       "Fri": "09:00 - 14:00"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null,
+    "postcode": "SY1 2EH",
+    "lat": 52.714209,
+    "lng": -2.749473,
     "facilities": [
       "Showers",
       "Laundry",
       "Food Available"
-    ]
+    ],
+    "address": "32 Castle Foregate, Shewsbury"
   },
   {
     "id": "man-squared-female-hostel",
@@ -21636,7 +21598,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "advice_service",
-    "no_pin": true,
     "who_for": "Not stated",
     "hours": {
       "Tue": "10:00 - 14:00",
@@ -21644,12 +21605,13 @@
       "Thu": "10:00 - 14:00",
       "Fri": "10:00 - 14:00"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null,
+    "postcode": "RH10 1FP",
+    "lat": 51.113508,
+    "lng": -0.185238,
     "facilities": [
       "Food Available"
-    ]
+    ],
+    "address": "Town Centre Hub, rear of County Mall, Station Way, Crawley"
   },
   {
     "id": "man-truro-foyer-streetwise-project",
@@ -21669,7 +21631,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "advice_service",
-    "no_pin": true,
     "who_for": "Not stated",
     "hours": {
       "Mon": "09:30 - 17:30",
@@ -21678,10 +21639,11 @@
       "Thu": "09:30 - 17:30",
       "Fri": "09:30 - 17:30"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null,
-    "phone_label": "Central line"
+    "postcode": "TR1 2NH",
+    "lat": 50.259799,
+    "lng": -5.052168,
+    "phone_label": "Central line",
+    "address": "Truro Foyer, Lander Court, Truro"
   },
   {
     "id": "man-ymca-downslink-group-mckendrick-house",
@@ -28168,7 +28130,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "day_centre",
-    "no_pin": true,
     "who_for": "Not stated",
     "hours": {
       "Mon": "10:00 - 12:00",
@@ -28177,9 +28138,10 @@
       "Thu": "13:00 - 15:00"
     },
     "phone_label": "Main office",
-    "postcode": "",
-    "lat": null,
-    "lng": null
+    "postcode": "OX16 0AA",
+    "lat": 52.060139,
+    "lng": -1.339541,
+    "address": "St Mary's Church Centre, Horsefair, Banbury"
   },
   {
     "id": "man-cardinal-hume-centre-hostel",
@@ -28595,7 +28557,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "day_centre",
-    "no_pin": true,
     "who_for": "Not stated",
     "access": "You can turn up without a referral. Call 020 7052 0200 if you want to check first.",
     "referral": "You can turn up without a referral. Call 020 7052 0200 if you want to check first.",
@@ -28603,13 +28564,14 @@
     "hours": {
       "Wed": "09:00 - 12:00"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null,
+    "postcode": "SW7 5LP",
+    "lat": 51.493039,
+    "lng": -0.178017,
     "facilities": [
       "Computer Access",
       "Food Available"
-    ]
+    ],
+    "address": "St Augustine's Church, 117 Queens Gate, South Kensington, London"
   },
   {
     "id": "man-it-takes-a-city-cambridge-the-haven",
@@ -28827,11 +28789,11 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "day_centre",
-    "no_pin": true,
     "who_for": "Not stated",
-    "postcode": "",
-    "lat": null,
-    "lng": null
+    "postcode": "SW1X 0BD",
+    "lat": 51.496553,
+    "lng": -0.162317,
+    "address": "St. Columba’s Church, Pont Street, London"
   },
   {
     "id": "man-shp-165-project",
@@ -29137,21 +29099,21 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "day_centre",
-    "no_pin": true,
     "who_for": "Not stated",
     "hours": {
       "Mon": "10:00 - 15:00",
       "Tue": "10:00 - 14:00",
       "Sat": "10:00 - 14:00"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null,
+    "postcode": "SE18 6BJ",
+    "lat": 51.487541,
+    "lng": 0.06678,
     "facilities": [
       "Showers",
       "Laundry",
       "Food Available"
-    ]
+    ],
+    "address": "107 Brookhill Road, Woolwich, London"
   },
   {
     "id": "man-ymca-london-city-and-north-monarch-court-hostel",
@@ -29201,12 +29163,12 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "advice_service",
-    "no_pin": true,
     "town": "London",
     "who_for": "Not stated",
-    "postcode": "",
-    "lat": null,
-    "lng": null
+    "postcode": "SW1H 9EX",
+    "lat": 51.499405,
+    "lng": -0.135634,
+    "address": "Fourth Floor, 80 Petty France, London"
   },
   {
     "id": "man-amplius-the-new-haven",
@@ -30334,7 +30296,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "day_centre",
-    "no_pin": true,
     "town": "Bury St Edmunds",
     "who_for": "Not stated",
     "access": "You can turn up at the sessions without a referral. Call 01284 763233. For emergencies outside those hours, call 01284 763252.",
@@ -30348,9 +30309,10 @@
       "Fri": "11:00 - 13:30"
     },
     "phone_label": "West Suffolk Council Rough Sleeper Service",
-    "postcode": "",
-    "lat": null,
-    "lng": null
+    "postcode": "IP33 1EB",
+    "lat": 52.246504,
+    "lng": 0.713683,
+    "address": "8 Brentgovel St, Bury St Edmunds"
   },
   {
     "id": "man-adullam-homes-ha-empowering-futures-oadby",
@@ -30732,7 +30694,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "day_centre",
-    "no_pin": true,
     "who_for": "Not stated",
     "hours": {
       "Mon": "10:00 - 12:30",
@@ -30741,10 +30702,11 @@
       "Thu": "10:00 - 12:30",
       "Fri": "10:00 - 12:30"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null,
-    "phone_label": "Central line"
+    "postcode": "M4 1LE",
+    "lat": 53.483356,
+    "lng": -2.23409,
+    "phone_label": "Central line",
+    "address": "52 Oldham Street, Manchester"
   },
   {
     "id": "man-centrepoint-park-end-road",
@@ -31056,7 +31018,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "advice_service",
-    "no_pin": true,
     "who_for": "Not stated",
     "access": "A referral is needed. Call 0113 273 9660 for advice.",
     "referral": "A referral is needed. Call 0113 273 9660 for advice.",
@@ -31068,10 +31029,11 @@
       "Thu": "09:00 - 20:00",
       "Fri": "09:00 - 16:30"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null,
-    "phone_label": "Foundation central line"
+    "postcode": "HX1 2RZ",
+    "lat": 53.721328,
+    "lng": -1.864532,
+    "phone_label": "Foundation central line",
+    "address": "21 Bull Green, Halifax"
   },
   {
     "id": "man-foundation-harrogate-young-peoples-pathway",
@@ -31148,7 +31110,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "advice_service",
-    "no_pin": true,
     "who_for": "Not stated",
     "access": "A referral is needed. Call 0113 273 9660 for advice.",
     "referral": "A referral is needed. Call 0113 273 9660 for advice.",
@@ -31160,10 +31121,11 @@
       "Thu": "09:00 - 17:00",
       "Fri": "09:00 - 16:30"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null,
-    "phone_label": "Foundation central line"
+    "postcode": "YO30 7DD",
+    "lat": 53.963665,
+    "lng": -1.090004,
+    "phone_label": "Foundation central line",
+    "address": "Basement Office, 27/28 St Mary's, Bootham"
   },
   {
     "id": "man-foundation-young-persons-pathway",
@@ -33284,7 +33246,6 @@
     "last_checked": "2026-11-13",
     "last_verified": "2026-11-13",
     "kind": "advice_service",
-    "no_pin": true,
     "who_for": "Not stated",
     "hours": {
       "Mon": "09:00 - 17:00",
@@ -33293,10 +33254,11 @@
       "Thu": "09:00 - 17:00",
       "Fri": "09:00 - 17:00"
     },
-    "postcode": "",
-    "lat": null,
-    "lng": null,
-    "phone_label": "Bournemouth Churches central line"
+    "postcode": "BH1 3NS",
+    "lat": 50.722225,
+    "lng": -1.857483,
+    "phone_label": "Bournemouth Churches central line",
+    "address": "St Swithins House, 21 Christchurch Road, Bournemouth"
   },
   {
     "id": "man-ccp-bramah-house",
