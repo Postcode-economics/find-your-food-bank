@@ -493,6 +493,18 @@ def _warm_excluded(root):
     return {row.get("id") for row in rows if isinstance(row, dict) and row.get("id")}
 
 
+
+def _is_excluded(root, layer, item_id):
+    if layer == "warmspaces":
+        return item_id in _warm_excluded(root)
+    if layer == "shelters":
+        import shelter_sources
+        return item_id in shelter_sources.excluded_shelter_ids(root)
+    if layer == "foodbanks":
+        return _foodbank_excluded(root, {"id": item_id})
+    return False
+
+
 def _fb_overlay(root):
     merged = {}
     base = os.path.join(root, "overrides")
@@ -1110,6 +1122,9 @@ def main(argv=None):
         return 0
     print("Detected %s listing(s): %s" % (len(pairs), pairs), file=sys.stderr)
     for layer, iid in pairs:
+        if _is_excluded(root, layer, iid):
+            print("publish_one: skipping excluded %s:%s" % (layer, iid), file=sys.stderr)
+            continue
         publish_one(root, layer, iid, dry_run=args.dry_run)
     return 0
 
