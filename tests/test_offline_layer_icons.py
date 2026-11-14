@@ -20,6 +20,22 @@ SYMBOL_JS = r"""() => {
   const bag = 'M9 13.5h14l-1.3 10.5H10.3z';
   const flame = 'M16.2 7.2c';
   const house = 'M8 15.5l8-7.5';
+  const sun = 'M16 8v2.8';
+  const info = 'M14.2 14h3.6v10h-3.6z';
+  const htmlHas = (html, key) => {
+    html = html || '';
+    if (key === 'youth') return html.includes('>16<') && html.includes('>25<');
+    if (key === 'sun') return html.includes(sun);
+    if (key === 'info') return html.includes(info);
+    return html.includes(house);
+  };
+  const expectOf = item => {
+    if (!item) return 'house';
+    if ((window.shAdvice && shAdvice(item)) || item.kind === 'advice_service') return 'info';
+    if ((window.shYouth && shYouth(item)) || item.kind === 'young_people') return 'youth';
+    if ((window.shDay && shDay(item)) || item.kind === 'day_centre') return 'sun';
+    return 'house';
+  };
   const cardSym = (sel, needle) => {
     const svg = document.querySelector(sel);
     return svg && (svg.innerHTML || '').includes(needle);
@@ -32,20 +48,38 @@ SYMBOL_JS = r"""() => {
     const m = ms.find(x => x._keep && x._icon && x._icon.options && String(x._icon.options.html || '').includes(needle));
     return !!m;
   };
+  const cards = [...document.querySelectorAll('#xlist > .card.xsh, #xlist .card.xsh')];
+  const seen = new Set();
+  const uniq = [];
+  for (const c of cards) {
+    if (seen.has(c)) continue;
+    seen.add(c);
+    uniq.push(c);
+  }
+  const cardChecks = uniq.map(c => {
+    const id = c.dataset.id || '';
+    const item = (window.SHELTERS && SHELTERS.items || []).find(i => i.id === id) || {};
+    const expect = expectOf(item);
+    const svg = c.querySelector('.xmkbox svg');
+    const html = (svg && (svg.innerHTML || svg.outerHTML)) || '';
+    return {id, kind: item.kind || '', expect, ok: htmlHas(html, expect)};
+  });
+  const cardsOk = cardChecks.length > 0 && cardChecks.every(x => x.ok);
   return {
     offline: !navigator.onLine,
     map: !!document.querySelector('#map .leaflet-pane'),
     fbCard: cardSym('#list > .card .xmkbox svg', bag),
     fbPin: pinSym('.leaflet-marker-icon.pin svg', bag),
-    shCard: cardSym('#xlist > .card.xsh .xmkbox svg', house),
-    shPin: pinSym('.leaflet-marker-icon.xpin svg', house),
-    cards: document.querySelectorAll('#xlist .card.xsh').length,
+    shCard: cardsOk,
+    shPin: pinSym('.leaflet-marker-icon.xpin svg', house)
+      || pinSym('.leaflet-marker-icon.xpin svg', sun)
+      || pinSym('.leaflet-marker-icon.xpin svg', info)
+      || !!(document.querySelector('.leaflet-marker-icon.xpin svg') && [...document.querySelectorAll('.leaflet-marker-icon.xpin svg')].some(el => htmlHas(el.innerHTML || '', 'youth'))),
+    cards: cardChecks.length,
+    mismatches: cardChecks.filter(x => !x.ok),
     pass: !navigator.onLine
       && !!document.querySelector('#map .leaflet-pane')
-      && cardSym('#xlist > .card.xsh .xmkbox svg', house)
-      && document.querySelectorAll('#xlist .card.xsh').length > 0
-      && (pinSym('.leaflet-marker-icon.xpin svg', house)
-          || cardSym('#xlist > .card.xsh .xmkbox svg', house)),
+      && cardsOk,
   };
 }"""
 

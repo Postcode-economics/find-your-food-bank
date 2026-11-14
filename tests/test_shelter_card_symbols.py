@@ -1,6 +1,6 @@
-"""The type label on every shelters card uses the same three symbols as the pins and the strip.
+"""The type label on every shelters card uses the same symbols as the pins and the strip.
 
-House, sun, or 16 over 25, each in the blue square. The icon is the full height of the label.
+House, sun, 16 over 25, or the advice "info" mark, each in the blue square. The icon is the full height of the label.
 A bed glyph, or any other picture in that label, is a failure. List cards and the pop-up sheet.
 """
 import os, sys, unittest
@@ -18,8 +18,9 @@ CHECK = r"""() => {
     const svg = box && box.querySelector('svg');
     const id = c.dataset.id || '';
     const item = (window.SHELTERS && SHELTERS.items || []).find(i => i.id === id) || {};
-    const expect = (window.shDay && shDay(item)) ? 'sun'
-      : (window.shYouth && shYouth(item)) ? 'youth' : 'house';
+    const expect = (window.shAdvice && shAdvice(item)) || item.kind === 'advice_service' ? 'info'
+      : (window.shYouth && shYouth(item)) || item.kind === 'young_people' ? 'youth'
+      : (window.shDay && shDay(item)) || item.kind === 'day_centre' ? 'sun' : 'house';
     const html = svg ? svg.outerHTML : '';
     const sr = svg && svg.getBoundingClientRect();
     const lr = lab && lab.getBoundingClientRect();
@@ -33,6 +34,7 @@ CHECK = r"""() => {
       house: html.indexOf('M8 15.5l8-7.5 8 7.5V24H8z') >= 0,
       sun: html.indexOf('M16 8v2.8') >= 0,
       youth: html.indexOf('>16<') >= 0 && html.indexOf('>25<') >= 0,
+      info: html.indexOf('M14.2 14h3.6v10h-3.6z') >= 0,
       bed: (c.innerHTML || '').indexOf('M3 5v15') >= 0,
       pinTail: html.indexOf('l-5 9') >= 0,
       h: sr ? +sr.height.toFixed(1) : 0,
@@ -50,7 +52,7 @@ CHECK = r"""() => {
 def _fail(row):
     if not row['sym']:
         return 'no type symbol'
-    if row['sym'] not in ('house', 'sun', 'youth') or row['sym'] != row['expect']:
+    if row['sym'] not in ('house', 'sun', 'youth', 'info') or row['sym'] != row['expect']:
         return 'symbol %s expected %s' % (row['sym'], row['expect'])
     if row['nSvg'] != 1 or not row['square'] or not row['view'] or row['pinTail']:
         return 'type label icon is not the blue square'
@@ -60,6 +62,8 @@ def _fail(row):
         return 'sun path missing'
     if row['sym'] == 'youth' and not row['youth']:
         return '16/25 missing'
+    if row['sym'] == 'info' and not row['info']:
+        return 'info path missing'
     if row['bed']:
         return 'legacy bed icon'
     if not row['first'] or not row['second']:
@@ -72,7 +76,7 @@ def _fail(row):
 
 
 class Render(unittest.TestCase):
-    def test_list_and_sheet_use_only_the_three_symbols(self):
+    def test_list_and_sheet_use_the_layer_symbols(self):
         try:
             from playwright.sync_api import sync_playwright
             import newlook_render as R
@@ -100,6 +104,24 @@ class Render(unittest.TestCase):
                     seen |= {r['sym'] for r in rows}
                 self.assertIn('house', seen)
                 self.assertIn('sun', seen)
+                # Advice listings may already be in those searches; if not, open one the same way as a foyer.
+                if 'info' not in seen:
+                    p.evaluate("""() => {
+                      const i = SHELTERS.items.find(x => ((window.shAdvice && shAdvice(x)) || x.kind === 'advice_service') && x.lat != null);
+                      if (i) nearest(i.lat, i.lng, i.postcode || i.name);
+                    }""")
+                    p.wait_for_timeout(500)
+                    for _ in range(8):
+                        if p.evaluate("() => [...document.querySelectorAll('#xlist .xmkbox')].some(b => b.dataset.sym === 'info')"):
+                            break
+                        p.evaluate("() => showMoreX('sh')")
+                        p.wait_for_timeout(200)
+                    rows = p.evaluate(CHECK)
+                    info_rows = [r for r in rows if r['expect'] == 'info']
+                    self.assertTrue(info_rows, rows)
+                    self.assertEqual([_fail(r) for r in info_rows], [''] * len(info_rows), info_rows)
+                    seen |= {r['sym'] for r in rows}
+                self.assertIn('info', seen)
                 # The foyer is not in the nearest five of a generic search. Open it directly.
                 p.evaluate("""() => {
                   const i = SHELTERS.items.find(x => x.kind === 'young_people' && x.lat != null);  // no-pin referral cards (PR #396) have no lat
@@ -139,7 +161,7 @@ class Render(unittest.TestCase):
                     dTop: +(sr.top - lab.top).toFixed(2), dBot: +(lab.bottom - sr.bottom).toFixed(2),
                     h: +sr.height.toFixed(2), w: +sr.width.toFixed(2)};
                 }""")
-                self.assertIn(live['sym'], ('house', 'sun', 'youth'))
+                self.assertIn(live['sym'], ('house', 'sun', 'youth', 'info'))
                 self.assertFalse(live['bed'])
                 self.assertTrue(live['square'])
                 self.assertEqual(live['n'], 1)
