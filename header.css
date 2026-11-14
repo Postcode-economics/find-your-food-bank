@@ -230,3 +230,87 @@ html body .xacts>a.btn.web .xdom{text-overflow:ellipsis!important}
  html[data-v3k=sh] #v3filt [data-f=shost],html[data-v3k=sh] #v3filt [data-f=youth],html[data-v3k=sh] #v3filt [data-f=sday],html[data-v3k=sh] #v3filt>label#v3open{font-size:12px!important;padding:0 8px 0 10px!important;gap:4px!important;min-width:0;max-width:100%;overflow:hidden;white-space:normal}
  html[data-v3k=sh] #v3filt .fchip :is(.v-en,.v-cy),html[data-v3k=sh] #v3filt>label#v3open{white-space:normal!important;line-height:1.05!important}
 }
+
+
+/* Status row (option 1): no box; Updated today + List only + Light mode on one plain row. Idle placeholder and Always-call hidden. */
+#h2info{display:none!important}
+#xbefore{display:none!important}
+#h2bar{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:0;padding:0;border:0;background:transparent;flex-wrap:nowrap;min-width:0}
+#h2bar .fresh{margin:0!important;min-height:44px;display:flex;align-items:center;flex:0 1 auto;min-width:0}
+#h2bar .fresh a,#h2bar #freshtxt{font-size:14px!important;font-weight:700!important;line-height:1.2;text-decoration:underline!important;text-underline-offset:3px;color:#F2F4F8!important;white-space:nowrap;background:transparent!important;border:0!important}
+#h2bar>#v3tools,#h2bar>#v3tools.v3tight{display:flex!important;gap:14px!important;margin:0 0 0 auto!important;flex:0 0 auto}
+#h2bar>#v3tools .v3t,#h2bar>#v3tools.v3tight .v3t{height:44px!important;min-height:44px!important;border:0!important;background:transparent!important;color:#F2F4F8!important;font-size:14px!important;font-weight:700!important;text-decoration:underline!important;text-underline-offset:3px;padding:0 2px!important;border-radius:0!important}
+html.light #h2bar .fresh a,html.light #h2bar #freshtxt,html.light #h2bar>#v3tools .v3t{color:#0A1628!important}
+html:not(.light) #h2bar #freshtxt,html:not(.light) #h2bar .fresh,html:not(.light) #h2bar .fresh a,html:not(.light) #h2bar>#v3tools .v3t{color:#F2F4F8!important}
+#h2bar>#v3tools .v3t[aria-pressed=true],html:not(.light) #h2bar>#v3tools .v3t[aria-pressed=true],html:not(.light) #h2bar>#v3tools .v3t[aria-pressed=true]:focus,html:not(.light) #h2bar>#v3tools .v3t[aria-pressed=true]:active,html:not(.light) #h2bar>#v3tools .v3t[aria-pressed=true]:hover{color:#F5C518!important;background:transparent!important}
+html.light #h2bar>#v3tools .v3t[aria-pressed=true]{color:#8A5A00!important;background:transparent!important}
+#v3prow[hidden]{display:none!important;min-height:0!important;margin:0!important}
+/* After a search the 'near <place>' link has a 48px tap area (20px text + 14px above and below, v3.css). Keep the row 48px and the link centred so that tap area stays inside the row and never reaches the top of the map. */
+#v3prow:not([hidden]){min-height:48px!important}#v3prow #v3pill{margin:0!important;min-width:0!important;max-width:100%!important}
+/* Phones: keep the 48vh / min 320px map and add the ~58px freed by the removed status box. Desktop unchanged. */
+@media (max-width:1023px){#map{height:calc(48vh + 58px)!important;min-height:378px!important}}
+/* Pins stay tappable over the map credit. The 44px hit area used to reach up into markers; grow it down instead (#map is overflow:hidden, so the extra does not steal taps below the map). On phones the OpenFreeMap credit otherwise wraps to two lines and the first line covers pins; keep it on one line. */
+#map .leaflet-control-attribution a{padding:0 2px 28px!important;margin:0 0 -28px 0!important}
+@media (max-width:1023px){#map .leaflet-control-attribution{white-space:nowrap;max-width:100%;overflow:hidden;font-size:10px;line-height:16px}}
+
+/* Status row look (Dean, approved 13 Nov 2026): bigger icons inside unchanged buttons;
+   List only / Light mode as one dark rounded pill with a divider, active option
+   bold and underlined; Updated as plain small light-grey text, still a link. */
+#v3big .v3b,#v3big .v3b[aria-checked]{gap:4px!important;padding:6px 4px 5px!important}
+#v3big .v3b[aria-checked=true]{padding-left:4px!important;padding-right:4px!important}
+#v3big .v3b .ic .ico{width:38px!important;height:38px!important}
+
+#v3filt .fchip .ck,#v3filt>#v3open::before{width:22px!important;height:22px!important;flex:0 0 22px!important;min-width:22px!important}
+#v3filt .fchip .xcs,html[data-v3k=sh] #v3filt .fchip .xcs{flex:0 0 32px!important}
+#v3filt .fchip .xcs svg{width:32px!important;height:32px!important}
+
+#h2bar .fresh a,#h2bar #freshtxt,
+html:not(.light) #h2bar #freshtxt,html:not(.light) #h2bar .fresh,html:not(.light) #h2bar .fresh a{
+  font-size:13px!important;font-weight:400!important;color:#C9D1DE!important;
+  text-decoration:none!important;line-height:17px
+}
+html.light #h2bar .fresh a,html.light #h2bar #freshtxt{
+  color:#4A5568!important;font-weight:400!important;text-decoration:none!important
+}
+#h2bar .fresh a:focus-visible,#h2bar #freshtxt:focus-visible{outline:2px solid #F5C518;outline-offset:2px}
+
+#h2bar>#v3tools,#h2bar>#v3tools.v3tight{
+  display:flex!important;align-items:center!important;gap:0!important;
+  margin:0 0 0 auto!important;flex:0 0 auto;
+  background:#13223d!important;border:1px solid rgba(242,244,248,.22)!important;
+  border-radius:999px!important;padding:2px!important;height:36px!important;min-height:36px!important;
+  box-sizing:border-box
+}
+#h2bar>#v3tools .v3t,#h2bar>#v3tools.v3tight .v3t,
+html:not(.light) #h2bar>#v3tools .v3t,
+html:not(.light) #h2bar>#v3tools .v3t:hover,
+html:not(.light) #h2bar>#v3tools .v3t:focus,
+html:not(.light) #h2bar>#v3tools .v3t:active{
+  height:44px!important;min-height:44px!important;margin:-4px 0!important;border:0!important;background:transparent!important;
+  color:#F2F4F8!important;font-size:13px!important;font-weight:600!important;
+  text-decoration:none!important;padding:0 12px!important;border-radius:0!important;
+  box-shadow:none!important;-webkit-appearance:none;appearance:none
+}
+/* Each option keeps a 44px tap height (accessibility page promise) and overhangs the 36px pill by 4px top and bottom,
+   so the pill looks the same; the divider is drawn 32px tall inside it. */
+#h2bar>#v3tools #v3light{position:relative}
+#h2bar>#v3tools #v3light::before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:1px;background:rgba(242,244,248,.35);pointer-events:none}
+#h2bar>#v3tools .v3t[aria-pressed=true],
+html:not(.light) #h2bar>#v3tools .v3t[aria-pressed=true],
+html:not(.light) #h2bar>#v3tools .v3t[aria-pressed=true]:focus,
+html:not(.light) #h2bar>#v3tools .v3t[aria-pressed=true]:active,
+html:not(.light) #h2bar>#v3tools .v3t[aria-pressed=true]:hover{
+  color:#F2F4F8!important;font-weight:800!important;background:transparent!important;
+  text-decoration:underline!important;text-decoration-color:#F5C518!important;
+  text-underline-offset:3px!important;text-decoration-thickness:2px!important
+}
+html.light #h2bar>#v3tools,html.light #h2bar>#v3tools.v3tight{background:#F2F4F8!important;border-color:#C9D1DE!important}
+html.light #h2bar>#v3tools .v3t{color:#0A1628!important}
+html.light #h2bar>#v3tools #v3light::before{background:#C9D1DE}
+html.light #h2bar>#v3tools .v3t[aria-pressed=true]{
+  color:#0A1628!important;text-decoration:underline!important;
+  text-decoration-color:#8A5A00!important;font-weight:800!important
+}
+/* Updated link: if even 'Updated HH:MM' does not fit beside the pill, it wraps onto two lines; if a word still does not fit or it needs three lines, it gets its own line above the pill. Never cut off. */
+#h2bar .fresh a#freshtxt.fitwrap{white-space:normal!important;display:inline-block;max-width:100%}
+#h2bar.fitstack{flex-wrap:wrap!important;row-gap:0}#h2bar.fitstack>.fresh{flex:1 0 100%!important}#h2bar.fitstack>#v3tools{margin-left:auto}

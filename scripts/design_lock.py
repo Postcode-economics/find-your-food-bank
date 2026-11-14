@@ -186,7 +186,10 @@ STRIP_JS = r"""async ()=>{const bad=[];
    if(hr&&yr&&Math.abs(hr.top-yr.top)>4) bad.push('chip row 1 split');
    if(dr&&or&&xr&&(Math.abs(dr.top-or.top)>4||Math.abs(dr.top-xr.top)>4)) bad.push('chip row 2 split');
    if(xr&&tr&&Math.abs(xr.top-tr.top)<8) bad.push('tools share the reset row');
-   if(xr&&tr&&tr.top-xr.bottom>20) bad.push('gap above list/light '+(tr.top-xr.bottom).toFixed(0));
+   const bar=document.getElementById('h2bar'), fr=document.querySelector('#h2bar .fresh, #h2bar #freshtxt');
+   const br=bar&&bar.getBoundingClientRect(), ff=fr&&fr.getBoundingClientRect();
+   if(!bar||!br||!tr||tr.top<br.top-2||tr.bottom>br.bottom+2) bad.push('list/light not on the status row');
+   if(ff&&tr&&Math.abs(ff.top-tr.top)>8) bad.push('list/light not beside Updated today');
    if(xr&&xr.right>innerWidth+1) bad.push('reset overflows');
   }
   const items=strip?[...strip.querySelectorAll('.xsy')]:[];

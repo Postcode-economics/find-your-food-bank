@@ -9,7 +9,7 @@ CHECK = r"""()=>{const a=document.querySelector('#v3pill .v3pl');if(!a||!a.offse
  const box=document.getElementById('v3pill').getBoundingClientRect(),r=a.getBoundingClientRect();
  const vis=[...a.querySelectorAll('.v-en,.v-cy')].find(e=>e.offsetParent);const fixed=[...vis.childNodes].filter(n=>n.nodeType===3).map(n=>n.textContent).join('');
  const place=vis.querySelector('.v3plc');
- const info=document.getElementById('h2info'),near=document.getElementById('xnear'),ir=info?info.getBoundingClientRect():box,nr=near?near.getBoundingClientRect():null;
+ const info=document.getElementById('v3prow')||document.getElementById('v3pill'),near=document.getElementById('xnear'),ir=info?info.getBoundingClientRect():box,nr=near?near.getBoundingClientRect():null;
  const ok=r.left>=box.left-1&&r.right<=box.right+1&&r.right<=innerWidth&&a.scrollWidth<=a.clientWidth+1&&!/…|\.\.\./.test(vis.textContent)
    &&getComputedStyle(place||a).textOverflow!=='ellipsis'&&r.bottom<=ir.bottom+1&&(!nr||nr.bottom<=ir.top+1)&&document.documentElement.scrollWidth<=innerWidth&&!a.style.fontSize;
  const _hdr=document.querySelector('header').getBoundingClientRect();const _ban=document.getElementById('em-banner');let hh=_hdr.height;if(_ban&&!_ban.hidden){const br=_ban.getBoundingClientRect();if(br.height>1){const cs=getComputedStyle(_ban);hh-=br.height+(parseFloat(cs.marginTop)||0)+(parseFloat(cs.marginBottom)||0)}}return {ok,hh,why:vis.textContent+' | link '+Math.round(r.left)+'-'+Math.round(r.right)+' box '+Math.round(box.left)+'-'+Math.round(box.right)+' sw '+a.scrollWidth+' cw '+a.clientWidth,text:vis.textContent}}"""

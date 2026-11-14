@@ -54,13 +54,14 @@ class T(unittest.TestCase):
                         if errs: bad.append((tag, 'errors', errs[:2]))
                         if nomap == '1' and not block:
                             st = pg.evaluate("""()=>{const b=document.getElementById('v3list'),l=document.getElementById('v3light');const cs=getComputedStyle(b),cl=getComputedStyle(l);
-                              return {pressed:b.getAttribute('aria-pressed'),bg:cs.backgroundColor,col:cs.color,lbg:cl.backgroundColor,ul:cs.textDecorationLine}}""")
+                              return {pressed:b.getAttribute('aria-pressed'),bg:cs.backgroundColor,col:cs.color,lbg:cl.backgroundColor,ul:cs.textDecorationLine,ulc:cs.textDecorationColor,fw:cs.fontWeight}}""")
                             if st['pressed'] != 'true': bad.append((tag, 'List only not shown as on', st))
                             if st['bg'] not in ('rgba(0, 0, 0, 0)', 'transparent') or st['bg'] != st['lbg']: bad.append((tag, 'List only ON is a box, not a link like Light mode', st))
                             pg.click('#v3list'); pg.wait_for_timeout(1500)   # turn List only OFF: map must show AT the search, not the whole world
                             z = pg.evaluate("({z:map.getZoom(),w:document.getElementById('map').offsetWidth,h:document.getElementById('map').offsetHeight})")
                             if z['z'] < 6 or z['w'] < 300 or z['h'] < 200: bad.append((tag, 'map after List only off', z))
-                            if st['col'] in ('rgb(255, 255, 255)', 'rgb(242, 244, 248)') : bad.append((tag, 'List only ON not highlighted (gold)', st))
+                            # 13 Nov 2026 (Dean approved the design preview): ON is bold with a gold underline inside the pill.
+                            if 'underline' not in st['ul'] or st['ulc'] != 'rgb(245, 197, 24)' or int(st['fw']) < 700: bad.append((tag, 'List only ON not highlighted (gold underline, bold)', st))
                         if nomap == '0':
                             until(pg, "document.querySelectorAll('#map .leaflet-tile-loaded').length>3&&document.querySelectorAll('#map .leaflet-marker-icon').length>0")
                             m = pg.evaluate("""()=>{const m=document.getElementById('map').getBoundingClientRect(),h=document.querySelector('header').getBoundingClientRect();

@@ -61,11 +61,17 @@ class MotionRound3(PhoneQA):
                 for light in (False, True):
                     c, pg = self.page(b, self.wide(opts, w, h), light=light)
                     r = pg.evaluate("""()=>{const g=id=>document.getElementById(id).getBoundingClientRect();const x=g('fhide'),o=g('v3open'),t=g('v3tools');
-                        return {xt:x.top,ot:o.top,tt:t.top,gap:x.left-o.right,tl:t.left,xr:x.right,vw:innerWidth,sw:document.documentElement.scrollWidth}}""")
+                        const bar=document.getElementById('h2bar'),fr=document.querySelector('#h2bar .fresh,#h2bar #freshtxt');
+                        const br=bar&&bar.getBoundingClientRect(),ff=fr&&fr.getBoundingClientRect();
+                        return {xt:x.top,ot:o.top,tt:t.top,gap:x.left-o.right,tl:t.left,xr:x.right,vw:innerWidth,sw:document.documentElement.scrollWidth,
+                          bar:!!bar,bt:br&&br.top,bb:br&&br.bottom,ft:ff&&ff.top}}""")
                     self.assertLess(abs(r["xt"] - r["ot"]), 4, (name, w, r))      # ✕ on the 'Open today only' row
                     self.assertLess(r["gap"], 24, (name, w, r))                    # right after it, not at the far edge
-                    self.assertLess(abs(r["tt"] - r["ot"]), 4, (name, w, r))      # List only / Light mode on the same row
-                    self.assertGreater(r["tl"], r["xr"], (name, w, r))
+                    # 12 Nov 2026: List only / Light mode moved off the filter row onto #h2bar with Updated today
+                    self.assertTrue(r["bar"], (name, w, r))
+                    self.assertLess(abs(r["tt"] - r["bt"]), 8, (name, w, r))
+                    self.assertLess(abs(r["tt"] - r["ft"]), 8, (name, w, r))
+                    self.assertGreater(r["tt"] - r["ot"], 20, (name, w, r))         # not on the Open today row
                     self.assertLessEqual(r["sw"], r["vw"], (name, w, r))
                     c.close()
 
