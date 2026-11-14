@@ -252,6 +252,16 @@ class Journey:
         self.assertTrue(btn and btn['shown'], (k, n, len(want)))
         self.press_once(pg, k, n, want)
 
+    def click_show_more_until_end(self, pg, k, want):
+        # 5 on the first page, then 10 more per click. Cap follows the list so a
+        # large warm-spaces layer is fully revealed (100 clicks only reached 1,005).
+        clicks = max(100, (len(want) + 9) // 10)
+        for _ in range(clicks):
+            if not pg.evaluate(BTN, k)['shown']:
+                return
+            pg.click('#xmore-' + k)
+            pg.wait_for_timeout(30)
+
     def check_to_the_end_and_keyboard(self, pg, k):
         want = self.check_first_page(pg, k)
         pg.focus('#xmore-' + k)
@@ -261,7 +271,7 @@ class Journey:
         pg.keyboard.press('Space')
         self.assertTrue(until(pg, "k => document.querySelectorAll('#xlist > .card.x' + k).length === 25", k, 10))
         self.assertTrue(pg.evaluate(BTN, k)['focused'])
-        for _ in range(200):
+        for _ in range(max(200, (len(want) + 9) // 10)):
             if not pg.evaluate(BTN, k)['shown']:
                 break
             pg.keyboard.press('Enter')
@@ -512,11 +522,7 @@ class Chrome(Journey, unittest.TestCase):
         self.assertTrue(until(pg, "id => !document.querySelector('#xlist > .card.xws[data-id=\"' + id + '\"]')", ended[0], 10))
         want = self.check_first_page(pg, 'ws')
         self.assertEqual(want[-3:], sorted(ended, key=want.index))
-        for _ in range(100):
-            if not pg.evaluate(BTN, 'ws')['shown']:
-                break
-            pg.click('#xmore-ws')
-            pg.wait_for_timeout(30)
+        self.click_show_more_until_end(pg, 'ws', want)
         self.assertEqual(pg.evaluate(IDS, 'ws'), want)
         labels = pg.evaluate("ids => ids.map(id => (document.querySelector('#xlist > .card.xws[data-id=\"' + id + '\"] .xw') || {}).textContent || '')", ended)
         self.assertTrue(all(ENDED in s for s in labels), labels)
@@ -525,11 +531,7 @@ class Chrome(Journey, unittest.TestCase):
         self.assertTrue(until(pg, "() => document.querySelectorAll('#xlist > .card.xws').length === 5", None, 10))
         want = self.check_first_page(pg, 'ws', ot=True)
         self.assertFalse(set(ended) & set(want))
-        for _ in range(100):
-            if not pg.evaluate(BTN, 'ws')['shown']:
-                break
-            pg.click('#xmore-ws')
-            pg.wait_for_timeout(30)
+        self.click_show_more_until_end(pg, 'ws', want)
         self.assertEqual(pg.evaluate(IDS, 'ws'), want)
         self.assertEqual(pg.evaluate("() => document.querySelectorAll('#xlist .card.xws .xw').length"),
                          pg.evaluate("() => document.querySelectorAll('#xlist .card.xws[data-id] p.xw').length"))
