@@ -155,7 +155,11 @@ class PhoneQA(unittest.TestCase):
             pg.click(".v3b[data-l=fb]"); pg.wait_for_timeout(500)
             self.search(pg, "M1 1AE")
             self.assertGreater(pg.evaluate("document.querySelectorAll('#list .card').length"), 0, name)
-            self.assertIn("M1 1AE", pg.inner_text("#v3pill"), name)
+            # 14 Nov 2026 (Dean): the place line under the yellow bar must not show after a good search
+            place = pg.evaluate("""()=>{const p=document.getElementById('v3prow'),a=document.querySelector('#v3pill .v3pl');
+              const vis=e=>!!(e&&e.offsetParent&&getComputedStyle(e).display!=='none'&&e.getBoundingClientRect().height>1);
+              return vis(p)||vis(a)}""")
+            self.assertFalse(place, name)
             c.close()
 
     def test_b4_filter_close_not_alone_at_375_dark(self):
