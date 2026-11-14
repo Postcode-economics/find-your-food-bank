@@ -120,7 +120,9 @@ class ReviewedList(unittest.TestCase):
                 self.assertTrue(r.get("reason"), r["id"])
         with open(os.path.join(ROOT, "overrides", "warmspaces_manual.json"), encoding="utf-8") as f:
             man = {m.get("id") for m in json.load(f) if isinstance(m, dict)}
-        self.assertFalse(set(pairs) & man, "a hand-made card is never the one left off")
+        for loser in set(pairs) & man:
+            # a hand-made council-list card is only left off for a feed twin that links to the venue's own site
+            self.assertTrue(pairs[loser].startswith("ww-"), loser)
 
 
 class BuildWiring(unittest.TestCase):
