@@ -1,6 +1,7 @@
 """Tests for scripts/publish_one.py. Every write stays in a temp folder."""
 import copy
 import datetime
+import io
 import json
 import os
 import shutil
@@ -8,6 +9,7 @@ import subprocess
 import sys
 import tempfile
 import unittest
+from unittest import mock
 from zoneinfo import ZoneInfo
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -724,6 +726,37 @@ class TestPublishOne(unittest.TestCase):
         )
         self.assertEqual(kept["name"], "Existing Warm Space 1")
         self.assertEqual(kept["website"], "https://live.example.org/")
+    def test_commit_batch_skips_excluded_warmspace_and_direct_raises(self):
+        excluded_id = "existing-ws-1"
+        kept_id = "ws-kept-test-2"
+        _dump(os.path.join(self.overrides, "warmspaces_exclude.json"), [
+            {"id": excluded_id, "reason": "duplicate for test"},
+        ])
+
+        # Direct one-id publish must still raise
+        with self.assertRaises(ValueError) as cm:
+            publish_one.publish_one(self.temp_dir, "warmspaces", excluded_id, dry_run=True)
+        self.assertIn("warm space exclusion", str(cm.exception))
+
+        # Commit batch publish skips excluded ID and processes kept ID
+        with mock.patch("publish_one.detect_from_commit", return_value=[
+            ("warmspaces", excluded_id),
+            ("warmspaces", kept_id),
+        ]), mock.patch("publish_one.publish_one") as mock_pub, mock.patch(
+            "sys.stderr", new_callable=io.StringIO
+        ) as mock_stderr:
+            res = publish_one.main(["--commit", "HEAD", "--root", self.temp_dir])
+            self.assertEqual(res, 0)
+            mock_pub.assert_called_once_with(
+                os.path.abspath(self.temp_dir), "warmspaces", kept_id, dry_run=False
+            )
+            self.assertIn(
+                "publish_one: skipping excluded warmspaces:%s" % excluded_id,
+                mock_stderr.getvalue(),
+            )
+
+
+
 
 class TestDetect(unittest.TestCase):
     def setUp(self):
