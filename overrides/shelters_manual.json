@@ -2662,30 +2662,50 @@
   },
   {
     "id": "man-gravesham-sanctuary-day-centre-winter-night-shelte",
-    "name": "Gravesham Sanctuary day centre & winter night shelter",
+    "name": "Gravesham Sanctuary day centre",
     "address": "Emmanuel Baptist Church, Windmill Street, Gravesend",
     "postcode": "DA12 1BB",
     "lat": 51.438732,
     "lng": 0.369243,
     "phone": "07496 832228",
-    "website": "https://graveshamsanctuary.uk/about/get-help/",
-    "hours": "Not stated",
-    "referral": "Drop in or helpline",
+    "website": "https://graveshamsanctuary.uk/opening-times/",
+    "hours": {
+      "Mon": "10:30 - 13:30",
+      "Tue": "10:30 - 13:30",
+      "Wed": "10:30 - 13:30",
+      "Fri": "10:30 - 13:30"
+    },
+    "referral": "Call 07496 832228 or visit the day centre at Emmanuel Baptist Church, Windmill Street, Gravesend, DA12 1BB. For the Day Centre Manager, call 07436 004630.",
     "beds": "",
-    "groups": [],
+    "groups": [
+      "People experiencing homelessness or at risk of homelessness, including people sleeping rough"
+    ],
     "season": "Daytime only",
     "operator": "",
     "flag_closed": false,
-    "source": "Manual (verified from source pages)",
-    "source_url": "https://graveshamsanctuary.uk/about/get-help/",
-    "last_verified": "2026-10-31",
+    "source": "Manual (verified from the Gravesham Sanctuary opening times page)",
+    "source_url": "https://graveshamsanctuary.uk/opening-times/",
+    "last_verified": "2026-11-14",
     "stale": false,
     "access_type": "open_access",
-    "facilities": "Not stated",
-    "checked_on": "2026-10-31",
+    "facilities": [
+      "Food",
+      "Hot drinks",
+      "Toilets",
+      "The centre has a community hall and a kitchen.",
+      "They register guests, offer support where needed, and refer people to other agencies, and can also offer clothes and other essentials."
+    ],
+    "checked_on": "2026-11-14",
     "kind": "day_centre",
-    "who_for": "Not stated",
-    "last_checked": "2026-10-31"
+    "who_for": [
+      "People experiencing homelessness or at risk of homelessness, including people sleeping rough"
+    ],
+    "last_checked": "2026-11-14",
+    "access": "Call 07496 832228 or visit the day centre at Emmanuel Baptist Church, Windmill Street, Gravesend, DA12 1BB. For the Day Centre Manager, call 07436 004630.",
+    "hours_source": "https://graveshamsanctuary.uk/opening-times/",
+    "hours_quote": "Current open drop-in hours: Mondays: 10:30 am – 1:30 pm Tuesdays: 10:30 am – 1:30 pm Wednesdays: 10:30 am – 1:30 pm Fridays: 10:30 am – 1:30 pm",
+    "hours_checked": "2026-11-14",
+    "groups_quote": "If you are experiencing homelessness or are at risk of homelessness, it is absolutely vital you speak to an expert about your situation who can give you accurate advice. Gravesham Sanctuary is primarily concerned with helping rough sleepers."
   },
   {
     "id": "man-stonepillow-chichester-hub",
