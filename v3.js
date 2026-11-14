@@ -388,10 +388,12 @@ addEventListener('load',()=>setTimeout(()=>{const q=document.getElementById('q')
 
 /* 12 Nov 2026 (Dean): drop the #h2info status box. 'Updated today at HH:MM' sits on the same plain row as
    List only / Light mode (#h2bar), on the left, in the same font. The idle 'Showing…' line and 'Always call
-   before you go' are hidden; after a search, 'Food banks near <place>' still shows. If the row would wrap on
-   a narrow phone, the stamp shortens to 'Updated HH:MM'. On phones the map keeps its 48vh / 320px baseline
-   and adds the height freed by the removed box; it is not shrunk after a search or when a rest-centre note
-   is showing — the page scrolls. Desktop split layout is unchanged. */
+   before you go' are hidden. 14 Nov 2026 (Dean): the 'Food banks near you' / 'Food banks near <place>'
+   (and Warm spaces / Shelters, plus Welsh) text line under the yellow Find nearest bar is also hidden —
+   it was left visible after #536 without approval. Errors and 'Searching…' still use the reserved slot.
+   If the Updated row would wrap on a narrow phone, the stamp shortens to 'Updated HH:MM'. On phones the
+   map keeps its 48vh / 320px baseline and adds the height freed by the removed box; it is not shrunk
+   when a rest-centre note is showing — the page scrolls. Desktop split layout is unchanged. */
 (function(){
 function fitBar(){const fr=document.querySelector('#h2bar .fresh'),a=document.getElementById('freshtxt');if(!fr||!a||fitBar.busy)return;
  // Measure the Updated link against its own (shrinkable) slot, not the bar: .fresh has min-width:0, so the bar never overflows.
@@ -412,10 +414,9 @@ function fitBar(){const fr=document.querySelector('#h2bar .fresh'),a=document.ge
   set(tries[i]);requestAnimationFrame(step)};
  requestAnimationFrame(step)}
 function syncProw(){const pill=document.getElementById('v3pill'),prow=document.getElementById('v3prow');
- const hasPlace=!!(pill&&pill.querySelector('.v3pl'));
  const hasErr=!!(pill&&pill.querySelector('.v3err,.didyou'));
  const searching=!!(pill&&pill.querySelector('.v3ph')&&/Searching|Finding|Chwilio/i.test(pill.textContent||''));
- const show=hasPlace||hasErr||searching;
+ const show=hasErr||searching;
  if(pill){pill.hidden=!show;pill.style.display=show?'':'none'}
  if(prow){prow.hidden=!show;prow.style.display=show?'flex':'none'}
 }
