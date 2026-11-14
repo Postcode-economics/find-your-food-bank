@@ -395,18 +395,22 @@ addEventListener('load',()=>setTimeout(()=>{const q=document.getElementById('q')
 (function(){
 function fitBar(){const fr=document.querySelector('#h2bar .fresh'),a=document.getElementById('freshtxt');if(!fr||!a||fitBar.busy)return;
  // Measure the Updated link against its own (shrinkable) slot, not the bar: .fresh has min-width:0, so the bar never overflows.
- // Text is always set in English; layers.js turns it into Welsh before the next frame. Full form, then 'Updated HH:MM'
- // (an older date keeps its full date and year), then wrap onto at most two lines so it is never cut off mid-text.
+ // Text is always set in English; layers.js turns it into Welsh before the next frame. Tries, in order: full text on one line,
+ // 'Updated HH:MM', the full text on two lines, the date without its year on two lines. Only if none fits (a word wider than
+ // the space, e.g. Welsh at 320px) does the link get its own line above the pill. Never cut off, never more than two lines.
  const cur=a.textContent.trim(),tm=cur.match(/^(?:Updated today at|Diweddarwyd heddiw am|Updated|Diweddarwyd) (\d\d:\d\d)$/);
  if(tm)a.dataset.full='Updated today at '+tm[1];else if(!a.dataset.full||/\d{4},/.test(cur)||!/\d\d:\d\d$/.test(cur))a.dataset.full=cur;
- const full=a.dataset.full,t=full.match(/^Updated today at (\d\d:\d\d)$/),short=t?'Updated '+t[1]:full;
- const bar=fr.parentNode,over=()=>a.getBoundingClientRect().width>fr.clientWidth+1||a.scrollWidth>a.clientWidth+1;
- fitBar.busy=1;a.classList.remove('fitwrap');bar.classList.remove('fitstack');if(a.textContent!==full)a.textContent=full;
- let h1=0;const tall=()=>a.getBoundingClientRect().height>h1+parseFloat(getComputedStyle(a).lineHeight)*1.5;
- requestAnimationFrame(()=>{h1=a.getBoundingClientRect().height;if(!over()){fitBar.busy=0;return}if(short!==full)a.textContent=short;
-  requestAnimationFrame(()=>{if(over())a.classList.add('fitwrap');
-   requestAnimationFrame(()=>{if(!over()&&!tall()){fitBar.busy=0;return}bar.classList.add('fitstack');a.classList.remove('fitwrap');a.textContent=full;
-    requestAnimationFrame(()=>{if(over()&&short!==full)a.textContent=short;requestAnimationFrame(()=>{if(over())a.classList.add('fitwrap');fitBar.busy=0})})})})})}
+ const full=a.dataset.full,t=full.match(/^Updated today at (\d\d:\d\d)$/),noyr=full.replace(/ \d{4},/,',');
+ const tries=[[full,0]];if(t)tries.push(['Updated '+t[1],0]);tries.push([full,1]);if(t)tries.push(['Updated '+t[1],1]);if(noyr!==full)tries.push([noyr,1]);
+ const bar=fr.parentNode,lh=parseFloat(getComputedStyle(a).lineHeight)||17;let h1=0;
+ const fits=()=>{const r=a.getBoundingClientRect();return r.width<=fr.clientWidth+1&&a.scrollWidth<=a.clientWidth+1&&r.height<=h1+lh*1.5};
+ const set=(x)=>{a.classList.toggle('fitwrap',!!x[1]);if(a.textContent!==x[0])a.textContent=x[0]};
+ fitBar.busy=1;bar.classList.remove('fitstack');set(tries[0]);
+ let i=0,stacked=0;const step=()=>{if(!i)h1=a.getBoundingClientRect().height;
+  if(fits()){fitBar.busy=0;return}
+  if(++i>=tries.length){if(stacked){fitBar.busy=0;return}stacked=1;i=0;bar.classList.add('fitstack')}
+  set(tries[i]);requestAnimationFrame(step)};
+ requestAnimationFrame(step)}
 function syncProw(){const pill=document.getElementById('v3pill'),prow=document.getElementById('v3prow');
  const hasPlace=!!(pill&&pill.querySelector('.v3pl'));
  const hasErr=!!(pill&&pill.querySelector('.v3err,.didyou'));
