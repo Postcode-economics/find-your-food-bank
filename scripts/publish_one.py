@@ -69,6 +69,7 @@ DICT_OVERLAYS = {
     "warmspaces_contacts.json": "warmspaces",
     "warmspaces_unverified.json": "warmspaces",
     "warmspaces_verified.json": "warmspaces",
+    "closure_auto_undone.json": "warmspaces",
 }
 LIST_OVERLAYS = {
     "shelters_manual.json": "shelters",

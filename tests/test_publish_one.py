@@ -770,6 +770,18 @@ class TestDetect(unittest.TestCase):
             publish_one.detect_from_commit(self.temp_dir, "HEAD")
         self.assertIn("unknown overlay", str(ctx.exception).lower())
 
+    def test_closure_auto_undone_is_a_warmspaces_overlay(self):
+        _dump(os.path.join(self.overrides, "closure_auto_undone.json"), {})
+        self._commit("empty lock")
+        _dump(os.path.join(self.overrides, "closure_auto_undone.json"), {
+            "ww-57952305": {"evidence": "The Vivarium and Nature's Library are now closed until May 2027"}
+        })
+        self._commit("lock gallery wording")
+        self.assertEqual(
+            publish_one.detect_from_commit(self.temp_dir, "HEAD"),
+            [("warmspaces", "ww-57952305")],
+        )
+
     def test_council_block_change_fails_visibly(self):
         _dump(os.path.join(self.overrides, "shelters_contacts.json"), {"_councils": {"A": {"council_phone": "1"}}})
         self._commit("base contacts")
