@@ -40,8 +40,13 @@ class Browser(unittest.TestCase):
                     pg.click(f".v3b[data-l={k}]"); pg.wait_for_timeout(1000)
                     pg.fill("#q", "BN17 5LF"); pg.press("#q", "Enter"); pg.wait_for_timeout(3500)
                     a = pg.evaluate(POS, k)
+                    place = pg.evaluate("""()=>{const p=document.getElementById('v3prow'),a=document.querySelector('#v3pill .v3pl');
+                      const vis=e=>!!(e&&e.offsetParent&&getComputedStyle(e).display!=='none'&&e.getBoundingClientRect().height>1);
+                      return vis(p)||vis(a)}""")
+                    self.assertFalse(place, (w, k, 'place line still visible after search'))
                     pg.evaluate("scrollTo(0,0)"); pg.wait_for_timeout(300)
-                    pg.click("a.v3pl"); pg.wait_for_timeout(1200)
+                    # 14 Nov 2026: the place-line link is gone; the shared scroll helper is the same target
+                    pg.evaluate("window.v3scrollList && v3scrollList(window.v3focus)"); pg.wait_for_timeout(1200)
                     bpos = pg.evaluate(POS, k)
                     self.assertLessEqual(abs(a["top"] - bpos["top"]), 4, (w, k, a, bpos))
                     self.assertTrue(0 <= a["top"] <= 30, (w, k, a))
