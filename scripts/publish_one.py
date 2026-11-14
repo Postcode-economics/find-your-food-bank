@@ -740,6 +740,17 @@ def rebuild_warmspace(root, item_id, base_item, published_items, persist_new):
             item["phone_source"] = verified_rec["phone_source"]
         if verified_rec.get("phone_label"):
             item["phone_label"] = verified_rec["phone_label"]
+        # A new card has no published base and no Warm Welcome feed here, so take
+        # name and own-site link from the verified overlay when they are missing.
+        if verified_rec.get("name") and not item.get("name"):
+            item["name"] = verified_rec["name"]
+        if verified_rec.get("evidence_url"):
+            if not item.get("website"):
+                item["website"] = verified_rec["evidence_url"]
+            if not item.get("source_url"):
+                item["source_url"] = verified_rec["evidence_url"]
+        if verified_rec.get("evidence_name") and not item.get("source"):
+            item["source"] = verified_rec["evidence_name"]
         place_facts.copy_wheelchair(item, verified_rec)
     contacts_path = os.path.join(base, "warmspaces_contacts.json")
     contacts = shelter_contacts.load(contacts_path)
