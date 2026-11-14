@@ -666,6 +666,48 @@ class TestPublishOne(unittest.TestCase):
         self.assertNotIn(".update({'opening_times'", src)
 
 
+    def test_unpublished_warmspace_takes_name_from_verified(self):
+        _dump(os.path.join(self.overrides, "warmspaces_verified.json"), {
+            "new-ws-1": {
+                "name": "New Hall",
+                "evidence_url": "https://hall.example.org/",
+                "evidence_name": "hall.example.org",
+                "quote": "open Tuesday 10-12",
+                "day_time_quote": "open Tuesday 10-12",
+                "verified_on": "2026-11-14",
+                "hours": {"Tue": "10:00 - 12:00"},
+                "phone": "01234 000000",
+                "postcode": "M13 9PL",
+                "lat": 53.46,
+                "lng": -2.23,
+            },
+            "existing-ws-1": {
+                "name": "Should Not Replace",
+                "evidence_url": "https://other.example.org/",
+                "evidence_name": "other.example.org",
+                "quote": "open Wednesday 10-12",
+                "day_time_quote": "open Wednesday 10-12",
+                "verified_on": "2026-11-14",
+                "phone": "01234 567892",
+                "postcode": "CC1 1CC",
+            },
+        })
+        card = publish_one.rebuild_warmspace(self.temp_dir, "new-ws-1", None, [], False)
+        self.assertEqual(card["name"], "New Hall")
+        self.assertEqual(card["website"], "https://hall.example.org/")
+        self.assertEqual(card["source_url"], "https://hall.example.org/")
+        self.assertEqual(card["source"], "hall.example.org")
+        self.assertEqual(card["phone"], "01234 000000")
+        kept = publish_one.rebuild_warmspace(
+            self.temp_dir,
+            "existing-ws-1",
+            {"id": "existing-ws-1", "name": "Existing Warm Space 1", "website": "https://live.example.org/", "phone": "01234 567892"},
+            [],
+            False,
+        )
+        self.assertEqual(kept["name"], "Existing Warm Space 1")
+        self.assertEqual(kept["website"], "https://live.example.org/")
+
 class TestDetect(unittest.TestCase):
     def setUp(self):
         self.temp_dir = tempfile.mkdtemp()
@@ -769,6 +811,18 @@ class TestDetect(unittest.TestCase):
         with self.assertRaises(RuntimeError) as ctx:
             publish_one.detect_from_commit(self.temp_dir, "HEAD")
         self.assertIn("unknown overlay", str(ctx.exception).lower())
+
+    def test_closure_auto_undone_is_a_warmspaces_overlay(self):
+        _dump(os.path.join(self.overrides, "closure_auto_undone.json"), {})
+        self._commit("empty lock")
+        _dump(os.path.join(self.overrides, "closure_auto_undone.json"), {
+            "ww-57952305": {"evidence": "The Vivarium and Nature's Library are now closed until May 2027"}
+        })
+        self._commit("lock gallery wording")
+        self.assertEqual(
+            publish_one.detect_from_commit(self.temp_dir, "HEAD"),
+            [("warmspaces", "ww-57952305")],
+        )
 
     def test_council_block_change_fails_visibly(self):
         _dump(os.path.join(self.overrides, "shelters_contacts.json"), {"_councils": {"A": {"council_phone": "1"}}})

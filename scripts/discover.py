@@ -1408,6 +1408,9 @@ def cross_check_times(items, kind, field, fetcher=fetch_live, today=None, thread
             ev = None
             for t in texts:
                 ev = closure.detect(t, i.get("postcode"))
+                if ev and closure.evidence_is_locked(i.get("id"), ev):
+                    ev = None
+                    continue
                 if ev: break
             if ev:
                 import intelligent_rails as IR
