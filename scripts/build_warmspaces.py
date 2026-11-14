@@ -196,7 +196,11 @@ if not fresh or (prev and prev["items"] and len(fresh) < 0.8 * len(prev["items"]
 items, closed = merge_lifecycle(prev, fresh, RUN)
 items, expired = seasonal.apply(items, RUN, closed)  # 'Opens <date>' for pop-ups not open yet; ended > 14 days -> recently_closed
 sources["Seasonal dates"] = {"status": "ok", "upcoming": sum(bool(x.get("upcoming")) for x in items), "ended_greyed": sum(bool(x.get("ended")) for x in items), "expired": [x["id"] for x in expired]}
-EXCL = {e["id"] for e in json.load(open("overrides/warmspaces_exclude.json"))} if os.path.exists("overrides/warmspaces_exclude.json") else set()
+_EXROWS = json.load(open("overrides/warmspaces_exclude.json")) if os.path.exists("overrides/warmspaces_exclude.json") else []
+import warmspaces_dedupe  # reviewed duplicates (14 Nov 2026): fill the kept card from its twin, then leave the twin off
+_DUP_DROP, _DUP_LOG = warmspaces_dedupe.apply_reviewed(items, _EXROWS, hand_ids={m["id"] for m in man if isinstance(m, dict) and m.get("id")})
+_DUP_KEEP = set(warmspaces_dedupe.reviewed_rows(_EXROWS)) - _DUP_DROP  # the kept card is missing this run: keep its twin so the place stays on
+EXCL = {e["id"] for e in _EXROWS if isinstance(e, dict) and e.get("id")} - _DUP_KEEP
 items = [x for x in items if x["id"] not in EXCL]; closed = [x for x in closed if x["id"] not in EXCL]  # signed-off removals stay off on every rebuild
 sources["Excluded by review"] = {"status": "ok", "ids": sorted(EXCL)}
 import carry_forward  # Dean 28 Oct: a venue missing this run is carried forward with 'call before you go', never deleted
@@ -207,6 +211,15 @@ items, CARRIED, NOT_CARRIED = carry_forward.carry_items(PREV_ITEMS, items, close
 sources["Carried forward (call before you go)"] = {"status": "ok", "count": len(CARRIED), "ids": [x["id"] for x in CARRIED][:200],
                                                    "for_review": [x["id"] for x in CARRIED if x.get("review")], "not_carried": NOT_CARRIED[:200]}
 if not os.environ.get("DRY_RUN"): carry_forward.write_log(CARRIED, RUN, not_carried=NOT_CARRIED)
+try:  # record-only duplicate check (rule 104: shadow first). Never removes or changes a card.
+    _dups = warmspaces_dedupe.find(items, reviewed=_DUP_DROP)
+    sources["Duplicate check (record only)"] = {"status": "ok", "reviewed_merged": len(_DUP_DROP), "kept_twin_missing": len(_DUP_KEEP),
+                                                "certain": sum(d["kind"] == "certain" for d in _dups), "possible": sum(d["kind"] == "possible" for d in _dups)}
+    if not os.environ.get("DRY_RUN"):
+        os.makedirs("logs", exist_ok=True)
+        json.dump({"run": RUN, "pairs": _dups, "merged": _DUP_LOG}, open("logs/warmspaces_duplicates.json", "w"), indent=0, ensure_ascii=False)
+except Exception as ex:
+    sources["Duplicate check (record only)"] = {"status": "skipped: " + str(ex)[:120]}
 import shelter_contacts  # venue numbers + labelled council fallback (overrides/warmspaces_contacts.json) survive every refresh
 sources["Manual contacts"] = {"status": "ok", "phones_filled": shelter_contacts.apply(items, shelter_contacts.load(shelter_contacts.WS)), "missing_any_number": shelter_contacts.check(items)}
 import place_facts  # explicit wheelchair from manual/fixes only. Accessible Toilets stays a facility and is not turned into wheelchair access.
