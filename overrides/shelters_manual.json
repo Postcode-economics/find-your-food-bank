@@ -2662,14 +2662,19 @@
   },
   {
     "id": "man-gravesham-sanctuary-day-centre-winter-night-shelte",
-    "name": "Gravesham Sanctuary day centre & winter night shelter",
+    "name": "Gravesham Sanctuary day centre",
     "address": "Emmanuel Baptist Church, Windmill Street, Gravesend",
     "postcode": "DA12 1BB",
     "lat": 51.438732,
     "lng": 0.369243,
     "phone": "07496 832228",
-    "website": "https://graveshamsanctuary.uk/about/get-help/",
-    "hours": "Not stated",
+    "website": "https://graveshamsanctuary.uk/opening-times/",
+    "hours": {
+      "Mon": "10:30 - 13:30",
+      "Tue": "10:30 - 13:30",
+      "Wed": "10:30 - 13:30",
+      "Fri": "10:30 - 13:30"
+    },
     "referral": "Drop in or helpline",
     "beds": "",
     "groups": [],
@@ -2677,15 +2682,15 @@
     "operator": "",
     "flag_closed": false,
     "source": "Manual (verified from source pages)",
-    "source_url": "https://graveshamsanctuary.uk/about/get-help/",
-    "last_verified": "2026-10-31",
+    "source_url": "https://graveshamsanctuary.uk/opening-times/",
+    "last_verified": "2026-11-13",
     "stale": false,
     "access_type": "open_access",
     "facilities": "Not stated",
-    "checked_on": "2026-10-31",
+    "checked_on": "2026-11-13",
     "kind": "day_centre",
     "who_for": "Not stated",
-    "last_checked": "2026-10-31"
+    "last_checked": "2026-11-13"
   },
   {
     "id": "man-stonepillow-chichester-hub",
