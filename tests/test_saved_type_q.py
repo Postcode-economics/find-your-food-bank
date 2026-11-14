@@ -26,7 +26,7 @@ class T(unittest.TestCase):
                         pg.goto('http://127.0.0.1:%d/?nocount&q=LN5%%207PR' % s.server_address[1], wait_until='load')
                         state = None
                         for _ in range(40):
-                            state = pg.evaluate("""k=>{const sel=(document.querySelector('#v3big .v3b[aria-checked=true]')||{}).dataset.l;
+                            state = pg.evaluate("""k=>{const el=document.querySelector('#v3big .v3b[aria-checked=true]');const sel=el&&el.dataset?el.dataset.l:null;
                               const lid=k==='fb'?'list':'xlist';const l=document.getElementById(lid);
                               const lst=(l&&l.offsetParent)?l.querySelectorAll('.card').length:0;
                               const prow=document.getElementById('v3prow'),pl=document.querySelector('#v3pill .v3pl');
@@ -35,7 +35,7 @@ class T(unittest.TestCase):
                             if state['sel']==k and state['lst']>=1: break
                             pg.wait_for_timeout(500)
                         pg.wait_for_timeout(6000)   # and it must STAY that way once every load-time search has landed
-                        state = pg.evaluate("""k=>{const sel=(document.querySelector('#v3big .v3b[aria-checked=true]')||{}).dataset.l;
+                        state = pg.evaluate("""k=>{const el=document.querySelector('#v3big .v3b[aria-checked=true]');const sel=el&&el.dataset?el.dataset.l:null;
                           const lid=k==='fb'?'list':'xlist';const l=document.getElementById(lid);
                           const lst=(l&&l.offsetParent)?l.querySelectorAll('.card').length:0;
                           const prow=document.getElementById('v3prow'),pl=document.querySelector('#v3pill .v3pl');
